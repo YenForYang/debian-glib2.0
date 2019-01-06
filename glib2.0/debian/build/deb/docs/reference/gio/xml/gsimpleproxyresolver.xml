@@ -1,0 +1,299 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC '-//OASIS//DTD DocBook XML V4.5//EN'
+                      'http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd' [
+<!ENTITY % local.common.attrib "xmlns:xi  CDATA  #FIXED 'http://www.w3.org/2003/XInclude'">
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="GSimpleProxyResolver">
+<refmeta>
+<refentrytitle role="top_of_page" id="GSimpleProxyResolver.top_of_page">GSimpleProxyResolver</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>GIO Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>GSimpleProxyResolver</refname>
+<refpurpose>Simple proxy resolver implementation</refpurpose>
+</refnamediv>
+
+<refsect1 id="GSimpleProxyResolver.functions" role="functions_proto">
+<title role="functions_proto.title">Functions</title>
+<informaltable pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="functions_return" colwidth="150px"/>
+<colspec colname="functions_name"/>
+<tbody>
+<row><entry role="function_type"><link linkend="GProxyResolver"><returnvalue>GProxyResolver</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-simple-proxy-resolver-new">g_simple_proxy_resolver_new</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-simple-proxy-resolver-set-default-proxy">g_simple_proxy_resolver_set_default_proxy</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-simple-proxy-resolver-set-ignore-hosts">g_simple_proxy_resolver_set_ignore_hosts</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-simple-proxy-resolver-set-uri-proxy">g_simple_proxy_resolver_set_uri_proxy</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GSimpleProxyResolver.properties" role="properties">
+<title role="properties.title">Properties</title>
+<informaltable frame="none">
+<tgroup cols="3">
+<colspec colname="properties_type" colwidth="150px"/>
+<colspec colname="properties_name" colwidth="300px"/>
+<colspec colname="properties_flags" colwidth="200px"/>
+<tbody>
+<row><entry role="property_type"><link linkend="gchar"><type>gchar</type></link>&#160;*</entry><entry role="property_name"><link linkend="GSimpleProxyResolver--default-proxy">default-proxy</link></entry><entry role="property_flags">Read / Write</entry></row>
+<row><entry role="property_type"><link linkend="GStrv"><type>GStrv</type></link></entry><entry role="property_name"><link linkend="GSimpleProxyResolver--ignore-hosts">ignore-hosts</link></entry><entry role="property_flags">Read / Write</entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GSimpleProxyResolver.other" role="other_proto">
+<title role="other_proto.title">Types and Values</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="name" colwidth="150px"/>
+<colspec colname="description"/>
+<tbody>
+<row><entry role="datatype_keyword">struct</entry><entry role="function_name"><link linkend="GSimpleProxyResolver-struct">GSimpleProxyResolver</link></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GSimpleProxyResolver.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<screen>    <link linkend="GObject">GObject</link>
+    <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> GSimpleProxyResolver
+</screen>
+</refsect1>
+<refsect1 id="GSimpleProxyResolver.implemented-interfaces" role="impl_interfaces">
+<title role="impl_interfaces.title">Implemented Interfaces</title>
+<para>
+GSimpleProxyResolver implements
+ <link linkend="GProxyResolver">GProxyResolver</link>.</para>
+
+</refsect1>
+
+<refsect1 id="GSimpleProxyResolver.includes"><title>Includes</title><synopsis>#include &lt;gio/gio.h&gt;
+</synopsis></refsect1>
+
+<refsect1 id="GSimpleProxyResolver.description" role="desc">
+<title role="desc.title">Description</title>
+<para><link linkend="GSimpleProxyResolver"><type>GSimpleProxyResolver</type></link> is a simple <link linkend="GProxyResolver"><type>GProxyResolver</type></link> implementation
+that handles a single default proxy, multiple URI-scheme-specific
+proxies, and a list of hosts that proxies should not be used for.</para>
+<para><link linkend="GSimpleProxyResolver"><type>GSimpleProxyResolver</type></link> is never the default proxy resolver, but it
+can be used as the base class for another proxy resolver
+implementation, or it can be created and used manually, such as
+with <link linkend="g-socket-client-set-proxy-resolver"><function>g_socket_client_set_proxy_resolver()</function></link>.</para>
+
+</refsect1>
+<refsect1 id="GSimpleProxyResolver.functions_details" role="details">
+<title role="details.title">Functions</title>
+<refsect2 id="g-simple-proxy-resolver-new" role="function" condition="since:2.36">
+<title>g_simple_proxy_resolver_new&#160;()</title>
+<indexterm zone="g-simple-proxy-resolver-new" role="2.36"><primary sortas="simple_proxy_resolver_new">g_simple_proxy_resolver_new</primary></indexterm>
+<programlisting language="C"><link linkend="GProxyResolver"><returnvalue>GProxyResolver</returnvalue></link>&#160;*
+g_simple_proxy_resolver_new (<parameter>const <link linkend="gchar"><type>gchar</type></link> *default_proxy</parameter>,
+                             <parameter><link linkend="gchar"><type>gchar</type></link> **ignore_hosts</parameter>);</programlisting>
+<para>Creates a new <link linkend="GSimpleProxyResolver"><type>GSimpleProxyResolver</type></link>. See
+<link linkend="GSimpleProxyResolver--default-proxy"><type>“default-proxy”</type></link> and
+<link linkend="GSimpleProxyResolver--ignore-hosts"><type>“ignore-hosts”</type></link> for more details on how the
+arguments are interpreted.</para>
+<refsect3 id="g-simple-proxy-resolver-new.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>default_proxy</para></entry>
+<entry role="parameter_description"><para>the default proxy to use, eg
+"socks://192.168.1.1". </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>ignore_hosts</para></entry>
+<entry role="parameter_description"><para>an optional list of hosts/IP addresses
+to not use a proxy for. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-simple-proxy-resolver-new.returns" role="returns">
+<title>Returns</title>
+<para> (transfer full) a new <link linkend="GSimpleProxyResolver"><type>GSimpleProxyResolver</type></link></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.36">2.36</link></para></refsect2>
+<refsect2 id="g-simple-proxy-resolver-set-default-proxy" role="function" condition="since:2.36">
+<title>g_simple_proxy_resolver_set_default_proxy&#160;()</title>
+<indexterm zone="g-simple-proxy-resolver-set-default-proxy" role="2.36"><primary sortas="simple_proxy_resolver_set_default_proxy">g_simple_proxy_resolver_set_default_proxy</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_simple_proxy_resolver_set_default_proxy
+                               (<parameter><link linkend="GSimpleProxyResolver"><type>GSimpleProxyResolver</type></link> *resolver</parameter>,
+                                <parameter>const <link linkend="gchar"><type>gchar</type></link> *default_proxy</parameter>);</programlisting>
+<para>Sets the default proxy on <parameter>resolver</parameter>
+, to be used for any URIs that
+don't match <link linkend="GSimpleProxyResolver--ignore-hosts"><type>“ignore-hosts”</type></link> or a proxy set
+via <link linkend="g-simple-proxy-resolver-set-uri-proxy"><function>g_simple_proxy_resolver_set_uri_proxy()</function></link>.</para>
+<para>If <parameter>default_proxy</parameter>
+ starts with "socks://",
+<link linkend="GSimpleProxyResolver"><type>GSimpleProxyResolver</type></link> will treat it as referring to all three of
+the socks5, socks4a, and socks4 proxy types.</para>
+<refsect3 id="g-simple-proxy-resolver-set-default-proxy.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>resolver</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSimpleProxyResolver"><type>GSimpleProxyResolver</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>default_proxy</para></entry>
+<entry role="parameter_description"><para>the default proxy to use</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.36">2.36</link></para></refsect2>
+<refsect2 id="g-simple-proxy-resolver-set-ignore-hosts" role="function" condition="since:2.36">
+<title>g_simple_proxy_resolver_set_ignore_hosts&#160;()</title>
+<indexterm zone="g-simple-proxy-resolver-set-ignore-hosts" role="2.36"><primary sortas="simple_proxy_resolver_set_ignore_hosts">g_simple_proxy_resolver_set_ignore_hosts</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_simple_proxy_resolver_set_ignore_hosts
+                               (<parameter><link linkend="GSimpleProxyResolver"><type>GSimpleProxyResolver</type></link> *resolver</parameter>,
+                                <parameter><link linkend="gchar"><type>gchar</type></link> **ignore_hosts</parameter>);</programlisting>
+<para>Sets the list of ignored hosts.</para>
+<para>See <link linkend="GSimpleProxyResolver--ignore-hosts"><type>“ignore-hosts”</type></link> for more details on how the
+<parameter>ignore_hosts</parameter>
+ argument is interpreted.</para>
+<refsect3 id="g-simple-proxy-resolver-set-ignore-hosts.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>resolver</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSimpleProxyResolver"><type>GSimpleProxyResolver</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>ignore_hosts</para></entry>
+<entry role="parameter_description"><para><link linkend="NULL:CAPS"><literal>NULL</literal></link>-terminated list of hosts/IP addresses
+to not use a proxy for</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.36">2.36</link></para></refsect2>
+<refsect2 id="g-simple-proxy-resolver-set-uri-proxy" role="function" condition="since:2.36">
+<title>g_simple_proxy_resolver_set_uri_proxy&#160;()</title>
+<indexterm zone="g-simple-proxy-resolver-set-uri-proxy" role="2.36"><primary sortas="simple_proxy_resolver_set_uri_proxy">g_simple_proxy_resolver_set_uri_proxy</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_simple_proxy_resolver_set_uri_proxy (<parameter><link linkend="GSimpleProxyResolver"><type>GSimpleProxyResolver</type></link> *resolver</parameter>,
+                                       <parameter>const <link linkend="gchar"><type>gchar</type></link> *uri_scheme</parameter>,
+                                       <parameter>const <link linkend="gchar"><type>gchar</type></link> *proxy</parameter>);</programlisting>
+<para>Adds a URI-scheme-specific proxy to <parameter>resolver</parameter>
+; URIs whose scheme
+matches <parameter>uri_scheme</parameter>
+ (and which don't match
+<link linkend="GSimpleProxyResolver--ignore-hosts"><type>“ignore-hosts”</type></link>) will be proxied via <parameter>proxy</parameter>
+.</para>
+<para>As with <link linkend="GSimpleProxyResolver--default-proxy"><type>“default-proxy”</type></link>, if <parameter>proxy</parameter>
+ starts with
+"socks://", <link linkend="GSimpleProxyResolver"><type>GSimpleProxyResolver</type></link> will treat it
+as referring to all three of the socks5, socks4a, and socks4 proxy
+types.</para>
+<refsect3 id="g-simple-proxy-resolver-set-uri-proxy.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>resolver</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSimpleProxyResolver"><type>GSimpleProxyResolver</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>uri_scheme</para></entry>
+<entry role="parameter_description"><para>the URI scheme to add a proxy for</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>proxy</para></entry>
+<entry role="parameter_description"><para>the proxy to use for <parameter>uri_scheme</parameter>
+</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.36">2.36</link></para></refsect2>
+
+</refsect1>
+<refsect1 id="GSimpleProxyResolver.other_details" role="details">
+<title role="details.title">Types and Values</title>
+<refsect2 id="GSimpleProxyResolver-struct" role="struct">
+<title>struct GSimpleProxyResolver</title>
+<indexterm zone="GSimpleProxyResolver-struct"><primary sortas="SimpleProxyResolver">GSimpleProxyResolver</primary></indexterm>
+<programlisting language="C">struct GSimpleProxyResolver;</programlisting>
+<para>A <link linkend="GProxyResolver"><type>GProxyResolver</type></link> implementation for using a fixed set of proxies.</para>
+</refsect2>
+
+</refsect1>
+<refsect1 id="GSimpleProxyResolver.property-details" role="property_details">
+<title role="property_details.title">Property Details</title>
+<refsect2 id="GSimpleProxyResolver--default-proxy" role="property"><title>The <literal>“default-proxy”</literal> property</title>
+<indexterm zone="GSimpleProxyResolver--default-proxy"><primary sortas="SimpleProxyResolver:default-proxy">GSimpleProxyResolver:default-proxy</primary></indexterm>
+<programlisting>  “default-proxy”            <link linkend="gchar"><type>gchar</type></link>&#160;*</programlisting>
+<para>The default proxy URI that will be used for any URI that doesn't
+match <link linkend="GSimpleProxyResolver--ignore-hosts"><type>“ignore-hosts”</type></link>, and doesn't match any
+of the schemes set with <link linkend="g-simple-proxy-resolver-set-uri-proxy"><function>g_simple_proxy_resolver_set_uri_proxy()</function></link>.</para>
+<para>Note that as a special case, if this URI starts with
+"socks://", <link linkend="GSimpleProxyResolver"><type>GSimpleProxyResolver</type></link> will treat it as referring
+to all three of the socks5, socks4a, and socks4 proxy types.</para>
+<para>Flags: Read / Write</para>
+<para>Default value: NULL</para>
+</refsect2>
+<refsect2 id="GSimpleProxyResolver--ignore-hosts" role="property"><title>The <literal>“ignore-hosts”</literal> property</title>
+<indexterm zone="GSimpleProxyResolver--ignore-hosts"><primary sortas="SimpleProxyResolver:ignore-hosts">GSimpleProxyResolver:ignore-hosts</primary></indexterm>
+<programlisting>  “ignore-hosts”             <link linkend="GStrv"><type>GStrv</type></link></programlisting>
+<para>A list of hostnames and IP addresses that the resolver should
+allow direct connections to.</para>
+<para>Entries can be in one of 4 formats:</para>
+<itemizedlist>
+<listitem>
+<para>A hostname, such as "example.com", ".example.com", or
+"*.example.com", any of which match "example.com" or
+any subdomain of it.</para>
+</listitem>
+<listitem>
+<para>An IPv4 or IPv6 address, such as "192.168.1.1",
+which matches only that address.</para>
+</listitem>
+<listitem>
+<para>A hostname or IP address followed by a port, such as
+"example.com:80", which matches whatever the hostname or IP
+address would match, but only for URLs with the (explicitly)
+indicated port. In the case of an IPv6 address, the address
+part must appear in brackets: "[::1]:443"</para>
+</listitem>
+<listitem>
+<para>An IP address range, given by a base address and prefix length,
+such as "fe80::/10", which matches any address in that range.</para>
+</listitem>
+</itemizedlist>
+<para>Note that when dealing with Unicode hostnames, the matching is
+done against the ASCII form of the name.</para>
+<para>Also note that hostname exclusions apply only to connections made
+to hosts identified by name, and IP address exclusions apply only
+to connections made to hosts identified by address. That is, if
+example.com has an address of 192.168.1.1, and the :ignore-hosts list
+contains only "192.168.1.1", then a connection to "example.com"
+(eg, via a <link linkend="GNetworkAddress"><type>GNetworkAddress</type></link>) will use the proxy, and a connection to
+"192.168.1.1" (eg, via a <link linkend="GInetSocketAddress"><type>GInetSocketAddress</type></link>) will not.</para>
+<para>These rules match the "ignore-hosts"/"noproxy" rules most
+commonly used by other applications.</para>
+<para>Flags: Read / Write</para>
+</refsect2>
+
+</refsect1>
+<refsect1 id="GSimpleProxyResolver.see-also">
+<title>See Also</title>
+<para>g_socket_client_set_proxy_resolver()</para>
+
+</refsect1>
+
+</refentry>

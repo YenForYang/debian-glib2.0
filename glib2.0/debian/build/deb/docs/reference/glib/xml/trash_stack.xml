@@ -1,0 +1,204 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC '-//OASIS//DTD DocBook XML V4.5//EN'
+                      'http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd' [
+<!ENTITY % local.common.attrib "xmlns:xi  CDATA  #FIXED 'http://www.w3.org/2003/XInclude'">
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="glib-Trash-Stacks">
+<refmeta>
+<refentrytitle role="top_of_page" id="glib-Trash-Stacks.top_of_page">Trash Stacks</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>GLIB Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>Trash Stacks</refname>
+<refpurpose>maintain a stack of unused allocated memory chunks</refpurpose>
+</refnamediv>
+
+<refsect1 id="glib-Trash-Stacks.functions" role="functions_proto">
+<title role="functions_proto.title">Functions</title>
+<informaltable pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="functions_return" colwidth="150px"/>
+<colspec colname="functions_name"/>
+<tbody>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-trash-stack-push">g_trash_stack_push</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gpointer"><returnvalue>gpointer</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-trash-stack-pop">g_trash_stack_pop</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gpointer"><returnvalue>gpointer</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-trash-stack-peek">g_trash_stack_peek</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="guint"><returnvalue>guint</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-trash-stack-height">g_trash_stack_height</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="glib-Trash-Stacks.other" role="other_proto">
+<title role="other_proto.title">Types and Values</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="name" colwidth="150px"/>
+<colspec colname="description"/>
+<tbody>
+<row><entry role="datatype_keyword">struct</entry><entry role="function_name"><link linkend="GTrashStack">GTrashStack</link></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+
+<refsect1 id="glib-Trash-Stacks.includes"><title>Includes</title><synopsis>#include &lt;gmodule.h&gt;
+</synopsis></refsect1>
+
+<refsect1 id="glib-Trash-Stacks.description" role="desc">
+<title role="desc.title">Description</title>
+<para>A <link linkend="GTrashStack"><type>GTrashStack</type></link> is an efficient way to keep a stack of unused allocated
+memory chunks. Each memory chunk is required to be large enough to hold
+a <link linkend="gpointer"><type>gpointer</type></link>. This allows the stack to be maintained without any space
+overhead, since the stack pointers can be stored inside the memory chunks.</para>
+<para>There is no function to create a <link linkend="GTrashStack"><type>GTrashStack</type></link>. A <link linkend="NULL:CAPS"><literal>NULL</literal></link> <link linkend="GTrashStack"><type>GTrashStack</type></link>*
+is a perfectly valid empty stack.</para>
+<para>There is no longer any good reason to use <link linkend="GTrashStack"><type>GTrashStack</type></link>.  If you have
+extra pieces of memory, <link linkend="free"><function>free()</function></link> them and allocate them again later.</para>
+
+</refsect1>
+<refsect1 id="glib-Trash-Stacks.functions_details" role="details">
+<title role="details.title">Functions</title>
+<refsect2 id="g-trash-stack-push" role="function" condition="deprecated:2.48: #GTrashStack is deprecated without replacement">
+<title>g_trash_stack_push&#160;()</title>
+<indexterm zone="g-trash-stack-push" role="deprecated"><primary sortas="trash_stack_push">g_trash_stack_push</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_trash_stack_push (<parameter><link linkend="GTrashStack"><type>GTrashStack</type></link> **stack_p</parameter>,
+                    <parameter><link linkend="gpointer"><type>gpointer</type></link> data_p</parameter>);</programlisting>
+<warning><para><literal>g_trash_stack_push</literal> has been deprecated since version 2.48 and should not be used in newly-written code.</para> <para><link linkend="GTrashStack"><type>GTrashStack</type></link> is deprecated without replacement</para>
+</warning>
+<para>Pushes a piece of memory onto a <link linkend="GTrashStack"><type>GTrashStack</type></link>.</para>
+<refsect3 id="g-trash-stack-push.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>stack_p</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GTrashStack"><type>GTrashStack</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>data_p</para></entry>
+<entry role="parameter_description"><para>the piece of memory to push on the stack. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>not nullable</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-trash-stack-pop" role="function" condition="deprecated:2.48: #GTrashStack is deprecated without replacement">
+<title>g_trash_stack_pop&#160;()</title>
+<indexterm zone="g-trash-stack-pop" role="deprecated"><primary sortas="trash_stack_pop">g_trash_stack_pop</primary></indexterm>
+<programlisting language="C"><link linkend="gpointer"><returnvalue>gpointer</returnvalue></link>
+g_trash_stack_pop (<parameter><link linkend="GTrashStack"><type>GTrashStack</type></link> **stack_p</parameter>);</programlisting>
+<warning><para><literal>g_trash_stack_pop</literal> has been deprecated since version 2.48 and should not be used in newly-written code.</para> <para><link linkend="GTrashStack"><type>GTrashStack</type></link> is deprecated without replacement</para>
+</warning>
+<para>Pops a piece of memory off a <link linkend="GTrashStack"><type>GTrashStack</type></link>.</para>
+<refsect3 id="g-trash-stack-pop.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>stack_p</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GTrashStack"><type>GTrashStack</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-trash-stack-pop.returns" role="returns">
+<title>Returns</title>
+<para> the element at the top of the stack</para>
+</refsect3></refsect2>
+<refsect2 id="g-trash-stack-peek" role="function" condition="deprecated:2.48: #GTrashStack is deprecated without replacement">
+<title>g_trash_stack_peek&#160;()</title>
+<indexterm zone="g-trash-stack-peek" role="deprecated"><primary sortas="trash_stack_peek">g_trash_stack_peek</primary></indexterm>
+<programlisting language="C"><link linkend="gpointer"><returnvalue>gpointer</returnvalue></link>
+g_trash_stack_peek (<parameter><link linkend="GTrashStack"><type>GTrashStack</type></link> **stack_p</parameter>);</programlisting>
+<warning><para><literal>g_trash_stack_peek</literal> has been deprecated since version 2.48 and should not be used in newly-written code.</para> <para><link linkend="GTrashStack"><type>GTrashStack</type></link> is deprecated without replacement</para>
+</warning>
+<para>Returns the element at the top of a <link linkend="GTrashStack"><type>GTrashStack</type></link>
+which may be <link linkend="NULL:CAPS"><literal>NULL</literal></link>.</para>
+<refsect3 id="g-trash-stack-peek.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>stack_p</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GTrashStack"><type>GTrashStack</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-trash-stack-peek.returns" role="returns">
+<title>Returns</title>
+<para> the element at the top of the stack</para>
+</refsect3></refsect2>
+<refsect2 id="g-trash-stack-height" role="function" condition="deprecated:2.48: #GTrashStack is deprecated without replacement">
+<title>g_trash_stack_height&#160;()</title>
+<indexterm zone="g-trash-stack-height" role="deprecated"><primary sortas="trash_stack_height">g_trash_stack_height</primary></indexterm>
+<programlisting language="C"><link linkend="guint"><returnvalue>guint</returnvalue></link>
+g_trash_stack_height (<parameter><link linkend="GTrashStack"><type>GTrashStack</type></link> **stack_p</parameter>);</programlisting>
+<warning><para><literal>g_trash_stack_height</literal> has been deprecated since version 2.48 and should not be used in newly-written code.</para> <para><link linkend="GTrashStack"><type>GTrashStack</type></link> is deprecated without replacement</para>
+</warning>
+<para>Returns the height of a <link linkend="GTrashStack"><type>GTrashStack</type></link>.</para>
+<para>Note that execution of this function is of O(N) complexity
+where N denotes the number of items on the stack.</para>
+<refsect3 id="g-trash-stack-height.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>stack_p</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GTrashStack"><type>GTrashStack</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-trash-stack-height.returns" role="returns">
+<title>Returns</title>
+<para> the height of the stack</para>
+</refsect3></refsect2>
+
+</refsect1>
+<refsect1 id="glib-Trash-Stacks.other_details" role="details">
+<title role="details.title">Types and Values</title>
+<refsect2 id="GTrashStack" role="struct" condition="deprecated:2.48: #GTrashStack is deprecated without replacement">
+<title>struct GTrashStack</title>
+<indexterm zone="GTrashStack" role="deprecated"><primary sortas="TrashStack">GTrashStack</primary></indexterm>
+<programlisting language="C">struct GTrashStack {
+  GTrashStack *next;
+};
+</programlisting>
+<warning><para><literal>GTrashStack</literal> has been deprecated since version 2.48 and should not be used in newly-written code.</para> <para><link linkend="GTrashStack"><type>GTrashStack</type></link> is deprecated without replacement</para>
+</warning>
+<para>Each piece of memory that is pushed onto the stack
+is cast to a GTrashStack*.</para>
+<refsect3 id="GTrashStack.members" role="struct_members">
+<title>Members</title>
+<informaltable role="struct_members_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="struct_members_name" colwidth="300px"/>
+<colspec colname="struct_members_description"/>
+<colspec colname="struct_members_annotations" colwidth="200px"/>
+<tbody>
+<row role="member"><entry role="struct_member_name"><para><link linkend="GTrashStack"><type>GTrashStack</type></link>&#160;*<structfield id="GTrashStack.next">next</structfield>;</para></entry>
+<entry role="struct_member_description"><para>pointer to the previous element of the stack,
+gets stored in the first <literal>sizeof (gpointer)</literal>
+bytes of the element</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+</tbody></tgroup></informaltable>
+</refsect3>
+</refsect2>
+
+</refsect1>
+
+</refentry>

@@ -1,0 +1,570 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC '-//OASIS//DTD DocBook XML V4.5//EN'
+                      'http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd' [
+<!ENTITY % local.common.attrib "xmlns:xi  CDATA  #FIXED 'http://www.w3.org/2003/XInclude'">
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="glib-GTimeZone">
+<refmeta>
+<refentrytitle role="top_of_page" id="glib-GTimeZone.top_of_page">GTimeZone</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>GLIB Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>GTimeZone</refname>
+<refpurpose>a structure representing a time zone</refpurpose>
+</refnamediv>
+
+<refsect1 id="glib-GTimeZone.functions" role="functions_proto">
+<title role="functions_proto.title">Functions</title>
+<informaltable pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="functions_return" colwidth="150px"/>
+<colspec colname="functions_name"/>
+<tbody>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-time-zone-unref">g_time_zone_unref</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GTimeZone"><returnvalue>GTimeZone</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-time-zone-ref">g_time_zone_ref</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+<row><entry role="function_type"><link linkend="GTimeZone"><returnvalue>GTimeZone</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-time-zone-new">g_time_zone_new</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GTimeZone"><returnvalue>GTimeZone</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-time-zone-new-local">g_time_zone_new_local</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GTimeZone"><returnvalue>GTimeZone</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-time-zone-new-utc">g_time_zone_new_utc</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GTimeZone"><returnvalue>GTimeZone</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-time-zone-new-offset">g_time_zone_new_offset</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+<row><entry role="function_type"><link linkend="gint"><returnvalue>gint</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-time-zone-find-interval">g_time_zone_find_interval</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gint"><returnvalue>gint</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-time-zone-adjust-time">g_time_zone_adjust_time</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+<row><entry role="function_type">const <link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-time-zone-get-identifier">g_time_zone_get_identifier</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type">const <link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-time-zone-get-abbreviation">g_time_zone_get_abbreviation</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gint32"><returnvalue>gint32</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-time-zone-get-offset">g_time_zone_get_offset</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-time-zone-is-dst">g_time_zone_is_dst</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="glib-GTimeZone.other" role="other_proto">
+<title role="other_proto.title">Types and Values</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="name" colwidth="150px"/>
+<colspec colname="description"/>
+<tbody>
+<row><entry role="datatype_keyword"></entry><entry role="function_name"><link linkend="GTimeZone">GTimeZone</link></entry></row>
+
+
+<row><entry role="datatype_keyword">enum</entry><entry role="function_name"><link linkend="GTimeType">GTimeType</link></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+
+<refsect1 id="glib-GTimeZone.includes"><title>Includes</title><synopsis>#include &lt;glib.h&gt;
+#include &lt;glib/gprintf.h&gt;
+</synopsis></refsect1>
+
+<refsect1 id="glib-GTimeZone.description" role="desc">
+<title role="desc.title">Description</title>
+<para><link linkend="GTimeZone"><type>GTimeZone</type></link> is a structure that represents a time zone, at no
+particular point in time.  It is refcounted and immutable.</para>
+<para>Each time zone has an identifier (for example, ‘Europe/London’) which is
+platform dependent. See <link linkend="g-time-zone-new"><function>g_time_zone_new()</function></link> for information on the identifier
+formats. The identifier of a time zone can be retrieved using
+<link linkend="g-time-zone-get-identifier"><function>g_time_zone_get_identifier()</function></link>.</para>
+<para>A time zone contains a number of intervals.  Each interval has
+an abbreviation to describe it (for example, ‘PDT’), an offet to UTC and a
+flag indicating if the daylight savings time is in effect during that
+interval.  A time zone always has at least one interval — interval 0. Note
+that interval abbreviations are not the same as time zone identifiers
+(apart from ‘UTC’), and cannot be passed to <link linkend="g-time-zone-new"><function>g_time_zone_new()</function></link>.</para>
+<para>Every UTC time is contained within exactly one interval, but a given
+local time may be contained within zero, one or two intervals (due to
+incontinuities associated with daylight savings time).</para>
+<para>An interval may refer to a specific period of time (eg: the duration
+of daylight savings time during 2010) or it may refer to many periods
+of time that share the same properties (eg: all periods of daylight
+savings time).  It is also possible (usually for political reasons)
+that some properties (like the abbreviation) change between intervals
+without other properties changing.</para>
+<para><link linkend="GTimeZone"><type>GTimeZone</type></link> is available since GLib 2.26.</para>
+
+</refsect1>
+<refsect1 id="glib-GTimeZone.functions_details" role="details">
+<title role="details.title">Functions</title>
+<refsect2 id="g-time-zone-unref" role="function" condition="since:2.26">
+<title>g_time_zone_unref&#160;()</title>
+<indexterm zone="g-time-zone-unref" role="2.26"><primary sortas="time_zone_unref">g_time_zone_unref</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_time_zone_unref (<parameter><link linkend="GTimeZone"><type>GTimeZone</type></link> *tz</parameter>);</programlisting>
+<para>Decreases the reference count on <parameter>tz</parameter>
+.</para>
+<refsect3 id="g-time-zone-unref.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>tz</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GTimeZone"><type>GTimeZone</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.26">2.26</link></para></refsect2>
+<refsect2 id="g-time-zone-ref" role="function" condition="since:2.26">
+<title>g_time_zone_ref&#160;()</title>
+<indexterm zone="g-time-zone-ref" role="2.26"><primary sortas="time_zone_ref">g_time_zone_ref</primary></indexterm>
+<programlisting language="C"><link linkend="GTimeZone"><returnvalue>GTimeZone</returnvalue></link>&#160;*
+g_time_zone_ref (<parameter><link linkend="GTimeZone"><type>GTimeZone</type></link> *tz</parameter>);</programlisting>
+<para>Increases the reference count on <parameter>tz</parameter>
+.</para>
+<refsect3 id="g-time-zone-ref.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>tz</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GTimeZone"><type>GTimeZone</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-time-zone-ref.returns" role="returns">
+<title>Returns</title>
+<para> a new reference to <parameter>tz</parameter>
+.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.26">2.26</link></para></refsect2>
+<refsect2 id="g-time-zone-new" role="function" condition="since:2.26">
+<title>g_time_zone_new&#160;()</title>
+<indexterm zone="g-time-zone-new" role="2.26"><primary sortas="time_zone_new">g_time_zone_new</primary></indexterm>
+<programlisting language="C"><link linkend="GTimeZone"><returnvalue>GTimeZone</returnvalue></link>&#160;*
+g_time_zone_new (<parameter>const <link linkend="gchar"><type>gchar</type></link> *identifier</parameter>);</programlisting>
+<para>Creates a <link linkend="GTimeZone"><type>GTimeZone</type></link> corresponding to <parameter>identifier</parameter>
+.</para>
+<para><parameter>identifier</parameter>
+ can either be an RFC3339/ISO 8601 time offset or
+something that would pass as a valid value for the <literal>TZ</literal> environment
+variable (including <link linkend="NULL:CAPS"><literal>NULL</literal></link>).</para>
+<para>In Windows, <parameter>identifier</parameter>
+ can also be the unlocalized name of a time
+zone for standard time, for example "Pacific Standard Time".</para>
+<para>Valid RFC3339 time offsets are <literal>"Z"</literal> (for UTC) or
+<literal>"±hh:mm"</literal>.  ISO 8601 additionally specifies
+<literal>"±hhmm"</literal> and <literal>"±hh"</literal>.  Offsets are
+time values to be added to Coordinated Universal Time (UTC) to get
+the local time.</para>
+<para>In UNIX, the <literal>TZ</literal> environment variable typically corresponds
+to the name of a file in the zoneinfo database, or string in
+"std offset [dst [offset],start[/time],end[/time]]" (POSIX) format.
+There  are  no spaces in the specification. The name of standard
+and daylight savings time zone must be three or more alphabetic
+characters. Offsets are time values to be added to local time to
+get Coordinated Universal Time (UTC) and should be
+<literal>"[±]hh[[:]mm[:ss]]"</literal>.  Dates are either
+<literal>"Jn"</literal> (Julian day with n between 1 and 365, leap
+years not counted), <literal>"n"</literal> (zero-based Julian day
+with n between 0 and 365) or <literal>"Mm.w.d"</literal> (day d
+(0 &lt;= d &lt;= 6) of week w (1 &lt;= w &lt;= 5) of month m (1 &lt;= m &lt;= 12), day
+0 is a Sunday).  Times are in local wall clock time, the default is
+02:00:00.</para>
+<para>In Windows, the "tzn[+|–]hh[:mm[:ss]][dzn]" format is used, but also
+accepts POSIX format.  The Windows format uses US rules for all time
+zones; daylight savings time is 60 minutes behind the standard time
+with date and time of change taken from Pacific Standard Time.
+Offsets are time values to be added to the local time to get
+Coordinated Universal Time (UTC).</para>
+<para>g_time_zone_new_local() calls this function with the value of the
+<literal>TZ</literal> environment variable. This function itself is independent of
+the value of <literal>TZ</literal>, but if <parameter>identifier</parameter>
+ is <link linkend="NULL:CAPS"><literal>NULL</literal></link> then <literal>/etc/localtime</literal>
+will be consulted to discover the correct time zone on UNIX and the
+registry will be consulted or <link linkend="GetTimeZoneInformation"><function>GetTimeZoneInformation()</function></link> will be used
+to get the local time zone on Windows.</para>
+<para>If intervals are not available, only time zone rules from <literal>TZ</literal>
+environment variable or other means, then they will be computed
+from year 1900 to 2037.  If the maximum year for the rules is
+available and it is greater than 2037, then it will followed
+instead.</para>
+<para>See
+<ulink url="http://tools.ietf.org/html/rfc3339#section-5.6">RFC3339 §5.6</ulink>
+for a precise definition of valid RFC3339 time offsets
+(the <literal>time-offset</literal> expansion) and ISO 8601 for the
+full list of valid time offsets.  See
+<ulink url="http://www.gnu.org/s/libc/manual/html_node/TZ-Variable.html">The GNU C Library manual</ulink>
+for an explanation of the possible
+values of the <literal>TZ</literal> environment variable. See
+<ulink url="http://msdn.microsoft.com/en-us/library/ms912391%28v=winembedded.11%29.aspx">Microsoft Time Zone Index Values</ulink>
+for the list of time zones on Windows.</para>
+<para>You should release the return value by calling <link linkend="g-time-zone-unref"><function>g_time_zone_unref()</function></link>
+when you are done with it.</para>
+<refsect3 id="g-time-zone-new.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>identifier</para></entry>
+<entry role="parameter_description"><para>a timezone identifier. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-time-zone-new.returns" role="returns">
+<title>Returns</title>
+<para> the requested timezone</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.26">2.26</link></para></refsect2>
+<refsect2 id="g-time-zone-new-local" role="function" condition="since:2.26">
+<title>g_time_zone_new_local&#160;()</title>
+<indexterm zone="g-time-zone-new-local" role="2.26"><primary sortas="time_zone_new_local">g_time_zone_new_local</primary></indexterm>
+<programlisting language="C"><link linkend="GTimeZone"><returnvalue>GTimeZone</returnvalue></link>&#160;*
+g_time_zone_new_local (<parameter><type>void</type></parameter>);</programlisting>
+<para>Creates a <link linkend="GTimeZone"><type>GTimeZone</type></link> corresponding to local time.  The local time
+zone may change between invocations to this function; for example,
+if the system administrator changes it.</para>
+<para>This is equivalent to calling <link linkend="g-time-zone-new"><function>g_time_zone_new()</function></link> with the value of
+the <literal>TZ</literal> environment variable (including the possibility of <link linkend="NULL:CAPS"><literal>NULL</literal></link>).</para>
+<para>You should release the return value by calling <link linkend="g-time-zone-unref"><function>g_time_zone_unref()</function></link>
+when you are done with it.</para>
+<refsect3 id="g-time-zone-new-local.returns" role="returns">
+<title>Returns</title>
+<para> the local timezone</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.26">2.26</link></para></refsect2>
+<refsect2 id="g-time-zone-new-utc" role="function" condition="since:2.26">
+<title>g_time_zone_new_utc&#160;()</title>
+<indexterm zone="g-time-zone-new-utc" role="2.26"><primary sortas="time_zone_new_utc">g_time_zone_new_utc</primary></indexterm>
+<programlisting language="C"><link linkend="GTimeZone"><returnvalue>GTimeZone</returnvalue></link>&#160;*
+g_time_zone_new_utc (<parameter><type>void</type></parameter>);</programlisting>
+<para>Creates a <link linkend="GTimeZone"><type>GTimeZone</type></link> corresponding to UTC.</para>
+<para>This is equivalent to calling <link linkend="g-time-zone-new"><function>g_time_zone_new()</function></link> with a value like
+"Z", "UTC", "+00", etc.</para>
+<para>You should release the return value by calling <link linkend="g-time-zone-unref"><function>g_time_zone_unref()</function></link>
+when you are done with it.</para>
+<refsect3 id="g-time-zone-new-utc.returns" role="returns">
+<title>Returns</title>
+<para> the universal timezone</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.26">2.26</link></para></refsect2>
+<refsect2 id="g-time-zone-new-offset" role="function" condition="since:2.58">
+<title>g_time_zone_new_offset&#160;()</title>
+<indexterm zone="g-time-zone-new-offset" role="2.58"><primary sortas="time_zone_new_offset">g_time_zone_new_offset</primary></indexterm>
+<programlisting language="C"><link linkend="GTimeZone"><returnvalue>GTimeZone</returnvalue></link>&#160;*
+g_time_zone_new_offset (<parameter><link linkend="gint32"><type>gint32</type></link> seconds</parameter>);</programlisting>
+<para>Creates a <link linkend="GTimeZone"><type>GTimeZone</type></link> corresponding to the given constant offset from UTC,
+in seconds.</para>
+<para>This is equivalent to calling <link linkend="g-time-zone-new"><function>g_time_zone_new()</function></link> with a string in the form
+<literal>[+|-]hh[:mm[:ss]]</literal>.</para>
+<refsect3 id="g-time-zone-new-offset.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>seconds</para></entry>
+<entry role="parameter_description"><para>offset to UTC, in seconds</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-time-zone-new-offset.returns" role="returns">
+<title>Returns</title>
+<para>a timezone at the given offset from UTC. </para>
+<para><emphasis role="annotation">[<acronym>transfer full</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.58">2.58</link></para></refsect2>
+<refsect2 id="g-time-zone-find-interval" role="function" condition="since:2.26">
+<title>g_time_zone_find_interval&#160;()</title>
+<indexterm zone="g-time-zone-find-interval" role="2.26"><primary sortas="time_zone_find_interval">g_time_zone_find_interval</primary></indexterm>
+<programlisting language="C"><link linkend="gint"><returnvalue>gint</returnvalue></link>
+g_time_zone_find_interval (<parameter><link linkend="GTimeZone"><type>GTimeZone</type></link> *tz</parameter>,
+                           <parameter><link linkend="GTimeType"><type>GTimeType</type></link> type</parameter>,
+                           <parameter><link linkend="gint64"><type>gint64</type></link> time_</parameter>);</programlisting>
+<para>Finds an the interval within <parameter>tz</parameter>
+ that corresponds to the given <parameter>time_</parameter>
+.
+The meaning of <parameter>time_</parameter>
+ depends on <parameter>type</parameter>
+.</para>
+<para>If <parameter>type</parameter>
+ is <link linkend="G-TIME-TYPE-UNIVERSAL:CAPS"><literal>G_TIME_TYPE_UNIVERSAL</literal></link> then this function will always
+succeed (since universal time is monotonic and continuous).</para>
+<para>Otherwise <parameter>time_</parameter>
+ is treated as local time.  The distinction between
+<link linkend="G-TIME-TYPE-STANDARD:CAPS"><literal>G_TIME_TYPE_STANDARD</literal></link> and <link linkend="G-TIME-TYPE-DAYLIGHT:CAPS"><literal>G_TIME_TYPE_DAYLIGHT</literal></link> is ignored except in
+the case that the given <parameter>time_</parameter>
+ is ambiguous.  In Toronto, for example,
+01:30 on November 7th 2010 occurred twice (once inside of daylight
+savings time and the next, an hour later, outside of daylight savings
+time).  In this case, the different value of <parameter>type</parameter>
+ would result in a
+different interval being returned.</para>
+<para>It is still possible for this function to fail.  In Toronto, for
+example, 02:00 on March 14th 2010 does not exist (due to the leap
+forward to begin daylight savings time).  -1 is returned in that
+case.</para>
+<refsect3 id="g-time-zone-find-interval.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>tz</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GTimeZone"><type>GTimeZone</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>type</para></entry>
+<entry role="parameter_description"><para>the <link linkend="GTimeType"><type>GTimeType</type></link> of <parameter>time_</parameter>
+</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>time_</para></entry>
+<entry role="parameter_description"><para>a number of seconds since January 1, 1970</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-time-zone-find-interval.returns" role="returns">
+<title>Returns</title>
+<para> the interval containing <parameter>time_</parameter>
+, or -1 in case of failure</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.26">2.26</link></para></refsect2>
+<refsect2 id="g-time-zone-adjust-time" role="function" condition="since:2.26">
+<title>g_time_zone_adjust_time&#160;()</title>
+<indexterm zone="g-time-zone-adjust-time" role="2.26"><primary sortas="time_zone_adjust_time">g_time_zone_adjust_time</primary></indexterm>
+<programlisting language="C"><link linkend="gint"><returnvalue>gint</returnvalue></link>
+g_time_zone_adjust_time (<parameter><link linkend="GTimeZone"><type>GTimeZone</type></link> *tz</parameter>,
+                         <parameter><link linkend="GTimeType"><type>GTimeType</type></link> type</parameter>,
+                         <parameter><link linkend="gint64"><type>gint64</type></link> *time_</parameter>);</programlisting>
+<para>Finds an interval within <parameter>tz</parameter>
+ that corresponds to the given <parameter>time_</parameter>
+,
+possibly adjusting <parameter>time_</parameter>
+ if required to fit into an interval.
+The meaning of <parameter>time_</parameter>
+ depends on <parameter>type</parameter>
+.</para>
+<para>This function is similar to <link linkend="g-time-zone-find-interval"><function>g_time_zone_find_interval()</function></link>, with the
+difference that it always succeeds (by making the adjustments
+described below).</para>
+<para>In any of the cases where <link linkend="g-time-zone-find-interval"><function>g_time_zone_find_interval()</function></link> succeeds then
+this function returns the same value, without modifying <parameter>time_</parameter>
+.</para>
+<para>This function may, however, modify <parameter>time_</parameter>
+ in order to deal with
+non-existent times.  If the non-existent local <parameter>time_</parameter>
+ of 02:30 were
+requested on March 14th 2010 in Toronto then this function would
+adjust <parameter>time_</parameter>
+ to be 03:00 and return the interval containing the
+adjusted time.</para>
+<refsect3 id="g-time-zone-adjust-time.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>tz</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GTimeZone"><type>GTimeZone</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>type</para></entry>
+<entry role="parameter_description"><para>the <link linkend="GTimeType"><type>GTimeType</type></link> of <parameter>time_</parameter>
+</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>time_</para></entry>
+<entry role="parameter_description"><para>a pointer to a number of seconds since January 1, 1970</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-time-zone-adjust-time.returns" role="returns">
+<title>Returns</title>
+<para> the interval containing <parameter>time_</parameter>
+, never -1</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.26">2.26</link></para></refsect2>
+<refsect2 id="g-time-zone-get-identifier" role="function" condition="since:2.58">
+<title>g_time_zone_get_identifier&#160;()</title>
+<indexterm zone="g-time-zone-get-identifier" role="2.58"><primary sortas="time_zone_get_identifier">g_time_zone_get_identifier</primary></indexterm>
+<programlisting language="C">const <link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+g_time_zone_get_identifier (<parameter><link linkend="GTimeZone"><type>GTimeZone</type></link> *tz</parameter>);</programlisting>
+<para>Get the identifier of this <link linkend="GTimeZone"><type>GTimeZone</type></link>, as passed to <link linkend="g-time-zone-new"><function>g_time_zone_new()</function></link>.
+If the identifier passed at construction time was not recognised, <literal>UTC</literal> will
+be returned. If it was <link linkend="NULL:CAPS"><literal>NULL</literal></link>, the identifier of the local timezone at
+construction time will be returned.</para>
+<para>The identifier will be returned in the same format as provided at
+construction time: if provided as a time offset, that will be returned by
+this function.</para>
+<refsect3 id="g-time-zone-get-identifier.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>tz</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GTimeZone"><type>GTimeZone</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-time-zone-get-identifier.returns" role="returns">
+<title>Returns</title>
+<para> identifier for this timezone</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.58">2.58</link></para></refsect2>
+<refsect2 id="g-time-zone-get-abbreviation" role="function" condition="since:2.26">
+<title>g_time_zone_get_abbreviation&#160;()</title>
+<indexterm zone="g-time-zone-get-abbreviation" role="2.26"><primary sortas="time_zone_get_abbreviation">g_time_zone_get_abbreviation</primary></indexterm>
+<programlisting language="C">const <link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+g_time_zone_get_abbreviation (<parameter><link linkend="GTimeZone"><type>GTimeZone</type></link> *tz</parameter>,
+                              <parameter><link linkend="gint"><type>gint</type></link> interval</parameter>);</programlisting>
+<para>Determines the time zone abbreviation to be used during a particular
+<parameter>interval</parameter>
+ of time in the time zone <parameter>tz</parameter>
+.</para>
+<para>For example, in Toronto this is currently "EST" during the winter
+months and "EDT" during the summer months when daylight savings time
+is in effect.</para>
+<refsect3 id="g-time-zone-get-abbreviation.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>tz</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GTimeZone"><type>GTimeZone</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>interval</para></entry>
+<entry role="parameter_description"><para>an interval within the timezone</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-time-zone-get-abbreviation.returns" role="returns">
+<title>Returns</title>
+<para> the time zone abbreviation, which belongs to <parameter>tz</parameter>
+</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.26">2.26</link></para></refsect2>
+<refsect2 id="g-time-zone-get-offset" role="function" condition="since:2.26">
+<title>g_time_zone_get_offset&#160;()</title>
+<indexterm zone="g-time-zone-get-offset" role="2.26"><primary sortas="time_zone_get_offset">g_time_zone_get_offset</primary></indexterm>
+<programlisting language="C"><link linkend="gint32"><returnvalue>gint32</returnvalue></link>
+g_time_zone_get_offset (<parameter><link linkend="GTimeZone"><type>GTimeZone</type></link> *tz</parameter>,
+                        <parameter><link linkend="gint"><type>gint</type></link> interval</parameter>);</programlisting>
+<para>Determines the offset to UTC in effect during a particular <parameter>interval</parameter>
+
+of time in the time zone <parameter>tz</parameter>
+.</para>
+<para>The offset is the number of seconds that you add to UTC time to
+arrive at local time for <parameter>tz</parameter>
+ (ie: negative numbers for time zones
+west of GMT, positive numbers for east).</para>
+<refsect3 id="g-time-zone-get-offset.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>tz</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GTimeZone"><type>GTimeZone</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>interval</para></entry>
+<entry role="parameter_description"><para>an interval within the timezone</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-time-zone-get-offset.returns" role="returns">
+<title>Returns</title>
+<para> the number of seconds that should be added to UTC to get the
+local time in <parameter>tz</parameter>
+</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.26">2.26</link></para></refsect2>
+<refsect2 id="g-time-zone-is-dst" role="function" condition="since:2.26">
+<title>g_time_zone_is_dst&#160;()</title>
+<indexterm zone="g-time-zone-is-dst" role="2.26"><primary sortas="time_zone_is_dst">g_time_zone_is_dst</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_time_zone_is_dst (<parameter><link linkend="GTimeZone"><type>GTimeZone</type></link> *tz</parameter>,
+                    <parameter><link linkend="gint"><type>gint</type></link> interval</parameter>);</programlisting>
+<para>Determines if daylight savings time is in effect during a particular
+<parameter>interval</parameter>
+ of time in the time zone <parameter>tz</parameter>
+.</para>
+<refsect3 id="g-time-zone-is-dst.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>tz</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GTimeZone"><type>GTimeZone</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>interval</para></entry>
+<entry role="parameter_description"><para>an interval within the timezone</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-time-zone-is-dst.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if daylight savings time is in effect</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.26">2.26</link></para></refsect2>
+
+</refsect1>
+<refsect1 id="glib-GTimeZone.other_details" role="details">
+<title role="details.title">Types and Values</title>
+<refsect2 id="GTimeZone" role="struct" condition="since:2.26">
+<title>GTimeZone</title>
+<indexterm zone="GTimeZone" role="2.26"><primary sortas="TimeZone">GTimeZone</primary></indexterm>
+<programlisting language="C">typedef struct _GTimeZone GTimeZone;</programlisting>
+<para><link linkend="GTimeZone"><type>GTimeZone</type></link> is an opaque structure whose members cannot be accessed
+directly.</para>
+<para role="since">Since: <link linkend="api-index-2.26">2.26</link></para></refsect2>
+<refsect2 id="GTimeType" role="enum">
+<title>enum GTimeType</title>
+<indexterm zone="GTimeType"><primary sortas="TimeType">GTimeType</primary></indexterm>
+<para>Disambiguates a given time in two ways.</para>
+<para>First, specifies if the given time is in universal or local time.</para>
+<para>Second, if the time is in local time, specifies if it is local
+standard time or local daylight time.  This is important for the case
+where the same local time occurs twice (during daylight savings time
+transitions, for example).</para>
+<refsect3 id="GTimeType.members" role="enum_members">
+<title>Members</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="enum_members_name" colwidth="300px"/>
+<colspec colname="enum_members_description"/>
+<colspec colname="enum_members_annotations" colwidth="200px"/>
+<tbody>
+<row role="constant"><entry role="enum_member_name"><para id="G-TIME-TYPE-STANDARD:CAPS">G_TIME_TYPE_STANDARD</para></entry>
+<entry role="enum_member_description"><para>the time is in local standard time</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-TIME-TYPE-DAYLIGHT:CAPS">G_TIME_TYPE_DAYLIGHT</para></entry>
+<entry role="enum_member_description"><para>the time is in local daylight time</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-TIME-TYPE-UNIVERSAL:CAPS">G_TIME_TYPE_UNIVERSAL</para></entry>
+<entry role="enum_member_description"><para>the time is in UTC</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+
+</refsect1>
+<refsect1 id="glib-GTimeZone.see-also">
+<title>See Also</title>
+<para><link linkend="GDateTime"><type>GDateTime</type></link></para>
+
+</refsect1>
+
+</refentry>

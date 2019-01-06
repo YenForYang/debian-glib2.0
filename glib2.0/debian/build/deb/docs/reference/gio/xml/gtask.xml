@@ -1,0 +1,1765 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC '-//OASIS//DTD DocBook XML V4.5//EN'
+                      'http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd' [
+<!ENTITY % local.common.attrib "xmlns:xi  CDATA  #FIXED 'http://www.w3.org/2003/XInclude'">
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="GTask">
+<refmeta>
+<refentrytitle role="top_of_page" id="GTask.top_of_page">GTask</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>GIO Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>GTask</refname>
+<refpurpose>Cancellable synchronous or asynchronous task
+    and result</refpurpose>
+</refnamediv>
+
+<refsect1 id="GTask.functions" role="functions_proto">
+<title role="functions_proto.title">Functions</title>
+<informaltable pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="functions_return" colwidth="150px"/>
+<colspec colname="functions_name"/>
+<tbody>
+<row><entry role="function_type"><link linkend="GTask"><returnvalue>GTask</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-task-new">g_task_new</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-task-set-task-data">g_task_set_task_data</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-task-set-priority">g_task_set_priority</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-task-set-check-cancellable">g_task_set_check_cancellable</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-task-set-return-on-cancel">g_task_set_return_on_cancel</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-task-set-source-tag">g_task_set_source_tag</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-task-report-error">g_task_report_error</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-task-report-new-error">g_task_report_new_error</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+<row><entry role="function_type"><link linkend="gpointer"><returnvalue>gpointer</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-task-get-task-data">g_task_get_task_data</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gint"><returnvalue>gint</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-task-get-priority">g_task_get_priority</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GCancellable"><returnvalue>GCancellable</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-task-get-cancellable">g_task_get_cancellable</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-task-get-check-cancellable">g_task_get_check_cancellable</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-task-get-return-on-cancel">g_task_get_return_on_cancel</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GMainContext"><returnvalue>GMainContext</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-task-get-context">g_task_get_context</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gpointer"><returnvalue>gpointer</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-task-get-source-object">g_task_get_source_object</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gpointer"><returnvalue>gpointer</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-task-get-source-tag">g_task_get_source_tag</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-task-return-boolean">g_task_return_boolean</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-task-return-int">g_task_return_int</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-task-return-pointer">g_task_return_pointer</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-task-return-error">g_task_return_error</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-task-return-new-error">g_task_return_new_error</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-task-return-error-if-cancelled">g_task_return_error_if_cancelled</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-task-propagate-boolean">g_task_propagate_boolean</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gssize"><returnvalue>gssize</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-task-propagate-int">g_task_propagate_int</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gpointer"><returnvalue>gpointer</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-task-propagate-pointer">g_task_propagate_pointer</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-task-had-error">g_task_had_error</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-task-get-completed">g_task_get_completed</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-task-run-in-thread">g_task_run_in_thread</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-task-run-in-thread-sync">g_task_run_in_thread_sync</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><phrase role="c_punctuation">(</phrase><link linkend="GTaskThreadFunc">*GTaskThreadFunc</link><phrase role="c_punctuation">)</phrase>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-task-attach-source">g_task_attach_source</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-task-is-valid">g_task_is_valid</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GTask.properties" role="properties">
+<title role="properties.title">Properties</title>
+<informaltable frame="none">
+<tgroup cols="3">
+<colspec colname="properties_type" colwidth="150px"/>
+<colspec colname="properties_name" colwidth="300px"/>
+<colspec colname="properties_flags" colwidth="200px"/>
+<tbody>
+<row><entry role="property_type"><link linkend="gboolean"><type>gboolean</type></link></entry><entry role="property_name"><link linkend="GTask--completed">completed</link></entry><entry role="property_flags">Read</entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GTask.other" role="other_proto">
+<title role="other_proto.title">Types and Values</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="name" colwidth="150px"/>
+<colspec colname="description"/>
+<tbody>
+<row><entry role="datatype_keyword"></entry><entry role="function_name"><link linkend="GTask-struct">GTask</link></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GTask.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<screen>    <link linkend="GObject">GObject</link>
+    <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> GTask
+</screen>
+</refsect1>
+<refsect1 id="GTask.implemented-interfaces" role="impl_interfaces">
+<title role="impl_interfaces.title">Implemented Interfaces</title>
+<para>
+GTask implements
+ <link linkend="GAsyncResult">GAsyncResult</link>.</para>
+
+</refsect1>
+
+<refsect1 id="GTask.includes"><title>Includes</title><synopsis>#include &lt;gio/gio.h&gt;
+</synopsis></refsect1>
+
+<refsect1 id="GTask.description" role="desc">
+<title role="desc.title">Description</title>
+<para>A <link linkend="GTask"><type>GTask</type></link> represents and manages a cancellable "task".</para>
+<refsect3><title>Asynchronous operations</title><para>The most common usage of <link linkend="GTask"><type>GTask</type></link> is as a <link linkend="GAsyncResult"><type>GAsyncResult</type></link>, to
+manage data during an asynchronous operation. You call
+<link linkend="g-task-new"><function>g_task_new()</function></link> in the "start" method, followed by
+<link linkend="g-task-set-task-data"><function>g_task_set_task_data()</function></link> and the like if you need to keep some
+additional data associated with the task, and then pass the
+task object around through your asynchronous operation.
+Eventually, you will call a method such as
+<link linkend="g-task-return-pointer"><function>g_task_return_pointer()</function></link> or <link linkend="g-task-return-error"><function>g_task_return_error()</function></link>, which will
+save the value you give it and then invoke the task's callback
+function in the
+<link linkend="g-main-context-push-thread-default">thread-default main context</link>
+where it was created (waiting until the next iteration of the main
+loop first, if necessary). The caller will pass the <link linkend="GTask"><type>GTask</type></link> back to
+the operation's finish function (as a <link linkend="GAsyncResult"><type>GAsyncResult</type></link>), and you can
+use <link linkend="g-task-propagate-pointer"><function>g_task_propagate_pointer()</function></link> or the like to extract the
+return value.</para>
+<para>Here is an example for using GTask as a GAsyncResult:</para>
+<informalexample><programlisting role="example"><![CDATA[
+    typedef struct {
+      CakeFrostingType frosting;
+      char *message;
+    } DecorationData;
+
+    static void
+    decoration_data_free (DecorationData *decoration)
+    {
+      g_free (decoration->message);
+      g_slice_free (DecorationData, decoration);
+    }
+
+    static void
+    baked_cb (Cake     *cake,
+              gpointer  user_data)
+    {
+      GTask *task = user_data;
+      DecorationData *decoration = g_task_get_task_data (task);
+      GError *error = NULL;
+
+      if (cake == NULL)
+        {
+          g_task_return_new_error (task, BAKER_ERROR, BAKER_ERROR_NO_FLOUR,
+                                   "Go to the supermarket");
+          g_object_unref (task);
+          return;
+        }
+
+      if (!cake_decorate (cake, decoration->frosting, decoration->message, &error))
+        {
+          g_object_unref (cake);
+          // g_task_return_error() takes ownership of error
+          g_task_return_error (task, error);
+          g_object_unref (task);
+          return;
+        }
+
+      g_task_return_pointer (task, cake, g_object_unref);
+      g_object_unref (task);
+    }
+
+    void
+    baker_bake_cake_async (Baker               *self,
+                           guint                radius,
+                           CakeFlavor           flavor,
+                           CakeFrostingType     frosting,
+                           const char          *message,
+                           GCancellable        *cancellable,
+                           GAsyncReadyCallback  callback,
+                           gpointer             user_data)
+    {
+      GTask *task;
+      DecorationData *decoration;
+      Cake  *cake;
+
+      task = g_task_new (self, cancellable, callback, user_data);
+      if (radius < 3)
+        {
+          g_task_return_new_error (task, BAKER_ERROR, BAKER_ERROR_TOO_SMALL,
+                                   "%ucm radius cakes are silly",
+                                   radius);
+          g_object_unref (task);
+          return;
+        }
+
+      cake = _baker_get_cached_cake (self, radius, flavor, frosting, message);
+      if (cake != NULL)
+        {
+          // _baker_get_cached_cake() returns a reffed cake
+          g_task_return_pointer (task, cake, g_object_unref);
+          g_object_unref (task);
+          return;
+        }
+
+      decoration = g_slice_new (DecorationData);
+      decoration->frosting = frosting;
+      decoration->message = g_strdup (message);
+      g_task_set_task_data (task, decoration, (GDestroyNotify) decoration_data_free);
+
+      _baker_begin_cake (self, radius, flavor, cancellable, baked_cb, task);
+    }
+
+    Cake *
+    baker_bake_cake_finish (Baker         *self,
+                            GAsyncResult  *result,
+                            GError       **error)
+    {
+      g_return_val_if_fail (g_task_is_valid (result, self), NULL);
+
+      return g_task_propagate_pointer (G_TASK (result), error);
+    }
+]]></programlisting></informalexample>
+<para></para>
+</refsect3>
+<refsect3><title>Chained asynchronous operations</title><para><link linkend="GTask"><type>GTask</type></link> also tries to simplify asynchronous operations that
+internally chain together several smaller asynchronous
+operations. <link linkend="g-task-get-cancellable"><function>g_task_get_cancellable()</function></link>, <link linkend="g-task-get-context"><function>g_task_get_context()</function></link>,
+and <link linkend="g-task-get-priority"><function>g_task_get_priority()</function></link> allow you to get back the task's
+<link linkend="GCancellable"><type>GCancellable</type></link>, <link linkend="GMainContext"><type>GMainContext</type></link>, and <link linkend="io-priority">I/O priority</link>
+when starting a new subtask, so you don't have to keep track
+of them yourself. <link linkend="g-task-attach-source"><function>g_task_attach_source()</function></link> simplifies the case
+of waiting for a source to fire (automatically using the correct
+<link linkend="GMainContext"><type>GMainContext</type></link> and priority).</para>
+<para>Here is an example for chained asynchronous operations:</para>
+<informalexample><programlisting role="example"><![CDATA[
+    typedef struct {
+      Cake *cake;
+      CakeFrostingType frosting;
+      char *message;
+    } BakingData;
+
+    static void
+    decoration_data_free (BakingData *bd)
+    {
+      if (bd->cake)
+        g_object_unref (bd->cake);
+      g_free (bd->message);
+      g_slice_free (BakingData, bd);
+    }
+
+    static void
+    decorated_cb (Cake         *cake,
+                  GAsyncResult *result,
+                  gpointer      user_data)
+    {
+      GTask *task = user_data;
+      GError *error = NULL;
+
+      if (!cake_decorate_finish (cake, result, &error))
+        {
+          g_object_unref (cake);
+          g_task_return_error (task, error);
+          g_object_unref (task);
+          return;
+        }
+
+      // baking_data_free() will drop its ref on the cake, so we have to
+      // take another here to give to the caller.
+      g_task_return_pointer (task, g_object_ref (cake), g_object_unref);
+      g_object_unref (task);
+    }
+
+    static gboolean
+    decorator_ready (gpointer user_data)
+    {
+      GTask *task = user_data;
+      BakingData *bd = g_task_get_task_data (task);
+
+      cake_decorate_async (bd->cake, bd->frosting, bd->message,
+                           g_task_get_cancellable (task),
+                           decorated_cb, task);
+
+      return G_SOURCE_REMOVE;
+    }
+
+    static void
+    baked_cb (Cake     *cake,
+              gpointer  user_data)
+    {
+      GTask *task = user_data;
+      BakingData *bd = g_task_get_task_data (task);
+      GError *error = NULL;
+
+      if (cake == NULL)
+        {
+          g_task_return_new_error (task, BAKER_ERROR, BAKER_ERROR_NO_FLOUR,
+                                   "Go to the supermarket");
+          g_object_unref (task);
+          return;
+        }
+
+      bd->cake = cake;
+
+      // Bail out now if the user has already cancelled
+      if (g_task_return_error_if_cancelled (task))
+        {
+          g_object_unref (task);
+          return;
+        }
+
+      if (cake_decorator_available (cake))
+        decorator_ready (task);
+      else
+        {
+          GSource *source;
+
+          source = cake_decorator_wait_source_new (cake);
+          // Attach @source to @task's GMainContext and have it call
+          // decorator_ready() when it is ready.
+          g_task_attach_source (task, source, decorator_ready);
+          g_source_unref (source);
+        }
+    }
+
+    void
+    baker_bake_cake_async (Baker               *self,
+                           guint                radius,
+                           CakeFlavor           flavor,
+                           CakeFrostingType     frosting,
+                           const char          *message,
+                           gint                 priority,
+                           GCancellable        *cancellable,
+                           GAsyncReadyCallback  callback,
+                           gpointer             user_data)
+    {
+      GTask *task;
+      BakingData *bd;
+
+      task = g_task_new (self, cancellable, callback, user_data);
+      g_task_set_priority (task, priority);
+
+      bd = g_slice_new0 (BakingData);
+      bd->frosting = frosting;
+      bd->message = g_strdup (message);
+      g_task_set_task_data (task, bd, (GDestroyNotify) baking_data_free);
+
+      _baker_begin_cake (self, radius, flavor, cancellable, baked_cb, task);
+    }
+
+    Cake *
+    baker_bake_cake_finish (Baker         *self,
+                            GAsyncResult  *result,
+                            GError       **error)
+    {
+      g_return_val_if_fail (g_task_is_valid (result, self), NULL);
+
+      return g_task_propagate_pointer (G_TASK (result), error);
+    }
+]]></programlisting></informalexample>
+<para></para>
+</refsect3>
+<refsect3><title>Asynchronous operations from synchronous ones</title><para>You can use <link linkend="g-task-run-in-thread"><function>g_task_run_in_thread()</function></link> to turn a synchronous
+operation into an asynchronous one, by running it in a thread.
+When it completes, the result will be dispatched to the
+<link linkend="g-main-context-push-thread-default">thread-default main context</link>
+where the <link linkend="GTask"><type>GTask</type></link> was created.</para>
+<para>Running a task in a thread:</para>
+<informalexample><programlisting role="example"><![CDATA[
+    typedef struct {
+      guint radius;
+      CakeFlavor flavor;
+      CakeFrostingType frosting;
+      char *message;
+    } CakeData;
+
+    static void
+    cake_data_free (CakeData *cake_data)
+    {
+      g_free (cake_data->message);
+      g_slice_free (CakeData, cake_data);
+    }
+
+    static void
+    bake_cake_thread (GTask         *task,
+                      gpointer       source_object,
+                      gpointer       task_data,
+                      GCancellable  *cancellable)
+    {
+      Baker *self = source_object;
+      CakeData *cake_data = task_data;
+      Cake *cake;
+      GError *error = NULL;
+
+      cake = bake_cake (baker, cake_data->radius, cake_data->flavor,
+                        cake_data->frosting, cake_data->message,
+                        cancellable, &error);
+      if (cake)
+        g_task_return_pointer (task, cake, g_object_unref);
+      else
+        g_task_return_error (task, error);
+    }
+
+    void
+    baker_bake_cake_async (Baker               *self,
+                           guint                radius,
+                           CakeFlavor           flavor,
+                           CakeFrostingType     frosting,
+                           const char          *message,
+                           GCancellable        *cancellable,
+                           GAsyncReadyCallback  callback,
+                           gpointer             user_data)
+    {
+      CakeData *cake_data;
+      GTask *task;
+
+      cake_data = g_slice_new (CakeData);
+      cake_data->radius = radius;
+      cake_data->flavor = flavor;
+      cake_data->frosting = frosting;
+      cake_data->message = g_strdup (message);
+      task = g_task_new (self, cancellable, callback, user_data);
+      g_task_set_task_data (task, cake_data, (GDestroyNotify) cake_data_free);
+      g_task_run_in_thread (task, bake_cake_thread);
+      g_object_unref (task);
+    }
+
+    Cake *
+    baker_bake_cake_finish (Baker         *self,
+                            GAsyncResult  *result,
+                            GError       **error)
+    {
+      g_return_val_if_fail (g_task_is_valid (result, self), NULL);
+
+      return g_task_propagate_pointer (G_TASK (result), error);
+    }
+]]></programlisting></informalexample>
+<para></para>
+</refsect3>
+<refsect3><title>Adding cancellability to uncancellable tasks</title><para>Finally, <link linkend="g-task-run-in-thread"><function>g_task_run_in_thread()</function></link> and <link linkend="g-task-run-in-thread-sync"><function>g_task_run_in_thread_sync()</function></link>
+can be used to turn an uncancellable operation into a
+cancellable one. If you call <link linkend="g-task-set-return-on-cancel"><function>g_task_set_return_on_cancel()</function></link>,
+passing <link linkend="TRUE:CAPS"><literal>TRUE</literal></link>, then if the task's <link linkend="GCancellable"><type>GCancellable</type></link> is cancelled,
+it will return control back to the caller immediately, while
+allowing the task thread to continue running in the background
+(and simply discarding its result when it finally does finish).
+Provided that the task thread is careful about how it uses
+locks and other externally-visible resources, this allows you
+to make "GLib-friendly" asynchronous and cancellable
+synchronous variants of blocking APIs.</para>
+<para>Cancelling a task:</para>
+<informalexample><programlisting role="example"><![CDATA[
+    static void
+    bake_cake_thread (GTask         *task,
+                      gpointer       source_object,
+                      gpointer       task_data,
+                      GCancellable  *cancellable)
+    {
+      Baker *self = source_object;
+      CakeData *cake_data = task_data;
+      Cake *cake;
+      GError *error = NULL;
+
+      cake = bake_cake (baker, cake_data->radius, cake_data->flavor,
+                        cake_data->frosting, cake_data->message,
+                        &error);
+      if (error)
+        {
+          g_task_return_error (task, error);
+          return;
+        }
+
+      // If the task has already been cancelled, then we don't want to add
+      // the cake to the cake cache. Likewise, we don't  want to have the
+      // task get cancelled in the middle of updating the cache.
+      // g_task_set_return_on_cancel() will return %TRUE here if it managed
+      // to disable return-on-cancel, or %FALSE if the task was cancelled
+      // before it could.
+      if (g_task_set_return_on_cancel (task, FALSE))
+        {
+          // If the caller cancels at this point, their
+          // GAsyncReadyCallback won't be invoked until we return,
+          // so we don't have to worry that this code will run at
+          // the same time as that code does. But if there were
+          // other functions that might look at the cake cache,
+          // then we'd probably need a GMutex here as well.
+          baker_add_cake_to_cache (baker, cake);
+          g_task_return_pointer (task, cake, g_object_unref);
+        }
+    }
+
+    void
+    baker_bake_cake_async (Baker               *self,
+                           guint                radius,
+                           CakeFlavor           flavor,
+                           CakeFrostingType     frosting,
+                           const char          *message,
+                           GCancellable        *cancellable,
+                           GAsyncReadyCallback  callback,
+                           gpointer             user_data)
+    {
+      CakeData *cake_data;
+      GTask *task;
+
+      cake_data = g_slice_new (CakeData);
+
+      ...
+
+      task = g_task_new (self, cancellable, callback, user_data);
+      g_task_set_task_data (task, cake_data, (GDestroyNotify) cake_data_free);
+      g_task_set_return_on_cancel (task, TRUE);
+      g_task_run_in_thread (task, bake_cake_thread);
+    }
+
+    Cake *
+    baker_bake_cake_sync (Baker               *self,
+                          guint                radius,
+                          CakeFlavor           flavor,
+                          CakeFrostingType     frosting,
+                          const char          *message,
+                          GCancellable        *cancellable,
+                          GError             **error)
+    {
+      CakeData *cake_data;
+      GTask *task;
+      Cake *cake;
+
+      cake_data = g_slice_new (CakeData);
+
+      ...
+
+      task = g_task_new (self, cancellable, NULL, NULL);
+      g_task_set_task_data (task, cake_data, (GDestroyNotify) cake_data_free);
+      g_task_set_return_on_cancel (task, TRUE);
+      g_task_run_in_thread_sync (task, bake_cake_thread);
+
+      cake = g_task_propagate_pointer (task, error);
+      g_object_unref (task);
+      return cake;
+    }
+]]></programlisting></informalexample>
+<para></para>
+</refsect3>
+<refsect3><title>Porting from GSimpleAsyncResult</title><para><link linkend="GTask"><type>GTask</type></link>'s API attempts to be simpler than <link linkend="GSimpleAsyncResult"><type>GSimpleAsyncResult</type></link>'s
+in several ways:</para>
+<itemizedlist>
+<listitem><para>You can save task-specific data with <link linkend="g-task-set-task-data"><function>g_task_set_task_data()</function></link>, and
+retrieve it later with <link linkend="g-task-get-task-data"><function>g_task_get_task_data()</function></link>. This replaces the
+abuse of <link linkend="g-simple-async-result-set-op-res-gpointer"><function>g_simple_async_result_set_op_res_gpointer()</function></link> for the same
+purpose with <link linkend="GSimpleAsyncResult"><type>GSimpleAsyncResult</type></link>.</para></listitem>
+<listitem><para>In addition to the task data, <link linkend="GTask"><type>GTask</type></link> also keeps track of the
+<link linkend="io-priority">priority</link>, <link linkend="GCancellable"><type>GCancellable</type></link>, and
+<link linkend="GMainContext"><type>GMainContext</type></link> associated with the task, so tasks that consist of
+a chain of simpler asynchronous operations will have easy access
+to those values when starting each sub-task.</para></listitem>
+<listitem><para>g_task_return_error_if_cancelled() provides simplified
+handling for cancellation. In addition, cancellation
+overrides any other <link linkend="GTask"><type>GTask</type></link> return value by default, like
+<link linkend="GSimpleAsyncResult"><type>GSimpleAsyncResult</type></link> does when
+<link linkend="g-simple-async-result-set-check-cancellable"><function>g_simple_async_result_set_check_cancellable()</function></link> is called.
+(You can use <link linkend="g-task-set-check-cancellable"><function>g_task_set_check_cancellable()</function></link> to turn off that
+behavior.) On the other hand, <link linkend="g-task-run-in-thread"><function>g_task_run_in_thread()</function></link>
+guarantees that it will always run your
+<literal>task_func</literal>, even if the task's <link linkend="GCancellable"><type>GCancellable</type></link>
+is already cancelled before the task gets a chance to run;
+you can start your <literal>task_func</literal> with a
+<link linkend="g-task-return-error-if-cancelled"><function>g_task_return_error_if_cancelled()</function></link> check if you need the
+old behavior.</para></listitem>
+<listitem><para>The "return" methods (eg, <link linkend="g-task-return-pointer"><function>g_task_return_pointer()</function></link>)
+automatically cause the task to be "completed" as well, and
+there is no need to worry about the "complete" vs "complete
+in idle" distinction. (<link linkend="GTask"><type>GTask</type></link> automatically figures out
+whether the task's callback can be invoked directly, or
+if it needs to be sent to another <link linkend="GMainContext"><type>GMainContext</type></link>, or delayed
+until the next iteration of the current <link linkend="GMainContext"><type>GMainContext</type></link>.)</para></listitem>
+<listitem><para>The "finish" functions for <link linkend="GTask"><type>GTask</type></link> based operations are generally
+much simpler than <link linkend="GSimpleAsyncResult"><type>GSimpleAsyncResult</type></link> ones, normally consisting
+of only a single call to <link linkend="g-task-propagate-pointer"><function>g_task_propagate_pointer()</function></link> or the like.
+Since <link linkend="g-task-propagate-pointer"><function>g_task_propagate_pointer()</function></link> "steals" the return value from
+the <link linkend="GTask"><type>GTask</type></link>, it is not necessary to juggle pointers around to
+prevent it from being freed twice.</para></listitem>
+<listitem><para>With <link linkend="GSimpleAsyncResult"><type>GSimpleAsyncResult</type></link>, it was common to call
+<link linkend="g-simple-async-result-propagate-error"><function>g_simple_async_result_propagate_error()</function></link> from the
+<literal><link linkend="finish"><function>_finish()</function></link></literal> wrapper function, and have
+virtual method implementations only deal with successful
+returns. This behavior is deprecated, because it makes it
+difficult for a subclass to chain to a parent class's async
+methods. Instead, the wrapper function should just be a
+simple wrapper, and the virtual method should call an
+appropriate <literal>g_task_propagate_</literal> function.
+Note that wrapper methods can now use
+<link linkend="g-async-result-legacy-propagate-error"><function>g_async_result_legacy_propagate_error()</function></link> to do old-style
+<link linkend="GSimpleAsyncResult"><type>GSimpleAsyncResult</type></link> error-returning behavior, and
+<link linkend="g-async-result-is-tagged"><function>g_async_result_is_tagged()</function></link> to check if a result is tagged as
+having come from the <literal><link linkend="async"><function>_async()</function></link></literal> wrapper
+function (for "short-circuit" results, such as when passing
+0 to <link linkend="g-input-stream-read-async"><function>g_input_stream_read_async()</function></link>).</para></listitem>
+</itemizedlist>
+</refsect3>
+
+</refsect1>
+<refsect1 id="GTask.functions_details" role="details">
+<title role="details.title">Functions</title>
+<refsect2 id="g-task-new" role="function" condition="since:2.36">
+<title>g_task_new&#160;()</title>
+<indexterm zone="g-task-new" role="2.36"><primary sortas="task_new">g_task_new</primary></indexterm>
+<programlisting language="C"><link linkend="GTask"><returnvalue>GTask</returnvalue></link>&#160;*
+g_task_new (<parameter><link linkend="gpointer"><type>gpointer</type></link> source_object</parameter>,
+            <parameter><link linkend="GCancellable"><type>GCancellable</type></link> *cancellable</parameter>,
+            <parameter><link linkend="GAsyncReadyCallback"><type>GAsyncReadyCallback</type></link> callback</parameter>,
+            <parameter><link linkend="gpointer"><type>gpointer</type></link> callback_data</parameter>);</programlisting>
+<para>Creates a <link linkend="GTask"><type>GTask</type></link> acting on <parameter>source_object</parameter>
+, which will eventually be
+used to invoke <parameter>callback</parameter>
+ in the current
+<link linkend="g-main-context-push-thread-default">thread-default main context</link>.</para>
+<para>Call this in the "start" method of your asynchronous method, and
+pass the <link linkend="GTask"><type>GTask</type></link> around throughout the asynchronous operation. You
+can use <link linkend="g-task-set-task-data"><function>g_task_set_task_data()</function></link> to attach task-specific data to the
+object, which you can retrieve later via <link linkend="g-task-get-task-data"><function>g_task_get_task_data()</function></link>.</para>
+<para>By default, if <parameter>cancellable</parameter>
+ is cancelled, then the return value of
+the task will always be <link linkend="G-IO-ERROR-CANCELLED:CAPS"><literal>G_IO_ERROR_CANCELLED</literal></link>, even if the task had
+already completed before the cancellation. This allows for
+simplified handling in cases where cancellation may imply that
+other objects that the task depends on have been destroyed. If you
+do not want this behavior, you can use
+<link linkend="g-task-set-check-cancellable"><function>g_task_set_check_cancellable()</function></link> to change it.</para>
+<refsect3 id="g-task-new.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>source_object</para></entry>
+<entry role="parameter_description"><para>the <link linkend="GObject"><type>GObject</type></link> that owns
+this task, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>][<acronym>type</acronym> GObject]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>cancellable</para></entry>
+<entry role="parameter_description"><para>optional <link linkend="GCancellable"><type>GCancellable</type></link> object, <link linkend="NULL:CAPS"><literal>NULL</literal></link> to ignore. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>callback</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GAsyncReadyCallback"><type>GAsyncReadyCallback</type></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>scope async</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>callback_data</para></entry>
+<entry role="parameter_description"><para>user data passed to <parameter>callback</parameter>
+. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>closure</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-task-new.returns" role="returns">
+<title>Returns</title>
+<para> a <link linkend="GTask"><type>GTask</type></link>.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.36">2.36</link></para></refsect2>
+<refsect2 id="g-task-set-task-data" role="function" condition="since:2.36">
+<title>g_task_set_task_data&#160;()</title>
+<indexterm zone="g-task-set-task-data" role="2.36"><primary sortas="task_set_task_data">g_task_set_task_data</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_task_set_task_data (<parameter><link linkend="GTask"><type>GTask</type></link> *task</parameter>,
+                      <parameter><link linkend="gpointer"><type>gpointer</type></link> task_data</parameter>,
+                      <parameter><link linkend="GDestroyNotify"><type>GDestroyNotify</type></link> task_data_destroy</parameter>);</programlisting>
+<para>Sets <parameter>task</parameter>
+'s task data (freeing the existing task data, if any).</para>
+<refsect3 id="g-task-set-task-data.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>task</para></entry>
+<entry role="parameter_description"><para>the <link linkend="GTask"><type>GTask</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>task_data</para></entry>
+<entry role="parameter_description"><para>task-specific data. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>task_data_destroy</para></entry>
+<entry role="parameter_description"><para><link linkend="GDestroyNotify"><type>GDestroyNotify</type></link> for <parameter>task_data</parameter>
+. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.36">2.36</link></para></refsect2>
+<refsect2 id="g-task-set-priority" role="function" condition="since:2.36">
+<title>g_task_set_priority&#160;()</title>
+<indexterm zone="g-task-set-priority" role="2.36"><primary sortas="task_set_priority">g_task_set_priority</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_task_set_priority (<parameter><link linkend="GTask"><type>GTask</type></link> *task</parameter>,
+                     <parameter><link linkend="gint"><type>gint</type></link> priority</parameter>);</programlisting>
+<para>Sets <parameter>task</parameter>
+'s priority. If you do not call this, it will default to
+<link linkend="G-PRIORITY-DEFAULT:CAPS"><literal>G_PRIORITY_DEFAULT</literal></link>.</para>
+<para>This will affect the priority of <link linkend="GSources"><type>GSources</type></link> created with
+<link linkend="g-task-attach-source"><function>g_task_attach_source()</function></link> and the scheduling of tasks run in threads,
+and can also be explicitly retrieved later via
+<link linkend="g-task-get-priority"><function>g_task_get_priority()</function></link>.</para>
+<refsect3 id="g-task-set-priority.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>task</para></entry>
+<entry role="parameter_description"><para>the <link linkend="GTask"><type>GTask</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>priority</para></entry>
+<entry role="parameter_description"><para>the <link linkend="io-priority">priority</link> of the request</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.36">2.36</link></para></refsect2>
+<refsect2 id="g-task-set-check-cancellable" role="function" condition="since:2.36">
+<title>g_task_set_check_cancellable&#160;()</title>
+<indexterm zone="g-task-set-check-cancellable" role="2.36"><primary sortas="task_set_check_cancellable">g_task_set_check_cancellable</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_task_set_check_cancellable (<parameter><link linkend="GTask"><type>GTask</type></link> *task</parameter>,
+                              <parameter><link linkend="gboolean"><type>gboolean</type></link> check_cancellable</parameter>);</programlisting>
+<para>Sets or clears <parameter>task</parameter>
+'s check-cancellable flag. If this is <link linkend="TRUE:CAPS"><literal>TRUE</literal></link>
+(the default), then <link linkend="g-task-propagate-pointer"><function>g_task_propagate_pointer()</function></link>, etc, and
+<link linkend="g-task-had-error"><function>g_task_had_error()</function></link> will check the task's <link linkend="GCancellable"><type>GCancellable</type></link> first, and
+if it has been cancelled, then they will consider the task to have
+returned an "Operation was cancelled" error
+(<link linkend="G-IO-ERROR-CANCELLED:CAPS"><literal>G_IO_ERROR_CANCELLED</literal></link>), regardless of any other error or return
+value the task may have had.</para>
+<para>If <parameter>check_cancellable</parameter>
+ is <link linkend="FALSE:CAPS"><literal>FALSE</literal></link>, then the <link linkend="GTask"><type>GTask</type></link> will not check the
+cancellable itself, and it is up to <parameter>task</parameter>
+'s owner to do this (eg,
+via <link linkend="g-task-return-error-if-cancelled"><function>g_task_return_error_if_cancelled()</function></link>).</para>
+<para>If you are using <link linkend="g-task-set-return-on-cancel"><function>g_task_set_return_on_cancel()</function></link> as well, then
+you must leave check-cancellable set <link linkend="TRUE:CAPS"><literal>TRUE</literal></link>.</para>
+<refsect3 id="g-task-set-check-cancellable.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>task</para></entry>
+<entry role="parameter_description"><para>the <link linkend="GTask"><type>GTask</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>check_cancellable</para></entry>
+<entry role="parameter_description"><para>whether <link linkend="GTask"><type>GTask</type></link> will check the state of
+its <link linkend="GCancellable"><type>GCancellable</type></link> for you.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.36">2.36</link></para></refsect2>
+<refsect2 id="g-task-set-return-on-cancel" role="function" condition="since:2.36">
+<title>g_task_set_return_on_cancel&#160;()</title>
+<indexterm zone="g-task-set-return-on-cancel" role="2.36"><primary sortas="task_set_return_on_cancel">g_task_set_return_on_cancel</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_task_set_return_on_cancel (<parameter><link linkend="GTask"><type>GTask</type></link> *task</parameter>,
+                             <parameter><link linkend="gboolean"><type>gboolean</type></link> return_on_cancel</parameter>);</programlisting>
+<para>Sets or clears <parameter>task</parameter>
+'s return-on-cancel flag. This is only
+meaningful for tasks run via <link linkend="g-task-run-in-thread"><function>g_task_run_in_thread()</function></link> or
+<link linkend="g-task-run-in-thread-sync"><function>g_task_run_in_thread_sync()</function></link>.</para>
+<para>If <parameter>return_on_cancel</parameter>
+ is <link linkend="TRUE:CAPS"><literal>TRUE</literal></link>, then cancelling <parameter>task</parameter>
+'s
+<link linkend="GCancellable"><type>GCancellable</type></link> will immediately cause it to return, as though the
+task's <link linkend="GTaskThreadFunc"><type>GTaskThreadFunc</type></link> had called
+<link linkend="g-task-return-error-if-cancelled"><function>g_task_return_error_if_cancelled()</function></link> and then returned.</para>
+<para>This allows you to create a cancellable wrapper around an
+uninterruptable function. The <link linkend="GTaskThreadFunc"><type>GTaskThreadFunc</type></link> just needs to be
+careful that it does not modify any externally-visible state after
+it has been cancelled. To do that, the thread should call
+<link linkend="g-task-set-return-on-cancel"><function>g_task_set_return_on_cancel()</function></link> again to (atomically) set
+return-on-cancel <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> before making externally-visible changes;
+if the task gets cancelled before the return-on-cancel flag could
+be changed, <link linkend="g-task-set-return-on-cancel"><function>g_task_set_return_on_cancel()</function></link> will indicate this by
+returning <link linkend="FALSE:CAPS"><literal>FALSE</literal></link>.</para>
+<para>You can disable and re-enable this flag multiple times if you wish.
+If the task's <link linkend="GCancellable"><type>GCancellable</type></link> is cancelled while return-on-cancel is
+<link linkend="FALSE:CAPS"><literal>FALSE</literal></link>, then calling <link linkend="g-task-set-return-on-cancel"><function>g_task_set_return_on_cancel()</function></link> to set it <link linkend="TRUE:CAPS"><literal>TRUE</literal></link>
+again will cause the task to be cancelled at that point.</para>
+<para>If the task's <link linkend="GCancellable"><type>GCancellable</type></link> is already cancelled before you call
+<link linkend="g-task-run-in-thread"><function>g_task_run_in_thread()</function></link>/<link linkend="g-task-run-in-thread-sync"><function>g_task_run_in_thread_sync()</function></link>, then the
+<link linkend="GTaskThreadFunc"><type>GTaskThreadFunc</type></link> will still be run (for consistency), but the task
+will also be completed right away.</para>
+<refsect3 id="g-task-set-return-on-cancel.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>task</para></entry>
+<entry role="parameter_description"><para>the <link linkend="GTask"><type>GTask</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>return_on_cancel</para></entry>
+<entry role="parameter_description"><para>whether the task returns automatically when
+it is cancelled.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-task-set-return-on-cancel.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if <parameter>task</parameter>
+'s return-on-cancel flag was changed to
+match <parameter>return_on_cancel</parameter>
+. <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> if <parameter>task</parameter>
+has already been
+cancelled.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.36">2.36</link></para></refsect2>
+<refsect2 id="g-task-set-source-tag" role="function" condition="since:2.36">
+<title>g_task_set_source_tag&#160;()</title>
+<indexterm zone="g-task-set-source-tag" role="2.36"><primary sortas="task_set_source_tag">g_task_set_source_tag</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_task_set_source_tag (<parameter><link linkend="GTask"><type>GTask</type></link> *task</parameter>,
+                       <parameter><link linkend="gpointer"><type>gpointer</type></link> source_tag</parameter>);</programlisting>
+<para>Sets <parameter>task</parameter>
+'s source tag. You can use this to tag a task return
+value with a particular pointer (usually a pointer to the function
+doing the tagging) and then later check it using
+<link linkend="g-task-get-source-tag"><function>g_task_get_source_tag()</function></link> (or <link linkend="g-async-result-is-tagged"><function>g_async_result_is_tagged()</function></link>) in the
+task's "finish" function, to figure out if the response came from a
+particular place.</para>
+<refsect3 id="g-task-set-source-tag.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>task</para></entry>
+<entry role="parameter_description"><para>the <link linkend="GTask"><type>GTask</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>source_tag</para></entry>
+<entry role="parameter_description"><para>an opaque pointer indicating the source of this task</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.36">2.36</link></para></refsect2>
+<refsect2 id="g-task-report-error" role="function" condition="since:2.36">
+<title>g_task_report_error&#160;()</title>
+<indexterm zone="g-task-report-error" role="2.36"><primary sortas="task_report_error">g_task_report_error</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_task_report_error (<parameter><link linkend="gpointer"><type>gpointer</type></link> source_object</parameter>,
+                     <parameter><link linkend="GAsyncReadyCallback"><type>GAsyncReadyCallback</type></link> callback</parameter>,
+                     <parameter><link linkend="gpointer"><type>gpointer</type></link> callback_data</parameter>,
+                     <parameter><link linkend="gpointer"><type>gpointer</type></link> source_tag</parameter>,
+                     <parameter><link linkend="GError"><type>GError</type></link> *error</parameter>);</programlisting>
+<para>Creates a <link linkend="GTask"><type>GTask</type></link> and then immediately calls <link linkend="g-task-return-error"><function>g_task_return_error()</function></link>
+on it. Use this in the wrapper function of an asynchronous method
+when you want to avoid even calling the virtual method. You can
+then use <link linkend="g-async-result-is-tagged"><function>g_async_result_is_tagged()</function></link> in the finish method wrapper to
+check if the result there is tagged as having been created by the
+wrapper method, and deal with it appropriately if so.</para>
+<para>See also <link linkend="g-task-report-new-error"><function>g_task_report_new_error()</function></link>.</para>
+<refsect3 id="g-task-report-error.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>source_object</para></entry>
+<entry role="parameter_description"><para>the <link linkend="GObject"><type>GObject</type></link> that owns
+this task, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>][<acronym>type</acronym> GObject]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>callback</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GAsyncReadyCallback"><type>GAsyncReadyCallback</type></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>scope async</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>callback_data</para></entry>
+<entry role="parameter_description"><para>user data passed to <parameter>callback</parameter>
+. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>closure</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>source_tag</para></entry>
+<entry role="parameter_description"><para>an opaque pointer indicating the source of this task</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para>error to report. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>transfer full</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.36">2.36</link></para></refsect2>
+<refsect2 id="g-task-report-new-error" role="function" condition="since:2.36">
+<title>g_task_report_new_error&#160;()</title>
+<indexterm zone="g-task-report-new-error" role="2.36"><primary sortas="task_report_new_error">g_task_report_new_error</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_task_report_new_error (<parameter><link linkend="gpointer"><type>gpointer</type></link> source_object</parameter>,
+                         <parameter><link linkend="GAsyncReadyCallback"><type>GAsyncReadyCallback</type></link> callback</parameter>,
+                         <parameter><link linkend="gpointer"><type>gpointer</type></link> callback_data</parameter>,
+                         <parameter><link linkend="gpointer"><type>gpointer</type></link> source_tag</parameter>,
+                         <parameter><link linkend="GQuark"><type>GQuark</type></link> domain</parameter>,
+                         <parameter><link linkend="gint"><type>gint</type></link> code</parameter>,
+                         <parameter>const <link linkend="char"><type>char</type></link> *format</parameter>,
+                         <parameter>...</parameter>);</programlisting>
+<para>Creates a <link linkend="GTask"><type>GTask</type></link> and then immediately calls
+<link linkend="g-task-return-new-error"><function>g_task_return_new_error()</function></link> on it. Use this in the wrapper function
+of an asynchronous method when you want to avoid even calling the
+virtual method. You can then use <link linkend="g-async-result-is-tagged"><function>g_async_result_is_tagged()</function></link> in the
+finish method wrapper to check if the result there is tagged as
+having been created by the wrapper method, and deal with it
+appropriately if so.</para>
+<para>See also <link linkend="g-task-report-error"><function>g_task_report_error()</function></link>.</para>
+<refsect3 id="g-task-report-new-error.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>source_object</para></entry>
+<entry role="parameter_description"><para>the <link linkend="GObject"><type>GObject</type></link> that owns
+this task, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>][<acronym>type</acronym> GObject]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>callback</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GAsyncReadyCallback"><type>GAsyncReadyCallback</type></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>scope async</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>callback_data</para></entry>
+<entry role="parameter_description"><para>user data passed to <parameter>callback</parameter>
+. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>closure</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>source_tag</para></entry>
+<entry role="parameter_description"><para>an opaque pointer indicating the source of this task</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>domain</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GQuark"><type>GQuark</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>code</para></entry>
+<entry role="parameter_description"><para>an error code.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>format</para></entry>
+<entry role="parameter_description"><para>a string with format characters.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>...</para></entry>
+<entry role="parameter_description"><para>a list of values to insert into <parameter>format</parameter>
+.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.36">2.36</link></para></refsect2>
+<refsect2 id="g-task-get-task-data" role="function" condition="since:2.36">
+<title>g_task_get_task_data&#160;()</title>
+<indexterm zone="g-task-get-task-data" role="2.36"><primary sortas="task_get_task_data">g_task_get_task_data</primary></indexterm>
+<programlisting language="C"><link linkend="gpointer"><returnvalue>gpointer</returnvalue></link>
+g_task_get_task_data (<parameter><link linkend="GTask"><type>GTask</type></link> *task</parameter>);</programlisting>
+<para>Gets <parameter>task</parameter>
+'s <literal>task_data</literal>.</para>
+<refsect3 id="g-task-get-task-data.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>task</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GTask"><type>GTask</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-task-get-task-data.returns" role="returns">
+<title>Returns</title>
+<para><parameter>task</parameter>
+'s <literal>task_data</literal>. </para>
+<para><emphasis role="annotation">[<acronym>transfer none</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.36">2.36</link></para></refsect2>
+<refsect2 id="g-task-get-priority" role="function" condition="since:2.36">
+<title>g_task_get_priority&#160;()</title>
+<indexterm zone="g-task-get-priority" role="2.36"><primary sortas="task_get_priority">g_task_get_priority</primary></indexterm>
+<programlisting language="C"><link linkend="gint"><returnvalue>gint</returnvalue></link>
+g_task_get_priority (<parameter><link linkend="GTask"><type>GTask</type></link> *task</parameter>);</programlisting>
+<para>Gets <parameter>task</parameter>
+'s priority</para>
+<refsect3 id="g-task-get-priority.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>task</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GTask"><type>GTask</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-task-get-priority.returns" role="returns">
+<title>Returns</title>
+<para> <parameter>task</parameter>
+'s priority</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.36">2.36</link></para></refsect2>
+<refsect2 id="g-task-get-cancellable" role="function" condition="since:2.36">
+<title>g_task_get_cancellable&#160;()</title>
+<indexterm zone="g-task-get-cancellable" role="2.36"><primary sortas="task_get_cancellable">g_task_get_cancellable</primary></indexterm>
+<programlisting language="C"><link linkend="GCancellable"><returnvalue>GCancellable</returnvalue></link>&#160;*
+g_task_get_cancellable (<parameter><link linkend="GTask"><type>GTask</type></link> *task</parameter>);</programlisting>
+<para>Gets <parameter>task</parameter>
+'s <link linkend="GCancellable"><type>GCancellable</type></link></para>
+<refsect3 id="g-task-get-cancellable.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>task</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GTask"><type>GTask</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-task-get-cancellable.returns" role="returns">
+<title>Returns</title>
+<para><parameter>task</parameter>
+'s <link linkend="GCancellable"><type>GCancellable</type></link>. </para>
+<para><emphasis role="annotation">[<acronym>transfer none</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.36">2.36</link></para></refsect2>
+<refsect2 id="g-task-get-check-cancellable" role="function" condition="since:2.36">
+<title>g_task_get_check_cancellable&#160;()</title>
+<indexterm zone="g-task-get-check-cancellable" role="2.36"><primary sortas="task_get_check_cancellable">g_task_get_check_cancellable</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_task_get_check_cancellable (<parameter><link linkend="GTask"><type>GTask</type></link> *task</parameter>);</programlisting>
+<para>Gets <parameter>task</parameter>
+'s check-cancellable flag. See
+<link linkend="g-task-set-check-cancellable"><function>g_task_set_check_cancellable()</function></link> for more details.</para>
+<refsect3 id="g-task-get-check-cancellable.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>task</para></entry>
+<entry role="parameter_description"><para>the <link linkend="GTask"><type>GTask</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.36">2.36</link></para></refsect2>
+<refsect2 id="g-task-get-return-on-cancel" role="function" condition="since:2.36">
+<title>g_task_get_return_on_cancel&#160;()</title>
+<indexterm zone="g-task-get-return-on-cancel" role="2.36"><primary sortas="task_get_return_on_cancel">g_task_get_return_on_cancel</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_task_get_return_on_cancel (<parameter><link linkend="GTask"><type>GTask</type></link> *task</parameter>);</programlisting>
+<para>Gets <parameter>task</parameter>
+'s return-on-cancel flag. See
+<link linkend="g-task-set-return-on-cancel"><function>g_task_set_return_on_cancel()</function></link> for more details.</para>
+<refsect3 id="g-task-get-return-on-cancel.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>task</para></entry>
+<entry role="parameter_description"><para>the <link linkend="GTask"><type>GTask</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.36">2.36</link></para></refsect2>
+<refsect2 id="g-task-get-context" role="function" condition="since:2.36">
+<title>g_task_get_context&#160;()</title>
+<indexterm zone="g-task-get-context" role="2.36"><primary sortas="task_get_context">g_task_get_context</primary></indexterm>
+<programlisting language="C"><link linkend="GMainContext"><returnvalue>GMainContext</returnvalue></link>&#160;*
+g_task_get_context (<parameter><link linkend="GTask"><type>GTask</type></link> *task</parameter>);</programlisting>
+<para>Gets the <link linkend="GMainContext"><type>GMainContext</type></link> that <parameter>task</parameter>
+ will return its result in (that
+is, the context that was the
+<link linkend="g-main-context-push-thread-default">thread-default main context</link>
+at the point when <parameter>task</parameter>
+ was created).</para>
+<para>This will always return a non-<link linkend="NULL:CAPS"><literal>NULL</literal></link> value, even if the task's
+context is the default <link linkend="GMainContext"><type>GMainContext</type></link>.</para>
+<refsect3 id="g-task-get-context.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>task</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GTask"><type>GTask</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-task-get-context.returns" role="returns">
+<title>Returns</title>
+<para><parameter>task</parameter>
+'s <link linkend="GMainContext"><type>GMainContext</type></link>. </para>
+<para><emphasis role="annotation">[<acronym>transfer none</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.36">2.36</link></para></refsect2>
+<refsect2 id="g-task-get-source-object" role="function" condition="since:2.36">
+<title>g_task_get_source_object&#160;()</title>
+<indexterm zone="g-task-get-source-object" role="2.36"><primary sortas="task_get_source_object">g_task_get_source_object</primary></indexterm>
+<programlisting language="C"><link linkend="gpointer"><returnvalue>gpointer</returnvalue></link>
+g_task_get_source_object (<parameter><link linkend="GTask"><type>GTask</type></link> *task</parameter>);</programlisting>
+<para>Gets the source object from <parameter>task</parameter>
+. Like
+<link linkend="g-async-result-get-source-object"><function>g_async_result_get_source_object()</function></link>, but does not ref the object.</para>
+<refsect3 id="g-task-get-source-object.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>task</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GTask"><type>GTask</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-task-get-source-object.returns" role="returns">
+<title>Returns</title>
+<para><parameter>task</parameter>
+'s source object, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para>
+<para><emphasis role="annotation">[<acronym>transfer none</acronym>][<acronym>nullable</acronym>][<acronym>type</acronym> GObject]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.36">2.36</link></para></refsect2>
+<refsect2 id="g-task-get-source-tag" role="function" condition="since:2.36">
+<title>g_task_get_source_tag&#160;()</title>
+<indexterm zone="g-task-get-source-tag" role="2.36"><primary sortas="task_get_source_tag">g_task_get_source_tag</primary></indexterm>
+<programlisting language="C"><link linkend="gpointer"><returnvalue>gpointer</returnvalue></link>
+g_task_get_source_tag (<parameter><link linkend="GTask"><type>GTask</type></link> *task</parameter>);</programlisting>
+<para>Gets <parameter>task</parameter>
+'s source tag. See <link linkend="g-task-set-source-tag"><function>g_task_set_source_tag()</function></link>.</para>
+<refsect3 id="g-task-get-source-tag.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>task</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GTask"><type>GTask</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-task-get-source-tag.returns" role="returns">
+<title>Returns</title>
+<para><parameter>task</parameter>
+'s source tag. </para>
+<para><emphasis role="annotation">[<acronym>transfer none</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.36">2.36</link></para></refsect2>
+<refsect2 id="g-task-return-boolean" role="function" condition="since:2.36">
+<title>g_task_return_boolean&#160;()</title>
+<indexterm zone="g-task-return-boolean" role="2.36"><primary sortas="task_return_boolean">g_task_return_boolean</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_task_return_boolean (<parameter><link linkend="GTask"><type>GTask</type></link> *task</parameter>,
+                       <parameter><link linkend="gboolean"><type>gboolean</type></link> result</parameter>);</programlisting>
+<para>Sets <parameter>task</parameter>
+'s result to <parameter>result</parameter>
+ and completes the task (see
+<link linkend="g-task-return-pointer"><function>g_task_return_pointer()</function></link> for more discussion of exactly what this
+means).</para>
+<refsect3 id="g-task-return-boolean.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>task</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GTask"><type>GTask</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>result</para></entry>
+<entry role="parameter_description"><para>the <link linkend="gboolean"><type>gboolean</type></link> result of a task function.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.36">2.36</link></para></refsect2>
+<refsect2 id="g-task-return-int" role="function" condition="since:2.36">
+<title>g_task_return_int&#160;()</title>
+<indexterm zone="g-task-return-int" role="2.36"><primary sortas="task_return_int">g_task_return_int</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_task_return_int (<parameter><link linkend="GTask"><type>GTask</type></link> *task</parameter>,
+                   <parameter><link linkend="gssize"><type>gssize</type></link> result</parameter>);</programlisting>
+<para>Sets <parameter>task</parameter>
+'s result to <parameter>result</parameter>
+ and completes the task (see
+<link linkend="g-task-return-pointer"><function>g_task_return_pointer()</function></link> for more discussion of exactly what this
+means).</para>
+<refsect3 id="g-task-return-int.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>task</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GTask"><type>GTask</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>result</para></entry>
+<entry role="parameter_description"><para>the integer (<link linkend="gssize"><type>gssize</type></link>) result of a task function.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.36">2.36</link></para></refsect2>
+<refsect2 id="g-task-return-pointer" role="function" condition="since:2.36">
+<title>g_task_return_pointer&#160;()</title>
+<indexterm zone="g-task-return-pointer" role="2.36"><primary sortas="task_return_pointer">g_task_return_pointer</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_task_return_pointer (<parameter><link linkend="GTask"><type>GTask</type></link> *task</parameter>,
+                       <parameter><link linkend="gpointer"><type>gpointer</type></link> result</parameter>,
+                       <parameter><link linkend="GDestroyNotify"><type>GDestroyNotify</type></link> result_destroy</parameter>);</programlisting>
+<para>Sets <parameter>task</parameter>
+'s result to <parameter>result</parameter>
+ and completes the task. If <parameter>result</parameter>
+
+is not <link linkend="NULL:CAPS"><literal>NULL</literal></link>, then <parameter>result_destroy</parameter>
+ will be used to free <parameter>result</parameter>
+ if
+the caller does not take ownership of it with
+<link linkend="g-task-propagate-pointer"><function>g_task_propagate_pointer()</function></link>.</para>
+<para>"Completes the task" means that for an ordinary asynchronous task
+it will either invoke the task's callback, or else queue that
+callback to be invoked in the proper <link linkend="GMainContext"><type>GMainContext</type></link>, or in the next
+iteration of the current <link linkend="GMainContext"><type>GMainContext</type></link>. For a task run via
+<link linkend="g-task-run-in-thread"><function>g_task_run_in_thread()</function></link> or <link linkend="g-task-run-in-thread-sync"><function>g_task_run_in_thread_sync()</function></link>, calling this
+method will save <parameter>result</parameter>
+ to be returned to the caller later, but
+the task will not actually be completed until the <link linkend="GTaskThreadFunc"><type>GTaskThreadFunc</type></link>
+exits.</para>
+<para>Note that since the task may be completed before returning from
+<link linkend="g-task-return-pointer"><function>g_task_return_pointer()</function></link>, you cannot assume that <parameter>result</parameter>
+ is still
+valid after calling this, unless you are still holding another
+reference on it.</para>
+<refsect3 id="g-task-return-pointer.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>task</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GTask"><type>GTask</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>result</para></entry>
+<entry role="parameter_description"><para>the pointer result of a task
+function. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>][<acronym>transfer full</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>result_destroy</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GDestroyNotify"><type>GDestroyNotify</type></link> function. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.36">2.36</link></para></refsect2>
+<refsect2 id="g-task-return-error" role="function" condition="since:2.36">
+<title>g_task_return_error&#160;()</title>
+<indexterm zone="g-task-return-error" role="2.36"><primary sortas="task_return_error">g_task_return_error</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_task_return_error (<parameter><link linkend="GTask"><type>GTask</type></link> *task</parameter>,
+                     <parameter><link linkend="GError"><type>GError</type></link> *error</parameter>);</programlisting>
+<para>Sets <parameter>task</parameter>
+'s result to <parameter>error</parameter>
+ (which <parameter>task</parameter>
+ assumes ownership of)
+and completes the task (see <link linkend="g-task-return-pointer"><function>g_task_return_pointer()</function></link> for more
+discussion of exactly what this means).</para>
+<para>Note that since the task takes ownership of <parameter>error</parameter>
+, and since the
+task may be completed before returning from <link linkend="g-task-return-error"><function>g_task_return_error()</function></link>,
+you cannot assume that <parameter>error</parameter>
+ is still valid after calling this.
+Call <link linkend="g-error-copy"><function>g_error_copy()</function></link> on the error if you need to keep a local copy
+as well.</para>
+<para>See also <link linkend="g-task-return-new-error"><function>g_task_return_new_error()</function></link>.</para>
+<refsect3 id="g-task-return-error.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>task</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GTask"><type>GTask</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para>the <link linkend="GError"><type>GError</type></link> result of a task function. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>transfer full</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.36">2.36</link></para></refsect2>
+<refsect2 id="g-task-return-new-error" role="function" condition="since:2.36">
+<title>g_task_return_new_error&#160;()</title>
+<indexterm zone="g-task-return-new-error" role="2.36"><primary sortas="task_return_new_error">g_task_return_new_error</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_task_return_new_error (<parameter><link linkend="GTask"><type>GTask</type></link> *task</parameter>,
+                         <parameter><link linkend="GQuark"><type>GQuark</type></link> domain</parameter>,
+                         <parameter><link linkend="gint"><type>gint</type></link> code</parameter>,
+                         <parameter>const <link linkend="char"><type>char</type></link> *format</parameter>,
+                         <parameter>...</parameter>);</programlisting>
+<para>Sets <parameter>task</parameter>
+'s result to a new <link linkend="GError"><type>GError</type></link> created from <parameter>domain</parameter>
+, <parameter>code</parameter>
+,
+<parameter>format</parameter>
+, and the remaining arguments, and completes the task (see
+<link linkend="g-task-return-pointer"><function>g_task_return_pointer()</function></link> for more discussion of exactly what this
+means).</para>
+<para>See also <link linkend="g-task-return-error"><function>g_task_return_error()</function></link>.</para>
+<refsect3 id="g-task-return-new-error.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>task</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GTask"><type>GTask</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>domain</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GQuark"><type>GQuark</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>code</para></entry>
+<entry role="parameter_description"><para>an error code.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>format</para></entry>
+<entry role="parameter_description"><para>a string with format characters.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>...</para></entry>
+<entry role="parameter_description"><para>a list of values to insert into <parameter>format</parameter>
+.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.36">2.36</link></para></refsect2>
+<refsect2 id="g-task-return-error-if-cancelled" role="function" condition="since:2.36">
+<title>g_task_return_error_if_cancelled&#160;()</title>
+<indexterm zone="g-task-return-error-if-cancelled" role="2.36"><primary sortas="task_return_error_if_cancelled">g_task_return_error_if_cancelled</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_task_return_error_if_cancelled (<parameter><link linkend="GTask"><type>GTask</type></link> *task</parameter>);</programlisting>
+<para>Checks if <parameter>task</parameter>
+'s <link linkend="GCancellable"><type>GCancellable</type></link> has been cancelled, and if so, sets
+<parameter>task</parameter>
+'s error accordingly and completes the task (see
+<link linkend="g-task-return-pointer"><function>g_task_return_pointer()</function></link> for more discussion of exactly what this
+means).</para>
+<refsect3 id="g-task-return-error-if-cancelled.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>task</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GTask"><type>GTask</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-task-return-error-if-cancelled.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if <parameter>task</parameter>
+has been cancelled, <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> if not</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.36">2.36</link></para></refsect2>
+<refsect2 id="g-task-propagate-boolean" role="function" condition="since:2.36">
+<title>g_task_propagate_boolean&#160;()</title>
+<indexterm zone="g-task-propagate-boolean" role="2.36"><primary sortas="task_propagate_boolean">g_task_propagate_boolean</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_task_propagate_boolean (<parameter><link linkend="GTask"><type>GTask</type></link> *task</parameter>,
+                          <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para>Gets the result of <parameter>task</parameter>
+ as a <link linkend="gboolean"><type>gboolean</type></link>.</para>
+<para>If the task resulted in an error, or was cancelled, then this will
+instead return <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> and set <parameter>error</parameter>
+.</para>
+<para>Since this method transfers ownership of the return value (or
+error) to the caller, you may only call it once.</para>
+<refsect3 id="g-task-propagate-boolean.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>task</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GTask"><type>GTask</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para>return location for a <link linkend="GError"><type>GError</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-task-propagate-boolean.returns" role="returns">
+<title>Returns</title>
+<para> the task result, or <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> on error</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.36">2.36</link></para></refsect2>
+<refsect2 id="g-task-propagate-int" role="function" condition="since:2.36">
+<title>g_task_propagate_int&#160;()</title>
+<indexterm zone="g-task-propagate-int" role="2.36"><primary sortas="task_propagate_int">g_task_propagate_int</primary></indexterm>
+<programlisting language="C"><link linkend="gssize"><returnvalue>gssize</returnvalue></link>
+g_task_propagate_int (<parameter><link linkend="GTask"><type>GTask</type></link> *task</parameter>,
+                      <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para>Gets the result of <parameter>task</parameter>
+ as an integer (<link linkend="gssize"><type>gssize</type></link>).</para>
+<para>If the task resulted in an error, or was cancelled, then this will
+instead return -1 and set <parameter>error</parameter>
+.</para>
+<para>Since this method transfers ownership of the return value (or
+error) to the caller, you may only call it once.</para>
+<refsect3 id="g-task-propagate-int.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>task</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GTask"><type>GTask</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para>return location for a <link linkend="GError"><type>GError</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-task-propagate-int.returns" role="returns">
+<title>Returns</title>
+<para> the task result, or -1 on error</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.36">2.36</link></para></refsect2>
+<refsect2 id="g-task-propagate-pointer" role="function" condition="since:2.36">
+<title>g_task_propagate_pointer&#160;()</title>
+<indexterm zone="g-task-propagate-pointer" role="2.36"><primary sortas="task_propagate_pointer">g_task_propagate_pointer</primary></indexterm>
+<programlisting language="C"><link linkend="gpointer"><returnvalue>gpointer</returnvalue></link>
+g_task_propagate_pointer (<parameter><link linkend="GTask"><type>GTask</type></link> *task</parameter>,
+                          <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para>Gets the result of <parameter>task</parameter>
+ as a pointer, and transfers ownership
+of that value to the caller.</para>
+<para>If the task resulted in an error, or was cancelled, then this will
+instead return <link linkend="NULL:CAPS"><literal>NULL</literal></link> and set <parameter>error</parameter>
+.</para>
+<para>Since this method transfers ownership of the return value (or
+error) to the caller, you may only call it once.</para>
+<refsect3 id="g-task-propagate-pointer.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>task</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GTask"><type>GTask</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para>return location for a <link linkend="GError"><type>GError</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-task-propagate-pointer.returns" role="returns">
+<title>Returns</title>
+<para>the task result, or <link linkend="NULL:CAPS"><literal>NULL</literal></link> on error. </para>
+<para><emphasis role="annotation">[<acronym>transfer full</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.36">2.36</link></para></refsect2>
+<refsect2 id="g-task-had-error" role="function" condition="since:2.36">
+<title>g_task_had_error&#160;()</title>
+<indexterm zone="g-task-had-error" role="2.36"><primary sortas="task_had_error">g_task_had_error</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_task_had_error (<parameter><link linkend="GTask"><type>GTask</type></link> *task</parameter>);</programlisting>
+<para>Tests if <parameter>task</parameter>
+ resulted in an error.</para>
+<refsect3 id="g-task-had-error.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>task</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GTask"><type>GTask</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-task-had-error.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if the task resulted in an error, <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> otherwise.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.36">2.36</link></para></refsect2>
+<refsect2 id="g-task-get-completed" role="function" condition="since:2.44">
+<title>g_task_get_completed&#160;()</title>
+<indexterm zone="g-task-get-completed" role="2.44"><primary sortas="task_get_completed">g_task_get_completed</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_task_get_completed (<parameter><link linkend="GTask"><type>GTask</type></link> *task</parameter>);</programlisting>
+<para>Gets the value of <link linkend="GTask--completed"><type>“completed”</type></link>. This changes from <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> to <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> after
+the task’s callback is invoked, and will return <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> if called from inside
+the callback.</para>
+<refsect3 id="g-task-get-completed.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>task</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GTask"><type>GTask</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-task-get-completed.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if the task has completed, <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> otherwise.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.44">2.44</link></para></refsect2>
+<refsect2 id="g-task-run-in-thread" role="function" condition="since:2.36">
+<title>g_task_run_in_thread&#160;()</title>
+<indexterm zone="g-task-run-in-thread" role="2.36"><primary sortas="task_run_in_thread">g_task_run_in_thread</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_task_run_in_thread (<parameter><link linkend="GTask"><type>GTask</type></link> *task</parameter>,
+                      <parameter><link linkend="GTaskThreadFunc"><type>GTaskThreadFunc</type></link> task_func</parameter>);</programlisting>
+<para>Runs <parameter>task_func</parameter>
+ in another thread. When <parameter>task_func</parameter>
+ returns, <parameter>task</parameter>
+'s
+<link linkend="GAsyncReadyCallback"><type>GAsyncReadyCallback</type></link> will be invoked in <parameter>task</parameter>
+'s <link linkend="GMainContext"><type>GMainContext</type></link>.</para>
+<para>This takes a ref on <parameter>task</parameter>
+ until the task completes.</para>
+<para>See <link linkend="GTaskThreadFunc"><type>GTaskThreadFunc</type></link> for more details about how <parameter>task_func</parameter>
+ is handled.</para>
+<para>Although GLib currently rate-limits the tasks queued via
+<link linkend="g-task-run-in-thread"><function>g_task_run_in_thread()</function></link>, you should not assume that it will always
+do this. If you have a very large number of tasks to run, but don't
+want them to all run at once, you should only queue a limited
+number of them at a time.</para>
+<refsect3 id="g-task-run-in-thread.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>task</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GTask"><type>GTask</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>task_func</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GTaskThreadFunc"><type>GTaskThreadFunc</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.36">2.36</link></para></refsect2>
+<refsect2 id="g-task-run-in-thread-sync" role="function" condition="since:2.36">
+<title>g_task_run_in_thread_sync&#160;()</title>
+<indexterm zone="g-task-run-in-thread-sync" role="2.36"><primary sortas="task_run_in_thread_sync">g_task_run_in_thread_sync</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_task_run_in_thread_sync (<parameter><link linkend="GTask"><type>GTask</type></link> *task</parameter>,
+                           <parameter><link linkend="GTaskThreadFunc"><type>GTaskThreadFunc</type></link> task_func</parameter>);</programlisting>
+<para>Runs <parameter>task_func</parameter>
+ in another thread, and waits for it to return or be
+cancelled. You can use <link linkend="g-task-propagate-pointer"><function>g_task_propagate_pointer()</function></link>, etc, afterward
+to get the result of <parameter>task_func</parameter>
+.</para>
+<para>See <link linkend="GTaskThreadFunc"><type>GTaskThreadFunc</type></link> for more details about how <parameter>task_func</parameter>
+ is handled.</para>
+<para>Normally this is used with tasks created with a <link linkend="NULL:CAPS"><literal>NULL</literal></link>
+<literal>callback</literal>, but note that even if the task does
+have a callback, it will not be invoked when <parameter>task_func</parameter>
+ returns.
+<link linkend="GTask--completed"><type>“completed”</type></link> will be set to <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> just before this function returns.</para>
+<para>Although GLib currently rate-limits the tasks queued via
+<link linkend="g-task-run-in-thread-sync"><function>g_task_run_in_thread_sync()</function></link>, you should not assume that it will
+always do this. If you have a very large number of tasks to run,
+but don't want them to all run at once, you should only queue a
+limited number of them at a time.</para>
+<refsect3 id="g-task-run-in-thread-sync.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>task</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GTask"><type>GTask</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>task_func</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GTaskThreadFunc"><type>GTaskThreadFunc</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.36">2.36</link></para></refsect2>
+<refsect2 id="GTaskThreadFunc" role="function" condition="since:2.36">
+<title>GTaskThreadFunc&#160;()</title>
+<indexterm zone="GTaskThreadFunc" role="2.36"><primary sortas="TaskThreadFunc">GTaskThreadFunc</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+<phrase role="c_punctuation">(</phrase>*GTaskThreadFunc<phrase role="c_punctuation">)</phrase> (<parameter><link linkend="GTask"><type>GTask</type></link> *task</parameter>,
+                    <parameter><link linkend="gpointer"><type>gpointer</type></link> source_object</parameter>,
+                    <parameter><link linkend="gpointer"><type>gpointer</type></link> task_data</parameter>,
+                    <parameter><link linkend="GCancellable"><type>GCancellable</type></link> *cancellable</parameter>);</programlisting>
+<para>The prototype for a task function to be run in a thread via
+<link linkend="g-task-run-in-thread"><function>g_task_run_in_thread()</function></link> or <link linkend="g-task-run-in-thread-sync"><function>g_task_run_in_thread_sync()</function></link>.</para>
+<para>If the return-on-cancel flag is set on <parameter>task</parameter>
+, and <parameter>cancellable</parameter>
+ gets
+cancelled, then the <link linkend="GTask"><type>GTask</type></link> will be completed immediately (as though
+<link linkend="g-task-return-error-if-cancelled"><function>g_task_return_error_if_cancelled()</function></link> had been called), without
+waiting for the task function to complete. However, the task
+function will continue running in its thread in the background. The
+function therefore needs to be careful about how it uses
+externally-visible state in this case. See
+<link linkend="g-task-set-return-on-cancel"><function>g_task_set_return_on_cancel()</function></link> for more details.</para>
+<para>Other than in that case, <parameter>task</parameter>
+ will be completed when the
+<link linkend="GTaskThreadFunc"><type>GTaskThreadFunc</type></link> returns, not when it calls a
+<literal>g_task_return_</literal> function.</para>
+<refsect3 id="GTaskThreadFunc.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>task</para></entry>
+<entry role="parameter_description"><para>the <link linkend="GTask"><type>GTask</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>source_object</para></entry>
+<entry role="parameter_description"><para><parameter>task</parameter>
+'s source object. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>type</acronym> GObject]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>task_data</para></entry>
+<entry role="parameter_description"><para><parameter>task</parameter>
+'s task data</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>cancellable</para></entry>
+<entry role="parameter_description"><para><parameter>task</parameter>
+'s <link linkend="GCancellable"><type>GCancellable</type></link>, or <link linkend="NULL:CAPS"><literal>NULL</literal></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.36">2.36</link></para></refsect2>
+<refsect2 id="g-task-attach-source" role="function" condition="since:2.36">
+<title>g_task_attach_source&#160;()</title>
+<indexterm zone="g-task-attach-source" role="2.36"><primary sortas="task_attach_source">g_task_attach_source</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_task_attach_source (<parameter><link linkend="GTask"><type>GTask</type></link> *task</parameter>,
+                      <parameter><link linkend="GSource"><type>GSource</type></link> *source</parameter>,
+                      <parameter><link linkend="GSourceFunc"><type>GSourceFunc</type></link> callback</parameter>);</programlisting>
+<para>A utility function for dealing with async operations where you need
+to wait for a <link linkend="GSource"><type>GSource</type></link> to trigger. Attaches <parameter>source</parameter>
+ to <parameter>task</parameter>
+'s
+<link linkend="GMainContext"><type>GMainContext</type></link> with <parameter>task</parameter>
+'s <link linkend="io-priority">priority</link>, and sets <parameter>source</parameter>
+'s
+callback to <parameter>callback</parameter>
+, with <parameter>task</parameter>
+ as the callback's <literal>user_data</literal>.</para>
+<para>This takes a reference on <parameter>task</parameter>
+ until <parameter>source</parameter>
+ is destroyed.</para>
+<refsect3 id="g-task-attach-source.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>task</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GTask"><type>GTask</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>source</para></entry>
+<entry role="parameter_description"><para>the source to attach</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>callback</para></entry>
+<entry role="parameter_description"><para>the callback to invoke when <parameter>source</parameter>
+triggers</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.36">2.36</link></para></refsect2>
+<refsect2 id="g-task-is-valid" role="function" condition="since:2.36">
+<title>g_task_is_valid&#160;()</title>
+<indexterm zone="g-task-is-valid" role="2.36"><primary sortas="task_is_valid">g_task_is_valid</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_task_is_valid (<parameter><link linkend="gpointer"><type>gpointer</type></link> result</parameter>,
+                 <parameter><link linkend="gpointer"><type>gpointer</type></link> source_object</parameter>);</programlisting>
+<para>Checks that <parameter>result</parameter>
+ is a <link linkend="GTask"><type>GTask</type></link>, and that <parameter>source_object</parameter>
+ is its
+source object (or that <parameter>source_object</parameter>
+ is <link linkend="NULL:CAPS"><literal>NULL</literal></link> and <parameter>result</parameter>
+ has no
+source object). This can be used in <link linkend="g-return-if-fail"><function>g_return_if_fail()</function></link> checks.</para>
+<refsect3 id="g-task-is-valid.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>result</para></entry>
+<entry role="parameter_description"><para>A <link linkend="GAsyncResult"><type>GAsyncResult</type></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>type</acronym> Gio.AsyncResult]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>source_object</para></entry>
+<entry role="parameter_description"><para>the source object
+expected to be associated with the task. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>][<acronym>type</acronym> GObject]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-task-is-valid.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if <parameter>result</parameter>
+and <parameter>source_object</parameter>
+are valid, <link linkend="FALSE:CAPS"><literal>FALSE</literal></link>
+if not</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.36">2.36</link></para></refsect2>
+
+</refsect1>
+<refsect1 id="GTask.other_details" role="details">
+<title role="details.title">Types and Values</title>
+<refsect2 id="GTask-struct" role="struct">
+<title>GTask</title>
+<indexterm zone="GTask-struct"><primary sortas="Task">GTask</primary></indexterm>
+<programlisting language="C">typedef struct _GTask GTask;</programlisting>
+<para>The opaque object representing a synchronous or asynchronous task
+and its result.</para>
+</refsect2>
+
+</refsect1>
+<refsect1 id="GTask.property-details" role="property_details">
+<title role="property_details.title">Property Details</title>
+<refsect2 id="GTask--completed" role="property"><title>The <literal>“completed”</literal> property</title>
+<indexterm zone="GTask--completed" role="2.44"><primary sortas="Task:completed">GTask:completed</primary></indexterm>
+<programlisting>  “completed”                <link linkend="gboolean"><type>gboolean</type></link></programlisting>
+<para>Whether the task has completed, meaning its callback (if set) has been
+invoked. This can only happen after <link linkend="g-task-return-pointer"><function>g_task_return_pointer()</function></link>,
+<link linkend="g-task-return-error"><function>g_task_return_error()</function></link> or one of the other return functions have been called
+on the task.</para>
+<para>This property is guaranteed to change from <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> to <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> exactly once.</para>
+<para>The <link linkend="GObject-notify"><type>“notify”</type></link> signal for this change is emitted in the same main
+context as the task’s callback, immediately after that callback is invoked.</para>
+<para>Flags: Read</para>
+<para>Default value: FALSE</para>
+<para role="since">Since: <link linkend="api-index-2.44">2.44</link></para></refsect2>
+
+</refsect1>
+<refsect1 id="GTask.see-also">
+<title>See Also</title>
+<para><link linkend="GAsyncResult"><type>GAsyncResult</type></link></para>
+
+</refsect1>
+
+</refentry>

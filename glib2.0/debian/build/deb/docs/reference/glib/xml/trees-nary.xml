@@ -1,0 +1,1410 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC '-//OASIS//DTD DocBook XML V4.5//EN'
+                      'http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd' [
+<!ENTITY % local.common.attrib "xmlns:xi  CDATA  #FIXED 'http://www.w3.org/2003/XInclude'">
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="glib-N-ary-Trees">
+<refmeta>
+<refentrytitle role="top_of_page" id="glib-N-ary-Trees.top_of_page">N-ary Trees</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>GLIB Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>N-ary Trees</refname>
+<refpurpose>trees of data with any number of branches</refpurpose>
+</refnamediv>
+
+<refsect1 id="glib-N-ary-Trees.functions" role="functions_proto">
+<title role="functions_proto.title">Functions</title>
+<informaltable pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="functions_return" colwidth="150px"/>
+<colspec colname="functions_name"/>
+<tbody>
+<row><entry role="function_type"><link linkend="GNode"><returnvalue>GNode</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-node-new">g_node_new</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GNode"><returnvalue>GNode</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-node-copy">g_node_copy</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gpointer"><returnvalue>gpointer</returnvalue></link>
+</entry><entry role="function_name"><phrase role="c_punctuation">(</phrase><link linkend="GCopyFunc">*GCopyFunc</link><phrase role="c_punctuation">)</phrase>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GNode"><returnvalue>GNode</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-node-copy-deep">g_node_copy_deep</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+<row><entry role="function_type"><link linkend="GNode"><returnvalue>GNode</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-node-insert">g_node_insert</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GNode"><returnvalue>GNode</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-node-insert-before">g_node_insert_before</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GNode"><returnvalue>GNode</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-node-insert-after">g_node_insert_after</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="g-node-append">g_node_append</link><phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GNode"><returnvalue>GNode</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-node-prepend">g_node_prepend</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="g-node-insert-data">g_node_insert_data</link><phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="g-node-insert-data-after">g_node_insert_data_after</link><phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="g-node-insert-data-before">g_node_insert_data_before</link><phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="g-node-append-data">g_node_append_data</link><phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="g-node-prepend-data">g_node_prepend_data</link><phrase role="c_punctuation">()</phrase></entry></row>
+
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-node-reverse-children">g_node_reverse_children</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-node-traverse">g_node_traverse</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><phrase role="c_punctuation">(</phrase><link linkend="GNodeTraverseFunc">*GNodeTraverseFunc</link><phrase role="c_punctuation">)</phrase>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-node-children-foreach">g_node_children_foreach</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><phrase role="c_punctuation">(</phrase><link linkend="GNodeForeachFunc">*GNodeForeachFunc</link><phrase role="c_punctuation">)</phrase>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+<row><entry role="function_type"><link linkend="GNode"><returnvalue>GNode</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-node-get-root">g_node_get_root</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GNode"><returnvalue>GNode</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-node-find">g_node_find</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GNode"><returnvalue>GNode</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-node-find-child">g_node_find_child</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gint"><returnvalue>gint</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-node-child-index">g_node_child_index</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gint"><returnvalue>gint</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-node-child-position">g_node_child_position</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="g-node-first-child">g_node_first_child</link><phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GNode"><returnvalue>GNode</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-node-last-child">g_node_last_child</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GNode"><returnvalue>GNode</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-node-nth-child">g_node_nth_child</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GNode"><returnvalue>GNode</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-node-first-sibling">g_node_first_sibling</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="g-node-next-sibling">g_node_next_sibling</link><phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="g-node-prev-sibling">g_node_prev_sibling</link><phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GNode"><returnvalue>GNode</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-node-last-sibling">g_node_last_sibling</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="G-NODE-IS-LEAF:CAPS">G_NODE_IS_LEAF</link><phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="G-NODE-IS-ROOT:CAPS">G_NODE_IS_ROOT</link><phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="guint"><returnvalue>guint</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-node-depth">g_node_depth</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="guint"><returnvalue>guint</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-node-n-nodes">g_node_n_nodes</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="guint"><returnvalue>guint</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-node-n-children">g_node_n_children</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-node-is-ancestor">g_node_is_ancestor</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="guint"><returnvalue>guint</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-node-max-height">g_node_max_height</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-node-unlink">g_node_unlink</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-node-destroy">g_node_destroy</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="glib-N-ary-Trees.other" role="other_proto">
+<title role="other_proto.title">Types and Values</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="name" colwidth="150px"/>
+<colspec colname="description"/>
+<tbody>
+<row><entry role="datatype_keyword">struct</entry><entry role="function_name"><link linkend="GNode">GNode</link></entry></row>
+
+
+
+<row><entry role="datatype_keyword">enum</entry><entry role="function_name"><link linkend="GTraverseType">GTraverseType</link></entry></row>
+<row><entry role="datatype_keyword">enum</entry><entry role="function_name"><link linkend="GTraverseFlags">GTraverseFlags</link></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+
+<refsect1 id="glib-N-ary-Trees.includes"><title>Includes</title><synopsis>#include &lt;gmodule.h&gt;
+</synopsis></refsect1>
+
+<refsect1 id="glib-N-ary-Trees.description" role="desc">
+<title role="desc.title">Description</title>
+<para>The <link linkend="GNode"><type>GNode</type></link> struct and its associated functions provide a N-ary tree
+data structure, where nodes in the tree can contain arbitrary data.</para>
+<para>To create a new tree use <link linkend="g-node-new"><function>g_node_new()</function></link>.</para>
+<para>To insert a node into a tree use <link linkend="g-node-insert"><function>g_node_insert()</function></link>,
+<link linkend="g-node-insert-before"><function>g_node_insert_before()</function></link>, <link linkend="g-node-append"><function>g_node_append()</function></link> and <link linkend="g-node-prepend"><function>g_node_prepend()</function></link>.</para>
+<para>To create a new node and insert it into a tree use
+<link linkend="g-node-insert-data"><function>g_node_insert_data()</function></link>, <link linkend="g-node-insert-data-after"><function>g_node_insert_data_after()</function></link>,
+<link linkend="g-node-insert-data-before"><function>g_node_insert_data_before()</function></link>, <link linkend="g-node-append-data"><function>g_node_append_data()</function></link>
+and <link linkend="g-node-prepend-data"><function>g_node_prepend_data()</function></link>.</para>
+<para>To reverse the children of a node use <link linkend="g-node-reverse-children"><function>g_node_reverse_children()</function></link>.</para>
+<para>To find a node use <link linkend="g-node-get-root"><function>g_node_get_root()</function></link>, <link linkend="g-node-find"><function>g_node_find()</function></link>,
+<link linkend="g-node-find-child"><function>g_node_find_child()</function></link>, <link linkend="g-node-child-index"><function>g_node_child_index()</function></link>, <link linkend="g-node-child-position"><function>g_node_child_position()</function></link>,
+<link linkend="g-node-first-child"><function>g_node_first_child()</function></link>, <link linkend="g-node-last-child"><function>g_node_last_child()</function></link>, <link linkend="g-node-nth-child"><function>g_node_nth_child()</function></link>,
+<link linkend="g-node-first-sibling"><function>g_node_first_sibling()</function></link>, <link linkend="g-node-prev-sibling"><function>g_node_prev_sibling()</function></link>, <link linkend="g-node-next-sibling"><function>g_node_next_sibling()</function></link>
+or <link linkend="g-node-last-sibling"><function>g_node_last_sibling()</function></link>.</para>
+<para>To get information about a node or tree use <link linkend="G-NODE-IS-LEAF:CAPS"><function>G_NODE_IS_LEAF()</function></link>,
+<link linkend="G-NODE-IS-ROOT:CAPS"><function>G_NODE_IS_ROOT()</function></link>, <link linkend="g-node-depth"><function>g_node_depth()</function></link>, <link linkend="g-node-n-nodes"><function>g_node_n_nodes()</function></link>,
+<link linkend="g-node-n-children"><function>g_node_n_children()</function></link>, <link linkend="g-node-is-ancestor"><function>g_node_is_ancestor()</function></link> or <link linkend="g-node-max-height"><function>g_node_max_height()</function></link>.</para>
+<para>To traverse a tree, calling a function for each node visited in the
+traversal, use <link linkend="g-node-traverse"><function>g_node_traverse()</function></link> or <link linkend="g-node-children-foreach"><function>g_node_children_foreach()</function></link>.</para>
+<para>To remove a node or subtree from a tree use <link linkend="g-node-unlink"><function>g_node_unlink()</function></link> or
+<link linkend="g-node-destroy"><function>g_node_destroy()</function></link>.</para>
+
+</refsect1>
+<refsect1 id="glib-N-ary-Trees.functions_details" role="details">
+<title role="details.title">Functions</title>
+<refsect2 id="g-node-new" role="function">
+<title>g_node_new&#160;()</title>
+<indexterm zone="g-node-new"><primary sortas="node_new">g_node_new</primary></indexterm>
+<programlisting language="C"><link linkend="GNode"><returnvalue>GNode</returnvalue></link>&#160;*
+g_node_new (<parameter><link linkend="gpointer"><type>gpointer</type></link> data</parameter>);</programlisting>
+<para>Creates a new <link linkend="GNode"><type>GNode</type></link> containing the given data.
+Used to create the first node in a tree.</para>
+<refsect3 id="g-node-new.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>data</para></entry>
+<entry role="parameter_description"><para>the data of the new node</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-node-new.returns" role="returns">
+<title>Returns</title>
+<para> a new <link linkend="GNode"><type>GNode</type></link></para>
+</refsect3></refsect2>
+<refsect2 id="g-node-copy" role="function">
+<title>g_node_copy&#160;()</title>
+<indexterm zone="g-node-copy"><primary sortas="node_copy">g_node_copy</primary></indexterm>
+<programlisting language="C"><link linkend="GNode"><returnvalue>GNode</returnvalue></link>&#160;*
+g_node_copy (<parameter><link linkend="GNode"><type>GNode</type></link> *node</parameter>);</programlisting>
+<para>Recursively copies a <link linkend="GNode"><type>GNode</type></link> (but does not deep-copy the data inside the 
+nodes, see <link linkend="g-node-copy-deep"><function>g_node_copy_deep()</function></link> if you need that).</para>
+<refsect3 id="g-node-copy.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>node</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GNode"><type>GNode</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-node-copy.returns" role="returns">
+<title>Returns</title>
+<para> a new <link linkend="GNode"><type>GNode</type></link> containing the same data pointers</para>
+</refsect3></refsect2>
+<refsect2 id="GCopyFunc" role="function" condition="since:2.4">
+<title>GCopyFunc&#160;()</title>
+<indexterm zone="GCopyFunc" role="2.4"><primary sortas="CopyFunc">GCopyFunc</primary></indexterm>
+<programlisting language="C"><link linkend="gpointer"><returnvalue>gpointer</returnvalue></link>
+<phrase role="c_punctuation">(</phrase>*GCopyFunc<phrase role="c_punctuation">)</phrase> (<parameter><link linkend="gconstpointer"><type>gconstpointer</type></link> src</parameter>,
+              <parameter><link linkend="gpointer"><type>gpointer</type></link> data</parameter>);</programlisting>
+<para>A function of this signature is used to copy the node data 
+when doing a deep-copy of a tree.</para>
+<refsect3 id="GCopyFunc.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>src</para></entry>
+<entry role="parameter_description"><para>A pointer to the data which should be copied. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>not nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>data</para></entry>
+<entry role="parameter_description"><para>Additional data</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="GCopyFunc.returns" role="returns">
+<title>Returns</title>
+<para>A pointer to the copy. </para>
+<para><emphasis role="annotation">[<acronym>not nullable</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.4">2.4</link></para></refsect2>
+<refsect2 id="g-node-copy-deep" role="function" condition="since:2.4">
+<title>g_node_copy_deep&#160;()</title>
+<indexterm zone="g-node-copy-deep" role="2.4"><primary sortas="node_copy_deep">g_node_copy_deep</primary></indexterm>
+<programlisting language="C"><link linkend="GNode"><returnvalue>GNode</returnvalue></link>&#160;*
+g_node_copy_deep (<parameter><link linkend="GNode"><type>GNode</type></link> *node</parameter>,
+                  <parameter><link linkend="GCopyFunc"><type>GCopyFunc</type></link> copy_func</parameter>,
+                  <parameter><link linkend="gpointer"><type>gpointer</type></link> data</parameter>);</programlisting>
+<para>Recursively copies a <link linkend="GNode"><type>GNode</type></link> and its data.</para>
+<refsect3 id="g-node-copy-deep.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>node</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GNode"><type>GNode</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>copy_func</para></entry>
+<entry role="parameter_description"><para>the function which is called to copy the data inside each node,
+or <link linkend="NULL:CAPS"><literal>NULL</literal></link> to use the original data.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>data</para></entry>
+<entry role="parameter_description"><para>data to pass to <parameter>copy_func</parameter>
+</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-node-copy-deep.returns" role="returns">
+<title>Returns</title>
+<para> a new <link linkend="GNode"><type>GNode</type></link> containing copies of the data in <parameter>node</parameter>
+.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.4">2.4</link></para></refsect2>
+<refsect2 id="g-node-insert" role="function">
+<title>g_node_insert&#160;()</title>
+<indexterm zone="g-node-insert"><primary sortas="node_insert">g_node_insert</primary></indexterm>
+<programlisting language="C"><link linkend="GNode"><returnvalue>GNode</returnvalue></link>&#160;*
+g_node_insert (<parameter><link linkend="GNode"><type>GNode</type></link> *parent</parameter>,
+               <parameter><link linkend="gint"><type>gint</type></link> position</parameter>,
+               <parameter><link linkend="GNode"><type>GNode</type></link> *node</parameter>);</programlisting>
+<para>Inserts a <link linkend="GNode"><type>GNode</type></link> beneath the parent at the given position.</para>
+<refsect3 id="g-node-insert.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>parent</para></entry>
+<entry role="parameter_description"><para>the <link linkend="GNode"><type>GNode</type></link> to place <parameter>node</parameter>
+under</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>position</para></entry>
+<entry role="parameter_description"><para>the position to place <parameter>node</parameter>
+at, with respect to its siblings
+If position is -1, <parameter>node</parameter>
+is inserted as the last child of <parameter>parent</parameter>
+</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>node</para></entry>
+<entry role="parameter_description"><para>the <link linkend="GNode"><type>GNode</type></link> to insert</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-node-insert.returns" role="returns">
+<title>Returns</title>
+<para> the inserted <link linkend="GNode"><type>GNode</type></link></para>
+</refsect3></refsect2>
+<refsect2 id="g-node-insert-before" role="function">
+<title>g_node_insert_before&#160;()</title>
+<indexterm zone="g-node-insert-before"><primary sortas="node_insert_before">g_node_insert_before</primary></indexterm>
+<programlisting language="C"><link linkend="GNode"><returnvalue>GNode</returnvalue></link>&#160;*
+g_node_insert_before (<parameter><link linkend="GNode"><type>GNode</type></link> *parent</parameter>,
+                      <parameter><link linkend="GNode"><type>GNode</type></link> *sibling</parameter>,
+                      <parameter><link linkend="GNode"><type>GNode</type></link> *node</parameter>);</programlisting>
+<para>Inserts a <link linkend="GNode"><type>GNode</type></link> beneath the parent before the given sibling.</para>
+<refsect3 id="g-node-insert-before.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>parent</para></entry>
+<entry role="parameter_description"><para>the <link linkend="GNode"><type>GNode</type></link> to place <parameter>node</parameter>
+under</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>sibling</para></entry>
+<entry role="parameter_description"><para>the sibling <link linkend="GNode"><type>GNode</type></link> to place <parameter>node</parameter>
+before.
+If sibling is <link linkend="NULL:CAPS"><literal>NULL</literal></link>, the node is inserted as the last child of <parameter>parent</parameter>
+.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>node</para></entry>
+<entry role="parameter_description"><para>the <link linkend="GNode"><type>GNode</type></link> to insert</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-node-insert-before.returns" role="returns">
+<title>Returns</title>
+<para> the inserted <link linkend="GNode"><type>GNode</type></link></para>
+</refsect3></refsect2>
+<refsect2 id="g-node-insert-after" role="function">
+<title>g_node_insert_after&#160;()</title>
+<indexterm zone="g-node-insert-after"><primary sortas="node_insert_after">g_node_insert_after</primary></indexterm>
+<programlisting language="C"><link linkend="GNode"><returnvalue>GNode</returnvalue></link>&#160;*
+g_node_insert_after (<parameter><link linkend="GNode"><type>GNode</type></link> *parent</parameter>,
+                     <parameter><link linkend="GNode"><type>GNode</type></link> *sibling</parameter>,
+                     <parameter><link linkend="GNode"><type>GNode</type></link> *node</parameter>);</programlisting>
+<para>Inserts a <link linkend="GNode"><type>GNode</type></link> beneath the parent after the given sibling.</para>
+<refsect3 id="g-node-insert-after.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>parent</para></entry>
+<entry role="parameter_description"><para>the <link linkend="GNode"><type>GNode</type></link> to place <parameter>node</parameter>
+under</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>sibling</para></entry>
+<entry role="parameter_description"><para>the sibling <link linkend="GNode"><type>GNode</type></link> to place <parameter>node</parameter>
+after.
+If sibling is <link linkend="NULL:CAPS"><literal>NULL</literal></link>, the node is inserted as the first child of <parameter>parent</parameter>
+.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>node</para></entry>
+<entry role="parameter_description"><para>the <link linkend="GNode"><type>GNode</type></link> to insert</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-node-insert-after.returns" role="returns">
+<title>Returns</title>
+<para> the inserted <link linkend="GNode"><type>GNode</type></link></para>
+</refsect3></refsect2>
+<refsect2 id="g-node-append" role="macro">
+<title>g_node_append()</title>
+<indexterm zone="g-node-append"><primary sortas="node_append">g_node_append</primary></indexterm>
+<programlisting language="C">#define             g_node_append(parent, node)</programlisting>
+<para>Inserts a <link linkend="GNode"><type>GNode</type></link> as the last child of the given parent.</para>
+<refsect3 id="g-node-append.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>parent</para></entry>
+<entry role="parameter_description"><para>the <link linkend="GNode"><type>GNode</type></link> to place the new <link linkend="GNode"><type>GNode</type></link> under</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>node</para></entry>
+<entry role="parameter_description"><para>the <link linkend="GNode"><type>GNode</type></link> to insert</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-node-append.returns" role="returns">
+<title>Returns</title>
+<para> the inserted <link linkend="GNode"><type>GNode</type></link></para>
+</refsect3></refsect2>
+<refsect2 id="g-node-prepend" role="function">
+<title>g_node_prepend&#160;()</title>
+<indexterm zone="g-node-prepend"><primary sortas="node_prepend">g_node_prepend</primary></indexterm>
+<programlisting language="C"><link linkend="GNode"><returnvalue>GNode</returnvalue></link>&#160;*
+g_node_prepend (<parameter><link linkend="GNode"><type>GNode</type></link> *parent</parameter>,
+                <parameter><link linkend="GNode"><type>GNode</type></link> *node</parameter>);</programlisting>
+<para>Inserts a <link linkend="GNode"><type>GNode</type></link> as the first child of the given parent.</para>
+<refsect3 id="g-node-prepend.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>parent</para></entry>
+<entry role="parameter_description"><para>the <link linkend="GNode"><type>GNode</type></link> to place the new <link linkend="GNode"><type>GNode</type></link> under</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>node</para></entry>
+<entry role="parameter_description"><para>the <link linkend="GNode"><type>GNode</type></link> to insert</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-node-prepend.returns" role="returns">
+<title>Returns</title>
+<para> the inserted <link linkend="GNode"><type>GNode</type></link></para>
+</refsect3></refsect2>
+<refsect2 id="g-node-insert-data" role="macro">
+<title>g_node_insert_data()</title>
+<indexterm zone="g-node-insert-data"><primary sortas="node_insert_data">g_node_insert_data</primary></indexterm>
+<programlisting language="C">#define             g_node_insert_data(parent, position, data)</programlisting>
+<para>Inserts a new <link linkend="GNode"><type>GNode</type></link> at the given position.</para>
+<refsect3 id="g-node-insert-data.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>parent</para></entry>
+<entry role="parameter_description"><para>the <link linkend="GNode"><type>GNode</type></link> to place the new <link linkend="GNode"><type>GNode</type></link> under</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>position</para></entry>
+<entry role="parameter_description"><para>the position to place the new <link linkend="GNode"><type>GNode</type></link> at. If position is -1,
+the new <link linkend="GNode"><type>GNode</type></link> is inserted as the last child of <parameter>parent</parameter>
+</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>data</para></entry>
+<entry role="parameter_description"><para>the data for the new <link linkend="GNode"><type>GNode</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-node-insert-data.returns" role="returns">
+<title>Returns</title>
+<para> the new <link linkend="GNode"><type>GNode</type></link></para>
+</refsect3></refsect2>
+<refsect2 id="g-node-insert-data-after" role="macro">
+<title>g_node_insert_data_after()</title>
+<indexterm zone="g-node-insert-data-after"><primary sortas="node_insert_data_after">g_node_insert_data_after</primary></indexterm>
+<programlisting language="C">#define             g_node_insert_data_after(parent, sibling, data)</programlisting>
+<para>Inserts a new <link linkend="GNode"><type>GNode</type></link> after the given sibling.</para>
+<refsect3 id="g-node-insert-data-after.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>parent</para></entry>
+<entry role="parameter_description"><para>the <link linkend="GNode"><type>GNode</type></link> to place the new <link linkend="GNode"><type>GNode</type></link> under</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>sibling</para></entry>
+<entry role="parameter_description"><para>the sibling <link linkend="GNode"><type>GNode</type></link> to place the new <link linkend="GNode"><type>GNode</type></link> after</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>data</para></entry>
+<entry role="parameter_description"><para>the data for the new <link linkend="GNode"><type>GNode</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-node-insert-data-after.returns" role="returns">
+<title>Returns</title>
+<para> the new <link linkend="GNode"><type>GNode</type></link></para>
+</refsect3></refsect2>
+<refsect2 id="g-node-insert-data-before" role="macro">
+<title>g_node_insert_data_before()</title>
+<indexterm zone="g-node-insert-data-before"><primary sortas="node_insert_data_before">g_node_insert_data_before</primary></indexterm>
+<programlisting language="C">#define             g_node_insert_data_before(parent, sibling, data)</programlisting>
+<para>Inserts a new <link linkend="GNode"><type>GNode</type></link> before the given sibling.</para>
+<refsect3 id="g-node-insert-data-before.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>parent</para></entry>
+<entry role="parameter_description"><para>the <link linkend="GNode"><type>GNode</type></link> to place the new <link linkend="GNode"><type>GNode</type></link> under</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>sibling</para></entry>
+<entry role="parameter_description"><para>the sibling <link linkend="GNode"><type>GNode</type></link> to place the new <link linkend="GNode"><type>GNode</type></link> before</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>data</para></entry>
+<entry role="parameter_description"><para>the data for the new <link linkend="GNode"><type>GNode</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-node-insert-data-before.returns" role="returns">
+<title>Returns</title>
+<para> the new <link linkend="GNode"><type>GNode</type></link></para>
+</refsect3></refsect2>
+<refsect2 id="g-node-append-data" role="macro">
+<title>g_node_append_data()</title>
+<indexterm zone="g-node-append-data"><primary sortas="node_append_data">g_node_append_data</primary></indexterm>
+<programlisting language="C">#define             g_node_append_data(parent, data)</programlisting>
+<para>Inserts a new <link linkend="GNode"><type>GNode</type></link> as the last child of the given parent.</para>
+<refsect3 id="g-node-append-data.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>parent</para></entry>
+<entry role="parameter_description"><para>the <link linkend="GNode"><type>GNode</type></link> to place the new <link linkend="GNode"><type>GNode</type></link> under</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>data</para></entry>
+<entry role="parameter_description"><para>the data for the new <link linkend="GNode"><type>GNode</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-node-append-data.returns" role="returns">
+<title>Returns</title>
+<para> the new <link linkend="GNode"><type>GNode</type></link></para>
+</refsect3></refsect2>
+<refsect2 id="g-node-prepend-data" role="macro">
+<title>g_node_prepend_data()</title>
+<indexterm zone="g-node-prepend-data"><primary sortas="node_prepend_data">g_node_prepend_data</primary></indexterm>
+<programlisting language="C">#define             g_node_prepend_data(parent, data)</programlisting>
+<para>Inserts a new <link linkend="GNode"><type>GNode</type></link> as the first child of the given parent.</para>
+<refsect3 id="g-node-prepend-data.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>parent</para></entry>
+<entry role="parameter_description"><para>the <link linkend="GNode"><type>GNode</type></link> to place the new <link linkend="GNode"><type>GNode</type></link> under</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>data</para></entry>
+<entry role="parameter_description"><para>the data for the new <link linkend="GNode"><type>GNode</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-node-prepend-data.returns" role="returns">
+<title>Returns</title>
+<para> the new <link linkend="GNode"><type>GNode</type></link></para>
+</refsect3></refsect2>
+<refsect2 id="g-node-reverse-children" role="function">
+<title>g_node_reverse_children&#160;()</title>
+<indexterm zone="g-node-reverse-children"><primary sortas="node_reverse_children">g_node_reverse_children</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_node_reverse_children (<parameter><link linkend="GNode"><type>GNode</type></link> *node</parameter>);</programlisting>
+<para>Reverses the order of the children of a <link linkend="GNode"><type>GNode</type></link>.
+(It doesn't change the order of the grandchildren.)</para>
+<refsect3 id="g-node-reverse-children.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>node</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GNode"><type>GNode</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-node-traverse" role="function">
+<title>g_node_traverse&#160;()</title>
+<indexterm zone="g-node-traverse"><primary sortas="node_traverse">g_node_traverse</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_node_traverse (<parameter><link linkend="GNode"><type>GNode</type></link> *root</parameter>,
+                 <parameter><link linkend="GTraverseType"><type>GTraverseType</type></link> order</parameter>,
+                 <parameter><link linkend="GTraverseFlags"><type>GTraverseFlags</type></link> flags</parameter>,
+                 <parameter><link linkend="gint"><type>gint</type></link> max_depth</parameter>,
+                 <parameter><link linkend="GNodeTraverseFunc"><type>GNodeTraverseFunc</type></link> func</parameter>,
+                 <parameter><link linkend="gpointer"><type>gpointer</type></link> data</parameter>);</programlisting>
+<para>Traverses a tree starting at the given root <link linkend="GNode"><type>GNode</type></link>.
+It calls the given function for each node visited.
+The traversal can be halted at any point by returning <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> from <parameter>func</parameter>
+.
+<parameter>func</parameter>
+ must not do anything that would modify the structure of the tree.</para>
+<refsect3 id="g-node-traverse.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>root</para></entry>
+<entry role="parameter_description"><para>the root <link linkend="GNode"><type>GNode</type></link> of the tree to traverse</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>order</para></entry>
+<entry role="parameter_description"><para>the order in which nodes are visited - <link linkend="G-IN-ORDER:CAPS"><literal>G_IN_ORDER</literal></link>,
+<link linkend="G-PRE-ORDER:CAPS"><literal>G_PRE_ORDER</literal></link>, <link linkend="G-POST-ORDER:CAPS"><literal>G_POST_ORDER</literal></link>, or <link linkend="G-LEVEL-ORDER:CAPS"><literal>G_LEVEL_ORDER</literal></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>flags</para></entry>
+<entry role="parameter_description"><para>which types of children are to be visited, one of
+<link linkend="G-TRAVERSE-ALL:CAPS"><literal>G_TRAVERSE_ALL</literal></link>, <link linkend="G-TRAVERSE-LEAVES:CAPS"><literal>G_TRAVERSE_LEAVES</literal></link> and <link linkend="G-TRAVERSE-NON-LEAVES:CAPS"><literal>G_TRAVERSE_NON_LEAVES</literal></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>max_depth</para></entry>
+<entry role="parameter_description"><para>the maximum depth of the traversal. Nodes below this
+depth will not be visited. If max_depth is -1 all nodes in
+the tree are visited. If depth is 1, only the root is visited.
+If depth is 2, the root and its children are visited. And so on.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>func</para></entry>
+<entry role="parameter_description"><para>the function to call for each visited <link linkend="GNode"><type>GNode</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>data</para></entry>
+<entry role="parameter_description"><para>user data to pass to the function</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="GNodeTraverseFunc" role="function">
+<title>GNodeTraverseFunc&#160;()</title>
+<indexterm zone="GNodeTraverseFunc"><primary sortas="NodeTraverseFunc">GNodeTraverseFunc</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+<phrase role="c_punctuation">(</phrase>*GNodeTraverseFunc<phrase role="c_punctuation">)</phrase> (<parameter><link linkend="GNode"><type>GNode</type></link> *node</parameter>,
+                      <parameter><link linkend="gpointer"><type>gpointer</type></link> data</parameter>);</programlisting>
+<para>Specifies the type of function passed to <link linkend="g-node-traverse"><function>g_node_traverse()</function></link>. The
+function is called with each of the nodes visited, together with the
+user data passed to <link linkend="g-node-traverse"><function>g_node_traverse()</function></link>. If the function returns
+<link linkend="TRUE:CAPS"><literal>TRUE</literal></link>, then the traversal is stopped.</para>
+<refsect3 id="GNodeTraverseFunc.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>node</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GNode"><type>GNode</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>data</para></entry>
+<entry role="parameter_description"><para>user data passed to <link linkend="g-node-traverse"><function>g_node_traverse()</function></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="GNodeTraverseFunc.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> to stop the traversal.</para>
+</refsect3></refsect2>
+<refsect2 id="g-node-children-foreach" role="function">
+<title>g_node_children_foreach&#160;()</title>
+<indexterm zone="g-node-children-foreach"><primary sortas="node_children_foreach">g_node_children_foreach</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_node_children_foreach (<parameter><link linkend="GNode"><type>GNode</type></link> *node</parameter>,
+                         <parameter><link linkend="GTraverseFlags"><type>GTraverseFlags</type></link> flags</parameter>,
+                         <parameter><link linkend="GNodeForeachFunc"><type>GNodeForeachFunc</type></link> func</parameter>,
+                         <parameter><link linkend="gpointer"><type>gpointer</type></link> data</parameter>);</programlisting>
+<para>Calls a function for each of the children of a <link linkend="GNode"><type>GNode</type></link>. Note that it
+doesn't descend beneath the child nodes. <parameter>func</parameter>
+ must not do anything
+that would modify the structure of the tree.</para>
+<refsect3 id="g-node-children-foreach.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>node</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GNode"><type>GNode</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>flags</para></entry>
+<entry role="parameter_description"><para>which types of children are to be visited, one of
+<link linkend="G-TRAVERSE-ALL:CAPS"><literal>G_TRAVERSE_ALL</literal></link>, <link linkend="G-TRAVERSE-LEAVES:CAPS"><literal>G_TRAVERSE_LEAVES</literal></link> and <link linkend="G-TRAVERSE-NON-LEAVES:CAPS"><literal>G_TRAVERSE_NON_LEAVES</literal></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>func</para></entry>
+<entry role="parameter_description"><para>the function to call for each visited node</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>data</para></entry>
+<entry role="parameter_description"><para>user data to pass to the function</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="GNodeForeachFunc" role="function">
+<title>GNodeForeachFunc&#160;()</title>
+<indexterm zone="GNodeForeachFunc"><primary sortas="NodeForeachFunc">GNodeForeachFunc</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+<phrase role="c_punctuation">(</phrase>*GNodeForeachFunc<phrase role="c_punctuation">)</phrase> (<parameter><link linkend="GNode"><type>GNode</type></link> *node</parameter>,
+                     <parameter><link linkend="gpointer"><type>gpointer</type></link> data</parameter>);</programlisting>
+<para>Specifies the type of function passed to <link linkend="g-node-children-foreach"><function>g_node_children_foreach()</function></link>.
+The function is called with each child node, together with the user
+data passed to <link linkend="g-node-children-foreach"><function>g_node_children_foreach()</function></link>.</para>
+<refsect3 id="GNodeForeachFunc.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>node</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GNode"><type>GNode</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>data</para></entry>
+<entry role="parameter_description"><para>user data passed to <link linkend="g-node-children-foreach"><function>g_node_children_foreach()</function></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-node-get-root" role="function">
+<title>g_node_get_root&#160;()</title>
+<indexterm zone="g-node-get-root"><primary sortas="node_get_root">g_node_get_root</primary></indexterm>
+<programlisting language="C"><link linkend="GNode"><returnvalue>GNode</returnvalue></link>&#160;*
+g_node_get_root (<parameter><link linkend="GNode"><type>GNode</type></link> *node</parameter>);</programlisting>
+<para>Gets the root of a tree.</para>
+<refsect3 id="g-node-get-root.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>node</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GNode"><type>GNode</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-node-get-root.returns" role="returns">
+<title>Returns</title>
+<para> the root of the tree</para>
+</refsect3></refsect2>
+<refsect2 id="g-node-find" role="function">
+<title>g_node_find&#160;()</title>
+<indexterm zone="g-node-find"><primary sortas="node_find">g_node_find</primary></indexterm>
+<programlisting language="C"><link linkend="GNode"><returnvalue>GNode</returnvalue></link>&#160;*
+g_node_find (<parameter><link linkend="GNode"><type>GNode</type></link> *root</parameter>,
+             <parameter><link linkend="GTraverseType"><type>GTraverseType</type></link> order</parameter>,
+             <parameter><link linkend="GTraverseFlags"><type>GTraverseFlags</type></link> flags</parameter>,
+             <parameter><link linkend="gpointer"><type>gpointer</type></link> data</parameter>);</programlisting>
+<para>Finds a <link linkend="GNode"><type>GNode</type></link> in a tree.</para>
+<refsect3 id="g-node-find.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>root</para></entry>
+<entry role="parameter_description"><para>the root <link linkend="GNode"><type>GNode</type></link> of the tree to search</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>order</para></entry>
+<entry role="parameter_description"><para>the order in which nodes are visited - <link linkend="G-IN-ORDER:CAPS"><literal>G_IN_ORDER</literal></link>,
+<link linkend="G-PRE-ORDER:CAPS"><literal>G_PRE_ORDER</literal></link>, <link linkend="G-POST-ORDER:CAPS"><literal>G_POST_ORDER</literal></link>, or <link linkend="G-LEVEL-ORDER:CAPS"><literal>G_LEVEL_ORDER</literal></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>flags</para></entry>
+<entry role="parameter_description"><para>which types of children are to be searched, one of
+<link linkend="G-TRAVERSE-ALL:CAPS"><literal>G_TRAVERSE_ALL</literal></link>, <link linkend="G-TRAVERSE-LEAVES:CAPS"><literal>G_TRAVERSE_LEAVES</literal></link> and <link linkend="G-TRAVERSE-NON-LEAVES:CAPS"><literal>G_TRAVERSE_NON_LEAVES</literal></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>data</para></entry>
+<entry role="parameter_description"><para>the data to find</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-node-find.returns" role="returns">
+<title>Returns</title>
+<para> the found <link linkend="GNode"><type>GNode</type></link>, or <link linkend="NULL:CAPS"><literal>NULL</literal></link> if the data is not found</para>
+</refsect3></refsect2>
+<refsect2 id="g-node-find-child" role="function">
+<title>g_node_find_child&#160;()</title>
+<indexterm zone="g-node-find-child"><primary sortas="node_find_child">g_node_find_child</primary></indexterm>
+<programlisting language="C"><link linkend="GNode"><returnvalue>GNode</returnvalue></link>&#160;*
+g_node_find_child (<parameter><link linkend="GNode"><type>GNode</type></link> *node</parameter>,
+                   <parameter><link linkend="GTraverseFlags"><type>GTraverseFlags</type></link> flags</parameter>,
+                   <parameter><link linkend="gpointer"><type>gpointer</type></link> data</parameter>);</programlisting>
+<para>Finds the first child of a <link linkend="GNode"><type>GNode</type></link> with the given data.</para>
+<refsect3 id="g-node-find-child.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>node</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GNode"><type>GNode</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>flags</para></entry>
+<entry role="parameter_description"><para>which types of children are to be searched, one of
+<link linkend="G-TRAVERSE-ALL:CAPS"><literal>G_TRAVERSE_ALL</literal></link>, <link linkend="G-TRAVERSE-LEAVES:CAPS"><literal>G_TRAVERSE_LEAVES</literal></link> and <link linkend="G-TRAVERSE-NON-LEAVES:CAPS"><literal>G_TRAVERSE_NON_LEAVES</literal></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>data</para></entry>
+<entry role="parameter_description"><para>the data to find</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-node-find-child.returns" role="returns">
+<title>Returns</title>
+<para> the found child <link linkend="GNode"><type>GNode</type></link>, or <link linkend="NULL:CAPS"><literal>NULL</literal></link> if the data is not found</para>
+</refsect3></refsect2>
+<refsect2 id="g-node-child-index" role="function">
+<title>g_node_child_index&#160;()</title>
+<indexterm zone="g-node-child-index"><primary sortas="node_child_index">g_node_child_index</primary></indexterm>
+<programlisting language="C"><link linkend="gint"><returnvalue>gint</returnvalue></link>
+g_node_child_index (<parameter><link linkend="GNode"><type>GNode</type></link> *node</parameter>,
+                    <parameter><link linkend="gpointer"><type>gpointer</type></link> data</parameter>);</programlisting>
+<para>Gets the position of the first child of a <link linkend="GNode"><type>GNode</type></link> 
+which contains the given data.</para>
+<refsect3 id="g-node-child-index.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>node</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GNode"><type>GNode</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>data</para></entry>
+<entry role="parameter_description"><para>the data to find</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-node-child-index.returns" role="returns">
+<title>Returns</title>
+<para> the index of the child of <parameter>node</parameter>
+which contains
+<parameter>data</parameter>
+, or -1 if the data is not found</para>
+</refsect3></refsect2>
+<refsect2 id="g-node-child-position" role="function">
+<title>g_node_child_position&#160;()</title>
+<indexterm zone="g-node-child-position"><primary sortas="node_child_position">g_node_child_position</primary></indexterm>
+<programlisting language="C"><link linkend="gint"><returnvalue>gint</returnvalue></link>
+g_node_child_position (<parameter><link linkend="GNode"><type>GNode</type></link> *node</parameter>,
+                       <parameter><link linkend="GNode"><type>GNode</type></link> *child</parameter>);</programlisting>
+<para>Gets the position of a <link linkend="GNode"><type>GNode</type></link> with respect to its siblings.
+<parameter>child</parameter>
+ must be a child of <parameter>node</parameter>
+. The first child is numbered 0, 
+the second 1, and so on.</para>
+<refsect3 id="g-node-child-position.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>node</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GNode"><type>GNode</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>child</para></entry>
+<entry role="parameter_description"><para>a child of <parameter>node</parameter>
+</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-node-child-position.returns" role="returns">
+<title>Returns</title>
+<para> the position of <parameter>child</parameter>
+with respect to its siblings</para>
+</refsect3></refsect2>
+<refsect2 id="g-node-first-child" role="macro">
+<title>g_node_first_child()</title>
+<indexterm zone="g-node-first-child"><primary sortas="node_first_child">g_node_first_child</primary></indexterm>
+<programlisting language="C">#define             g_node_first_child(node)</programlisting>
+<para>Gets the first child of a <link linkend="GNode"><type>GNode</type></link>.</para>
+<refsect3 id="g-node-first-child.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>node</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GNode"><type>GNode</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-node-first-child.returns" role="returns">
+<title>Returns</title>
+<para> the first child of <parameter>node</parameter>
+, or <link linkend="NULL:CAPS"><literal>NULL</literal></link> if <parameter>node</parameter>
+is <link linkend="NULL:CAPS"><literal>NULL</literal></link>
+or has no children</para>
+</refsect3></refsect2>
+<refsect2 id="g-node-last-child" role="function">
+<title>g_node_last_child&#160;()</title>
+<indexterm zone="g-node-last-child"><primary sortas="node_last_child">g_node_last_child</primary></indexterm>
+<programlisting language="C"><link linkend="GNode"><returnvalue>GNode</returnvalue></link>&#160;*
+g_node_last_child (<parameter><link linkend="GNode"><type>GNode</type></link> *node</parameter>);</programlisting>
+<para>Gets the last child of a <link linkend="GNode"><type>GNode</type></link>.</para>
+<refsect3 id="g-node-last-child.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>node</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GNode"><type>GNode</type></link> (must not be <link linkend="NULL:CAPS"><literal>NULL</literal></link>)</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-node-last-child.returns" role="returns">
+<title>Returns</title>
+<para> the last child of <parameter>node</parameter>
+, or <link linkend="NULL:CAPS"><literal>NULL</literal></link> if <parameter>node</parameter>
+has no children</para>
+</refsect3></refsect2>
+<refsect2 id="g-node-nth-child" role="function">
+<title>g_node_nth_child&#160;()</title>
+<indexterm zone="g-node-nth-child"><primary sortas="node_nth_child">g_node_nth_child</primary></indexterm>
+<programlisting language="C"><link linkend="GNode"><returnvalue>GNode</returnvalue></link>&#160;*
+g_node_nth_child (<parameter><link linkend="GNode"><type>GNode</type></link> *node</parameter>,
+                  <parameter><link linkend="guint"><type>guint</type></link> n</parameter>);</programlisting>
+<para>Gets a child of a <link linkend="GNode"><type>GNode</type></link>, using the given index.
+The first child is at index 0. If the index is 
+too big, <link linkend="NULL:CAPS"><literal>NULL</literal></link> is returned.</para>
+<refsect3 id="g-node-nth-child.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>node</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GNode"><type>GNode</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>n</para></entry>
+<entry role="parameter_description"><para>the index of the desired child</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-node-nth-child.returns" role="returns">
+<title>Returns</title>
+<para> the child of <parameter>node</parameter>
+at index <parameter>n</parameter>
+</para>
+</refsect3></refsect2>
+<refsect2 id="g-node-first-sibling" role="function">
+<title>g_node_first_sibling&#160;()</title>
+<indexterm zone="g-node-first-sibling"><primary sortas="node_first_sibling">g_node_first_sibling</primary></indexterm>
+<programlisting language="C"><link linkend="GNode"><returnvalue>GNode</returnvalue></link>&#160;*
+g_node_first_sibling (<parameter><link linkend="GNode"><type>GNode</type></link> *node</parameter>);</programlisting>
+<para>Gets the first sibling of a <link linkend="GNode"><type>GNode</type></link>.
+This could possibly be the node itself.</para>
+<refsect3 id="g-node-first-sibling.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>node</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GNode"><type>GNode</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-node-first-sibling.returns" role="returns">
+<title>Returns</title>
+<para> the first sibling of <parameter>node</parameter>
+</para>
+</refsect3></refsect2>
+<refsect2 id="g-node-next-sibling" role="macro">
+<title>g_node_next_sibling()</title>
+<indexterm zone="g-node-next-sibling"><primary sortas="node_next_sibling">g_node_next_sibling</primary></indexterm>
+<programlisting language="C">#define             g_node_next_sibling(node)</programlisting>
+<para>Gets the next sibling of a <link linkend="GNode"><type>GNode</type></link>.</para>
+<refsect3 id="g-node-next-sibling.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>node</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GNode"><type>GNode</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-node-next-sibling.returns" role="returns">
+<title>Returns</title>
+<para> the next sibling of <parameter>node</parameter>
+, or <link linkend="NULL:CAPS"><literal>NULL</literal></link> if <parameter>node</parameter>
+is the last node
+or <link linkend="NULL:CAPS"><literal>NULL</literal></link></para>
+</refsect3></refsect2>
+<refsect2 id="g-node-prev-sibling" role="macro">
+<title>g_node_prev_sibling()</title>
+<indexterm zone="g-node-prev-sibling"><primary sortas="node_prev_sibling">g_node_prev_sibling</primary></indexterm>
+<programlisting language="C">#define             g_node_prev_sibling(node)</programlisting>
+<para>Gets the previous sibling of a <link linkend="GNode"><type>GNode</type></link>.</para>
+<refsect3 id="g-node-prev-sibling.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>node</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GNode"><type>GNode</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-node-prev-sibling.returns" role="returns">
+<title>Returns</title>
+<para> the previous sibling of <parameter>node</parameter>
+, or <link linkend="NULL:CAPS"><literal>NULL</literal></link> if <parameter>node</parameter>
+is the first
+node or <link linkend="NULL:CAPS"><literal>NULL</literal></link></para>
+</refsect3></refsect2>
+<refsect2 id="g-node-last-sibling" role="function">
+<title>g_node_last_sibling&#160;()</title>
+<indexterm zone="g-node-last-sibling"><primary sortas="node_last_sibling">g_node_last_sibling</primary></indexterm>
+<programlisting language="C"><link linkend="GNode"><returnvalue>GNode</returnvalue></link>&#160;*
+g_node_last_sibling (<parameter><link linkend="GNode"><type>GNode</type></link> *node</parameter>);</programlisting>
+<para>Gets the last sibling of a <link linkend="GNode"><type>GNode</type></link>.
+This could possibly be the node itself.</para>
+<refsect3 id="g-node-last-sibling.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>node</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GNode"><type>GNode</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-node-last-sibling.returns" role="returns">
+<title>Returns</title>
+<para> the last sibling of <parameter>node</parameter>
+</para>
+</refsect3></refsect2>
+<refsect2 id="G-NODE-IS-LEAF:CAPS" role="macro">
+<title>G_NODE_IS_LEAF()</title>
+<indexterm zone="G-NODE-IS-LEAF:CAPS"><primary sortas="NODE_IS_LEAF">G_NODE_IS_LEAF</primary></indexterm>
+<programlisting language="C">#define	 G_NODE_IS_LEAF(node)&#160;(((GNode*) (node))-&gt;children == NULL)
+</programlisting>
+<para>Returns <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if a <link linkend="GNode"><type>GNode</type></link> is a leaf node.</para>
+<refsect3 id="G-NODE-IS-LEAF.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>node</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GNode"><type>GNode</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="G-NODE-IS-LEAF.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if the <link linkend="GNode"><type>GNode</type></link> is a leaf node
+(i.e. it has no children)</para>
+</refsect3></refsect2>
+<refsect2 id="G-NODE-IS-ROOT:CAPS" role="macro">
+<title>G_NODE_IS_ROOT()</title>
+<indexterm zone="G-NODE-IS-ROOT:CAPS"><primary sortas="NODE_IS_ROOT">G_NODE_IS_ROOT</primary></indexterm>
+<programlisting language="C">#define             G_NODE_IS_ROOT(node)</programlisting>
+<para>Returns <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if a <link linkend="GNode"><type>GNode</type></link> is the root of a tree.</para>
+<refsect3 id="G-NODE-IS-ROOT.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>node</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GNode"><type>GNode</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="G-NODE-IS-ROOT.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if the <link linkend="GNode"><type>GNode</type></link> is the root of a tree
+(i.e. it has no parent or siblings)</para>
+</refsect3></refsect2>
+<refsect2 id="g-node-depth" role="function">
+<title>g_node_depth&#160;()</title>
+<indexterm zone="g-node-depth"><primary sortas="node_depth">g_node_depth</primary></indexterm>
+<programlisting language="C"><link linkend="guint"><returnvalue>guint</returnvalue></link>
+g_node_depth (<parameter><link linkend="GNode"><type>GNode</type></link> *node</parameter>);</programlisting>
+<para>Gets the depth of a <link linkend="GNode"><type>GNode</type></link>.</para>
+<para>If <parameter>node</parameter>
+ is <link linkend="NULL:CAPS"><literal>NULL</literal></link> the depth is 0. The root node has a depth of 1.
+For the children of the root node the depth is 2. And so on.</para>
+<refsect3 id="g-node-depth.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>node</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GNode"><type>GNode</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-node-depth.returns" role="returns">
+<title>Returns</title>
+<para> the depth of the <link linkend="GNode"><type>GNode</type></link></para>
+</refsect3></refsect2>
+<refsect2 id="g-node-n-nodes" role="function">
+<title>g_node_n_nodes&#160;()</title>
+<indexterm zone="g-node-n-nodes"><primary sortas="node_n_nodes">g_node_n_nodes</primary></indexterm>
+<programlisting language="C"><link linkend="guint"><returnvalue>guint</returnvalue></link>
+g_node_n_nodes (<parameter><link linkend="GNode"><type>GNode</type></link> *root</parameter>,
+                <parameter><link linkend="GTraverseFlags"><type>GTraverseFlags</type></link> flags</parameter>);</programlisting>
+<para>Gets the number of nodes in a tree.</para>
+<refsect3 id="g-node-n-nodes.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>root</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GNode"><type>GNode</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>flags</para></entry>
+<entry role="parameter_description"><para>which types of children are to be counted, one of
+<link linkend="G-TRAVERSE-ALL:CAPS"><literal>G_TRAVERSE_ALL</literal></link>, <link linkend="G-TRAVERSE-LEAVES:CAPS"><literal>G_TRAVERSE_LEAVES</literal></link> and <link linkend="G-TRAVERSE-NON-LEAVES:CAPS"><literal>G_TRAVERSE_NON_LEAVES</literal></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-node-n-nodes.returns" role="returns">
+<title>Returns</title>
+<para> the number of nodes in the tree</para>
+</refsect3></refsect2>
+<refsect2 id="g-node-n-children" role="function">
+<title>g_node_n_children&#160;()</title>
+<indexterm zone="g-node-n-children"><primary sortas="node_n_children">g_node_n_children</primary></indexterm>
+<programlisting language="C"><link linkend="guint"><returnvalue>guint</returnvalue></link>
+g_node_n_children (<parameter><link linkend="GNode"><type>GNode</type></link> *node</parameter>);</programlisting>
+<para>Gets the number of children of a <link linkend="GNode"><type>GNode</type></link>.</para>
+<refsect3 id="g-node-n-children.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>node</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GNode"><type>GNode</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-node-n-children.returns" role="returns">
+<title>Returns</title>
+<para> the number of children of <parameter>node</parameter>
+</para>
+</refsect3></refsect2>
+<refsect2 id="g-node-is-ancestor" role="function">
+<title>g_node_is_ancestor&#160;()</title>
+<indexterm zone="g-node-is-ancestor"><primary sortas="node_is_ancestor">g_node_is_ancestor</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_node_is_ancestor (<parameter><link linkend="GNode"><type>GNode</type></link> *node</parameter>,
+                    <parameter><link linkend="GNode"><type>GNode</type></link> *descendant</parameter>);</programlisting>
+<para>Returns <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if <parameter>node</parameter>
+ is an ancestor of <parameter>descendant</parameter>
+.
+This is true if node is the parent of <parameter>descendant</parameter>
+, 
+or if node is the grandparent of <parameter>descendant</parameter>
+ etc.</para>
+<refsect3 id="g-node-is-ancestor.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>node</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GNode"><type>GNode</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>descendant</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GNode"><type>GNode</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-node-is-ancestor.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if <parameter>node</parameter>
+is an ancestor of <parameter>descendant</parameter>
+</para>
+</refsect3></refsect2>
+<refsect2 id="g-node-max-height" role="function">
+<title>g_node_max_height&#160;()</title>
+<indexterm zone="g-node-max-height"><primary sortas="node_max_height">g_node_max_height</primary></indexterm>
+<programlisting language="C"><link linkend="guint"><returnvalue>guint</returnvalue></link>
+g_node_max_height (<parameter><link linkend="GNode"><type>GNode</type></link> *root</parameter>);</programlisting>
+<para>Gets the maximum height of all branches beneath a <link linkend="GNode"><type>GNode</type></link>.
+This is the maximum distance from the <link linkend="GNode"><type>GNode</type></link> to all leaf nodes.</para>
+<para>If <parameter>root</parameter>
+ is <link linkend="NULL:CAPS"><literal>NULL</literal></link>, 0 is returned. If <parameter>root</parameter>
+ has no children, 
+1 is returned. If <parameter>root</parameter>
+ has children, 2 is returned. And so on.</para>
+<refsect3 id="g-node-max-height.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>root</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GNode"><type>GNode</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-node-max-height.returns" role="returns">
+<title>Returns</title>
+<para> the maximum height of the tree beneath <parameter>root</parameter>
+</para>
+</refsect3></refsect2>
+<refsect2 id="g-node-unlink" role="function">
+<title>g_node_unlink&#160;()</title>
+<indexterm zone="g-node-unlink"><primary sortas="node_unlink">g_node_unlink</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_node_unlink (<parameter><link linkend="GNode"><type>GNode</type></link> *node</parameter>);</programlisting>
+<para>Unlinks a <link linkend="GNode"><type>GNode</type></link> from a tree, resulting in two separate trees.</para>
+<refsect3 id="g-node-unlink.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>node</para></entry>
+<entry role="parameter_description"><para>the <link linkend="GNode"><type>GNode</type></link> to unlink, which becomes the root of a new tree</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-node-destroy" role="function">
+<title>g_node_destroy&#160;()</title>
+<indexterm zone="g-node-destroy"><primary sortas="node_destroy">g_node_destroy</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_node_destroy (<parameter><link linkend="GNode"><type>GNode</type></link> *root</parameter>);</programlisting>
+<para>Removes <parameter>root</parameter>
+ and its children from the tree, freeing any memory
+allocated.</para>
+<refsect3 id="g-node-destroy.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>root</para></entry>
+<entry role="parameter_description"><para>the root of the tree/subtree to destroy</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+
+</refsect1>
+<refsect1 id="glib-N-ary-Trees.other_details" role="details">
+<title role="details.title">Types and Values</title>
+<refsect2 id="GNode" role="struct">
+<title>struct GNode</title>
+<indexterm zone="GNode"><primary sortas="Node">GNode</primary></indexterm>
+<programlisting language="C">struct GNode {
+  gpointer data;
+  GNode	  *next;
+  GNode	  *prev;
+  GNode	  *parent;
+  GNode	  *children;
+};
+</programlisting>
+<para>The <link linkend="GNode"><type>GNode</type></link> struct represents one node in a <link linkend="glib-N-ary-Trees">n-ary tree</link>.</para>
+<refsect3 id="GNode.members" role="struct_members">
+<title>Members</title>
+<informaltable role="struct_members_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="struct_members_name" colwidth="300px"/>
+<colspec colname="struct_members_description"/>
+<colspec colname="struct_members_annotations" colwidth="200px"/>
+<tbody>
+<row role="member"><entry role="struct_member_name"><para><link linkend="gpointer"><type>gpointer</type></link>&#160;<structfield id="GNode.data">data</structfield>;</para></entry>
+<entry role="struct_member_description"><para>contains the actual data of the node.</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><link linkend="GNode"><type>GNode</type></link>&#160;*<structfield id="GNode.next">next</structfield>;</para></entry>
+<entry role="struct_member_description"><para>points to the node's next sibling (a sibling is another
+<link linkend="GNode"><type>GNode</type></link> with the same parent).</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><link linkend="GNode"><type>GNode</type></link>&#160;*<structfield id="GNode.prev">prev</structfield>;</para></entry>
+<entry role="struct_member_description"><para>points to the node's previous sibling.</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><link linkend="GNode"><type>GNode</type></link>&#160;*<structfield id="GNode.parent">parent</structfield>;</para></entry>
+<entry role="struct_member_description"><para>points to the parent of the <link linkend="GNode"><type>GNode</type></link>, or is <link linkend="NULL:CAPS"><literal>NULL</literal></link> if the
+<link linkend="GNode"><type>GNode</type></link> is the root of the tree.</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><link linkend="GNode"><type>GNode</type></link>&#160;*<structfield id="GNode.children">children</structfield>;</para></entry>
+<entry role="struct_member_description"><para>points to the first child of the <link linkend="GNode"><type>GNode</type></link>.  The other
+children are accessed by using the <parameter>next</parameter>
+pointer of each
+child.</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+</tbody></tgroup></informaltable>
+</refsect3>
+</refsect2>
+<refsect2 id="GTraverseType" role="enum">
+<title>enum GTraverseType</title>
+<indexterm zone="GTraverseType"><primary sortas="TraverseType">GTraverseType</primary></indexterm>
+<para>Specifies the type of traveral performed by <link linkend="g-tree-traverse"><function>g_tree_traverse()</function></link>,
+<link linkend="g-node-traverse"><function>g_node_traverse()</function></link> and <link linkend="g-node-find"><function>g_node_find()</function></link>. The different orders are
+illustrated here:</para>
+<itemizedlist>
+<listitem><para>In order: A, B, C, D, E, F, G, H, I
+<inlinemediaobject><imageobject><imagedata fileref="Sorted_binary_tree_inorder.svg"></imagedata></imageobject><textobject><phrase></phrase></textobject></inlinemediaobject></para></listitem>
+<listitem><para>Pre order: F, B, A, D, C, E, G, I, H
+<inlinemediaobject><imageobject><imagedata fileref="Sorted_binary_tree_preorder.svg"></imagedata></imageobject><textobject><phrase></phrase></textobject></inlinemediaobject></para></listitem>
+<listitem><para>Post order: A, C, E, D, B, H, I, G, F
+<inlinemediaobject><imageobject><imagedata fileref="Sorted_binary_tree_postorder.svg"></imagedata></imageobject><textobject><phrase></phrase></textobject></inlinemediaobject></para></listitem>
+<listitem><para>Level order: F, B, G, A, D, I, C, E, H
+<inlinemediaobject><imageobject><imagedata fileref="Sorted_binary_tree_breadth-first_traversal.svg"></imagedata></imageobject><textobject><phrase></phrase></textobject></inlinemediaobject></para></listitem>
+</itemizedlist>
+<refsect3 id="GTraverseType.members" role="enum_members">
+<title>Members</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="enum_members_name" colwidth="300px"/>
+<colspec colname="enum_members_description"/>
+<colspec colname="enum_members_annotations" colwidth="200px"/>
+<tbody>
+<row role="constant"><entry role="enum_member_name"><para id="G-IN-ORDER:CAPS">G_IN_ORDER</para></entry>
+<entry role="enum_member_description"><para>vists a node's left child first, then the node itself,
+             then its right child. This is the one to use if you
+             want the output sorted according to the compare
+             function.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-PRE-ORDER:CAPS">G_PRE_ORDER</para></entry>
+<entry role="enum_member_description"><para>visits a node, then its children.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-POST-ORDER:CAPS">G_POST_ORDER</para></entry>
+<entry role="enum_member_description"><para>visits the node's children, then the node itself.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-LEVEL-ORDER:CAPS">G_LEVEL_ORDER</para></entry>
+<entry role="enum_member_description"><para>is not implemented for
+             <link linkend="glib-Balanced-Binary-Trees">balanced binary trees</link>.
+             For <link linkend="glib-N-ary-Trees">n-ary trees</link>, it
+             vists the root node first, then its children, then
+             its grandchildren, and so on. Note that this is less
+             efficient than the other orders.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="GTraverseFlags" role="enum">
+<title>enum GTraverseFlags</title>
+<indexterm zone="GTraverseFlags"><primary sortas="TraverseFlags">GTraverseFlags</primary></indexterm>
+<para>Specifies which nodes are visited during several of the tree
+functions, including <link linkend="g-node-traverse"><function>g_node_traverse()</function></link> and <link linkend="g-node-find"><function>g_node_find()</function></link>.</para>
+<refsect3 id="GTraverseFlags.members" role="enum_members">
+<title>Members</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="enum_members_name" colwidth="300px"/>
+<colspec colname="enum_members_description"/>
+<colspec colname="enum_members_annotations" colwidth="200px"/>
+<tbody>
+<row role="constant"><entry role="enum_member_name"><para id="G-TRAVERSE-LEAVES:CAPS">G_TRAVERSE_LEAVES</para></entry>
+<entry role="enum_member_description"><para>only leaf nodes should be visited. This name has
+                    been introduced in 2.6, for older version use
+                    <link linkend="G-TRAVERSE-LEAFS:CAPS"><literal>G_TRAVERSE_LEAFS</literal></link>.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-TRAVERSE-NON-LEAVES:CAPS">G_TRAVERSE_NON_LEAVES</para></entry>
+<entry role="enum_member_description"><para>only non-leaf nodes should be visited. This
+                        name has been introduced in 2.6, for older
+                        version use <link linkend="G-TRAVERSE-NON-LEAFS:CAPS"><literal>G_TRAVERSE_NON_LEAFS</literal></link>.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-TRAVERSE-ALL:CAPS">G_TRAVERSE_ALL</para></entry>
+<entry role="enum_member_description"><para>all nodes should be visited.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-TRAVERSE-MASK:CAPS">G_TRAVERSE_MASK</para></entry>
+<entry role="enum_member_description"><para>a mask of all traverse flags.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-TRAVERSE-LEAFS:CAPS">G_TRAVERSE_LEAFS</para></entry>
+<entry role="enum_member_description"><para>identical to <link linkend="G-TRAVERSE-LEAVES:CAPS"><literal>G_TRAVERSE_LEAVES</literal></link>.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-TRAVERSE-NON-LEAFS:CAPS">G_TRAVERSE_NON_LEAFS</para></entry>
+<entry role="enum_member_description"><para>identical to <link linkend="G-TRAVERSE-NON-LEAVES:CAPS"><literal>G_TRAVERSE_NON_LEAVES</literal></link>.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+
+</refsect1>
+
+</refentry>

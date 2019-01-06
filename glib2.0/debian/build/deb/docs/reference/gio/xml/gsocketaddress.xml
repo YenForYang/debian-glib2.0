@@ -1,0 +1,282 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC '-//OASIS//DTD DocBook XML V4.5//EN'
+                      'http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd' [
+<!ENTITY % local.common.attrib "xmlns:xi  CDATA  #FIXED 'http://www.w3.org/2003/XInclude'">
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="GSocketAddress">
+<refmeta>
+<refentrytitle role="top_of_page" id="GSocketAddress.top_of_page">GSocketAddress</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>GIO Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>GSocketAddress</refname>
+<refpurpose>Abstract base class representing endpoints
+    for socket communication</refpurpose>
+</refnamediv>
+
+<refsect1 id="GSocketAddress.functions" role="functions_proto">
+<title role="functions_proto.title">Functions</title>
+<informaltable pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="functions_return" colwidth="150px"/>
+<colspec colname="functions_name"/>
+<tbody>
+<row><entry role="function_type"><link linkend="GSocketAddress"><returnvalue>GSocketAddress</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-socket-address-new-from-native">g_socket_address_new_from_native</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GSocketFamily"><returnvalue>GSocketFamily</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-socket-address-get-family">g_socket_address_get_family</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-socket-address-to-native">g_socket_address_to_native</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gssize"><returnvalue>gssize</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-socket-address-get-native-size">g_socket_address_get_native_size</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GSocketAddress.properties" role="properties">
+<title role="properties.title">Properties</title>
+<informaltable frame="none">
+<tgroup cols="3">
+<colspec colname="properties_type" colwidth="150px"/>
+<colspec colname="properties_name" colwidth="300px"/>
+<colspec colname="properties_flags" colwidth="200px"/>
+<tbody>
+<row><entry role="property_type"><link linkend="GSocketFamily"><type>GSocketFamily</type></link></entry><entry role="property_name"><link linkend="GSocketAddress--family">family</link></entry><entry role="property_flags">Read</entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GSocketAddress.other" role="other_proto">
+<title role="other_proto.title">Types and Values</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="name" colwidth="150px"/>
+<colspec colname="description"/>
+<tbody>
+<row><entry role="datatype_keyword"></entry><entry role="function_name"><link linkend="GSocketAddress-struct">GSocketAddress</link></entry></row>
+<row><entry role="datatype_keyword">enum</entry><entry role="function_name"><link linkend="GSocketFamily">GSocketFamily</link></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GSocketAddress.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<screen>    <link linkend="GEnum">GEnum</link>
+    <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> GSocketFamily
+    <link linkend="GObject">GObject</link>
+    <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> GSocketAddress
+        <phrase role="lineart">&#9500;&#9472;&#9472;</phrase> <link linkend="GInetSocketAddress">GInetSocketAddress</link>
+        <phrase role="lineart">&#9500;&#9472;&#9472;</phrase> <link linkend="GNativeSocketAddress">GNativeSocketAddress</link>
+        <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> <link linkend="GUnixSocketAddress">GUnixSocketAddress</link>
+</screen>
+</refsect1>
+<refsect1 id="GSocketAddress.implemented-interfaces" role="impl_interfaces">
+<title role="impl_interfaces.title">Implemented Interfaces</title>
+<para>
+GSocketAddress implements
+ <link linkend="GSocketConnectable">GSocketConnectable</link>.</para>
+
+</refsect1>
+
+<refsect1 id="GSocketAddress.includes"><title>Includes</title><synopsis>#include &lt;gio/gio.h&gt;
+</synopsis></refsect1>
+
+<refsect1 id="GSocketAddress.description" role="desc">
+<title role="desc.title">Description</title>
+<para><link linkend="GSocketAddress"><type>GSocketAddress</type></link> is the equivalent of struct sockaddr in the BSD
+sockets API. This is an abstract class; use <link linkend="GInetSocketAddress"><type>GInetSocketAddress</type></link>
+for internet sockets, or <link linkend="GUnixSocketAddress"><type>GUnixSocketAddress</type></link> for UNIX domain sockets.</para>
+
+</refsect1>
+<refsect1 id="GSocketAddress.functions_details" role="details">
+<title role="details.title">Functions</title>
+<refsect2 id="g-socket-address-new-from-native" role="function" condition="since:2.22">
+<title>g_socket_address_new_from_native&#160;()</title>
+<indexterm zone="g-socket-address-new-from-native" role="2.22"><primary sortas="socket_address_new_from_native">g_socket_address_new_from_native</primary></indexterm>
+<programlisting language="C"><link linkend="GSocketAddress"><returnvalue>GSocketAddress</returnvalue></link>&#160;*
+g_socket_address_new_from_native (<parameter><link linkend="gpointer"><type>gpointer</type></link> native</parameter>,
+                                  <parameter><link linkend="gsize"><type>gsize</type></link> len</parameter>);</programlisting>
+<para>Creates a <link linkend="GSocketAddress"><type>GSocketAddress</type></link> subclass corresponding to the native
+struct sockaddr <parameter>native</parameter>
+.</para>
+<refsect3 id="g-socket-address-new-from-native.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>native</para></entry>
+<entry role="parameter_description"><para>a pointer to a struct sockaddr. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>not nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>len</para></entry>
+<entry role="parameter_description"><para>the size of the memory location pointed to by <parameter>native</parameter>
+</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-socket-address-new-from-native.returns" role="returns">
+<title>Returns</title>
+<para> a new <link linkend="GSocketAddress"><type>GSocketAddress</type></link> if <parameter>native</parameter>
+could successfully
+be converted, otherwise <link linkend="NULL:CAPS"><literal>NULL</literal></link></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.22">2.22</link></para></refsect2>
+<refsect2 id="g-socket-address-get-family" role="function" condition="since:2.22">
+<title>g_socket_address_get_family&#160;()</title>
+<indexterm zone="g-socket-address-get-family" role="2.22"><primary sortas="socket_address_get_family">g_socket_address_get_family</primary></indexterm>
+<programlisting language="C"><link linkend="GSocketFamily"><returnvalue>GSocketFamily</returnvalue></link>
+g_socket_address_get_family (<parameter><link linkend="GSocketAddress"><type>GSocketAddress</type></link> *address</parameter>);</programlisting>
+<para>Gets the socket family type of <parameter>address</parameter>
+.</para>
+<refsect3 id="g-socket-address-get-family.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>address</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSocketAddress"><type>GSocketAddress</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-socket-address-get-family.returns" role="returns">
+<title>Returns</title>
+<para> the socket family type of <parameter>address</parameter>
+</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.22">2.22</link></para></refsect2>
+<refsect2 id="g-socket-address-to-native" role="function" condition="since:2.22">
+<title>g_socket_address_to_native&#160;()</title>
+<indexterm zone="g-socket-address-to-native" role="2.22"><primary sortas="socket_address_to_native">g_socket_address_to_native</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_socket_address_to_native (<parameter><link linkend="GSocketAddress"><type>GSocketAddress</type></link> *address</parameter>,
+                            <parameter><link linkend="gpointer"><type>gpointer</type></link> dest</parameter>,
+                            <parameter><link linkend="gsize"><type>gsize</type></link> destlen</parameter>,
+                            <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para>Converts a <link linkend="GSocketAddress"><type>GSocketAddress</type></link> to a native struct sockaddr, which can
+be passed to low-level functions like <link linkend="connect"><function>connect()</function></link> or <link linkend="bind"><function>bind()</function></link>.</para>
+<para>If not enough space is available, a <link linkend="G-IO-ERROR-NO-SPACE:CAPS"><literal>G_IO_ERROR_NO_SPACE</literal></link> error
+is returned. If the address type is not known on the system
+then a <link linkend="G-IO-ERROR-NOT-SUPPORTED:CAPS"><literal>G_IO_ERROR_NOT_SUPPORTED</literal></link> error is returned.</para>
+<refsect3 id="g-socket-address-to-native.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>address</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSocketAddress"><type>GSocketAddress</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>dest</para></entry>
+<entry role="parameter_description"><para>a pointer to a memory location that will contain the native
+struct sockaddr</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>destlen</para></entry>
+<entry role="parameter_description"><para>the size of <parameter>dest</parameter>
+. Must be at least as large as
+<link linkend="g-socket-address-get-native-size"><function>g_socket_address_get_native_size()</function></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para><link linkend="GError"><type>GError</type></link> for error reporting, or <link linkend="NULL:CAPS"><literal>NULL</literal></link> to ignore</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-socket-address-to-native.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if <parameter>dest</parameter>
+was filled in, <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> on error</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.22">2.22</link></para></refsect2>
+<refsect2 id="g-socket-address-get-native-size" role="function" condition="since:2.22">
+<title>g_socket_address_get_native_size&#160;()</title>
+<indexterm zone="g-socket-address-get-native-size" role="2.22"><primary sortas="socket_address_get_native_size">g_socket_address_get_native_size</primary></indexterm>
+<programlisting language="C"><link linkend="gssize"><returnvalue>gssize</returnvalue></link>
+g_socket_address_get_native_size (<parameter><link linkend="GSocketAddress"><type>GSocketAddress</type></link> *address</parameter>);</programlisting>
+<para>Gets the size of <parameter>address</parameter>
+'s native struct sockaddr.
+You can use this to allocate memory to pass to
+<link linkend="g-socket-address-to-native"><function>g_socket_address_to_native()</function></link>.</para>
+<refsect3 id="g-socket-address-get-native-size.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>address</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSocketAddress"><type>GSocketAddress</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-socket-address-get-native-size.returns" role="returns">
+<title>Returns</title>
+<para> the size of the native struct sockaddr that
+<parameter>address</parameter>
+represents</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.22">2.22</link></para></refsect2>
+
+</refsect1>
+<refsect1 id="GSocketAddress.other_details" role="details">
+<title role="details.title">Types and Values</title>
+<refsect2 id="GSocketAddress-struct" role="struct">
+<title>GSocketAddress</title>
+<indexterm zone="GSocketAddress-struct"><primary sortas="SocketAddress">GSocketAddress</primary></indexterm>
+<programlisting language="C">typedef struct _GSocketAddress GSocketAddress;</programlisting>
+<para>A socket endpoint address, corresponding to struct sockaddr
+or one of its subtypes.</para>
+</refsect2>
+<refsect2 id="GSocketFamily" role="enum" condition="since:2.22">
+<title>enum GSocketFamily</title>
+<indexterm zone="GSocketFamily" role="2.22"><primary sortas="SocketFamily">GSocketFamily</primary></indexterm>
+<para>The protocol family of a <link linkend="GSocketAddress"><type>GSocketAddress</type></link>. (These values are
+identical to the system defines <link linkend="AF-INET:CAPS"><literal>AF_INET</literal></link>, <link linkend="AF-INET6:CAPS"><literal>AF_INET6</literal></link> and <link linkend="AF-UNIX:CAPS"><literal>AF_UNIX</literal></link>,
+if available.)</para>
+<refsect3 id="GSocketFamily.members" role="enum_members">
+<title>Members</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="enum_members_name" colwidth="300px"/>
+<colspec colname="enum_members_description"/>
+<colspec colname="enum_members_annotations" colwidth="200px"/>
+<tbody>
+<row role="constant"><entry role="enum_member_name"><para id="G-SOCKET-FAMILY-INVALID:CAPS">G_SOCKET_FAMILY_INVALID</para></entry>
+<entry role="enum_member_description"><para>no address family</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-SOCKET-FAMILY-UNIX:CAPS">G_SOCKET_FAMILY_UNIX</para></entry>
+<entry role="enum_member_description"><para>the UNIX domain family</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-SOCKET-FAMILY-IPV4:CAPS">G_SOCKET_FAMILY_IPV4</para></entry>
+<entry role="enum_member_description"><para>the IPv4 family</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-SOCKET-FAMILY-IPV6:CAPS">G_SOCKET_FAMILY_IPV6</para></entry>
+<entry role="enum_member_description"><para>the IPv6 family</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.22">2.22</link></para></refsect2>
+
+</refsect1>
+<refsect1 id="GSocketAddress.property-details" role="property_details">
+<title role="property_details.title">Property Details</title>
+<refsect2 id="GSocketAddress--family" role="property"><title>The <literal>“family”</literal> property</title>
+<indexterm zone="GSocketAddress--family"><primary sortas="SocketAddress:family">GSocketAddress:family</primary></indexterm>
+<programlisting>  “family”                   <link linkend="GSocketFamily"><type>GSocketFamily</type></link></programlisting>
+<para>The family of the socket address.</para><para>Flags: Read</para>
+<para>Default value: G_SOCKET_FAMILY_INVALID</para>
+</refsect2>
+
+</refsect1>
+
+</refentry>

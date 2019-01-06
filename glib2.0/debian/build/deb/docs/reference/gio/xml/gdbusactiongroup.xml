@@ -1,0 +1,135 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC '-//OASIS//DTD DocBook XML V4.5//EN'
+                      'http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd' [
+<!ENTITY % local.common.attrib "xmlns:xi  CDATA  #FIXED 'http://www.w3.org/2003/XInclude'">
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="GDBusActionGroup">
+<refmeta>
+<refentrytitle role="top_of_page" id="GDBusActionGroup.top_of_page">GDBusActionGroup</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>GIO Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>GDBusActionGroup</refname>
+<refpurpose>A D-Bus GActionGroup implementation</refpurpose>
+</refnamediv>
+
+<refsect1 id="GDBusActionGroup.functions" role="functions_proto">
+<title role="functions_proto.title">Functions</title>
+<informaltable pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="functions_return" colwidth="150px"/>
+<colspec colname="functions_name"/>
+<tbody>
+<row><entry role="function_type"><link linkend="GDBusActionGroup"><returnvalue>GDBusActionGroup</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-dbus-action-group-get">g_dbus_action_group_get</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GDBusActionGroup.other" role="other_proto">
+<title role="other_proto.title">Types and Values</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="name" colwidth="150px"/>
+<colspec colname="description"/>
+<tbody>
+<row><entry role="datatype_keyword"></entry><entry role="function_name"><link linkend="GDBusActionGroup-struct">GDBusActionGroup</link></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GDBusActionGroup.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<screen>    <link linkend="GObject">GObject</link>
+    <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> GDBusActionGroup
+</screen>
+</refsect1>
+<refsect1 id="GDBusActionGroup.implemented-interfaces" role="impl_interfaces">
+<title role="impl_interfaces.title">Implemented Interfaces</title>
+<para>
+GDBusActionGroup implements
+ <link linkend="GActionGroup">GActionGroup</link> and  <link linkend="GRemoteActionGroup">GRemoteActionGroup</link>.</para>
+
+</refsect1>
+
+<refsect1 id="GDBusActionGroup.includes"><title>Includes</title><synopsis>#include &lt;gio/gio.h&gt;
+</synopsis></refsect1>
+
+<refsect1 id="GDBusActionGroup.description" role="desc">
+<title role="desc.title">Description</title>
+<para><link linkend="GDBusActionGroup"><type>GDBusActionGroup</type></link> is an implementation of the <link linkend="GActionGroup"><type>GActionGroup</type></link>
+interface that can be used as a proxy for an action group
+that is exported over D-Bus with <link linkend="g-dbus-connection-export-action-group"><function>g_dbus_connection_export_action_group()</function></link>.</para>
+
+</refsect1>
+<refsect1 id="GDBusActionGroup.functions_details" role="details">
+<title role="details.title">Functions</title>
+<refsect2 id="g-dbus-action-group-get" role="function" condition="since:2.32">
+<title>g_dbus_action_group_get&#160;()</title>
+<indexterm zone="g-dbus-action-group-get" role="2.32"><primary sortas="dbus_action_group_get">g_dbus_action_group_get</primary></indexterm>
+<programlisting language="C"><link linkend="GDBusActionGroup"><returnvalue>GDBusActionGroup</returnvalue></link>&#160;*
+g_dbus_action_group_get (<parameter><link linkend="GDBusConnection"><type>GDBusConnection</type></link> *connection</parameter>,
+                         <parameter>const <link linkend="gchar"><type>gchar</type></link> *bus_name</parameter>,
+                         <parameter>const <link linkend="gchar"><type>gchar</type></link> *object_path</parameter>);</programlisting>
+<para>Obtains a <link linkend="GDBusActionGroup"><type>GDBusActionGroup</type></link> for the action group which is exported at
+the given <parameter>bus_name</parameter>
+ and <parameter>object_path</parameter>
+.</para>
+<para>The thread default main context is taken at the time of this call.
+All signals on the menu model (and any linked models) are reported
+with respect to this context.  All calls on the returned menu model
+(and linked models) must also originate from this same context, with
+the thread default main context unchanged.</para>
+<para>This call is non-blocking.  The returned action group may or may not
+already be filled in.  The correct thing to do is connect the signals
+for the action group to monitor for changes and then to call
+<link linkend="g-action-group-list-actions"><function>g_action_group_list_actions()</function></link> to get the initial list.</para>
+<refsect3 id="g-dbus-action-group-get.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>connection</para></entry>
+<entry role="parameter_description"><para>A <link linkend="GDBusConnection"><type>GDBusConnection</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>bus_name</para></entry>
+<entry role="parameter_description"><para>the bus name which exports the action
+group or <link linkend="NULL:CAPS"><literal>NULL</literal></link> if <parameter>connection</parameter>
+is not a message bus connection. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>object_path</para></entry>
+<entry role="parameter_description"><para>the object path at which the action group is exported</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-dbus-action-group-get.returns" role="returns">
+<title>Returns</title>
+<para>a <link linkend="GDBusActionGroup"><type>GDBusActionGroup</type></link>. </para>
+<para><emphasis role="annotation">[<acronym>transfer full</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.32">2.32</link></para></refsect2>
+
+</refsect1>
+<refsect1 id="GDBusActionGroup.other_details" role="details">
+<title role="details.title">Types and Values</title>
+<refsect2 id="GDBusActionGroup-struct" role="struct">
+<title>GDBusActionGroup</title>
+<indexterm zone="GDBusActionGroup-struct"><primary sortas="DBusActionGroup">GDBusActionGroup</primary></indexterm>
+<programlisting language="C">typedef struct _GDBusActionGroup GDBusActionGroup;</programlisting>
+<para><link linkend="GDBusActionGroup"><type>GDBusActionGroup</type></link> is an opaque data structure and can only be accessed
+using the following functions.</para>
+</refsect2>
+
+</refsect1>
+<refsect1 id="GDBusActionGroup.see-also">
+<title>See Also</title>
+<para><link linkend="gio-GActionGroup-exporter">GActionGroup exporter</link></para>
+
+</refsect1>
+
+</refentry>

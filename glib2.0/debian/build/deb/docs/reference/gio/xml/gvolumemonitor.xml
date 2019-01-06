@@ -1,0 +1,651 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC '-//OASIS//DTD DocBook XML V4.5//EN'
+                      'http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd' [
+<!ENTITY % local.common.attrib "xmlns:xi  CDATA  #FIXED 'http://www.w3.org/2003/XInclude'">
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="GVolumeMonitor">
+<refmeta>
+<refentrytitle role="top_of_page" id="GVolumeMonitor.top_of_page">GVolumeMonitor</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>GIO Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>GVolumeMonitor</refname>
+<refpurpose>Volume Monitor</refpurpose>
+</refnamediv>
+
+<refsect1 id="GVolumeMonitor.functions" role="functions_proto">
+<title role="functions_proto.title">Functions</title>
+<informaltable pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="functions_return" colwidth="150px"/>
+<colspec colname="functions_name"/>
+<tbody>
+<row><entry role="function_type"><link linkend="GVolumeMonitor"><returnvalue>GVolumeMonitor</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-volume-monitor-get">g_volume_monitor_get</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GList"><returnvalue>GList</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-volume-monitor-get-connected-drives">g_volume_monitor_get_connected_drives</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GList"><returnvalue>GList</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-volume-monitor-get-volumes">g_volume_monitor_get_volumes</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GList"><returnvalue>GList</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-volume-monitor-get-mounts">g_volume_monitor_get_mounts</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GVolume"><returnvalue>GVolume</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-volume-monitor-adopt-orphan-mount">g_volume_monitor_adopt_orphan_mount</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GMount"><returnvalue>GMount</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-volume-monitor-get-mount-for-uuid">g_volume_monitor_get_mount_for_uuid</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GVolume"><returnvalue>GVolume</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-volume-monitor-get-volume-for-uuid">g_volume_monitor_get_volume_for_uuid</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GVolumeMonitor.signals" role="signal_proto">
+<title role="signal_proto.title">Signals</title>
+<informaltable frame="none">
+<tgroup cols="3">
+<colspec colname="signals_return" colwidth="150px"/>
+<colspec colname="signals_name" colwidth="300px"/>
+<colspec colname="signals_flags" colwidth="200px"/>
+<tbody>
+<row><entry role="signal_type"><link linkend="void"><returnvalue>void</returnvalue></link></entry><entry role="signal_name"><link linkend="GVolumeMonitor-drive-changed">drive-changed</link></entry><entry role="signal_flags"><link linkend="G-SIGNAL-RUN-LAST:CAPS">Run Last</link></entry></row>
+<row><entry role="signal_type"><link linkend="void"><returnvalue>void</returnvalue></link></entry><entry role="signal_name"><link linkend="GVolumeMonitor-drive-connected">drive-connected</link></entry><entry role="signal_flags"><link linkend="G-SIGNAL-RUN-LAST:CAPS">Run Last</link></entry></row>
+<row><entry role="signal_type"><link linkend="void"><returnvalue>void</returnvalue></link></entry><entry role="signal_name"><link linkend="GVolumeMonitor-drive-disconnected">drive-disconnected</link></entry><entry role="signal_flags"><link linkend="G-SIGNAL-RUN-LAST:CAPS">Run Last</link></entry></row>
+<row><entry role="signal_type"><link linkend="void"><returnvalue>void</returnvalue></link></entry><entry role="signal_name"><link linkend="GVolumeMonitor-drive-eject-button">drive-eject-button</link></entry><entry role="signal_flags"><link linkend="G-SIGNAL-RUN-LAST:CAPS">Run Last</link></entry></row>
+<row><entry role="signal_type"><link linkend="void"><returnvalue>void</returnvalue></link></entry><entry role="signal_name"><link linkend="GVolumeMonitor-drive-stop-button">drive-stop-button</link></entry><entry role="signal_flags"><link linkend="G-SIGNAL-RUN-LAST:CAPS">Run Last</link></entry></row>
+<row><entry role="signal_type"><link linkend="void"><returnvalue>void</returnvalue></link></entry><entry role="signal_name"><link linkend="GVolumeMonitor-mount-added">mount-added</link></entry><entry role="signal_flags"><link linkend="G-SIGNAL-RUN-LAST:CAPS">Run Last</link></entry></row>
+<row><entry role="signal_type"><link linkend="void"><returnvalue>void</returnvalue></link></entry><entry role="signal_name"><link linkend="GVolumeMonitor-mount-changed">mount-changed</link></entry><entry role="signal_flags"><link linkend="G-SIGNAL-RUN-LAST:CAPS">Run Last</link></entry></row>
+<row><entry role="signal_type"><link linkend="void"><returnvalue>void</returnvalue></link></entry><entry role="signal_name"><link linkend="GVolumeMonitor-mount-pre-unmount">mount-pre-unmount</link></entry><entry role="signal_flags"><link linkend="G-SIGNAL-RUN-LAST:CAPS">Run Last</link></entry></row>
+<row><entry role="signal_type"><link linkend="void"><returnvalue>void</returnvalue></link></entry><entry role="signal_name"><link linkend="GVolumeMonitor-mount-removed">mount-removed</link></entry><entry role="signal_flags"><link linkend="G-SIGNAL-RUN-LAST:CAPS">Run Last</link></entry></row>
+<row><entry role="signal_type"><link linkend="void"><returnvalue>void</returnvalue></link></entry><entry role="signal_name"><link linkend="GVolumeMonitor-volume-added">volume-added</link></entry><entry role="signal_flags"><link linkend="G-SIGNAL-RUN-LAST:CAPS">Run Last</link></entry></row>
+<row><entry role="signal_type"><link linkend="void"><returnvalue>void</returnvalue></link></entry><entry role="signal_name"><link linkend="GVolumeMonitor-volume-changed">volume-changed</link></entry><entry role="signal_flags"><link linkend="G-SIGNAL-RUN-LAST:CAPS">Run Last</link></entry></row>
+<row><entry role="signal_type"><link linkend="void"><returnvalue>void</returnvalue></link></entry><entry role="signal_name"><link linkend="GVolumeMonitor-volume-removed">volume-removed</link></entry><entry role="signal_flags"><link linkend="G-SIGNAL-RUN-LAST:CAPS">Run Last</link></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GVolumeMonitor.other" role="other_proto">
+<title role="other_proto.title">Types and Values</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="name" colwidth="150px"/>
+<colspec colname="description"/>
+<tbody>
+<row><entry role="datatype_keyword"></entry><entry role="function_name"><link linkend="GVolumeMonitor-struct">GVolumeMonitor</link></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="G-VOLUME-MONITOR-EXTENSION-POINT-NAME:CAPS">G_VOLUME_MONITOR_EXTENSION_POINT_NAME</link></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GVolumeMonitor.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<screen>    <link linkend="GObject">GObject</link>
+    <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> GVolumeMonitor
+</screen>
+</refsect1>
+
+<refsect1 id="GVolumeMonitor.includes"><title>Includes</title><synopsis>#include &lt;gio/gio.h&gt;
+</synopsis></refsect1>
+
+<refsect1 id="GVolumeMonitor.description" role="desc">
+<title role="desc.title">Description</title>
+<para><link linkend="GVolumeMonitor"><type>GVolumeMonitor</type></link> is for listing the user interesting devices and volumes
+on the computer. In other words, what a file selector or file manager
+would show in a sidebar. </para>
+<para><link linkend="GVolumeMonitor"><type>GVolumeMonitor</type></link> is not
+<link linkend="g-main-context-push-thread-default">thread-default-context aware</link>,
+and so should not be used other than from the main thread, with no
+thread-default-context active.</para>
+
+</refsect1>
+<refsect1 id="GVolumeMonitor.functions_details" role="details">
+<title role="details.title">Functions</title>
+<refsect2 id="g-volume-monitor-get" role="function">
+<title>g_volume_monitor_get&#160;()</title>
+<indexterm zone="g-volume-monitor-get"><primary sortas="volume_monitor_get">g_volume_monitor_get</primary></indexterm>
+<programlisting language="C"><link linkend="GVolumeMonitor"><returnvalue>GVolumeMonitor</returnvalue></link>&#160;*
+g_volume_monitor_get (<parameter><type>void</type></parameter>);</programlisting>
+<para>Gets the volume monitor used by gio.</para>
+<refsect3 id="g-volume-monitor-get.returns" role="returns">
+<title>Returns</title>
+<para>a reference to the <link linkend="GVolumeMonitor"><type>GVolumeMonitor</type></link> used by gio. Call
+<link linkend="g-object-unref"><function>g_object_unref()</function></link> when done with it. </para>
+<para><emphasis role="annotation">[<acronym>transfer full</acronym>]</emphasis></para>
+</refsect3></refsect2>
+<refsect2 id="g-volume-monitor-get-connected-drives" role="function">
+<title>g_volume_monitor_get_connected_drives&#160;()</title>
+<indexterm zone="g-volume-monitor-get-connected-drives"><primary sortas="volume_monitor_get_connected_drives">g_volume_monitor_get_connected_drives</primary></indexterm>
+<programlisting language="C"><link linkend="GList"><returnvalue>GList</returnvalue></link>&#160;*
+g_volume_monitor_get_connected_drives (<parameter><link linkend="GVolumeMonitor"><type>GVolumeMonitor</type></link> *volume_monitor</parameter>);</programlisting>
+<para>Gets a list of drives connected to the system.</para>
+<para>The returned list should be freed with <link linkend="g-list-free"><function>g_list_free()</function></link>, after
+its elements have been unreffed with <link linkend="g-object-unref"><function>g_object_unref()</function></link>.</para>
+<refsect3 id="g-volume-monitor-get-connected-drives.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>volume_monitor</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GVolumeMonitor"><type>GVolumeMonitor</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-volume-monitor-get-connected-drives.returns" role="returns">
+<title>Returns</title>
+<para>a <link linkend="GList"><type>GList</type></link> of connected <link linkend="GDrive"><type>GDrive</type></link> objects. </para>
+<para><emphasis role="annotation">[<acronym>element-type</acronym> GDrive][<acronym>transfer full</acronym>]</emphasis></para>
+</refsect3></refsect2>
+<refsect2 id="g-volume-monitor-get-volumes" role="function">
+<title>g_volume_monitor_get_volumes&#160;()</title>
+<indexterm zone="g-volume-monitor-get-volumes"><primary sortas="volume_monitor_get_volumes">g_volume_monitor_get_volumes</primary></indexterm>
+<programlisting language="C"><link linkend="GList"><returnvalue>GList</returnvalue></link>&#160;*
+g_volume_monitor_get_volumes (<parameter><link linkend="GVolumeMonitor"><type>GVolumeMonitor</type></link> *volume_monitor</parameter>);</programlisting>
+<para>Gets a list of the volumes on the system.</para>
+<para>The returned list should be freed with <link linkend="g-list-free"><function>g_list_free()</function></link>, after
+its elements have been unreffed with <link linkend="g-object-unref"><function>g_object_unref()</function></link>.</para>
+<refsect3 id="g-volume-monitor-get-volumes.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>volume_monitor</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GVolumeMonitor"><type>GVolumeMonitor</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-volume-monitor-get-volumes.returns" role="returns">
+<title>Returns</title>
+<para>a <link linkend="GList"><type>GList</type></link> of <link linkend="GVolume"><type>GVolume</type></link> objects. </para>
+<para><emphasis role="annotation">[<acronym>element-type</acronym> GVolume][<acronym>transfer full</acronym>]</emphasis></para>
+</refsect3></refsect2>
+<refsect2 id="g-volume-monitor-get-mounts" role="function">
+<title>g_volume_monitor_get_mounts&#160;()</title>
+<indexterm zone="g-volume-monitor-get-mounts"><primary sortas="volume_monitor_get_mounts">g_volume_monitor_get_mounts</primary></indexterm>
+<programlisting language="C"><link linkend="GList"><returnvalue>GList</returnvalue></link>&#160;*
+g_volume_monitor_get_mounts (<parameter><link linkend="GVolumeMonitor"><type>GVolumeMonitor</type></link> *volume_monitor</parameter>);</programlisting>
+<para>Gets a list of the mounts on the system.</para>
+<para>The returned list should be freed with <link linkend="g-list-free"><function>g_list_free()</function></link>, after
+its elements have been unreffed with <link linkend="g-object-unref"><function>g_object_unref()</function></link>.</para>
+<refsect3 id="g-volume-monitor-get-mounts.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>volume_monitor</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GVolumeMonitor"><type>GVolumeMonitor</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-volume-monitor-get-mounts.returns" role="returns">
+<title>Returns</title>
+<para>a <link linkend="GList"><type>GList</type></link> of <link linkend="GMount"><type>GMount</type></link> objects. </para>
+<para><emphasis role="annotation">[<acronym>element-type</acronym> GMount][<acronym>transfer full</acronym>]</emphasis></para>
+</refsect3></refsect2>
+<refsect2 id="g-volume-monitor-adopt-orphan-mount" role="function" condition="deprecated">
+<title>g_volume_monitor_adopt_orphan_mount&#160;()</title>
+<indexterm zone="g-volume-monitor-adopt-orphan-mount" role="deprecated"><primary sortas="volume_monitor_adopt_orphan_mount">g_volume_monitor_adopt_orphan_mount</primary></indexterm>
+<programlisting language="C"><link linkend="GVolume"><returnvalue>GVolume</returnvalue></link>&#160;*
+g_volume_monitor_adopt_orphan_mount (<parameter><link linkend="GMount"><type>GMount</type></link> *mount</parameter>);</programlisting>
+<warning><para><literal>g_volume_monitor_adopt_orphan_mount</literal> has been deprecated since version 2.20 and should not be used in newly-written code.</para> <para>Instead of using this function, <link linkend="GVolumeMonitor"><type>GVolumeMonitor</type></link>
+implementations should instead create shadow mounts with the URI of
+the mount they intend to adopt. See the proxy volume monitor in
+gvfs for an example of this. Also see <link linkend="g-mount-is-shadowed"><function>g_mount_is_shadowed()</function></link>,
+<link linkend="g-mount-shadow"><function>g_mount_shadow()</function></link> and <link linkend="g-mount-unshadow"><function>g_mount_unshadow()</function></link> functions.</para>
+</warning>
+<para>This function should be called by any <link linkend="GVolumeMonitor"><type>GVolumeMonitor</type></link>
+implementation when a new <link linkend="GMount"><type>GMount</type></link> object is created that is not
+associated with a <link linkend="GVolume"><type>GVolume</type></link> object. It must be called just before
+emitting the <parameter>mount_added</parameter>
+ signal.</para>
+<para>If the return value is not <link linkend="NULL:CAPS"><literal>NULL</literal></link>, the caller must associate the
+returned <link linkend="GVolume"><type>GVolume</type></link> object with the <link linkend="GMount"><type>GMount</type></link>. This involves returning
+it in its <link linkend="g-mount-get-volume"><function>g_mount_get_volume()</function></link> implementation. The caller must
+also listen for the "removed" signal on the returned object
+and give up its reference when handling that signal</para>
+<para>Similarly, if implementing <link linkend="g-volume-monitor-adopt-orphan-mount"><function>g_volume_monitor_adopt_orphan_mount()</function></link>,
+the implementor must take a reference to <parameter>mount</parameter>
+ and return it in
+its <link linkend="g-volume-get-mount"><function>g_volume_get_mount()</function></link> implemented. Also, the implementor must
+listen for the "unmounted" signal on <parameter>mount</parameter>
+ and give up its
+reference upon handling that signal.</para>
+<para>There are two main use cases for this function.</para>
+<para>One is when implementing a user space file system driver that reads
+blocks of a block device that is already represented by the native
+volume monitor (for example a CD Audio file system driver). Such
+a driver will generate its own <link linkend="GMount"><type>GMount</type></link> object that needs to be
+associated with the <link linkend="GVolume"><type>GVolume</type></link> object that represents the volume.</para>
+<para>The other is for implementing a <link linkend="GVolumeMonitor"><type>GVolumeMonitor</type></link> whose sole purpose
+is to return <link linkend="GVolume"><type>GVolume</type></link> objects representing entries in the users
+"favorite servers" list or similar.</para>
+<refsect3 id="g-volume-monitor-adopt-orphan-mount.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>mount</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GMount"><type>GMount</type></link> object to find a parent for</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-volume-monitor-adopt-orphan-mount.returns" role="returns">
+<title>Returns</title>
+<para>the <link linkend="GVolume"><type>GVolume</type></link> object that is the parent for <parameter>mount</parameter>
+or <link linkend="NULL:CAPS"><literal>NULL</literal></link>
+if no wants to adopt the <link linkend="GMount"><type>GMount</type></link>. </para>
+<para><emphasis role="annotation">[<acronym>transfer full</acronym>]</emphasis></para>
+</refsect3></refsect2>
+<refsect2 id="g-volume-monitor-get-mount-for-uuid" role="function">
+<title>g_volume_monitor_get_mount_for_uuid&#160;()</title>
+<indexterm zone="g-volume-monitor-get-mount-for-uuid"><primary sortas="volume_monitor_get_mount_for_uuid">g_volume_monitor_get_mount_for_uuid</primary></indexterm>
+<programlisting language="C"><link linkend="GMount"><returnvalue>GMount</returnvalue></link>&#160;*
+g_volume_monitor_get_mount_for_uuid (<parameter><link linkend="GVolumeMonitor"><type>GVolumeMonitor</type></link> *volume_monitor</parameter>,
+                                     <parameter>const <link linkend="char"><type>char</type></link> *uuid</parameter>);</programlisting>
+<para>Finds a <link linkend="GMount"><type>GMount</type></link> object by its UUID (see <link linkend="g-mount-get-uuid"><function>g_mount_get_uuid()</function></link>)</para>
+<refsect3 id="g-volume-monitor-get-mount-for-uuid.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>volume_monitor</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GVolumeMonitor"><type>GVolumeMonitor</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>uuid</para></entry>
+<entry role="parameter_description"><para>the UUID to look for</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-volume-monitor-get-mount-for-uuid.returns" role="returns">
+<title>Returns</title>
+<para>a <link linkend="GMount"><type>GMount</type></link> or <link linkend="NULL:CAPS"><literal>NULL</literal></link> if no such mount is available.
+Free the returned object with <link linkend="g-object-unref"><function>g_object_unref()</function></link>. </para>
+<para><emphasis role="annotation">[<acronym>transfer full</acronym>]</emphasis></para>
+</refsect3></refsect2>
+<refsect2 id="g-volume-monitor-get-volume-for-uuid" role="function">
+<title>g_volume_monitor_get_volume_for_uuid&#160;()</title>
+<indexterm zone="g-volume-monitor-get-volume-for-uuid"><primary sortas="volume_monitor_get_volume_for_uuid">g_volume_monitor_get_volume_for_uuid</primary></indexterm>
+<programlisting language="C"><link linkend="GVolume"><returnvalue>GVolume</returnvalue></link>&#160;*
+g_volume_monitor_get_volume_for_uuid (<parameter><link linkend="GVolumeMonitor"><type>GVolumeMonitor</type></link> *volume_monitor</parameter>,
+                                      <parameter>const <link linkend="char"><type>char</type></link> *uuid</parameter>);</programlisting>
+<para>Finds a <link linkend="GVolume"><type>GVolume</type></link> object by its UUID (see <link linkend="g-volume-get-uuid"><function>g_volume_get_uuid()</function></link>)</para>
+<refsect3 id="g-volume-monitor-get-volume-for-uuid.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>volume_monitor</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GVolumeMonitor"><type>GVolumeMonitor</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>uuid</para></entry>
+<entry role="parameter_description"><para>the UUID to look for</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-volume-monitor-get-volume-for-uuid.returns" role="returns">
+<title>Returns</title>
+<para>a <link linkend="GVolume"><type>GVolume</type></link> or <link linkend="NULL:CAPS"><literal>NULL</literal></link> if no such volume is available.
+Free the returned object with <link linkend="g-object-unref"><function>g_object_unref()</function></link>. </para>
+<para><emphasis role="annotation">[<acronym>transfer full</acronym>]</emphasis></para>
+</refsect3></refsect2>
+
+</refsect1>
+<refsect1 id="GVolumeMonitor.other_details" role="details">
+<title role="details.title">Types and Values</title>
+<refsect2 id="GVolumeMonitor-struct" role="struct">
+<title>GVolumeMonitor</title>
+<indexterm zone="GVolumeMonitor-struct"><primary sortas="VolumeMonitor">GVolumeMonitor</primary></indexterm>
+<programlisting language="C">typedef struct _GVolumeMonitor GVolumeMonitor;</programlisting>
+<para>A Volume Monitor that watches for volume events.</para>
+</refsect2>
+<refsect2 id="G-VOLUME-MONITOR-EXTENSION-POINT-NAME:CAPS" role="macro">
+<title>G_VOLUME_MONITOR_EXTENSION_POINT_NAME</title>
+<indexterm zone="G-VOLUME-MONITOR-EXTENSION-POINT-NAME:CAPS"><primary sortas="VOLUME_MONITOR_EXTENSION_POINT_NAME">G_VOLUME_MONITOR_EXTENSION_POINT_NAME</primary></indexterm>
+<programlisting language="C">#define G_VOLUME_MONITOR_EXTENSION_POINT_NAME "gio-volume-monitor"
+</programlisting>
+<para>Extension point for volume monitor functionality.
+See <link linkend="extending-gio">Extending GIO</link>.</para>
+</refsect2>
+
+</refsect1>
+<refsect1 id="GVolumeMonitor.signal-details" role="signals">
+<title role="signals.title">Signal Details</title>
+<refsect2 id="GVolumeMonitor-drive-changed" role="signal"><title>The <literal>“drive-changed”</literal> signal</title>
+<indexterm zone="GVolumeMonitor-drive-changed"><primary sortas="VolumeMonitor::drive-changed">GVolumeMonitor::drive-changed</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+user_function (<link linkend="GVolumeMonitor"><type>GVolumeMonitor</type></link> *volume_monitor,
+               <link linkend="GDrive"><type>GDrive</type></link>         *drive,
+               <link linkend="gpointer"><type>gpointer</type></link>        user_data)</programlisting>
+<para>Emitted when a drive changes.</para>
+<refsect3 id="GVolumeMonitor-drive-changed.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>volume_monitor</para></entry>
+<entry role="parameter_description"><para>The volume monitor emitting the signal.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>drive</para></entry>
+<entry role="parameter_description"><para>the drive that changed</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><simpara>user_data</simpara></entry>
+<entry role="parameter_description"><simpara>user data set when the signal handler was connected.</simpara></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para>Flags: <link linkend="G-SIGNAL-RUN-LAST:CAPS">Run Last</link></para>
+</refsect2><refsect2 id="GVolumeMonitor-drive-connected" role="signal"><title>The <literal>“drive-connected”</literal> signal</title>
+<indexterm zone="GVolumeMonitor-drive-connected"><primary sortas="VolumeMonitor::drive-connected">GVolumeMonitor::drive-connected</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+user_function (<link linkend="GVolumeMonitor"><type>GVolumeMonitor</type></link> *volume_monitor,
+               <link linkend="GDrive"><type>GDrive</type></link>         *drive,
+               <link linkend="gpointer"><type>gpointer</type></link>        user_data)</programlisting>
+<para>Emitted when a drive is connected to the system.</para>
+<refsect3 id="GVolumeMonitor-drive-connected.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>volume_monitor</para></entry>
+<entry role="parameter_description"><para>The volume monitor emitting the signal.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>drive</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GDrive"><type>GDrive</type></link> that was connected.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><simpara>user_data</simpara></entry>
+<entry role="parameter_description"><simpara>user data set when the signal handler was connected.</simpara></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para>Flags: <link linkend="G-SIGNAL-RUN-LAST:CAPS">Run Last</link></para>
+</refsect2><refsect2 id="GVolumeMonitor-drive-disconnected" role="signal"><title>The <literal>“drive-disconnected”</literal> signal</title>
+<indexterm zone="GVolumeMonitor-drive-disconnected"><primary sortas="VolumeMonitor::drive-disconnected">GVolumeMonitor::drive-disconnected</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+user_function (<link linkend="GVolumeMonitor"><type>GVolumeMonitor</type></link> *volume_monitor,
+               <link linkend="GDrive"><type>GDrive</type></link>         *drive,
+               <link linkend="gpointer"><type>gpointer</type></link>        user_data)</programlisting>
+<para>Emitted when a drive is disconnected from the system.</para>
+<refsect3 id="GVolumeMonitor-drive-disconnected.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>volume_monitor</para></entry>
+<entry role="parameter_description"><para>The volume monitor emitting the signal.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>drive</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GDrive"><type>GDrive</type></link> that was disconnected.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><simpara>user_data</simpara></entry>
+<entry role="parameter_description"><simpara>user data set when the signal handler was connected.</simpara></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para>Flags: <link linkend="G-SIGNAL-RUN-LAST:CAPS">Run Last</link></para>
+</refsect2><refsect2 id="GVolumeMonitor-drive-eject-button" role="signal"><title>The <literal>“drive-eject-button”</literal> signal</title>
+<indexterm zone="GVolumeMonitor-drive-eject-button" role="2.18"><primary sortas="VolumeMonitor::drive-eject-button">GVolumeMonitor::drive-eject-button</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+user_function (<link linkend="GVolumeMonitor"><type>GVolumeMonitor</type></link> *volume_monitor,
+               <link linkend="GDrive"><type>GDrive</type></link>         *drive,
+               <link linkend="gpointer"><type>gpointer</type></link>        user_data)</programlisting>
+<para>Emitted when the eject button is pressed on <parameter>drive</parameter>
+.</para>
+<refsect3 id="GVolumeMonitor-drive-eject-button.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>volume_monitor</para></entry>
+<entry role="parameter_description"><para>The volume monitor emitting the signal.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>drive</para></entry>
+<entry role="parameter_description"><para>the drive where the eject button was pressed</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><simpara>user_data</simpara></entry>
+<entry role="parameter_description"><simpara>user data set when the signal handler was connected.</simpara></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para>Flags: <link linkend="G-SIGNAL-RUN-LAST:CAPS">Run Last</link></para>
+<para role="since">Since: <link linkend="api-index-2.18">2.18</link></para></refsect2><refsect2 id="GVolumeMonitor-drive-stop-button" role="signal"><title>The <literal>“drive-stop-button”</literal> signal</title>
+<indexterm zone="GVolumeMonitor-drive-stop-button" role="2.22"><primary sortas="VolumeMonitor::drive-stop-button">GVolumeMonitor::drive-stop-button</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+user_function (<link linkend="GVolumeMonitor"><type>GVolumeMonitor</type></link> *volume_monitor,
+               <link linkend="GDrive"><type>GDrive</type></link>         *drive,
+               <link linkend="gpointer"><type>gpointer</type></link>        user_data)</programlisting>
+<para>Emitted when the stop button is pressed on <parameter>drive</parameter>
+.</para>
+<refsect3 id="GVolumeMonitor-drive-stop-button.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>volume_monitor</para></entry>
+<entry role="parameter_description"><para>The volume monitor emitting the signal.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>drive</para></entry>
+<entry role="parameter_description"><para>the drive where the stop button was pressed</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><simpara>user_data</simpara></entry>
+<entry role="parameter_description"><simpara>user data set when the signal handler was connected.</simpara></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para>Flags: <link linkend="G-SIGNAL-RUN-LAST:CAPS">Run Last</link></para>
+<para role="since">Since: <link linkend="api-index-2.22">2.22</link></para></refsect2><refsect2 id="GVolumeMonitor-mount-added" role="signal"><title>The <literal>“mount-added”</literal> signal</title>
+<indexterm zone="GVolumeMonitor-mount-added"><primary sortas="VolumeMonitor::mount-added">GVolumeMonitor::mount-added</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+user_function (<link linkend="GVolumeMonitor"><type>GVolumeMonitor</type></link> *volume_monitor,
+               <link linkend="GMount"><type>GMount</type></link>         *mount,
+               <link linkend="gpointer"><type>gpointer</type></link>        user_data)</programlisting>
+<para>Emitted when a mount is added.</para>
+<refsect3 id="GVolumeMonitor-mount-added.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>volume_monitor</para></entry>
+<entry role="parameter_description"><para>The volume monitor emitting the signal.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>mount</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GMount"><type>GMount</type></link> that was added.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><simpara>user_data</simpara></entry>
+<entry role="parameter_description"><simpara>user data set when the signal handler was connected.</simpara></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para>Flags: <link linkend="G-SIGNAL-RUN-LAST:CAPS">Run Last</link></para>
+</refsect2><refsect2 id="GVolumeMonitor-mount-changed" role="signal"><title>The <literal>“mount-changed”</literal> signal</title>
+<indexterm zone="GVolumeMonitor-mount-changed"><primary sortas="VolumeMonitor::mount-changed">GVolumeMonitor::mount-changed</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+user_function (<link linkend="GVolumeMonitor"><type>GVolumeMonitor</type></link> *volume_monitor,
+               <link linkend="GMount"><type>GMount</type></link>         *mount,
+               <link linkend="gpointer"><type>gpointer</type></link>        user_data)</programlisting>
+<para>Emitted when a mount changes.</para>
+<refsect3 id="GVolumeMonitor-mount-changed.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>volume_monitor</para></entry>
+<entry role="parameter_description"><para>The volume monitor emitting the signal.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>mount</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GMount"><type>GMount</type></link> that changed.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><simpara>user_data</simpara></entry>
+<entry role="parameter_description"><simpara>user data set when the signal handler was connected.</simpara></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para>Flags: <link linkend="G-SIGNAL-RUN-LAST:CAPS">Run Last</link></para>
+</refsect2><refsect2 id="GVolumeMonitor-mount-pre-unmount" role="signal"><title>The <literal>“mount-pre-unmount”</literal> signal</title>
+<indexterm zone="GVolumeMonitor-mount-pre-unmount"><primary sortas="VolumeMonitor::mount-pre-unmount">GVolumeMonitor::mount-pre-unmount</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+user_function (<link linkend="GVolumeMonitor"><type>GVolumeMonitor</type></link> *volume_monitor,
+               <link linkend="GMount"><type>GMount</type></link>         *mount,
+               <link linkend="gpointer"><type>gpointer</type></link>        user_data)</programlisting>
+<para>May be emitted when a mount is about to be removed.</para>
+<para>This signal depends on the backend and is only emitted if
+GIO was used to unmount.</para>
+<refsect3 id="GVolumeMonitor-mount-pre-unmount.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>volume_monitor</para></entry>
+<entry role="parameter_description"><para>The volume monitor emitting the signal.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>mount</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GMount"><type>GMount</type></link> that is being unmounted.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><simpara>user_data</simpara></entry>
+<entry role="parameter_description"><simpara>user data set when the signal handler was connected.</simpara></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para>Flags: <link linkend="G-SIGNAL-RUN-LAST:CAPS">Run Last</link></para>
+</refsect2><refsect2 id="GVolumeMonitor-mount-removed" role="signal"><title>The <literal>“mount-removed”</literal> signal</title>
+<indexterm zone="GVolumeMonitor-mount-removed"><primary sortas="VolumeMonitor::mount-removed">GVolumeMonitor::mount-removed</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+user_function (<link linkend="GVolumeMonitor"><type>GVolumeMonitor</type></link> *volume_monitor,
+               <link linkend="GMount"><type>GMount</type></link>         *mount,
+               <link linkend="gpointer"><type>gpointer</type></link>        user_data)</programlisting>
+<para>Emitted when a mount is removed.</para>
+<refsect3 id="GVolumeMonitor-mount-removed.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>volume_monitor</para></entry>
+<entry role="parameter_description"><para>The volume monitor emitting the signal.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>mount</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GMount"><type>GMount</type></link> that was removed.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><simpara>user_data</simpara></entry>
+<entry role="parameter_description"><simpara>user data set when the signal handler was connected.</simpara></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para>Flags: <link linkend="G-SIGNAL-RUN-LAST:CAPS">Run Last</link></para>
+</refsect2><refsect2 id="GVolumeMonitor-volume-added" role="signal"><title>The <literal>“volume-added”</literal> signal</title>
+<indexterm zone="GVolumeMonitor-volume-added"><primary sortas="VolumeMonitor::volume-added">GVolumeMonitor::volume-added</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+user_function (<link linkend="GVolumeMonitor"><type>GVolumeMonitor</type></link> *volume_monitor,
+               <link linkend="GVolume"><type>GVolume</type></link>        *volume,
+               <link linkend="gpointer"><type>gpointer</type></link>        user_data)</programlisting>
+<para>Emitted when a mountable volume is added to the system.</para>
+<refsect3 id="GVolumeMonitor-volume-added.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>volume_monitor</para></entry>
+<entry role="parameter_description"><para>The volume monitor emitting the signal.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>volume</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GVolume"><type>GVolume</type></link> that was added.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><simpara>user_data</simpara></entry>
+<entry role="parameter_description"><simpara>user data set when the signal handler was connected.</simpara></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para>Flags: <link linkend="G-SIGNAL-RUN-LAST:CAPS">Run Last</link></para>
+</refsect2><refsect2 id="GVolumeMonitor-volume-changed" role="signal"><title>The <literal>“volume-changed”</literal> signal</title>
+<indexterm zone="GVolumeMonitor-volume-changed"><primary sortas="VolumeMonitor::volume-changed">GVolumeMonitor::volume-changed</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+user_function (<link linkend="GVolumeMonitor"><type>GVolumeMonitor</type></link> *volume_monitor,
+               <link linkend="GVolume"><type>GVolume</type></link>        *volume,
+               <link linkend="gpointer"><type>gpointer</type></link>        user_data)</programlisting>
+<para>Emitted when mountable volume is changed.</para>
+<refsect3 id="GVolumeMonitor-volume-changed.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>volume_monitor</para></entry>
+<entry role="parameter_description"><para>The volume monitor emitting the signal.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>volume</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GVolume"><type>GVolume</type></link> that changed.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><simpara>user_data</simpara></entry>
+<entry role="parameter_description"><simpara>user data set when the signal handler was connected.</simpara></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para>Flags: <link linkend="G-SIGNAL-RUN-LAST:CAPS">Run Last</link></para>
+</refsect2><refsect2 id="GVolumeMonitor-volume-removed" role="signal"><title>The <literal>“volume-removed”</literal> signal</title>
+<indexterm zone="GVolumeMonitor-volume-removed"><primary sortas="VolumeMonitor::volume-removed">GVolumeMonitor::volume-removed</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+user_function (<link linkend="GVolumeMonitor"><type>GVolumeMonitor</type></link> *volume_monitor,
+               <link linkend="GVolume"><type>GVolume</type></link>        *volume,
+               <link linkend="gpointer"><type>gpointer</type></link>        user_data)</programlisting>
+<para>Emitted when a mountable volume is removed from the system.</para>
+<refsect3 id="GVolumeMonitor-volume-removed.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>volume_monitor</para></entry>
+<entry role="parameter_description"><para>The volume monitor emitting the signal.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>volume</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GVolume"><type>GVolume</type></link> that was removed.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><simpara>user_data</simpara></entry>
+<entry role="parameter_description"><simpara>user data set when the signal handler was connected.</simpara></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para>Flags: <link linkend="G-SIGNAL-RUN-LAST:CAPS">Run Last</link></para>
+</refsect2>
+</refsect1>
+<refsect1 id="GVolumeMonitor.see-also">
+<title>See Also</title>
+<para><link linkend="GFileMonitor"><type>GFileMonitor</type></link></para>
+
+</refsect1>
+
+</refentry>

@@ -1,0 +1,573 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC '-//OASIS//DTD DocBook XML V4.5//EN'
+                      'http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd' [
+<!ENTITY % local.common.attrib "xmlns:xi  CDATA  #FIXED 'http://www.w3.org/2003/XInclude'">
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="glib-I18N">
+<refmeta>
+<refentrytitle role="top_of_page" id="glib-I18N.top_of_page">Internationalization</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>GLIB Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>Internationalization</refname>
+<refpurpose>gettext support macros</refpurpose>
+</refnamediv>
+
+<refsect1 id="glib-I18N.functions" role="functions_proto">
+<title role="functions_proto.title">Functions</title>
+<informaltable pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="functions_return" colwidth="150px"/>
+<colspec colname="functions_name"/>
+<tbody>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="Q-:CAPS">Q_</link><phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="C-:CAPS">C_</link><phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="N-:CAPS">N_</link><phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="NC-:CAPS">NC_</link><phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type">const <link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-dgettext">g_dgettext</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type">const <link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-dcgettext">g_dcgettext</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type">const <link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-dngettext">g_dngettext</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type">const <link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-dpgettext">g_dpgettext</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type">const <link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-dpgettext2">g_dpgettext2</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type">const <link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-strip-context">g_strip_context</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+<row><entry role="function_type">const <link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;* const *
+</entry><entry role="function_name"><link linkend="g-get-language-names">g_get_language_names</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;**
+</entry><entry role="function_name"><link linkend="g-get-locale-variants">g_get_locale_variants</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+
+<refsect1 id="glib-I18N.includes"><title>Includes</title><synopsis>#include &lt;glib.h&gt;
+#include &lt;glib/gi18n.h&gt;
+</synopsis></refsect1>
+
+<refsect1 id="glib-I18N.description" role="desc">
+<title role="desc.title">Description</title>
+<para>GLib doesn't force any particular localization method upon its users.
+But since GLib itself is localized using the <link linkend="gettext"><function>gettext()</function></link> mechanism, it seems
+natural to offer the de-facto standard <link linkend="gettext"><function>gettext()</function></link> support macros in an
+easy-to-use form.</para>
+<para>In order to use these macros in an application, you must include
+<literal>&amp;lt;glib/gi18n.h&gt;</literal>. For use in a library, you must include
+<literal>&amp;lt;glib/gi18n-lib.h&gt;</literal>
+after defining the <link linkend="GETTEXT-PACKAGE:CAPS"><literal>GETTEXT_PACKAGE</literal></link> macro suitably for your library:</para>
+<informalexample><programlisting role="example"><![CDATA[
+#define GETTEXT_PACKAGE "gtk20"
+#include <glib/gi18n-lib.h>
+]]></programlisting></informalexample>
+<para>
+For an application, note that you also have to call <link linkend="bindtextdomain"><function>bindtextdomain()</function></link>,
+<link linkend="bind-textdomain-codeset"><function>bind_textdomain_codeset()</function></link>, <link linkend="textdomain"><function>textdomain()</function></link> and <link linkend="setlocale"><function>setlocale()</function></link> early on in your
+<link linkend="main"><function>main()</function></link> to make <link linkend="gettext"><function>gettext()</function></link> work. For example:</para>
+<informalexample><programlisting role="example"><![CDATA[
+#include <glib/gi18n.h>
+#include <locale.h>
+
+int
+main (int argc, char **argv)
+{
+  setlocale (LC_ALL, "");
+  bindtextdomain (GETTEXT_PACKAGE, DATADIR "/locale");
+  bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
+  textdomain (GETTEXT_PACKAGE);
+
+  // Rest of your application.
+}
+]]></programlisting></informalexample>
+<para>
+where <literal>DATADIR</literal> is as typically provided by automake.</para>
+<para>For a library, you only have to call <link linkend="bindtextdomain"><function>bindtextdomain()</function></link> and
+<link linkend="bind-textdomain-codeset"><function>bind_textdomain_codeset()</function></link> in your initialization function. If your library
+doesn't have an initialization function, you can call the functions before
+the first translated message.</para>
+<para>The
+<ulink url="http://www.gnu.org/software/gettext/manual/gettext.html#Maintainers">gettext manual</ulink>
+covers details of how to integrate gettext into a project’s build system and
+workflow.</para>
+
+</refsect1>
+<refsect1 id="glib-I18N.functions_details" role="details">
+<title role="details.title">Functions</title>
+<refsect2 id="Q-:CAPS" role="macro" condition="since:2.4">
+<title>Q_()</title>
+<indexterm zone="Q-:CAPS" role="2.4"><primary>Q_</primary></indexterm>
+<programlisting language="C">#define             Q_(String)</programlisting>
+<para>Like <link linkend="gettext-macro"><function>_()</function></link>, but handles context in message ids. This has the advantage
+that the string can be adorned with a prefix to guarantee uniqueness
+and provide context to the translator.</para>
+<para>One use case given in the gettext manual is GUI translation, where one
+could e.g. disambiguate two "Open" menu entries as "File|Open" and
+"Printer|Open". Another use case is the string "Russian" which may
+have to be translated differently depending on whether it's the name
+of a character set or a language. This could be solved by using
+"charset|Russian" and "language|Russian".</para>
+<para>See the <link linkend="C-:CAPS"><function>C_()</function></link> macro for a different way to mark up translatable strings
+with context.</para>
+<para>If you are using the <link linkend="Q-:CAPS"><function>Q_()</function></link> macro, you need to make sure that you pass
+<literal>--keyword=Q_</literal> to xgettext when extracting messages.
+If you are using GNU gettext &gt;= 0.15, you can also use
+<literal>--keyword=Q_:1g</literal> to let xgettext split the context
+string off into a msgctxt line in the po file.</para>
+<refsect3 id="Q-.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>String</para></entry>
+<entry role="parameter_description"><para>the string to be translated, with a '|'-separated prefix
+which must not be translated</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="Q-.returns" role="returns">
+<title>Returns</title>
+<para> the translated message</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.4">2.4</link></para></refsect2>
+<refsect2 id="C-:CAPS" role="macro" condition="since:2.16">
+<title>C_()</title>
+<indexterm zone="C-:CAPS" role="2.16"><primary>C_</primary></indexterm>
+<programlisting language="C">#define             C_(Context,String)</programlisting>
+<para>Uses gettext to get the translation for <parameter>String</parameter>
+. <parameter>Context</parameter>
+ is
+used as a context. This is mainly useful for short strings which
+may need different translations, depending on the context in which
+they are used.</para>
+<informalexample><programlisting role="example"><![CDATA[
+label1 = C_("Navigation", "Back");
+label2 = C_("Body part", "Back");
+]]></programlisting></informalexample>
+<para></para>
+<para>If you are using the <link linkend="C-:CAPS"><function>C_()</function></link> macro, you need to make sure that you pass
+<literal>--keyword=C_:1c,2</literal> to xgettext when extracting messages.
+Note that this only works with GNU gettext &gt;= 0.15.</para>
+<refsect3 id="C-.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>Context</para></entry>
+<entry role="parameter_description"><para>a message context, must be a string literal</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>String</para></entry>
+<entry role="parameter_description"><para>a message id, must be a string literal</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="C-.returns" role="returns">
+<title>Returns</title>
+<para> the translated message</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.16">2.16</link></para></refsect2>
+<refsect2 id="N-:CAPS" role="macro" condition="since:2.4">
+<title>N_()</title>
+<indexterm zone="N-:CAPS" role="2.4"><primary>N_</primary></indexterm>
+<programlisting language="C">#define             N_(String)</programlisting>
+<para>Only marks a string for translation. This is useful in situations
+where the translated strings can't be directly used, e.g. in string
+array initializers. To get the translated string, call <link linkend="gettext"><function>gettext()</function></link>
+at runtime.</para>
+<informalexample><programlisting role="example"><![CDATA[
+{
+  static const char *messages[] = {
+    N_("some very meaningful message"),
+    N_("and another one")
+  };
+  const char *string;
+  ...
+  string
+    = index > 1 ? _("a default message") : gettext (messages[index]);
+
+  fputs (string);
+  ...
+}
+]]></programlisting></informalexample>
+<para></para>
+<refsect3 id="N-.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>String</para></entry>
+<entry role="parameter_description"><para>the string to be translated</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.4">2.4</link></para></refsect2>
+<refsect2 id="NC-:CAPS" role="macro" condition="since:2.18">
+<title>NC_()</title>
+<indexterm zone="NC-:CAPS" role="2.18"><primary>NC_</primary></indexterm>
+<programlisting language="C">#define             NC_(Context, String)</programlisting>
+<para>Only marks a string for translation, with context.
+This is useful in situations where the translated strings can't
+be directly used, e.g. in string array initializers. To get the
+translated string, you should call <link linkend="g-dpgettext2"><function>g_dpgettext2()</function></link> at runtime.</para>
+<informalexample><programlisting role="example"><![CDATA[
+{
+  static const char *messages[] = {
+    NC_("some context", "some very meaningful message"),
+    NC_("some context", "and another one")
+  };
+  const char *string;
+  ...
+  string
+    = index > 1 ? g_dpgettext2 (NULL, "some context", "a default message")
+                : g_dpgettext2 (NULL, "some context", messages[index]);
+
+  fputs (string);
+  ...
+}
+]]></programlisting></informalexample>
+<para></para>
+<para>If you are using the <link linkend="NC-:CAPS"><function>NC_()</function></link> macro, you need to make sure that you pass
+<literal>--keyword=NC_:1c,2</literal> to xgettext when extracting messages.
+Note that this only works with GNU gettext &gt;= 0.15. Intltool has support
+for the <link linkend="NC-:CAPS"><function>NC_()</function></link> macro since version 0.40.1.</para>
+<refsect3 id="NC-.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>Context</para></entry>
+<entry role="parameter_description"><para>a message context, must be a string literal</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>String</para></entry>
+<entry role="parameter_description"><para>a message id, must be a string literal</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.18">2.18</link></para></refsect2>
+<refsect2 id="g-dgettext" role="function" condition="since:2.18">
+<title>g_dgettext&#160;()</title>
+<indexterm zone="g-dgettext" role="2.18"><primary sortas="dgettext">g_dgettext</primary></indexterm>
+<programlisting language="C">const <link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+g_dgettext (<parameter>const <link linkend="gchar"><type>gchar</type></link> *domain</parameter>,
+            <parameter>const <link linkend="gchar"><type>gchar</type></link> *msgid</parameter>);</programlisting>
+<para>This function is a wrapper of <link linkend="dgettext"><function>dgettext()</function></link> which does not translate
+the message if the default domain as set with <link linkend="textdomain"><function>textdomain()</function></link> has no
+translations for the current locale.</para>
+<para>The advantage of using this function over <link linkend="dgettext"><function>dgettext()</function></link> proper is that
+libraries using this function (like GTK+) will not use translations
+if the application using the library does not have translations for
+the current locale.  This results in a consistent English-only
+interface instead of one having partial translations.  For this
+feature to work, the call to <link linkend="textdomain"><function>textdomain()</function></link> and <link linkend="setlocale"><function>setlocale()</function></link> should
+precede any <link linkend="g-dgettext"><function>g_dgettext()</function></link> invocations.  For GTK+, it means calling
+<link linkend="textdomain"><function>textdomain()</function></link> before gtk_init or its variants.</para>
+<para>This function disables translations if and only if upon its first
+call all the following conditions hold:</para>
+<itemizedlist>
+<listitem>
+<para><parameter>domain</parameter>
+ is not <link linkend="NULL:CAPS"><literal>NULL</literal></link></para>
+</listitem>
+<listitem>
+<para>textdomain() has been called to set a default text domain</para>
+</listitem>
+<listitem>
+<para>there is no translations available for the default text domain
+and the current locale</para>
+</listitem>
+<listitem>
+<para>current locale is not "C" or any English locales (those
+starting with "en_")</para>
+</listitem>
+</itemizedlist>
+<para>Note that this behavior may not be desired for example if an application
+has its untranslated messages in a language other than English. In those
+cases the application should call <link linkend="textdomain"><function>textdomain()</function></link> after initializing GTK+.</para>
+<para>Applications should normally not use this function directly,
+but use the <link linkend="gettext-macro"><function>_()</function></link> macro for translations.</para>
+<refsect3 id="g-dgettext.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>domain</para></entry>
+<entry role="parameter_description"><para>the translation domain to use, or <link linkend="NULL:CAPS"><literal>NULL</literal></link> to use
+the domain set with <link linkend="textdomain"><function>textdomain()</function></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>msgid</para></entry>
+<entry role="parameter_description"><para>message to translate</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-dgettext.returns" role="returns">
+<title>Returns</title>
+<para> The translated string</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.18">2.18</link></para></refsect2>
+<refsect2 id="g-dcgettext" role="function" condition="since:2.26">
+<title>g_dcgettext&#160;()</title>
+<indexterm zone="g-dcgettext" role="2.26"><primary sortas="dcgettext">g_dcgettext</primary></indexterm>
+<programlisting language="C">const <link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+g_dcgettext (<parameter>const <link linkend="gchar"><type>gchar</type></link> *domain</parameter>,
+             <parameter>const <link linkend="gchar"><type>gchar</type></link> *msgid</parameter>,
+             <parameter><link linkend="gint"><type>gint</type></link> category</parameter>);</programlisting>
+<para>This is a variant of <link linkend="g-dgettext"><function>g_dgettext()</function></link> that allows specifying a locale
+category instead of always using <literal>LC_MESSAGES</literal>. See <link linkend="g-dgettext"><function>g_dgettext()</function></link> for
+more information about how this functions differs from calling
+<link linkend="dcgettext"><function>dcgettext()</function></link> directly.</para>
+<refsect3 id="g-dcgettext.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>domain</para></entry>
+<entry role="parameter_description"><para>the translation domain to use, or <link linkend="NULL:CAPS"><literal>NULL</literal></link> to use
+the domain set with <link linkend="textdomain"><function>textdomain()</function></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>msgid</para></entry>
+<entry role="parameter_description"><para>message to translate</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>category</para></entry>
+<entry role="parameter_description"><para>a locale category</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-dcgettext.returns" role="returns">
+<title>Returns</title>
+<para> the translated string for the given locale category</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.26">2.26</link></para></refsect2>
+<refsect2 id="g-dngettext" role="function" condition="since:2.18">
+<title>g_dngettext&#160;()</title>
+<indexterm zone="g-dngettext" role="2.18"><primary sortas="dngettext">g_dngettext</primary></indexterm>
+<programlisting language="C">const <link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+g_dngettext (<parameter>const <link linkend="gchar"><type>gchar</type></link> *domain</parameter>,
+             <parameter>const <link linkend="gchar"><type>gchar</type></link> *msgid</parameter>,
+             <parameter>const <link linkend="gchar"><type>gchar</type></link> *msgid_plural</parameter>,
+             <parameter><link linkend="gulong"><type>gulong</type></link> n</parameter>);</programlisting>
+<para>This function is a wrapper of <link linkend="dngettext"><function>dngettext()</function></link> which does not translate
+the message if the default domain as set with <link linkend="textdomain"><function>textdomain()</function></link> has no
+translations for the current locale.</para>
+<para>See <link linkend="g-dgettext"><function>g_dgettext()</function></link> for details of how this differs from <link linkend="dngettext"><function>dngettext()</function></link>
+proper.</para>
+<refsect3 id="g-dngettext.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>domain</para></entry>
+<entry role="parameter_description"><para>the translation domain to use, or <link linkend="NULL:CAPS"><literal>NULL</literal></link> to use
+the domain set with <link linkend="textdomain"><function>textdomain()</function></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>msgid</para></entry>
+<entry role="parameter_description"><para>message to translate</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>msgid_plural</para></entry>
+<entry role="parameter_description"><para>plural form of the message</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>n</para></entry>
+<entry role="parameter_description"><para>the quantity for which translation is needed</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-dngettext.returns" role="returns">
+<title>Returns</title>
+<para> The translated string</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.18">2.18</link></para></refsect2>
+<refsect2 id="g-dpgettext" role="function" condition="since:2.16">
+<title>g_dpgettext&#160;()</title>
+<indexterm zone="g-dpgettext" role="2.16"><primary sortas="dpgettext">g_dpgettext</primary></indexterm>
+<programlisting language="C">const <link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+g_dpgettext (<parameter>const <link linkend="gchar"><type>gchar</type></link> *domain</parameter>,
+             <parameter>const <link linkend="gchar"><type>gchar</type></link> *msgctxtid</parameter>,
+             <parameter><link linkend="gsize"><type>gsize</type></link> msgidoffset</parameter>);</programlisting>
+<para>This function is a variant of <link linkend="g-dgettext"><function>g_dgettext()</function></link> which supports
+a disambiguating message context. GNU gettext uses the
+'\004' character to separate the message context and
+message id in <parameter>msgctxtid</parameter>
+.
+If 0 is passed as <parameter>msgidoffset</parameter>
+, this function will fall back to
+trying to use the deprecated convention of using "|" as a separation
+character.</para>
+<para>This uses <link linkend="g-dgettext"><function>g_dgettext()</function></link> internally. See that functions for differences
+with <link linkend="dgettext"><function>dgettext()</function></link> proper.</para>
+<para>Applications should normally not use this function directly,
+but use the <link linkend="C-:CAPS"><function>C_()</function></link> macro for translations with context.</para>
+<refsect3 id="g-dpgettext.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>domain</para></entry>
+<entry role="parameter_description"><para>the translation domain to use, or <link linkend="NULL:CAPS"><literal>NULL</literal></link> to use
+the domain set with <link linkend="textdomain"><function>textdomain()</function></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>msgctxtid</para></entry>
+<entry role="parameter_description"><para>a combined message context and message id, separated
+by a \004 character</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>msgidoffset</para></entry>
+<entry role="parameter_description"><para>the offset of the message id in <parameter>msgctxid</parameter>
+</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-dpgettext.returns" role="returns">
+<title>Returns</title>
+<para> The translated string</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.16">2.16</link></para></refsect2>
+<refsect2 id="g-dpgettext2" role="function" condition="since:2.18">
+<title>g_dpgettext2&#160;()</title>
+<indexterm zone="g-dpgettext2" role="2.18"><primary sortas="dpgettext2">g_dpgettext2</primary></indexterm>
+<programlisting language="C">const <link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+g_dpgettext2 (<parameter>const <link linkend="gchar"><type>gchar</type></link> *domain</parameter>,
+              <parameter>const <link linkend="gchar"><type>gchar</type></link> *context</parameter>,
+              <parameter>const <link linkend="gchar"><type>gchar</type></link> *msgid</parameter>);</programlisting>
+<para>This function is a variant of <link linkend="g-dgettext"><function>g_dgettext()</function></link> which supports
+a disambiguating message context. GNU gettext uses the
+'\004' character to separate the message context and
+message id in <parameter>msgctxtid</parameter>
+.</para>
+<para>This uses <link linkend="g-dgettext"><function>g_dgettext()</function></link> internally. See that functions for differences
+with <link linkend="dgettext"><function>dgettext()</function></link> proper.</para>
+<para>This function differs from <link linkend="C-:CAPS"><function>C_()</function></link> in that it is not a macro and
+thus you may use non-string-literals as context and msgid arguments.</para>
+<refsect3 id="g-dpgettext2.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>domain</para></entry>
+<entry role="parameter_description"><para>the translation domain to use, or <link linkend="NULL:CAPS"><literal>NULL</literal></link> to use
+the domain set with <link linkend="textdomain"><function>textdomain()</function></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>context</para></entry>
+<entry role="parameter_description"><para>the message context</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>msgid</para></entry>
+<entry role="parameter_description"><para>the message</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-dpgettext2.returns" role="returns">
+<title>Returns</title>
+<para> The translated string</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.18">2.18</link></para></refsect2>
+<refsect2 id="g-strip-context" role="function" condition="since:2.4">
+<title>g_strip_context&#160;()</title>
+<indexterm zone="g-strip-context" role="2.4"><primary sortas="strip_context">g_strip_context</primary></indexterm>
+<programlisting language="C">const <link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+g_strip_context (<parameter>const <link linkend="gchar"><type>gchar</type></link> *msgid</parameter>,
+                 <parameter>const <link linkend="gchar"><type>gchar</type></link> *msgval</parameter>);</programlisting>
+<para>An auxiliary function for <link linkend="gettext"><function>gettext()</function></link> support (see <link linkend="Q-:CAPS"><function>Q_()</function></link>).</para>
+<refsect3 id="g-strip-context.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>msgid</para></entry>
+<entry role="parameter_description"><para>a string</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>msgval</para></entry>
+<entry role="parameter_description"><para>another string</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-strip-context.returns" role="returns">
+<title>Returns</title>
+<para> <parameter>msgval</parameter>
+, unless <parameter>msgval</parameter>
+is identical to <parameter>msgid</parameter>
+and contains a '|' character, in which case a pointer to
+the substring of msgid after the first '|' character is returned.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.4">2.4</link></para></refsect2>
+<refsect2 id="g-get-language-names" role="function" condition="since:2.6">
+<title>g_get_language_names&#160;()</title>
+<indexterm zone="g-get-language-names" role="2.6"><primary sortas="get_language_names">g_get_language_names</primary></indexterm>
+<programlisting language="C">const <link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;* const *
+g_get_language_names (<parameter><type>void</type></parameter>);</programlisting>
+<para>Computes a list of applicable locale names, which can be used to
+e.g. construct locale-dependent filenames or search paths. The returned
+list is sorted from most desirable to least desirable and always contains
+the default locale "C".</para>
+<para>For example, if LANGUAGE=de:en_US, then the returned list is
+"de", "en_US", "en", "C".</para>
+<para>This function consults the environment variables <literal>LANGUAGE</literal>, <literal>LC_ALL</literal>,
+<literal>LC_MESSAGES</literal> and <literal>LANG</literal> to find the list of locales specified by the
+user.</para>
+<refsect3 id="g-get-language-names.returns" role="returns">
+<title>Returns</title>
+<para>a <link linkend="NULL:CAPS"><literal>NULL</literal></link>-terminated array of strings owned by GLib
+that must not be modified or freed. </para>
+<para><emphasis role="annotation">[<acronym>array</acronym> zero-terminated=1][<acronym>transfer none</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.6">2.6</link></para></refsect2>
+<refsect2 id="g-get-locale-variants" role="function" condition="since:2.28">
+<title>g_get_locale_variants&#160;()</title>
+<indexterm zone="g-get-locale-variants" role="2.28"><primary sortas="get_locale_variants">g_get_locale_variants</primary></indexterm>
+<programlisting language="C"><link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;**
+g_get_locale_variants (<parameter>const <link linkend="gchar"><type>gchar</type></link> *locale</parameter>);</programlisting>
+<para>Returns a list of derived variants of <parameter>locale</parameter>
+, which can be used to
+e.g. construct locale-dependent filenames or search paths. The returned
+list is sorted from most desirable to least desirable.
+This function handles territory, charset and extra locale modifiers.</para>
+<para>For example, if <parameter>locale</parameter>
+ is "fr_BE", then the returned list
+is "fr_BE", "fr".</para>
+<para>If you need the list of variants for the current locale,
+use <link linkend="g-get-language-names"><function>g_get_language_names()</function></link>.</para>
+<refsect3 id="g-get-locale-variants.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>locale</para></entry>
+<entry role="parameter_description"><para>a locale identifier</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-get-locale-variants.returns" role="returns">
+<title>Returns</title>
+<para>a newly
+allocated array of newly allocated strings with the locale variants. Free with
+<link linkend="g-strfreev"><function>g_strfreev()</function></link>. </para>
+<para><emphasis role="annotation">[<acronym>transfer full</acronym>][<acronym>array</acronym> zero-terminated=1][<acronym>element-type</acronym> utf8]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.28">2.28</link></para></refsect2>
+
+</refsect1>
+<refsect1 id="glib-I18N.other_details" role="details">
+<title role="details.title">Types and Values</title>
+
+</refsect1>
+<refsect1 id="glib-I18N.see-also">
+<title>See Also</title>
+<para>the gettext manual</para>
+
+</refsect1>
+
+</refentry>

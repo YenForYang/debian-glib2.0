@@ -1,0 +1,2134 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC '-//OASIS//DTD DocBook XML V4.5//EN'
+                      'http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd' [
+<!ENTITY % local.common.attrib "xmlns:xi  CDATA  #FIXED 'http://www.w3.org/2003/XInclude'">
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="GApplication">
+<refmeta>
+<refentrytitle role="top_of_page" id="GApplication.top_of_page">GApplication</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>GIO Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>GApplication</refname>
+<refpurpose>Core application class</refpurpose>
+</refnamediv>
+
+<refsect1 id="GApplication.functions" role="functions_proto">
+<title role="functions_proto.title">Functions</title>
+<informaltable pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="functions_return" colwidth="150px"/>
+<colspec colname="functions_name"/>
+<tbody>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-application-id-is-valid">g_application_id_is_valid</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GApplication"><returnvalue>GApplication</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-application-new">g_application_new</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+<row><entry role="function_type">const <link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-application-get-application-id">g_application_get_application_id</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-application-set-application-id">g_application_set_application_id</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+<row><entry role="function_type"><link linkend="guint"><returnvalue>guint</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-application-get-inactivity-timeout">g_application_get_inactivity_timeout</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-application-set-inactivity-timeout">g_application_set_inactivity_timeout</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+<row><entry role="function_type"><link linkend="GApplicationFlags"><returnvalue>GApplicationFlags</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-application-get-flags">g_application_get_flags</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-application-set-flags">g_application_set_flags</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+<row><entry role="function_type">const <link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-application-get-resource-base-path">g_application_get_resource_base_path</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-application-set-resource-base-path">g_application_set_resource_base_path</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+<row><entry role="function_type"><link linkend="GDBusConnection"><returnvalue>GDBusConnection</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-application-get-dbus-connection">g_application_get_dbus_connection</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type">const <link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-application-get-dbus-object-path">g_application_get_dbus_object_path</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-application-set-action-group">g_application_set_action_group</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-application-get-is-registered">g_application_get_is_registered</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-application-get-is-remote">g_application_get_is_remote</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-application-register">g_application_register</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-application-hold">g_application_hold</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-application-release">g_application_release</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-application-quit">g_application_quit</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-application-activate">g_application_activate</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-application-open">g_application_open</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-application-send-notification">g_application_send_notification</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-application-withdraw-notification">g_application_withdraw_notification</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+<row><entry role="function_type"><link linkend="int"><returnvalue>int</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-application-run">g_application_run</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-application-add-main-option-entries">g_application_add_main_option_entries</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-application-add-main-option">g_application_add_main_option</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-application-add-option-group">g_application_add_option_group</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-application-set-option-context-parameter-string">g_application_set_option_context_parameter_string</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-application-set-option-context-summary">g_application_set_option_context_summary</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-application-set-option-context-description">g_application_set_option_context_description</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-application-set-default">g_application_set_default</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GApplication"><returnvalue>GApplication</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-application-get-default">g_application_get_default</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-application-mark-busy">g_application_mark_busy</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-application-unmark-busy">g_application_unmark_busy</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-application-get-is-busy">g_application_get_is_busy</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-application-bind-busy-property">g_application_bind_busy_property</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-application-unbind-busy-property">g_application_unbind_busy_property</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GApplication.properties" role="properties">
+<title role="properties.title">Properties</title>
+<informaltable frame="none">
+<tgroup cols="3">
+<colspec colname="properties_type" colwidth="150px"/>
+<colspec colname="properties_name" colwidth="300px"/>
+<colspec colname="properties_flags" colwidth="200px"/>
+<tbody>
+<row><entry role="property_type"><link linkend="GActionGroup"><type>GActionGroup</type></link>&#160;*</entry><entry role="property_name"><link linkend="GApplication--action-group">action-group</link></entry><entry role="property_flags">Write</entry></row>
+<row><entry role="property_type"><link linkend="gchar"><type>gchar</type></link>&#160;*</entry><entry role="property_name"><link linkend="GApplication--application-id">application-id</link></entry><entry role="property_flags">Read / Write / Construct</entry></row>
+<row><entry role="property_type"><link linkend="GApplicationFlags"><type>GApplicationFlags</type></link></entry><entry role="property_name"><link linkend="GApplication--flags">flags</link></entry><entry role="property_flags">Read / Write</entry></row>
+<row><entry role="property_type"><link linkend="guint"><type>guint</type></link></entry><entry role="property_name"><link linkend="GApplication--inactivity-timeout">inactivity-timeout</link></entry><entry role="property_flags">Read / Write</entry></row>
+<row><entry role="property_type"><link linkend="gboolean"><type>gboolean</type></link></entry><entry role="property_name"><link linkend="GApplication--is-busy">is-busy</link></entry><entry role="property_flags">Read</entry></row>
+<row><entry role="property_type"><link linkend="gboolean"><type>gboolean</type></link></entry><entry role="property_name"><link linkend="GApplication--is-registered">is-registered</link></entry><entry role="property_flags">Read</entry></row>
+<row><entry role="property_type"><link linkend="gboolean"><type>gboolean</type></link></entry><entry role="property_name"><link linkend="GApplication--is-remote">is-remote</link></entry><entry role="property_flags">Read</entry></row>
+<row><entry role="property_type"><link linkend="gchar"><type>gchar</type></link>&#160;*</entry><entry role="property_name"><link linkend="GApplication--resource-base-path">resource-base-path</link></entry><entry role="property_flags">Read / Write</entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GApplication.signals" role="signal_proto">
+<title role="signal_proto.title">Signals</title>
+<informaltable frame="none">
+<tgroup cols="3">
+<colspec colname="signals_return" colwidth="150px"/>
+<colspec colname="signals_name" colwidth="300px"/>
+<colspec colname="signals_flags" colwidth="200px"/>
+<tbody>
+<row><entry role="signal_type"><link linkend="void"><returnvalue>void</returnvalue></link></entry><entry role="signal_name"><link linkend="GApplication-activate">activate</link></entry><entry role="signal_flags"><link linkend="G-SIGNAL-RUN-LAST:CAPS">Run Last</link></entry></row>
+<row><entry role="signal_type"><link linkend="gint"><returnvalue>gint</returnvalue></link></entry><entry role="signal_name"><link linkend="GApplication-command-line">command-line</link></entry><entry role="signal_flags"><link linkend="G-SIGNAL-RUN-LAST:CAPS">Run Last</link></entry></row>
+<row><entry role="signal_type"><link linkend="gint"><returnvalue>gint</returnvalue></link></entry><entry role="signal_name"><link linkend="GApplication-handle-local-options">handle-local-options</link></entry><entry role="signal_flags"><link linkend="G-SIGNAL-RUN-LAST:CAPS">Run Last</link></entry></row>
+<row><entry role="signal_type"><link linkend="void"><returnvalue>void</returnvalue></link></entry><entry role="signal_name"><link linkend="GApplication-open">open</link></entry><entry role="signal_flags"><link linkend="G-SIGNAL-RUN-LAST:CAPS">Run Last</link></entry></row>
+<row><entry role="signal_type"><link linkend="void"><returnvalue>void</returnvalue></link></entry><entry role="signal_name"><link linkend="GApplication-shutdown">shutdown</link></entry><entry role="signal_flags"><link linkend="G-SIGNAL-RUN-LAST:CAPS">Run Last</link></entry></row>
+<row><entry role="signal_type"><link linkend="void"><returnvalue>void</returnvalue></link></entry><entry role="signal_name"><link linkend="GApplication-startup">startup</link></entry><entry role="signal_flags"><link linkend="G-SIGNAL-RUN-FIRST:CAPS">Run First</link></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GApplication.other" role="other_proto">
+<title role="other_proto.title">Types and Values</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="name" colwidth="150px"/>
+<colspec colname="description"/>
+<tbody>
+<row><entry role="datatype_keyword"></entry><entry role="function_name"><link linkend="GApplication-struct">GApplication</link></entry></row>
+<row><entry role="datatype_keyword">struct</entry><entry role="function_name"><link linkend="GApplicationClass">GApplicationClass</link></entry></row>
+
+<row><entry role="datatype_keyword">enum</entry><entry role="function_name"><link linkend="GApplicationFlags">GApplicationFlags</link></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GApplication.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<screen>    <link linkend="GFlags">GFlags</link>
+    <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> GApplicationFlags
+    <link linkend="GObject">GObject</link>
+    <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> GApplication
+</screen>
+</refsect1>
+<refsect1 id="GApplication.implemented-interfaces" role="impl_interfaces">
+<title role="impl_interfaces.title">Implemented Interfaces</title>
+<para>
+GApplication implements
+ <link linkend="GActionGroup">GActionGroup</link> and  <link linkend="GActionMap">GActionMap</link>.</para>
+
+</refsect1>
+
+<refsect1 id="GApplication.includes"><title>Includes</title><synopsis>#include &lt;gio/gio.h&gt;
+</synopsis></refsect1>
+
+<refsect1 id="GApplication.description" role="desc">
+<title role="desc.title">Description</title>
+<para>A <link linkend="GApplication"><type>GApplication</type></link> is the foundation of an application.  It wraps some
+low-level platform-specific services and is intended to act as the
+foundation for higher-level application classes such as
+<link linkend="GtkApplication"><type>GtkApplication</type></link> or <link linkend="MxApplication"><type>MxApplication</type></link>.  In general, you should not use
+this class outside of a higher level framework.</para>
+<para>GApplication provides convenient life cycle management by maintaining
+a "use count" for the primary application instance. The use count can
+be changed using <link linkend="g-application-hold"><function>g_application_hold()</function></link> and <link linkend="g-application-release"><function>g_application_release()</function></link>. If
+it drops to zero, the application exits. Higher-level classes such as
+<link linkend="GtkApplication"><type>GtkApplication</type></link> employ the use count to ensure that the application
+stays alive as long as it has any opened windows.</para>
+<para>Another feature that GApplication (optionally) provides is process
+uniqueness. Applications can make use of this functionality by
+providing a unique application ID. If given, only one application
+with this ID can be running at a time per session. The session
+concept is platform-dependent, but corresponds roughly to a graphical
+desktop login. When your application is launched again, its
+arguments are passed through platform communication to the already
+running program. The already running instance of the program is
+called the "primary instance"; for non-unique applications this is
+the always the current instance. On Linux, the D-Bus session bus
+is used for communication.</para>
+<para>The use of <link linkend="GApplication"><type>GApplication</type></link> differs from some other commonly-used
+uniqueness libraries (such as libunique) in important ways. The
+application is not expected to manually register itself and check
+if it is the primary instance. Instead, the <link linkend="main"><function>main()</function></link> function of a
+<link linkend="GApplication"><type>GApplication</type></link> should do very little more than instantiating the
+application instance, possibly connecting signal handlers, then
+calling <link linkend="g-application-run"><function>g_application_run()</function></link>. All checks for uniqueness are done
+internally. If the application is the primary instance then the
+startup signal is emitted and the mainloop runs. If the application
+is not the primary instance then a signal is sent to the primary
+instance and <link linkend="g-application-run"><function>g_application_run()</function></link> promptly returns. See the code
+examples below.</para>
+<para>If used, the expected form of an application identifier is the same as
+that of of a
+<ulink url="https://dbus.freedesktop.org/doc/dbus-specification.html#message-protocol-names-bus">D-Bus well-known bus name</ulink>.
+Examples include: <literal>com.example.MyApp</literal>, <literal>org.example.internal_apps.Calculator</literal>,
+<literal>org._7_zip.Archiver</literal>.
+For details on valid application identifiers, see <link linkend="g-application-id-is-valid"><function>g_application_id_is_valid()</function></link>.</para>
+<para>On Linux, the application identifier is claimed as a well-known bus name
+on the user's session bus.  This means that the uniqueness of your
+application is scoped to the current session.  It also means that your
+application may provide additional services (through registration of other
+object paths) at that bus name.  The registration of these object paths
+should be done with the shared GDBus session bus.  Note that due to the
+internal architecture of GDBus, method calls can be dispatched at any time
+(even if a main loop is not running).  For this reason, you must ensure that
+any object paths that you wish to register are registered before <link linkend="GApplication"><type>GApplication</type></link>
+attempts to acquire the bus name of your application (which happens in
+<link linkend="g-application-register"><function>g_application_register()</function></link>).  Unfortunately, this means that you cannot use
+<link linkend="g-application-get-is-remote"><function>g_application_get_is_remote()</function></link> to decide if you want to register object paths.</para>
+<para>GApplication also implements the <link linkend="GActionGroup"><type>GActionGroup</type></link> and <link linkend="GActionMap"><type>GActionMap</type></link>
+interfaces and lets you easily export actions by adding them with
+<link linkend="g-action-map-add-action"><function>g_action_map_add_action()</function></link>. When invoking an action by calling
+<link linkend="g-action-group-activate-action"><function>g_action_group_activate_action()</function></link> on the application, it is always
+invoked in the primary instance. The actions are also exported on
+the session bus, and GIO provides the <link linkend="GDBusActionGroup"><type>GDBusActionGroup</type></link> wrapper to
+conveniently access them remotely. GIO provides a <link linkend="GDBusMenuModel"><type>GDBusMenuModel</type></link> wrapper
+for remote access to exported <link linkend="GMenuModels"><type>GMenuModels</type></link>.</para>
+<para>There is a number of different entry points into a GApplication:</para>
+<itemizedlist>
+<listitem>
+<para>via 'Activate' (i.e. just starting the application)</para>
+</listitem>
+<listitem>
+<para>via 'Open' (i.e. opening some files)</para>
+</listitem>
+<listitem>
+<para>by handling a command-line</para>
+</listitem>
+<listitem>
+<para>via activating an action</para>
+</listitem>
+</itemizedlist>
+<para>The <link linkend="GApplication-startup"><type>“startup”</type></link> signal lets you handle the application
+initialization for all of these in a single place.</para>
+<para>Regardless of which of these entry points is used to start the
+application, GApplication passes some "platform data from the
+launching instance to the primary instance, in the form of a
+<link linkend="GVariant"><type>GVariant</type></link> dictionary mapping strings to variants. To use platform
+data, override the <parameter>before_emit</parameter>
+ or <parameter>after_emit</parameter>
+ virtual functions
+in your <link linkend="GApplication"><type>GApplication</type></link> subclass. When dealing with
+<link linkend="GApplicationCommandLine"><type>GApplicationCommandLine</type></link> objects, the platform data is
+directly available via <link linkend="g-application-command-line-get-cwd"><function>g_application_command_line_get_cwd()</function></link>,
+<link linkend="g-application-command-line-get-environ"><function>g_application_command_line_get_environ()</function></link> and
+<link linkend="g-application-command-line-get-platform-data"><function>g_application_command_line_get_platform_data()</function></link>.</para>
+<para>As the name indicates, the platform data may vary depending on the
+operating system, but it always includes the current directory (key
+"cwd"), and optionally the environment (ie the set of environment
+variables and their values) of the calling process (key "environ").
+The environment is only added to the platform data if the
+<link linkend="G-APPLICATION-SEND-ENVIRONMENT:CAPS"><literal>G_APPLICATION_SEND_ENVIRONMENT</literal></link> flag is set. <link linkend="GApplication"><type>GApplication</type></link> subclasses
+can add their own platform data by overriding the <parameter>add_platform_data</parameter>
+
+virtual function. For instance, <link linkend="GtkApplication"><type>GtkApplication</type></link> adds startup notification
+data in this way.</para>
+<para>To parse commandline arguments you may handle the
+<link linkend="GApplication-command-line"><type>“command-line”</type></link> signal or override the <link linkend="local-command-line"><function>local_command_line()</function></link>
+vfunc, to parse them in either the primary instance or the local instance,
+respectively.</para>
+<para>For an example of opening files with a GApplication, see
+<ulink url="https://git.gnome.org/browse/glib/tree/gio/tests/gapplication-example-open.c">gapplication-example-open.c</ulink>.</para>
+<para>For an example of using actions with GApplication, see
+<ulink url="https://git.gnome.org/browse/glib/tree/gio/tests/gapplication-example-actions.c">gapplication-example-actions.c</ulink>.</para>
+<para>For an example of using extra D-Bus hooks with GApplication, see
+<ulink url="https://git.gnome.org/browse/glib/tree/gio/tests/gapplication-example-dbushooks.c">gapplication-example-dbushooks.c</ulink>.</para>
+
+</refsect1>
+<refsect1 id="GApplication.functions_details" role="details">
+<title role="details.title">Functions</title>
+<refsect2 id="g-application-id-is-valid" role="function">
+<title>g_application_id_is_valid&#160;()</title>
+<indexterm zone="g-application-id-is-valid"><primary sortas="application_id_is_valid">g_application_id_is_valid</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_application_id_is_valid (<parameter>const <link linkend="gchar"><type>gchar</type></link> *application_id</parameter>);</programlisting>
+<para>Checks if <parameter>application_id</parameter>
+ is a valid application identifier.</para>
+<para>A valid ID is required for calls to <link linkend="g-application-new"><function>g_application_new()</function></link> and
+<link linkend="g-application-set-application-id"><function>g_application_set_application_id()</function></link>.</para>
+<para>Application identifiers follow the same format as
+<ulink url="https://dbus.freedesktop.org/doc/dbus-specification.html#message-protocol-names-bus">D-Bus well-known bus names</ulink>.
+For convenience, the restrictions on application identifiers are
+reproduced here:</para>
+<itemizedlist>
+<listitem>
+<para>Application identifiers are composed of 1 or more elements separated by a
+period (<literal>.</literal>) character. All elements must contain at least one character.</para>
+</listitem>
+<listitem>
+<para>Each element must only contain the ASCII characters <literal>[A-Z][a-z][0-9]_-</literal>,
+with <literal>-</literal> discouraged in new application identifiers. Each element must not
+begin with a digit.</para>
+</listitem>
+<listitem>
+<para>Application identifiers must contain at least one <literal>.</literal> (period) character
+(and thus at least two elements).</para>
+</listitem>
+<listitem>
+<para>Application identifiers must not begin with a <literal>.</literal> (period) character.</para>
+</listitem>
+<listitem>
+<para>Application identifiers must not exceed 255 characters.</para>
+</listitem>
+</itemizedlist>
+<para>Note that the hyphen (<literal>-</literal>) character is allowed in application identifiers,
+but is problematic or not allowed in various specifications and APIs that
+refer to D-Bus, such as
+<ulink url="http://docs.flatpak.org/en/latest/introduction.html#identifiers">Flatpak application IDs</ulink>,
+the
+<ulink url="https://specifications.freedesktop.org/desktop-entry-spec/desktop-entry-spec-latest.html#dbus"><literal>DBusActivatable</literal> interface in the Desktop Entry Specification</ulink>,
+and the convention that an application's "main" interface and object path
+resemble its application identifier and bus name. To avoid situations that
+require special-case handling, it is recommended that new application
+identifiers consistently replace hyphens with underscores.</para>
+<para>Like D-Bus interface names, application identifiers should start with the
+reversed DNS domain name of the author of the interface (in lower-case), and
+it is conventional for the rest of the application identifier to consist of
+words run together, with initial capital letters.</para>
+<para>As with D-Bus interface names, if the author's DNS domain name contains
+hyphen/minus characters they should be replaced by underscores, and if it
+contains leading digits they should be escaped by prepending an underscore.
+For example, if the owner of 7-zip.org used an application identifier for an
+archiving application, it might be named <literal>org._7_zip.Archiver</literal>.</para>
+<refsect3 id="g-application-id-is-valid.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>application_id</para></entry>
+<entry role="parameter_description"><para>a potential application identifier</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-application-id-is-valid.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if <parameter>application_id</parameter>
+is valid</para>
+</refsect3></refsect2>
+<refsect2 id="g-application-new" role="function">
+<title>g_application_new&#160;()</title>
+<indexterm zone="g-application-new"><primary sortas="application_new">g_application_new</primary></indexterm>
+<programlisting language="C"><link linkend="GApplication"><returnvalue>GApplication</returnvalue></link>&#160;*
+g_application_new (<parameter>const <link linkend="gchar"><type>gchar</type></link> *application_id</parameter>,
+                   <parameter><link linkend="GApplicationFlags"><type>GApplicationFlags</type></link> flags</parameter>);</programlisting>
+<para>Creates a new <link linkend="GApplication"><type>GApplication</type></link> instance.</para>
+<para>If non-<link linkend="NULL:CAPS"><literal>NULL</literal></link>, the application id must be valid.  See
+<link linkend="g-application-id-is-valid"><function>g_application_id_is_valid()</function></link>.</para>
+<para>If no application ID is given then some features of <link linkend="GApplication"><type>GApplication</type></link>
+(most notably application uniqueness) will be disabled.</para>
+<refsect3 id="g-application-new.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>application_id</para></entry>
+<entry role="parameter_description"><para>the application id. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>flags</para></entry>
+<entry role="parameter_description"><para>the application flags</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-application-new.returns" role="returns">
+<title>Returns</title>
+<para> a new <link linkend="GApplication"><type>GApplication</type></link> instance</para>
+</refsect3></refsect2>
+<refsect2 id="g-application-get-application-id" role="function" condition="since:2.28">
+<title>g_application_get_application_id&#160;()</title>
+<indexterm zone="g-application-get-application-id" role="2.28"><primary sortas="application_get_application_id">g_application_get_application_id</primary></indexterm>
+<programlisting language="C">const <link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+g_application_get_application_id (<parameter><link linkend="GApplication"><type>GApplication</type></link> *application</parameter>);</programlisting>
+<para>Gets the unique identifier for <parameter>application</parameter>
+.</para>
+<refsect3 id="g-application-get-application-id.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>application</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GApplication"><type>GApplication</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-application-get-application-id.returns" role="returns">
+<title>Returns</title>
+<para> the identifier for <parameter>application</parameter>
+, owned by <parameter>application</parameter>
+</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.28">2.28</link></para></refsect2>
+<refsect2 id="g-application-set-application-id" role="function" condition="since:2.28">
+<title>g_application_set_application_id&#160;()</title>
+<indexterm zone="g-application-set-application-id" role="2.28"><primary sortas="application_set_application_id">g_application_set_application_id</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_application_set_application_id (<parameter><link linkend="GApplication"><type>GApplication</type></link> *application</parameter>,
+                                  <parameter>const <link linkend="gchar"><type>gchar</type></link> *application_id</parameter>);</programlisting>
+<para>Sets the unique identifier for <parameter>application</parameter>
+.</para>
+<para>The application id can only be modified if <parameter>application</parameter>
+ has not yet
+been registered.</para>
+<para>If non-<link linkend="NULL:CAPS"><literal>NULL</literal></link>, the application id must be valid.  See
+<link linkend="g-application-id-is-valid"><function>g_application_id_is_valid()</function></link>.</para>
+<refsect3 id="g-application-set-application-id.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>application</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GApplication"><type>GApplication</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>application_id</para></entry>
+<entry role="parameter_description"><para>the identifier for <parameter>application</parameter>
+. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.28">2.28</link></para></refsect2>
+<refsect2 id="g-application-get-inactivity-timeout" role="function" condition="since:2.28">
+<title>g_application_get_inactivity_timeout&#160;()</title>
+<indexterm zone="g-application-get-inactivity-timeout" role="2.28"><primary sortas="application_get_inactivity_timeout">g_application_get_inactivity_timeout</primary></indexterm>
+<programlisting language="C"><link linkend="guint"><returnvalue>guint</returnvalue></link>
+g_application_get_inactivity_timeout (<parameter><link linkend="GApplication"><type>GApplication</type></link> *application</parameter>);</programlisting>
+<para>Gets the current inactivity timeout for the application.</para>
+<para>This is the amount of time (in milliseconds) after the last call to
+<link linkend="g-application-release"><function>g_application_release()</function></link> before the application stops running.</para>
+<refsect3 id="g-application-get-inactivity-timeout.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>application</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GApplication"><type>GApplication</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-application-get-inactivity-timeout.returns" role="returns">
+<title>Returns</title>
+<para> the timeout, in milliseconds</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.28">2.28</link></para></refsect2>
+<refsect2 id="g-application-set-inactivity-timeout" role="function" condition="since:2.28">
+<title>g_application_set_inactivity_timeout&#160;()</title>
+<indexterm zone="g-application-set-inactivity-timeout" role="2.28"><primary sortas="application_set_inactivity_timeout">g_application_set_inactivity_timeout</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_application_set_inactivity_timeout (<parameter><link linkend="GApplication"><type>GApplication</type></link> *application</parameter>,
+                                      <parameter><link linkend="guint"><type>guint</type></link> inactivity_timeout</parameter>);</programlisting>
+<para>Sets the current inactivity timeout for the application.</para>
+<para>This is the amount of time (in milliseconds) after the last call to
+<link linkend="g-application-release"><function>g_application_release()</function></link> before the application stops running.</para>
+<para>This call has no side effects of its own.  The value set here is only
+used for next time <link linkend="g-application-release"><function>g_application_release()</function></link> drops the use count to
+zero.  Any timeouts currently in progress are not impacted.</para>
+<refsect3 id="g-application-set-inactivity-timeout.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>application</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GApplication"><type>GApplication</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>inactivity_timeout</para></entry>
+<entry role="parameter_description"><para>the timeout, in milliseconds</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.28">2.28</link></para></refsect2>
+<refsect2 id="g-application-get-flags" role="function" condition="since:2.28">
+<title>g_application_get_flags&#160;()</title>
+<indexterm zone="g-application-get-flags" role="2.28"><primary sortas="application_get_flags">g_application_get_flags</primary></indexterm>
+<programlisting language="C"><link linkend="GApplicationFlags"><returnvalue>GApplicationFlags</returnvalue></link>
+g_application_get_flags (<parameter><link linkend="GApplication"><type>GApplication</type></link> *application</parameter>);</programlisting>
+<para>Gets the flags for <parameter>application</parameter>
+.</para>
+<para>See <link linkend="GApplicationFlags"><type>GApplicationFlags</type></link>.</para>
+<refsect3 id="g-application-get-flags.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>application</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GApplication"><type>GApplication</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-application-get-flags.returns" role="returns">
+<title>Returns</title>
+<para> the flags for <parameter>application</parameter>
+</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.28">2.28</link></para></refsect2>
+<refsect2 id="g-application-set-flags" role="function" condition="since:2.28">
+<title>g_application_set_flags&#160;()</title>
+<indexterm zone="g-application-set-flags" role="2.28"><primary sortas="application_set_flags">g_application_set_flags</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_application_set_flags (<parameter><link linkend="GApplication"><type>GApplication</type></link> *application</parameter>,
+                         <parameter><link linkend="GApplicationFlags"><type>GApplicationFlags</type></link> flags</parameter>);</programlisting>
+<para>Sets the flags for <parameter>application</parameter>
+.</para>
+<para>The flags can only be modified if <parameter>application</parameter>
+ has not yet been
+registered.</para>
+<para>See <link linkend="GApplicationFlags"><type>GApplicationFlags</type></link>.</para>
+<refsect3 id="g-application-set-flags.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>application</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GApplication"><type>GApplication</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>flags</para></entry>
+<entry role="parameter_description"><para>the flags for <parameter>application</parameter>
+</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.28">2.28</link></para></refsect2>
+<refsect2 id="g-application-get-resource-base-path" role="function" condition="since:2.42">
+<title>g_application_get_resource_base_path&#160;()</title>
+<indexterm zone="g-application-get-resource-base-path" role="2.42"><primary sortas="application_get_resource_base_path">g_application_get_resource_base_path</primary></indexterm>
+<programlisting language="C">const <link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+g_application_get_resource_base_path (<parameter><link linkend="GApplication"><type>GApplication</type></link> *application</parameter>);</programlisting>
+<para>Gets the resource base path of <parameter>application</parameter>
+.</para>
+<para>See <link linkend="g-application-set-resource-base-path"><function>g_application_set_resource_base_path()</function></link> for more information.</para>
+<refsect3 id="g-application-get-resource-base-path.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>application</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GApplication"><type>GApplication</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-application-get-resource-base-path.returns" role="returns">
+<title>Returns</title>
+<para>the base resource path, if one is set. </para>
+<para><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.42">2.42</link></para></refsect2>
+<refsect2 id="g-application-set-resource-base-path" role="function" condition="since:2.42">
+<title>g_application_set_resource_base_path&#160;()</title>
+<indexterm zone="g-application-set-resource-base-path" role="2.42"><primary sortas="application_set_resource_base_path">g_application_set_resource_base_path</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_application_set_resource_base_path (<parameter><link linkend="GApplication"><type>GApplication</type></link> *application</parameter>,
+                                      <parameter>const <link linkend="gchar"><type>gchar</type></link> *resource_path</parameter>);</programlisting>
+<para>Sets (or unsets) the base resource path of <parameter>application</parameter>
+.</para>
+<para>The path is used to automatically load various <link linkend="gresource">application
+resources</link> such as menu layouts and action descriptions.
+The various types of resources will be found at fixed names relative
+to the given base path.</para>
+<para>By default, the resource base path is determined from the application
+ID by prefixing '/' and replacing each '.' with '/'.  This is done at
+the time that the <link linkend="GApplication"><type>GApplication</type></link> object is constructed.  Changes to
+the application ID after that point will not have an impact on the
+resource base path.</para>
+<para>As an example, if the application has an ID of "org.example.app" then
+the default resource base path will be "/org/example/app".  If this
+is a <link linkend="GtkApplication"><type>GtkApplication</type></link> (and you have not manually changed the path)
+then Gtk will then search for the menus of the application at
+"/org/example/app/gtk/menus.ui".</para>
+<para>See <link linkend="GResource"><type>GResource</type></link> for more information about adding resources to your
+application.</para>
+<para>You can disable automatic resource loading functionality by setting
+the path to <link linkend="NULL:CAPS"><literal>NULL</literal></link>.</para>
+<para>Changing the resource base path once the application is running is
+not recommended.  The point at which the resource path is consulted
+for forming paths for various purposes is unspecified.  When writing
+a sub-class of <link linkend="GApplication"><type>GApplication</type></link> you should either set the
+<link linkend="GApplication--resource-base-path"><type>“resource-base-path”</type></link> property at construction time, or call
+this function during the instance initialization. Alternatively, you
+can call this function in the <link linkend="GApplicationClass.startup"><type>GApplicationClass.startup</type></link> virtual function,
+before chaining up to the parent implementation.</para>
+<refsect3 id="g-application-set-resource-base-path.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>application</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GApplication"><type>GApplication</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>resource_path</para></entry>
+<entry role="parameter_description"><para>the resource path to use. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.42">2.42</link></para></refsect2>
+<refsect2 id="g-application-get-dbus-connection" role="function" condition="since:2.34">
+<title>g_application_get_dbus_connection&#160;()</title>
+<indexterm zone="g-application-get-dbus-connection" role="2.34"><primary sortas="application_get_dbus_connection">g_application_get_dbus_connection</primary></indexterm>
+<programlisting language="C"><link linkend="GDBusConnection"><returnvalue>GDBusConnection</returnvalue></link>&#160;*
+g_application_get_dbus_connection (<parameter><link linkend="GApplication"><type>GApplication</type></link> *application</parameter>);</programlisting>
+<para>Gets the <link linkend="GDBusConnection"><type>GDBusConnection</type></link> being used by the application, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>.</para>
+<para>If <link linkend="GApplication"><type>GApplication</type></link> is using its D-Bus backend then this function will
+return the <link linkend="GDBusConnection"><type>GDBusConnection</type></link> being used for uniqueness and
+communication with the desktop environment and other instances of the
+application.</para>
+<para>If <link linkend="GApplication"><type>GApplication</type></link> is not using D-Bus then this function will return
+<link linkend="NULL:CAPS"><literal>NULL</literal></link>.  This includes the situation where the D-Bus backend would
+normally be in use but we were unable to connect to the bus.</para>
+<para>This function must not be called before the application has been
+registered.  See <link linkend="g-application-get-is-registered"><function>g_application_get_is_registered()</function></link>.</para>
+<refsect3 id="g-application-get-dbus-connection.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>application</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GApplication"><type>GApplication</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-application-get-dbus-connection.returns" role="returns">
+<title>Returns</title>
+<para>a <link linkend="GDBusConnection"><type>GDBusConnection</type></link>, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para>
+<para><emphasis role="annotation">[<acronym>transfer none</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.34">2.34</link></para></refsect2>
+<refsect2 id="g-application-get-dbus-object-path" role="function" condition="since:2.34">
+<title>g_application_get_dbus_object_path&#160;()</title>
+<indexterm zone="g-application-get-dbus-object-path" role="2.34"><primary sortas="application_get_dbus_object_path">g_application_get_dbus_object_path</primary></indexterm>
+<programlisting language="C">const <link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+g_application_get_dbus_object_path (<parameter><link linkend="GApplication"><type>GApplication</type></link> *application</parameter>);</programlisting>
+<para>Gets the D-Bus object path being used by the application, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>.</para>
+<para>If <link linkend="GApplication"><type>GApplication</type></link> is using its D-Bus backend then this function will
+return the D-Bus object path that <link linkend="GApplication"><type>GApplication</type></link> is using.  If the
+application is the primary instance then there is an object published
+at this path.  If the application is not the primary instance then
+the result of this function is undefined.</para>
+<para>If <link linkend="GApplication"><type>GApplication</type></link> is not using D-Bus then this function will return
+<link linkend="NULL:CAPS"><literal>NULL</literal></link>.  This includes the situation where the D-Bus backend would
+normally be in use but we were unable to connect to the bus.</para>
+<para>This function must not be called before the application has been
+registered.  See <link linkend="g-application-get-is-registered"><function>g_application_get_is_registered()</function></link>.</para>
+<refsect3 id="g-application-get-dbus-object-path.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>application</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GApplication"><type>GApplication</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-application-get-dbus-object-path.returns" role="returns">
+<title>Returns</title>
+<para> the object path, or <link linkend="NULL:CAPS"><literal>NULL</literal></link></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.34">2.34</link></para></refsect2>
+<refsect2 id="g-application-set-action-group" role="function" condition="deprecated|since:2.28">
+<title>g_application_set_action_group&#160;()</title>
+<indexterm zone="g-application-set-action-group" role="deprecated"><primary sortas="application_set_action_group">g_application_set_action_group</primary></indexterm><indexterm zone="g-application-set-action-group" role="2.28"><primary sortas="application_set_action_group">g_application_set_action_group</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_application_set_action_group (<parameter><link linkend="GApplication"><type>GApplication</type></link> *application</parameter>,
+                                <parameter><link linkend="GActionGroup"><type>GActionGroup</type></link> *action_group</parameter>);</programlisting>
+<warning><para><literal>g_application_set_action_group</literal> has been deprecated since version 2.32 and should not be used in newly-written code.</para> <para>Use the <link linkend="GActionMap"><type>GActionMap</type></link> interface instead.  Never ever
+mix use of this API with use of <link linkend="GActionMap"><type>GActionMap</type></link> on the same <parameter>application</parameter>
+
+or things will go very badly wrong.  This function is known to
+introduce buggy behaviour (ie: signals not emitted on changes to the
+action group), so you should really use <link linkend="GActionMap"><type>GActionMap</type></link> instead.</para>
+</warning>
+<para>This used to be how actions were associated with a <link linkend="GApplication"><type>GApplication</type></link>.
+Now there is <link linkend="GActionMap"><type>GActionMap</type></link> for that.</para>
+<refsect3 id="g-application-set-action-group.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>application</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GApplication"><type>GApplication</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>action_group</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GActionGroup"><type>GActionGroup</type></link>, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.28">2.28</link></para></refsect2>
+<refsect2 id="g-application-get-is-registered" role="function" condition="since:2.28">
+<title>g_application_get_is_registered&#160;()</title>
+<indexterm zone="g-application-get-is-registered" role="2.28"><primary sortas="application_get_is_registered">g_application_get_is_registered</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_application_get_is_registered (<parameter><link linkend="GApplication"><type>GApplication</type></link> *application</parameter>);</programlisting>
+<para>Checks if <parameter>application</parameter>
+ is registered.</para>
+<para>An application is registered if <link linkend="g-application-register"><function>g_application_register()</function></link> has been
+successfully called.</para>
+<refsect3 id="g-application-get-is-registered.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>application</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GApplication"><type>GApplication</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-application-get-is-registered.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if <parameter>application</parameter>
+is registered</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.28">2.28</link></para></refsect2>
+<refsect2 id="g-application-get-is-remote" role="function" condition="since:2.28">
+<title>g_application_get_is_remote&#160;()</title>
+<indexterm zone="g-application-get-is-remote" role="2.28"><primary sortas="application_get_is_remote">g_application_get_is_remote</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_application_get_is_remote (<parameter><link linkend="GApplication"><type>GApplication</type></link> *application</parameter>);</programlisting>
+<para>Checks if <parameter>application</parameter>
+ is remote.</para>
+<para>If <parameter>application</parameter>
+ is remote then it means that another instance of
+application already exists (the 'primary' instance).  Calls to
+perform actions on <parameter>application</parameter>
+ will result in the actions being
+performed by the primary instance.</para>
+<para>The value of this property cannot be accessed before
+<link linkend="g-application-register"><function>g_application_register()</function></link> has been called.  See
+<link linkend="g-application-get-is-registered"><function>g_application_get_is_registered()</function></link>.</para>
+<refsect3 id="g-application-get-is-remote.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>application</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GApplication"><type>GApplication</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-application-get-is-remote.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if <parameter>application</parameter>
+is remote</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.28">2.28</link></para></refsect2>
+<refsect2 id="g-application-register" role="function" condition="since:2.28">
+<title>g_application_register&#160;()</title>
+<indexterm zone="g-application-register" role="2.28"><primary sortas="application_register">g_application_register</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_application_register (<parameter><link linkend="GApplication"><type>GApplication</type></link> *application</parameter>,
+                        <parameter><link linkend="GCancellable"><type>GCancellable</type></link> *cancellable</parameter>,
+                        <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para>Attempts registration of the application.</para>
+<para>This is the point at which the application discovers if it is the
+primary instance or merely acting as a remote for an already-existing
+primary instance.  This is implemented by attempting to acquire the
+application identifier as a unique bus name on the session bus using
+GDBus.</para>
+<para>If there is no application ID or if <link linkend="G-APPLICATION-NON-UNIQUE:CAPS"><literal>G_APPLICATION_NON_UNIQUE</literal></link> was
+given, then this process will always become the primary instance.</para>
+<para>Due to the internal architecture of GDBus, method calls can be
+dispatched at any time (even if a main loop is not running).  For
+this reason, you must ensure that any object paths that you wish to
+register are registered before calling this function.</para>
+<para>If the application has already been registered then <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> is
+returned with no work performed.</para>
+<para>The <link linkend="GApplication-startup"><type>“startup”</type></link> signal is emitted if registration succeeds
+and <parameter>application</parameter>
+ is the primary instance (including the non-unique
+case).</para>
+<para>In the event of an error (such as <parameter>cancellable</parameter>
+ being cancelled, or a
+failure to connect to the session bus), <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> is returned and <parameter>error</parameter>
+
+is set appropriately.</para>
+<para>Note: the return value of this function is not an indicator that this
+instance is or is not the primary instance of the application.  See
+<link linkend="g-application-get-is-remote"><function>g_application_get_is_remote()</function></link> for that.</para>
+<refsect3 id="g-application-register.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>application</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GApplication"><type>GApplication</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>cancellable</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GCancellable"><type>GCancellable</type></link>, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para>a pointer to a NULL <link linkend="GError"><type>GError</type></link>, or <link linkend="NULL:CAPS"><literal>NULL</literal></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-application-register.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if registration succeeded</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.28">2.28</link></para></refsect2>
+<refsect2 id="g-application-hold" role="function">
+<title>g_application_hold&#160;()</title>
+<indexterm zone="g-application-hold"><primary sortas="application_hold">g_application_hold</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_application_hold (<parameter><link linkend="GApplication"><type>GApplication</type></link> *application</parameter>);</programlisting>
+<para>Increases the use count of <parameter>application</parameter>
+.</para>
+<para>Use this function to indicate that the application has a reason to
+continue to run.  For example, <link linkend="g-application-hold"><function>g_application_hold()</function></link> is called by GTK+
+when a toplevel window is on the screen.</para>
+<para>To cancel the hold, call <link linkend="g-application-release"><function>g_application_release()</function></link>.</para>
+<refsect3 id="g-application-hold.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>application</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GApplication"><type>GApplication</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-application-release" role="function">
+<title>g_application_release&#160;()</title>
+<indexterm zone="g-application-release"><primary sortas="application_release">g_application_release</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_application_release (<parameter><link linkend="GApplication"><type>GApplication</type></link> *application</parameter>);</programlisting>
+<para>Decrease the use count of <parameter>application</parameter>
+.</para>
+<para>When the use count reaches zero, the application will stop running.</para>
+<para>Never call this function except to cancel the effect of a previous
+call to <link linkend="g-application-hold"><function>g_application_hold()</function></link>.</para>
+<refsect3 id="g-application-release.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>application</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GApplication"><type>GApplication</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-application-quit" role="function" condition="since:2.32">
+<title>g_application_quit&#160;()</title>
+<indexterm zone="g-application-quit" role="2.32"><primary sortas="application_quit">g_application_quit</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_application_quit (<parameter><link linkend="GApplication"><type>GApplication</type></link> *application</parameter>);</programlisting>
+<para>Immediately quits the application.</para>
+<para>Upon return to the mainloop, <link linkend="g-application-run"><function>g_application_run()</function></link> will return,
+calling only the 'shutdown' function before doing so.</para>
+<para>The hold count is ignored.
+Take care if your code has called <link linkend="g-application-hold"><function>g_application_hold()</function></link> on the application and
+is therefore still expecting it to exist.
+(Note that you may have called <link linkend="g-application-hold"><function>g_application_hold()</function></link> indirectly, for example
+through <link linkend="gtk-application-add-window"><function>gtk_application_add_window()</function></link>.)</para>
+<para>The result of calling <link linkend="g-application-run"><function>g_application_run()</function></link> again after it returns is
+unspecified.</para>
+<refsect3 id="g-application-quit.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>application</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GApplication"><type>GApplication</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.32">2.32</link></para></refsect2>
+<refsect2 id="g-application-activate" role="function" condition="since:2.28">
+<title>g_application_activate&#160;()</title>
+<indexterm zone="g-application-activate" role="2.28"><primary sortas="application_activate">g_application_activate</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_application_activate (<parameter><link linkend="GApplication"><type>GApplication</type></link> *application</parameter>);</programlisting>
+<para>Activates the application.</para>
+<para>In essence, this results in the <link linkend="GApplication-activate"><type>“activate”</type></link> signal being
+emitted in the primary instance.</para>
+<para>The application must be registered before calling this function.</para>
+<refsect3 id="g-application-activate.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>application</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GApplication"><type>GApplication</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.28">2.28</link></para></refsect2>
+<refsect2 id="g-application-open" role="function" condition="since:2.28">
+<title>g_application_open&#160;()</title>
+<indexterm zone="g-application-open" role="2.28"><primary sortas="application_open">g_application_open</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_application_open (<parameter><link linkend="GApplication"><type>GApplication</type></link> *application</parameter>,
+                    <parameter><link linkend="GFile"><type>GFile</type></link> **files</parameter>,
+                    <parameter><link linkend="gint"><type>gint</type></link> n_files</parameter>,
+                    <parameter>const <link linkend="gchar"><type>gchar</type></link> *hint</parameter>);</programlisting>
+<para>Opens the given files.</para>
+<para>In essence, this results in the <link linkend="GApplication-open"><type>“open”</type></link> signal being emitted
+in the primary instance.</para>
+<para><parameter>n_files</parameter>
+ must be greater than zero.</para>
+<para><parameter>hint</parameter>
+ is simply passed through to the ::open signal.  It is
+intended to be used by applications that have multiple modes for
+opening files (eg: "view" vs "edit", etc).  Unless you have a need
+for this functionality, you should use "".</para>
+<para>The application must be registered before calling this function
+and it must have the <link linkend="G-APPLICATION-HANDLES-OPEN:CAPS"><literal>G_APPLICATION_HANDLES_OPEN</literal></link> flag set.</para>
+<refsect3 id="g-application-open.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>application</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GApplication"><type>GApplication</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>files</para></entry>
+<entry role="parameter_description"><para>an array of <link linkend="GFiles"><type>GFiles</type></link> to open. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>array</acronym> length=n_files]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>n_files</para></entry>
+<entry role="parameter_description"><para>the length of the <parameter>files</parameter>
+array</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>hint</para></entry>
+<entry role="parameter_description"><para>a hint (or ""), but never <link linkend="NULL:CAPS"><literal>NULL</literal></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.28">2.28</link></para></refsect2>
+<refsect2 id="g-application-send-notification" role="function" condition="since:2.40">
+<title>g_application_send_notification&#160;()</title>
+<indexterm zone="g-application-send-notification" role="2.40"><primary sortas="application_send_notification">g_application_send_notification</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_application_send_notification (<parameter><link linkend="GApplication"><type>GApplication</type></link> *application</parameter>,
+                                 <parameter>const <link linkend="gchar"><type>gchar</type></link> *id</parameter>,
+                                 <parameter><link linkend="GNotification"><type>GNotification</type></link> *notification</parameter>);</programlisting>
+<para>Sends a notification on behalf of <parameter>application</parameter>
+ to the desktop shell.
+There is no guarantee that the notification is displayed immediately,
+or even at all.</para>
+<para>Notifications may persist after the application exits. It will be
+D-Bus-activated when the notification or one of its actions is
+activated.</para>
+<para>Modifying <parameter>notification</parameter>
+ after this call has no effect. However, the
+object can be reused for a later call to this function.</para>
+<para><parameter>id</parameter>
+ may be any string that uniquely identifies the event for the
+application. It does not need to be in any special format. For
+example, "new-message" might be appropriate for a notification about
+new messages.</para>
+<para>If a previous notification was sent with the same <parameter>id</parameter>
+, it will be
+replaced with <parameter>notification</parameter>
+ and shown again as if it was a new
+notification. This works even for notifications sent from a previous
+execution of the application, as long as <parameter>id</parameter>
+ is the same string.</para>
+<para><parameter>id</parameter>
+ may be <link linkend="NULL:CAPS"><literal>NULL</literal></link>, but it is impossible to replace or withdraw
+notifications without an id.</para>
+<para>If <parameter>notification</parameter>
+ is no longer relevant, it can be withdrawn with
+<link linkend="g-application-withdraw-notification"><function>g_application_withdraw_notification()</function></link>.</para>
+<refsect3 id="g-application-send-notification.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>application</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GApplication"><type>GApplication</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>id</para></entry>
+<entry role="parameter_description"><para>id of the notification, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>notification</para></entry>
+<entry role="parameter_description"><para>the <link linkend="GNotification"><type>GNotification</type></link> to send</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.40">2.40</link></para></refsect2>
+<refsect2 id="g-application-withdraw-notification" role="function" condition="since:2.40">
+<title>g_application_withdraw_notification&#160;()</title>
+<indexterm zone="g-application-withdraw-notification" role="2.40"><primary sortas="application_withdraw_notification">g_application_withdraw_notification</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_application_withdraw_notification (<parameter><link linkend="GApplication"><type>GApplication</type></link> *application</parameter>,
+                                     <parameter>const <link linkend="gchar"><type>gchar</type></link> *id</parameter>);</programlisting>
+<para>Withdraws a notification that was sent with
+<link linkend="g-application-send-notification"><function>g_application_send_notification()</function></link>.</para>
+<para>This call does nothing if a notification with <parameter>id</parameter>
+ doesn't exist or
+the notification was never sent.</para>
+<para>This function works even for notifications sent in previous
+executions of this application, as long <parameter>id</parameter>
+ is the same as it was for
+the sent notification.</para>
+<para>Note that notifications are dismissed when the user clicks on one
+of the buttons in a notification or triggers its default action, so
+there is no need to explicitly withdraw the notification in that case.</para>
+<refsect3 id="g-application-withdraw-notification.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>application</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GApplication"><type>GApplication</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>id</para></entry>
+<entry role="parameter_description"><para>id of a previously sent notification</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.40">2.40</link></para></refsect2>
+<refsect2 id="g-application-run" role="function" condition="since:2.28">
+<title>g_application_run&#160;()</title>
+<indexterm zone="g-application-run" role="2.28"><primary sortas="application_run">g_application_run</primary></indexterm>
+<programlisting language="C"><link linkend="int"><returnvalue>int</returnvalue></link>
+g_application_run (<parameter><link linkend="GApplication"><type>GApplication</type></link> *application</parameter>,
+                   <parameter><link linkend="int"><type>int</type></link> argc</parameter>,
+                   <parameter><link linkend="char"><type>char</type></link> **argv</parameter>);</programlisting>
+<para>Runs the application.</para>
+<para>This function is intended to be run from <link linkend="main"><function>main()</function></link> and its return value
+is intended to be returned by <link linkend="main"><function>main()</function></link>. Although you are expected to pass
+the <parameter>argc</parameter>
+, <parameter>argv</parameter>
+ parameters from <link linkend="main"><function>main()</function></link> to this function, it is possible
+to pass <link linkend="NULL:CAPS"><literal>NULL</literal></link> if <parameter>argv</parameter>
+ is not available or commandline handling is not
+required.  Note that on Windows, <parameter>argc</parameter>
+ and <parameter>argv</parameter>
+ are ignored, and
+<link linkend="g-win32-get-command-line"><function>g_win32_get_command_line()</function></link> is called internally (for proper support
+of Unicode commandline arguments).</para>
+<para><link linkend="GApplication"><type>GApplication</type></link> will attempt to parse the commandline arguments.  You
+can add commandline flags to the list of recognised options by way of
+<link linkend="g-application-add-main-option-entries"><function>g_application_add_main_option_entries()</function></link>.  After this, the
+<link linkend="GApplication-handle-local-options"><type>“handle-local-options”</type></link> signal is emitted, from which the
+application can inspect the values of its <link linkend="GOptionEntrys"><type>GOptionEntrys</type></link>.</para>
+<para><link linkend="GApplication-handle-local-options"><type>“handle-local-options”</type></link> is a good place to handle options
+such as <literal>--version</literal>, where an immediate reply from the local process is
+desired (instead of communicating with an already-running instance).
+A <link linkend="GApplication-handle-local-options"><type>“handle-local-options”</type></link> handler can stop further processing
+by returning a non-negative value, which then becomes the exit status of
+the process.</para>
+<para>What happens next depends on the flags: if
+<link linkend="G-APPLICATION-HANDLES-COMMAND-LINE:CAPS"><literal>G_APPLICATION_HANDLES_COMMAND_LINE</literal></link> was specified then the remaining
+commandline arguments are sent to the primary instance, where a
+<link linkend="GApplication-command-line"><type>“command-line”</type></link> signal is emitted.  Otherwise, the
+remaining commandline arguments are assumed to be a list of files.
+If there are no files listed, the application is activated via the
+<link linkend="GApplication-activate"><type>“activate”</type></link> signal.  If there are one or more files, and
+<link linkend="G-APPLICATION-HANDLES-OPEN:CAPS"><literal>G_APPLICATION_HANDLES_OPEN</literal></link> was specified then the files are opened
+via the <link linkend="GApplication-open"><type>“open”</type></link> signal.</para>
+<para>If you are interested in doing more complicated local handling of the
+commandline then you should implement your own <link linkend="GApplication"><type>GApplication</type></link> subclass
+and override <link linkend="local-command-line"><function>local_command_line()</function></link>. In this case, you most likely want
+to return <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> from your <link linkend="local-command-line"><function>local_command_line()</function></link> implementation to
+suppress the default handling. See
+<link linkend="gapplication-example-cmdline2">gapplication-example-cmdline2.c</link>
+for an example.</para>
+<para>If, after the above is done, the use count of the application is zero
+then the exit status is returned immediately.  If the use count is
+non-zero then the default main context is iterated until the use count
+falls to zero, at which point 0 is returned.</para>
+<para>If the <link linkend="G-APPLICATION-IS-SERVICE:CAPS"><literal>G_APPLICATION_IS_SERVICE</literal></link> flag is set, then the service will
+run for as much as 10 seconds with a use count of zero while waiting
+for the message that caused the activation to arrive.  After that,
+if the use count falls to zero the application will exit immediately,
+except in the case that <link linkend="g-application-set-inactivity-timeout"><function>g_application_set_inactivity_timeout()</function></link> is in
+use.</para>
+<para>This function sets the prgname (<link linkend="g-set-prgname"><function>g_set_prgname()</function></link>), if not already set,
+to the basename of argv[0].</para>
+<para>Much like <link linkend="g-main-loop-run"><function>g_main_loop_run()</function></link>, this function will acquire the main context
+for the duration that the application is running.</para>
+<para>Since 2.40, applications that are not explicitly flagged as services
+or launchers (ie: neither <link linkend="G-APPLICATION-IS-SERVICE:CAPS"><literal>G_APPLICATION_IS_SERVICE</literal></link> or
+<link linkend="G-APPLICATION-IS-LAUNCHER:CAPS"><literal>G_APPLICATION_IS_LAUNCHER</literal></link> are given as flags) will check (from the
+default handler for local_command_line) if "--gapplication-service"
+was given in the command line.  If this flag is present then normal
+commandline processing is interrupted and the
+<link linkend="G-APPLICATION-IS-SERVICE:CAPS"><literal>G_APPLICATION_IS_SERVICE</literal></link> flag is set.  This provides a "compromise"
+solution whereby running an application directly from the commandline
+will invoke it in the normal way (which can be useful for debugging)
+while still allowing applications to be D-Bus activated in service
+mode.  The D-Bus service file should invoke the executable with
+"--gapplication-service" as the sole commandline argument.  This
+approach is suitable for use by most graphical applications but
+should not be used from applications like editors that need precise
+control over when processes invoked via the commandline will exit and
+what their exit status will be.</para>
+<refsect3 id="g-application-run.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>application</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GApplication"><type>GApplication</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>argc</para></entry>
+<entry role="parameter_description"><para>the argc from <link linkend="main"><function>main()</function></link> (or 0 if <parameter>argv</parameter>
+is <link linkend="NULL:CAPS"><literal>NULL</literal></link>)</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>argv</para></entry>
+<entry role="parameter_description"><para>the argv from <link linkend="main"><function>main()</function></link>, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>array</acronym> length=argc][<acronym>element-type</acronym> filename][<acronym>nullable</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-application-run.returns" role="returns">
+<title>Returns</title>
+<para> the exit status</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.28">2.28</link></para></refsect2>
+<refsect2 id="g-application-add-main-option-entries" role="function" condition="since:2.40">
+<title>g_application_add_main_option_entries&#160;()</title>
+<indexterm zone="g-application-add-main-option-entries" role="2.40"><primary sortas="application_add_main_option_entries">g_application_add_main_option_entries</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_application_add_main_option_entries (<parameter><link linkend="GApplication"><type>GApplication</type></link> *application</parameter>,
+                                       <parameter>const <link linkend="GOptionEntry"><type>GOptionEntry</type></link> *entries</parameter>);</programlisting>
+<para>Adds main option entries to be handled by <parameter>application</parameter>
+.</para>
+<para>This function is comparable to <link linkend="g-option-context-add-main-entries"><function>g_option_context_add_main_entries()</function></link>.</para>
+<para>After the commandline arguments are parsed, the
+<link linkend="GApplication-handle-local-options"><type>“handle-local-options”</type></link> signal will be emitted.  At this
+point, the application can inspect the values pointed to by <parameter>arg_data</parameter>
+
+in the given <link linkend="GOptionEntrys"><type>GOptionEntrys</type></link>.</para>
+<para>Unlike <link linkend="GOptionContext"><type>GOptionContext</type></link>, <link linkend="GApplication"><type>GApplication</type></link> supports giving a <link linkend="NULL:CAPS"><literal>NULL</literal></link>
+<parameter>arg_data</parameter>
+ for a non-callback <link linkend="GOptionEntry"><type>GOptionEntry</type></link>.  This results in the
+argument in question being packed into a <link linkend="GVariantDict"><type>GVariantDict</type></link> which is also
+passed to <link linkend="GApplication-handle-local-options"><type>“handle-local-options”</type></link>, where it can be
+inspected and modified.  If <link linkend="G-APPLICATION-HANDLES-COMMAND-LINE:CAPS"><literal>G_APPLICATION_HANDLES_COMMAND_LINE</literal></link> is
+set, then the resulting dictionary is sent to the primary instance,
+where <link linkend="g-application-command-line-get-options-dict"><function>g_application_command_line_get_options_dict()</function></link> will return it.
+This "packing" is done according to the type of the argument --
+booleans for normal flags, strings for strings, bytestrings for
+filenames, etc.  The packing only occurs if the flag is given (ie: we
+do not pack a "false" <link linkend="GVariant"><type>GVariant</type></link> in the case that a flag is missing).</para>
+<para>In general, it is recommended that all commandline arguments are
+parsed locally.  The options dictionary should then be used to
+transmit the result of the parsing to the primary instance, where
+<link linkend="g-variant-dict-lookup"><function>g_variant_dict_lookup()</function></link> can be used.  For local options, it is
+possible to either use <parameter>arg_data</parameter>
+ in the usual way, or to consult (and
+potentially remove) the option from the options dictionary.</para>
+<para>This function is new in GLib 2.40.  Before then, the only real choice
+was to send all of the commandline arguments (options and all) to the
+primary instance for handling.  <link linkend="GApplication"><type>GApplication</type></link> ignored them completely
+on the local side.  Calling this function "opts in" to the new
+behaviour, and in particular, means that unrecognised options will be
+treated as errors.  Unrecognised options have never been ignored when
+<link linkend="G-APPLICATION-HANDLES-COMMAND-LINE:CAPS"><literal>G_APPLICATION_HANDLES_COMMAND_LINE</literal></link> is unset.</para>
+<para>If <link linkend="GApplication-handle-local-options"><type>“handle-local-options”</type></link> needs to see the list of
+filenames, then the use of <link linkend="G-OPTION-REMAINING:CAPS"><literal>G_OPTION_REMAINING</literal></link> is recommended.  If
+<parameter>arg_data</parameter>
+ is <link linkend="NULL:CAPS"><literal>NULL</literal></link> then <link linkend="G-OPTION-REMAINING:CAPS"><literal>G_OPTION_REMAINING</literal></link> can be used as a key into
+the options dictionary.  If you do use <link linkend="G-OPTION-REMAINING:CAPS"><literal>G_OPTION_REMAINING</literal></link> then you
+need to handle these arguments for yourself because once they are
+consumed, they will no longer be visible to the default handling
+(which treats them as filenames to be opened).</para>
+<para>It is important to use the proper GVariant format when retrieving
+the options with <link linkend="g-variant-dict-lookup"><function>g_variant_dict_lookup()</function></link>:</para>
+<itemizedlist>
+<listitem><para>for <link linkend="G-OPTION-ARG-NONE:CAPS"><literal>G_OPTION_ARG_NONE</literal></link>, use b</para></listitem>
+<listitem><para>for <link linkend="G-OPTION-ARG-STRING:CAPS"><literal>G_OPTION_ARG_STRING</literal></link>, use &amp;s</para></listitem>
+<listitem><para>for <link linkend="G-OPTION-ARG-INT:CAPS"><literal>G_OPTION_ARG_INT</literal></link>, use i</para></listitem>
+<listitem><para>for <link linkend="G-OPTION-ARG-INT64:CAPS"><literal>G_OPTION_ARG_INT64</literal></link>, use x</para></listitem>
+<listitem><para>for <link linkend="G-OPTION-ARG-DOUBLE:CAPS"><literal>G_OPTION_ARG_DOUBLE</literal></link>, use d</para></listitem>
+<listitem><para>for <link linkend="G-OPTION-ARG-FILENAME:CAPS"><literal>G_OPTION_ARG_FILENAME</literal></link>, use ^ay</para></listitem>
+<listitem><para>for <link linkend="G-OPTION-ARG-STRING-ARRAY:CAPS"><literal>G_OPTION_ARG_STRING_ARRAY</literal></link>, use &amp;as</para></listitem>
+<listitem><para>for <link linkend="G-OPTION-ARG-FILENAME-ARRAY:CAPS"><literal>G_OPTION_ARG_FILENAME_ARRAY</literal></link>, use ^aay</para></listitem>
+</itemizedlist>
+<refsect3 id="g-application-add-main-option-entries.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>application</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GApplication"><type>GApplication</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>entries</para></entry>
+<entry role="parameter_description"><para>(array zero-terminated=1) (element-type GOptionEntry) a
+<link linkend="NULL:CAPS"><literal>NULL</literal></link>-terminated list of <link linkend="GOptionEntrys"><type>GOptionEntrys</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.40">2.40</link></para></refsect2>
+<refsect2 id="g-application-add-main-option" role="function" condition="since:2.42">
+<title>g_application_add_main_option&#160;()</title>
+<indexterm zone="g-application-add-main-option" role="2.42"><primary sortas="application_add_main_option">g_application_add_main_option</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_application_add_main_option (<parameter><link linkend="GApplication"><type>GApplication</type></link> *application</parameter>,
+                               <parameter>const <link linkend="char"><type>char</type></link> *long_name</parameter>,
+                               <parameter><link linkend="char"><type>char</type></link> short_name</parameter>,
+                               <parameter><link linkend="GOptionFlags"><type>GOptionFlags</type></link> flags</parameter>,
+                               <parameter><link linkend="GOptionArg"><type>GOptionArg</type></link> arg</parameter>,
+                               <parameter>const <link linkend="char"><type>char</type></link> *description</parameter>,
+                               <parameter>const <link linkend="char"><type>char</type></link> *arg_description</parameter>);</programlisting>
+<para>Add an option to be handled by <parameter>application</parameter>
+.</para>
+<para>Calling this function is the equivalent of calling
+<link linkend="g-application-add-main-option-entries"><function>g_application_add_main_option_entries()</function></link> with a single <link linkend="GOptionEntry"><type>GOptionEntry</type></link>
+that has its arg_data member set to <link linkend="NULL:CAPS"><literal>NULL</literal></link>.</para>
+<para>The parsed arguments will be packed into a <link linkend="GVariantDict"><type>GVariantDict</type></link> which
+is passed to <link linkend="GApplication-handle-local-options"><type>“handle-local-options”</type></link>. If
+<link linkend="G-APPLICATION-HANDLES-COMMAND-LINE:CAPS"><literal>G_APPLICATION_HANDLES_COMMAND_LINE</literal></link> is set, then it will also
+be sent to the primary instance. See
+<link linkend="g-application-add-main-option-entries"><function>g_application_add_main_option_entries()</function></link> for more details.</para>
+<para>See <link linkend="GOptionEntry"><type>GOptionEntry</type></link> for more documentation of the arguments.</para>
+<refsect3 id="g-application-add-main-option.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>application</para></entry>
+<entry role="parameter_description"><para>the <link linkend="GApplication"><type>GApplication</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>long_name</para></entry>
+<entry role="parameter_description"><para>the long name of an option used to specify it in a commandline</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>short_name</para></entry>
+<entry role="parameter_description"><para>the short name of an option</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>flags</para></entry>
+<entry role="parameter_description"><para>flags from <link linkend="GOptionFlags"><type>GOptionFlags</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>arg</para></entry>
+<entry role="parameter_description"><para>the type of the option, as a <link linkend="GOptionArg"><type>GOptionArg</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>description</para></entry>
+<entry role="parameter_description"><para>the description for the option in <literal>--help</literal> output</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>arg_description</para></entry>
+<entry role="parameter_description"><para>the placeholder to use for the extra argument
+parsed by the option in <literal>--help</literal> output. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.42">2.42</link></para></refsect2>
+<refsect2 id="g-application-add-option-group" role="function" condition="since:2.40">
+<title>g_application_add_option_group&#160;()</title>
+<indexterm zone="g-application-add-option-group" role="2.40"><primary sortas="application_add_option_group">g_application_add_option_group</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_application_add_option_group (<parameter><link linkend="GApplication"><type>GApplication</type></link> *application</parameter>,
+                                <parameter><link linkend="GOptionGroup"><type>GOptionGroup</type></link> *group</parameter>);</programlisting>
+<para>Adds a <link linkend="GOptionGroup"><type>GOptionGroup</type></link> to the commandline handling of <parameter>application</parameter>
+.</para>
+<para>This function is comparable to <link linkend="g-option-context-add-group"><function>g_option_context_add_group()</function></link>.</para>
+<para>Unlike <link linkend="g-application-add-main-option-entries"><function>g_application_add_main_option_entries()</function></link>, this function does
+not deal with <link linkend="NULL:CAPS"><literal>NULL</literal></link> <parameter>arg_data</parameter>
+ and never transmits options to the
+primary instance.</para>
+<para>The reason for that is because, by the time the options arrive at the
+primary instance, it is typically too late to do anything with them.
+Taking the GTK option group as an example: GTK will already have been
+initialised by the time the <link linkend="GApplication-command-line"><type>“command-line”</type></link> handler runs.
+In the case that this is not the first-running instance of the
+application, the existing instance may already have been running for
+a very long time.</para>
+<para>This means that the options from <link linkend="GOptionGroup"><type>GOptionGroup</type></link> are only really usable
+in the case that the instance of the application being run is the
+first instance.  Passing options like <literal>--display=</literal> or <literal>--gdk-debug=</literal>
+on future runs will have no effect on the existing primary instance.</para>
+<para>Calling this function will cause the options in the supplied option
+group to be parsed, but it does not cause you to be "opted in" to the
+new functionality whereby unrecognised options are rejected even if
+<link linkend="G-APPLICATION-HANDLES-COMMAND-LINE:CAPS"><literal>G_APPLICATION_HANDLES_COMMAND_LINE</literal></link> was given.</para>
+<refsect3 id="g-application-add-option-group.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>application</para></entry>
+<entry role="parameter_description"><para>the <link linkend="GApplication"><type>GApplication</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>group</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GOptionGroup"><type>GOptionGroup</type></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>transfer full</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.40">2.40</link></para></refsect2>
+<refsect2 id="g-application-set-option-context-parameter-string" role="function" condition="since:2.56">
+<title>g_application_set_option_context_parameter_string&#160;()</title>
+<indexterm zone="g-application-set-option-context-parameter-string" role="2.56"><primary sortas="application_set_option_context_parameter_string">g_application_set_option_context_parameter_string</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_application_set_option_context_parameter_string
+                               (<parameter><link linkend="GApplication"><type>GApplication</type></link> *application</parameter>,
+                                <parameter>const <link linkend="gchar"><type>gchar</type></link> *parameter_string</parameter>);</programlisting>
+<para>Sets the parameter string to be used by the commandline handling of <parameter>application</parameter>
+.</para>
+<para>This function registers the argument to be passed to <link linkend="g-option-context-new"><function>g_option_context_new()</function></link>
+when the internal <link linkend="GOptionContext"><type>GOptionContext</type></link> of <parameter>application</parameter>
+ is created.</para>
+<para>See <link linkend="g-option-context-new"><function>g_option_context_new()</function></link> for more information about <parameter>parameter_string</parameter>
+.</para>
+<refsect3 id="g-application-set-option-context-parameter-string.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>application</para></entry>
+<entry role="parameter_description"><para>the <link linkend="GApplication"><type>GApplication</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>parameter_string</para></entry>
+<entry role="parameter_description"><para>a string which is displayed
+in the first line of <literal>--help</literal> output, after the usage summary <literal>programname [OPTION...]</literal>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.56">2.56</link></para></refsect2>
+<refsect2 id="g-application-set-option-context-summary" role="function" condition="since:2.56">
+<title>g_application_set_option_context_summary&#160;()</title>
+<indexterm zone="g-application-set-option-context-summary" role="2.56"><primary sortas="application_set_option_context_summary">g_application_set_option_context_summary</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_application_set_option_context_summary
+                               (<parameter><link linkend="GApplication"><type>GApplication</type></link> *application</parameter>,
+                                <parameter>const <link linkend="gchar"><type>gchar</type></link> *summary</parameter>);</programlisting>
+<para>Adds a summary to the <parameter>application</parameter>
+ option context.</para>
+<para>See <link linkend="g-option-context-set-summary"><function>g_option_context_set_summary()</function></link> for more information.</para>
+<refsect3 id="g-application-set-option-context-summary.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>application</para></entry>
+<entry role="parameter_description"><para>the <link linkend="GApplication"><type>GApplication</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>summary</para></entry>
+<entry role="parameter_description"><para>a string to be shown in <literal>--help</literal> output
+before the list of options, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.56">2.56</link></para></refsect2>
+<refsect2 id="g-application-set-option-context-description" role="function" condition="since:2.56">
+<title>g_application_set_option_context_description&#160;()</title>
+<indexterm zone="g-application-set-option-context-description" role="2.56"><primary sortas="application_set_option_context_description">g_application_set_option_context_description</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_application_set_option_context_description
+                               (<parameter><link linkend="GApplication"><type>GApplication</type></link> *application</parameter>,
+                                <parameter>const <link linkend="gchar"><type>gchar</type></link> *description</parameter>);</programlisting>
+<para>Adds a description to the <parameter>application</parameter>
+ option context.</para>
+<para>See <link linkend="g-option-context-set-description"><function>g_option_context_set_description()</function></link> for more information.</para>
+<refsect3 id="g-application-set-option-context-description.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>application</para></entry>
+<entry role="parameter_description"><para>the <link linkend="GApplication"><type>GApplication</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>description</para></entry>
+<entry role="parameter_description"><para>a string to be shown in <literal>--help</literal> output
+after the list of options, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.56">2.56</link></para></refsect2>
+<refsect2 id="g-application-set-default" role="function" condition="since:2.32">
+<title>g_application_set_default&#160;()</title>
+<indexterm zone="g-application-set-default" role="2.32"><primary sortas="application_set_default">g_application_set_default</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_application_set_default (<parameter><link linkend="GApplication"><type>GApplication</type></link> *application</parameter>);</programlisting>
+<para>Sets or unsets the default application for the process, as returned
+by <link linkend="g-application-get-default"><function>g_application_get_default()</function></link>.</para>
+<para>This function does not take its own reference on <parameter>application</parameter>
+.  If
+<parameter>application</parameter>
+ is destroyed then the default application will revert
+back to <link linkend="NULL:CAPS"><literal>NULL</literal></link>.</para>
+<refsect3 id="g-application-set-default.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>application</para></entry>
+<entry role="parameter_description"><para>the application to set as default, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.32">2.32</link></para></refsect2>
+<refsect2 id="g-application-get-default" role="function" condition="since:2.32">
+<title>g_application_get_default&#160;()</title>
+<indexterm zone="g-application-get-default" role="2.32"><primary sortas="application_get_default">g_application_get_default</primary></indexterm>
+<programlisting language="C"><link linkend="GApplication"><returnvalue>GApplication</returnvalue></link>&#160;*
+g_application_get_default (<parameter><type>void</type></parameter>);</programlisting>
+<para>Returns the default <link linkend="GApplication"><type>GApplication</type></link> instance for this process.</para>
+<para>Normally there is only one <link linkend="GApplication"><type>GApplication</type></link> per process and it becomes
+the default when it is created.  You can exercise more control over
+this by using <link linkend="g-application-set-default"><function>g_application_set_default()</function></link>.</para>
+<para>If there is no default application then <link linkend="NULL:CAPS"><literal>NULL</literal></link> is returned.</para>
+<refsect3 id="g-application-get-default.returns" role="returns">
+<title>Returns</title>
+<para>the default application for this process, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para>
+<para><emphasis role="annotation">[<acronym>transfer none</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.32">2.32</link></para></refsect2>
+<refsect2 id="g-application-mark-busy" role="function" condition="since:2.38">
+<title>g_application_mark_busy&#160;()</title>
+<indexterm zone="g-application-mark-busy" role="2.38"><primary sortas="application_mark_busy">g_application_mark_busy</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_application_mark_busy (<parameter><link linkend="GApplication"><type>GApplication</type></link> *application</parameter>);</programlisting>
+<para>Increases the busy count of <parameter>application</parameter>
+.</para>
+<para>Use this function to indicate that the application is busy, for instance
+while a long running operation is pending.</para>
+<para>The busy state will be exposed to other processes, so a session shell will
+use that information to indicate the state to the user (e.g. with a
+spinner).</para>
+<para>To cancel the busy indication, use <link linkend="g-application-unmark-busy"><function>g_application_unmark_busy()</function></link>.</para>
+<refsect3 id="g-application-mark-busy.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>application</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GApplication"><type>GApplication</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.38">2.38</link></para></refsect2>
+<refsect2 id="g-application-unmark-busy" role="function" condition="since:2.38">
+<title>g_application_unmark_busy&#160;()</title>
+<indexterm zone="g-application-unmark-busy" role="2.38"><primary sortas="application_unmark_busy">g_application_unmark_busy</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_application_unmark_busy (<parameter><link linkend="GApplication"><type>GApplication</type></link> *application</parameter>);</programlisting>
+<para>Decreases the busy count of <parameter>application</parameter>
+.</para>
+<para>When the busy count reaches zero, the new state will be propagated
+to other processes.</para>
+<para>This function must only be called to cancel the effect of a previous
+call to <link linkend="g-application-mark-busy"><function>g_application_mark_busy()</function></link>.</para>
+<refsect3 id="g-application-unmark-busy.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>application</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GApplication"><type>GApplication</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.38">2.38</link></para></refsect2>
+<refsect2 id="g-application-get-is-busy" role="function" condition="since:2.44">
+<title>g_application_get_is_busy&#160;()</title>
+<indexterm zone="g-application-get-is-busy" role="2.44"><primary sortas="application_get_is_busy">g_application_get_is_busy</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_application_get_is_busy (<parameter><link linkend="GApplication"><type>GApplication</type></link> *application</parameter>);</programlisting>
+<para>Gets the application's current busy state, as set through
+<link linkend="g-application-mark-busy"><function>g_application_mark_busy()</function></link> or <link linkend="g-application-bind-busy-property"><function>g_application_bind_busy_property()</function></link>.</para>
+<refsect3 id="g-application-get-is-busy.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>application</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GApplication"><type>GApplication</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-application-get-is-busy.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if <parameter>application</parameter>
+is currenty marked as busy</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.44">2.44</link></para></refsect2>
+<refsect2 id="g-application-bind-busy-property" role="function" condition="since:2.44">
+<title>g_application_bind_busy_property&#160;()</title>
+<indexterm zone="g-application-bind-busy-property" role="2.44"><primary sortas="application_bind_busy_property">g_application_bind_busy_property</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_application_bind_busy_property (<parameter><link linkend="GApplication"><type>GApplication</type></link> *application</parameter>,
+                                  <parameter><link linkend="gpointer"><type>gpointer</type></link> object</parameter>,
+                                  <parameter>const <link linkend="gchar"><type>gchar</type></link> *property</parameter>);</programlisting>
+<para>Marks <parameter>application</parameter>
+ as busy (see <link linkend="g-application-mark-busy"><function>g_application_mark_busy()</function></link>) while
+<parameter>property</parameter>
+ on <parameter>object</parameter>
+ is <link linkend="TRUE:CAPS"><literal>TRUE</literal></link>.</para>
+<para>The binding holds a reference to <parameter>application</parameter>
+ while it is active, but
+not to <parameter>object</parameter>
+. Instead, the binding is destroyed when <parameter>object</parameter>
+ is
+finalized.</para>
+<refsect3 id="g-application-bind-busy-property.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>application</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GApplication"><type>GApplication</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>object</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GObject"><type>GObject</type></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>type</acronym> GObject.Object]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>property</para></entry>
+<entry role="parameter_description"><para>the name of a boolean property of <parameter>object</parameter>
+</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.44">2.44</link></para></refsect2>
+<refsect2 id="g-application-unbind-busy-property" role="function" condition="since:2.44">
+<title>g_application_unbind_busy_property&#160;()</title>
+<indexterm zone="g-application-unbind-busy-property" role="2.44"><primary sortas="application_unbind_busy_property">g_application_unbind_busy_property</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_application_unbind_busy_property (<parameter><link linkend="GApplication"><type>GApplication</type></link> *application</parameter>,
+                                    <parameter><link linkend="gpointer"><type>gpointer</type></link> object</parameter>,
+                                    <parameter>const <link linkend="gchar"><type>gchar</type></link> *property</parameter>);</programlisting>
+<para>Destroys a binding between <parameter>property</parameter>
+ and the busy state of
+<parameter>application</parameter>
+ that was previously created with
+<link linkend="g-application-bind-busy-property"><function>g_application_bind_busy_property()</function></link>.</para>
+<refsect3 id="g-application-unbind-busy-property.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>application</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GApplication"><type>GApplication</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>object</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GObject"><type>GObject</type></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>type</acronym> GObject.Object]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>property</para></entry>
+<entry role="parameter_description"><para>the name of a boolean property of <parameter>object</parameter>
+</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.44">2.44</link></para></refsect2>
+
+</refsect1>
+<refsect1 id="GApplication.other_details" role="details">
+<title role="details.title">Types and Values</title>
+<refsect2 id="GApplication-struct" role="struct">
+<title>GApplication</title>
+<indexterm zone="GApplication-struct" role="2.28"><primary sortas="Application">GApplication</primary></indexterm>
+<programlisting language="C">typedef struct _GApplication GApplication;</programlisting>
+<para><link linkend="GApplication"><type>GApplication</type></link> is an opaque data structure and can only be accessed
+using the following functions.</para>
+<para role="since">Since: <link linkend="api-index-2.28">2.28</link></para></refsect2>
+<refsect2 id="GApplicationClass" role="struct" condition="since:2.28">
+<title>struct GApplicationClass</title>
+<indexterm zone="GApplicationClass" role="2.28"><primary sortas="ApplicationClass">GApplicationClass</primary></indexterm>
+<programlisting language="C">struct GApplicationClass {
+  /* signals */
+  void                      (* startup)             (GApplication              *application);
+
+  void                      (* activate)            (GApplication              *application);
+
+  void                      (* open)                (GApplication              *application,
+                                                     GFile                    **files,
+                                                     gint                       n_files,
+                                                     const gchar               *hint);
+
+  int                       (* command_line)        (GApplication              *application,
+                                                     GApplicationCommandLine   *command_line);
+
+  /* vfuncs */
+
+  /**
+   * GApplicationClass::local_command_line:
+   * @application: a #GApplication
+   * @arguments: (inout) (array zero-terminated=1): array of command line arguments
+   * @exit_status: (out): exit status to fill after processing the command line.
+   *
+   * This virtual function is always invoked in the local instance. It
+   * gets passed a pointer to a %NULL-terminated copy of @argv and is
+   * expected to remove arguments that it handled (shifting up remaining
+   * arguments).
+   *
+   * The last argument to local_command_line() is a pointer to the @status
+   * variable which can used to set the exit status that is returned from
+   * g_application_run().
+   *
+   * See g_application_run() for more details on #GApplication startup.
+   *
+   * Returns: %TRUE if the commandline has been completely handled
+   */
+  gboolean                  (* local_command_line)  (GApplication              *application,
+                                                     gchar                   ***arguments,
+                                                     int                       *exit_status);
+
+  void                      (* before_emit)         (GApplication              *application,
+                                                     GVariant                  *platform_data);
+  void                      (* after_emit)          (GApplication              *application,
+                                                     GVariant                  *platform_data);
+  void                      (* add_platform_data)   (GApplication              *application,
+                                                     GVariantBuilder           *builder);
+  void                      (* quit_mainloop)       (GApplication              *application);
+  void                      (* run_mainloop)        (GApplication              *application);
+  void                      (* shutdown)            (GApplication              *application);
+
+  gboolean                  (* dbus_register)       (GApplication              *application,
+                                                     GDBusConnection           *connection,
+                                                     const gchar               *object_path,
+                                                     GError                   **error);
+  void                      (* dbus_unregister)     (GApplication              *application,
+                                                     GDBusConnection           *connection,
+                                                     const gchar               *object_path);
+  gint                      (* handle_local_options)(GApplication              *application,
+                                                     GVariantDict              *options);
+};
+</programlisting>
+<para>Virtual function table for <link linkend="GApplication"><type>GApplication</type></link>.</para>
+<refsect3 id="GApplicationClass.members" role="struct_members">
+<title>Members</title>
+<informaltable role="struct_members_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="struct_members_name" colwidth="300px"/>
+<colspec colname="struct_members_description"/>
+<colspec colname="struct_members_annotations" colwidth="200px"/>
+<tbody>
+<row role="member"><entry role="struct_member_name"><para><structfield id="GApplicationClass.startup">startup</structfield>&#160;()</para></entry>
+<entry role="struct_member_description"><para>invoked on the primary instance immediately after registration</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><structfield id="GApplicationClass.activate">activate</structfield>&#160;()</para></entry>
+<entry role="struct_member_description"><para>invoked on the primary instance when an activation occurs</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><structfield id="GApplicationClass.open">open</structfield>&#160;()</para></entry>
+<entry role="struct_member_description"><para>invoked on the primary instance when there are files to open</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><structfield id="GApplicationClass.command-line">command_line</structfield>&#160;()</para></entry>
+<entry role="struct_member_description"><para>invoked on the primary instance when a command-line is
+not handled locally</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><structfield id="GApplicationClass.local-command-line">local_command_line</structfield>&#160;()</para></entry>
+<entry role="struct_member_description"><para>invoked (locally). The virtual function has the chance
+to inspect (and possibly replace) command line arguments. See
+<link linkend="g-application-run"><function>g_application_run()</function></link> for more information. Also see the
+<link linkend="GApplication-handle-local-options"><type>“handle-local-options”</type></link> signal, which is a simpler
+alternative to handling some commandline options locally</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><structfield id="GApplicationClass.before-emit">before_emit</structfield>&#160;()</para></entry>
+<entry role="struct_member_description"><para>invoked on the primary instance before 'activate', 'open',
+'command-line' or any action invocation, gets the 'platform data' from
+the calling instance</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><structfield id="GApplicationClass.after-emit">after_emit</structfield>&#160;()</para></entry>
+<entry role="struct_member_description"><para>invoked on the primary instance after 'activate', 'open',
+'command-line' or any action invocation, gets the 'platform data' from
+the calling instance</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><structfield id="GApplicationClass.add-platform-data">add_platform_data</structfield>&#160;()</para></entry>
+<entry role="struct_member_description"><para>invoked (locally) to add 'platform data' to be sent to
+the primary instance when activating, opening or invoking actions</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><structfield id="GApplicationClass.quit-mainloop">quit_mainloop</structfield>&#160;()</para></entry>
+<entry role="struct_member_description"><para>Used to be invoked on the primary instance when the use
+count of the application drops to zero (and after any inactivity
+timeout, if requested). Not used anymore since 2.32</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><structfield id="GApplicationClass.run-mainloop">run_mainloop</structfield>&#160;()</para></entry>
+<entry role="struct_member_description"><para>Used to be invoked on the primary instance from
+<link linkend="g-application-run"><function>g_application_run()</function></link> if the use-count is non-zero. Since 2.32,
+GApplication is iterating the main context directly and is not
+using <parameter>run_mainloop</parameter>
+anymore</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><structfield id="GApplicationClass.shutdown">shutdown</structfield>&#160;()</para></entry>
+<entry role="struct_member_description"><para>invoked only on the registered primary instance immediately
+after the main loop terminates</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><structfield id="GApplicationClass.dbus-register">dbus_register</structfield>&#160;()</para></entry>
+<entry role="struct_member_description"><para>invoked locally during registration, if the application is
+using its D-Bus backend. You can use this to export extra objects on the
+bus, that need to exist before the application tries to own the bus name.
+The function is passed the <link linkend="GDBusConnection"><type>GDBusConnection</type></link> to to session bus, and the
+object path that <link linkend="GApplication"><type>GApplication</type></link> will use to export is D-Bus API.
+If this function returns <link linkend="TRUE:CAPS"><literal>TRUE</literal></link>, registration will proceed; otherwise
+registration will abort. Since: 2.34</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><structfield id="GApplicationClass.dbus-unregister">dbus_unregister</structfield>&#160;()</para></entry>
+<entry role="struct_member_description"><para>invoked locally during unregistration, if the application
+is using its D-Bus backend. Use this to undo anything done by the</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><structfield id="GApplicationClass.handle-local-options">handle_local_options</structfield>&#160;()</para></entry>
+<entry role="struct_member_description"><para>invoked locally after the parsing of the commandline
+options has occurred. Since: 2.40</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+</tbody></tgroup></informaltable>
+</refsect3>
+<para role="since">Since: <link linkend="api-index-2.28">2.28</link></para></refsect2>
+<refsect2 id="GApplicationFlags" role="enum" condition="since:2.28">
+<title>enum GApplicationFlags</title>
+<indexterm zone="GApplicationFlags" role="2.28"><primary sortas="ApplicationFlags">GApplicationFlags</primary></indexterm>
+<para>Flags used to define the behaviour of a <link linkend="GApplication"><type>GApplication</type></link>.</para>
+<refsect3 id="GApplicationFlags.members" role="enum_members">
+<title>Members</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="enum_members_name" colwidth="300px"/>
+<colspec colname="enum_members_description"/>
+<colspec colname="enum_members_annotations" colwidth="200px"/>
+<tbody>
+<row role="constant"><entry role="enum_member_name"><para id="G-APPLICATION-FLAGS-NONE:CAPS">G_APPLICATION_FLAGS_NONE</para></entry>
+<entry role="enum_member_description"><para>Default</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-APPLICATION-IS-SERVICE:CAPS">G_APPLICATION_IS_SERVICE</para></entry>
+<entry role="enum_member_description"><para>Run as a service. In this mode, registration
+     fails if the service is already running, and the application
+     will initially wait up to 10 seconds for an initial activation
+     message to arrive.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-APPLICATION-IS-LAUNCHER:CAPS">G_APPLICATION_IS_LAUNCHER</para></entry>
+<entry role="enum_member_description"><para>Don't try to become the primary instance.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-APPLICATION-HANDLES-OPEN:CAPS">G_APPLICATION_HANDLES_OPEN</para></entry>
+<entry role="enum_member_description"><para>This application handles opening files (in
+    the primary instance). Note that this flag only affects the default
+    implementation of <link linkend="local-command-line"><function>local_command_line()</function></link>, and has no effect if
+    <link linkend="G-APPLICATION-HANDLES-COMMAND-LINE:CAPS"><literal>G_APPLICATION_HANDLES_COMMAND_LINE</literal></link> is given.
+    See <link linkend="g-application-run"><function>g_application_run()</function></link> for details.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-APPLICATION-HANDLES-COMMAND-LINE:CAPS">G_APPLICATION_HANDLES_COMMAND_LINE</para></entry>
+<entry role="enum_member_description"><para>This application handles command line
+    arguments (in the primary instance). Note that this flag only affect
+    the default implementation of <link linkend="local-command-line"><function>local_command_line()</function></link>.
+    See <link linkend="g-application-run"><function>g_application_run()</function></link> for details.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-APPLICATION-SEND-ENVIRONMENT:CAPS">G_APPLICATION_SEND_ENVIRONMENT</para></entry>
+<entry role="enum_member_description"><para>Send the environment of the
+    launching process to the primary instance. Set this flag if your
+    application is expected to behave differently depending on certain
+    environment variables. For instance, an editor might be expected
+    to use the <literal>GIT_COMMITTER_NAME</literal> environment variable
+    when editing a git commit message. The environment is available
+    to the <link linkend="GApplication-command-line"><type>“command-line”</type></link> signal handler, via
+    <link linkend="g-application-command-line-getenv"><function>g_application_command_line_getenv()</function></link>.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-APPLICATION-NON-UNIQUE:CAPS">G_APPLICATION_NON_UNIQUE</para></entry>
+<entry role="enum_member_description"><para>Make no attempts to do any of the typical
+    single-instance application negotiation, even if the application
+    ID is given.  The application neither attempts to become the
+    owner of the application ID nor does it check if an existing
+    owner already exists.  Everything occurs in the local process.
+    Since: 2.30.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-APPLICATION-CAN-OVERRIDE-APP-ID:CAPS">G_APPLICATION_CAN_OVERRIDE_APP_ID</para></entry>
+<entry role="enum_member_description"><para>Allow users to override the
+    application ID from the command line with <literal>--gapplication-app-id</literal>.
+    Since: 2.48</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.28">2.28</link></para></refsect2>
+
+</refsect1>
+<refsect1 id="GApplication.property-details" role="property_details">
+<title role="property_details.title">Property Details</title>
+<refsect2 id="GApplication--action-group" role="property"><title>The <literal>“action-group”</literal> property</title>
+<indexterm zone="GApplication--action-group"><primary sortas="Application:action-group">GApplication:action-group</primary></indexterm>
+<programlisting>  “action-group”             <link linkend="GActionGroup"><type>GActionGroup</type></link>&#160;*</programlisting>
+<para>The group of actions that the application exports.</para><para>Flags: Write</para>
+</refsect2>
+<refsect2 id="GApplication--application-id" role="property"><title>The <literal>“application-id”</literal> property</title>
+<indexterm zone="GApplication--application-id"><primary sortas="Application:application-id">GApplication:application-id</primary></indexterm>
+<programlisting>  “application-id”           <link linkend="gchar"><type>gchar</type></link>&#160;*</programlisting>
+<para>The unique identifier for the application.</para><para>Flags: Read / Write / Construct</para>
+<para>Default value: NULL</para>
+</refsect2>
+<refsect2 id="GApplication--flags" role="property"><title>The <literal>“flags”</literal> property</title>
+<indexterm zone="GApplication--flags"><primary sortas="Application:flags">GApplication:flags</primary></indexterm>
+<programlisting>  “flags”                    <link linkend="GApplicationFlags"><type>GApplicationFlags</type></link></programlisting>
+<para>Flags specifying the behaviour of the application.</para><para>Flags: Read / Write</para>
+</refsect2>
+<refsect2 id="GApplication--inactivity-timeout" role="property"><title>The <literal>“inactivity-timeout”</literal> property</title>
+<indexterm zone="GApplication--inactivity-timeout"><primary sortas="Application:inactivity-timeout">GApplication:inactivity-timeout</primary></indexterm>
+<programlisting>  “inactivity-timeout”       <link linkend="guint"><type>guint</type></link></programlisting>
+<para>Time (ms) to stay alive after becoming idle.</para><para>Flags: Read / Write</para>
+<para>Default value: 0</para>
+</refsect2>
+<refsect2 id="GApplication--is-busy" role="property"><title>The <literal>“is-busy”</literal> property</title>
+<indexterm zone="GApplication--is-busy" role="2.44"><primary sortas="Application:is-busy">GApplication:is-busy</primary></indexterm>
+<programlisting>  “is-busy”                  <link linkend="gboolean"><type>gboolean</type></link></programlisting>
+<para>Whether the application is currently marked as busy through
+<link linkend="g-application-mark-busy"><function>g_application_mark_busy()</function></link> or <link linkend="g-application-bind-busy-property"><function>g_application_bind_busy_property()</function></link>.</para>
+<para>Flags: Read</para>
+<para>Default value: FALSE</para>
+<para role="since">Since: <link linkend="api-index-2.44">2.44</link></para></refsect2>
+<refsect2 id="GApplication--is-registered" role="property"><title>The <literal>“is-registered”</literal> property</title>
+<indexterm zone="GApplication--is-registered"><primary sortas="Application:is-registered">GApplication:is-registered</primary></indexterm>
+<programlisting>  “is-registered”            <link linkend="gboolean"><type>gboolean</type></link></programlisting>
+<para>If g_application_register() has been called.</para><para>Flags: Read</para>
+<para>Default value: FALSE</para>
+</refsect2>
+<refsect2 id="GApplication--is-remote" role="property"><title>The <literal>“is-remote”</literal> property</title>
+<indexterm zone="GApplication--is-remote"><primary sortas="Application:is-remote">GApplication:is-remote</primary></indexterm>
+<programlisting>  “is-remote”                <link linkend="gboolean"><type>gboolean</type></link></programlisting>
+<para>If this application instance is remote.</para><para>Flags: Read</para>
+<para>Default value: FALSE</para>
+</refsect2>
+<refsect2 id="GApplication--resource-base-path" role="property"><title>The <literal>“resource-base-path”</literal> property</title>
+<indexterm zone="GApplication--resource-base-path"><primary sortas="Application:resource-base-path">GApplication:resource-base-path</primary></indexterm>
+<programlisting>  “resource-base-path”       <link linkend="gchar"><type>gchar</type></link>&#160;*</programlisting>
+<para>The base resource path for the application.</para><para>Flags: Read / Write</para>
+<para>Default value: NULL</para>
+</refsect2>
+
+</refsect1>
+<refsect1 id="GApplication.signal-details" role="signals">
+<title role="signals.title">Signal Details</title>
+<refsect2 id="GApplication-activate" role="signal"><title>The <literal>“activate”</literal> signal</title>
+<indexterm zone="GApplication-activate"><primary sortas="Application::activate">GApplication::activate</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+user_function (<link linkend="GApplication"><type>GApplication</type></link> *application,
+               <link linkend="gpointer"><type>gpointer</type></link>      user_data)</programlisting>
+<para>The ::activate signal is emitted on the primary instance when an
+activation occurs. See <link linkend="g-application-activate"><function>g_application_activate()</function></link>.</para>
+<refsect3 id="GApplication-activate.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>application</para></entry>
+<entry role="parameter_description"><para>the application</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><simpara>user_data</simpara></entry>
+<entry role="parameter_description"><simpara>user data set when the signal handler was connected.</simpara></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para>Flags: <link linkend="G-SIGNAL-RUN-LAST:CAPS">Run Last</link></para>
+</refsect2><refsect2 id="GApplication-command-line" role="signal"><title>The <literal>“command-line”</literal> signal</title>
+<indexterm zone="GApplication-command-line"><primary sortas="Application::command-line">GApplication::command-line</primary></indexterm>
+<programlisting language="C"><link linkend="gint"><returnvalue>gint</returnvalue></link>
+user_function (<link linkend="GApplication"><type>GApplication</type></link>            *application,
+               <link linkend="GApplicationCommandLine"><type>GApplicationCommandLine</type></link> *command_line,
+               <link linkend="gpointer"><type>gpointer</type></link>                 user_data)</programlisting>
+<para>The ::command-line signal is emitted on the primary instance when
+a commandline is not handled locally. See <link linkend="g-application-run"><function>g_application_run()</function></link> and
+the <link linkend="GApplicationCommandLine"><type>GApplicationCommandLine</type></link> documentation for more information.</para>
+<refsect3 id="GApplication-command-line.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>application</para></entry>
+<entry role="parameter_description"><para>the application</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>command_line</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GApplicationCommandLine"><type>GApplicationCommandLine</type></link> representing the
+passed commandline</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><simpara>user_data</simpara></entry>
+<entry role="parameter_description"><simpara>user data set when the signal handler was connected.</simpara></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="GApplication-command-line.returns" role="returns">
+<title>Returns</title>
+<para> An integer that is set as the exit status for the calling
+process. See <link linkend="g-application-command-line-set-exit-status"><function>g_application_command_line_set_exit_status()</function></link>.</para>
+</refsect3><para>Flags: <link linkend="G-SIGNAL-RUN-LAST:CAPS">Run Last</link></para>
+</refsect2><refsect2 id="GApplication-handle-local-options" role="signal"><title>The <literal>“handle-local-options”</literal> signal</title>
+<indexterm zone="GApplication-handle-local-options" role="2.40"><primary sortas="Application::handle-local-options">GApplication::handle-local-options</primary></indexterm>
+<programlisting language="C"><link linkend="gint"><returnvalue>gint</returnvalue></link>
+user_function (<link linkend="GApplication"><type>GApplication</type></link> *application,
+               <link linkend="GVariantDict"><type>GVariantDict</type></link> *options,
+               <link linkend="gpointer"><type>gpointer</type></link>      user_data)</programlisting>
+<para>The ::handle-local-options signal is emitted on the local instance
+after the parsing of the commandline options has occurred.</para>
+<para>You can add options to be recognised during commandline option
+parsing using <link linkend="g-application-add-main-option-entries"><function>g_application_add_main_option_entries()</function></link> and
+<link linkend="g-application-add-option-group"><function>g_application_add_option_group()</function></link>.</para>
+<para>Signal handlers can inspect <parameter>options</parameter>
+ (along with values pointed to
+from the <parameter>arg_data</parameter>
+ of an installed <link linkend="GOptionEntrys"><type>GOptionEntrys</type></link>) in order to
+decide to perform certain actions, including direct local handling
+(which may be useful for options like --version).</para>
+<para>In the event that the application is marked
+<link linkend="G-APPLICATION-HANDLES-COMMAND-LINE:CAPS"><literal>G_APPLICATION_HANDLES_COMMAND_LINE</literal></link> the "normal processing" will
+send the <parameter>options</parameter>
+ dictionary to the primary instance where it can be
+read with <link linkend="g-application-command-line-get-options-dict"><function>g_application_command_line_get_options_dict()</function></link>.  The signal
+handler can modify the dictionary before returning, and the
+modified dictionary will be sent.</para>
+<para>In the event that <link linkend="G-APPLICATION-HANDLES-COMMAND-LINE:CAPS"><literal>G_APPLICATION_HANDLES_COMMAND_LINE</literal></link> is not set,
+"normal processing" will treat the remaining uncollected command
+line arguments as filenames or URIs.  If there are no arguments,
+the application is activated by <link linkend="g-application-activate"><function>g_application_activate()</function></link>.  One or
+more arguments results in a call to <link linkend="g-application-open"><function>g_application_open()</function></link>.</para>
+<para>If you want to handle the local commandline arguments for yourself
+by converting them to calls to <link linkend="g-application-open"><function>g_application_open()</function></link> or
+<link linkend="g-action-group-activate-action"><function>g_action_group_activate_action()</function></link> then you must be sure to register
+the application first.  You should probably not call
+<link linkend="g-application-activate"><function>g_application_activate()</function></link> for yourself, however: just return -1 and
+allow the default handler to do it for you.  This will ensure that
+the <literal>--gapplication-service</literal> switch works properly (i.e. no activation
+in that case).</para>
+<para>Note that this signal is emitted from the default implementation of
+<link linkend="local-command-line"><function>local_command_line()</function></link>.  If you override that function and don't
+chain up then this signal will never be emitted.</para>
+<para>You can override <link linkend="local-command-line"><function>local_command_line()</function></link> if you need more powerful
+capabilities than what is provided here, but this should not
+normally be required.</para>
+<refsect3 id="GApplication-handle-local-options.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>application</para></entry>
+<entry role="parameter_description"><para>the application</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>options</para></entry>
+<entry role="parameter_description"><para>the options dictionary</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><simpara>user_data</simpara></entry>
+<entry role="parameter_description"><simpara>user data set when the signal handler was connected.</simpara></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="GApplication-handle-local-options.returns" role="returns">
+<title>Returns</title>
+<para> an exit code. If you have handled your options and want
+to exit the process, return a non-negative option, 0 for success,
+and a positive value for failure. To continue, return -1 to let
+the default option processing continue.</para>
+</refsect3><para>Flags: <link linkend="G-SIGNAL-RUN-LAST:CAPS">Run Last</link></para>
+<para role="since">Since: <link linkend="api-index-2.40">2.40</link></para></refsect2><refsect2 id="GApplication-open" role="signal"><title>The <literal>“open”</literal> signal</title>
+<indexterm zone="GApplication-open"><primary sortas="Application::open">GApplication::open</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+user_function (<link linkend="GApplication"><type>GApplication</type></link> *application,
+               <link linkend="gpointer"><type>gpointer</type></link>      files,
+               <link linkend="gint"><type>gint</type></link>          n_files,
+               <link linkend="gchar"><type>gchar</type></link>        *hint,
+               <link linkend="gpointer"><type>gpointer</type></link>      user_data)</programlisting>
+<para>The ::open signal is emitted on the primary instance when there are
+files to open. See <link linkend="g-application-open"><function>g_application_open()</function></link> for more information.</para>
+<refsect3 id="GApplication-open.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>application</para></entry>
+<entry role="parameter_description"><para>the application</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>files</para></entry>
+<entry role="parameter_description"><para>an array of <link linkend="GFiles"><type>GFiles</type></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>array</acronym> length=n_files][<acronym>element-type</acronym> GFile]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>n_files</para></entry>
+<entry role="parameter_description"><para>the length of <parameter>files</parameter>
+</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>hint</para></entry>
+<entry role="parameter_description"><para>a hint provided by the calling instance</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><simpara>user_data</simpara></entry>
+<entry role="parameter_description"><simpara>user data set when the signal handler was connected.</simpara></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para>Flags: <link linkend="G-SIGNAL-RUN-LAST:CAPS">Run Last</link></para>
+</refsect2><refsect2 id="GApplication-shutdown" role="signal"><title>The <literal>“shutdown”</literal> signal</title>
+<indexterm zone="GApplication-shutdown"><primary sortas="Application::shutdown">GApplication::shutdown</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+user_function (<link linkend="GApplication"><type>GApplication</type></link> *application,
+               <link linkend="gpointer"><type>gpointer</type></link>      user_data)</programlisting>
+<para>The ::shutdown signal is emitted only on the registered primary instance
+immediately after the main loop terminates.</para>
+<refsect3 id="GApplication-shutdown.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>application</para></entry>
+<entry role="parameter_description"><para>the application</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><simpara>user_data</simpara></entry>
+<entry role="parameter_description"><simpara>user data set when the signal handler was connected.</simpara></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para>Flags: <link linkend="G-SIGNAL-RUN-LAST:CAPS">Run Last</link></para>
+</refsect2><refsect2 id="GApplication-startup" role="signal"><title>The <literal>“startup”</literal> signal</title>
+<indexterm zone="GApplication-startup"><primary sortas="Application::startup">GApplication::startup</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+user_function (<link linkend="GApplication"><type>GApplication</type></link> *application,
+               <link linkend="gpointer"><type>gpointer</type></link>      user_data)</programlisting>
+<para>The ::startup signal is emitted on the primary instance immediately
+after registration. See <link linkend="g-application-register"><function>g_application_register()</function></link>.</para>
+<refsect3 id="GApplication-startup.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>application</para></entry>
+<entry role="parameter_description"><para>the application</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><simpara>user_data</simpara></entry>
+<entry role="parameter_description"><simpara>user data set when the signal handler was connected.</simpara></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para>Flags: <link linkend="G-SIGNAL-RUN-FIRST:CAPS">Run First</link></para>
+</refsect2>
+</refsect1>
+
+</refentry>

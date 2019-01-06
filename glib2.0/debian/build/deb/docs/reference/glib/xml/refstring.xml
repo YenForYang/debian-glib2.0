@@ -1,0 +1,273 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC '-//OASIS//DTD DocBook XML V4.5//EN'
+                      'http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd' [
+<!ENTITY % local.common.attrib "xmlns:xi  CDATA  #FIXED 'http://www.w3.org/2003/XInclude'">
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="glib-Reference-counted-strings">
+<refmeta>
+<refentrytitle role="top_of_page" id="glib-Reference-counted-strings.top_of_page">Reference counted strings</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>GLIB Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>Reference counted strings</refname>
+<refpurpose>Strings with reference counted memory management</refpurpose>
+</refnamediv>
+
+<refsect1 id="glib-Reference-counted-strings.functions" role="functions_proto">
+<title role="functions_proto.title">Functions</title>
+<informaltable pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="functions_return" colwidth="150px"/>
+<colspec colname="functions_name"/>
+<tbody>
+<row><entry role="function_type"><link linkend="char"><returnvalue>char</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-ref-string-new">g_ref_string_new</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="char"><returnvalue>char</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-ref-string-new-intern">g_ref_string_new_intern</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="char"><returnvalue>char</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-ref-string-new-len">g_ref_string_new_len</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="char"><returnvalue>char</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-ref-string-acquire">g_ref_string_acquire</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-ref-string-release">g_ref_string_release</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gsize"><returnvalue>gsize</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-ref-string-length">g_ref_string_length</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+
+<refsect1 id="glib-Reference-counted-strings.includes"><title>Includes</title><synopsis>#include &lt;glib.h&gt;
+#include &lt;glib/gi18n.h&gt;
+</synopsis></refsect1>
+
+<refsect1 id="glib-Reference-counted-strings.description" role="desc">
+<title role="desc.title">Description</title>
+<para>Reference counted strings are normal C strings that have been augmented
+with a reference counter to manage their resources. You allocate a new
+reference counted string and acquire and release references as needed,
+instead of copying the string among callers; when the last reference on
+the string is released, the resources allocated for it are freed.</para>
+<para>Typically, reference counted strings can be used when parsing data from
+files and storing them into data structures that are passed to various
+callers:</para>
+<informalexample><programlisting role="example"><![CDATA[
+PersonDetails *
+person_details_from_data (const char *data)
+{
+  // Use g_autoptr() to simplify error cases
+  g_autoptr(GRefString) full_name = NULL;
+  g_autoptr(GRefString) address =  NULL;
+  g_autoptr(GRefString) city = NULL;
+  g_autoptr(GRefString) state = NULL;
+  g_autoptr(GRefString) zip_code = NULL;
+
+  // parse_person_details() is defined elsewhere; returns refcounted strings
+  if (!parse_person_details (data, &full_name, &address, &city, &state, &zip_code))
+    return NULL;
+
+  if (!validate_zip_code (zip_code))
+    return NULL;
+
+  // add_address_to_cache() and add_full_name_to_cache() are defined
+  // elsewhere; they add strings to various caches, using refcounted
+  // strings to avoid copying data over and over again
+  add_address_to_cache (address, city, state, zip_code);
+  add_full_name_to_cache (full_name);
+
+  // person_details_new() is defined elsewhere; it takes a reference
+  // on each string
+  PersonDetails *res = person_details_new (full_name,
+                                           address,
+                                           city,
+                                           state,
+                                           zip_code);
+
+  return res;
+}
+]]></programlisting></informalexample>
+<para></para>
+<para>In the example above, we have multiple functions taking the same strings
+for different uses; with typical C strings, we'd have to copy the strings
+every time the life time rules of the data differ from the life time of
+the string parsed from the original buffer. With reference counted strings,
+each caller can take a reference on the data, and keep it as long as it
+needs to own the string.</para>
+<para>Reference counted strings can also be "interned" inside a global table
+owned by GLib; while an interned string has at least a reference, creating
+a new interned reference counted string with the same contents will return
+a reference to the existing string instead of creating a new reference
+counted string instance. Once the string loses its last reference, it will
+be automatically removed from the global interned strings table.</para>
+
+</refsect1>
+<refsect1 id="glib-Reference-counted-strings.functions_details" role="details">
+<title role="details.title">Functions</title>
+<refsect2 id="g-ref-string-new" role="function" condition="since:2.58">
+<title>g_ref_string_new&#160;()</title>
+<indexterm zone="g-ref-string-new" role="2.58"><primary sortas="ref_string_new">g_ref_string_new</primary></indexterm>
+<programlisting language="C"><link linkend="char"><returnvalue>char</returnvalue></link>&#160;*
+g_ref_string_new (<parameter>const <link linkend="char"><type>char</type></link> *str</parameter>);</programlisting>
+<para>Creates a new reference counted string and copies the contents of <parameter>str</parameter>
+
+into it.</para>
+<refsect3 id="g-ref-string-new.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>str</para></entry>
+<entry role="parameter_description"><para>a NUL-terminated string. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>not nullable</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-ref-string-new.returns" role="returns">
+<title>Returns</title>
+<para>the newly created reference counted string. </para>
+<para><emphasis role="annotation">[<acronym>transfer full</acronym>][<acronym>not nullable</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.58">2.58</link></para></refsect2>
+<refsect2 id="g-ref-string-new-intern" role="function" condition="since:2.58">
+<title>g_ref_string_new_intern&#160;()</title>
+<indexterm zone="g-ref-string-new-intern" role="2.58"><primary sortas="ref_string_new_intern">g_ref_string_new_intern</primary></indexterm>
+<programlisting language="C"><link linkend="char"><returnvalue>char</returnvalue></link>&#160;*
+g_ref_string_new_intern (<parameter>const <link linkend="char"><type>char</type></link> *str</parameter>);</programlisting>
+<para>Creates a new reference counted string and copies the content of <parameter>str</parameter>
+
+into it.</para>
+<para>If you call this function multiple times with the same <parameter>str</parameter>
+, or with
+the same contents of <parameter>str</parameter>
+, it will return a new reference, instead of
+creating a new string.</para>
+<refsect3 id="g-ref-string-new-intern.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>str</para></entry>
+<entry role="parameter_description"><para>a NUL-terminated string. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>not nullable</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-ref-string-new-intern.returns" role="returns">
+<title>Returns</title>
+<para>the newly created reference
+counted string, or a new reference to an existing string. </para>
+<para><emphasis role="annotation">[<acronym>transfer full</acronym>][<acronym>not nullable</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.58">2.58</link></para></refsect2>
+<refsect2 id="g-ref-string-new-len" role="function" condition="since:2.58">
+<title>g_ref_string_new_len&#160;()</title>
+<indexterm zone="g-ref-string-new-len" role="2.58"><primary sortas="ref_string_new_len">g_ref_string_new_len</primary></indexterm>
+<programlisting language="C"><link linkend="char"><returnvalue>char</returnvalue></link>&#160;*
+g_ref_string_new_len (<parameter>const <link linkend="char"><type>char</type></link> *str</parameter>,
+                      <parameter><link linkend="gssize"><type>gssize</type></link> len</parameter>);</programlisting>
+<para>Creates a new reference counted string and copies the contents of <parameter>str</parameter>
+
+into it, up to <parameter>len</parameter>
+ bytes.</para>
+<para>Since this function does not stop at nul bytes, it is the caller's
+responsibility to ensure that <parameter>str</parameter>
+ has at least <parameter>len</parameter>
+ addressable bytes.</para>
+<refsect3 id="g-ref-string-new-len.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>str</para></entry>
+<entry role="parameter_description"><para>a string. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>not nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>len</para></entry>
+<entry role="parameter_description"><para>length of <parameter>str</parameter>
+to use, or -1 if <parameter>str</parameter>
+is nul-terminated</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-ref-string-new-len.returns" role="returns">
+<title>Returns</title>
+<para>the newly created reference counted string. </para>
+<para><emphasis role="annotation">[<acronym>transfer full</acronym>][<acronym>not nullable</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.58">2.58</link></para></refsect2>
+<refsect2 id="g-ref-string-acquire" role="function" condition="since:2.58">
+<title>g_ref_string_acquire&#160;()</title>
+<indexterm zone="g-ref-string-acquire" role="2.58"><primary sortas="ref_string_acquire">g_ref_string_acquire</primary></indexterm>
+<programlisting language="C"><link linkend="char"><returnvalue>char</returnvalue></link>&#160;*
+g_ref_string_acquire (<parameter><link linkend="char"><type>char</type></link> *str</parameter>);</programlisting>
+<para>Acquires a reference on a string.</para>
+<refsect3 id="g-ref-string-acquire.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>str</para></entry>
+<entry role="parameter_description"><para>a reference counted string</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-ref-string-acquire.returns" role="returns">
+<title>Returns</title>
+<para> the given string, with its reference count increased</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.58">2.58</link></para></refsect2>
+<refsect2 id="g-ref-string-release" role="function" condition="since:2.58">
+<title>g_ref_string_release&#160;()</title>
+<indexterm zone="g-ref-string-release" role="2.58"><primary sortas="ref_string_release">g_ref_string_release</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_ref_string_release (<parameter><link linkend="char"><type>char</type></link> *str</parameter>);</programlisting>
+<para>Releases a reference on a string; if it was the last reference, the
+resources allocated by the string are freed as well.</para>
+<refsect3 id="g-ref-string-release.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>str</para></entry>
+<entry role="parameter_description"><para>a reference counted string</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.58">2.58</link></para></refsect2>
+<refsect2 id="g-ref-string-length" role="function" condition="since:2.58">
+<title>g_ref_string_length&#160;()</title>
+<indexterm zone="g-ref-string-length" role="2.58"><primary sortas="ref_string_length">g_ref_string_length</primary></indexterm>
+<programlisting language="C"><link linkend="gsize"><returnvalue>gsize</returnvalue></link>
+g_ref_string_length (<parameter><link linkend="char"><type>char</type></link> *str</parameter>);</programlisting>
+<para>Retrieves the length of <parameter>str</parameter>
+.</para>
+<refsect3 id="g-ref-string-length.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>str</para></entry>
+<entry role="parameter_description"><para>a reference counted string</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-ref-string-length.returns" role="returns">
+<title>Returns</title>
+<para> the length of the given string, in bytes</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.58">2.58</link></para></refsect2>
+
+</refsect1>
+<refsect1 id="glib-Reference-counted-strings.other_details" role="details">
+<title role="details.title">Types and Values</title>
+
+</refsect1>
+
+</refentry>

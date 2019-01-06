@@ -1,0 +1,611 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC '-//OASIS//DTD DocBook XML V4.5//EN'
+                      'http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd' [
+<!ENTITY % local.common.attrib "xmlns:xi  CDATA  #FIXED 'http://www.w3.org/2003/XInclude'">
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="GSettingsBackend">
+<refmeta>
+<refentrytitle role="top_of_page" id="GSettingsBackend.top_of_page">GSettingsBackend</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>GIO Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>GSettingsBackend</refname>
+<refpurpose>Interface for settings backend implementations</refpurpose>
+</refnamediv>
+
+<refsect1 id="GSettingsBackend.functions" role="functions_proto">
+<title role="functions_proto.title">Functions</title>
+<informaltable pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="functions_return" colwidth="150px"/>
+<colspec colname="functions_name"/>
+<tbody>
+<row><entry role="function_type"><link linkend="GSettingsBackend"><returnvalue>GSettingsBackend</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-settings-backend-get-default">g_settings_backend_get_default</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-settings-backend-changed">g_settings_backend_changed</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-settings-backend-path-changed">g_settings_backend_path_changed</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-settings-backend-keys-changed">g_settings_backend_keys_changed</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-settings-backend-path-writable-changed">g_settings_backend_path_writable_changed</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-settings-backend-writable-changed">g_settings_backend_writable_changed</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-settings-backend-changed-tree">g_settings_backend_changed_tree</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-settings-backend-flatten-tree">g_settings_backend_flatten_tree</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GSettingsBackend"><returnvalue>GSettingsBackend</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-keyfile-settings-backend-new">g_keyfile_settings_backend_new</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GSettingsBackend"><returnvalue>GSettingsBackend</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-memory-settings-backend-new">g_memory_settings_backend_new</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GSettingsBackend"><returnvalue>GSettingsBackend</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-null-settings-backend-new">g_null_settings_backend_new</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GSettingsBackend.other" role="other_proto">
+<title role="other_proto.title">Types and Values</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="name" colwidth="150px"/>
+<colspec colname="description"/>
+<tbody>
+<row><entry role="datatype_keyword"></entry><entry role="function_name"><link linkend="GSettingsBackend-struct">GSettingsBackend</link></entry></row>
+<row><entry role="datatype_keyword">struct</entry><entry role="function_name"><link linkend="GSettingsBackendClass">GSettingsBackendClass</link></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="G-SETTINGS-BACKEND-EXTENSION-POINT-NAME:CAPS">G_SETTINGS_BACKEND_EXTENSION_POINT_NAME</link></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GSettingsBackend.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<screen>    <link linkend="GObject">GObject</link>
+    <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> GSettingsBackend
+</screen>
+</refsect1>
+
+<refsect1 id="GSettingsBackend.includes"><title>Includes</title><synopsis>#include &lt;gio/gsettingsbackend.h&gt;
+</synopsis></refsect1>
+
+<refsect1 id="GSettingsBackend.description" role="desc">
+<title role="desc.title">Description</title>
+<para>The <link linkend="GSettingsBackend"><type>GSettingsBackend</type></link> interface defines a generic interface for
+non-strictly-typed data that is stored in a hierarchy. To implement
+an alternative storage backend for <link linkend="GSettings"><type>GSettings</type></link>, you need to implement
+the <link linkend="GSettingsBackend"><type>GSettingsBackend</type></link> interface and then make it implement the
+extension point <link linkend="G-SETTINGS-BACKEND-EXTENSION-POINT-NAME:CAPS"><type>G_SETTINGS_BACKEND_EXTENSION_POINT_NAME</type></link>.</para>
+<para>The interface defines methods for reading and writing values, a
+method for determining if writing of certain values will fail
+(lockdown) and a change notification mechanism.</para>
+<para>The semantics of the interface are very precisely defined and
+implementations must carefully adhere to the expectations of
+callers that are documented on each of the interface methods.</para>
+<para>Some of the <link linkend="GSettingsBackend"><type>GSettingsBackend</type></link> functions accept or return a <link linkend="GTree"><type>GTree</type></link>.
+These trees always have strings as keys and <link linkend="GVariant"><type>GVariant</type></link> as values.
+<link linkend="g-settings-backend-create-tree"><function>g_settings_backend_create_tree()</function></link> is a convenience function to create
+suitable trees.</para>
+<para>The <link linkend="GSettingsBackend"><type>GSettingsBackend</type></link> API is exported to allow third-party
+implementations, but does not carry the same stability guarantees
+as the public GIO API. For this reason, you have to define the
+C preprocessor symbol <link linkend="G-SETTINGS-ENABLE-BACKEND:CAPS"><literal>G_SETTINGS_ENABLE_BACKEND</literal></link> before including
+<literal>gio/gsettingsbackend.h</literal>.</para>
+
+</refsect1>
+<refsect1 id="GSettingsBackend.functions_details" role="details">
+<title role="details.title">Functions</title>
+<refsect2 id="g-settings-backend-get-default" role="function" condition="since:2.28">
+<title>g_settings_backend_get_default&#160;()</title>
+<indexterm zone="g-settings-backend-get-default" role="2.28"><primary sortas="settings_backend_get_default">g_settings_backend_get_default</primary></indexterm>
+<programlisting language="C"><link linkend="GSettingsBackend"><returnvalue>GSettingsBackend</returnvalue></link>&#160;*
+g_settings_backend_get_default (<parameter><type>void</type></parameter>);</programlisting>
+<para>Returns the default <link linkend="GSettingsBackend"><type>GSettingsBackend</type></link>. It is possible to override
+the default by setting the <literal>GSETTINGS_BACKEND</literal> environment variable
+to the name of a settings backend.</para>
+<para>The user gets a reference to the backend.</para>
+<refsect3 id="g-settings-backend-get-default.returns" role="returns">
+<title>Returns</title>
+<para>the default <link linkend="GSettingsBackend"><type>GSettingsBackend</type></link>. </para>
+<para><emphasis role="annotation">[<acronym>transfer full</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.28">2.28</link></para></refsect2>
+<refsect2 id="g-settings-backend-changed" role="function" condition="since:2.26">
+<title>g_settings_backend_changed&#160;()</title>
+<indexterm zone="g-settings-backend-changed" role="2.26"><primary sortas="settings_backend_changed">g_settings_backend_changed</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_settings_backend_changed (<parameter><link linkend="GSettingsBackend"><type>GSettingsBackend</type></link> *backend</parameter>,
+                            <parameter>const <link linkend="gchar"><type>gchar</type></link> *key</parameter>,
+                            <parameter><link linkend="gpointer"><type>gpointer</type></link> origin_tag</parameter>);</programlisting>
+<para>Signals that a single key has possibly changed.  Backend
+implementations should call this if a key has possibly changed its
+value.</para>
+<para><parameter>key</parameter>
+ must be a valid key (ie starting with a slash, not containing
+'//', and not ending with a slash).</para>
+<para>The implementation must call this function during any call to
+<link linkend="g-settings-backend-write"><function>g_settings_backend_write()</function></link>, before the call returns (except in the
+case that no keys are actually changed and it cares to detect this
+fact).  It may not rely on the existence of a mainloop for
+dispatching the signal later.</para>
+<para>The implementation may call this function at any other time it likes
+in response to other events (such as changes occurring outside of the
+program).  These calls may originate from a mainloop or may originate
+in response to any other action (including from calls to
+<link linkend="g-settings-backend-write"><function>g_settings_backend_write()</function></link>).</para>
+<para>In the case that this call is in response to a call to
+<link linkend="g-settings-backend-write"><function>g_settings_backend_write()</function></link> then <parameter>origin_tag</parameter>
+ must be set to the same
+value that was passed to that call.</para>
+<refsect3 id="g-settings-backend-changed.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>backend</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSettingsBackend"><type>GSettingsBackend</type></link> implementation</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>key</para></entry>
+<entry role="parameter_description"><para>the name of the key</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>origin_tag</para></entry>
+<entry role="parameter_description"><para>the origin tag</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.26">2.26</link></para></refsect2>
+<refsect2 id="g-settings-backend-path-changed" role="function" condition="since:2.26">
+<title>g_settings_backend_path_changed&#160;()</title>
+<indexterm zone="g-settings-backend-path-changed" role="2.26"><primary sortas="settings_backend_path_changed">g_settings_backend_path_changed</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_settings_backend_path_changed (<parameter><link linkend="GSettingsBackend"><type>GSettingsBackend</type></link> *backend</parameter>,
+                                 <parameter>const <link linkend="gchar"><type>gchar</type></link> *path</parameter>,
+                                 <parameter><link linkend="gpointer"><type>gpointer</type></link> origin_tag</parameter>);</programlisting>
+<para>Signals that all keys below a given path may have possibly changed.
+Backend implementations should call this if an entire path of keys
+have possibly changed their values.</para>
+<para><parameter>path</parameter>
+ must be a valid path (ie starting and ending with a slash and
+not containing '//').</para>
+<para>The meaning of this signal is that any of the key which has a name
+starting with <parameter>path</parameter>
+ may have changed.</para>
+<para>The same rules for when notifications must occur apply as per
+<link linkend="g-settings-backend-changed"><function>g_settings_backend_changed()</function></link>.  This call might be an appropriate
+reasponse to a 'reset' call but implementations are also free to
+explicitly list the keys that were affected by that call if they can
+easily do so.</para>
+<para>For efficiency reasons, the implementation should strive for <parameter>path</parameter>
+ to
+be as long as possible (ie: the longest common prefix of all of the
+keys that were changed) but this is not strictly required.  As an
+example, if this function is called with the path of "/" then every
+single key in the application will be notified of a possible change.</para>
+<refsect3 id="g-settings-backend-path-changed.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>backend</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSettingsBackend"><type>GSettingsBackend</type></link> implementation</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>path</para></entry>
+<entry role="parameter_description"><para>the path containing the changes</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>origin_tag</para></entry>
+<entry role="parameter_description"><para>the origin tag</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.26">2.26</link></para></refsect2>
+<refsect2 id="g-settings-backend-keys-changed" role="function" condition="since:2.26">
+<title>g_settings_backend_keys_changed&#160;()</title>
+<indexterm zone="g-settings-backend-keys-changed" role="2.26"><primary sortas="settings_backend_keys_changed">g_settings_backend_keys_changed</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_settings_backend_keys_changed (<parameter><link linkend="GSettingsBackend"><type>GSettingsBackend</type></link> *backend</parameter>,
+                                 <parameter>const <link linkend="gchar"><type>gchar</type></link> *path</parameter>,
+                                 <parameter><link linkend="gchar"><type>gchar</type></link> const * const *items</parameter>,
+                                 <parameter><link linkend="gpointer"><type>gpointer</type></link> origin_tag</parameter>);</programlisting>
+<para>Signals that a list of keys have possibly changed.  Backend
+implementations should call this if keys have possibly changed their
+values.</para>
+<para><parameter>path</parameter>
+ must be a valid path (ie starting and ending with a slash and
+not containing '//').  Each string in <parameter>items</parameter>
+ must form a valid key
+name when <parameter>path</parameter>
+ is prefixed to it (ie: each item must not start or
+end with '/' and must not contain '//').</para>
+<para>The meaning of this signal is that any of the key names resulting
+from the contatenation of <parameter>path</parameter>
+ with each item in <parameter>items</parameter>
+ may have
+changed.</para>
+<para>The same rules for when notifications must occur apply as per
+<link linkend="g-settings-backend-changed"><function>g_settings_backend_changed()</function></link>.  These two calls can be used
+interchangeably if exactly one item has changed (although in that
+case <link linkend="g-settings-backend-changed"><function>g_settings_backend_changed()</function></link> is definitely preferred).</para>
+<para>For efficiency reasons, the implementation should strive for <parameter>path</parameter>
+ to
+be as long as possible (ie: the longest common prefix of all of the
+keys that were changed) but this is not strictly required.</para>
+<refsect3 id="g-settings-backend-keys-changed.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>backend</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSettingsBackend"><type>GSettingsBackend</type></link> implementation</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>path</para></entry>
+<entry role="parameter_description"><para>the path containing the changes</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>items</para></entry>
+<entry role="parameter_description"><para>the <link linkend="NULL:CAPS"><literal>NULL</literal></link>-terminated list of changed keys. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>array</acronym> zero-terminated=1]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>origin_tag</para></entry>
+<entry role="parameter_description"><para>the origin tag</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.26">2.26</link></para></refsect2>
+<refsect2 id="g-settings-backend-path-writable-changed" role="function" condition="since:2.26">
+<title>g_settings_backend_path_writable_changed&#160;()</title>
+<indexterm zone="g-settings-backend-path-writable-changed" role="2.26"><primary sortas="settings_backend_path_writable_changed">g_settings_backend_path_writable_changed</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_settings_backend_path_writable_changed
+                               (<parameter><link linkend="GSettingsBackend"><type>GSettingsBackend</type></link> *backend</parameter>,
+                                <parameter>const <link linkend="gchar"><type>gchar</type></link> *path</parameter>);</programlisting>
+<para>Signals that the writability of all keys below a given path may have
+changed.</para>
+<para>Since GSettings performs no locking operations for itself, this call
+will always be made in response to external events.</para>
+<refsect3 id="g-settings-backend-path-writable-changed.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>backend</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSettingsBackend"><type>GSettingsBackend</type></link> implementation</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>path</para></entry>
+<entry role="parameter_description"><para>the name of the path</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.26">2.26</link></para></refsect2>
+<refsect2 id="g-settings-backend-writable-changed" role="function" condition="since:2.26">
+<title>g_settings_backend_writable_changed&#160;()</title>
+<indexterm zone="g-settings-backend-writable-changed" role="2.26"><primary sortas="settings_backend_writable_changed">g_settings_backend_writable_changed</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_settings_backend_writable_changed (<parameter><link linkend="GSettingsBackend"><type>GSettingsBackend</type></link> *backend</parameter>,
+                                     <parameter>const <link linkend="gchar"><type>gchar</type></link> *key</parameter>);</programlisting>
+<para>Signals that the writability of a single key has possibly changed.</para>
+<para>Since GSettings performs no locking operations for itself, this call
+will always be made in response to external events.</para>
+<refsect3 id="g-settings-backend-writable-changed.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>backend</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSettingsBackend"><type>GSettingsBackend</type></link> implementation</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>key</para></entry>
+<entry role="parameter_description"><para>the name of the key</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.26">2.26</link></para></refsect2>
+<refsect2 id="g-settings-backend-changed-tree" role="function" condition="since:2.26">
+<title>g_settings_backend_changed_tree&#160;()</title>
+<indexterm zone="g-settings-backend-changed-tree" role="2.26"><primary sortas="settings_backend_changed_tree">g_settings_backend_changed_tree</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_settings_backend_changed_tree (<parameter><link linkend="GSettingsBackend"><type>GSettingsBackend</type></link> *backend</parameter>,
+                                 <parameter><link linkend="GTree"><type>GTree</type></link> *tree</parameter>,
+                                 <parameter><link linkend="gpointer"><type>gpointer</type></link> origin_tag</parameter>);</programlisting>
+<para>This call is a convenience wrapper.  It gets the list of changes from
+<parameter>tree</parameter>
+, computes the longest common prefix and calls
+<link linkend="g-settings-backend-changed"><function>g_settings_backend_changed()</function></link>.</para>
+<refsect3 id="g-settings-backend-changed-tree.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>backend</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSettingsBackend"><type>GSettingsBackend</type></link> implementation</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>tree</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GTree"><type>GTree</type></link> containing the changes</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>origin_tag</para></entry>
+<entry role="parameter_description"><para>the origin tag</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.26">2.26</link></para></refsect2>
+<refsect2 id="g-settings-backend-flatten-tree" role="function" condition="since:2.26">
+<title>g_settings_backend_flatten_tree&#160;()</title>
+<indexterm zone="g-settings-backend-flatten-tree" role="2.26"><primary sortas="settings_backend_flatten_tree">g_settings_backend_flatten_tree</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_settings_backend_flatten_tree (<parameter><link linkend="GTree"><type>GTree</type></link> *tree</parameter>,
+                                 <parameter><link linkend="gchar"><type>gchar</type></link> **path</parameter>,
+                                 <parameter>const <link linkend="gchar"><type>gchar</type></link> ***keys</parameter>,
+                                 <parameter><link linkend="GVariant"><type>GVariant</type></link> ***values</parameter>);</programlisting>
+<para>Calculate the longest common prefix of all keys in a tree and write
+out an array of the key names relative to that prefix and,
+optionally, the value to store at each of those keys.</para>
+<para>You must free the value returned in <parameter>path</parameter>
+, <parameter>keys</parameter>
+ and <parameter>values</parameter>
+ using
+<link linkend="g-free"><function>g_free()</function></link>.  You should not attempt to free or unref the contents of
+<parameter>keys</parameter>
+ or <parameter>values</parameter>
+.</para>
+<refsect3 id="g-settings-backend-flatten-tree.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>tree</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GTree"><type>GTree</type></link> containing the changes</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>path</para></entry>
+<entry role="parameter_description"><para>the location to save the path. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>out</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>keys</para></entry>
+<entry role="parameter_description"><para>the
+location to save the relative keys. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>out</acronym>][<acronym>transfer container</acronym>][<acronym>array</acronym> zero-terminated=1]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>values</para></entry>
+<entry role="parameter_description"><para>the location to save the values, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>out</acronym>][<acronym>optional</acronym>][<acronym>transfer container</acronym>][<acronym>array</acronym> zero-terminated=1]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.26">2.26</link></para></refsect2>
+<refsect2 id="g-keyfile-settings-backend-new" role="function">
+<title>g_keyfile_settings_backend_new&#160;()</title>
+<indexterm zone="g-keyfile-settings-backend-new"><primary sortas="keyfile_settings_backend_new">g_keyfile_settings_backend_new</primary></indexterm>
+<programlisting language="C"><link linkend="GSettingsBackend"><returnvalue>GSettingsBackend</returnvalue></link>&#160;*
+g_keyfile_settings_backend_new (<parameter>const <link linkend="gchar"><type>gchar</type></link> *filename</parameter>,
+                                <parameter>const <link linkend="gchar"><type>gchar</type></link> *root_path</parameter>,
+                                <parameter>const <link linkend="gchar"><type>gchar</type></link> *root_group</parameter>);</programlisting>
+<para>Creates a keyfile-backed <link linkend="GSettingsBackend"><type>GSettingsBackend</type></link>.</para>
+<para>The filename of the keyfile to use is given by <parameter>filename</parameter>
+.</para>
+<para>All settings read to or written from the backend must fall under the
+path given in <parameter>root_path</parameter>
+ (which must start and end with a slash and
+not contain two consecutive slashes).  <parameter>root_path</parameter>
+ may be "/".</para>
+<para>If <parameter>root_group</parameter>
+ is non-<link linkend="NULL:CAPS"><literal>NULL</literal></link> then it specifies the name of the keyfile
+group used for keys that are written directly below <parameter>root_path</parameter>
+.  For
+example, if <parameter>root_path</parameter>
+ is "/apps/example/" and <parameter>root_group</parameter>
+ is
+"toplevel", then settings the key "/apps/example/enabled" to a value
+of <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> will cause the following to appear in the keyfile:</para>
+<informalexample><programlisting role="example"><![CDATA[
+  [toplevel]
+  enabled=true
+]]></programlisting></informalexample>
+<para></para>
+<para>If <parameter>root_group</parameter>
+ is <link linkend="NULL:CAPS"><literal>NULL</literal></link> then it is not permitted to store keys
+directly below the <parameter>root_path</parameter>
+.</para>
+<para>For keys not stored directly below <parameter>root_path</parameter>
+ (ie: in a sub-path),
+the name of the subpath (with the final slash stripped) is used as
+the name of the keyfile group.  To continue the example, if
+"/apps/example/profiles/default/font-size" were set to
+12 then the following would appear in the keyfile:</para>
+<informalexample><programlisting role="example"><![CDATA[
+  [profiles/default]
+  font-size=12
+]]></programlisting></informalexample>
+<para></para>
+<para>The backend will refuse writes (and return writability as being
+<link linkend="FALSE:CAPS"><literal>FALSE</literal></link>) for keys outside of <parameter>root_path</parameter>
+ and, in the event that
+<parameter>root_group</parameter>
+ is <link linkend="NULL:CAPS"><literal>NULL</literal></link>, also for keys directly under <parameter>root_path</parameter>
+.
+Writes will also be refused if the backend detects that it has the
+inability to rewrite the keyfile (ie: the containing directory is not
+writable).</para>
+<para>There is no checking done for your key namespace clashing with the
+syntax of the key file format.  For example, if you have '[' or ']'
+characters in your path names or '=' in your key names you may be in
+trouble.</para>
+<refsect3 id="g-keyfile-settings-backend-new.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>filename</para></entry>
+<entry role="parameter_description"><para>the filename of the keyfile</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>root_path</para></entry>
+<entry role="parameter_description"><para>the path under which all settings keys appear</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>root_group</para></entry>
+<entry role="parameter_description"><para>the group name corresponding to
+<parameter>root_path</parameter>
+, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-keyfile-settings-backend-new.returns" role="returns">
+<title>Returns</title>
+<para>a keyfile-backed <link linkend="GSettingsBackend"><type>GSettingsBackend</type></link>. </para>
+<para><emphasis role="annotation">[<acronym>transfer full</acronym>]</emphasis></para>
+</refsect3></refsect2>
+<refsect2 id="g-memory-settings-backend-new" role="function" condition="since:2.28">
+<title>g_memory_settings_backend_new&#160;()</title>
+<indexterm zone="g-memory-settings-backend-new" role="2.28"><primary sortas="memory_settings_backend_new">g_memory_settings_backend_new</primary></indexterm>
+<programlisting language="C"><link linkend="GSettingsBackend"><returnvalue>GSettingsBackend</returnvalue></link>&#160;*
+g_memory_settings_backend_new (<parameter><type>void</type></parameter>);</programlisting>
+<para>Creates a memory-backed <link linkend="GSettingsBackend"><type>GSettingsBackend</type></link>.</para>
+<para>This backend allows changes to settings, but does not write them
+to any backing storage, so the next time you run your application,
+the memory backend will start out with the default values again.</para>
+<refsect3 id="g-memory-settings-backend-new.returns" role="returns">
+<title>Returns</title>
+<para>a newly created <link linkend="GSettingsBackend"><type>GSettingsBackend</type></link>. </para>
+<para><emphasis role="annotation">[<acronym>transfer full</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.28">2.28</link></para></refsect2>
+<refsect2 id="g-null-settings-backend-new" role="function" condition="since:2.28">
+<title>g_null_settings_backend_new&#160;()</title>
+<indexterm zone="g-null-settings-backend-new" role="2.28"><primary sortas="null_settings_backend_new">g_null_settings_backend_new</primary></indexterm>
+<programlisting language="C"><link linkend="GSettingsBackend"><returnvalue>GSettingsBackend</returnvalue></link>&#160;*
+g_null_settings_backend_new (<parameter><type>void</type></parameter>);</programlisting>
+<para>Creates a readonly <link linkend="GSettingsBackend"><type>GSettingsBackend</type></link>.</para>
+<para>This backend does not allow changes to settings, so all settings
+will always have their default values.</para>
+<refsect3 id="g-null-settings-backend-new.returns" role="returns">
+<title>Returns</title>
+<para>a newly created <link linkend="GSettingsBackend"><type>GSettingsBackend</type></link>. </para>
+<para><emphasis role="annotation">[<acronym>transfer full</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.28">2.28</link></para></refsect2>
+
+</refsect1>
+<refsect1 id="GSettingsBackend.other_details" role="details">
+<title role="details.title">Types and Values</title>
+<refsect2 id="GSettingsBackend-struct" role="struct">
+<title>GSettingsBackend</title>
+<indexterm zone="GSettingsBackend-struct"><primary sortas="SettingsBackend">GSettingsBackend</primary></indexterm>
+<programlisting language="C">typedef struct _GSettingsBackend GSettingsBackend;</programlisting>
+<para>An implementation of a settings storage repository.</para>
+</refsect2>
+<refsect2 id="GSettingsBackendClass" role="struct">
+<title>struct GSettingsBackendClass</title>
+<indexterm zone="GSettingsBackendClass"><primary sortas="SettingsBackendClass">GSettingsBackendClass</primary></indexterm>
+<programlisting language="C">struct GSettingsBackendClass {
+  GObjectClass parent_class;
+
+  GVariant *    (*read)             (GSettingsBackend    *backend,
+                                     const gchar         *key,
+                                     const GVariantType  *expected_type,
+                                     gboolean             default_value);
+
+  gboolean      (*get_writable)     (GSettingsBackend    *backend,
+                                     const gchar         *key);
+
+  gboolean      (*write)            (GSettingsBackend    *backend,
+                                     const gchar         *key,
+                                     GVariant            *value,
+                                     gpointer             origin_tag);
+  gboolean      (*write_tree)       (GSettingsBackend    *backend,
+                                     GTree               *tree,
+                                     gpointer             origin_tag);
+  void          (*reset)            (GSettingsBackend    *backend,
+                                     const gchar         *key,
+                                     gpointer             origin_tag);
+
+  void          (*subscribe)        (GSettingsBackend    *backend,
+                                     const gchar         *name);
+  void          (*unsubscribe)      (GSettingsBackend    *backend,
+                                     const gchar         *name);
+  void          (*sync)             (GSettingsBackend    *backend);
+
+  GPermission * (*get_permission)   (GSettingsBackend    *backend,
+                                     const gchar         *path);
+
+  GVariant *    (*read_user_value)  (GSettingsBackend    *backend,
+                                     const gchar         *key,
+                                     const GVariantType  *expected_type);
+};
+</programlisting>
+<para>Class structure for <link linkend="GSettingsBackend"><type>GSettingsBackend</type></link>.</para>
+<refsect3 id="GSettingsBackendClass.members" role="struct_members">
+<title>Members</title>
+<informaltable role="struct_members_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="struct_members_name" colwidth="300px"/>
+<colspec colname="struct_members_description"/>
+<colspec colname="struct_members_annotations" colwidth="200px"/>
+<tbody>
+<row role="member"><entry role="struct_member_name"><para><structfield id="GSettingsBackendClass.read">read</structfield>&#160;()</para></entry>
+<entry role="struct_member_description"><para>virtual method to read a key's value</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><structfield id="GSettingsBackendClass.get-writable">get_writable</structfield>&#160;()</para></entry>
+<entry role="struct_member_description"><para>virtual method to get if a key is writable</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><structfield id="GSettingsBackendClass.write">write</structfield>&#160;()</para></entry>
+<entry role="struct_member_description"><para>virtual method to change key's value</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><structfield id="GSettingsBackendClass.write-tree">write_tree</structfield>&#160;()</para></entry>
+<entry role="struct_member_description"><para>virtual method to change a tree of keys</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><structfield id="GSettingsBackendClass.reset">reset</structfield>&#160;()</para></entry>
+<entry role="struct_member_description"><para>virtual method to reset state</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><structfield id="GSettingsBackendClass.subscribe">subscribe</structfield>&#160;()</para></entry>
+<entry role="struct_member_description"><para>virtual method to subscribe to key changes</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><structfield id="GSettingsBackendClass.unsubscribe">unsubscribe</structfield>&#160;()</para></entry>
+<entry role="struct_member_description"><para>virtual method to unsubscribe to key changes</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><structfield id="GSettingsBackendClass.sync">sync</structfield>&#160;()</para></entry>
+<entry role="struct_member_description"><para>virtual method to sync state</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><structfield id="GSettingsBackendClass.get-permission">get_permission</structfield>&#160;()</para></entry>
+<entry role="struct_member_description"><para>virtual method to get permission of a key</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><structfield id="GSettingsBackendClass.read-user-value">read_user_value</structfield>&#160;()</para></entry>
+<entry role="struct_member_description"><para>virtual method to read user's key value</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+</tbody></tgroup></informaltable>
+</refsect3>
+</refsect2>
+<refsect2 id="G-SETTINGS-BACKEND-EXTENSION-POINT-NAME:CAPS" role="macro">
+<title>G_SETTINGS_BACKEND_EXTENSION_POINT_NAME</title>
+<indexterm zone="G-SETTINGS-BACKEND-EXTENSION-POINT-NAME:CAPS"><primary sortas="SETTINGS_BACKEND_EXTENSION_POINT_NAME">G_SETTINGS_BACKEND_EXTENSION_POINT_NAME</primary></indexterm>
+<programlisting language="C">#define G_SETTINGS_BACKEND_EXTENSION_POINT_NAME "gsettings-backend"
+</programlisting>
+<para>Extension point for <link linkend="GSettingsBackend"><type>GSettingsBackend</type></link> functionality.</para>
+</refsect2>
+
+</refsect1>
+<refsect1 id="GSettingsBackend.see-also">
+<title>See Also</title>
+<para><link linkend="GSettings"><type>GSettings</type></link>, <link linkend="GIOExtensionPoint"><type>GIOExtensionPoint</type></link></para>
+
+</refsect1>
+
+</refentry>

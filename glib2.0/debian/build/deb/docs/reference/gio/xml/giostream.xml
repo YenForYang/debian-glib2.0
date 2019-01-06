@@ -1,0 +1,576 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC '-//OASIS//DTD DocBook XML V4.5//EN'
+                      'http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd' [
+<!ENTITY % local.common.attrib "xmlns:xi  CDATA  #FIXED 'http://www.w3.org/2003/XInclude'">
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="GIOStream">
+<refmeta>
+<refentrytitle role="top_of_page" id="GIOStream.top_of_page">GIOStream</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>GIO Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>GIOStream</refname>
+<refpurpose>Base class for implementing read/write streams</refpurpose>
+</refnamediv>
+
+<refsect1 id="GIOStream.functions" role="functions_proto">
+<title role="functions_proto.title">Functions</title>
+<informaltable pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="functions_return" colwidth="150px"/>
+<colspec colname="functions_name"/>
+<tbody>
+<row><entry role="function_type"><link linkend="GInputStream"><returnvalue>GInputStream</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-io-stream-get-input-stream">g_io_stream_get_input_stream</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GOutputStream"><returnvalue>GOutputStream</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-io-stream-get-output-stream">g_io_stream_get_output_stream</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-io-stream-splice-async">g_io_stream_splice_async</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-io-stream-splice-finish">g_io_stream_splice_finish</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-io-stream-close">g_io_stream_close</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-io-stream-close-async">g_io_stream_close_async</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-io-stream-close-finish">g_io_stream_close_finish</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-io-stream-is-closed">g_io_stream_is_closed</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-io-stream-has-pending">g_io_stream_has_pending</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-io-stream-set-pending">g_io_stream_set_pending</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-io-stream-clear-pending">g_io_stream_clear_pending</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GIOStream.properties" role="properties">
+<title role="properties.title">Properties</title>
+<informaltable frame="none">
+<tgroup cols="3">
+<colspec colname="properties_type" colwidth="150px"/>
+<colspec colname="properties_name" colwidth="300px"/>
+<colspec colname="properties_flags" colwidth="200px"/>
+<tbody>
+<row><entry role="property_type"><link linkend="gboolean"><type>gboolean</type></link></entry><entry role="property_name"><link linkend="GIOStream--closed">closed</link></entry><entry role="property_flags">Read</entry></row>
+<row><entry role="property_type"><link linkend="GInputStream"><type>GInputStream</type></link>&#160;*</entry><entry role="property_name"><link linkend="GIOStream--input-stream">input-stream</link></entry><entry role="property_flags">Read</entry></row>
+<row><entry role="property_type"><link linkend="GOutputStream"><type>GOutputStream</type></link>&#160;*</entry><entry role="property_name"><link linkend="GIOStream--output-stream">output-stream</link></entry><entry role="property_flags">Read</entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GIOStream.other" role="other_proto">
+<title role="other_proto.title">Types and Values</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="name" colwidth="150px"/>
+<colspec colname="description"/>
+<tbody>
+<row><entry role="datatype_keyword">enum</entry><entry role="function_name"><link linkend="GIOStreamSpliceFlags">GIOStreamSpliceFlags</link></entry></row>
+<row><entry role="datatype_keyword"></entry><entry role="function_name"><link linkend="GIOStream-struct">GIOStream</link></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GIOStream.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<screen>    <link linkend="GFlags">GFlags</link>
+    <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> GIOStreamSpliceFlags
+    <link linkend="GObject">GObject</link>
+    <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> GIOStream
+        <phrase role="lineart">&#9500;&#9472;&#9472;</phrase> <link linkend="GFileIOStream">GFileIOStream</link>
+        <phrase role="lineart">&#9500;&#9472;&#9472;</phrase> <link linkend="GSimpleIOStream">GSimpleIOStream</link>
+        <phrase role="lineart">&#9500;&#9472;&#9472;</phrase> <link linkend="GSocketConnection">GSocketConnection</link>
+        <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> <link linkend="GTlsConnection">GTlsConnection</link>
+</screen>
+</refsect1>
+
+<refsect1 id="GIOStream.includes"><title>Includes</title><synopsis>#include &lt;gio/gio.h&gt;
+</synopsis></refsect1>
+
+<refsect1 id="GIOStream.description" role="desc">
+<title role="desc.title">Description</title>
+<para>GIOStream represents an object that has both read and write streams.
+Generally the two streams act as separate input and output streams,
+but they share some common resources and state. For instance, for
+seekable streams, both streams may use the same position.</para>
+<para>Examples of <link linkend="GIOStream"><type>GIOStream</type></link> objects are <link linkend="GSocketConnection"><type>GSocketConnection</type></link>, which represents
+a two-way network connection; and <link linkend="GFileIOStream"><type>GFileIOStream</type></link>, which represents a
+file handle opened in read-write mode.</para>
+<para>To do the actual reading and writing you need to get the substreams
+with <link linkend="g-io-stream-get-input-stream"><function>g_io_stream_get_input_stream()</function></link> and <link linkend="g-io-stream-get-output-stream"><function>g_io_stream_get_output_stream()</function></link>.</para>
+<para>The <link linkend="GIOStream"><type>GIOStream</type></link> object owns the input and the output streams, not the other
+way around, so keeping the substreams alive will not keep the <link linkend="GIOStream"><type>GIOStream</type></link>
+object alive. If the <link linkend="GIOStream"><type>GIOStream</type></link> object is freed it will be closed, thus
+closing the substreams, so even if the substreams stay alive they will
+always return <link linkend="G-IO-ERROR-CLOSED:CAPS"><literal>G_IO_ERROR_CLOSED</literal></link> for all operations.</para>
+<para>To close a stream use <link linkend="g-io-stream-close"><function>g_io_stream_close()</function></link> which will close the common
+stream object and also the individual substreams. You can also close
+the substreams themselves. In most cases this only marks the
+substream as closed, so further I/O on it fails but common state in the
+<link linkend="GIOStream"><type>GIOStream</type></link> may still be open. However, some streams may support
+"half-closed" states where one direction of the stream is actually shut down.</para>
+<para>Operations on <link linkend="GIOStreams"><type>GIOStreams</type></link> cannot be started while another operation on the
+<link linkend="GIOStream"><type>GIOStream</type></link> or its substreams is in progress. Specifically, an application can
+read from the <link linkend="GInputStream"><type>GInputStream</type></link> and write to the <link linkend="GOutputStream"><type>GOutputStream</type></link> simultaneously
+(either in separate threads, or as asynchronous operations in the same
+thread), but an application cannot start any <link linkend="GIOStream"><type>GIOStream</type></link> operation while there
+is a <link linkend="GIOStream"><type>GIOStream</type></link>, <link linkend="GInputStream"><type>GInputStream</type></link> or <link linkend="GOutputStream"><type>GOutputStream</type></link> operation in progress, and
+an application can’t start any <link linkend="GInputStream"><type>GInputStream</type></link> or <link linkend="GOutputStream"><type>GOutputStream</type></link> operation
+while there is a <link linkend="GIOStream"><type>GIOStream</type></link> operation in progress.</para>
+<para>This is a product of individual stream operations being associated with a
+given <link linkend="GMainContext"><type>GMainContext</type></link> (the thread-default context at the time the operation was
+started), rather than entire streams being associated with a single
+<link linkend="GMainContext"><type>GMainContext</type></link>.</para>
+<para>GIO may run operations on <link linkend="GIOStreams"><type>GIOStreams</type></link> from other (worker) threads, and this
+may be exposed to application code in the behaviour of wrapper streams, such
+as <link linkend="GBufferedInputStream"><type>GBufferedInputStream</type></link> or <link linkend="GTlsConnection"><type>GTlsConnection</type></link>. With such wrapper APIs,
+application code may only run operations on the base (wrapped) stream when
+the wrapper stream is idle. Note that the semantics of such operations may
+not be well-defined due to the state the wrapper stream leaves the base
+stream in (though they are guaranteed not to crash).</para>
+
+</refsect1>
+<refsect1 id="GIOStream.functions_details" role="details">
+<title role="details.title">Functions</title>
+<refsect2 id="g-io-stream-get-input-stream" role="function" condition="since:2.22">
+<title>g_io_stream_get_input_stream&#160;()</title>
+<indexterm zone="g-io-stream-get-input-stream" role="2.22"><primary sortas="io_stream_get_input_stream">g_io_stream_get_input_stream</primary></indexterm>
+<programlisting language="C"><link linkend="GInputStream"><returnvalue>GInputStream</returnvalue></link>&#160;*
+g_io_stream_get_input_stream (<parameter><link linkend="GIOStream"><type>GIOStream</type></link> *stream</parameter>);</programlisting>
+<para>Gets the input stream for this object. This is used
+for reading.</para>
+<refsect3 id="g-io-stream-get-input-stream.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>stream</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GIOStream"><type>GIOStream</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-io-stream-get-input-stream.returns" role="returns">
+<title>Returns</title>
+<para>a <link linkend="GInputStream"><type>GInputStream</type></link>, owned by the <link linkend="GIOStream"><type>GIOStream</type></link>.
+Do not free. </para>
+<para><emphasis role="annotation">[<acronym>transfer none</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.22">2.22</link></para></refsect2>
+<refsect2 id="g-io-stream-get-output-stream" role="function" condition="since:2.22">
+<title>g_io_stream_get_output_stream&#160;()</title>
+<indexterm zone="g-io-stream-get-output-stream" role="2.22"><primary sortas="io_stream_get_output_stream">g_io_stream_get_output_stream</primary></indexterm>
+<programlisting language="C"><link linkend="GOutputStream"><returnvalue>GOutputStream</returnvalue></link>&#160;*
+g_io_stream_get_output_stream (<parameter><link linkend="GIOStream"><type>GIOStream</type></link> *stream</parameter>);</programlisting>
+<para>Gets the output stream for this object. This is used for
+writing.</para>
+<refsect3 id="g-io-stream-get-output-stream.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>stream</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GIOStream"><type>GIOStream</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-io-stream-get-output-stream.returns" role="returns">
+<title>Returns</title>
+<para>a <link linkend="GOutputStream"><type>GOutputStream</type></link>, owned by the <link linkend="GIOStream"><type>GIOStream</type></link>.
+Do not free. </para>
+<para><emphasis role="annotation">[<acronym>transfer none</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.22">2.22</link></para></refsect2>
+<refsect2 id="g-io-stream-splice-async" role="function" condition="since:2.28">
+<title>g_io_stream_splice_async&#160;()</title>
+<indexterm zone="g-io-stream-splice-async" role="2.28"><primary sortas="io_stream_splice_async">g_io_stream_splice_async</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_io_stream_splice_async (<parameter><link linkend="GIOStream"><type>GIOStream</type></link> *stream1</parameter>,
+                          <parameter><link linkend="GIOStream"><type>GIOStream</type></link> *stream2</parameter>,
+                          <parameter><link linkend="GIOStreamSpliceFlags"><type>GIOStreamSpliceFlags</type></link> flags</parameter>,
+                          <parameter><link linkend="int"><type>int</type></link> io_priority</parameter>,
+                          <parameter><link linkend="GCancellable"><type>GCancellable</type></link> *cancellable</parameter>,
+                          <parameter><link linkend="GAsyncReadyCallback"><type>GAsyncReadyCallback</type></link> callback</parameter>,
+                          <parameter><link linkend="gpointer"><type>gpointer</type></link> user_data</parameter>);</programlisting>
+<para>Asyncronously splice the output stream of <parameter>stream1</parameter>
+ to the input stream of
+<parameter>stream2</parameter>
+, and splice the output stream of <parameter>stream2</parameter>
+ to the input stream of
+<parameter>stream1</parameter>
+.</para>
+<para>When the operation is finished <parameter>callback</parameter>
+ will be called.
+You can then call <link linkend="g-io-stream-splice-finish"><function>g_io_stream_splice_finish()</function></link> to get the
+result of the operation.</para>
+<refsect3 id="g-io-stream-splice-async.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>stream1</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GIOStream"><type>GIOStream</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>stream2</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GIOStream"><type>GIOStream</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>flags</para></entry>
+<entry role="parameter_description"><para>a set of <link linkend="GIOStreamSpliceFlags"><type>GIOStreamSpliceFlags</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>io_priority</para></entry>
+<entry role="parameter_description"><para>the io priority of the request.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>cancellable</para></entry>
+<entry role="parameter_description"><para>optional <link linkend="GCancellable"><type>GCancellable</type></link> object, <link linkend="NULL:CAPS"><literal>NULL</literal></link> to ignore. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>callback</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GAsyncReadyCallback"><type>GAsyncReadyCallback</type></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>scope async</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>user_data</para></entry>
+<entry role="parameter_description"><para>user data passed to <parameter>callback</parameter>
+. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>closure</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.28">2.28</link></para></refsect2>
+<refsect2 id="g-io-stream-splice-finish" role="function" condition="since:2.28">
+<title>g_io_stream_splice_finish&#160;()</title>
+<indexterm zone="g-io-stream-splice-finish" role="2.28"><primary sortas="io_stream_splice_finish">g_io_stream_splice_finish</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_io_stream_splice_finish (<parameter><link linkend="GAsyncResult"><type>GAsyncResult</type></link> *result</parameter>,
+                           <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para>Finishes an asynchronous io stream splice operation.</para>
+<refsect3 id="g-io-stream-splice-finish.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>result</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GAsyncResult"><type>GAsyncResult</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GError"><type>GError</type></link> location to store the error occurring, or <link linkend="NULL:CAPS"><literal>NULL</literal></link> to
+ignore.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-io-stream-splice-finish.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> on success, <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> otherwise.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.28">2.28</link></para></refsect2>
+<refsect2 id="g-io-stream-close" role="function" condition="since:2.22">
+<title>g_io_stream_close&#160;()</title>
+<indexterm zone="g-io-stream-close" role="2.22"><primary sortas="io_stream_close">g_io_stream_close</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_io_stream_close (<parameter><link linkend="GIOStream"><type>GIOStream</type></link> *stream</parameter>,
+                   <parameter><link linkend="GCancellable"><type>GCancellable</type></link> *cancellable</parameter>,
+                   <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para>Closes the stream, releasing resources related to it. This will also
+close the individual input and output streams, if they are not already
+closed.</para>
+<para>Once the stream is closed, all other operations will return
+<link linkend="G-IO-ERROR-CLOSED:CAPS"><literal>G_IO_ERROR_CLOSED</literal></link>. Closing a stream multiple times will not
+return an error.</para>
+<para>Closing a stream will automatically flush any outstanding buffers
+in the stream.</para>
+<para>Streams will be automatically closed when the last reference
+is dropped, but you might want to call this function to make sure
+resources are released as early as possible.</para>
+<para>Some streams might keep the backing store of the stream (e.g. a file
+descriptor) open after the stream is closed. See the documentation for
+the individual stream for details.</para>
+<para>On failure the first error that happened will be reported, but the
+close operation will finish as much as possible. A stream that failed
+to close will still return <link linkend="G-IO-ERROR-CLOSED:CAPS"><literal>G_IO_ERROR_CLOSED</literal></link> for all operations.
+Still, it is important to check and report the error to the user,
+otherwise there might be a loss of data as all data might not be written.</para>
+<para>If <parameter>cancellable</parameter>
+ is not NULL, then the operation can be cancelled by
+triggering the cancellable object from another thread. If the operation
+was cancelled, the error <link linkend="G-IO-ERROR-CANCELLED:CAPS"><literal>G_IO_ERROR_CANCELLED</literal></link> will be returned.
+Cancelling a close will still leave the stream closed, but some streams
+can use a faster close that doesn't block to e.g. check errors.</para>
+<para>The default implementation of this method just calls close on the
+individual input/output streams.</para>
+<refsect3 id="g-io-stream-close.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>stream</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GIOStream"><type>GIOStream</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>cancellable</para></entry>
+<entry role="parameter_description"><para>optional <link linkend="GCancellable"><type>GCancellable</type></link> object, <link linkend="NULL:CAPS"><literal>NULL</literal></link> to ignore. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para>location to store the error occurring, or <link linkend="NULL:CAPS"><literal>NULL</literal></link> to ignore</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-io-stream-close.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> on success, <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> on failure</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.22">2.22</link></para></refsect2>
+<refsect2 id="g-io-stream-close-async" role="function" condition="since:2.22">
+<title>g_io_stream_close_async&#160;()</title>
+<indexterm zone="g-io-stream-close-async" role="2.22"><primary sortas="io_stream_close_async">g_io_stream_close_async</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_io_stream_close_async (<parameter><link linkend="GIOStream"><type>GIOStream</type></link> *stream</parameter>,
+                         <parameter><link linkend="int"><type>int</type></link> io_priority</parameter>,
+                         <parameter><link linkend="GCancellable"><type>GCancellable</type></link> *cancellable</parameter>,
+                         <parameter><link linkend="GAsyncReadyCallback"><type>GAsyncReadyCallback</type></link> callback</parameter>,
+                         <parameter><link linkend="gpointer"><type>gpointer</type></link> user_data</parameter>);</programlisting>
+<para>Requests an asynchronous close of the stream, releasing resources
+related to it. When the operation is finished <parameter>callback</parameter>
+ will be
+called. You can then call <link linkend="g-io-stream-close-finish"><function>g_io_stream_close_finish()</function></link> to get
+the result of the operation.</para>
+<para>For behaviour details see <link linkend="g-io-stream-close"><function>g_io_stream_close()</function></link>.</para>
+<para>The asynchronous methods have a default fallback that uses threads
+to implement asynchronicity, so they are optional for inheriting
+classes. However, if you override one you must override all.</para>
+<refsect3 id="g-io-stream-close-async.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>stream</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GIOStream"><type>GIOStream</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>io_priority</para></entry>
+<entry role="parameter_description"><para>the io priority of the request</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>cancellable</para></entry>
+<entry role="parameter_description"><para>optional cancellable object. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>callback</para></entry>
+<entry role="parameter_description"><para>callback to call when the request is satisfied. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>scope async</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>user_data</para></entry>
+<entry role="parameter_description"><para>the data to pass to callback function. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>closure</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.22">2.22</link></para></refsect2>
+<refsect2 id="g-io-stream-close-finish" role="function" condition="since:2.22">
+<title>g_io_stream_close_finish&#160;()</title>
+<indexterm zone="g-io-stream-close-finish" role="2.22"><primary sortas="io_stream_close_finish">g_io_stream_close_finish</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_io_stream_close_finish (<parameter><link linkend="GIOStream"><type>GIOStream</type></link> *stream</parameter>,
+                          <parameter><link linkend="GAsyncResult"><type>GAsyncResult</type></link> *result</parameter>,
+                          <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para>Closes a stream.</para>
+<refsect3 id="g-io-stream-close-finish.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>stream</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GIOStream"><type>GIOStream</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>result</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GAsyncResult"><type>GAsyncResult</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GError"><type>GError</type></link> location to store the error occurring, or <link linkend="NULL:CAPS"><literal>NULL</literal></link> to
+ignore</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-io-stream-close-finish.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if stream was successfully closed, <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> otherwise.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.22">2.22</link></para></refsect2>
+<refsect2 id="g-io-stream-is-closed" role="function" condition="since:2.22">
+<title>g_io_stream_is_closed&#160;()</title>
+<indexterm zone="g-io-stream-is-closed" role="2.22"><primary sortas="io_stream_is_closed">g_io_stream_is_closed</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_io_stream_is_closed (<parameter><link linkend="GIOStream"><type>GIOStream</type></link> *stream</parameter>);</programlisting>
+<para>Checks if a stream is closed.</para>
+<refsect3 id="g-io-stream-is-closed.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>stream</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GIOStream"><type>GIOStream</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-io-stream-is-closed.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if the stream is closed.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.22">2.22</link></para></refsect2>
+<refsect2 id="g-io-stream-has-pending" role="function" condition="since:2.22">
+<title>g_io_stream_has_pending&#160;()</title>
+<indexterm zone="g-io-stream-has-pending" role="2.22"><primary sortas="io_stream_has_pending">g_io_stream_has_pending</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_io_stream_has_pending (<parameter><link linkend="GIOStream"><type>GIOStream</type></link> *stream</parameter>);</programlisting>
+<para>Checks if a stream has pending actions.</para>
+<refsect3 id="g-io-stream-has-pending.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>stream</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GIOStream"><type>GIOStream</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-io-stream-has-pending.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if <parameter>stream</parameter>
+has pending actions.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.22">2.22</link></para></refsect2>
+<refsect2 id="g-io-stream-set-pending" role="function" condition="since:2.22">
+<title>g_io_stream_set_pending&#160;()</title>
+<indexterm zone="g-io-stream-set-pending" role="2.22"><primary sortas="io_stream_set_pending">g_io_stream_set_pending</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_io_stream_set_pending (<parameter><link linkend="GIOStream"><type>GIOStream</type></link> *stream</parameter>,
+                         <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para>Sets <parameter>stream</parameter>
+ to have actions pending. If the pending flag is
+already set or <parameter>stream</parameter>
+ is closed, it will return <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> and set
+<parameter>error</parameter>
+.</para>
+<refsect3 id="g-io-stream-set-pending.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>stream</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GIOStream"><type>GIOStream</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GError"><type>GError</type></link> location to store the error occurring, or <link linkend="NULL:CAPS"><literal>NULL</literal></link> to
+ignore</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-io-stream-set-pending.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if pending was previously unset and is now set.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.22">2.22</link></para></refsect2>
+<refsect2 id="g-io-stream-clear-pending" role="function" condition="since:2.22">
+<title>g_io_stream_clear_pending&#160;()</title>
+<indexterm zone="g-io-stream-clear-pending" role="2.22"><primary sortas="io_stream_clear_pending">g_io_stream_clear_pending</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_io_stream_clear_pending (<parameter><link linkend="GIOStream"><type>GIOStream</type></link> *stream</parameter>);</programlisting>
+<para>Clears the pending flag on <parameter>stream</parameter>
+.</para>
+<refsect3 id="g-io-stream-clear-pending.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>stream</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GIOStream"><type>GIOStream</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.22">2.22</link></para></refsect2>
+
+</refsect1>
+<refsect1 id="GIOStream.other_details" role="details">
+<title role="details.title">Types and Values</title>
+<refsect2 id="GIOStreamSpliceFlags" role="enum" condition="since:2.28">
+<title>enum GIOStreamSpliceFlags</title>
+<indexterm zone="GIOStreamSpliceFlags" role="2.28"><primary sortas="IOStreamSpliceFlags">GIOStreamSpliceFlags</primary></indexterm>
+<para>GIOStreamSpliceFlags determine how streams should be spliced.</para>
+<refsect3 id="GIOStreamSpliceFlags.members" role="enum_members">
+<title>Members</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="enum_members_name" colwidth="300px"/>
+<colspec colname="enum_members_description"/>
+<colspec colname="enum_members_annotations" colwidth="200px"/>
+<tbody>
+<row role="constant"><entry role="enum_member_name"><para id="G-IO-STREAM-SPLICE-NONE:CAPS">G_IO_STREAM_SPLICE_NONE</para></entry>
+<entry role="enum_member_description"><para>Do not close either stream.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-IO-STREAM-SPLICE-CLOSE-STREAM1:CAPS">G_IO_STREAM_SPLICE_CLOSE_STREAM1</para></entry>
+<entry role="enum_member_description"><para>Close the first stream after
+    the splice.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-IO-STREAM-SPLICE-CLOSE-STREAM2:CAPS">G_IO_STREAM_SPLICE_CLOSE_STREAM2</para></entry>
+<entry role="enum_member_description"><para>Close the second stream after
+    the splice.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-IO-STREAM-SPLICE-WAIT-FOR-BOTH:CAPS">G_IO_STREAM_SPLICE_WAIT_FOR_BOTH</para></entry>
+<entry role="enum_member_description"><para>Wait for both splice operations to finish
+    before calling the callback.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.28">2.28</link></para></refsect2>
+<refsect2 id="GIOStream-struct" role="struct">
+<title>GIOStream</title>
+<indexterm zone="GIOStream-struct"><primary sortas="IOStream">GIOStream</primary></indexterm>
+<programlisting language="C">typedef struct _GIOStream GIOStream;</programlisting>
+<para>Base class for read-write streams.</para>
+</refsect2>
+
+</refsect1>
+<refsect1 id="GIOStream.property-details" role="property_details">
+<title role="property_details.title">Property Details</title>
+<refsect2 id="GIOStream--closed" role="property"><title>The <literal>“closed”</literal> property</title>
+<indexterm zone="GIOStream--closed"><primary sortas="IOStream:closed">GIOStream:closed</primary></indexterm>
+<programlisting>  “closed”                   <link linkend="gboolean"><type>gboolean</type></link></programlisting>
+<para>Is the stream closed.</para><para>Flags: Read</para>
+<para>Default value: FALSE</para>
+</refsect2>
+<refsect2 id="GIOStream--input-stream" role="property"><title>The <literal>“input-stream”</literal> property</title>
+<indexterm zone="GIOStream--input-stream"><primary sortas="IOStream:input-stream">GIOStream:input-stream</primary></indexterm>
+<programlisting>  “input-stream”             <link linkend="GInputStream"><type>GInputStream</type></link>&#160;*</programlisting>
+<para>The GInputStream to read from.</para><para>Flags: Read</para>
+</refsect2>
+<refsect2 id="GIOStream--output-stream" role="property"><title>The <literal>“output-stream”</literal> property</title>
+<indexterm zone="GIOStream--output-stream"><primary sortas="IOStream:output-stream">GIOStream:output-stream</primary></indexterm>
+<programlisting>  “output-stream”            <link linkend="GOutputStream"><type>GOutputStream</type></link>&#160;*</programlisting>
+<para>The GOutputStream to write to.</para><para>Flags: Read</para>
+</refsect2>
+
+</refsect1>
+<refsect1 id="GIOStream.see-also">
+<title>See Also</title>
+<para><link linkend="GInputStream"><type>GInputStream</type></link>, <link linkend="GOutputStream"><type>GOutputStream</type></link></para>
+
+</refsect1>
+
+</refentry>

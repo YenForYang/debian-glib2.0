@@ -1,0 +1,301 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC '-//OASIS//DTD DocBook XML V4.5//EN'
+                      'http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd' [
+<!ENTITY % local.common.attrib "xmlns:xi  CDATA  #FIXED 'http://www.w3.org/2003/XInclude'">
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="GInetSocketAddress">
+<refmeta>
+<refentrytitle role="top_of_page" id="GInetSocketAddress.top_of_page">GInetSocketAddress</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>GIO Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>GInetSocketAddress</refname>
+<refpurpose>Internet GSocketAddress</refpurpose>
+</refnamediv>
+
+<refsect1 id="GInetSocketAddress.functions" role="functions_proto">
+<title role="functions_proto.title">Functions</title>
+<informaltable pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="functions_return" colwidth="150px"/>
+<colspec colname="functions_name"/>
+<tbody>
+<row><entry role="function_type"><link linkend="GSocketAddress"><returnvalue>GSocketAddress</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-inet-socket-address-new">g_inet_socket_address_new</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GSocketAddress"><returnvalue>GSocketAddress</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-inet-socket-address-new-from-string">g_inet_socket_address_new_from_string</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GInetAddress"><returnvalue>GInetAddress</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-inet-socket-address-get-address">g_inet_socket_address_get_address</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="guint16"><returnvalue>guint16</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-inet-socket-address-get-port">g_inet_socket_address_get_port</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="guint32"><returnvalue>guint32</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-inet-socket-address-get-flowinfo">g_inet_socket_address_get_flowinfo</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="guint32"><returnvalue>guint32</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-inet-socket-address-get-scope-id">g_inet_socket_address_get_scope_id</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GInetSocketAddress.properties" role="properties">
+<title role="properties.title">Properties</title>
+<informaltable frame="none">
+<tgroup cols="3">
+<colspec colname="properties_type" colwidth="150px"/>
+<colspec colname="properties_name" colwidth="300px"/>
+<colspec colname="properties_flags" colwidth="200px"/>
+<tbody>
+<row><entry role="property_type"><link linkend="GInetAddress"><type>GInetAddress</type></link>&#160;*</entry><entry role="property_name"><link linkend="GInetSocketAddress--address">address</link></entry><entry role="property_flags">Read / Write / Construct Only</entry></row>
+<row><entry role="property_type"><link linkend="guint"><type>guint</type></link></entry><entry role="property_name"><link linkend="GInetSocketAddress--flowinfo">flowinfo</link></entry><entry role="property_flags">Read / Write / Construct Only</entry></row>
+<row><entry role="property_type"><link linkend="guint"><type>guint</type></link></entry><entry role="property_name"><link linkend="GInetSocketAddress--port">port</link></entry><entry role="property_flags">Read / Write / Construct Only</entry></row>
+<row><entry role="property_type"><link linkend="guint"><type>guint</type></link></entry><entry role="property_name"><link linkend="GInetSocketAddress--scope-id">scope-id</link></entry><entry role="property_flags">Read / Write / Construct Only</entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GInetSocketAddress.other" role="other_proto">
+<title role="other_proto.title">Types and Values</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="name" colwidth="150px"/>
+<colspec colname="description"/>
+<tbody>
+<row><entry role="datatype_keyword"></entry><entry role="function_name"><link linkend="GInetSocketAddress-struct">GInetSocketAddress</link></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GInetSocketAddress.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<screen>    <link linkend="GObject">GObject</link>
+    <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> <link linkend="GSocketAddress">GSocketAddress</link>
+        <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> GInetSocketAddress
+            <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> <link linkend="GProxyAddress">GProxyAddress</link>
+</screen>
+</refsect1>
+<refsect1 id="GInetSocketAddress.implemented-interfaces" role="impl_interfaces">
+<title role="impl_interfaces.title">Implemented Interfaces</title>
+<para>
+GInetSocketAddress implements
+ <link linkend="GSocketConnectable">GSocketConnectable</link>.</para>
+
+</refsect1>
+
+<refsect1 id="GInetSocketAddress.includes"><title>Includes</title><synopsis>#include &lt;gio/gio.h&gt;
+</synopsis></refsect1>
+
+<refsect1 id="GInetSocketAddress.description" role="desc">
+<title role="desc.title">Description</title>
+<para>An IPv4 or IPv6 socket address; that is, the combination of a
+<link linkend="GInetAddress"><type>GInetAddress</type></link> and a port number.</para>
+
+</refsect1>
+<refsect1 id="GInetSocketAddress.functions_details" role="details">
+<title role="details.title">Functions</title>
+<refsect2 id="g-inet-socket-address-new" role="function" condition="since:2.22">
+<title>g_inet_socket_address_new&#160;()</title>
+<indexterm zone="g-inet-socket-address-new" role="2.22"><primary sortas="inet_socket_address_new">g_inet_socket_address_new</primary></indexterm>
+<programlisting language="C"><link linkend="GSocketAddress"><returnvalue>GSocketAddress</returnvalue></link>&#160;*
+g_inet_socket_address_new (<parameter><link linkend="GInetAddress"><type>GInetAddress</type></link> *address</parameter>,
+                           <parameter><link linkend="guint16"><type>guint16</type></link> port</parameter>);</programlisting>
+<para>Creates a new <link linkend="GInetSocketAddress"><type>GInetSocketAddress</type></link> for <parameter>address</parameter>
+ and <parameter>port</parameter>
+.</para>
+<refsect3 id="g-inet-socket-address-new.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>address</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GInetAddress"><type>GInetAddress</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>port</para></entry>
+<entry role="parameter_description"><para>a port number</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-inet-socket-address-new.returns" role="returns">
+<title>Returns</title>
+<para> a new <link linkend="GInetSocketAddress"><type>GInetSocketAddress</type></link></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.22">2.22</link></para></refsect2>
+<refsect2 id="g-inet-socket-address-new-from-string" role="function" condition="since:2.40">
+<title>g_inet_socket_address_new_from_string&#160;()</title>
+<indexterm zone="g-inet-socket-address-new-from-string" role="2.40"><primary sortas="inet_socket_address_new_from_string">g_inet_socket_address_new_from_string</primary></indexterm>
+<programlisting language="C"><link linkend="GSocketAddress"><returnvalue>GSocketAddress</returnvalue></link>&#160;*
+g_inet_socket_address_new_from_string (<parameter>const <link linkend="char"><type>char</type></link> *address</parameter>,
+                                       <parameter><link linkend="guint"><type>guint</type></link> port</parameter>);</programlisting>
+<para>Creates a new <link linkend="GInetSocketAddress"><type>GInetSocketAddress</type></link> for <parameter>address</parameter>
+ and <parameter>port</parameter>
+.</para>
+<para>If <parameter>address</parameter>
+ is an IPv6 address, it can also contain a scope ID
+(separated from the address by a <literal>%</literal>).</para>
+<refsect3 id="g-inet-socket-address-new-from-string.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>address</para></entry>
+<entry role="parameter_description"><para>the string form of an IP address</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>port</para></entry>
+<entry role="parameter_description"><para>a port number</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-inet-socket-address-new-from-string.returns" role="returns">
+<title>Returns</title>
+<para> a new <link linkend="GInetSocketAddress"><type>GInetSocketAddress</type></link>, or <link linkend="NULL:CAPS"><literal>NULL</literal></link> if <parameter>address</parameter>
+cannot be
+parsed.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.40">2.40</link></para></refsect2>
+<refsect2 id="g-inet-socket-address-get-address" role="function" condition="since:2.22">
+<title>g_inet_socket_address_get_address&#160;()</title>
+<indexterm zone="g-inet-socket-address-get-address" role="2.22"><primary sortas="inet_socket_address_get_address">g_inet_socket_address_get_address</primary></indexterm>
+<programlisting language="C"><link linkend="GInetAddress"><returnvalue>GInetAddress</returnvalue></link>&#160;*
+g_inet_socket_address_get_address (<parameter><link linkend="GInetSocketAddress"><type>GInetSocketAddress</type></link> *address</parameter>);</programlisting>
+<para>Gets <parameter>address</parameter>
+'s <link linkend="GInetAddress"><type>GInetAddress</type></link>.</para>
+<refsect3 id="g-inet-socket-address-get-address.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>address</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GInetSocketAddress"><type>GInetSocketAddress</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-inet-socket-address-get-address.returns" role="returns">
+<title>Returns</title>
+<para>the <link linkend="GInetAddress"><type>GInetAddress</type></link> for <parameter>address</parameter>
+, which must be
+<link linkend="g-object-ref"><function>g_object_ref()</function></link>'d if it will be stored. </para>
+<para><emphasis role="annotation">[<acronym>transfer none</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.22">2.22</link></para></refsect2>
+<refsect2 id="g-inet-socket-address-get-port" role="function" condition="since:2.22">
+<title>g_inet_socket_address_get_port&#160;()</title>
+<indexterm zone="g-inet-socket-address-get-port" role="2.22"><primary sortas="inet_socket_address_get_port">g_inet_socket_address_get_port</primary></indexterm>
+<programlisting language="C"><link linkend="guint16"><returnvalue>guint16</returnvalue></link>
+g_inet_socket_address_get_port (<parameter><link linkend="GInetSocketAddress"><type>GInetSocketAddress</type></link> *address</parameter>);</programlisting>
+<para>Gets <parameter>address</parameter>
+'s port.</para>
+<refsect3 id="g-inet-socket-address-get-port.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>address</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GInetSocketAddress"><type>GInetSocketAddress</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-inet-socket-address-get-port.returns" role="returns">
+<title>Returns</title>
+<para> the port for <parameter>address</parameter>
+</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.22">2.22</link></para></refsect2>
+<refsect2 id="g-inet-socket-address-get-flowinfo" role="function" condition="since:2.32">
+<title>g_inet_socket_address_get_flowinfo&#160;()</title>
+<indexterm zone="g-inet-socket-address-get-flowinfo" role="2.32"><primary sortas="inet_socket_address_get_flowinfo">g_inet_socket_address_get_flowinfo</primary></indexterm>
+<programlisting language="C"><link linkend="guint32"><returnvalue>guint32</returnvalue></link>
+g_inet_socket_address_get_flowinfo (<parameter><link linkend="GInetSocketAddress"><type>GInetSocketAddress</type></link> *address</parameter>);</programlisting>
+<para>Gets the <literal>sin6_flowinfo</literal> field from <parameter>address</parameter>
+,
+which must be an IPv6 address.</para>
+<refsect3 id="g-inet-socket-address-get-flowinfo.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>address</para></entry>
+<entry role="parameter_description"><para>a <link linkend="G-SOCKET-FAMILY-IPV6:CAPS"><literal>G_SOCKET_FAMILY_IPV6</literal></link> <link linkend="GInetSocketAddress"><type>GInetSocketAddress</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-inet-socket-address-get-flowinfo.returns" role="returns">
+<title>Returns</title>
+<para> the flowinfo field</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.32">2.32</link></para></refsect2>
+<refsect2 id="g-inet-socket-address-get-scope-id" role="function" condition="since:2.32">
+<title>g_inet_socket_address_get_scope_id&#160;()</title>
+<indexterm zone="g-inet-socket-address-get-scope-id" role="2.32"><primary sortas="inet_socket_address_get_scope_id">g_inet_socket_address_get_scope_id</primary></indexterm>
+<programlisting language="C"><link linkend="guint32"><returnvalue>guint32</returnvalue></link>
+g_inet_socket_address_get_scope_id (<parameter><link linkend="GInetSocketAddress"><type>GInetSocketAddress</type></link> *address</parameter>);</programlisting>
+<para>Gets the <literal>sin6_scope_id</literal> field from <parameter>address</parameter>
+,
+which must be an IPv6 address.</para>
+<refsect3 id="g-inet-socket-address-get-scope-id.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>address</para></entry>
+<entry role="parameter_description"><para>a <link linkend="G-SOCKET-FAMILY-IPV6:CAPS"><literal>G_SOCKET_FAMILY_IPV6</literal></link> <link linkend="GInetAddress"><type>GInetAddress</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-inet-socket-address-get-scope-id.returns" role="returns">
+<title>Returns</title>
+<para> the scope id field</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.32">2.32</link></para></refsect2>
+
+</refsect1>
+<refsect1 id="GInetSocketAddress.other_details" role="details">
+<title role="details.title">Types and Values</title>
+<refsect2 id="GInetSocketAddress-struct" role="struct">
+<title>GInetSocketAddress</title>
+<indexterm zone="GInetSocketAddress-struct"><primary sortas="InetSocketAddress">GInetSocketAddress</primary></indexterm>
+<programlisting language="C">typedef struct _GInetSocketAddress GInetSocketAddress;</programlisting>
+<para>An IPv4 or IPv6 socket address, corresponding to a struct
+sockaddr_in or struct sockaddr_in6.</para>
+</refsect2>
+
+</refsect1>
+<refsect1 id="GInetSocketAddress.property-details" role="property_details">
+<title role="property_details.title">Property Details</title>
+<refsect2 id="GInetSocketAddress--address" role="property"><title>The <literal>“address”</literal> property</title>
+<indexterm zone="GInetSocketAddress--address"><primary sortas="InetSocketAddress:address">GInetSocketAddress:address</primary></indexterm>
+<programlisting>  “address”                  <link linkend="GInetAddress"><type>GInetAddress</type></link>&#160;*</programlisting>
+<para>The address.</para><para>Flags: Read / Write / Construct Only</para>
+</refsect2>
+<refsect2 id="GInetSocketAddress--flowinfo" role="property"><title>The <literal>“flowinfo”</literal> property</title>
+<indexterm zone="GInetSocketAddress--flowinfo" role="2.32"><primary sortas="InetSocketAddress:flowinfo">GInetSocketAddress:flowinfo</primary></indexterm>
+<programlisting>  “flowinfo”                 <link linkend="guint"><type>guint</type></link></programlisting>
+<para>The <literal>sin6_flowinfo</literal> field, for IPv6 addresses.</para>
+<para>Flags: Read / Write / Construct Only</para>
+<para>Default value: 0</para>
+<para role="since">Since: <link linkend="api-index-2.32">2.32</link></para></refsect2>
+<refsect2 id="GInetSocketAddress--port" role="property"><title>The <literal>“port”</literal> property</title>
+<indexterm zone="GInetSocketAddress--port"><primary sortas="InetSocketAddress:port">GInetSocketAddress:port</primary></indexterm>
+<programlisting>  “port”                     <link linkend="guint"><type>guint</type></link></programlisting>
+<para>The port.</para><para>Flags: Read / Write / Construct Only</para>
+<para>Allowed values: &lt;= 65535</para>
+<para>Default value: 0</para>
+</refsect2>
+<refsect2 id="GInetSocketAddress--scope-id" role="property"><title>The <literal>“scope-id”</literal> property</title>
+<indexterm zone="GInetSocketAddress--scope-id"><primary sortas="InetSocketAddress:scope-id">GInetSocketAddress:scope-id</primary></indexterm>
+<programlisting>  “scope-id”                 <link linkend="guint"><type>guint</type></link></programlisting>
+<para>IPv6 scope ID.</para><para>Flags: Read / Write / Construct Only</para>
+<para>Default value: 0</para>
+</refsect2>
+
+</refsect1>
+
+</refentry>

@@ -1,0 +1,326 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC '-//OASIS//DTD DocBook XML V4.5//EN'
+                      'http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd' [
+<!ENTITY % local.common.attrib "xmlns:xi  CDATA  #FIXED 'http://www.w3.org/2003/XInclude'">
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="GProxyResolver">
+<refmeta>
+<refentrytitle role="top_of_page" id="GProxyResolver.top_of_page">GProxyResolver</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>GIO Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>GProxyResolver</refname>
+<refpurpose>Asynchronous and cancellable network proxy resolver</refpurpose>
+</refnamediv>
+
+<refsect1 id="GProxyResolver.functions" role="functions_proto">
+<title role="functions_proto.title">Functions</title>
+<informaltable pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="functions_return" colwidth="150px"/>
+<colspec colname="functions_name"/>
+<tbody>
+<row><entry role="function_type"><link linkend="GProxyResolver"><returnvalue>GProxyResolver</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-proxy-resolver-get-default">g_proxy_resolver_get_default</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-proxy-resolver-is-supported">g_proxy_resolver_is_supported</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;**
+</entry><entry role="function_name"><link linkend="g-proxy-resolver-lookup">g_proxy_resolver_lookup</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-proxy-resolver-lookup-async">g_proxy_resolver_lookup_async</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;**
+</entry><entry role="function_name"><link linkend="g-proxy-resolver-lookup-finish">g_proxy_resolver_lookup_finish</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GProxyResolver.other" role="other_proto">
+<title role="other_proto.title">Types and Values</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="name" colwidth="150px"/>
+<colspec colname="description"/>
+<tbody>
+<row><entry role="datatype_keyword"></entry><entry role="function_name"><link linkend="GProxyResolver-struct">GProxyResolver</link></entry></row>
+<row><entry role="datatype_keyword">struct</entry><entry role="function_name"><link linkend="GProxyResolverInterface">GProxyResolverInterface</link></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="G-PROXY-RESOLVER-EXTENSION-POINT-NAME:CAPS">G_PROXY_RESOLVER_EXTENSION_POINT_NAME</link></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GProxyResolver.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<screen>    <link linkend="GInterface">GInterface</link>
+    <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> GProxyResolver
+</screen>
+</refsect1>
+<refsect1 id="GProxyResolver.prerequisites" role="prerequisites">
+<title role="prerequisites.title">Prerequisites</title>
+<para>
+GProxyResolver requires
+ <link linkend="GObject">GObject</link>.</para>
+
+</refsect1>
+<refsect1 id="GProxyResolver.implementations" role="implementations">
+<title role="implementations.title">Known Implementations</title>
+<para>
+GProxyResolver is implemented by
+ <link linkend="GSimpleProxyResolver">GSimpleProxyResolver</link>.</para>
+
+</refsect1>
+
+<refsect1 id="GProxyResolver.includes"><title>Includes</title><synopsis>#include &lt;gio/gio.h&gt;
+</synopsis></refsect1>
+
+<refsect1 id="GProxyResolver.description" role="desc">
+<title role="desc.title">Description</title>
+<para><link linkend="GProxyResolver"><type>GProxyResolver</type></link> provides synchronous and asynchronous network proxy
+resolution. <link linkend="GProxyResolver"><type>GProxyResolver</type></link> is used within <link linkend="GSocketClient"><type>GSocketClient</type></link> through
+the method <link linkend="g-socket-connectable-proxy-enumerate"><function>g_socket_connectable_proxy_enumerate()</function></link>.</para>
+<para>Implementations of <link linkend="GProxyResolver"><type>GProxyResolver</type></link> based on libproxy and GNOME settings can
+be found in glib-networking. GIO comes with an implementation for use inside
+Flatpak portals.</para>
+
+</refsect1>
+<refsect1 id="GProxyResolver.functions_details" role="details">
+<title role="details.title">Functions</title>
+<refsect2 id="g-proxy-resolver-get-default" role="function" condition="since:2.26">
+<title>g_proxy_resolver_get_default&#160;()</title>
+<indexterm zone="g-proxy-resolver-get-default" role="2.26"><primary sortas="proxy_resolver_get_default">g_proxy_resolver_get_default</primary></indexterm>
+<programlisting language="C"><link linkend="GProxyResolver"><returnvalue>GProxyResolver</returnvalue></link>&#160;*
+g_proxy_resolver_get_default (<parameter><type>void</type></parameter>);</programlisting>
+<para>Gets the default <link linkend="GProxyResolver"><type>GProxyResolver</type></link> for the system.</para>
+<refsect3 id="g-proxy-resolver-get-default.returns" role="returns">
+<title>Returns</title>
+<para>the default <link linkend="GProxyResolver"><type>GProxyResolver</type></link>. </para>
+<para><emphasis role="annotation">[<acronym>transfer none</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.26">2.26</link></para></refsect2>
+<refsect2 id="g-proxy-resolver-is-supported" role="function" condition="since:2.26">
+<title>g_proxy_resolver_is_supported&#160;()</title>
+<indexterm zone="g-proxy-resolver-is-supported" role="2.26"><primary sortas="proxy_resolver_is_supported">g_proxy_resolver_is_supported</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_proxy_resolver_is_supported (<parameter><link linkend="GProxyResolver"><type>GProxyResolver</type></link> *resolver</parameter>);</programlisting>
+<para>Checks if <parameter>resolver</parameter>
+ can be used on this system. (This is used
+internally; <link linkend="g-proxy-resolver-get-default"><function>g_proxy_resolver_get_default()</function></link> will only return a proxy
+resolver that returns <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> for this method.)</para>
+<refsect3 id="g-proxy-resolver-is-supported.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>resolver</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GProxyResolver"><type>GProxyResolver</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-proxy-resolver-is-supported.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if <parameter>resolver</parameter>
+is supported.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.26">2.26</link></para></refsect2>
+<refsect2 id="g-proxy-resolver-lookup" role="function" condition="since:2.26">
+<title>g_proxy_resolver_lookup&#160;()</title>
+<indexterm zone="g-proxy-resolver-lookup" role="2.26"><primary sortas="proxy_resolver_lookup">g_proxy_resolver_lookup</primary></indexterm>
+<programlisting language="C"><link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;**
+g_proxy_resolver_lookup (<parameter><link linkend="GProxyResolver"><type>GProxyResolver</type></link> *resolver</parameter>,
+                         <parameter>const <link linkend="gchar"><type>gchar</type></link> *uri</parameter>,
+                         <parameter><link linkend="GCancellable"><type>GCancellable</type></link> *cancellable</parameter>,
+                         <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para>Looks into the system proxy configuration to determine what proxy,
+if any, to use to connect to <parameter>uri</parameter>
+. The returned proxy URIs are of
+the form <literal>&amp;lt;protocol&gt;://[user[:password]@]host:port</literal> or
+<literal>direct://</literal>, where &lt;protocol> could be http, rtsp, socks
+or other proxying protocol.</para>
+<para>If you don't know what network protocol is being used on the
+socket, you should use <literal>none</literal> as the URI protocol.
+In this case, the resolver might still return a generic proxy type
+(such as SOCKS), but would not return protocol-specific proxy types
+(such as http).</para>
+<para><literal>direct://</literal> is used when no proxy is needed.
+Direct connection should not be attempted unless it is part of the
+returned array of proxies.</para>
+<refsect3 id="g-proxy-resolver-lookup.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>resolver</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GProxyResolver"><type>GProxyResolver</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>uri</para></entry>
+<entry role="parameter_description"><para>a URI representing the destination to connect to</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>cancellable</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GCancellable"><type>GCancellable</type></link>, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para>return location for a <link linkend="GError"><type>GError</type></link>, or <link linkend="NULL:CAPS"><literal>NULL</literal></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-proxy-resolver-lookup.returns" role="returns">
+<title>Returns</title>
+<para>A
+NULL-terminated array of proxy URIs. Must be freed
+with <link linkend="g-strfreev"><function>g_strfreev()</function></link>. </para>
+<para><emphasis role="annotation">[<acronym>transfer full</acronym>][<acronym>array</acronym> zero-terminated=1]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.26">2.26</link></para></refsect2>
+<refsect2 id="g-proxy-resolver-lookup-async" role="function" condition="since:2.26">
+<title>g_proxy_resolver_lookup_async&#160;()</title>
+<indexterm zone="g-proxy-resolver-lookup-async" role="2.26"><primary sortas="proxy_resolver_lookup_async">g_proxy_resolver_lookup_async</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_proxy_resolver_lookup_async (<parameter><link linkend="GProxyResolver"><type>GProxyResolver</type></link> *resolver</parameter>,
+                               <parameter>const <link linkend="gchar"><type>gchar</type></link> *uri</parameter>,
+                               <parameter><link linkend="GCancellable"><type>GCancellable</type></link> *cancellable</parameter>,
+                               <parameter><link linkend="GAsyncReadyCallback"><type>GAsyncReadyCallback</type></link> callback</parameter>,
+                               <parameter><link linkend="gpointer"><type>gpointer</type></link> user_data</parameter>);</programlisting>
+<para>Asynchronous lookup of proxy. See <link linkend="g-proxy-resolver-lookup"><function>g_proxy_resolver_lookup()</function></link> for more
+details.</para>
+<refsect3 id="g-proxy-resolver-lookup-async.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>resolver</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GProxyResolver"><type>GProxyResolver</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>uri</para></entry>
+<entry role="parameter_description"><para>a URI representing the destination to connect to</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>cancellable</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GCancellable"><type>GCancellable</type></link>, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>callback</para></entry>
+<entry role="parameter_description"><para>callback to call after resolution completes. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>scope async</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>user_data</para></entry>
+<entry role="parameter_description"><para>data for <parameter>callback</parameter>
+. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>closure</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.26">2.26</link></para></refsect2>
+<refsect2 id="g-proxy-resolver-lookup-finish" role="function" condition="since:2.26">
+<title>g_proxy_resolver_lookup_finish&#160;()</title>
+<indexterm zone="g-proxy-resolver-lookup-finish" role="2.26"><primary sortas="proxy_resolver_lookup_finish">g_proxy_resolver_lookup_finish</primary></indexterm>
+<programlisting language="C"><link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;**
+g_proxy_resolver_lookup_finish (<parameter><link linkend="GProxyResolver"><type>GProxyResolver</type></link> *resolver</parameter>,
+                                <parameter><link linkend="GAsyncResult"><type>GAsyncResult</type></link> *result</parameter>,
+                                <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para>Call this function to obtain the array of proxy URIs when
+<link linkend="g-proxy-resolver-lookup-async"><function>g_proxy_resolver_lookup_async()</function></link> is complete. See
+<link linkend="g-proxy-resolver-lookup"><function>g_proxy_resolver_lookup()</function></link> for more details.</para>
+<refsect3 id="g-proxy-resolver-lookup-finish.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>resolver</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GProxyResolver"><type>GProxyResolver</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>result</para></entry>
+<entry role="parameter_description"><para>the result passed to your <link linkend="GAsyncReadyCallback"><type>GAsyncReadyCallback</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para>return location for a <link linkend="GError"><type>GError</type></link>, or <link linkend="NULL:CAPS"><literal>NULL</literal></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-proxy-resolver-lookup-finish.returns" role="returns">
+<title>Returns</title>
+<para>A
+NULL-terminated array of proxy URIs. Must be freed
+with <link linkend="g-strfreev"><function>g_strfreev()</function></link>. </para>
+<para><emphasis role="annotation">[<acronym>transfer full</acronym>][<acronym>array</acronym> zero-terminated=1]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.26">2.26</link></para></refsect2>
+
+</refsect1>
+<refsect1 id="GProxyResolver.other_details" role="details">
+<title role="details.title">Types and Values</title>
+<refsect2 id="GProxyResolver-struct" role="struct">
+<title>GProxyResolver</title>
+<indexterm zone="GProxyResolver-struct" role="2.26"><primary sortas="ProxyResolver">GProxyResolver</primary></indexterm>
+<programlisting language="C">typedef struct _GProxyResolver GProxyResolver;</programlisting>
+<para>A helper class to enumerate proxies base on URI.</para>
+<para role="since">Since: <link linkend="api-index-2.26">2.26</link></para></refsect2>
+<refsect2 id="GProxyResolverInterface" role="struct">
+<title>struct GProxyResolverInterface</title>
+<indexterm zone="GProxyResolverInterface"><primary sortas="ProxyResolverInterface">GProxyResolverInterface</primary></indexterm>
+<programlisting language="C">struct GProxyResolverInterface {
+  GTypeInterface g_iface;
+
+  /* Virtual Table */
+  gboolean (* is_supported)  (GProxyResolver       *resolver);
+
+  gchar&#160;** (* lookup)        (GProxyResolver       *resolver,
+			      const gchar          *uri,
+			      GCancellable         *cancellable,
+			      GError              **error);
+
+  void     (* lookup_async)  (GProxyResolver       *resolver,
+			      const gchar          *uri,
+			      GCancellable         *cancellable,
+			      GAsyncReadyCallback   callback,
+			      gpointer              user_data);
+
+  gchar&#160;** (* lookup_finish) (GProxyResolver       *resolver,
+			      GAsyncResult         *result,
+			      GError              **error);
+};
+</programlisting>
+<para>The virtual function table for <link linkend="GProxyResolver"><type>GProxyResolver</type></link>.</para>
+<refsect3 id="GProxyResolverInterface.members" role="struct_members">
+<title>Members</title>
+<informaltable role="struct_members_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="struct_members_name" colwidth="300px"/>
+<colspec colname="struct_members_description"/>
+<colspec colname="struct_members_annotations" colwidth="200px"/>
+<tbody>
+<row role="member"><entry role="struct_member_name"><para><structfield id="GProxyResolverInterface.is-supported">is_supported</structfield>&#160;()</para></entry>
+<entry role="struct_member_description"><para>the virtual function pointer for <link linkend="g-proxy-resolver-is-supported"><function>g_proxy_resolver_is_supported()</function></link></para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><structfield id="GProxyResolverInterface.lookup">lookup</structfield>&#160;()</para></entry>
+<entry role="struct_member_description"><para>the virtual function pointer for <link linkend="g-proxy-resolver-lookup"><function>g_proxy_resolver_lookup()</function></link></para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><structfield id="GProxyResolverInterface.lookup-async">lookup_async</structfield>&#160;()</para></entry>
+<entry role="struct_member_description"><para>the virtual function pointer for
+<link linkend="g-proxy-resolver-lookup-async"><function>g_proxy_resolver_lookup_async()</function></link></para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><structfield id="GProxyResolverInterface.lookup-finish">lookup_finish</structfield>&#160;()</para></entry>
+<entry role="struct_member_description"><para>the virtual function pointer for
+<link linkend="g-proxy-resolver-lookup-finish"><function>g_proxy_resolver_lookup_finish()</function></link></para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+</tbody></tgroup></informaltable>
+</refsect3>
+</refsect2>
+<refsect2 id="G-PROXY-RESOLVER-EXTENSION-POINT-NAME:CAPS" role="macro">
+<title>G_PROXY_RESOLVER_EXTENSION_POINT_NAME</title>
+<indexterm zone="G-PROXY-RESOLVER-EXTENSION-POINT-NAME:CAPS"><primary sortas="PROXY_RESOLVER_EXTENSION_POINT_NAME">G_PROXY_RESOLVER_EXTENSION_POINT_NAME</primary></indexterm>
+<programlisting language="C">#define G_PROXY_RESOLVER_EXTENSION_POINT_NAME "gio-proxy-resolver"
+</programlisting>
+<para>Extension point for proxy resolving functionality.
+See <link linkend="extending-gio">Extending GIO</link>.</para>
+</refsect2>
+
+</refsect1>
+
+</refentry>

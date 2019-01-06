@@ -1,0 +1,728 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC '-//OASIS//DTD DocBook XML V4.5//EN'
+                      'http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd' [
+<!ENTITY % local.common.attrib "xmlns:xi  CDATA  #FIXED 'http://www.w3.org/2003/XInclude'">
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="GInetAddress">
+<refmeta>
+<refentrytitle role="top_of_page" id="GInetAddress.top_of_page">GInetAddress</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>GIO Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>GInetAddress</refname>
+<refpurpose>An IPv4/IPv6 address</refpurpose>
+</refnamediv>
+
+<refsect1 id="GInetAddress.functions" role="functions_proto">
+<title role="functions_proto.title">Functions</title>
+<informaltable pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="functions_return" colwidth="150px"/>
+<colspec colname="functions_name"/>
+<tbody>
+<row><entry role="function_type"><link linkend="GInetAddress"><returnvalue>GInetAddress</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-inet-address-new-from-string">g_inet_address_new_from_string</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GInetAddress"><returnvalue>GInetAddress</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-inet-address-new-from-bytes">g_inet_address_new_from_bytes</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GInetAddress"><returnvalue>GInetAddress</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-inet-address-new-any">g_inet_address_new_any</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GInetAddress"><returnvalue>GInetAddress</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-inet-address-new-loopback">g_inet_address_new_loopback</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-inet-address-equal">g_inet_address_equal</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type">const <link linkend="guint8"><returnvalue>guint8</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-inet-address-to-bytes">g_inet_address_to_bytes</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gsize"><returnvalue>gsize</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-inet-address-get-native-size">g_inet_address_get_native_size</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-inet-address-to-string">g_inet_address_to_string</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GSocketFamily"><returnvalue>GSocketFamily</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-inet-address-get-family">g_inet_address_get_family</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-inet-address-get-is-any">g_inet_address_get_is_any</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-inet-address-get-is-loopback">g_inet_address_get_is_loopback</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-inet-address-get-is-link-local">g_inet_address_get_is_link_local</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-inet-address-get-is-site-local">g_inet_address_get_is_site_local</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-inet-address-get-is-multicast">g_inet_address_get_is_multicast</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-inet-address-get-is-mc-link-local">g_inet_address_get_is_mc_link_local</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-inet-address-get-is-mc-node-local">g_inet_address_get_is_mc_node_local</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-inet-address-get-is-mc-site-local">g_inet_address_get_is_mc_site_local</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-inet-address-get-is-mc-org-local">g_inet_address_get_is_mc_org_local</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-inet-address-get-is-mc-global">g_inet_address_get_is_mc_global</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GInetAddress.properties" role="properties">
+<title role="properties.title">Properties</title>
+<informaltable frame="none">
+<tgroup cols="3">
+<colspec colname="properties_type" colwidth="150px"/>
+<colspec colname="properties_name" colwidth="300px"/>
+<colspec colname="properties_flags" colwidth="200px"/>
+<tbody>
+<row><entry role="property_type"><link linkend="gpointer"><type>gpointer</type></link></entry><entry role="property_name"><link linkend="GInetAddress--bytes">bytes</link></entry><entry role="property_flags">Read / Write / Construct Only</entry></row>
+<row><entry role="property_type"><link linkend="GSocketFamily"><type>GSocketFamily</type></link></entry><entry role="property_name"><link linkend="GInetAddress--family">family</link></entry><entry role="property_flags">Read / Write / Construct Only</entry></row>
+<row><entry role="property_type"><link linkend="gboolean"><type>gboolean</type></link></entry><entry role="property_name"><link linkend="GInetAddress--is-any">is-any</link></entry><entry role="property_flags">Read</entry></row>
+<row><entry role="property_type"><link linkend="gboolean"><type>gboolean</type></link></entry><entry role="property_name"><link linkend="GInetAddress--is-link-local">is-link-local</link></entry><entry role="property_flags">Read</entry></row>
+<row><entry role="property_type"><link linkend="gboolean"><type>gboolean</type></link></entry><entry role="property_name"><link linkend="GInetAddress--is-loopback">is-loopback</link></entry><entry role="property_flags">Read</entry></row>
+<row><entry role="property_type"><link linkend="gboolean"><type>gboolean</type></link></entry><entry role="property_name"><link linkend="GInetAddress--is-mc-global">is-mc-global</link></entry><entry role="property_flags">Read</entry></row>
+<row><entry role="property_type"><link linkend="gboolean"><type>gboolean</type></link></entry><entry role="property_name"><link linkend="GInetAddress--is-mc-link-local">is-mc-link-local</link></entry><entry role="property_flags">Read</entry></row>
+<row><entry role="property_type"><link linkend="gboolean"><type>gboolean</type></link></entry><entry role="property_name"><link linkend="GInetAddress--is-mc-node-local">is-mc-node-local</link></entry><entry role="property_flags">Read</entry></row>
+<row><entry role="property_type"><link linkend="gboolean"><type>gboolean</type></link></entry><entry role="property_name"><link linkend="GInetAddress--is-mc-org-local">is-mc-org-local</link></entry><entry role="property_flags">Read</entry></row>
+<row><entry role="property_type"><link linkend="gboolean"><type>gboolean</type></link></entry><entry role="property_name"><link linkend="GInetAddress--is-mc-site-local">is-mc-site-local</link></entry><entry role="property_flags">Read</entry></row>
+<row><entry role="property_type"><link linkend="gboolean"><type>gboolean</type></link></entry><entry role="property_name"><link linkend="GInetAddress--is-multicast">is-multicast</link></entry><entry role="property_flags">Read</entry></row>
+<row><entry role="property_type"><link linkend="gboolean"><type>gboolean</type></link></entry><entry role="property_name"><link linkend="GInetAddress--is-site-local">is-site-local</link></entry><entry role="property_flags">Read</entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GInetAddress.other" role="other_proto">
+<title role="other_proto.title">Types and Values</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="name" colwidth="150px"/>
+<colspec colname="description"/>
+<tbody>
+<row><entry role="datatype_keyword"></entry><entry role="function_name"><link linkend="GInetAddress-struct">GInetAddress</link></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GInetAddress.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<screen>    <link linkend="GObject">GObject</link>
+    <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> GInetAddress
+</screen>
+</refsect1>
+
+<refsect1 id="GInetAddress.includes"><title>Includes</title><synopsis>#include &lt;gio/gio.h&gt;
+</synopsis></refsect1>
+
+<refsect1 id="GInetAddress.description" role="desc">
+<title role="desc.title">Description</title>
+<para><link linkend="GInetAddress"><type>GInetAddress</type></link> represents an IPv4 or IPv6 internet address. Use
+<link linkend="g-resolver-lookup-by-name"><function>g_resolver_lookup_by_name()</function></link> or <link linkend="g-resolver-lookup-by-name-async"><function>g_resolver_lookup_by_name_async()</function></link> to
+look up the <link linkend="GInetAddress"><type>GInetAddress</type></link> for a hostname. Use
+<link linkend="g-resolver-lookup-by-address"><function>g_resolver_lookup_by_address()</function></link> or
+<link linkend="g-resolver-lookup-by-address-async"><function>g_resolver_lookup_by_address_async()</function></link> to look up the hostname for a
+<link linkend="GInetAddress"><type>GInetAddress</type></link>.</para>
+<para>To actually connect to a remote host, you will need a
+<link linkend="GInetSocketAddress"><type>GInetSocketAddress</type></link> (which includes a <link linkend="GInetAddress"><type>GInetAddress</type></link> as well as a
+port number).</para>
+
+</refsect1>
+<refsect1 id="GInetAddress.functions_details" role="details">
+<title role="details.title">Functions</title>
+<refsect2 id="g-inet-address-new-from-string" role="function" condition="since:2.22">
+<title>g_inet_address_new_from_string&#160;()</title>
+<indexterm zone="g-inet-address-new-from-string" role="2.22"><primary sortas="inet_address_new_from_string">g_inet_address_new_from_string</primary></indexterm>
+<programlisting language="C"><link linkend="GInetAddress"><returnvalue>GInetAddress</returnvalue></link>&#160;*
+g_inet_address_new_from_string (<parameter>const <link linkend="gchar"><type>gchar</type></link> *string</parameter>);</programlisting>
+<para>Parses <parameter>string</parameter>
+ as an IP address and creates a new <link linkend="GInetAddress"><type>GInetAddress</type></link>.</para>
+<refsect3 id="g-inet-address-new-from-string.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>string</para></entry>
+<entry role="parameter_description"><para>a string representation of an IP address</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-inet-address-new-from-string.returns" role="returns">
+<title>Returns</title>
+<para> a new <link linkend="GInetAddress"><type>GInetAddress</type></link> corresponding to <parameter>string</parameter>
+, or <link linkend="NULL:CAPS"><literal>NULL</literal></link> if
+<parameter>string</parameter>
+could not be parsed.
+Free the returned object with <link linkend="g-object-unref"><function>g_object_unref()</function></link>.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.22">2.22</link></para></refsect2>
+<refsect2 id="g-inet-address-new-from-bytes" role="function" condition="since:2.22">
+<title>g_inet_address_new_from_bytes&#160;()</title>
+<indexterm zone="g-inet-address-new-from-bytes" role="2.22"><primary sortas="inet_address_new_from_bytes">g_inet_address_new_from_bytes</primary></indexterm>
+<programlisting language="C"><link linkend="GInetAddress"><returnvalue>GInetAddress</returnvalue></link>&#160;*
+g_inet_address_new_from_bytes (<parameter>const <link linkend="guint8"><type>guint8</type></link> *bytes</parameter>,
+                               <parameter><link linkend="GSocketFamily"><type>GSocketFamily</type></link> family</parameter>);</programlisting>
+<para>Creates a new <link linkend="GInetAddress"><type>GInetAddress</type></link> from the given <parameter>family</parameter>
+ and <parameter>bytes</parameter>
+.
+<parameter>bytes</parameter>
+ should be 4 bytes for <link linkend="G-SOCKET-FAMILY-IPV4:CAPS"><literal>G_SOCKET_FAMILY_IPV4</literal></link> and 16 bytes for
+<link linkend="G-SOCKET-FAMILY-IPV6:CAPS"><literal>G_SOCKET_FAMILY_IPV6</literal></link>.</para>
+<refsect3 id="g-inet-address-new-from-bytes.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>bytes</para></entry>
+<entry role="parameter_description"><para>raw address data. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>array</acronym>][<acronym>element-type</acronym> guint8]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>family</para></entry>
+<entry role="parameter_description"><para>the address family of <parameter>bytes</parameter>
+</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-inet-address-new-from-bytes.returns" role="returns">
+<title>Returns</title>
+<para> a new <link linkend="GInetAddress"><type>GInetAddress</type></link> corresponding to <parameter>family</parameter>
+and <parameter>bytes</parameter>
+.
+Free the returned object with <link linkend="g-object-unref"><function>g_object_unref()</function></link>.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.22">2.22</link></para></refsect2>
+<refsect2 id="g-inet-address-new-any" role="function" condition="since:2.22">
+<title>g_inet_address_new_any&#160;()</title>
+<indexterm zone="g-inet-address-new-any" role="2.22"><primary sortas="inet_address_new_any">g_inet_address_new_any</primary></indexterm>
+<programlisting language="C"><link linkend="GInetAddress"><returnvalue>GInetAddress</returnvalue></link>&#160;*
+g_inet_address_new_any (<parameter><link linkend="GSocketFamily"><type>GSocketFamily</type></link> family</parameter>);</programlisting>
+<para>Creates a <link linkend="GInetAddress"><type>GInetAddress</type></link> for the "any" address (unassigned/"don't
+care") for <parameter>family</parameter>
+.</para>
+<refsect3 id="g-inet-address-new-any.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>family</para></entry>
+<entry role="parameter_description"><para>the address family</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-inet-address-new-any.returns" role="returns">
+<title>Returns</title>
+<para> a new <link linkend="GInetAddress"><type>GInetAddress</type></link> corresponding to the "any" address
+for <parameter>family</parameter>
+.
+Free the returned object with <link linkend="g-object-unref"><function>g_object_unref()</function></link>.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.22">2.22</link></para></refsect2>
+<refsect2 id="g-inet-address-new-loopback" role="function" condition="since:2.22">
+<title>g_inet_address_new_loopback&#160;()</title>
+<indexterm zone="g-inet-address-new-loopback" role="2.22"><primary sortas="inet_address_new_loopback">g_inet_address_new_loopback</primary></indexterm>
+<programlisting language="C"><link linkend="GInetAddress"><returnvalue>GInetAddress</returnvalue></link>&#160;*
+g_inet_address_new_loopback (<parameter><link linkend="GSocketFamily"><type>GSocketFamily</type></link> family</parameter>);</programlisting>
+<para>Creates a <link linkend="GInetAddress"><type>GInetAddress</type></link> for the loopback address for <parameter>family</parameter>
+.</para>
+<refsect3 id="g-inet-address-new-loopback.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>family</para></entry>
+<entry role="parameter_description"><para>the address family</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-inet-address-new-loopback.returns" role="returns">
+<title>Returns</title>
+<para> a new <link linkend="GInetAddress"><type>GInetAddress</type></link> corresponding to the loopback address
+for <parameter>family</parameter>
+.
+Free the returned object with <link linkend="g-object-unref"><function>g_object_unref()</function></link>.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.22">2.22</link></para></refsect2>
+<refsect2 id="g-inet-address-equal" role="function" condition="since:2.30">
+<title>g_inet_address_equal&#160;()</title>
+<indexterm zone="g-inet-address-equal" role="2.30"><primary sortas="inet_address_equal">g_inet_address_equal</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_inet_address_equal (<parameter><link linkend="GInetAddress"><type>GInetAddress</type></link> *address</parameter>,
+                      <parameter><link linkend="GInetAddress"><type>GInetAddress</type></link> *other_address</parameter>);</programlisting>
+<para>Checks if two <link linkend="GInetAddress"><type>GInetAddress</type></link> instances are equal, e.g. the same address.</para>
+<refsect3 id="g-inet-address-equal.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>address</para></entry>
+<entry role="parameter_description"><para>A <link linkend="GInetAddress"><type>GInetAddress</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>other_address</para></entry>
+<entry role="parameter_description"><para>Another <link linkend="GInetAddress"><type>GInetAddress</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-inet-address-equal.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if <parameter>address</parameter>
+and <parameter>other_address</parameter>
+are equal, <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> otherwise.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.30">2.30</link></para></refsect2>
+<refsect2 id="g-inet-address-to-bytes" role="function" condition="since:2.22">
+<title>g_inet_address_to_bytes&#160;()</title>
+<indexterm zone="g-inet-address-to-bytes" role="2.22"><primary sortas="inet_address_to_bytes">g_inet_address_to_bytes</primary></indexterm>
+<programlisting language="C">const <link linkend="guint8"><returnvalue>guint8</returnvalue></link>&#160;*
+g_inet_address_to_bytes (<parameter><link linkend="GInetAddress"><type>GInetAddress</type></link> *address</parameter>);</programlisting>
+<para>Gets the raw binary address data from <parameter>address</parameter>
+.</para>
+
+<para><emphasis role="annotation">[<acronym>skip</acronym>]</emphasis></para><refsect3 id="g-inet-address-to-bytes.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>address</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GInetAddress"><type>GInetAddress</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-inet-address-to-bytes.returns" role="returns">
+<title>Returns</title>
+<para> a pointer to an internal array of the bytes in <parameter>address</parameter>
+,
+which should not be modified, stored, or freed. The size of this
+array can be gotten with <link linkend="g-inet-address-get-native-size"><function>g_inet_address_get_native_size()</function></link>.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.22">2.22</link></para></refsect2>
+<refsect2 id="g-inet-address-get-native-size" role="function" condition="since:2.22">
+<title>g_inet_address_get_native_size&#160;()</title>
+<indexterm zone="g-inet-address-get-native-size" role="2.22"><primary sortas="inet_address_get_native_size">g_inet_address_get_native_size</primary></indexterm>
+<programlisting language="C"><link linkend="gsize"><returnvalue>gsize</returnvalue></link>
+g_inet_address_get_native_size (<parameter><link linkend="GInetAddress"><type>GInetAddress</type></link> *address</parameter>);</programlisting>
+<para>Gets the size of the native raw binary address for <parameter>address</parameter>
+. This
+is the size of the data that you get from <link linkend="g-inet-address-to-bytes"><function>g_inet_address_to_bytes()</function></link>.</para>
+<refsect3 id="g-inet-address-get-native-size.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>address</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GInetAddress"><type>GInetAddress</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-inet-address-get-native-size.returns" role="returns">
+<title>Returns</title>
+<para> the number of bytes used for the native version of <parameter>address</parameter>
+.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.22">2.22</link></para></refsect2>
+<refsect2 id="g-inet-address-to-string" role="function" condition="since:2.22">
+<title>g_inet_address_to_string&#160;()</title>
+<indexterm zone="g-inet-address-to-string" role="2.22"><primary sortas="inet_address_to_string">g_inet_address_to_string</primary></indexterm>
+<programlisting language="C"><link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+g_inet_address_to_string (<parameter><link linkend="GInetAddress"><type>GInetAddress</type></link> *address</parameter>);</programlisting>
+<para>Converts <parameter>address</parameter>
+ to string form.</para>
+<refsect3 id="g-inet-address-to-string.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>address</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GInetAddress"><type>GInetAddress</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-inet-address-to-string.returns" role="returns">
+<title>Returns</title>
+<para> a representation of <parameter>address</parameter>
+as a string, which should be
+freed after use.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.22">2.22</link></para></refsect2>
+<refsect2 id="g-inet-address-get-family" role="function" condition="since:2.22">
+<title>g_inet_address_get_family&#160;()</title>
+<indexterm zone="g-inet-address-get-family" role="2.22"><primary sortas="inet_address_get_family">g_inet_address_get_family</primary></indexterm>
+<programlisting language="C"><link linkend="GSocketFamily"><returnvalue>GSocketFamily</returnvalue></link>
+g_inet_address_get_family (<parameter><link linkend="GInetAddress"><type>GInetAddress</type></link> *address</parameter>);</programlisting>
+<para>Gets <parameter>address</parameter>
+'s family</para>
+<refsect3 id="g-inet-address-get-family.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>address</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GInetAddress"><type>GInetAddress</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-inet-address-get-family.returns" role="returns">
+<title>Returns</title>
+<para> <parameter>address</parameter>
+'s family</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.22">2.22</link></para></refsect2>
+<refsect2 id="g-inet-address-get-is-any" role="function" condition="since:2.22">
+<title>g_inet_address_get_is_any&#160;()</title>
+<indexterm zone="g-inet-address-get-is-any" role="2.22"><primary sortas="inet_address_get_is_any">g_inet_address_get_is_any</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_inet_address_get_is_any (<parameter><link linkend="GInetAddress"><type>GInetAddress</type></link> *address</parameter>);</programlisting>
+<para>Tests whether <parameter>address</parameter>
+ is the "any" address for its family.</para>
+<refsect3 id="g-inet-address-get-is-any.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>address</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GInetAddress"><type>GInetAddress</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-inet-address-get-is-any.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if <parameter>address</parameter>
+is the "any" address for its family.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.22">2.22</link></para></refsect2>
+<refsect2 id="g-inet-address-get-is-loopback" role="function" condition="since:2.22">
+<title>g_inet_address_get_is_loopback&#160;()</title>
+<indexterm zone="g-inet-address-get-is-loopback" role="2.22"><primary sortas="inet_address_get_is_loopback">g_inet_address_get_is_loopback</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_inet_address_get_is_loopback (<parameter><link linkend="GInetAddress"><type>GInetAddress</type></link> *address</parameter>);</programlisting>
+<para>Tests whether <parameter>address</parameter>
+ is the loopback address for its family.</para>
+<refsect3 id="g-inet-address-get-is-loopback.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>address</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GInetAddress"><type>GInetAddress</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-inet-address-get-is-loopback.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if <parameter>address</parameter>
+is the loopback address for its family.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.22">2.22</link></para></refsect2>
+<refsect2 id="g-inet-address-get-is-link-local" role="function" condition="since:2.22">
+<title>g_inet_address_get_is_link_local&#160;()</title>
+<indexterm zone="g-inet-address-get-is-link-local" role="2.22"><primary sortas="inet_address_get_is_link_local">g_inet_address_get_is_link_local</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_inet_address_get_is_link_local (<parameter><link linkend="GInetAddress"><type>GInetAddress</type></link> *address</parameter>);</programlisting>
+<para>Tests whether <parameter>address</parameter>
+ is a link-local address (that is, if it
+identifies a host on a local network that is not connected to the
+Internet).</para>
+<refsect3 id="g-inet-address-get-is-link-local.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>address</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GInetAddress"><type>GInetAddress</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-inet-address-get-is-link-local.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if <parameter>address</parameter>
+is a link-local address.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.22">2.22</link></para></refsect2>
+<refsect2 id="g-inet-address-get-is-site-local" role="function" condition="since:2.22">
+<title>g_inet_address_get_is_site_local&#160;()</title>
+<indexterm zone="g-inet-address-get-is-site-local" role="2.22"><primary sortas="inet_address_get_is_site_local">g_inet_address_get_is_site_local</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_inet_address_get_is_site_local (<parameter><link linkend="GInetAddress"><type>GInetAddress</type></link> *address</parameter>);</programlisting>
+<para>Tests whether <parameter>address</parameter>
+ is a site-local address such as 10.0.0.1
+(that is, the address identifies a host on a local network that can
+not be reached directly from the Internet, but which may have
+outgoing Internet connectivity via a NAT or firewall).</para>
+<refsect3 id="g-inet-address-get-is-site-local.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>address</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GInetAddress"><type>GInetAddress</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-inet-address-get-is-site-local.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if <parameter>address</parameter>
+is a site-local address.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.22">2.22</link></para></refsect2>
+<refsect2 id="g-inet-address-get-is-multicast" role="function" condition="since:2.22">
+<title>g_inet_address_get_is_multicast&#160;()</title>
+<indexterm zone="g-inet-address-get-is-multicast" role="2.22"><primary sortas="inet_address_get_is_multicast">g_inet_address_get_is_multicast</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_inet_address_get_is_multicast (<parameter><link linkend="GInetAddress"><type>GInetAddress</type></link> *address</parameter>);</programlisting>
+<para>Tests whether <parameter>address</parameter>
+ is a multicast address.</para>
+<refsect3 id="g-inet-address-get-is-multicast.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>address</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GInetAddress"><type>GInetAddress</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-inet-address-get-is-multicast.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if <parameter>address</parameter>
+is a multicast address.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.22">2.22</link></para></refsect2>
+<refsect2 id="g-inet-address-get-is-mc-link-local" role="function" condition="since:2.22">
+<title>g_inet_address_get_is_mc_link_local&#160;()</title>
+<indexterm zone="g-inet-address-get-is-mc-link-local" role="2.22"><primary sortas="inet_address_get_is_mc_link_local">g_inet_address_get_is_mc_link_local</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_inet_address_get_is_mc_link_local (<parameter><link linkend="GInetAddress"><type>GInetAddress</type></link> *address</parameter>);</programlisting>
+<para>Tests whether <parameter>address</parameter>
+ is a link-local multicast address.</para>
+<refsect3 id="g-inet-address-get-is-mc-link-local.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>address</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GInetAddress"><type>GInetAddress</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-inet-address-get-is-mc-link-local.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if <parameter>address</parameter>
+is a link-local multicast address.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.22">2.22</link></para></refsect2>
+<refsect2 id="g-inet-address-get-is-mc-node-local" role="function" condition="since:2.22">
+<title>g_inet_address_get_is_mc_node_local&#160;()</title>
+<indexterm zone="g-inet-address-get-is-mc-node-local" role="2.22"><primary sortas="inet_address_get_is_mc_node_local">g_inet_address_get_is_mc_node_local</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_inet_address_get_is_mc_node_local (<parameter><link linkend="GInetAddress"><type>GInetAddress</type></link> *address</parameter>);</programlisting>
+<para>Tests whether <parameter>address</parameter>
+ is a node-local multicast address.</para>
+<refsect3 id="g-inet-address-get-is-mc-node-local.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>address</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GInetAddress"><type>GInetAddress</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-inet-address-get-is-mc-node-local.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if <parameter>address</parameter>
+is a node-local multicast address.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.22">2.22</link></para></refsect2>
+<refsect2 id="g-inet-address-get-is-mc-site-local" role="function" condition="since:2.22">
+<title>g_inet_address_get_is_mc_site_local&#160;()</title>
+<indexterm zone="g-inet-address-get-is-mc-site-local" role="2.22"><primary sortas="inet_address_get_is_mc_site_local">g_inet_address_get_is_mc_site_local</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_inet_address_get_is_mc_site_local (<parameter><link linkend="GInetAddress"><type>GInetAddress</type></link> *address</parameter>);</programlisting>
+<para>Tests whether <parameter>address</parameter>
+ is a site-local multicast address.</para>
+<refsect3 id="g-inet-address-get-is-mc-site-local.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>address</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GInetAddress"><type>GInetAddress</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-inet-address-get-is-mc-site-local.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if <parameter>address</parameter>
+is a site-local multicast address.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.22">2.22</link></para></refsect2>
+<refsect2 id="g-inet-address-get-is-mc-org-local" role="function" condition="since:2.22">
+<title>g_inet_address_get_is_mc_org_local&#160;()</title>
+<indexterm zone="g-inet-address-get-is-mc-org-local" role="2.22"><primary sortas="inet_address_get_is_mc_org_local">g_inet_address_get_is_mc_org_local</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_inet_address_get_is_mc_org_local (<parameter><link linkend="GInetAddress"><type>GInetAddress</type></link> *address</parameter>);</programlisting>
+<para>Tests whether <parameter>address</parameter>
+ is an organization-local multicast address.</para>
+<refsect3 id="g-inet-address-get-is-mc-org-local.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>address</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GInetAddress"><type>GInetAddress</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-inet-address-get-is-mc-org-local.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if <parameter>address</parameter>
+is an organization-local multicast address.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.22">2.22</link></para></refsect2>
+<refsect2 id="g-inet-address-get-is-mc-global" role="function" condition="since:2.22">
+<title>g_inet_address_get_is_mc_global&#160;()</title>
+<indexterm zone="g-inet-address-get-is-mc-global" role="2.22"><primary sortas="inet_address_get_is_mc_global">g_inet_address_get_is_mc_global</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_inet_address_get_is_mc_global (<parameter><link linkend="GInetAddress"><type>GInetAddress</type></link> *address</parameter>);</programlisting>
+<para>Tests whether <parameter>address</parameter>
+ is a global multicast address.</para>
+<refsect3 id="g-inet-address-get-is-mc-global.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>address</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GInetAddress"><type>GInetAddress</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-inet-address-get-is-mc-global.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if <parameter>address</parameter>
+is a global multicast address.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.22">2.22</link></para></refsect2>
+
+</refsect1>
+<refsect1 id="GInetAddress.other_details" role="details">
+<title role="details.title">Types and Values</title>
+<refsect2 id="GInetAddress-struct" role="struct">
+<title>GInetAddress</title>
+<indexterm zone="GInetAddress-struct"><primary sortas="InetAddress">GInetAddress</primary></indexterm>
+<programlisting language="C">typedef struct _GInetAddress GInetAddress;</programlisting>
+<para>An IPv4 or IPv6 internet address.</para>
+</refsect2>
+
+</refsect1>
+<refsect1 id="GInetAddress.property-details" role="property_details">
+<title role="property_details.title">Property Details</title>
+<refsect2 id="GInetAddress--bytes" role="property"><title>The <literal>“bytes”</literal> property</title>
+<indexterm zone="GInetAddress--bytes"><primary sortas="InetAddress:bytes">GInetAddress:bytes</primary></indexterm>
+<programlisting>  “bytes”                    <link linkend="gpointer"><type>gpointer</type></link></programlisting>
+<para>The raw address data.</para><para>Flags: Read / Write / Construct Only</para>
+</refsect2>
+<refsect2 id="GInetAddress--family" role="property"><title>The <literal>“family”</literal> property</title>
+<indexterm zone="GInetAddress--family"><primary sortas="InetAddress:family">GInetAddress:family</primary></indexterm>
+<programlisting>  “family”                   <link linkend="GSocketFamily"><type>GSocketFamily</type></link></programlisting>
+<para>The address family (IPv4 or IPv6).</para><para>Flags: Read / Write / Construct Only</para>
+<para>Default value: G_SOCKET_FAMILY_INVALID</para>
+</refsect2>
+<refsect2 id="GInetAddress--is-any" role="property"><title>The <literal>“is-any”</literal> property</title>
+<indexterm zone="GInetAddress--is-any" role="2.22"><primary sortas="InetAddress:is-any">GInetAddress:is-any</primary></indexterm>
+<programlisting>  “is-any”                   <link linkend="gboolean"><type>gboolean</type></link></programlisting>
+<para>Whether this is the "any" address for its family.
+See <link linkend="g-inet-address-get-is-any"><function>g_inet_address_get_is_any()</function></link>.</para>
+<para>Flags: Read</para>
+<para>Default value: FALSE</para>
+<para role="since">Since: <link linkend="api-index-2.22">2.22</link></para></refsect2>
+<refsect2 id="GInetAddress--is-link-local" role="property"><title>The <literal>“is-link-local”</literal> property</title>
+<indexterm zone="GInetAddress--is-link-local" role="2.22"><primary sortas="InetAddress:is-link-local">GInetAddress:is-link-local</primary></indexterm>
+<programlisting>  “is-link-local”            <link linkend="gboolean"><type>gboolean</type></link></programlisting>
+<para>Whether this is a link-local address.
+See <link linkend="g-inet-address-get-is-link-local"><function>g_inet_address_get_is_link_local()</function></link>.</para>
+<para>Flags: Read</para>
+<para>Default value: FALSE</para>
+<para role="since">Since: <link linkend="api-index-2.22">2.22</link></para></refsect2>
+<refsect2 id="GInetAddress--is-loopback" role="property"><title>The <literal>“is-loopback”</literal> property</title>
+<indexterm zone="GInetAddress--is-loopback" role="2.22"><primary sortas="InetAddress:is-loopback">GInetAddress:is-loopback</primary></indexterm>
+<programlisting>  “is-loopback”              <link linkend="gboolean"><type>gboolean</type></link></programlisting>
+<para>Whether this is the loopback address for its family.
+See <link linkend="g-inet-address-get-is-loopback"><function>g_inet_address_get_is_loopback()</function></link>.</para>
+<para>Flags: Read</para>
+<para>Default value: FALSE</para>
+<para role="since">Since: <link linkend="api-index-2.22">2.22</link></para></refsect2>
+<refsect2 id="GInetAddress--is-mc-global" role="property"><title>The <literal>“is-mc-global”</literal> property</title>
+<indexterm zone="GInetAddress--is-mc-global" role="2.22"><primary sortas="InetAddress:is-mc-global">GInetAddress:is-mc-global</primary></indexterm>
+<programlisting>  “is-mc-global”             <link linkend="gboolean"><type>gboolean</type></link></programlisting>
+<para>Whether this is a global multicast address.
+See <link linkend="g-inet-address-get-is-mc-global"><function>g_inet_address_get_is_mc_global()</function></link>.</para>
+<para>Flags: Read</para>
+<para>Default value: FALSE</para>
+<para role="since">Since: <link linkend="api-index-2.22">2.22</link></para></refsect2>
+<refsect2 id="GInetAddress--is-mc-link-local" role="property"><title>The <literal>“is-mc-link-local”</literal> property</title>
+<indexterm zone="GInetAddress--is-mc-link-local" role="2.22"><primary sortas="InetAddress:is-mc-link-local">GInetAddress:is-mc-link-local</primary></indexterm>
+<programlisting>  “is-mc-link-local”         <link linkend="gboolean"><type>gboolean</type></link></programlisting>
+<para>Whether this is a link-local multicast address.
+See <link linkend="g-inet-address-get-is-mc-link-local"><function>g_inet_address_get_is_mc_link_local()</function></link>.</para>
+<para>Flags: Read</para>
+<para>Default value: FALSE</para>
+<para role="since">Since: <link linkend="api-index-2.22">2.22</link></para></refsect2>
+<refsect2 id="GInetAddress--is-mc-node-local" role="property"><title>The <literal>“is-mc-node-local”</literal> property</title>
+<indexterm zone="GInetAddress--is-mc-node-local" role="2.22"><primary sortas="InetAddress:is-mc-node-local">GInetAddress:is-mc-node-local</primary></indexterm>
+<programlisting>  “is-mc-node-local”         <link linkend="gboolean"><type>gboolean</type></link></programlisting>
+<para>Whether this is a node-local multicast address.
+See <link linkend="g-inet-address-get-is-mc-node-local"><function>g_inet_address_get_is_mc_node_local()</function></link>.</para>
+<para>Flags: Read</para>
+<para>Default value: FALSE</para>
+<para role="since">Since: <link linkend="api-index-2.22">2.22</link></para></refsect2>
+<refsect2 id="GInetAddress--is-mc-org-local" role="property"><title>The <literal>“is-mc-org-local”</literal> property</title>
+<indexterm zone="GInetAddress--is-mc-org-local" role="2.22"><primary sortas="InetAddress:is-mc-org-local">GInetAddress:is-mc-org-local</primary></indexterm>
+<programlisting>  “is-mc-org-local”          <link linkend="gboolean"><type>gboolean</type></link></programlisting>
+<para>Whether this is an organization-local multicast address.
+See <link linkend="g-inet-address-get-is-mc-org-local"><function>g_inet_address_get_is_mc_org_local()</function></link>.</para>
+<para>Flags: Read</para>
+<para>Default value: FALSE</para>
+<para role="since">Since: <link linkend="api-index-2.22">2.22</link></para></refsect2>
+<refsect2 id="GInetAddress--is-mc-site-local" role="property"><title>The <literal>“is-mc-site-local”</literal> property</title>
+<indexterm zone="GInetAddress--is-mc-site-local" role="2.22"><primary sortas="InetAddress:is-mc-site-local">GInetAddress:is-mc-site-local</primary></indexterm>
+<programlisting>  “is-mc-site-local”         <link linkend="gboolean"><type>gboolean</type></link></programlisting>
+<para>Whether this is a site-local multicast address.
+See <link linkend="g-inet-address-get-is-mc-site-local"><function>g_inet_address_get_is_mc_site_local()</function></link>.</para>
+<para>Flags: Read</para>
+<para>Default value: FALSE</para>
+<para role="since">Since: <link linkend="api-index-2.22">2.22</link></para></refsect2>
+<refsect2 id="GInetAddress--is-multicast" role="property"><title>The <literal>“is-multicast”</literal> property</title>
+<indexterm zone="GInetAddress--is-multicast" role="2.22"><primary sortas="InetAddress:is-multicast">GInetAddress:is-multicast</primary></indexterm>
+<programlisting>  “is-multicast”             <link linkend="gboolean"><type>gboolean</type></link></programlisting>
+<para>Whether this is a multicast address.
+See <link linkend="g-inet-address-get-is-multicast"><function>g_inet_address_get_is_multicast()</function></link>.</para>
+<para>Flags: Read</para>
+<para>Default value: FALSE</para>
+<para role="since">Since: <link linkend="api-index-2.22">2.22</link></para></refsect2>
+<refsect2 id="GInetAddress--is-site-local" role="property"><title>The <literal>“is-site-local”</literal> property</title>
+<indexterm zone="GInetAddress--is-site-local" role="2.22"><primary sortas="InetAddress:is-site-local">GInetAddress:is-site-local</primary></indexterm>
+<programlisting>  “is-site-local”            <link linkend="gboolean"><type>gboolean</type></link></programlisting>
+<para>Whether this is a site-local address.
+See <link linkend="g-inet-address-get-is-loopback"><function>g_inet_address_get_is_loopback()</function></link>.</para>
+<para>Flags: Read</para>
+<para>Default value: FALSE</para>
+<para role="since">Since: <link linkend="api-index-2.22">2.22</link></para></refsect2>
+
+</refsect1>
+
+</refentry>

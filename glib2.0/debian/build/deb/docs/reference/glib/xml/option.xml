@@ -1,0 +1,1659 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC '-//OASIS//DTD DocBook XML V4.5//EN'
+                      'http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd' [
+<!ENTITY % local.common.attrib "xmlns:xi  CDATA  #FIXED 'http://www.w3.org/2003/XInclude'">
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="glib-Commandline-option-parser">
+<refmeta>
+<refentrytitle role="top_of_page" id="glib-Commandline-option-parser.top_of_page">Commandline option parser</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>GLIB Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>Commandline option parser</refname>
+<refpurpose>parses commandline options</refpurpose>
+</refnamediv>
+
+<refsect1 id="glib-Commandline-option-parser.functions" role="functions_proto">
+<title role="functions_proto.title">Functions</title>
+<informaltable pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="functions_return" colwidth="150px"/>
+<colspec colname="functions_name"/>
+<tbody>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><phrase role="c_punctuation">(</phrase><link linkend="GOptionArgFunc">*GOptionArgFunc</link><phrase role="c_punctuation">)</phrase>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GOptionContext"><returnvalue>GOptionContext</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-option-context-new">g_option_context_new</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-option-context-set-summary">g_option_context_set_summary</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type">const <link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-option-context-get-summary">g_option_context_get_summary</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-option-context-set-description">g_option_context_set_description</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type">const <link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-option-context-get-description">g_option_context_get_description</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type">const <link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+</entry><entry role="function_name"><phrase role="c_punctuation">(</phrase><link linkend="GTranslateFunc">*GTranslateFunc</link><phrase role="c_punctuation">)</phrase>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-option-context-set-translate-func">g_option_context_set_translate_func</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-option-context-set-translation-domain">g_option_context_set_translation_domain</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-option-context-free">g_option_context_free</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-option-context-parse">g_option_context_parse</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-option-context-parse-strv">g_option_context_parse_strv</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-option-context-set-help-enabled">g_option_context_set_help_enabled</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-option-context-get-help-enabled">g_option_context_get_help_enabled</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-option-context-set-ignore-unknown-options">g_option_context_set_ignore_unknown_options</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-option-context-get-ignore-unknown-options">g_option_context_get_ignore_unknown_options</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-option-context-get-help">g_option_context_get_help</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-option-context-get-strict-posix">g_option_context_get_strict_posix</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-option-context-set-strict-posix">g_option_context_set_strict_posix</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-option-context-add-main-entries">g_option_context_add_main_entries</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-option-context-add-group">g_option_context_add_group</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-option-context-set-main-group">g_option_context_set_main_group</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GOptionGroup"><returnvalue>GOptionGroup</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-option-context-get-main-group">g_option_context_get_main_group</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GOptionGroup"><returnvalue>GOptionGroup</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-option-group-new">g_option_group_new</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GOptionGroup"><returnvalue>GOptionGroup</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-option-group-ref">g_option_group_ref</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-option-group-unref">g_option_group_unref</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-option-group-free">g_option_group_free</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-option-group-add-entries">g_option_group_add_entries</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><phrase role="c_punctuation">(</phrase><link linkend="GOptionParseFunc">*GOptionParseFunc</link><phrase role="c_punctuation">)</phrase>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-option-group-set-parse-hooks">g_option_group_set_parse_hooks</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><phrase role="c_punctuation">(</phrase><link linkend="GOptionErrorFunc">*GOptionErrorFunc</link><phrase role="c_punctuation">)</phrase>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-option-group-set-error-hook">g_option_group_set_error_hook</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-option-group-set-translate-func">g_option_group_set_translate_func</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-option-group-set-translation-domain">g_option_group_set_translation_domain</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="glib-Commandline-option-parser.other" role="other_proto">
+<title role="other_proto.title">Types and Values</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="name" colwidth="150px"/>
+<colspec colname="description"/>
+<tbody>
+<row><entry role="datatype_keyword">enum</entry><entry role="function_name"><link linkend="GOptionError">GOptionError</link></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="G-OPTION-ERROR:CAPS">G_OPTION_ERROR</link></entry></row>
+<row><entry role="datatype_keyword"></entry><entry role="function_name"><link linkend="GOptionContext">GOptionContext</link></entry></row>
+<row><entry role="datatype_keyword">enum</entry><entry role="function_name"><link linkend="GOptionArg">GOptionArg</link></entry></row>
+<row><entry role="datatype_keyword">enum</entry><entry role="function_name"><link linkend="GOptionFlags">GOptionFlags</link></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="G-OPTION-REMAINING:CAPS">G_OPTION_REMAINING</link></entry></row>
+<row><entry role="datatype_keyword">struct</entry><entry role="function_name"><link linkend="GOptionEntry">GOptionEntry</link></entry></row>
+<row><entry role="datatype_keyword"></entry><entry role="function_name"><link linkend="GOptionGroup">GOptionGroup</link></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+
+<refsect1 id="glib-Commandline-option-parser.includes"><title>Includes</title><synopsis>#include &lt;glib.h&gt;
+</synopsis></refsect1>
+
+<refsect1 id="glib-Commandline-option-parser.description" role="desc">
+<title role="desc.title">Description</title>
+<para>The GOption commandline parser is intended to be a simpler replacement
+for the popt library. It supports short and long commandline options,
+as shown in the following example:</para>
+<para><literal>testtreemodel -r 1 --max-size 20 --rand --display=:1.0 -vb -- file1 file2</literal></para>
+<para>The example demonstrates a number of features of the GOption
+commandline parser:</para>
+<itemizedlist>
+<listitem>
+<para>Options can be single letters, prefixed by a single dash.</para>
+</listitem>
+<listitem>
+<para>Multiple short options can be grouped behind a single dash.</para>
+</listitem>
+<listitem>
+<para>Long options are prefixed by two consecutive dashes.</para>
+</listitem>
+<listitem>
+<para>Options can have an extra argument, which can be a number, a string or
+a filename. For long options, the extra argument can be appended with
+an equals sign after the option name, which is useful if the extra
+argument starts with a dash, which would otherwise cause it to be
+interpreted as another option.</para>
+</listitem>
+<listitem>
+<para>Non-option arguments are returned to the application as rest arguments.</para>
+</listitem>
+<listitem>
+<para>An argument consisting solely of two dashes turns off further parsing,
+any remaining arguments (even those starting with a dash) are returned
+to the application as rest arguments.</para>
+</listitem>
+</itemizedlist>
+<para>Another important feature of GOption is that it can automatically
+generate nicely formatted help output. Unless it is explicitly turned
+off with <link linkend="g-option-context-set-help-enabled"><function>g_option_context_set_help_enabled()</function></link>, GOption will recognize
+the <literal>--help</literal>, <literal>-?</literal>, <literal>--help-all</literal> and <literal>--help-groupname</literal> options
+(where <literal>groupname</literal> is the name of a <link linkend="GOptionGroup"><type>GOptionGroup</type></link>) and write a text
+similar to the one shown in the following example to stdout.</para>
+<informalexample><programlisting role="example"><![CDATA[
+Usage:
+  testtreemodel [OPTION...] - test tree model performance
+ 
+Help Options:
+  -h, --help               Show help options
+  --help-all               Show all help options
+  --help-gtk               Show GTK+ Options
+ 
+Application Options:
+  -r, --repeats=N          Average over N repetitions
+  -m, --max-size=M         Test up to 2^M items
+  --display=DISPLAY        X display to use
+  -v, --verbose            Be verbose
+  -b, --beep               Beep when done
+  --rand                   Randomize the data
+]]></programlisting></informalexample>
+<para></para>
+<para>GOption groups options in <link linkend="GOptionGroups"><type>GOptionGroups</type></link>, which makes it easy to
+incorporate options from multiple sources. The intended use for this is
+to let applications collect option groups from the libraries it uses,
+add them to their <link linkend="GOptionContext"><type>GOptionContext</type></link>, and parse all options by a single call
+to <link linkend="g-option-context-parse"><function>g_option_context_parse()</function></link>. See <link linkend="gtk-get-option-group"><function>gtk_get_option_group()</function></link> for an example.</para>
+<para>If an option is declared to be of type string or filename, GOption takes
+care of converting it to the right encoding; strings are returned in
+UTF-8, filenames are returned in the GLib filename encoding. Note that
+this only works if <link linkend="setlocale"><function>setlocale()</function></link> has been called before
+<link linkend="g-option-context-parse"><function>g_option_context_parse()</function></link>.</para>
+<para>Here is a complete example of setting up GOption to parse the example
+commandline above and produce the example help output.</para>
+<informalexample><programlisting role="example"><![CDATA[
+static gint repeats = 2;
+static gint max_size = 8;
+static gboolean verbose = FALSE;
+static gboolean beep = FALSE;
+static gboolean randomize = FALSE;
+
+static GOptionEntry entries[] =
+{
+  { "repeats", 'r', 0, G_OPTION_ARG_INT, &repeats, "Average over N repetitions", "N" },
+  { "max-size", 'm', 0, G_OPTION_ARG_INT, &max_size, "Test up to 2^M items", "M" },
+  { "verbose", 'v', 0, G_OPTION_ARG_NONE, &verbose, "Be verbose", NULL },
+  { "beep", 'b', 0, G_OPTION_ARG_NONE, &beep, "Beep when done", NULL },
+  { "rand", 0, 0, G_OPTION_ARG_NONE, &randomize, "Randomize the data", NULL },
+  { NULL }
+};
+
+int
+main (int argc, char *argv[])
+{
+  GError *error = NULL;
+  GOptionContext *context;
+
+  context = g_option_context_new ("- test tree model performance");
+  g_option_context_add_main_entries (context, entries, GETTEXT_PACKAGE);
+  g_option_context_add_group (context, gtk_get_option_group (TRUE));
+  if (!g_option_context_parse (context, &argc, &argv, &error))
+    {
+      g_print ("option parsing failed: %s\n", error->message);
+      exit (1);
+    }
+
+  ...
+
+}
+]]></programlisting></informalexample>
+<para></para>
+<para>On UNIX systems, the argv that is passed to <link linkend="main"><function>main()</function></link> has no particular
+encoding, even to the extent that different parts of it may have
+different encodings.  In general, normal arguments and flags will be
+in the current locale and filenames should be considered to be opaque
+byte strings.  Proper use of <link linkend="G-OPTION-ARG-FILENAME:CAPS"><literal>G_OPTION_ARG_FILENAME</literal></link> vs
+<link linkend="G-OPTION-ARG-STRING:CAPS"><literal>G_OPTION_ARG_STRING</literal></link> is therefore important.</para>
+<para>Note that on Windows, filenames do have an encoding, but using
+<link linkend="GOptionContext"><type>GOptionContext</type></link> with the argv as passed to <link linkend="main"><function>main()</function></link> will result in a
+program that can only accept commandline arguments with characters
+from the system codepage.  This can cause problems when attempting to
+deal with filenames containing Unicode characters that fall outside
+of the codepage.</para>
+<para>A solution to this is to use <link linkend="g-win32-get-command-line"><function>g_win32_get_command_line()</function></link> and
+<link linkend="g-option-context-parse-strv"><function>g_option_context_parse_strv()</function></link> which will properly handle full Unicode
+filenames.  If you are using <link linkend="GApplication"><type>GApplication</type></link>, this is done
+automatically for you.</para>
+<para>The following example shows how you can use <link linkend="GOptionContext"><type>GOptionContext</type></link> directly
+in order to correctly deal with Unicode filenames on Windows:</para>
+<informalexample><programlisting role="example"><![CDATA[
+int
+main (int argc, char **argv)
+{
+  GError *error = NULL;
+  GOptionContext *context;
+  gchar **args;
+
+#ifdef G_OS_WIN32
+  args = g_win32_get_command_line ();
+#else
+  args = g_strdupv (argv);
+#endif
+
+  // set up context
+
+  if (!g_option_context_parse_strv (context, &args, &error))
+    {
+      // error happened
+    }
+
+  ...
+
+  g_strfreev (args);
+
+  ...
+}
+]]></programlisting></informalexample>
+<para></para>
+
+</refsect1>
+<refsect1 id="glib-Commandline-option-parser.functions_details" role="details">
+<title role="details.title">Functions</title>
+<refsect2 id="GOptionArgFunc" role="function">
+<title>GOptionArgFunc&#160;()</title>
+<indexterm zone="GOptionArgFunc"><primary sortas="OptionArgFunc">GOptionArgFunc</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+<phrase role="c_punctuation">(</phrase>*GOptionArgFunc<phrase role="c_punctuation">)</phrase> (<parameter>const <link linkend="gchar"><type>gchar</type></link> *option_name</parameter>,
+                   <parameter>const <link linkend="gchar"><type>gchar</type></link> *value</parameter>,
+                   <parameter><link linkend="gpointer"><type>gpointer</type></link> data</parameter>,
+                   <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para>The type of function to be passed as callback for <link linkend="G-OPTION-ARG-CALLBACK:CAPS"><literal>G_OPTION_ARG_CALLBACK</literal></link>
+options.</para>
+<refsect3 id="GOptionArgFunc.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>option_name</para></entry>
+<entry role="parameter_description"><para>The name of the option being parsed. This will be either a
+single dash followed by a single letter (for a short name) or two dashes
+followed by a long option name.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>value</para></entry>
+<entry role="parameter_description"><para>The value to be parsed.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>data</para></entry>
+<entry role="parameter_description"><para>User data added to the <link linkend="GOptionGroup"><type>GOptionGroup</type></link> containing the option when it
+was created with <link linkend="g-option-group-new"><function>g_option_group_new()</function></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para>A return location for errors. The error code <link linkend="G-OPTION-ERROR-FAILED:CAPS"><literal>G_OPTION_ERROR_FAILED</literal></link>
+is intended to be used for errors in <link linkend="GOptionArgFunc"><type>GOptionArgFunc</type></link> callbacks.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="GOptionArgFunc.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if the option was successfully parsed, <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> if an error
+occurred, in which case <parameter>error</parameter>
+should be set with <link linkend="g-set-error"><function>g_set_error()</function></link></para>
+</refsect3></refsect2>
+<refsect2 id="g-option-context-new" role="function" condition="since:2.6">
+<title>g_option_context_new&#160;()</title>
+<indexterm zone="g-option-context-new" role="2.6"><primary sortas="option_context_new">g_option_context_new</primary></indexterm>
+<programlisting language="C"><link linkend="GOptionContext"><returnvalue>GOptionContext</returnvalue></link>&#160;*
+g_option_context_new (<parameter>const <link linkend="gchar"><type>gchar</type></link> *parameter_string</parameter>);</programlisting>
+<para>Creates a new option context.</para>
+<para>The <parameter>parameter_string</parameter>
+ can serve multiple purposes. It can be used
+to add descriptions for "rest" arguments, which are not parsed by
+the <link linkend="GOptionContext"><type>GOptionContext</type></link>, typically something like "FILES" or
+"FILE1 FILE2...". If you are using <link linkend="G-OPTION-REMAINING:CAPS"><type>G_OPTION_REMAINING</type></link> for
+collecting "rest" arguments, GLib handles this automatically by
+using the <parameter>arg_description</parameter>
+ of the corresponding <link linkend="GOptionEntry"><type>GOptionEntry</type></link> in
+the usage summary.</para>
+<para>Another usage is to give a short summary of the program
+functionality, like " - frob the strings", which will be displayed
+in the same line as the usage. For a longer description of the
+program functionality that should be displayed as a paragraph
+below the usage line, use <link linkend="g-option-context-set-summary"><function>g_option_context_set_summary()</function></link>.</para>
+<para>Note that the <parameter>parameter_string</parameter>
+ is translated using the
+function set with <link linkend="g-option-context-set-translate-func"><function>g_option_context_set_translate_func()</function></link>, so
+it should normally be passed untranslated.</para>
+<refsect3 id="g-option-context-new.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>parameter_string</para></entry>
+<entry role="parameter_description"><para>a string which is displayed in
+the first line of <literal>--help</literal> output, after the usage summary
+<literal>programname [OPTION...]</literal>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-option-context-new.returns" role="returns">
+<title>Returns</title>
+<para> a newly created <link linkend="GOptionContext"><type>GOptionContext</type></link>, which must be
+freed with <link linkend="g-option-context-free"><function>g_option_context_free()</function></link> after use.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.6">2.6</link></para></refsect2>
+<refsect2 id="g-option-context-set-summary" role="function" condition="since:2.12">
+<title>g_option_context_set_summary&#160;()</title>
+<indexterm zone="g-option-context-set-summary" role="2.12"><primary sortas="option_context_set_summary">g_option_context_set_summary</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_option_context_set_summary (<parameter><link linkend="GOptionContext"><type>GOptionContext</type></link> *context</parameter>,
+                              <parameter>const <link linkend="gchar"><type>gchar</type></link> *summary</parameter>);</programlisting>
+<para>Adds a string to be displayed in <literal>--help</literal> output before the list
+of options. This is typically a summary of the program functionality.</para>
+<para>Note that the summary is translated (see
+<link linkend="g-option-context-set-translate-func"><function>g_option_context_set_translate_func()</function></link> and
+<link linkend="g-option-context-set-translation-domain"><function>g_option_context_set_translation_domain()</function></link>).</para>
+<refsect3 id="g-option-context-set-summary.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>context</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GOptionContext"><type>GOptionContext</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>summary</para></entry>
+<entry role="parameter_description"><para>a string to be shown in <literal>--help</literal> output
+before the list of options, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.12">2.12</link></para></refsect2>
+<refsect2 id="g-option-context-get-summary" role="function" condition="since:2.12">
+<title>g_option_context_get_summary&#160;()</title>
+<indexterm zone="g-option-context-get-summary" role="2.12"><primary sortas="option_context_get_summary">g_option_context_get_summary</primary></indexterm>
+<programlisting language="C">const <link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+g_option_context_get_summary (<parameter><link linkend="GOptionContext"><type>GOptionContext</type></link> *context</parameter>);</programlisting>
+<para>Returns the summary. See <link linkend="g-option-context-set-summary"><function>g_option_context_set_summary()</function></link>.</para>
+<refsect3 id="g-option-context-get-summary.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>context</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GOptionContext"><type>GOptionContext</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-option-context-get-summary.returns" role="returns">
+<title>Returns</title>
+<para> the summary</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.12">2.12</link></para></refsect2>
+<refsect2 id="g-option-context-set-description" role="function" condition="since:2.12">
+<title>g_option_context_set_description&#160;()</title>
+<indexterm zone="g-option-context-set-description" role="2.12"><primary sortas="option_context_set_description">g_option_context_set_description</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_option_context_set_description (<parameter><link linkend="GOptionContext"><type>GOptionContext</type></link> *context</parameter>,
+                                  <parameter>const <link linkend="gchar"><type>gchar</type></link> *description</parameter>);</programlisting>
+<para>Adds a string to be displayed in <literal>--help</literal> output after the list
+of options. This text often includes a bug reporting address.</para>
+<para>Note that the summary is translated (see
+<link linkend="g-option-context-set-translate-func"><function>g_option_context_set_translate_func()</function></link>).</para>
+<refsect3 id="g-option-context-set-description.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>context</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GOptionContext"><type>GOptionContext</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>description</para></entry>
+<entry role="parameter_description"><para>a string to be shown in <literal>--help</literal> output
+after the list of options, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.12">2.12</link></para></refsect2>
+<refsect2 id="g-option-context-get-description" role="function" condition="since:2.12">
+<title>g_option_context_get_description&#160;()</title>
+<indexterm zone="g-option-context-get-description" role="2.12"><primary sortas="option_context_get_description">g_option_context_get_description</primary></indexterm>
+<programlisting language="C">const <link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+g_option_context_get_description (<parameter><link linkend="GOptionContext"><type>GOptionContext</type></link> *context</parameter>);</programlisting>
+<para>Returns the description. See <link linkend="g-option-context-set-description"><function>g_option_context_set_description()</function></link>.</para>
+<refsect3 id="g-option-context-get-description.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>context</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GOptionContext"><type>GOptionContext</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-option-context-get-description.returns" role="returns">
+<title>Returns</title>
+<para> the description</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.12">2.12</link></para></refsect2>
+<refsect2 id="GTranslateFunc" role="function">
+<title>GTranslateFunc&#160;()</title>
+<indexterm zone="GTranslateFunc"><primary sortas="TranslateFunc">GTranslateFunc</primary></indexterm>
+<programlisting language="C">const <link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+<phrase role="c_punctuation">(</phrase>*GTranslateFunc<phrase role="c_punctuation">)</phrase> (<parameter>const <link linkend="gchar"><type>gchar</type></link> *str</parameter>,
+                   <parameter><link linkend="gpointer"><type>gpointer</type></link> data</parameter>);</programlisting>
+<para>The type of functions which are used to translate user-visible
+strings, for &lt;option>--help&lt;/option> output.</para>
+<refsect3 id="GTranslateFunc.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>str</para></entry>
+<entry role="parameter_description"><para>the untranslated string</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>data</para></entry>
+<entry role="parameter_description"><para>user data specified when installing the function, e.g.
+in <link linkend="g-option-group-set-translate-func"><function>g_option_group_set_translate_func()</function></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="GTranslateFunc.returns" role="returns">
+<title>Returns</title>
+<para> a translation of the string for the current locale.
+The returned string is owned by GLib and must not be freed.</para>
+</refsect3></refsect2>
+<refsect2 id="g-option-context-set-translate-func" role="function" condition="since:2.12">
+<title>g_option_context_set_translate_func&#160;()</title>
+<indexterm zone="g-option-context-set-translate-func" role="2.12"><primary sortas="option_context_set_translate_func">g_option_context_set_translate_func</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_option_context_set_translate_func (<parameter><link linkend="GOptionContext"><type>GOptionContext</type></link> *context</parameter>,
+                                     <parameter><link linkend="GTranslateFunc"><type>GTranslateFunc</type></link> func</parameter>,
+                                     <parameter><link linkend="gpointer"><type>gpointer</type></link> data</parameter>,
+                                     <parameter><link linkend="GDestroyNotify"><type>GDestroyNotify</type></link> destroy_notify</parameter>);</programlisting>
+<para>Sets the function which is used to translate the contexts
+user-visible strings, for <literal>--help</literal> output. If <parameter>func</parameter>
+ is <link linkend="NULL:CAPS"><literal>NULL</literal></link>,
+strings are not translated.</para>
+<para>Note that option groups have their own translation functions,
+this function only affects the <parameter>parameter_string</parameter>
+ (see <link linkend="g-option-context-new"><function>g_option_context_new()</function></link>),
+the summary (see <link linkend="g-option-context-set-summary"><function>g_option_context_set_summary()</function></link>) and the description
+(see <link linkend="g-option-context-set-description"><function>g_option_context_set_description()</function></link>).</para>
+<para>If you are using <link linkend="gettext"><function>gettext()</function></link>, you only need to set the translation
+domain, see <link linkend="g-option-context-set-translation-domain"><function>g_option_context_set_translation_domain()</function></link>.</para>
+<refsect3 id="g-option-context-set-translate-func.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>context</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GOptionContext"><type>GOptionContext</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>func</para></entry>
+<entry role="parameter_description"><para>the <link linkend="GTranslateFunc"><type>GTranslateFunc</type></link>, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>data</para></entry>
+<entry role="parameter_description"><para>user data to pass to <parameter>func</parameter>
+, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>destroy_notify</para></entry>
+<entry role="parameter_description"><para>a function which gets called to free <parameter>data</parameter>
+, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.12">2.12</link></para></refsect2>
+<refsect2 id="g-option-context-set-translation-domain" role="function" condition="since:2.12">
+<title>g_option_context_set_translation_domain&#160;()</title>
+<indexterm zone="g-option-context-set-translation-domain" role="2.12"><primary sortas="option_context_set_translation_domain">g_option_context_set_translation_domain</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_option_context_set_translation_domain
+                               (<parameter><link linkend="GOptionContext"><type>GOptionContext</type></link> *context</parameter>,
+                                <parameter>const <link linkend="gchar"><type>gchar</type></link> *domain</parameter>);</programlisting>
+<para>A convenience function to use <link linkend="gettext"><function>gettext()</function></link> for translating
+user-visible strings.</para>
+<refsect3 id="g-option-context-set-translation-domain.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>context</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GOptionContext"><type>GOptionContext</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>domain</para></entry>
+<entry role="parameter_description"><para>the domain to use</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.12">2.12</link></para></refsect2>
+<refsect2 id="g-option-context-free" role="function" condition="since:2.6">
+<title>g_option_context_free&#160;()</title>
+<indexterm zone="g-option-context-free" role="2.6"><primary sortas="option_context_free">g_option_context_free</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_option_context_free (<parameter><link linkend="GOptionContext"><type>GOptionContext</type></link> *context</parameter>);</programlisting>
+<para>Frees context and all the groups which have been
+added to it.</para>
+<para>Please note that parsed arguments need to be freed separately (see
+<link linkend="GOptionEntry"><type>GOptionEntry</type></link>).</para>
+<refsect3 id="g-option-context-free.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>context</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GOptionContext"><type>GOptionContext</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.6">2.6</link></para></refsect2>
+<refsect2 id="g-option-context-parse" role="function" condition="since:2.6">
+<title>g_option_context_parse&#160;()</title>
+<indexterm zone="g-option-context-parse" role="2.6"><primary sortas="option_context_parse">g_option_context_parse</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_option_context_parse (<parameter><link linkend="GOptionContext"><type>GOptionContext</type></link> *context</parameter>,
+                        <parameter><link linkend="gint"><type>gint</type></link> *argc</parameter>,
+                        <parameter><link linkend="gchar"><type>gchar</type></link> ***argv</parameter>,
+                        <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para>Parses the command line arguments, recognizing options
+which have been added to <parameter>context</parameter>
+. A side-effect of
+calling this function is that <link linkend="g-set-prgname"><function>g_set_prgname()</function></link> will be
+called.</para>
+<para>If the parsing is successful, any parsed arguments are
+removed from the array and <parameter>argc</parameter>
+ and <parameter>argv</parameter>
+ are updated
+accordingly. A '--' option is stripped from <parameter>argv</parameter>
+
+unless there are unparsed options before and after it,
+or some of the options after it start with '-'. In case
+of an error, <parameter>argc</parameter>
+ and <parameter>argv</parameter>
+ are left unmodified.</para>
+<para>If automatic <literal>--help</literal> support is enabled
+(see <link linkend="g-option-context-set-help-enabled"><function>g_option_context_set_help_enabled()</function></link>), and the
+<parameter>argv</parameter>
+ array contains one of the recognized help options,
+this function will produce help output to stdout and
+call <literal>exit (0)</literal>.</para>
+<para>Note that function depends on the <link linkend="setlocale">current locale</link> for
+automatic character set conversion of string and filename
+arguments.</para>
+<refsect3 id="g-option-context-parse.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>context</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GOptionContext"><type>GOptionContext</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>argc</para></entry>
+<entry role="parameter_description"><para>a pointer to the number of command line arguments. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>inout</acronym>][<acronym>optional</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>argv</para></entry>
+<entry role="parameter_description"><para>a pointer to the array of command line arguments. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>inout</acronym>][<acronym>array</acronym> length=argc][<acronym>optional</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para>a return location for errors</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-option-context-parse.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if the parsing was successful,
+<link linkend="FALSE:CAPS"><literal>FALSE</literal></link> if an error occurred</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.6">2.6</link></para></refsect2>
+<refsect2 id="g-option-context-parse-strv" role="function" condition="since:2.40">
+<title>g_option_context_parse_strv&#160;()</title>
+<indexterm zone="g-option-context-parse-strv" role="2.40"><primary sortas="option_context_parse_strv">g_option_context_parse_strv</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_option_context_parse_strv (<parameter><link linkend="GOptionContext"><type>GOptionContext</type></link> *context</parameter>,
+                             <parameter><link linkend="gchar"><type>gchar</type></link> ***arguments</parameter>,
+                             <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para>Parses the command line arguments.</para>
+<para>This function is similar to <link linkend="g-option-context-parse"><function>g_option_context_parse()</function></link> except that it
+respects the normal memory rules when dealing with a strv instead of
+assuming that the passed-in array is the argv of the main function.</para>
+<para>In particular, strings that are removed from the arguments list will
+be freed using <link linkend="g-free"><function>g_free()</function></link>.</para>
+<para>On Windows, the strings are expected to be in UTF-8.  This is in
+contrast to <link linkend="g-option-context-parse"><function>g_option_context_parse()</function></link> which expects them to be in the
+system codepage, which is how they are passed as <parameter>argv</parameter>
+ to <link linkend="main"><function>main()</function></link>.
+See <link linkend="g-win32-get-command-line"><function>g_win32_get_command_line()</function></link> for a solution.</para>
+<para>This function is useful if you are trying to use <link linkend="GOptionContext"><type>GOptionContext</type></link> with
+<link linkend="GApplication"><type>GApplication</type></link>.</para>
+<refsect3 id="g-option-context-parse-strv.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>context</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GOptionContext"><type>GOptionContext</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>arguments</para></entry>
+<entry role="parameter_description"><para>a pointer to the
+command line arguments (which must be in UTF-8 on Windows). </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>inout</acronym>][<acronym>array</acronym> null-terminated=1]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para>a return location for errors</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-option-context-parse-strv.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if the parsing was successful,
+<link linkend="FALSE:CAPS"><literal>FALSE</literal></link> if an error occurred</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.40">2.40</link></para></refsect2>
+<refsect2 id="g-option-context-set-help-enabled" role="function" condition="since:2.6">
+<title>g_option_context_set_help_enabled&#160;()</title>
+<indexterm zone="g-option-context-set-help-enabled" role="2.6"><primary sortas="option_context_set_help_enabled">g_option_context_set_help_enabled</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_option_context_set_help_enabled (<parameter><link linkend="GOptionContext"><type>GOptionContext</type></link> *context</parameter>,
+                                   <parameter><link linkend="gboolean"><type>gboolean</type></link> help_enabled</parameter>);</programlisting>
+<para>Enables or disables automatic generation of <literal>--help</literal> output.
+By default, <link linkend="g-option-context-parse"><function>g_option_context_parse()</function></link> recognizes <literal>--help</literal>, <literal>-h</literal>,
+<literal>-?</literal>, <literal>--help-all</literal> and <literal>--help-groupname</literal> and creates suitable
+output to stdout.</para>
+<refsect3 id="g-option-context-set-help-enabled.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>context</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GOptionContext"><type>GOptionContext</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>help_enabled</para></entry>
+<entry role="parameter_description"><para><link linkend="TRUE:CAPS"><literal>TRUE</literal></link> to enable <literal>--help</literal>, <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> to disable it</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.6">2.6</link></para></refsect2>
+<refsect2 id="g-option-context-get-help-enabled" role="function" condition="since:2.6">
+<title>g_option_context_get_help_enabled&#160;()</title>
+<indexterm zone="g-option-context-get-help-enabled" role="2.6"><primary sortas="option_context_get_help_enabled">g_option_context_get_help_enabled</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_option_context_get_help_enabled (<parameter><link linkend="GOptionContext"><type>GOptionContext</type></link> *context</parameter>);</programlisting>
+<para>Returns whether automatic <literal>--help</literal> generation
+is turned on for <parameter>context</parameter>
+. See <link linkend="g-option-context-set-help-enabled"><function>g_option_context_set_help_enabled()</function></link>.</para>
+<refsect3 id="g-option-context-get-help-enabled.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>context</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GOptionContext"><type>GOptionContext</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-option-context-get-help-enabled.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if automatic help generation is turned on.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.6">2.6</link></para></refsect2>
+<refsect2 id="g-option-context-set-ignore-unknown-options" role="function" condition="since:2.6">
+<title>g_option_context_set_ignore_unknown_options&#160;()</title>
+<indexterm zone="g-option-context-set-ignore-unknown-options" role="2.6"><primary sortas="option_context_set_ignore_unknown_options">g_option_context_set_ignore_unknown_options</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_option_context_set_ignore_unknown_options
+                               (<parameter><link linkend="GOptionContext"><type>GOptionContext</type></link> *context</parameter>,
+                                <parameter><link linkend="gboolean"><type>gboolean</type></link> ignore_unknown</parameter>);</programlisting>
+<para>Sets whether to ignore unknown options or not. If an argument is
+ignored, it is left in the <parameter>argv</parameter>
+ array after parsing. By default,
+<link linkend="g-option-context-parse"><function>g_option_context_parse()</function></link> treats unknown options as error.</para>
+<para>This setting does not affect non-option arguments (i.e. arguments
+which don't start with a dash). But note that GOption cannot reliably
+determine whether a non-option belongs to a preceding unknown option.</para>
+<refsect3 id="g-option-context-set-ignore-unknown-options.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>context</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GOptionContext"><type>GOptionContext</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>ignore_unknown</para></entry>
+<entry role="parameter_description"><para><link linkend="TRUE:CAPS"><literal>TRUE</literal></link> to ignore unknown options, <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> to produce
+an error when unknown options are met</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.6">2.6</link></para></refsect2>
+<refsect2 id="g-option-context-get-ignore-unknown-options" role="function" condition="since:2.6">
+<title>g_option_context_get_ignore_unknown_options&#160;()</title>
+<indexterm zone="g-option-context-get-ignore-unknown-options" role="2.6"><primary sortas="option_context_get_ignore_unknown_options">g_option_context_get_ignore_unknown_options</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_option_context_get_ignore_unknown_options
+                               (<parameter><link linkend="GOptionContext"><type>GOptionContext</type></link> *context</parameter>);</programlisting>
+<para>Returns whether unknown options are ignored or not. See
+<link linkend="g-option-context-set-ignore-unknown-options"><function>g_option_context_set_ignore_unknown_options()</function></link>.</para>
+<refsect3 id="g-option-context-get-ignore-unknown-options.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>context</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GOptionContext"><type>GOptionContext</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-option-context-get-ignore-unknown-options.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if unknown options are ignored.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.6">2.6</link></para></refsect2>
+<refsect2 id="g-option-context-get-help" role="function" condition="since:2.14">
+<title>g_option_context_get_help&#160;()</title>
+<indexterm zone="g-option-context-get-help" role="2.14"><primary sortas="option_context_get_help">g_option_context_get_help</primary></indexterm>
+<programlisting language="C"><link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+g_option_context_get_help (<parameter><link linkend="GOptionContext"><type>GOptionContext</type></link> *context</parameter>,
+                           <parameter><link linkend="gboolean"><type>gboolean</type></link> main_help</parameter>,
+                           <parameter><link linkend="GOptionGroup"><type>GOptionGroup</type></link> *group</parameter>);</programlisting>
+<para>Returns a formatted, translated help text for the given context.
+To obtain the text produced by <literal>--help</literal>, call
+<literal>g_option_context_get_help (context, TRUE, NULL)</literal>.
+To obtain the text produced by <literal>--help-all</literal>, call
+<literal>g_option_context_get_help (context, FALSE, NULL)</literal>.
+To obtain the help text for an option group, call
+<literal>g_option_context_get_help (context, FALSE, group)</literal>.</para>
+<refsect3 id="g-option-context-get-help.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>context</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GOptionContext"><type>GOptionContext</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>main_help</para></entry>
+<entry role="parameter_description"><para>if <link linkend="TRUE:CAPS"><literal>TRUE</literal></link>, only include the main group</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>group</para></entry>
+<entry role="parameter_description"><para>the <link linkend="GOptionGroup"><type>GOptionGroup</type></link> to create help for, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-option-context-get-help.returns" role="returns">
+<title>Returns</title>
+<para> A newly allocated string containing the help text</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.14">2.14</link></para></refsect2>
+<refsect2 id="g-option-context-get-strict-posix" role="function" condition="since:2.44">
+<title>g_option_context_get_strict_posix&#160;()</title>
+<indexterm zone="g-option-context-get-strict-posix" role="2.44"><primary sortas="option_context_get_strict_posix">g_option_context_get_strict_posix</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_option_context_get_strict_posix (<parameter><link linkend="GOptionContext"><type>GOptionContext</type></link> *context</parameter>);</programlisting>
+<para>Returns whether strict POSIX code is enabled.</para>
+<para>See <link linkend="g-option-context-set-strict-posix"><function>g_option_context_set_strict_posix()</function></link> for more information.</para>
+<refsect3 id="g-option-context-get-strict-posix.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>context</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GOptionContext"><type>GOptionContext</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-option-context-get-strict-posix.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if strict POSIX is enabled, <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> otherwise.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.44">2.44</link></para></refsect2>
+<refsect2 id="g-option-context-set-strict-posix" role="function" condition="since:2.44">
+<title>g_option_context_set_strict_posix&#160;()</title>
+<indexterm zone="g-option-context-set-strict-posix" role="2.44"><primary sortas="option_context_set_strict_posix">g_option_context_set_strict_posix</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_option_context_set_strict_posix (<parameter><link linkend="GOptionContext"><type>GOptionContext</type></link> *context</parameter>,
+                                   <parameter><link linkend="gboolean"><type>gboolean</type></link> strict_posix</parameter>);</programlisting>
+<para>Sets strict POSIX mode.</para>
+<para>By default, this mode is disabled.</para>
+<para>In strict POSIX mode, the first non-argument parameter encountered
+(eg: filename) terminates argument processing.  Remaining arguments
+are treated as non-options and are not attempted to be parsed.</para>
+<para>If strict POSIX mode is disabled then parsing is done in the GNU way
+where option arguments can be freely mixed with non-options.</para>
+<para>As an example, consider "ls foo -l".  With GNU style parsing, this
+will list "foo" in long mode.  In strict POSIX style, this will list
+the files named "foo" and "-l".</para>
+<para>It may be useful to force strict POSIX mode when creating "verb
+style" command line tools.  For example, the "gsettings" command line
+tool supports the global option "--schemadir" as well as many
+subcommands ("get", "set", etc.) which each have their own set of
+arguments.  Using strict POSIX mode will allow parsing the global
+options up to the verb name while leaving the remaining options to be
+parsed by the relevant subcommand (which can be determined by
+examining the verb name, which should be present in argv[1] after
+parsing).</para>
+<refsect3 id="g-option-context-set-strict-posix.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>context</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GOptionContext"><type>GOptionContext</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>strict_posix</para></entry>
+<entry role="parameter_description"><para>the new value</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.44">2.44</link></para></refsect2>
+<refsect2 id="g-option-context-add-main-entries" role="function" condition="since:2.6">
+<title>g_option_context_add_main_entries&#160;()</title>
+<indexterm zone="g-option-context-add-main-entries" role="2.6"><primary sortas="option_context_add_main_entries">g_option_context_add_main_entries</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_option_context_add_main_entries (<parameter><link linkend="GOptionContext"><type>GOptionContext</type></link> *context</parameter>,
+                                   <parameter>const <link linkend="GOptionEntry"><type>GOptionEntry</type></link> *entries</parameter>,
+                                   <parameter>const <link linkend="gchar"><type>gchar</type></link> *translation_domain</parameter>);</programlisting>
+<para>A convenience function which creates a main group if it doesn't
+exist, adds the <parameter>entries</parameter>
+ to it and sets the translation domain.</para>
+<refsect3 id="g-option-context-add-main-entries.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>context</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GOptionContext"><type>GOptionContext</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>entries</para></entry>
+<entry role="parameter_description"><para>a <link linkend="NULL:CAPS"><literal>NULL</literal></link>-terminated array of <link linkend="GOptionEntrys"><type>GOptionEntrys</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>translation_domain</para></entry>
+<entry role="parameter_description"><para>a translation domain to use for translating
+the <literal>--help</literal> output for the options in <parameter>entries</parameter>
+with <link linkend="gettext"><function>gettext()</function></link>, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.6">2.6</link></para></refsect2>
+<refsect2 id="g-option-context-add-group" role="function" condition="since:2.6">
+<title>g_option_context_add_group&#160;()</title>
+<indexterm zone="g-option-context-add-group" role="2.6"><primary sortas="option_context_add_group">g_option_context_add_group</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_option_context_add_group (<parameter><link linkend="GOptionContext"><type>GOptionContext</type></link> *context</parameter>,
+                            <parameter><link linkend="GOptionGroup"><type>GOptionGroup</type></link> *group</parameter>);</programlisting>
+<para>Adds a <link linkend="GOptionGroup"><type>GOptionGroup</type></link> to the <parameter>context</parameter>
+, so that parsing with <parameter>context</parameter>
+
+will recognize the options in the group. Note that this will take
+ownership of the <parameter>group</parameter>
+ and thus the <parameter>group</parameter>
+ should not be freed.</para>
+<refsect3 id="g-option-context-add-group.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>context</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GOptionContext"><type>GOptionContext</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>group</para></entry>
+<entry role="parameter_description"><para>the group to add. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>transfer full</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.6">2.6</link></para></refsect2>
+<refsect2 id="g-option-context-set-main-group" role="function" condition="since:2.6">
+<title>g_option_context_set_main_group&#160;()</title>
+<indexterm zone="g-option-context-set-main-group" role="2.6"><primary sortas="option_context_set_main_group">g_option_context_set_main_group</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_option_context_set_main_group (<parameter><link linkend="GOptionContext"><type>GOptionContext</type></link> *context</parameter>,
+                                 <parameter><link linkend="GOptionGroup"><type>GOptionGroup</type></link> *group</parameter>);</programlisting>
+<para>Sets a <link linkend="GOptionGroup"><type>GOptionGroup</type></link> as main group of the <parameter>context</parameter>
+.
+This has the same effect as calling <link linkend="g-option-context-add-group"><function>g_option_context_add_group()</function></link>,
+the only difference is that the options in the main group are
+treated differently when generating <literal>--help</literal> output.</para>
+<refsect3 id="g-option-context-set-main-group.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>context</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GOptionContext"><type>GOptionContext</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>group</para></entry>
+<entry role="parameter_description"><para>the group to set as main group. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>transfer full</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.6">2.6</link></para></refsect2>
+<refsect2 id="g-option-context-get-main-group" role="function" condition="since:2.6">
+<title>g_option_context_get_main_group&#160;()</title>
+<indexterm zone="g-option-context-get-main-group" role="2.6"><primary sortas="option_context_get_main_group">g_option_context_get_main_group</primary></indexterm>
+<programlisting language="C"><link linkend="GOptionGroup"><returnvalue>GOptionGroup</returnvalue></link>&#160;*
+g_option_context_get_main_group (<parameter><link linkend="GOptionContext"><type>GOptionContext</type></link> *context</parameter>);</programlisting>
+<para>Returns a pointer to the main group of <parameter>context</parameter>
+.</para>
+<refsect3 id="g-option-context-get-main-group.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>context</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GOptionContext"><type>GOptionContext</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-option-context-get-main-group.returns" role="returns">
+<title>Returns</title>
+<para>the main group of <parameter>context</parameter>
+, or <link linkend="NULL:CAPS"><literal>NULL</literal></link> if
+<parameter>context</parameter>
+doesn't have a main group. Note that group belongs to
+<parameter>context</parameter>
+and should not be modified or freed. </para>
+<para><emphasis role="annotation">[<acronym>transfer none</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.6">2.6</link></para></refsect2>
+<refsect2 id="g-option-group-new" role="function" condition="since:2.6">
+<title>g_option_group_new&#160;()</title>
+<indexterm zone="g-option-group-new" role="2.6"><primary sortas="option_group_new">g_option_group_new</primary></indexterm>
+<programlisting language="C"><link linkend="GOptionGroup"><returnvalue>GOptionGroup</returnvalue></link>&#160;*
+g_option_group_new (<parameter>const <link linkend="gchar"><type>gchar</type></link> *name</parameter>,
+                    <parameter>const <link linkend="gchar"><type>gchar</type></link> *description</parameter>,
+                    <parameter>const <link linkend="gchar"><type>gchar</type></link> *help_description</parameter>,
+                    <parameter><link linkend="gpointer"><type>gpointer</type></link> user_data</parameter>,
+                    <parameter><link linkend="GDestroyNotify"><type>GDestroyNotify</type></link> destroy</parameter>);</programlisting>
+<para>Creates a new <link linkend="GOptionGroup"><type>GOptionGroup</type></link>.</para>
+<refsect3 id="g-option-group-new.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>name</para></entry>
+<entry role="parameter_description"><para>the name for the option group, this is used to provide
+help for the options in this group with <literal>--help-</literal><parameter>name</parameter>
+</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>description</para></entry>
+<entry role="parameter_description"><para>a description for this group to be shown in
+<literal>--help</literal>. This string is translated using the translation
+domain or translation function of the group</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>help_description</para></entry>
+<entry role="parameter_description"><para>a description for the <literal>--help-</literal><parameter>name</parameter>
+option.
+This string is translated using the translation domain or translation function
+of the group</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>user_data</para></entry>
+<entry role="parameter_description"><para>user data that will be passed to the pre- and post-parse hooks,
+the error hook and to callbacks of <link linkend="G-OPTION-ARG-CALLBACK:CAPS"><literal>G_OPTION_ARG_CALLBACK</literal></link> options, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>destroy</para></entry>
+<entry role="parameter_description"><para>a function that will be called to free <parameter>user_data</parameter>
+, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-option-group-new.returns" role="returns">
+<title>Returns</title>
+<para> a newly created option group. It should be added
+to a <link linkend="GOptionContext"><type>GOptionContext</type></link> or freed with <link linkend="g-option-group-unref"><function>g_option_group_unref()</function></link>.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.6">2.6</link></para></refsect2>
+<refsect2 id="g-option-group-ref" role="function" condition="since:2.44">
+<title>g_option_group_ref&#160;()</title>
+<indexterm zone="g-option-group-ref" role="2.44"><primary sortas="option_group_ref">g_option_group_ref</primary></indexterm>
+<programlisting language="C"><link linkend="GOptionGroup"><returnvalue>GOptionGroup</returnvalue></link>&#160;*
+g_option_group_ref (<parameter><link linkend="GOptionGroup"><type>GOptionGroup</type></link> *group</parameter>);</programlisting>
+<para>Increments the reference count of <parameter>group</parameter>
+ by one.</para>
+<refsect3 id="g-option-group-ref.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>group</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GOptionGroup"><type>GOptionGroup</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-option-group-ref.returns" role="returns">
+<title>Returns</title>
+<para> a <link linkend="GOptionGroup"><type>GOptionGroup</type></link></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.44">2.44</link></para></refsect2>
+<refsect2 id="g-option-group-unref" role="function" condition="since:2.44">
+<title>g_option_group_unref&#160;()</title>
+<indexterm zone="g-option-group-unref" role="2.44"><primary sortas="option_group_unref">g_option_group_unref</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_option_group_unref (<parameter><link linkend="GOptionGroup"><type>GOptionGroup</type></link> *group</parameter>);</programlisting>
+<para>Decrements the reference count of <parameter>group</parameter>
+ by one.
+If the reference count drops to 0, the <parameter>group</parameter>
+ will be freed.
+and all memory allocated by the <parameter>group</parameter>
+ is released.</para>
+<refsect3 id="g-option-group-unref.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>group</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GOptionGroup"><type>GOptionGroup</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.44">2.44</link></para></refsect2>
+<refsect2 id="g-option-group-free" role="function" condition="deprecated:2.44: Use g_option_group_unref() instead.|since:2.6">
+<title>g_option_group_free&#160;()</title>
+<indexterm zone="g-option-group-free" role="deprecated"><primary sortas="option_group_free">g_option_group_free</primary></indexterm><indexterm zone="g-option-group-free" role="2.6"><primary sortas="option_group_free">g_option_group_free</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_option_group_free (<parameter><link linkend="GOptionGroup"><type>GOptionGroup</type></link> *group</parameter>);</programlisting>
+<warning><para><literal>g_option_group_free</literal> has been deprecated since version 2.44 and should not be used in newly-written code.</para> <para>Use <link linkend="g-option-group-unref"><function>g_option_group_unref()</function></link> instead.</para>
+</warning>
+<para>Frees a <link linkend="GOptionGroup"><type>GOptionGroup</type></link>. Note that you must not free groups
+which have been added to a <link linkend="GOptionContext"><type>GOptionContext</type></link>.</para>
+<refsect3 id="g-option-group-free.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>group</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GOptionGroup"><type>GOptionGroup</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.6">2.6</link></para></refsect2>
+<refsect2 id="g-option-group-add-entries" role="function" condition="since:2.6">
+<title>g_option_group_add_entries&#160;()</title>
+<indexterm zone="g-option-group-add-entries" role="2.6"><primary sortas="option_group_add_entries">g_option_group_add_entries</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_option_group_add_entries (<parameter><link linkend="GOptionGroup"><type>GOptionGroup</type></link> *group</parameter>,
+                            <parameter>const <link linkend="GOptionEntry"><type>GOptionEntry</type></link> *entries</parameter>);</programlisting>
+<para>Adds the options specified in <parameter>entries</parameter>
+ to <parameter>group</parameter>
+.</para>
+<refsect3 id="g-option-group-add-entries.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>group</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GOptionGroup"><type>GOptionGroup</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>entries</para></entry>
+<entry role="parameter_description"><para>a <link linkend="NULL:CAPS"><literal>NULL</literal></link>-terminated array of <link linkend="GOptionEntrys"><type>GOptionEntrys</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.6">2.6</link></para></refsect2>
+<refsect2 id="GOptionParseFunc" role="function">
+<title>GOptionParseFunc&#160;()</title>
+<indexterm zone="GOptionParseFunc"><primary sortas="OptionParseFunc">GOptionParseFunc</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+<phrase role="c_punctuation">(</phrase>*GOptionParseFunc<phrase role="c_punctuation">)</phrase> (<parameter><link linkend="GOptionContext"><type>GOptionContext</type></link> *context</parameter>,
+                     <parameter><link linkend="GOptionGroup"><type>GOptionGroup</type></link> *group</parameter>,
+                     <parameter><link linkend="gpointer"><type>gpointer</type></link> data</parameter>,
+                     <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para>The type of function that can be called before and after parsing.</para>
+<refsect3 id="GOptionParseFunc.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>context</para></entry>
+<entry role="parameter_description"><para>The active <link linkend="GOptionContext"><type>GOptionContext</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>group</para></entry>
+<entry role="parameter_description"><para>The group to which the function belongs</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>data</para></entry>
+<entry role="parameter_description"><para>User data added to the <link linkend="GOptionGroup"><type>GOptionGroup</type></link> containing the option when it
+was created with <link linkend="g-option-group-new"><function>g_option_group_new()</function></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para>A return location for error details</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="GOptionParseFunc.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if the function completed successfully, <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> if an error
+occurred, in which case <parameter>error</parameter>
+should be set with <link linkend="g-set-error"><function>g_set_error()</function></link></para>
+</refsect3></refsect2>
+<refsect2 id="g-option-group-set-parse-hooks" role="function" condition="since:2.6">
+<title>g_option_group_set_parse_hooks&#160;()</title>
+<indexterm zone="g-option-group-set-parse-hooks" role="2.6"><primary sortas="option_group_set_parse_hooks">g_option_group_set_parse_hooks</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_option_group_set_parse_hooks (<parameter><link linkend="GOptionGroup"><type>GOptionGroup</type></link> *group</parameter>,
+                                <parameter><link linkend="GOptionParseFunc"><type>GOptionParseFunc</type></link> pre_parse_func</parameter>,
+                                <parameter><link linkend="GOptionParseFunc"><type>GOptionParseFunc</type></link> post_parse_func</parameter>);</programlisting>
+<para>Associates two functions with <parameter>group</parameter>
+ which will be called
+from <link linkend="g-option-context-parse"><function>g_option_context_parse()</function></link> before the first option is parsed
+and after the last option has been parsed, respectively.</para>
+<para>Note that the user data to be passed to <parameter>pre_parse_func</parameter>
+ and
+<parameter>post_parse_func</parameter>
+ can be specified when constructing the group
+with <link linkend="g-option-group-new"><function>g_option_group_new()</function></link>.</para>
+<refsect3 id="g-option-group-set-parse-hooks.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>group</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GOptionGroup"><type>GOptionGroup</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>pre_parse_func</para></entry>
+<entry role="parameter_description"><para>a function to call before parsing, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>post_parse_func</para></entry>
+<entry role="parameter_description"><para>a function to call after parsing, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.6">2.6</link></para></refsect2>
+<refsect2 id="GOptionErrorFunc" role="function">
+<title>GOptionErrorFunc&#160;()</title>
+<indexterm zone="GOptionErrorFunc"><primary sortas="OptionErrorFunc">GOptionErrorFunc</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+<phrase role="c_punctuation">(</phrase>*GOptionErrorFunc<phrase role="c_punctuation">)</phrase> (<parameter><link linkend="GOptionContext"><type>GOptionContext</type></link> *context</parameter>,
+                     <parameter><link linkend="GOptionGroup"><type>GOptionGroup</type></link> *group</parameter>,
+                     <parameter><link linkend="gpointer"><type>gpointer</type></link> data</parameter>,
+                     <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para>The type of function to be used as callback when a parse error occurs.</para>
+<refsect3 id="GOptionErrorFunc.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>context</para></entry>
+<entry role="parameter_description"><para>The active <link linkend="GOptionContext"><type>GOptionContext</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>group</para></entry>
+<entry role="parameter_description"><para>The group to which the function belongs</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>data</para></entry>
+<entry role="parameter_description"><para>User data added to the <link linkend="GOptionGroup"><type>GOptionGroup</type></link> containing the option when it
+was created with <link linkend="g-option-group-new"><function>g_option_group_new()</function></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para>The <link linkend="GError"><type>GError</type></link> containing details about the parse error</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-option-group-set-error-hook" role="function" condition="since:2.6">
+<title>g_option_group_set_error_hook&#160;()</title>
+<indexterm zone="g-option-group-set-error-hook" role="2.6"><primary sortas="option_group_set_error_hook">g_option_group_set_error_hook</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_option_group_set_error_hook (<parameter><link linkend="GOptionGroup"><type>GOptionGroup</type></link> *group</parameter>,
+                               <parameter><link linkend="GOptionErrorFunc"><type>GOptionErrorFunc</type></link> error_func</parameter>);</programlisting>
+<para>Associates a function with <parameter>group</parameter>
+ which will be called
+from <link linkend="g-option-context-parse"><function>g_option_context_parse()</function></link> when an error occurs.</para>
+<para>Note that the user data to be passed to <parameter>error_func</parameter>
+ can be
+specified when constructing the group with <link linkend="g-option-group-new"><function>g_option_group_new()</function></link>.</para>
+<refsect3 id="g-option-group-set-error-hook.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>group</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GOptionGroup"><type>GOptionGroup</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>error_func</para></entry>
+<entry role="parameter_description"><para>a function to call when an error occurs</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.6">2.6</link></para></refsect2>
+<refsect2 id="g-option-group-set-translate-func" role="function" condition="since:2.6">
+<title>g_option_group_set_translate_func&#160;()</title>
+<indexterm zone="g-option-group-set-translate-func" role="2.6"><primary sortas="option_group_set_translate_func">g_option_group_set_translate_func</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_option_group_set_translate_func (<parameter><link linkend="GOptionGroup"><type>GOptionGroup</type></link> *group</parameter>,
+                                   <parameter><link linkend="GTranslateFunc"><type>GTranslateFunc</type></link> func</parameter>,
+                                   <parameter><link linkend="gpointer"><type>gpointer</type></link> data</parameter>,
+                                   <parameter><link linkend="GDestroyNotify"><type>GDestroyNotify</type></link> destroy_notify</parameter>);</programlisting>
+<para>Sets the function which is used to translate user-visible strings,
+for <literal>--help</literal> output. Different groups can use different
+<link linkend="GTranslateFuncs"><type>GTranslateFuncs</type></link>. If <parameter>func</parameter>
+ is <link linkend="NULL:CAPS"><literal>NULL</literal></link>, strings are not translated.</para>
+<para>If you are using <link linkend="gettext"><function>gettext()</function></link>, you only need to set the translation
+domain, see <link linkend="g-option-group-set-translation-domain"><function>g_option_group_set_translation_domain()</function></link>.</para>
+<refsect3 id="g-option-group-set-translate-func.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>group</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GOptionGroup"><type>GOptionGroup</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>func</para></entry>
+<entry role="parameter_description"><para>the <link linkend="GTranslateFunc"><type>GTranslateFunc</type></link>, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>data</para></entry>
+<entry role="parameter_description"><para>user data to pass to <parameter>func</parameter>
+, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>destroy_notify</para></entry>
+<entry role="parameter_description"><para>a function which gets called to free <parameter>data</parameter>
+, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.6">2.6</link></para></refsect2>
+<refsect2 id="g-option-group-set-translation-domain" role="function" condition="since:2.6">
+<title>g_option_group_set_translation_domain&#160;()</title>
+<indexterm zone="g-option-group-set-translation-domain" role="2.6"><primary sortas="option_group_set_translation_domain">g_option_group_set_translation_domain</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_option_group_set_translation_domain (<parameter><link linkend="GOptionGroup"><type>GOptionGroup</type></link> *group</parameter>,
+                                       <parameter>const <link linkend="gchar"><type>gchar</type></link> *domain</parameter>);</programlisting>
+<para>A convenience function to use <link linkend="gettext"><function>gettext()</function></link> for translating
+user-visible strings.</para>
+<refsect3 id="g-option-group-set-translation-domain.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>group</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GOptionGroup"><type>GOptionGroup</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>domain</para></entry>
+<entry role="parameter_description"><para>the domain to use</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.6">2.6</link></para></refsect2>
+
+</refsect1>
+<refsect1 id="glib-Commandline-option-parser.other_details" role="details">
+<title role="details.title">Types and Values</title>
+<refsect2 id="GOptionError" role="enum">
+<title>enum GOptionError</title>
+<indexterm zone="GOptionError"><primary sortas="OptionError">GOptionError</primary></indexterm>
+<para>Error codes returned by option parsing.</para>
+<refsect3 id="GOptionError.members" role="enum_members">
+<title>Members</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="enum_members_name" colwidth="300px"/>
+<colspec colname="enum_members_description"/>
+<colspec colname="enum_members_annotations" colwidth="200px"/>
+<tbody>
+<row role="constant"><entry role="enum_member_name"><para id="G-OPTION-ERROR-UNKNOWN-OPTION:CAPS">G_OPTION_ERROR_UNKNOWN_OPTION</para></entry>
+<entry role="enum_member_description"><para>An option was not known to the parser.
+ This error will only be reported, if the parser hasn't been instructed
+ to ignore unknown options, see <link linkend="g-option-context-set-ignore-unknown-options"><function>g_option_context_set_ignore_unknown_options()</function></link>.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-OPTION-ERROR-BAD-VALUE:CAPS">G_OPTION_ERROR_BAD_VALUE</para></entry>
+<entry role="enum_member_description"><para>A value couldn't be parsed.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-OPTION-ERROR-FAILED:CAPS">G_OPTION_ERROR_FAILED</para></entry>
+<entry role="enum_member_description"><para>A <link linkend="GOptionArgFunc"><type>GOptionArgFunc</type></link> callback failed.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="G-OPTION-ERROR:CAPS" role="macro">
+<title>G_OPTION_ERROR</title>
+<indexterm zone="G-OPTION-ERROR:CAPS"><primary sortas="OPTION_ERROR">G_OPTION_ERROR</primary></indexterm>
+<programlisting language="C">#define G_OPTION_ERROR (g_option_error_quark ())
+</programlisting>
+<para>Error domain for option parsing. Errors in this domain will
+be from the <link linkend="GOptionError"><type>GOptionError</type></link> enumeration. See <link linkend="GError"><type>GError</type></link> for information on 
+error domains.</para>
+</refsect2>
+<refsect2 id="GOptionContext" role="struct">
+<title>GOptionContext</title>
+<indexterm zone="GOptionContext"><primary sortas="OptionContext">GOptionContext</primary></indexterm>
+<programlisting language="C">typedef struct _GOptionContext GOptionContext;</programlisting>
+<para>A <literal>GOptionContext</literal> struct defines which options
+are accepted by the commandline option parser. The struct has only private 
+fields and should not be directly accessed.</para>
+</refsect2>
+<refsect2 id="GOptionArg" role="enum">
+<title>enum GOptionArg</title>
+<indexterm zone="GOptionArg"><primary sortas="OptionArg">GOptionArg</primary></indexterm>
+<para>The <link linkend="GOptionArg"><type>GOptionArg</type></link> enum values determine which type of extra argument the
+options expect to find. If an option expects an extra argument, it can
+be specified in several ways; with a short option: <literal>-x arg</literal>, with a long
+option: <literal>--name arg</literal> or combined in a single argument: <literal>--name=arg</literal>.</para>
+<refsect3 id="GOptionArg.members" role="enum_members">
+<title>Members</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="enum_members_name" colwidth="300px"/>
+<colspec colname="enum_members_description"/>
+<colspec colname="enum_members_annotations" colwidth="200px"/>
+<tbody>
+<row role="constant"><entry role="enum_member_name"><para id="G-OPTION-ARG-NONE:CAPS">G_OPTION_ARG_NONE</para></entry>
+<entry role="enum_member_description"><para>No extra argument. This is useful for simple flags.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-OPTION-ARG-STRING:CAPS">G_OPTION_ARG_STRING</para></entry>
+<entry role="enum_member_description"><para>The option takes a string argument.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-OPTION-ARG-INT:CAPS">G_OPTION_ARG_INT</para></entry>
+<entry role="enum_member_description"><para>The option takes an integer argument.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-OPTION-ARG-CALLBACK:CAPS">G_OPTION_ARG_CALLBACK</para></entry>
+<entry role="enum_member_description"><para>The option provides a callback (of type
+    <link linkend="GOptionArgFunc"><type>GOptionArgFunc</type></link>) to parse the extra argument.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-OPTION-ARG-FILENAME:CAPS">G_OPTION_ARG_FILENAME</para></entry>
+<entry role="enum_member_description"><para>The option takes a filename as argument.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-OPTION-ARG-STRING-ARRAY:CAPS">G_OPTION_ARG_STRING_ARRAY</para></entry>
+<entry role="enum_member_description"><para>The option takes a string argument, multiple
+    uses of the option are collected into an array of strings.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-OPTION-ARG-FILENAME-ARRAY:CAPS">G_OPTION_ARG_FILENAME_ARRAY</para></entry>
+<entry role="enum_member_description"><para>The option takes a filename as argument, 
+    multiple uses of the option are collected into an array of strings.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-OPTION-ARG-DOUBLE:CAPS">G_OPTION_ARG_DOUBLE</para></entry>
+<entry role="enum_member_description"><para>The option takes a double argument. The argument
+    can be formatted either for the user's locale or for the "C" locale.
+    Since 2.12</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-OPTION-ARG-INT64:CAPS">G_OPTION_ARG_INT64</para></entry>
+<entry role="enum_member_description"><para>The option takes a 64-bit integer. Like
+    <link linkend="G-OPTION-ARG-INT:CAPS"><literal>G_OPTION_ARG_INT</literal></link> but for larger numbers. The number can be in
+    decimal base, or in hexadecimal (when prefixed with <literal>0x</literal>, for
+    example, <literal>0xffffffff</literal>). Since 2.12</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="GOptionFlags" role="enum">
+<title>enum GOptionFlags</title>
+<indexterm zone="GOptionFlags"><primary sortas="OptionFlags">GOptionFlags</primary></indexterm>
+<para>Flags which modify individual options.</para>
+<refsect3 id="GOptionFlags.members" role="enum_members">
+<title>Members</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="enum_members_name" colwidth="300px"/>
+<colspec colname="enum_members_description"/>
+<colspec colname="enum_members_annotations" colwidth="200px"/>
+<tbody>
+<row role="constant"><entry role="enum_member_name"><para id="G-OPTION-FLAG-NONE:CAPS">G_OPTION_FLAG_NONE</para></entry>
+<entry role="enum_member_description"><para>No flags. Since: 2.42.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-OPTION-FLAG-HIDDEN:CAPS">G_OPTION_FLAG_HIDDEN</para></entry>
+<entry role="enum_member_description"><para>The option doesn't appear in <literal>--help</literal> output.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-OPTION-FLAG-IN-MAIN:CAPS">G_OPTION_FLAG_IN_MAIN</para></entry>
+<entry role="enum_member_description"><para>The option appears in the main section of the
+    <literal>--help</literal> output, even if it is defined in a group.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-OPTION-FLAG-REVERSE:CAPS">G_OPTION_FLAG_REVERSE</para></entry>
+<entry role="enum_member_description"><para>For options of the <link linkend="G-OPTION-ARG-NONE:CAPS"><literal>G_OPTION_ARG_NONE</literal></link> kind, this
+    flag indicates that the sense of the option is reversed.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-OPTION-FLAG-NO-ARG:CAPS">G_OPTION_FLAG_NO_ARG</para></entry>
+<entry role="enum_member_description"><para>For options of the <link linkend="G-OPTION-ARG-CALLBACK:CAPS"><literal>G_OPTION_ARG_CALLBACK</literal></link> kind,
+    this flag indicates that the callback does not take any argument
+    (like a <link linkend="G-OPTION-ARG-NONE:CAPS"><literal>G_OPTION_ARG_NONE</literal></link> option). Since 2.8</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-OPTION-FLAG-FILENAME:CAPS">G_OPTION_FLAG_FILENAME</para></entry>
+<entry role="enum_member_description"><para>For options of the <link linkend="G-OPTION-ARG-CALLBACK:CAPS"><literal>G_OPTION_ARG_CALLBACK</literal></link>
+    kind, this flag indicates that the argument should be passed to the
+    callback in the GLib filename encoding rather than UTF-8. Since 2.8</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-OPTION-FLAG-OPTIONAL-ARG:CAPS">G_OPTION_FLAG_OPTIONAL_ARG</para></entry>
+<entry role="enum_member_description"><para>For options of the <link linkend="G-OPTION-ARG-CALLBACK:CAPS"><literal>G_OPTION_ARG_CALLBACK</literal></link> 
+    kind, this flag indicates that the argument supply is optional.
+    If no argument is given then data of <link linkend="GOptionParseFunc"><literal>GOptionParseFunc</literal></link> will be
+    set to NULL. Since 2.8</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-OPTION-FLAG-NOALIAS:CAPS">G_OPTION_FLAG_NOALIAS</para></entry>
+<entry role="enum_member_description"><para>This flag turns off the automatic conflict
+    resolution which prefixes long option names with <literal>groupname-</literal> if 
+    there is a conflict. This option should only be used in situations
+    where aliasing is necessary to model some legacy commandline interface.
+    It is not safe to use this option, unless all option groups are under
+    your direct control. Since 2.8.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="G-OPTION-REMAINING:CAPS" role="macro" condition="since:2.6">
+<title>G_OPTION_REMAINING</title>
+<indexterm zone="G-OPTION-REMAINING:CAPS" role="2.6"><primary sortas="OPTION_REMAINING">G_OPTION_REMAINING</primary></indexterm>
+<programlisting language="C">#define G_OPTION_REMAINING ""
+</programlisting>
+<para>If a long option in the main group has this name, it is not treated as a 
+regular option. Instead it collects all non-option arguments which would
+otherwise be left in <literal>argv</literal>. The option must be of type
+<link linkend="G-OPTION-ARG-CALLBACK:CAPS"><literal>G_OPTION_ARG_CALLBACK</literal></link>, <link linkend="G-OPTION-ARG-STRING-ARRAY:CAPS"><literal>G_OPTION_ARG_STRING_ARRAY</literal></link>
+or <link linkend="G-OPTION-ARG-FILENAME-ARRAY:CAPS"><literal>G_OPTION_ARG_FILENAME_ARRAY</literal></link>.</para>
+<para>Using <link linkend="G-OPTION-REMAINING:CAPS"><type>G_OPTION_REMAINING</type></link> instead of simply scanning <literal>argv</literal>
+for leftover arguments has the advantage that GOption takes care of 
+necessary encoding conversions for strings or filenames.</para>
+<para role="since">Since: <link linkend="api-index-2.6">2.6</link></para></refsect2>
+<refsect2 id="GOptionEntry" role="struct">
+<title>struct GOptionEntry</title>
+<indexterm zone="GOptionEntry"><primary sortas="OptionEntry">GOptionEntry</primary></indexterm>
+<programlisting language="C">struct GOptionEntry {
+  const gchar *long_name;
+  gchar        short_name;
+  gint         flags;
+
+  GOptionArg   arg;
+  gpointer     arg_data;
+  
+  const gchar *description;
+  const gchar *arg_description;
+};
+</programlisting>
+<para>A GOptionEntry struct defines a single option. To have an effect, they
+must be added to a <link linkend="GOptionGroup"><type>GOptionGroup</type></link> with <link linkend="g-option-context-add-main-entries"><function>g_option_context_add_main_entries()</function></link>
+or <link linkend="g-option-group-add-entries"><function>g_option_group_add_entries()</function></link>.</para>
+<refsect3 id="GOptionEntry.members" role="struct_members">
+<title>Members</title>
+<informaltable role="struct_members_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="struct_members_name" colwidth="300px"/>
+<colspec colname="struct_members_description"/>
+<colspec colname="struct_members_annotations" colwidth="200px"/>
+<tbody>
+<row role="member"><entry role="struct_member_name"><para>const&#160;<link linkend="gchar"><type>gchar</type></link>&#160;*<structfield id="GOptionEntry.long-name">long_name</structfield>;</para></entry>
+<entry role="struct_member_description"><para>The long name of an option can be used to specify it
+in a commandline as <literal>--long_name</literal>. Every option must have a
+long name. To resolve conflicts if multiple option groups contain
+the same long name, it is also possible to specify the option as
+<literal>--groupname-long_name</literal>.</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><link linkend="gchar"><type>gchar</type></link>&#160;<structfield id="GOptionEntry.short-name">short_name</structfield>;</para></entry>
+<entry role="struct_member_description"><para>If an option has a short name, it can be specified
+<literal>-short_name</literal> in a commandline. <parameter>short_name</parameter>
+must be  a printable
+ASCII character different from '-', or zero if the option has no
+short name.</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><link linkend="gint"><type>gint</type></link>&#160;<structfield id="GOptionEntry.flags">flags</structfield>;</para></entry>
+<entry role="struct_member_description"><para>Flags from <link linkend="GOptionFlags"><type>GOptionFlags</type></link></para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><link linkend="GOptionArg"><type>GOptionArg</type></link>&#160;<structfield id="GOptionEntry.arg">arg</structfield>;</para></entry>
+<entry role="struct_member_description"><para>The type of the option, as a <link linkend="GOptionArg"><type>GOptionArg</type></link></para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><link linkend="gpointer"><type>gpointer</type></link>&#160;<structfield id="GOptionEntry.arg-data">arg_data</structfield>;</para></entry>
+<entry role="struct_member_description"><para>If the <parameter>arg</parameter>
+type is <link linkend="G-OPTION-ARG-CALLBACK:CAPS"><literal>G_OPTION_ARG_CALLBACK</literal></link>, then <parameter>arg_data</parameter>
+must point to a <link linkend="GOptionArgFunc"><type>GOptionArgFunc</type></link> callback function, which will be
+called to handle the extra argument. Otherwise, <parameter>arg_data</parameter>
+is a
+pointer to a location to store the value, the required type of
+the location depends on the <parameter>arg</parameter>
+type:</para>
+<itemizedlist>
+<listitem><para><link linkend="G-OPTION-ARG-NONE:CAPS"><literal>G_OPTION_ARG_NONE</literal></link>: <link linkend="gboolean"><literal>gboolean</literal></link></para>
+<itemizedlist>
+<listitem><para><link linkend="G-OPTION-ARG-STRING:CAPS"><literal>G_OPTION_ARG_STRING</literal></link>: <link linkend="gchar"><literal>gchar</literal></link>*</para></listitem>
+<listitem><para><link linkend="G-OPTION-ARG-INT:CAPS"><literal>G_OPTION_ARG_INT</literal></link>: <link linkend="gint"><literal>gint</literal></link></para></listitem>
+<listitem><para><link linkend="G-OPTION-ARG-FILENAME:CAPS"><literal>G_OPTION_ARG_FILENAME</literal></link>: <link linkend="gchar"><literal>gchar</literal></link>*</para></listitem>
+<listitem><para><link linkend="G-OPTION-ARG-STRING-ARRAY:CAPS"><literal>G_OPTION_ARG_STRING_ARRAY</literal></link>: <link linkend="gchar"><literal>gchar</literal></link>**</para></listitem>
+<listitem><para><link linkend="G-OPTION-ARG-FILENAME-ARRAY:CAPS"><literal>G_OPTION_ARG_FILENAME_ARRAY</literal></link>: <link linkend="gchar"><literal>gchar</literal></link>**</para></listitem>
+<listitem><para><link linkend="G-OPTION-ARG-DOUBLE:CAPS"><literal>G_OPTION_ARG_DOUBLE</literal></link>: <link linkend="gdouble"><literal>gdouble</literal></link>
+If <parameter>arg</parameter>
+type is <link linkend="G-OPTION-ARG-STRING:CAPS"><literal>G_OPTION_ARG_STRING</literal></link> or <link linkend="G-OPTION-ARG-FILENAME:CAPS"><literal>G_OPTION_ARG_FILENAME</literal></link>,
+the location will contain a newly allocated string if the option
+was given. That string needs to be freed by the callee using <link linkend="g-free"><function>g_free()</function></link>.
+Likewise if <parameter>arg</parameter>
+type is <link linkend="G-OPTION-ARG-STRING-ARRAY:CAPS"><literal>G_OPTION_ARG_STRING_ARRAY</literal></link> or
+<link linkend="G-OPTION-ARG-FILENAME-ARRAY:CAPS"><literal>G_OPTION_ARG_FILENAME_ARRAY</literal></link>, the data should be freed using <link linkend="g-strfreev"><function>g_strfreev()</function></link>.</para></listitem>
+</itemizedlist>
+</listitem>
+</itemizedlist></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para>const&#160;<link linkend="gchar"><type>gchar</type></link>&#160;*<structfield id="GOptionEntry.description">description</structfield>;</para></entry>
+<entry role="struct_member_description"><para>the description for the option in <literal>--help</literal>
+output. The <parameter>description</parameter>
+is translated using the <parameter>translate_func</parameter>
+of the group, see <link linkend="g-option-group-set-translation-domain"><function>g_option_group_set_translation_domain()</function></link>.</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para>const&#160;<link linkend="gchar"><type>gchar</type></link>&#160;*<structfield id="GOptionEntry.arg-description">arg_description</structfield>;</para></entry>
+<entry role="struct_member_description"><para>The placeholder to use for the extra argument parsed
+by the option in <literal>--help</literal> output. The <parameter>arg_description</parameter>
+is translated
+using the <parameter>translate_func</parameter>
+of the group, see
+<link linkend="g-option-group-set-translation-domain"><function>g_option_group_set_translation_domain()</function></link>.</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+</tbody></tgroup></informaltable>
+</refsect3>
+</refsect2>
+<refsect2 id="GOptionGroup" role="struct">
+<title>GOptionGroup</title>
+<indexterm zone="GOptionGroup"><primary sortas="OptionGroup">GOptionGroup</primary></indexterm>
+<programlisting language="C">typedef struct _GOptionGroup GOptionGroup;</programlisting>
+<para>A <literal>GOptionGroup</literal> struct defines the options in a single
+group. The struct has only private fields and should not be directly accessed.</para>
+<para>All options in a group share the same translation function. Libraries which
+need to parse commandline options are expected to provide a function for
+getting a <literal>GOptionGroup</literal> holding their options, which
+the application can then add to its <link linkend="GOptionContext"><type>GOptionContext</type></link>.</para>
+</refsect2>
+
+</refsect1>
+
+</refentry>

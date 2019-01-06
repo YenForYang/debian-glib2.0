@@ -1,0 +1,1477 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC '-//OASIS//DTD DocBook XML V4.5//EN'
+                      'http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd' [
+
+<!ENTITY % local.common.attrib "xmlns:xi  CDATA  #FIXED 'http://www.w3.org/2003/XInclude'">
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="gobject-GParamSpec">
+<refmeta>
+<refentrytitle role="top_of_page" id="gobject-GParamSpec.top_of_page">GParamSpec</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>GOBJECT Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>GParamSpec</refname>
+<refpurpose>Metadata for parameter specifications</refpurpose>
+</refnamediv>
+
+<refsect1 id="gobject-GParamSpec.functions" role="functions_proto">
+<title role="functions_proto.title">Functions</title>
+<informaltable pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="functions_return" colwidth="150px"/>
+<colspec colname="functions_name"/>
+<tbody>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="G-TYPE-IS-PARAM:CAPS">G_TYPE_IS_PARAM</link><phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="G-PARAM-SPEC:CAPS">G_PARAM_SPEC</link><phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="G-IS-PARAM-SPEC:CAPS">G_IS_PARAM_SPEC</link><phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="G-PARAM-SPEC-CLASS:CAPS">G_PARAM_SPEC_CLASS</link><phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="G-IS-PARAM-SPEC-CLASS:CAPS">G_IS_PARAM_SPEC_CLASS</link><phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="G-PARAM-SPEC-GET-CLASS:CAPS">G_PARAM_SPEC_GET_CLASS</link><phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="G-PARAM-SPEC-TYPE:CAPS">G_PARAM_SPEC_TYPE</link><phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="G-PARAM-SPEC-TYPE-NAME:CAPS">G_PARAM_SPEC_TYPE_NAME</link><phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="G-PARAM-SPEC-VALUE-TYPE:CAPS">G_PARAM_SPEC_VALUE_TYPE</link><phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GParamSpec"><returnvalue>GParamSpec</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-param-spec-ref">g_param_spec_ref</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-param-spec-unref">g_param_spec_unref</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-param-spec-sink">g_param_spec_sink</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GParamSpec"><returnvalue>GParamSpec</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-param-spec-ref-sink">g_param_spec_ref_sink</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type">const <link linkend="GValue"><returnvalue>GValue</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-param-spec-get-default-value">g_param_spec_get_default_value</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-param-value-set-default">g_param_value_set_default</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-param-value-defaults">g_param_value_defaults</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-param-value-validate">g_param_value_validate</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-param-value-convert">g_param_value_convert</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gint"><returnvalue>gint</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-param-values-cmp">g_param_values_cmp</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type">const <link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-param-spec-get-name">g_param_spec_get_name</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GQuark"><returnvalue>GQuark</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-param-spec-get-name-quark">g_param_spec_get_name_quark</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type">const <link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-param-spec-get-nick">g_param_spec_get_nick</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type">const <link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-param-spec-get-blurb">g_param_spec_get_blurb</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gpointer"><returnvalue>gpointer</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-param-spec-get-qdata">g_param_spec_get_qdata</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-param-spec-set-qdata">g_param_spec_set_qdata</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-param-spec-set-qdata-full">g_param_spec_set_qdata_full</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gpointer"><returnvalue>gpointer</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-param-spec-steal-qdata">g_param_spec_steal_qdata</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GParamSpec"><returnvalue>GParamSpec</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-param-spec-get-redirect-target">g_param_spec_get_redirect_target</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gpointer"><returnvalue>gpointer</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-param-spec-internal">g_param_spec_internal</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GType"><returnvalue>GType</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-param-type-register-static">g_param_type_register_static</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GParamSpecPool"><returnvalue>GParamSpecPool</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-param-spec-pool-new">g_param_spec_pool_new</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-param-spec-pool-insert">g_param_spec_pool_insert</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-param-spec-pool-remove">g_param_spec_pool_remove</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GParamSpec"><returnvalue>GParamSpec</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-param-spec-pool-lookup">g_param_spec_pool_lookup</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GParamSpec"><returnvalue>GParamSpec</returnvalue></link>&#160;**
+</entry><entry role="function_name"><link linkend="g-param-spec-pool-list">g_param_spec_pool_list</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GList"><returnvalue>GList</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-param-spec-pool-list-owned">g_param_spec_pool_list_owned</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="gobject-GParamSpec.other" role="other_proto">
+<title role="other_proto.title">Types and Values</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="name" colwidth="150px"/>
+<colspec colname="description"/>
+<tbody>
+<row><entry role="datatype_keyword">struct</entry><entry role="function_name"><link linkend="GParamSpec">GParamSpec</link></entry></row>
+<row><entry role="datatype_keyword">struct</entry><entry role="function_name"><link linkend="GParamSpecClass">GParamSpecClass</link></entry></row>
+<row><entry role="datatype_keyword">enum</entry><entry role="function_name"><link linkend="GParamFlags">GParamFlags</link></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="G-PARAM-STATIC-STRINGS:CAPS">G_PARAM_STATIC_STRINGS</link></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="G-PARAM-MASK:CAPS">G_PARAM_MASK</link></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="G-PARAM-USER-SHIFT:CAPS">G_PARAM_USER_SHIFT</link></entry></row>
+<row><entry role="datatype_keyword">struct</entry><entry role="function_name"><link linkend="GParamSpecTypeInfo">GParamSpecTypeInfo</link></entry></row>
+<row><entry role="datatype_keyword"></entry><entry role="function_name"><link linkend="GParamSpecPool">GParamSpecPool</link></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+
+<refsect1 id="gobject-GParamSpec.includes"><title>Includes</title><synopsis>#include &lt;glib-object.h&gt;
+</synopsis></refsect1>
+
+<refsect1 id="gobject-GParamSpec.description" role="desc">
+<title role="desc.title">Description</title>
+<para><link linkend="GParamSpec"><type>GParamSpec</type></link> is an object structure that encapsulates the metadata
+required to specify parameters, such as e.g. <link linkend="GObject"><type>GObject</type></link> properties.</para>
+<refsect3 id="canonical-parameter-names"><title>Parameter names</title><para>Parameter names need to start with a letter (a-z or A-Z).
+Subsequent characters can be letters, numbers or a '-'.
+All other characters are replaced by a '-' during construction.
+The result of this replacement is called the canonical name of
+the parameter.</para>
+</refsect3>
+
+</refsect1>
+<refsect1 id="gobject-GParamSpec.functions_details" role="details">
+<title role="details.title">Functions</title>
+<refsect2 id="G-TYPE-IS-PARAM:CAPS" role="macro">
+<title>G_TYPE_IS_PARAM()</title>
+<indexterm zone="G-TYPE-IS-PARAM:CAPS"><primary sortas="TYPE_IS_PARAM">G_TYPE_IS_PARAM</primary></indexterm>
+<programlisting language="C">#define G_TYPE_IS_PARAM(type)		(G_TYPE_FUNDAMENTAL (type) == G_TYPE_PARAM)
+</programlisting>
+<para>Checks whether <parameter>type</parameter>
+ "is a" <link linkend="G-TYPE-PARAM:CAPS"><literal>G_TYPE_PARAM</literal></link>.</para>
+<refsect3 id="G-TYPE-IS-PARAM.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>type</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GType"><type>GType</type></link> ID</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="G-PARAM-SPEC:CAPS" role="macro">
+<title>G_PARAM_SPEC()</title>
+<indexterm zone="G-PARAM-SPEC:CAPS"><primary sortas="PARAM_SPEC">G_PARAM_SPEC</primary></indexterm>
+<programlisting language="C">#define G_PARAM_SPEC(pspec)		(G_TYPE_CHECK_INSTANCE_CAST ((pspec), G_TYPE_PARAM, GParamSpec))
+</programlisting>
+<para>Casts a derived <link linkend="GParamSpec"><type>GParamSpec</type></link> object (e.g. of type <link linkend="GParamSpecInt"><type>GParamSpecInt</type></link>) into
+a <link linkend="GParamSpec"><type>GParamSpec</type></link> object.</para>
+<refsect3 id="G-PARAM-SPEC.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>pspec</para></entry>
+<entry role="parameter_description"><para>a valid <link linkend="GParamSpec"><type>GParamSpec</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="G-IS-PARAM-SPEC:CAPS" role="macro">
+<title>G_IS_PARAM_SPEC()</title>
+<indexterm zone="G-IS-PARAM-SPEC:CAPS"><primary sortas="IS_PARAM_SPEC">G_IS_PARAM_SPEC</primary></indexterm>
+<programlisting language="C">#define G_IS_PARAM_SPEC(pspec)		(G_TYPE_CHECK_INSTANCE_FUNDAMENTAL_TYPE ((pspec), G_TYPE_PARAM))
+</programlisting>
+<para>Checks whether <parameter>pspec</parameter>
+ "is a" valid <link linkend="GParamSpec"><type>GParamSpec</type></link> structure of type <link linkend="G-TYPE-PARAM:CAPS"><literal>G_TYPE_PARAM</literal></link>
+or derived.</para>
+<refsect3 id="G-IS-PARAM-SPEC.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>pspec</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GParamSpec"><type>GParamSpec</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="G-PARAM-SPEC-CLASS:CAPS" role="macro">
+<title>G_PARAM_SPEC_CLASS()</title>
+<indexterm zone="G-PARAM-SPEC-CLASS:CAPS"><primary sortas="PARAM_SPEC_CLASS">G_PARAM_SPEC_CLASS</primary></indexterm>
+<programlisting language="C">#define G_PARAM_SPEC_CLASS(pclass)      (G_TYPE_CHECK_CLASS_CAST ((pclass), G_TYPE_PARAM, GParamSpecClass))
+</programlisting>
+<para>Casts a derived <link linkend="GParamSpecClass"><type>GParamSpecClass</type></link> structure into a <link linkend="GParamSpecClass"><type>GParamSpecClass</type></link> structure.</para>
+<refsect3 id="G-PARAM-SPEC-CLASS.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>pclass</para></entry>
+<entry role="parameter_description"><para>a valid <link linkend="GParamSpecClass"><type>GParamSpecClass</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="G-IS-PARAM-SPEC-CLASS:CAPS" role="macro">
+<title>G_IS_PARAM_SPEC_CLASS()</title>
+<indexterm zone="G-IS-PARAM-SPEC-CLASS:CAPS"><primary sortas="IS_PARAM_SPEC_CLASS">G_IS_PARAM_SPEC_CLASS</primary></indexterm>
+<programlisting language="C">#define G_IS_PARAM_SPEC_CLASS(pclass)   (G_TYPE_CHECK_CLASS_TYPE ((pclass), G_TYPE_PARAM))
+</programlisting>
+<para>Checks whether <parameter>pclass</parameter>
+ "is a" valid <link linkend="GParamSpecClass"><type>GParamSpecClass</type></link> structure of type 
+<link linkend="G-TYPE-PARAM:CAPS"><literal>G_TYPE_PARAM</literal></link> or derived.</para>
+<refsect3 id="G-IS-PARAM-SPEC-CLASS.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>pclass</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GParamSpecClass"><type>GParamSpecClass</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="G-PARAM-SPEC-GET-CLASS:CAPS" role="macro">
+<title>G_PARAM_SPEC_GET_CLASS()</title>
+<indexterm zone="G-PARAM-SPEC-GET-CLASS:CAPS"><primary sortas="PARAM_SPEC_GET_CLASS">G_PARAM_SPEC_GET_CLASS</primary></indexterm>
+<programlisting language="C">#define G_PARAM_SPEC_GET_CLASS(pspec)&#160;(G_TYPE_INSTANCE_GET_CLASS ((pspec), G_TYPE_PARAM, GParamSpecClass))
+</programlisting>
+<para>Retrieves the <link linkend="GParamSpecClass"><type>GParamSpecClass</type></link> of a <link linkend="GParamSpec"><type>GParamSpec</type></link>.</para>
+<refsect3 id="G-PARAM-SPEC-GET-CLASS.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>pspec</para></entry>
+<entry role="parameter_description"><para>a valid <link linkend="GParamSpec"><type>GParamSpec</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="G-PARAM-SPEC-TYPE:CAPS" role="macro">
+<title>G_PARAM_SPEC_TYPE()</title>
+<indexterm zone="G-PARAM-SPEC-TYPE:CAPS"><primary sortas="PARAM_SPEC_TYPE">G_PARAM_SPEC_TYPE</primary></indexterm>
+<programlisting language="C">#define G_PARAM_SPEC_TYPE(pspec)&#160;(G_TYPE_FROM_INSTANCE (pspec))
+</programlisting>
+<para>Retrieves the <link linkend="GType"><type>GType</type></link> of this <parameter>pspec</parameter>
+.</para>
+<refsect3 id="G-PARAM-SPEC-TYPE.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>pspec</para></entry>
+<entry role="parameter_description"><para>a valid <link linkend="GParamSpec"><type>GParamSpec</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="G-PARAM-SPEC-TYPE-NAME:CAPS" role="macro">
+<title>G_PARAM_SPEC_TYPE_NAME()</title>
+<indexterm zone="G-PARAM-SPEC-TYPE-NAME:CAPS"><primary sortas="PARAM_SPEC_TYPE_NAME">G_PARAM_SPEC_TYPE_NAME</primary></indexterm>
+<programlisting language="C">#define G_PARAM_SPEC_TYPE_NAME(pspec)&#160;(g_type_name (G_PARAM_SPEC_TYPE (pspec)))
+</programlisting>
+<para>Retrieves the <link linkend="GType"><type>GType</type></link> name of this <parameter>pspec</parameter>
+.</para>
+<refsect3 id="G-PARAM-SPEC-TYPE-NAME.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>pspec</para></entry>
+<entry role="parameter_description"><para>a valid <link linkend="GParamSpec"><type>GParamSpec</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="G-PARAM-SPEC-VALUE-TYPE:CAPS" role="macro">
+<title>G_PARAM_SPEC_VALUE_TYPE()</title>
+<indexterm zone="G-PARAM-SPEC-VALUE-TYPE:CAPS"><primary sortas="PARAM_SPEC_VALUE_TYPE">G_PARAM_SPEC_VALUE_TYPE</primary></indexterm>
+<programlisting language="C">#define&#160;G_PARAM_SPEC_VALUE_TYPE(pspec)&#160;(G_PARAM_SPEC (pspec)-&gt;value_type)
+</programlisting>
+<para>Retrieves the <link linkend="GType"><type>GType</type></link> to initialize a <link linkend="GValue"><type>GValue</type></link> for this parameter.</para>
+<refsect3 id="G-PARAM-SPEC-VALUE-TYPE.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>pspec</para></entry>
+<entry role="parameter_description"><para>a valid <link linkend="GParamSpec"><type>GParamSpec</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-param-spec-ref" role="function">
+<title>g_param_spec_ref&#160;()</title>
+<indexterm zone="g-param-spec-ref"><primary sortas="param_spec_ref">g_param_spec_ref</primary></indexterm>
+<programlisting language="C"><link linkend="GParamSpec"><returnvalue>GParamSpec</returnvalue></link>&#160;*
+g_param_spec_ref (<parameter><link linkend="GParamSpec"><type>GParamSpec</type></link> *pspec</parameter>);</programlisting>
+<para>Increments the reference count of <parameter>pspec</parameter>
+.</para>
+
+<para><emphasis role="annotation">[<acronym>skip</acronym>]</emphasis></para><refsect3 id="g-param-spec-ref.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>pspec</para></entry>
+<entry role="parameter_description"><para>a valid <link linkend="GParamSpec"><type>GParamSpec</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-param-spec-ref.returns" role="returns">
+<title>Returns</title>
+<para> the <link linkend="GParamSpec"><type>GParamSpec</type></link> that was passed into this function</para>
+</refsect3></refsect2>
+<refsect2 id="g-param-spec-unref" role="function">
+<title>g_param_spec_unref&#160;()</title>
+<indexterm zone="g-param-spec-unref"><primary sortas="param_spec_unref">g_param_spec_unref</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_param_spec_unref (<parameter><link linkend="GParamSpec"><type>GParamSpec</type></link> *pspec</parameter>);</programlisting>
+<para>Decrements the reference count of a <parameter>pspec</parameter>
+.</para>
+
+<para><emphasis role="annotation">[<acronym>skip</acronym>]</emphasis></para><refsect3 id="g-param-spec-unref.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>pspec</para></entry>
+<entry role="parameter_description"><para>a valid <link linkend="GParamSpec"><type>GParamSpec</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-param-spec-sink" role="function">
+<title>g_param_spec_sink&#160;()</title>
+<indexterm zone="g-param-spec-sink"><primary sortas="param_spec_sink">g_param_spec_sink</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_param_spec_sink (<parameter><link linkend="GParamSpec"><type>GParamSpec</type></link> *pspec</parameter>);</programlisting>
+<para>The initial reference count of a newly created <link linkend="GParamSpec"><type>GParamSpec</type></link> is 1,
+even though no one has explicitly called <link linkend="g-param-spec-ref"><function>g_param_spec_ref()</function></link> on it
+yet. So the initial reference count is flagged as "floating", until
+someone calls <literal>g_param_spec_ref (pspec); g_param_spec_sink
+(pspec);</literal> in sequence on it, taking over the initial
+reference count (thus ending up with a <parameter>pspec</parameter>
+ that has a reference
+count of 1 still, but is not flagged "floating" anymore).</para>
+<refsect3 id="g-param-spec-sink.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>pspec</para></entry>
+<entry role="parameter_description"><para>a valid <link linkend="GParamSpec"><type>GParamSpec</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-param-spec-ref-sink" role="function" condition="since:2.10">
+<title>g_param_spec_ref_sink&#160;()</title>
+<indexterm zone="g-param-spec-ref-sink" role="2.10"><primary sortas="param_spec_ref_sink">g_param_spec_ref_sink</primary></indexterm>
+<programlisting language="C"><link linkend="GParamSpec"><returnvalue>GParamSpec</returnvalue></link>&#160;*
+g_param_spec_ref_sink (<parameter><link linkend="GParamSpec"><type>GParamSpec</type></link> *pspec</parameter>);</programlisting>
+<para>Convenience function to ref and sink a <link linkend="GParamSpec"><type>GParamSpec</type></link>.</para>
+
+<para><emphasis role="annotation">[<acronym>skip</acronym>]</emphasis></para><refsect3 id="g-param-spec-ref-sink.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>pspec</para></entry>
+<entry role="parameter_description"><para>a valid <link linkend="GParamSpec"><type>GParamSpec</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-param-spec-ref-sink.returns" role="returns">
+<title>Returns</title>
+<para> the <link linkend="GParamSpec"><type>GParamSpec</type></link> that was passed into this function</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.10">2.10</link></para></refsect2>
+<refsect2 id="g-param-spec-get-default-value" role="function" condition="since:2.38">
+<title>g_param_spec_get_default_value&#160;()</title>
+<indexterm zone="g-param-spec-get-default-value" role="2.38"><primary sortas="param_spec_get_default_value">g_param_spec_get_default_value</primary></indexterm>
+<programlisting language="C">const <link linkend="GValue"><returnvalue>GValue</returnvalue></link>&#160;*
+g_param_spec_get_default_value (<parameter><link linkend="GParamSpec"><type>GParamSpec</type></link> *pspec</parameter>);</programlisting>
+<para>Gets the default value of <parameter>pspec</parameter>
+ as a pointer to a <link linkend="GValue"><type>GValue</type></link>.</para>
+<para>The <link linkend="GValue"><type>GValue</type></link> will remain valid for the life of <parameter>pspec</parameter>
+.</para>
+<refsect3 id="g-param-spec-get-default-value.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>pspec</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GParamSpec"><type>GParamSpec</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-param-spec-get-default-value.returns" role="returns">
+<title>Returns</title>
+<para> a pointer to a <link linkend="GValue"><type>GValue</type></link> which must not be modified</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.38">2.38</link></para></refsect2>
+<refsect2 id="g-param-value-set-default" role="function">
+<title>g_param_value_set_default&#160;()</title>
+<indexterm zone="g-param-value-set-default"><primary sortas="param_value_set_default">g_param_value_set_default</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_param_value_set_default (<parameter><link linkend="GParamSpec"><type>GParamSpec</type></link> *pspec</parameter>,
+                           <parameter><link linkend="GValue"><type>GValue</type></link> *value</parameter>);</programlisting>
+<para>Sets <parameter>value</parameter>
+ to its default value as specified in <parameter>pspec</parameter>
+.</para>
+<refsect3 id="g-param-value-set-default.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>pspec</para></entry>
+<entry role="parameter_description"><para>a valid <link linkend="GParamSpec"><type>GParamSpec</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>value</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GValue"><type>GValue</type></link> of correct type for <parameter>pspec</parameter>
+</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-param-value-defaults" role="function">
+<title>g_param_value_defaults&#160;()</title>
+<indexterm zone="g-param-value-defaults"><primary sortas="param_value_defaults">g_param_value_defaults</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_param_value_defaults (<parameter><link linkend="GParamSpec"><type>GParamSpec</type></link> *pspec</parameter>,
+                        <parameter><link linkend="GValue"><type>GValue</type></link> *value</parameter>);</programlisting>
+<para>Checks whether <parameter>value</parameter>
+ contains the default value as specified in <parameter>pspec</parameter>
+.</para>
+<refsect3 id="g-param-value-defaults.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>pspec</para></entry>
+<entry role="parameter_description"><para>a valid <link linkend="GParamSpec"><type>GParamSpec</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>value</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GValue"><type>GValue</type></link> of correct type for <parameter>pspec</parameter>
+</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-param-value-defaults.returns" role="returns">
+<title>Returns</title>
+<para> whether <parameter>value</parameter>
+contains the canonical default for this <parameter>pspec</parameter>
+</para>
+</refsect3></refsect2>
+<refsect2 id="g-param-value-validate" role="function">
+<title>g_param_value_validate&#160;()</title>
+<indexterm zone="g-param-value-validate"><primary sortas="param_value_validate">g_param_value_validate</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_param_value_validate (<parameter><link linkend="GParamSpec"><type>GParamSpec</type></link> *pspec</parameter>,
+                        <parameter><link linkend="GValue"><type>GValue</type></link> *value</parameter>);</programlisting>
+<para>Ensures that the contents of <parameter>value</parameter>
+ comply with the specifications
+set out by <parameter>pspec</parameter>
+. For example, a <link linkend="GParamSpecInt"><type>GParamSpecInt</type></link> might require
+that integers stored in <parameter>value</parameter>
+ may not be smaller than -42 and not be
+greater than +42. If <parameter>value</parameter>
+ contains an integer outside of this range,
+it is modified accordingly, so the resulting value will fit into the
+range -42 .. +42.</para>
+<refsect3 id="g-param-value-validate.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>pspec</para></entry>
+<entry role="parameter_description"><para>a valid <link linkend="GParamSpec"><type>GParamSpec</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>value</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GValue"><type>GValue</type></link> of correct type for <parameter>pspec</parameter>
+</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-param-value-validate.returns" role="returns">
+<title>Returns</title>
+<para> whether modifying <parameter>value</parameter>
+was necessary to ensure validity</para>
+</refsect3></refsect2>
+<refsect2 id="g-param-value-convert" role="function">
+<title>g_param_value_convert&#160;()</title>
+<indexterm zone="g-param-value-convert"><primary sortas="param_value_convert">g_param_value_convert</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_param_value_convert (<parameter><link linkend="GParamSpec"><type>GParamSpec</type></link> *pspec</parameter>,
+                       <parameter>const <link linkend="GValue"><type>GValue</type></link> *src_value</parameter>,
+                       <parameter><link linkend="GValue"><type>GValue</type></link> *dest_value</parameter>,
+                       <parameter><link linkend="gboolean"><type>gboolean</type></link> strict_validation</parameter>);</programlisting>
+<para>Transforms <parameter>src_value</parameter>
+ into <parameter>dest_value</parameter>
+ if possible, and then
+validates <parameter>dest_value</parameter>
+, in order for it to conform to <parameter>pspec</parameter>
+.  If
+<parameter>strict_validation</parameter>
+ is <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> this function will only succeed if the
+transformed <parameter>dest_value</parameter>
+ complied to <parameter>pspec</parameter>
+ without modifications.</para>
+<para>See also <link linkend="g-value-type-transformable"><function>g_value_type_transformable()</function></link>, <link linkend="g-value-transform"><function>g_value_transform()</function></link> and
+<link linkend="g-param-value-validate"><function>g_param_value_validate()</function></link>.</para>
+<refsect3 id="g-param-value-convert.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>pspec</para></entry>
+<entry role="parameter_description"><para>a valid <link linkend="GParamSpec"><type>GParamSpec</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>src_value</para></entry>
+<entry role="parameter_description"><para>souce <link linkend="GValue"><type>GValue</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>dest_value</para></entry>
+<entry role="parameter_description"><para>destination <link linkend="GValue"><type>GValue</type></link> of correct type for <parameter>pspec</parameter>
+</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>strict_validation</para></entry>
+<entry role="parameter_description"><para><link linkend="TRUE:CAPS"><literal>TRUE</literal></link> requires <parameter>dest_value</parameter>
+to conform to <parameter>pspec</parameter>
+without modifications</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-param-value-convert.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if transformation and validation were successful,
+<link linkend="FALSE:CAPS"><literal>FALSE</literal></link> otherwise and <parameter>dest_value</parameter>
+is left untouched.</para>
+</refsect3></refsect2>
+<refsect2 id="g-param-values-cmp" role="function">
+<title>g_param_values_cmp&#160;()</title>
+<indexterm zone="g-param-values-cmp"><primary sortas="param_values_cmp">g_param_values_cmp</primary></indexterm>
+<programlisting language="C"><link linkend="gint"><returnvalue>gint</returnvalue></link>
+g_param_values_cmp (<parameter><link linkend="GParamSpec"><type>GParamSpec</type></link> *pspec</parameter>,
+                    <parameter>const <link linkend="GValue"><type>GValue</type></link> *value1</parameter>,
+                    <parameter>const <link linkend="GValue"><type>GValue</type></link> *value2</parameter>);</programlisting>
+<para>Compares <parameter>value1</parameter>
+ with <parameter>value2</parameter>
+ according to <parameter>pspec</parameter>
+, and return -1, 0 or +1,
+if <parameter>value1</parameter>
+ is found to be less than, equal to or greater than <parameter>value2</parameter>
+,
+respectively.</para>
+<refsect3 id="g-param-values-cmp.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>pspec</para></entry>
+<entry role="parameter_description"><para>a valid <link linkend="GParamSpec"><type>GParamSpec</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>value1</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GValue"><type>GValue</type></link> of correct type for <parameter>pspec</parameter>
+</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>value2</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GValue"><type>GValue</type></link> of correct type for <parameter>pspec</parameter>
+</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-param-values-cmp.returns" role="returns">
+<title>Returns</title>
+<para> -1, 0 or +1, for a less than, equal to or greater than result</para>
+</refsect3></refsect2>
+<refsect2 id="g-param-spec-get-name" role="function">
+<title>g_param_spec_get_name&#160;()</title>
+<indexterm zone="g-param-spec-get-name"><primary sortas="param_spec_get_name">g_param_spec_get_name</primary></indexterm>
+<programlisting language="C">const <link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+g_param_spec_get_name (<parameter><link linkend="GParamSpec"><type>GParamSpec</type></link> *pspec</parameter>);</programlisting>
+<para>Get the name of a <link linkend="GParamSpec"><type>GParamSpec</type></link>.</para>
+<para>The name is always an "interned" string (as per <link linkend="g-intern-string"><function>g_intern_string()</function></link>).
+This allows for pointer-value comparisons.</para>
+<refsect3 id="g-param-spec-get-name.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>pspec</para></entry>
+<entry role="parameter_description"><para>a valid <link linkend="GParamSpec"><type>GParamSpec</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-param-spec-get-name.returns" role="returns">
+<title>Returns</title>
+<para> the name of <parameter>pspec</parameter>
+.</para>
+</refsect3></refsect2>
+<refsect2 id="g-param-spec-get-name-quark" role="function" condition="since:2.46">
+<title>g_param_spec_get_name_quark&#160;()</title>
+<indexterm zone="g-param-spec-get-name-quark" role="2.46"><primary sortas="param_spec_get_name_quark">g_param_spec_get_name_quark</primary></indexterm>
+<programlisting language="C"><link linkend="GQuark"><returnvalue>GQuark</returnvalue></link>
+g_param_spec_get_name_quark (<parameter><link linkend="GParamSpec"><type>GParamSpec</type></link> *pspec</parameter>);</programlisting>
+<para>Gets the GQuark for the name.</para>
+<refsect3 id="g-param-spec-get-name-quark.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>pspec</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GParamSpec"><type>GParamSpec</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-param-spec-get-name-quark.returns" role="returns">
+<title>Returns</title>
+<para> the GQuark for <parameter>pspec->name</parameter>
+.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.46">2.46</link></para></refsect2>
+<refsect2 id="g-param-spec-get-nick" role="function">
+<title>g_param_spec_get_nick&#160;()</title>
+<indexterm zone="g-param-spec-get-nick"><primary sortas="param_spec_get_nick">g_param_spec_get_nick</primary></indexterm>
+<programlisting language="C">const <link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+g_param_spec_get_nick (<parameter><link linkend="GParamSpec"><type>GParamSpec</type></link> *pspec</parameter>);</programlisting>
+<para>Get the nickname of a <link linkend="GParamSpec"><type>GParamSpec</type></link>.</para>
+<refsect3 id="g-param-spec-get-nick.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>pspec</para></entry>
+<entry role="parameter_description"><para>a valid <link linkend="GParamSpec"><type>GParamSpec</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-param-spec-get-nick.returns" role="returns">
+<title>Returns</title>
+<para> the nickname of <parameter>pspec</parameter>
+.</para>
+</refsect3></refsect2>
+<refsect2 id="g-param-spec-get-blurb" role="function">
+<title>g_param_spec_get_blurb&#160;()</title>
+<indexterm zone="g-param-spec-get-blurb"><primary sortas="param_spec_get_blurb">g_param_spec_get_blurb</primary></indexterm>
+<programlisting language="C">const <link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+g_param_spec_get_blurb (<parameter><link linkend="GParamSpec"><type>GParamSpec</type></link> *pspec</parameter>);</programlisting>
+<para>Get the short description of a <link linkend="GParamSpec"><type>GParamSpec</type></link>.</para>
+<refsect3 id="g-param-spec-get-blurb.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>pspec</para></entry>
+<entry role="parameter_description"><para>a valid <link linkend="GParamSpec"><type>GParamSpec</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-param-spec-get-blurb.returns" role="returns">
+<title>Returns</title>
+<para> the short description of <parameter>pspec</parameter>
+.</para>
+</refsect3></refsect2>
+<refsect2 id="g-param-spec-get-qdata" role="function">
+<title>g_param_spec_get_qdata&#160;()</title>
+<indexterm zone="g-param-spec-get-qdata"><primary sortas="param_spec_get_qdata">g_param_spec_get_qdata</primary></indexterm>
+<programlisting language="C"><link linkend="gpointer"><returnvalue>gpointer</returnvalue></link>
+g_param_spec_get_qdata (<parameter><link linkend="GParamSpec"><type>GParamSpec</type></link> *pspec</parameter>,
+                        <parameter><link linkend="GQuark"><type>GQuark</type></link> quark</parameter>);</programlisting>
+<para>Gets back user data pointers stored via <link linkend="g-param-spec-set-qdata"><function>g_param_spec_set_qdata()</function></link>.</para>
+<refsect3 id="g-param-spec-get-qdata.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>pspec</para></entry>
+<entry role="parameter_description"><para>a valid <link linkend="GParamSpec"><type>GParamSpec</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>quark</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GQuark"><type>GQuark</type></link>, naming the user data pointer</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-param-spec-get-qdata.returns" role="returns">
+<title>Returns</title>
+<para>the user data pointer set, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para>
+<para><emphasis role="annotation">[<acronym>transfer none</acronym>]</emphasis></para>
+</refsect3></refsect2>
+<refsect2 id="g-param-spec-set-qdata" role="function">
+<title>g_param_spec_set_qdata&#160;()</title>
+<indexterm zone="g-param-spec-set-qdata"><primary sortas="param_spec_set_qdata">g_param_spec_set_qdata</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_param_spec_set_qdata (<parameter><link linkend="GParamSpec"><type>GParamSpec</type></link> *pspec</parameter>,
+                        <parameter><link linkend="GQuark"><type>GQuark</type></link> quark</parameter>,
+                        <parameter><link linkend="gpointer"><type>gpointer</type></link> data</parameter>);</programlisting>
+<para>Sets an opaque, named pointer on a <link linkend="GParamSpec"><type>GParamSpec</type></link>. The name is
+specified through a <link linkend="GQuark"><type>GQuark</type></link> (retrieved e.g. via
+<link linkend="g-quark-from-static-string"><function>g_quark_from_static_string()</function></link>), and the pointer can be gotten back
+from the <parameter>pspec</parameter>
+ with <link linkend="g-param-spec-get-qdata"><function>g_param_spec_get_qdata()</function></link>.  Setting a
+previously set user data pointer, overrides (frees) the old pointer
+set, using <link linkend="NULL:CAPS"><literal>NULL</literal></link> as pointer essentially removes the data stored.</para>
+<refsect3 id="g-param-spec-set-qdata.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>pspec</para></entry>
+<entry role="parameter_description"><para>the <link linkend="GParamSpec"><type>GParamSpec</type></link> to set store a user data pointer</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>quark</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GQuark"><type>GQuark</type></link>, naming the user data pointer</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>data</para></entry>
+<entry role="parameter_description"><para>an opaque user data pointer</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-param-spec-set-qdata-full" role="function">
+<title>g_param_spec_set_qdata_full&#160;()</title>
+<indexterm zone="g-param-spec-set-qdata-full"><primary sortas="param_spec_set_qdata_full">g_param_spec_set_qdata_full</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_param_spec_set_qdata_full (<parameter><link linkend="GParamSpec"><type>GParamSpec</type></link> *pspec</parameter>,
+                             <parameter><link linkend="GQuark"><type>GQuark</type></link> quark</parameter>,
+                             <parameter><link linkend="gpointer"><type>gpointer</type></link> data</parameter>,
+                             <parameter><link linkend="GDestroyNotify"><type>GDestroyNotify</type></link> destroy</parameter>);</programlisting>
+<para>This function works like <link linkend="g-param-spec-set-qdata"><function>g_param_spec_set_qdata()</function></link>, but in addition,
+a <literal>void (*destroy) (gpointer)</literal> function may be
+specified which is called with <parameter>data</parameter>
+ as argument when the <parameter>pspec</parameter>
+ is
+finalized, or the data is being overwritten by a call to
+<link linkend="g-param-spec-set-qdata"><function>g_param_spec_set_qdata()</function></link> with the same <parameter>quark</parameter>
+.</para>
+
+<para><emphasis role="annotation">[<acronym>skip</acronym>]</emphasis></para><refsect3 id="g-param-spec-set-qdata-full.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>pspec</para></entry>
+<entry role="parameter_description"><para>the <link linkend="GParamSpec"><type>GParamSpec</type></link> to set store a user data pointer</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>quark</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GQuark"><type>GQuark</type></link>, naming the user data pointer</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>data</para></entry>
+<entry role="parameter_description"><para>an opaque user data pointer</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>destroy</para></entry>
+<entry role="parameter_description"><para>function to invoke with <parameter>data</parameter>
+as argument, when <parameter>data</parameter>
+needs to
+be freed</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-param-spec-steal-qdata" role="function">
+<title>g_param_spec_steal_qdata&#160;()</title>
+<indexterm zone="g-param-spec-steal-qdata"><primary sortas="param_spec_steal_qdata">g_param_spec_steal_qdata</primary></indexterm>
+<programlisting language="C"><link linkend="gpointer"><returnvalue>gpointer</returnvalue></link>
+g_param_spec_steal_qdata (<parameter><link linkend="GParamSpec"><type>GParamSpec</type></link> *pspec</parameter>,
+                          <parameter><link linkend="GQuark"><type>GQuark</type></link> quark</parameter>);</programlisting>
+<para>Gets back user data pointers stored via <link linkend="g-param-spec-set-qdata"><function>g_param_spec_set_qdata()</function></link>
+and removes the <parameter>data</parameter>
+ from <parameter>pspec</parameter>
+ without invoking its <link linkend="destroy"><function>destroy()</function></link>
+function (if any was set).  Usually, calling this function is only
+required to update user data pointers with a destroy notifier.</para>
+<refsect3 id="g-param-spec-steal-qdata.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>pspec</para></entry>
+<entry role="parameter_description"><para>the <link linkend="GParamSpec"><type>GParamSpec</type></link> to get a stored user data pointer from</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>quark</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GQuark"><type>GQuark</type></link>, naming the user data pointer</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-param-spec-steal-qdata.returns" role="returns">
+<title>Returns</title>
+<para>the user data pointer set, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para>
+<para><emphasis role="annotation">[<acronym>transfer none</acronym>]</emphasis></para>
+</refsect3></refsect2>
+<refsect2 id="g-param-spec-get-redirect-target" role="function" condition="since:2.4">
+<title>g_param_spec_get_redirect_target&#160;()</title>
+<indexterm zone="g-param-spec-get-redirect-target" role="2.4"><primary sortas="param_spec_get_redirect_target">g_param_spec_get_redirect_target</primary></indexterm>
+<programlisting language="C"><link linkend="GParamSpec"><returnvalue>GParamSpec</returnvalue></link>&#160;*
+g_param_spec_get_redirect_target (<parameter><link linkend="GParamSpec"><type>GParamSpec</type></link> *pspec</parameter>);</programlisting>
+<para>If the paramspec redirects operations to another paramspec,
+returns that paramspec. Redirect is used typically for
+providing a new implementation of a property in a derived
+type while preserving all the properties from the parent
+type. Redirection is established by creating a property
+of type <link linkend="GParamSpecOverride"><type>GParamSpecOverride</type></link>. See <link linkend="g-object-class-override-property"><function>g_object_class_override_property()</function></link>
+for an example of the use of this capability.</para>
+<refsect3 id="g-param-spec-get-redirect-target.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>pspec</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GParamSpec"><type>GParamSpec</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-param-spec-get-redirect-target.returns" role="returns">
+<title>Returns</title>
+<para>paramspec to which requests on this
+paramspec should be redirected, or <link linkend="NULL:CAPS"><literal>NULL</literal></link> if none. </para>
+<para><emphasis role="annotation">[<acronym>transfer none</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.4">2.4</link></para></refsect2>
+<refsect2 id="g-param-spec-internal" role="function">
+<title>g_param_spec_internal&#160;()</title>
+<indexterm zone="g-param-spec-internal"><primary sortas="param_spec_internal">g_param_spec_internal</primary></indexterm>
+<programlisting language="C"><link linkend="gpointer"><returnvalue>gpointer</returnvalue></link>
+g_param_spec_internal (<parameter><link linkend="GType"><type>GType</type></link> param_type</parameter>,
+                       <parameter>const <link linkend="gchar"><type>gchar</type></link> *name</parameter>,
+                       <parameter>const <link linkend="gchar"><type>gchar</type></link> *nick</parameter>,
+                       <parameter>const <link linkend="gchar"><type>gchar</type></link> *blurb</parameter>,
+                       <parameter><link linkend="GParamFlags"><type>GParamFlags</type></link> flags</parameter>);</programlisting>
+<para>Creates a new <link linkend="GParamSpec"><type>GParamSpec</type></link> instance.</para>
+<para>A property name consists of segments consisting of ASCII letters and
+digits, separated by either the '-' or '_' character. The first
+character of a property name must be a letter. Names which violate these
+rules lead to undefined behaviour.</para>
+<para>When creating and looking up a <link linkend="GParamSpec"><type>GParamSpec</type></link>, either separator can be
+used, but they cannot be mixed. Using '-' is considerably more
+efficient and in fact required when using property names as detail
+strings for signals.</para>
+<para>Beyond the name, <link linkend="GParamSpecs"><type>GParamSpecs</type></link> have two more descriptive
+strings associated with them, the <parameter>nick</parameter>
+, which should be suitable
+for use as a label for the property in a property editor, and the
+<parameter>blurb</parameter>
+, which should be a somewhat longer description, suitable for
+e.g. a tooltip. The <parameter>nick</parameter>
+ and <parameter>blurb</parameter>
+ should ideally be localized.</para>
+
+<para><emphasis role="annotation">[<acronym>skip</acronym>]</emphasis></para><refsect3 id="g-param-spec-internal.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>param_type</para></entry>
+<entry role="parameter_description"><para>the <link linkend="GType"><type>GType</type></link> for the property; must be derived from <link linkend="G-TYPE-PARAM:CAPS"><type>G_TYPE_PARAM</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>name</para></entry>
+<entry role="parameter_description"><para>the canonical name of the property</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>nick</para></entry>
+<entry role="parameter_description"><para>the nickname of the property</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>blurb</para></entry>
+<entry role="parameter_description"><para>a short description of the property</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>flags</para></entry>
+<entry role="parameter_description"><para>a combination of <link linkend="GParamFlags"><type>GParamFlags</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-param-spec-internal.returns" role="returns">
+<title>Returns</title>
+<para>a newly allocated <link linkend="GParamSpec"><type>GParamSpec</type></link> instance. </para>
+<para><emphasis role="annotation">[<acronym>type</acronym> GObject.ParamSpec]</emphasis></para>
+</refsect3></refsect2>
+<refsect2 id="g-param-type-register-static" role="function">
+<title>g_param_type_register_static&#160;()</title>
+<indexterm zone="g-param-type-register-static"><primary sortas="param_type_register_static">g_param_type_register_static</primary></indexterm>
+<programlisting language="C"><link linkend="GType"><returnvalue>GType</returnvalue></link>
+g_param_type_register_static (<parameter>const <link linkend="gchar"><type>gchar</type></link> *name</parameter>,
+                              <parameter>const <link linkend="GParamSpecTypeInfo"><type>GParamSpecTypeInfo</type></link> *pspec_info</parameter>);</programlisting>
+<para>Registers <parameter>name</parameter>
+ as the name of a new static type derived from
+<link linkend="G-TYPE-PARAM:CAPS"><type>G_TYPE_PARAM</type></link>. The type system uses the information contained in
+the <link linkend="GParamSpecTypeInfo"><type>GParamSpecTypeInfo</type></link> structure pointed to by <parameter>info</parameter>
+ to manage the
+<link linkend="GParamSpec"><type>GParamSpec</type></link> type and its instances.</para>
+<refsect3 id="g-param-type-register-static.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>name</para></entry>
+<entry role="parameter_description"><para>0-terminated string used as the name of the new <link linkend="GParamSpec"><type>GParamSpec</type></link> type.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>pspec_info</para></entry>
+<entry role="parameter_description"><para>The <link linkend="GParamSpecTypeInfo"><type>GParamSpecTypeInfo</type></link> for this <link linkend="GParamSpec"><type>GParamSpec</type></link> type.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-param-type-register-static.returns" role="returns">
+<title>Returns</title>
+<para> The new type identifier.</para>
+</refsect3></refsect2>
+<refsect2 id="g-param-spec-pool-new" role="function">
+<title>g_param_spec_pool_new&#160;()</title>
+<indexterm zone="g-param-spec-pool-new"><primary sortas="param_spec_pool_new">g_param_spec_pool_new</primary></indexterm>
+<programlisting language="C"><link linkend="GParamSpecPool"><returnvalue>GParamSpecPool</returnvalue></link>&#160;*
+g_param_spec_pool_new (<parameter><link linkend="gboolean"><type>gboolean</type></link> type_prefixing</parameter>);</programlisting>
+<para>Creates a new <link linkend="GParamSpecPool"><type>GParamSpecPool</type></link>.</para>
+<para>If <parameter>type_prefixing</parameter>
+ is <link linkend="TRUE:CAPS"><literal>TRUE</literal></link>, lookups in the newly created pool will
+allow to specify the owner as a colon-separated prefix of the
+property name, like "GtkContainer:border-width". This feature is
+deprecated, so you should always set <parameter>type_prefixing</parameter>
+ to <link linkend="FALSE:CAPS"><literal>FALSE</literal></link>.</para>
+<refsect3 id="g-param-spec-pool-new.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>type_prefixing</para></entry>
+<entry role="parameter_description"><para>Whether the pool will support type-prefixed property names.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-param-spec-pool-new.returns" role="returns">
+<title>Returns</title>
+<para>a newly allocated <link linkend="GParamSpecPool"><type>GParamSpecPool</type></link>. </para>
+<para><emphasis role="annotation">[<acronym>transfer none</acronym>]</emphasis></para>
+</refsect3></refsect2>
+<refsect2 id="g-param-spec-pool-insert" role="function">
+<title>g_param_spec_pool_insert&#160;()</title>
+<indexterm zone="g-param-spec-pool-insert"><primary sortas="param_spec_pool_insert">g_param_spec_pool_insert</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_param_spec_pool_insert (<parameter><link linkend="GParamSpecPool"><type>GParamSpecPool</type></link> *pool</parameter>,
+                          <parameter><link linkend="GParamSpec"><type>GParamSpec</type></link> *pspec</parameter>,
+                          <parameter><link linkend="GType"><type>GType</type></link> owner_type</parameter>);</programlisting>
+<para>Inserts a <link linkend="GParamSpec"><type>GParamSpec</type></link> in the pool.</para>
+<refsect3 id="g-param-spec-pool-insert.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>pool</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GParamSpecPool"><type>GParamSpecPool</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>pspec</para></entry>
+<entry role="parameter_description"><para>the <link linkend="GParamSpec"><type>GParamSpec</type></link> to insert</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>owner_type</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GType"><type>GType</type></link> identifying the owner of <parameter>pspec</parameter>
+</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-param-spec-pool-remove" role="function">
+<title>g_param_spec_pool_remove&#160;()</title>
+<indexterm zone="g-param-spec-pool-remove"><primary sortas="param_spec_pool_remove">g_param_spec_pool_remove</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_param_spec_pool_remove (<parameter><link linkend="GParamSpecPool"><type>GParamSpecPool</type></link> *pool</parameter>,
+                          <parameter><link linkend="GParamSpec"><type>GParamSpec</type></link> *pspec</parameter>);</programlisting>
+<para>Removes a <link linkend="GParamSpec"><type>GParamSpec</type></link> from the pool.</para>
+<refsect3 id="g-param-spec-pool-remove.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>pool</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GParamSpecPool"><type>GParamSpecPool</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>pspec</para></entry>
+<entry role="parameter_description"><para>the <link linkend="GParamSpec"><type>GParamSpec</type></link> to remove</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-param-spec-pool-lookup" role="function">
+<title>g_param_spec_pool_lookup&#160;()</title>
+<indexterm zone="g-param-spec-pool-lookup"><primary sortas="param_spec_pool_lookup">g_param_spec_pool_lookup</primary></indexterm>
+<programlisting language="C"><link linkend="GParamSpec"><returnvalue>GParamSpec</returnvalue></link>&#160;*
+g_param_spec_pool_lookup (<parameter><link linkend="GParamSpecPool"><type>GParamSpecPool</type></link> *pool</parameter>,
+                          <parameter>const <link linkend="gchar"><type>gchar</type></link> *param_name</parameter>,
+                          <parameter><link linkend="GType"><type>GType</type></link> owner_type</parameter>,
+                          <parameter><link linkend="gboolean"><type>gboolean</type></link> walk_ancestors</parameter>);</programlisting>
+<para>Looks up a <link linkend="GParamSpec"><type>GParamSpec</type></link> in the pool.</para>
+<refsect3 id="g-param-spec-pool-lookup.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>pool</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GParamSpecPool"><type>GParamSpecPool</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>param_name</para></entry>
+<entry role="parameter_description"><para>the name to look for</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>owner_type</para></entry>
+<entry role="parameter_description"><para>the owner to look for</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>walk_ancestors</para></entry>
+<entry role="parameter_description"><para>If <link linkend="TRUE:CAPS"><literal>TRUE</literal></link>, also try to find a <link linkend="GParamSpec"><type>GParamSpec</type></link> with <parameter>param_name</parameter>
+owned by an ancestor of <parameter>owner_type</parameter>
+.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-param-spec-pool-lookup.returns" role="returns">
+<title>Returns</title>
+<para>The found <link linkend="GParamSpec"><type>GParamSpec</type></link>, or <link linkend="NULL:CAPS"><literal>NULL</literal></link> if no
+matching <link linkend="GParamSpec"><type>GParamSpec</type></link> was found. </para>
+<para><emphasis role="annotation">[<acronym>transfer none</acronym>]</emphasis></para>
+</refsect3></refsect2>
+<refsect2 id="g-param-spec-pool-list" role="function">
+<title>g_param_spec_pool_list&#160;()</title>
+<indexterm zone="g-param-spec-pool-list"><primary sortas="param_spec_pool_list">g_param_spec_pool_list</primary></indexterm>
+<programlisting language="C"><link linkend="GParamSpec"><returnvalue>GParamSpec</returnvalue></link>&#160;**
+g_param_spec_pool_list (<parameter><link linkend="GParamSpecPool"><type>GParamSpecPool</type></link> *pool</parameter>,
+                        <parameter><link linkend="GType"><type>GType</type></link> owner_type</parameter>,
+                        <parameter><link linkend="guint"><type>guint</type></link> *n_pspecs_p</parameter>);</programlisting>
+<para>Gets an array of all <link linkend="GParamSpecs"><type>GParamSpecs</type></link> owned by <parameter>owner_type</parameter>
+ in
+the pool.</para>
+<refsect3 id="g-param-spec-pool-list.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>pool</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GParamSpecPool"><type>GParamSpecPool</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>owner_type</para></entry>
+<entry role="parameter_description"><para>the owner to look for</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>n_pspecs_p</para></entry>
+<entry role="parameter_description"><para>return location for the length of the returned array. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>out</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-param-spec-pool-list.returns" role="returns">
+<title>Returns</title>
+<para>a newly
+allocated array containing pointers to all <link linkend="GParamSpecs"><type>GParamSpecs</type></link>
+owned by <parameter>owner_type</parameter>
+in the pool. </para>
+<para><emphasis role="annotation">[<acronym>array</acronym> length=n_pspecs_p][<acronym>transfer container</acronym>]</emphasis></para>
+</refsect3></refsect2>
+<refsect2 id="g-param-spec-pool-list-owned" role="function">
+<title>g_param_spec_pool_list_owned&#160;()</title>
+<indexterm zone="g-param-spec-pool-list-owned"><primary sortas="param_spec_pool_list_owned">g_param_spec_pool_list_owned</primary></indexterm>
+<programlisting language="C"><link linkend="GList"><returnvalue>GList</returnvalue></link>&#160;*
+g_param_spec_pool_list_owned (<parameter><link linkend="GParamSpecPool"><type>GParamSpecPool</type></link> *pool</parameter>,
+                              <parameter><link linkend="GType"><type>GType</type></link> owner_type</parameter>);</programlisting>
+<para>Gets an <link linkend="GList"><type>GList</type></link> of all <link linkend="GParamSpecs"><type>GParamSpecs</type></link> owned by <parameter>owner_type</parameter>
+ in
+the pool.</para>
+<refsect3 id="g-param-spec-pool-list-owned.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>pool</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GParamSpecPool"><type>GParamSpecPool</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>owner_type</para></entry>
+<entry role="parameter_description"><para>the owner to look for</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-param-spec-pool-list-owned.returns" role="returns">
+<title>Returns</title>
+<para>a
+<link linkend="GList"><type>GList</type></link> of all <link linkend="GParamSpecs"><type>GParamSpecs</type></link> owned by <parameter>owner_type</parameter>
+in
+the pool<link linkend="GParamSpecs"><type>GParamSpecs</type></link>. </para>
+<para><emphasis role="annotation">[<acronym>transfer container</acronym>][<acronym>element-type</acronym> GObject.ParamSpec]</emphasis></para>
+</refsect3></refsect2>
+
+</refsect1>
+<refsect1 id="gobject-GParamSpec.other_details" role="details">
+<title role="details.title">Types and Values</title>
+<refsect2 id="GParamSpec" role="struct">
+<title>struct GParamSpec</title>
+<indexterm zone="GParamSpec"><primary sortas="ParamSpec">GParamSpec</primary></indexterm>
+<programlisting language="C">struct GParamSpec {
+  GTypeInstance  g_type_instance;
+
+  const gchar   *name;          /* interned string */
+  GParamFlags    flags;
+  GType		 value_type;
+  GType		 owner_type;&#160;/* class or interface using this property */
+};
+</programlisting>
+<para>All other fields of the GParamSpec struct are private and
+should not be used directly.</para>
+<refsect3 id="GParamSpec.members" role="struct_members">
+<title>Members</title>
+<informaltable role="struct_members_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="struct_members_name" colwidth="300px"/>
+<colspec colname="struct_members_description"/>
+<colspec colname="struct_members_annotations" colwidth="200px"/>
+<tbody>
+<row role="member"><entry role="struct_member_name"><para><link linkend="GTypeInstance"><type>GTypeInstance</type></link>&#160;<structfield id="GParamSpec.g-type-instance">g_type_instance</structfield>;</para></entry>
+<entry role="struct_member_description"><para>private <link linkend="GTypeInstance"><type>GTypeInstance</type></link> portion</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para>const&#160;<link linkend="gchar"><type>gchar</type></link>&#160;*<structfield id="GParamSpec.name">name</structfield>;</para></entry>
+<entry role="struct_member_description"><para>name of this parameter: always an interned string</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><link linkend="GParamFlags"><type>GParamFlags</type></link>&#160;<structfield id="GParamSpec.flags">flags</structfield>;</para></entry>
+<entry role="struct_member_description"><para><link linkend="GParamFlags"><type>GParamFlags</type></link> flags for this parameter</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><link linkend="GType"><type>GType</type></link>&#160;<structfield id="GParamSpec.value-type">value_type</structfield>;</para></entry>
+<entry role="struct_member_description"><para>the <link linkend="GValue"><type>GValue</type></link> type for this parameter</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><link linkend="GType"><type>GType</type></link>&#160;<structfield id="GParamSpec.owner-type">owner_type</structfield>;</para></entry>
+<entry role="struct_member_description"><para><link linkend="GType"><type>GType</type></link> type that uses (introduces) this parameter</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+</tbody></tgroup></informaltable>
+</refsect3>
+</refsect2>
+<refsect2 id="GParamSpecClass" role="struct">
+<title>struct GParamSpecClass</title>
+<indexterm zone="GParamSpecClass"><primary sortas="ParamSpecClass">GParamSpecClass</primary></indexterm>
+<programlisting language="C">struct GParamSpecClass {
+  GTypeClass      g_type_class;
+
+  GType		  value_type;
+
+  void	        (*finalize)		(GParamSpec   *pspec);
+
+  /* GParam methods */
+  void          (*value_set_default)    (GParamSpec   *pspec,
+					 GValue       *value);
+  gboolean      (*value_validate)       (GParamSpec   *pspec,
+					 GValue       *value);
+  gint          (*values_cmp)           (GParamSpec   *pspec,
+					 const GValue *value1,
+					 const GValue *value2);
+};
+</programlisting>
+<para>The class structure for the GParamSpec type.
+Normally, GParamSpec classes are filled by
+<link linkend="g-param-type-register-static"><function>g_param_type_register_static()</function></link>.</para>
+<refsect3 id="GParamSpecClass.members" role="struct_members">
+<title>Members</title>
+<informaltable role="struct_members_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="struct_members_name" colwidth="300px"/>
+<colspec colname="struct_members_description"/>
+<colspec colname="struct_members_annotations" colwidth="200px"/>
+<tbody>
+<row role="member"><entry role="struct_member_name"><para><link linkend="GTypeClass"><type>GTypeClass</type></link>&#160;<structfield id="GParamSpecClass.g-type-class">g_type_class</structfield>;</para></entry>
+<entry role="struct_member_description"><para>the parent class</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><link linkend="GType"><type>GType</type></link>&#160;<structfield id="GParamSpecClass.value-type">value_type</structfield>;</para></entry>
+<entry role="struct_member_description"><para>the <link linkend="GValue"><type>GValue</type></link> type for this parameter</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><structfield id="GParamSpecClass.finalize">finalize</structfield>&#160;()</para></entry>
+<entry role="struct_member_description"><para>The instance finalization function (optional), should chain
+up to the finalize method of the parent class.</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><structfield id="GParamSpecClass.value-set-default">value_set_default</structfield>&#160;()</para></entry>
+<entry role="struct_member_description"><para>Resets a <parameter>value</parameter>
+to the default value for this type
+(recommended, the default is <link linkend="g-value-reset"><function>g_value_reset()</function></link>), see
+<link linkend="g-param-value-set-default"><function>g_param_value_set_default()</function></link>.</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><structfield id="GParamSpecClass.value-validate">value_validate</structfield>&#160;()</para></entry>
+<entry role="struct_member_description"><para>Ensures that the contents of <parameter>value</parameter>
+comply with the
+specifications set out by this type (optional), see
+<link linkend="g-param-value-validate"><function>g_param_value_validate()</function></link>.</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><structfield id="GParamSpecClass.values-cmp">values_cmp</structfield>&#160;()</para></entry>
+<entry role="struct_member_description"><para>Compares <parameter>value1</parameter>
+with <parameter>value2</parameter>
+according to this type
+(recommended, the default is <link linkend="memcmp"><function>memcmp()</function></link>), see <link linkend="g-param-values-cmp"><function>g_param_values_cmp()</function></link>.</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+</tbody></tgroup></informaltable>
+</refsect3>
+</refsect2>
+<refsect2 id="GParamFlags" role="enum">
+<title>enum GParamFlags</title>
+<indexterm zone="GParamFlags"><primary sortas="ParamFlags">GParamFlags</primary></indexterm>
+<para>Through the <link linkend="GParamFlags"><type>GParamFlags</type></link> flag values, certain aspects of parameters
+can be configured. See also <link linkend="G-PARAM-STATIC-STRINGS:CAPS"><type>G_PARAM_STATIC_STRINGS</type></link>.</para>
+<refsect3 id="GParamFlags.members" role="enum_members">
+<title>Members</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="enum_members_name" colwidth="300px"/>
+<colspec colname="enum_members_description"/>
+<colspec colname="enum_members_annotations" colwidth="200px"/>
+<tbody>
+<row role="constant"><entry role="enum_member_name"><para id="G-PARAM-READABLE:CAPS">G_PARAM_READABLE</para></entry>
+<entry role="enum_member_description"><para>the parameter is readable</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-PARAM-WRITABLE:CAPS">G_PARAM_WRITABLE</para></entry>
+<entry role="enum_member_description"><para>the parameter is writable</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-PARAM-READWRITE:CAPS">G_PARAM_READWRITE</para></entry>
+<entry role="enum_member_description"><para>alias for <link linkend="G-PARAM-READABLE:CAPS"><literal>G_PARAM_READABLE</literal></link> | <link linkend="G-PARAM-WRITABLE:CAPS"><literal>G_PARAM_WRITABLE</literal></link></para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-PARAM-CONSTRUCT:CAPS">G_PARAM_CONSTRUCT</para></entry>
+<entry role="enum_member_description"><para>the parameter will be set upon object construction</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-PARAM-CONSTRUCT-ONLY:CAPS">G_PARAM_CONSTRUCT_ONLY</para></entry>
+<entry role="enum_member_description"><para>the parameter can only be set upon object construction</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-PARAM-LAX-VALIDATION:CAPS">G_PARAM_LAX_VALIDATION</para></entry>
+<entry role="enum_member_description"><para>upon parameter conversion (see <link linkend="g-param-value-convert"><function>g_param_value_convert()</function></link>)
+ strict validation is not required</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-PARAM-STATIC-NAME:CAPS">G_PARAM_STATIC_NAME</para></entry>
+<entry role="enum_member_description"><para>the string used as name when constructing the 
+ parameter is guaranteed to remain valid and
+ unmodified for the lifetime of the parameter. 
+ Since 2.8</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-PARAM-PRIVATE:CAPS">G_PARAM_PRIVATE</para></entry>
+<entry role="enum_member_description"><para>internal</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-PARAM-STATIC-NICK:CAPS">G_PARAM_STATIC_NICK</para></entry>
+<entry role="enum_member_description"><para>the string used as nick when constructing the
+ parameter is guaranteed to remain valid and
+ unmmodified for the lifetime of the parameter.
+ Since 2.8</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-PARAM-STATIC-BLURB:CAPS">G_PARAM_STATIC_BLURB</para></entry>
+<entry role="enum_member_description"><para>the string used as blurb when constructing the 
+ parameter is guaranteed to remain valid and 
+ unmodified for the lifetime of the parameter. 
+ Since 2.8</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-PARAM-EXPLICIT-NOTIFY:CAPS">G_PARAM_EXPLICIT_NOTIFY</para></entry>
+<entry role="enum_member_description"><para>calls to <link linkend="g-object-set-property"><function>g_object_set_property()</function></link> for this
+  property will not automatically result in a "notify" signal being
+  emitted: the implementation must call <link linkend="g-object-notify"><function>g_object_notify()</function></link> themselves
+  in case the property actually changes.  Since: 2.42.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-PARAM-DEPRECATED:CAPS">G_PARAM_DEPRECATED</para></entry>
+<entry role="enum_member_description"><para>the parameter is deprecated and will be removed
+ in a future version. A warning will be generated if it is used
+ while running with G_ENABLE_DIAGNOSTIC=1.
+ Since 2.26</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="G-PARAM-STATIC-STRINGS:CAPS" role="macro">
+<title>G_PARAM_STATIC_STRINGS</title>
+<indexterm zone="G-PARAM-STATIC-STRINGS:CAPS"><primary sortas="PARAM_STATIC_STRINGS">G_PARAM_STATIC_STRINGS</primary></indexterm>
+<programlisting language="C">#define&#160;G_PARAM_STATIC_STRINGS (G_PARAM_STATIC_NAME | G_PARAM_STATIC_NICK | G_PARAM_STATIC_BLURB)
+</programlisting>
+<para><link linkend="GParamFlags"><type>GParamFlags</type></link> value alias for <link linkend="G-PARAM-STATIC-NAME:CAPS"><literal>G_PARAM_STATIC_NAME</literal></link> | <link linkend="G-PARAM-STATIC-NICK:CAPS"><literal>G_PARAM_STATIC_NICK</literal></link> | <link linkend="G-PARAM-STATIC-BLURB:CAPS"><literal>G_PARAM_STATIC_BLURB</literal></link>.</para>
+<para>Since 2.13.0</para>
+</refsect2>
+<refsect2 id="G-PARAM-MASK:CAPS" role="macro">
+<title>G_PARAM_MASK</title>
+<indexterm zone="G-PARAM-MASK:CAPS"><primary sortas="PARAM_MASK">G_PARAM_MASK</primary></indexterm>
+<programlisting language="C">#define&#160;G_PARAM_MASK		(0x000000ff)
+</programlisting>
+<para>Mask containing the bits of <link linkend="GParamSpec.flags"><type>GParamSpec.flags</type></link> which are reserved for GLib.</para>
+</refsect2>
+<refsect2 id="G-PARAM-USER-SHIFT:CAPS" role="macro">
+<title>G_PARAM_USER_SHIFT</title>
+<indexterm zone="G-PARAM-USER-SHIFT:CAPS"><primary sortas="PARAM_USER_SHIFT">G_PARAM_USER_SHIFT</primary></indexterm>
+<programlisting language="C">#define&#160;G_PARAM_USER_SHIFT&#160;(8)
+</programlisting>
+<para>Minimum shift count to be used for user defined flags, to be stored in
+<link linkend="GParamSpec.flags"><type>GParamSpec.flags</type></link>. The maximum allowed is 10.</para>
+</refsect2>
+<refsect2 id="GParamSpecTypeInfo" role="struct">
+<title>struct GParamSpecTypeInfo</title>
+<indexterm zone="GParamSpecTypeInfo"><primary sortas="ParamSpecTypeInfo">GParamSpecTypeInfo</primary></indexterm>
+<programlisting language="C">struct GParamSpecTypeInfo {
+  /* type system portion */
+  guint16         instance_size;                               /* obligatory */
+  guint16         n_preallocs;                                 /* optional */
+  void		(*instance_init)&#160;(GParamSpec   *pspec); /* optional */
+
+  /* class portion */
+  GType           value_type;				       /* obligatory */
+  void          (*finalize)             (GParamSpec   *pspec); /* optional */
+  void          (*value_set_default)    (GParamSpec   *pspec,  /* recommended */
+					 GValue       *value);
+  gboolean      (*value_validate)       (GParamSpec   *pspec,  /* optional */
+					 GValue       *value);
+  gint          (*values_cmp)           (GParamSpec   *pspec,  /* recommended */
+					 const GValue *value1,
+					 const GValue *value2);
+};
+</programlisting>
+<para>This structure is used to provide the type system with the information
+required to initialize and destruct (finalize) a parameter's class and
+instances thereof.
+The initialized structure is passed to the <link linkend="g-param-type-register-static"><function>g_param_type_register_static()</function></link> 
+The type system will perform a deep copy of this structure, so its memory 
+does not need to be persistent across invocation of 
+<link linkend="g-param-type-register-static"><function>g_param_type_register_static()</function></link>.</para>
+<refsect3 id="GParamSpecTypeInfo.members" role="struct_members">
+<title>Members</title>
+<informaltable role="struct_members_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="struct_members_name" colwidth="300px"/>
+<colspec colname="struct_members_description"/>
+<colspec colname="struct_members_annotations" colwidth="200px"/>
+<tbody>
+<row role="member"><entry role="struct_member_name"><para><link linkend="guint16"><type>guint16</type></link>&#160;<structfield id="GParamSpecTypeInfo.instance-size">instance_size</structfield>;</para></entry>
+<entry role="struct_member_description"><para>Size of the instance (object) structure.</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><link linkend="guint16"><type>guint16</type></link>&#160;<structfield id="GParamSpecTypeInfo.n-preallocs">n_preallocs</structfield>;</para></entry>
+<entry role="struct_member_description"><para>Prior to GLib 2.10, it specified the number of pre-allocated (cached) instances to reserve memory for (0 indicates no caching). Since GLib 2.10, it is ignored, since instances are allocated with the <link linkend="glib-Memory-Slices">slice allocator</link> now.</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><structfield id="GParamSpecTypeInfo.instance-init">instance_init</structfield>&#160;()</para></entry>
+<entry role="struct_member_description"><para>Location of the instance initialization function (optional).</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><link linkend="GType"><type>GType</type></link>&#160;<structfield id="GParamSpecTypeInfo.value-type">value_type</structfield>;</para></entry>
+<entry role="struct_member_description"><para>The <link linkend="GType"><type>GType</type></link> of values conforming to this <link linkend="GParamSpec"><type>GParamSpec</type></link></para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><structfield id="GParamSpecTypeInfo.finalize">finalize</structfield>&#160;()</para></entry>
+<entry role="struct_member_description"><para>The instance finalization function (optional).</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><structfield id="GParamSpecTypeInfo.value-set-default">value_set_default</structfield>&#160;()</para></entry>
+<entry role="struct_member_description"><para>Resets a <parameter>value</parameter>
+to the default value for <parameter>pspec</parameter>
+(recommended, the default is <link linkend="g-value-reset"><function>g_value_reset()</function></link>), see
+<link linkend="g-param-value-set-default"><function>g_param_value_set_default()</function></link>.</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><structfield id="GParamSpecTypeInfo.value-validate">value_validate</structfield>&#160;()</para></entry>
+<entry role="struct_member_description"><para>Ensures that the contents of <parameter>value</parameter>
+comply with the
+specifications set out by <parameter>pspec</parameter>
+(optional), see
+<link linkend="g-param-value-validate"><function>g_param_value_validate()</function></link>.</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><structfield id="GParamSpecTypeInfo.values-cmp">values_cmp</structfield>&#160;()</para></entry>
+<entry role="struct_member_description"><para>Compares <parameter>value1</parameter>
+with <parameter>value2</parameter>
+according to <parameter>pspec</parameter>
+(recommended, the default is <link linkend="memcmp"><function>memcmp()</function></link>), see <link linkend="g-param-values-cmp"><function>g_param_values_cmp()</function></link>.</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+</tbody></tgroup></informaltable>
+</refsect3>
+</refsect2>
+<refsect2 id="GParamSpecPool" role="struct">
+<title>GParamSpecPool</title>
+<indexterm zone="GParamSpecPool"><primary sortas="ParamSpecPool">GParamSpecPool</primary></indexterm>
+<programlisting language="C">typedef struct _GParamSpecPool GParamSpecPool;</programlisting>
+<para>A <link linkend="GParamSpecPool"><type>GParamSpecPool</type></link> maintains a collection of <link linkend="GParamSpecs"><type>GParamSpecs</type></link> which can be
+quickly accessed by owner and name. The implementation of the <link linkend="GObject"><type>GObject</type></link> property
+system uses such a pool to store the <link linkend="GParamSpecs"><type>GParamSpecs</type></link> of the properties all object
+types.</para>
+</refsect2>
+
+</refsect1>
+<refsect1 id="gobject-GParamSpec.see-also">
+<title>See Also</title>
+<para>g_object_class_install_property(), <link linkend="g-object-set"><function>g_object_set()</function></link>,
+    <link linkend="g-object-get"><function>g_object_get()</function></link>, <link linkend="g-object-set-property"><function>g_object_set_property()</function></link>, <link linkend="g-object-get-property"><function>g_object_get_property()</function></link>,
+    <link linkend="g-value-register-transform-func"><function>g_value_register_transform_func()</function></link></para>
+
+</refsect1>
+
+</refentry>

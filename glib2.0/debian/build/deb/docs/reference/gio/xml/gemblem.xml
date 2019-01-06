@@ -1,0 +1,263 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC '-//OASIS//DTD DocBook XML V4.5//EN'
+                      'http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd' [
+<!ENTITY % local.common.attrib "xmlns:xi  CDATA  #FIXED 'http://www.w3.org/2003/XInclude'">
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="GEmblem">
+<refmeta>
+<refentrytitle role="top_of_page" id="GEmblem.top_of_page">GEmblem</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>GIO Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>GEmblem</refname>
+<refpurpose>An object for emblems</refpurpose>
+</refnamediv>
+
+<refsect1 id="GEmblem.functions" role="functions_proto">
+<title role="functions_proto.title">Functions</title>
+<informaltable pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="functions_return" colwidth="150px"/>
+<colspec colname="functions_name"/>
+<tbody>
+<row><entry role="function_type"><link linkend="GEmblem"><returnvalue>GEmblem</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-emblem-new">g_emblem_new</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GEmblem"><returnvalue>GEmblem</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-emblem-new-with-origin">g_emblem_new_with_origin</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GIcon"><returnvalue>GIcon</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-emblem-get-icon">g_emblem_get_icon</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GEmblemOrigin"><returnvalue>GEmblemOrigin</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-emblem-get-origin">g_emblem_get_origin</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GEmblem.properties" role="properties">
+<title role="properties.title">Properties</title>
+<informaltable frame="none">
+<tgroup cols="3">
+<colspec colname="properties_type" colwidth="150px"/>
+<colspec colname="properties_name" colwidth="300px"/>
+<colspec colname="properties_flags" colwidth="200px"/>
+<tbody>
+<row><entry role="property_type"><link linkend="GObject"><type>GObject</type></link>&#160;*</entry><entry role="property_name"><link linkend="GEmblem--icon">icon</link></entry><entry role="property_flags">Read / Write / Construct Only</entry></row>
+<row><entry role="property_type"><link linkend="GEmblemOrigin"><type>GEmblemOrigin</type></link></entry><entry role="property_name"><link linkend="GEmblem--origin">origin</link></entry><entry role="property_flags">Read / Write / Construct Only</entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GEmblem.other" role="other_proto">
+<title role="other_proto.title">Types and Values</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="name" colwidth="150px"/>
+<colspec colname="description"/>
+<tbody>
+<row><entry role="datatype_keyword"></entry><entry role="function_name"><link linkend="GEmblem-struct">GEmblem</link></entry></row>
+<row><entry role="datatype_keyword">enum</entry><entry role="function_name"><link linkend="GEmblemOrigin">GEmblemOrigin</link></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GEmblem.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<screen>    <link linkend="GEnum">GEnum</link>
+    <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> GEmblemOrigin
+    <link linkend="GObject">GObject</link>
+    <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> GEmblem
+</screen>
+</refsect1>
+<refsect1 id="GEmblem.implemented-interfaces" role="impl_interfaces">
+<title role="impl_interfaces.title">Implemented Interfaces</title>
+<para>
+GEmblem implements
+ <link linkend="GIcon">GIcon</link>.</para>
+
+</refsect1>
+
+<refsect1 id="GEmblem.includes"><title>Includes</title><synopsis>#include &lt;gio/gio.h&gt;
+</synopsis></refsect1>
+
+<refsect1 id="GEmblem.description" role="desc">
+<title role="desc.title">Description</title>
+<para><link linkend="GEmblem"><type>GEmblem</type></link> is an implementation of <link linkend="GIcon"><type>GIcon</type></link> that supports
+having an emblem, which is an icon with additional properties.
+It can than be added to a <link linkend="GEmblemedIcon"><type>GEmblemedIcon</type></link>.</para>
+<para>Currently, only metainformation about the emblem's origin is
+supported. More may be added in the future.</para>
+
+</refsect1>
+<refsect1 id="GEmblem.functions_details" role="details">
+<title role="details.title">Functions</title>
+<refsect2 id="g-emblem-new" role="function" condition="since:2.18">
+<title>g_emblem_new&#160;()</title>
+<indexterm zone="g-emblem-new" role="2.18"><primary sortas="emblem_new">g_emblem_new</primary></indexterm>
+<programlisting language="C"><link linkend="GEmblem"><returnvalue>GEmblem</returnvalue></link>&#160;*
+g_emblem_new (<parameter><link linkend="GIcon"><type>GIcon</type></link> *icon</parameter>);</programlisting>
+<para>Creates a new emblem for <parameter>icon</parameter>
+.</para>
+<refsect3 id="g-emblem-new.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>icon</para></entry>
+<entry role="parameter_description"><para>a GIcon containing the icon.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-emblem-new.returns" role="returns">
+<title>Returns</title>
+<para> a new <link linkend="GEmblem"><type>GEmblem</type></link>.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.18">2.18</link></para></refsect2>
+<refsect2 id="g-emblem-new-with-origin" role="function" condition="since:2.18">
+<title>g_emblem_new_with_origin&#160;()</title>
+<indexterm zone="g-emblem-new-with-origin" role="2.18"><primary sortas="emblem_new_with_origin">g_emblem_new_with_origin</primary></indexterm>
+<programlisting language="C"><link linkend="GEmblem"><returnvalue>GEmblem</returnvalue></link>&#160;*
+g_emblem_new_with_origin (<parameter><link linkend="GIcon"><type>GIcon</type></link> *icon</parameter>,
+                          <parameter><link linkend="GEmblemOrigin"><type>GEmblemOrigin</type></link> origin</parameter>);</programlisting>
+<para>Creates a new emblem for <parameter>icon</parameter>
+.</para>
+<refsect3 id="g-emblem-new-with-origin.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>icon</para></entry>
+<entry role="parameter_description"><para>a GIcon containing the icon.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>origin</para></entry>
+<entry role="parameter_description"><para>a GEmblemOrigin enum defining the emblem's origin</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-emblem-new-with-origin.returns" role="returns">
+<title>Returns</title>
+<para> a new <link linkend="GEmblem"><type>GEmblem</type></link>.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.18">2.18</link></para></refsect2>
+<refsect2 id="g-emblem-get-icon" role="function" condition="since:2.18">
+<title>g_emblem_get_icon&#160;()</title>
+<indexterm zone="g-emblem-get-icon" role="2.18"><primary sortas="emblem_get_icon">g_emblem_get_icon</primary></indexterm>
+<programlisting language="C"><link linkend="GIcon"><returnvalue>GIcon</returnvalue></link>&#160;*
+g_emblem_get_icon (<parameter><link linkend="GEmblem"><type>GEmblem</type></link> *emblem</parameter>);</programlisting>
+<para>Gives back the icon from <parameter>emblem</parameter>
+.</para>
+<refsect3 id="g-emblem-get-icon.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>emblem</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GEmblem"><type>GEmblem</type></link> from which the icon should be extracted.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-emblem-get-icon.returns" role="returns">
+<title>Returns</title>
+<para>a <link linkend="GIcon"><type>GIcon</type></link>. The returned object belongs to
+the emblem and should not be modified or freed. </para>
+<para><emphasis role="annotation">[<acronym>transfer none</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.18">2.18</link></para></refsect2>
+<refsect2 id="g-emblem-get-origin" role="function" condition="since:2.18">
+<title>g_emblem_get_origin&#160;()</title>
+<indexterm zone="g-emblem-get-origin" role="2.18"><primary sortas="emblem_get_origin">g_emblem_get_origin</primary></indexterm>
+<programlisting language="C"><link linkend="GEmblemOrigin"><returnvalue>GEmblemOrigin</returnvalue></link>
+g_emblem_get_origin (<parameter><link linkend="GEmblem"><type>GEmblem</type></link> *emblem</parameter>);</programlisting>
+<para>Gets the origin of the emblem.</para>
+<refsect3 id="g-emblem-get-origin.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>emblem</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GEmblem"><type>GEmblem</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-emblem-get-origin.returns" role="returns">
+<title>Returns</title>
+<para>the origin of the emblem. </para>
+<para><emphasis role="annotation">[<acronym>transfer none</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.18">2.18</link></para></refsect2>
+
+</refsect1>
+<refsect1 id="GEmblem.other_details" role="details">
+<title role="details.title">Types and Values</title>
+<refsect2 id="GEmblem-struct" role="struct">
+<title>GEmblem</title>
+<indexterm zone="GEmblem-struct"><primary sortas="Emblem">GEmblem</primary></indexterm>
+<programlisting language="C">typedef struct _GEmblem GEmblem;</programlisting>
+<para>An object for Emblems</para>
+</refsect2>
+<refsect2 id="GEmblemOrigin" role="enum" condition="since:2.18">
+<title>enum GEmblemOrigin</title>
+<indexterm zone="GEmblemOrigin" role="2.18"><primary sortas="EmblemOrigin">GEmblemOrigin</primary></indexterm>
+<para>GEmblemOrigin is used to add information about the origin of the emblem
+to <link linkend="GEmblem"><type>GEmblem</type></link>.</para>
+<refsect3 id="GEmblemOrigin.members" role="enum_members">
+<title>Members</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="enum_members_name" colwidth="300px"/>
+<colspec colname="enum_members_description"/>
+<colspec colname="enum_members_annotations" colwidth="200px"/>
+<tbody>
+<row role="constant"><entry role="enum_member_name"><para id="G-EMBLEM-ORIGIN-UNKNOWN:CAPS">G_EMBLEM_ORIGIN_UNKNOWN</para></entry>
+<entry role="enum_member_description"><para>Emblem of unknown origin</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-EMBLEM-ORIGIN-DEVICE:CAPS">G_EMBLEM_ORIGIN_DEVICE</para></entry>
+<entry role="enum_member_description"><para>Emblem adds device-specific information</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-EMBLEM-ORIGIN-LIVEMETADATA:CAPS">G_EMBLEM_ORIGIN_LIVEMETADATA</para></entry>
+<entry role="enum_member_description"><para>Emblem depicts live metadata, such as "readonly"</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-EMBLEM-ORIGIN-TAG:CAPS">G_EMBLEM_ORIGIN_TAG</para></entry>
+<entry role="enum_member_description"><para>Emblem comes from a user-defined tag, e.g. set by nautilus (in the future)</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.18">2.18</link></para></refsect2>
+
+</refsect1>
+<refsect1 id="GEmblem.property-details" role="property_details">
+<title role="property_details.title">Property Details</title>
+<refsect2 id="GEmblem--icon" role="property"><title>The <literal>“icon”</literal> property</title>
+<indexterm zone="GEmblem--icon"><primary sortas="Emblem:icon">GEmblem:icon</primary></indexterm>
+<programlisting>  “icon”                     <link linkend="GObject"><type>GObject</type></link>&#160;*</programlisting>
+<para>The actual icon of the emblem.</para><para>Flags: Read / Write / Construct Only</para>
+</refsect2>
+<refsect2 id="GEmblem--origin" role="property"><title>The <literal>“origin”</literal> property</title>
+<indexterm zone="GEmblem--origin"><primary sortas="Emblem:origin">GEmblem:origin</primary></indexterm>
+<programlisting>  “origin”                   <link linkend="GEmblemOrigin"><type>GEmblemOrigin</type></link></programlisting>
+<para>Tells which origin the emblem is derived from.</para><para>Flags: Read / Write / Construct Only</para>
+<para>Default value: G_EMBLEM_ORIGIN_UNKNOWN</para>
+</refsect2>
+
+</refsect1>
+<refsect1 id="GEmblem.see-also">
+<title>See Also</title>
+<para><link linkend="GIcon"><type>GIcon</type></link>, <link linkend="GEmblemedIcon"><type>GEmblemedIcon</type></link>, <link linkend="GLoadableIcon"><type>GLoadableIcon</type></link>, <link linkend="GThemedIcon"><type>GThemedIcon</type></link></para>
+
+</refsect1>
+
+</refentry>

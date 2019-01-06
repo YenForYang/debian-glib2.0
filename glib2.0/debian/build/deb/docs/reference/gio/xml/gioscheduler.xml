@@ -1,0 +1,264 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC '-//OASIS//DTD DocBook XML V4.5//EN'
+                      'http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd' [
+<!ENTITY % local.common.attrib "xmlns:xi  CDATA  #FIXED 'http://www.w3.org/2003/XInclude'">
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="gio-GIOScheduler">
+<refmeta>
+<refentrytitle role="top_of_page" id="gio-GIOScheduler.top_of_page">GIOScheduler</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>GIO Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>GIOScheduler</refname>
+<refpurpose>I/O Scheduler</refpurpose>
+</refnamediv>
+
+<refsect1 id="gio-GIOScheduler.functions" role="functions_proto">
+<title role="functions_proto.title">Functions</title>
+<informaltable pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="functions_return" colwidth="150px"/>
+<colspec colname="functions_name"/>
+<tbody>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><phrase role="c_punctuation">(</phrase><link linkend="GIOSchedulerJobFunc">*GIOSchedulerJobFunc</link><phrase role="c_punctuation">)</phrase>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-io-scheduler-push-job">g_io_scheduler_push_job</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-io-scheduler-cancel-all-jobs">g_io_scheduler_cancel_all_jobs</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-io-scheduler-job-send-to-mainloop">g_io_scheduler_job_send_to_mainloop</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-io-scheduler-job-send-to-mainloop-async">g_io_scheduler_job_send_to_mainloop_async</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="gio-GIOScheduler.other" role="other_proto">
+<title role="other_proto.title">Types and Values</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="name" colwidth="150px"/>
+<colspec colname="description"/>
+<tbody>
+<row><entry role="datatype_keyword"></entry><entry role="function_name"><link linkend="GIOSchedulerJob">GIOSchedulerJob</link></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+
+<refsect1 id="gio-GIOScheduler.includes"><title>Includes</title><synopsis>#include &lt;gio/gio.h&gt;
+</synopsis></refsect1>
+
+<refsect1 id="gio-GIOScheduler.description" role="desc">
+<title role="desc.title">Description</title>
+<para>As of GLib 2.36, <link linkend="GIOScheduler"><type>GIOScheduler</type></link> is deprecated in favor of
+<link linkend="GThreadPool"><type>GThreadPool</type></link> and <link linkend="GTask"><type>GTask</type></link>.</para>
+<para>Schedules asynchronous I/O operations. <link linkend="GIOScheduler"><type>GIOScheduler</type></link> integrates 
+into the main event loop (<link linkend="GMainLoop"><type>GMainLoop</type></link>) and uses threads.</para>
+
+</refsect1>
+<refsect1 id="gio-GIOScheduler.functions_details" role="details">
+<title role="details.title">Functions</title>
+<refsect2 id="GIOSchedulerJobFunc" role="function">
+<title>GIOSchedulerJobFunc&#160;()</title>
+<indexterm zone="GIOSchedulerJobFunc"><primary sortas="IOSchedulerJobFunc">GIOSchedulerJobFunc</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+<phrase role="c_punctuation">(</phrase>*GIOSchedulerJobFunc<phrase role="c_punctuation">)</phrase> (<parameter><link linkend="GIOSchedulerJob"><type>GIOSchedulerJob</type></link> *job</parameter>,
+                        <parameter><link linkend="GCancellable"><type>GCancellable</type></link> *cancellable</parameter>,
+                        <parameter><link linkend="gpointer"><type>gpointer</type></link> user_data</parameter>);</programlisting>
+<para>I/O Job function.</para>
+<para>Long-running jobs should periodically check the <parameter>cancellable</parameter>
+
+to see if they have been cancelled.</para>
+<refsect3 id="GIOSchedulerJobFunc.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>job</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GIOSchedulerJob"><type>GIOSchedulerJob</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>cancellable</para></entry>
+<entry role="parameter_description"><para>optional <link linkend="GCancellable"><type>GCancellable</type></link> object, <link linkend="NULL:CAPS"><literal>NULL</literal></link> to ignore.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>user_data</para></entry>
+<entry role="parameter_description"><para>the data to pass to callback function</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="GIOSchedulerJobFunc.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if this function should be called again to
+complete the job, <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> if the job is complete (or cancelled)</para>
+</refsect3></refsect2>
+<refsect2 id="g-io-scheduler-push-job" role="function" condition="deprecated:use #GThreadPool or g_task_run_in_thread()">
+<title>g_io_scheduler_push_job&#160;()</title>
+<indexterm zone="g-io-scheduler-push-job" role="deprecated"><primary sortas="io_scheduler_push_job">g_io_scheduler_push_job</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_io_scheduler_push_job (<parameter><link linkend="GIOSchedulerJobFunc"><type>GIOSchedulerJobFunc</type></link> job_func</parameter>,
+                         <parameter><link linkend="gpointer"><type>gpointer</type></link> user_data</parameter>,
+                         <parameter><link linkend="GDestroyNotify"><type>GDestroyNotify</type></link> notify</parameter>,
+                         <parameter><link linkend="gint"><type>gint</type></link> io_priority</parameter>,
+                         <parameter><link linkend="GCancellable"><type>GCancellable</type></link> *cancellable</parameter>);</programlisting>
+<warning><para><literal>g_io_scheduler_push_job</literal> is deprecated and should not be used in newly-written code.</para> <para>use <link linkend="GThreadPool"><type>GThreadPool</type></link> or <link linkend="g-task-run-in-thread"><function>g_task_run_in_thread()</function></link></para>
+</warning>
+<para>Schedules the I/O job to run in another thread.</para>
+<para><parameter>notify</parameter>
+ will be called on <parameter>user_data</parameter>
+ after <parameter>job_func</parameter>
+ has returned,
+regardless whether the job was cancelled or has run to completion.</para>
+<para>If <parameter>cancellable</parameter>
+ is not <link linkend="NULL:CAPS"><literal>NULL</literal></link>, it can be used to cancel the I/O job
+by calling <link linkend="g-cancellable-cancel"><function>g_cancellable_cancel()</function></link> or by calling 
+<link linkend="g-io-scheduler-cancel-all-jobs"><function>g_io_scheduler_cancel_all_jobs()</function></link>.</para>
+<refsect3 id="g-io-scheduler-push-job.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>job_func</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GIOSchedulerJobFunc"><type>GIOSchedulerJobFunc</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>user_data</para></entry>
+<entry role="parameter_description"><para>data to pass to <parameter>job_func</parameter>
+</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>notify</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GDestroyNotify"><type>GDestroyNotify</type></link> for <parameter>user_data</parameter>
+, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>io_priority</para></entry>
+<entry role="parameter_description"><para>the <link linkend="io-priority">I/O priority</link>
+of the request.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>cancellable</para></entry>
+<entry role="parameter_description"><para>optional <link linkend="GCancellable"><type>GCancellable</type></link> object, <link linkend="NULL:CAPS"><literal>NULL</literal></link> to ignore.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-io-scheduler-cancel-all-jobs" role="function" condition="deprecated">
+<title>g_io_scheduler_cancel_all_jobs&#160;()</title>
+<indexterm zone="g-io-scheduler-cancel-all-jobs" role="deprecated"><primary sortas="io_scheduler_cancel_all_jobs">g_io_scheduler_cancel_all_jobs</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_io_scheduler_cancel_all_jobs (<parameter><type>void</type></parameter>);</programlisting>
+<warning><para><literal>g_io_scheduler_cancel_all_jobs</literal> is deprecated and should not be used in newly-written code.</para> <para>You should never call this function, since you don't
+know how other libraries in your program might be making use of
+gioscheduler.</para>
+</warning>
+<para>Cancels all cancellable I/O jobs. </para>
+<para>A job is cancellable if a <link linkend="GCancellable"><type>GCancellable</type></link> was passed into
+<link linkend="g-io-scheduler-push-job"><function>g_io_scheduler_push_job()</function></link>.</para>
+</refsect2>
+<refsect2 id="g-io-scheduler-job-send-to-mainloop" role="function" condition="deprecated:Use g_main_context_invoke().">
+<title>g_io_scheduler_job_send_to_mainloop&#160;()</title>
+<indexterm zone="g-io-scheduler-job-send-to-mainloop" role="deprecated"><primary sortas="io_scheduler_job_send_to_mainloop">g_io_scheduler_job_send_to_mainloop</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_io_scheduler_job_send_to_mainloop (<parameter><link linkend="GIOSchedulerJob"><type>GIOSchedulerJob</type></link> *job</parameter>,
+                                     <parameter><link linkend="GSourceFunc"><type>GSourceFunc</type></link> func</parameter>,
+                                     <parameter><link linkend="gpointer"><type>gpointer</type></link> user_data</parameter>,
+                                     <parameter><link linkend="GDestroyNotify"><type>GDestroyNotify</type></link> notify</parameter>);</programlisting>
+<warning><para><literal>g_io_scheduler_job_send_to_mainloop</literal> is deprecated and should not be used in newly-written code.</para> <para>Use <link linkend="g-main-context-invoke"><function>g_main_context_invoke()</function></link>.</para>
+</warning>
+<para>Used from an I/O job to send a callback to be run in the thread
+that the job was started from, waiting for the result (and thus
+blocking the I/O job).</para>
+<refsect3 id="g-io-scheduler-job-send-to-mainloop.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>job</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GIOSchedulerJob"><type>GIOSchedulerJob</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>func</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSourceFunc"><type>GSourceFunc</type></link> callback that will be called in the original thread</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>user_data</para></entry>
+<entry role="parameter_description"><para>data to pass to <parameter>func</parameter>
+</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>notify</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GDestroyNotify"><type>GDestroyNotify</type></link> for <parameter>user_data</parameter>
+, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-io-scheduler-job-send-to-mainloop.returns" role="returns">
+<title>Returns</title>
+<para> The return value of <parameter>func</parameter>
+</para>
+</refsect3></refsect2>
+<refsect2 id="g-io-scheduler-job-send-to-mainloop-async" role="function" condition="deprecated:Use g_main_context_invoke().">
+<title>g_io_scheduler_job_send_to_mainloop_async&#160;()</title>
+<indexterm zone="g-io-scheduler-job-send-to-mainloop-async" role="deprecated"><primary sortas="io_scheduler_job_send_to_mainloop_async">g_io_scheduler_job_send_to_mainloop_async</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_io_scheduler_job_send_to_mainloop_async
+                               (<parameter><link linkend="GIOSchedulerJob"><type>GIOSchedulerJob</type></link> *job</parameter>,
+                                <parameter><link linkend="GSourceFunc"><type>GSourceFunc</type></link> func</parameter>,
+                                <parameter><link linkend="gpointer"><type>gpointer</type></link> user_data</parameter>,
+                                <parameter><link linkend="GDestroyNotify"><type>GDestroyNotify</type></link> notify</parameter>);</programlisting>
+<warning><para><literal>g_io_scheduler_job_send_to_mainloop_async</literal> is deprecated and should not be used in newly-written code.</para> <para>Use <link linkend="g-main-context-invoke"><function>g_main_context_invoke()</function></link>.</para>
+</warning>
+<para>Used from an I/O job to send a callback to be run asynchronously in
+the thread that the job was started from. The callback will be run
+when the main loop is available, but at that time the I/O job might
+have finished. The return value from the callback is ignored.</para>
+<para>Note that if you are passing the <parameter>user_data</parameter>
+ from <link linkend="g-io-scheduler-push-job"><function>g_io_scheduler_push_job()</function></link>
+on to this function you have to ensure that it is not freed before
+<parameter>func</parameter>
+ is called, either by passing <link linkend="NULL:CAPS"><literal>NULL</literal></link> as <parameter>notify</parameter>
+ to 
+<link linkend="g-io-scheduler-push-job"><function>g_io_scheduler_push_job()</function></link> or by using refcounting for <parameter>user_data</parameter>
+.</para>
+<refsect3 id="g-io-scheduler-job-send-to-mainloop-async.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>job</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GIOSchedulerJob"><type>GIOSchedulerJob</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>func</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSourceFunc"><type>GSourceFunc</type></link> callback that will be called in the original thread</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>user_data</para></entry>
+<entry role="parameter_description"><para>data to pass to <parameter>func</parameter>
+</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>notify</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GDestroyNotify"><type>GDestroyNotify</type></link> for <parameter>user_data</parameter>
+, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+
+</refsect1>
+<refsect1 id="gio-GIOScheduler.other_details" role="details">
+<title role="details.title">Types and Values</title>
+<refsect2 id="GIOSchedulerJob" role="struct">
+<title>GIOSchedulerJob</title>
+<indexterm zone="GIOSchedulerJob"><primary sortas="IOSchedulerJob">GIOSchedulerJob</primary></indexterm>
+<programlisting language="C">typedef struct _GIOSchedulerJob GIOSchedulerJob;</programlisting>
+<para>Opaque class for defining and scheduling IO jobs.</para>
+</refsect2>
+
+</refsect1>
+
+</refentry>

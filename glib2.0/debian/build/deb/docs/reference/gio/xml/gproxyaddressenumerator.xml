@@ -1,0 +1,125 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC '-//OASIS//DTD DocBook XML V4.5//EN'
+                      'http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd' [
+<!ENTITY % local.common.attrib "xmlns:xi  CDATA  #FIXED 'http://www.w3.org/2003/XInclude'">
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="GProxyAddressEnumerator">
+<refmeta>
+<refentrytitle role="top_of_page" id="GProxyAddressEnumerator.top_of_page">GProxyAddressEnumerator</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>GIO Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>GProxyAddressEnumerator</refname>
+<refpurpose></refpurpose>
+</refnamediv>
+
+<refsect1 id="GProxyAddressEnumerator.properties" role="properties">
+<title role="properties.title">Properties</title>
+<informaltable frame="none">
+<tgroup cols="3">
+<colspec colname="properties_type" colwidth="150px"/>
+<colspec colname="properties_name" colwidth="300px"/>
+<colspec colname="properties_flags" colwidth="200px"/>
+<tbody>
+<row><entry role="property_type"><link linkend="GSocketConnectable"><type>GSocketConnectable</type></link>&#160;*</entry><entry role="property_name"><link linkend="GProxyAddressEnumerator--connectable">connectable</link></entry><entry role="property_flags">Read / Write / Construct Only</entry></row>
+<row><entry role="property_type"><link linkend="guint"><type>guint</type></link></entry><entry role="property_name"><link linkend="GProxyAddressEnumerator--default-port">default-port</link></entry><entry role="property_flags">Read / Write / Construct Only</entry></row>
+<row><entry role="property_type"><link linkend="GProxyResolver"><type>GProxyResolver</type></link>&#160;*</entry><entry role="property_name"><link linkend="GProxyAddressEnumerator--proxy-resolver">proxy-resolver</link></entry><entry role="property_flags">Read / Write / Construct</entry></row>
+<row><entry role="property_type"><link linkend="gchar"><type>gchar</type></link>&#160;*</entry><entry role="property_name"><link linkend="GProxyAddressEnumerator--uri">uri</link></entry><entry role="property_flags">Read / Write / Construct Only</entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GProxyAddressEnumerator.other" role="other_proto">
+<title role="other_proto.title">Types and Values</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="name" colwidth="150px"/>
+<colspec colname="description"/>
+<tbody>
+<row><entry role="datatype_keyword"></entry><entry role="function_name"><link linkend="GProxyAddressEnumerator-struct">GProxyAddressEnumerator</link></entry></row>
+<row><entry role="datatype_keyword">struct</entry><entry role="function_name"><link linkend="GProxyAddressEnumeratorClass">GProxyAddressEnumeratorClass</link></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GProxyAddressEnumerator.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<screen>    <link linkend="GObject">GObject</link>
+    <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> <link linkend="GSocketAddressEnumerator">GSocketAddressEnumerator</link>
+        <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> GProxyAddressEnumerator
+</screen>
+</refsect1>
+
+
+<refsect1 id="GProxyAddressEnumerator.description" role="desc">
+<title role="desc.title">Description</title>
+
+</refsect1>
+<refsect1 id="GProxyAddressEnumerator.functions_details" role="details">
+<title role="details.title">Functions</title>
+<para />
+</refsect1>
+<refsect1 id="GProxyAddressEnumerator.other_details" role="details">
+<title role="details.title">Types and Values</title>
+<refsect2 id="GProxyAddressEnumerator-struct" role="struct">
+<title>GProxyAddressEnumerator</title>
+<indexterm zone="GProxyAddressEnumerator-struct"><primary sortas="ProxyAddressEnumerator">GProxyAddressEnumerator</primary></indexterm>
+<programlisting language="C">typedef struct _GProxyAddressEnumerator GProxyAddressEnumerator;</programlisting>
+<para>A subclass of <link linkend="GSocketAddressEnumerator"><type>GSocketAddressEnumerator</type></link> that takes another address
+enumerator and wraps its results in <link linkend="GProxyAddresses"><type>GProxyAddresses</type></link> as
+directed by the default <link linkend="GProxyResolver"><type>GProxyResolver</type></link>.</para>
+</refsect2>
+<refsect2 id="GProxyAddressEnumeratorClass" role="struct">
+<title>struct GProxyAddressEnumeratorClass</title>
+<indexterm zone="GProxyAddressEnumeratorClass"><primary sortas="ProxyAddressEnumeratorClass">GProxyAddressEnumeratorClass</primary></indexterm>
+<programlisting language="C">struct GProxyAddressEnumeratorClass {
+  GSocketAddressEnumeratorClass parent_class;
+
+  void (*_g_reserved1) (void);
+  void (*_g_reserved2) (void);
+  void (*_g_reserved3) (void);
+  void (*_g_reserved4) (void);
+  void (*_g_reserved5) (void);
+  void (*_g_reserved6) (void);
+  void (*_g_reserved7) (void);
+};
+</programlisting>
+</refsect2>
+
+</refsect1>
+<refsect1 id="GProxyAddressEnumerator.property-details" role="property_details">
+<title role="property_details.title">Property Details</title>
+<refsect2 id="GProxyAddressEnumerator--connectable" role="property"><title>The <literal>“connectable”</literal> property</title>
+<indexterm zone="GProxyAddressEnumerator--connectable"><primary sortas="ProxyAddressEnumerator:connectable">GProxyAddressEnumerator:connectable</primary></indexterm>
+<programlisting>  “connectable”              <link linkend="GSocketConnectable"><type>GSocketConnectable</type></link>&#160;*</programlisting>
+<para>The connectable being enumerated.</para><para>Flags: Read / Write / Construct Only</para>
+</refsect2>
+<refsect2 id="GProxyAddressEnumerator--default-port" role="property"><title>The <literal>“default-port”</literal> property</title>
+<indexterm zone="GProxyAddressEnumerator--default-port" role="2.38"><primary sortas="ProxyAddressEnumerator:default-port">GProxyAddressEnumerator:default-port</primary></indexterm>
+<programlisting>  “default-port”             <link linkend="guint"><type>guint</type></link></programlisting>
+<para>The default port to use if <link linkend="GProxyAddressEnumerator--uri"><type>“uri”</type></link> does not
+specify one.</para>
+<para>Flags: Read / Write / Construct Only</para>
+<para>Allowed values: &lt;= 65535</para>
+<para>Default value: 0</para>
+<para role="since">Since: <link linkend="api-index-2.38">2.38</link></para></refsect2>
+<refsect2 id="GProxyAddressEnumerator--proxy-resolver" role="property"><title>The <literal>“proxy-resolver”</literal> property</title>
+<indexterm zone="GProxyAddressEnumerator--proxy-resolver" role="2.36"><primary sortas="ProxyAddressEnumerator:proxy-resolver">GProxyAddressEnumerator:proxy-resolver</primary></indexterm>
+<programlisting>  “proxy-resolver”           <link linkend="GProxyResolver"><type>GProxyResolver</type></link>&#160;*</programlisting>
+<para>The proxy resolver to use.</para>
+<para>Flags: Read / Write / Construct</para>
+<para role="since">Since: <link linkend="api-index-2.36">2.36</link></para></refsect2>
+<refsect2 id="GProxyAddressEnumerator--uri" role="property"><title>The <literal>“uri”</literal> property</title>
+<indexterm zone="GProxyAddressEnumerator--uri"><primary sortas="ProxyAddressEnumerator:uri">GProxyAddressEnumerator:uri</primary></indexterm>
+<programlisting>  “uri”                      <link linkend="gchar"><type>gchar</type></link>&#160;*</programlisting>
+<para>The destination URI, use none:// for generic socket.</para><para>Flags: Read / Write / Construct Only</para>
+<para>Default value: NULL</para>
+</refsect2>
+
+</refsect1>
+
+</refentry>

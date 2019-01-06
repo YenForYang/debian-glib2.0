@@ -1,0 +1,273 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC '-//OASIS//DTD DocBook XML V4.5//EN'
+                      'http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd' [
+<!ENTITY % local.common.attrib "xmlns:xi  CDATA  #FIXED 'http://www.w3.org/2003/XInclude'">
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="glib-Bounds-checked-integer-arithmetic">
+<refmeta>
+<refentrytitle role="top_of_page" id="glib-Bounds-checked-integer-arithmetic.top_of_page">Bounds-checking integer arithmetic</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>GLIB Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>Bounds-checking integer arithmetic</refname>
+<refpurpose>a set of helpers for performing checked integer arithmetic</refpurpose>
+</refnamediv>
+
+<refsect1 id="glib-Bounds-checked-integer-arithmetic.functions" role="functions_proto">
+<title role="functions_proto.title">Functions</title>
+<informaltable pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="functions_return" colwidth="150px"/>
+<colspec colname="functions_name"/>
+<tbody>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="g-uint-checked-add">g_uint_checked_add</link><phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="g-uint-checked-mul">g_uint_checked_mul</link><phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="g-uint64-checked-add">g_uint64_checked_add</link><phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="g-uint64-checked-mul">g_uint64_checked_mul</link><phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="g-size-checked-add">g_size_checked_add</link><phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="g-size-checked-mul">g_size_checked_mul</link><phrase role="c_punctuation">()</phrase></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+
+<refsect1 id="glib-Bounds-checked-integer-arithmetic.includes"><title>Includes</title><synopsis>#include &lt;glib.h&gt;
+</synopsis></refsect1>
+
+<refsect1 id="glib-Bounds-checked-integer-arithmetic.description" role="desc">
+<title role="desc.title">Description</title>
+<para>GLib offers a set of macros for doing additions and multiplications
+of unsigned integers, with checks for overflows.</para>
+<para>The helpers all have three arguments.  A pointer to the destination
+is always the first argument and the operands to the operation are
+the other two.</para>
+<para>Following standard GLib convention, the helpers return <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> in case
+of success (ie: no overflow).</para>
+<para>The helpers may be macros, normal functions or inlines.  They may be
+implemented with inline assembly or compiler intrinsics where
+available.</para>
+
+</refsect1>
+<refsect1 id="glib-Bounds-checked-integer-arithmetic.functions_details" role="details">
+<title role="details.title">Functions</title>
+<refsect2 id="g-uint-checked-add" role="macro" condition="since:2.48">
+<title>g_uint_checked_add()</title>
+<indexterm zone="g-uint-checked-add" role="2.48"><primary sortas="uint_checked_add">g_uint_checked_add</primary></indexterm>
+<programlisting language="C">#define             g_uint_checked_add(dest, a, b)</programlisting>
+<para>Performs a checked addition of <parameter>a</parameter>
+ and <parameter>b</parameter>
+, storing the result in
+<parameter>dest</parameter>
+.</para>
+<para>If the operation is successful, <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> is returned.  If the operation
+overflows then the state of <parameter>dest</parameter>
+ is undefined and <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> is
+returned.</para>
+<refsect3 id="g-uint-checked-add.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>dest</para></entry>
+<entry role="parameter_description"><para>a pointer to the <link linkend="guint"><type>guint</type></link> destination</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>a</para></entry>
+<entry role="parameter_description"><para>the <link linkend="guint"><type>guint</type></link> left operand</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>b</para></entry>
+<entry role="parameter_description"><para>the <link linkend="guint"><type>guint</type></link> right operand</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-uint-checked-add.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if there was no overflow</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.48">2.48</link></para></refsect2>
+<refsect2 id="g-uint-checked-mul" role="macro" condition="since:2.48">
+<title>g_uint_checked_mul()</title>
+<indexterm zone="g-uint-checked-mul" role="2.48"><primary sortas="uint_checked_mul">g_uint_checked_mul</primary></indexterm>
+<programlisting language="C">#define             g_uint_checked_mul(dest, a, b)</programlisting>
+<para>Performs a checked multiplication of <parameter>a</parameter>
+ and <parameter>b</parameter>
+, storing the result in
+<parameter>dest</parameter>
+.</para>
+<para>If the operation is successful, <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> is returned.  If the operation
+overflows then the state of <parameter>dest</parameter>
+ is undefined and <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> is
+returned.</para>
+<refsect3 id="g-uint-checked-mul.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>dest</para></entry>
+<entry role="parameter_description"><para>a pointer to the <link linkend="guint"><type>guint</type></link> destination</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>a</para></entry>
+<entry role="parameter_description"><para>the <link linkend="guint"><type>guint</type></link> left operand</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>b</para></entry>
+<entry role="parameter_description"><para>the <link linkend="guint"><type>guint</type></link> right operand</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-uint-checked-mul.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if there was no overflow</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.48">2.48</link></para></refsect2>
+<refsect2 id="g-uint64-checked-add" role="macro" condition="since:2.48">
+<title>g_uint64_checked_add()</title>
+<indexterm zone="g-uint64-checked-add" role="2.48"><primary sortas="uint64_checked_add">g_uint64_checked_add</primary></indexterm>
+<programlisting language="C">#define             g_uint64_checked_add(dest, a, b)</programlisting>
+<para>Performs a checked addition of <parameter>a</parameter>
+ and <parameter>b</parameter>
+, storing the result in
+<parameter>dest</parameter>
+.</para>
+<para>If the operation is successful, <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> is returned.  If the operation
+overflows then the state of <parameter>dest</parameter>
+ is undefined and <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> is
+returned.</para>
+<refsect3 id="g-uint64-checked-add.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>dest</para></entry>
+<entry role="parameter_description"><para>a pointer to the <link linkend="guint64"><type>guint64</type></link> destination</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>a</para></entry>
+<entry role="parameter_description"><para>the <link linkend="guint64"><type>guint64</type></link> left operand</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>b</para></entry>
+<entry role="parameter_description"><para>the <link linkend="guint64"><type>guint64</type></link> right operand</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-uint64-checked-add.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if there was no overflow</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.48">2.48</link></para></refsect2>
+<refsect2 id="g-uint64-checked-mul" role="macro" condition="since:2.48">
+<title>g_uint64_checked_mul()</title>
+<indexterm zone="g-uint64-checked-mul" role="2.48"><primary sortas="uint64_checked_mul">g_uint64_checked_mul</primary></indexterm>
+<programlisting language="C">#define             g_uint64_checked_mul(dest, a, b)</programlisting>
+<para>Performs a checked multiplication of <parameter>a</parameter>
+ and <parameter>b</parameter>
+, storing the result in
+<parameter>dest</parameter>
+.</para>
+<para>If the operation is successful, <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> is returned.  If the operation
+overflows then the state of <parameter>dest</parameter>
+ is undefined and <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> is
+returned.</para>
+<refsect3 id="g-uint64-checked-mul.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>dest</para></entry>
+<entry role="parameter_description"><para>a pointer to the <link linkend="guint64"><type>guint64</type></link> destination</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>a</para></entry>
+<entry role="parameter_description"><para>the <link linkend="guint64"><type>guint64</type></link> left operand</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>b</para></entry>
+<entry role="parameter_description"><para>the <link linkend="guint64"><type>guint64</type></link> right operand</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-uint64-checked-mul.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if there was no overflow</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.48">2.48</link></para></refsect2>
+<refsect2 id="g-size-checked-add" role="macro" condition="since:2.48">
+<title>g_size_checked_add()</title>
+<indexterm zone="g-size-checked-add" role="2.48"><primary sortas="size_checked_add">g_size_checked_add</primary></indexterm>
+<programlisting language="C">#define             g_size_checked_add(dest, a, b)</programlisting>
+<para>Performs a checked addition of <parameter>a</parameter>
+ and <parameter>b</parameter>
+, storing the result in
+<parameter>dest</parameter>
+.</para>
+<para>If the operation is successful, <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> is returned.  If the operation
+overflows then the state of <parameter>dest</parameter>
+ is undefined and <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> is
+returned.</para>
+<refsect3 id="g-size-checked-add.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>dest</para></entry>
+<entry role="parameter_description"><para>a pointer to the <link linkend="gsize"><type>gsize</type></link> destination</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>a</para></entry>
+<entry role="parameter_description"><para>the <link linkend="gsize"><type>gsize</type></link> left operand</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>b</para></entry>
+<entry role="parameter_description"><para>the <link linkend="gsize"><type>gsize</type></link> right operand</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-size-checked-add.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if there was no overflow</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.48">2.48</link></para></refsect2>
+<refsect2 id="g-size-checked-mul" role="macro" condition="since:2.48">
+<title>g_size_checked_mul()</title>
+<indexterm zone="g-size-checked-mul" role="2.48"><primary sortas="size_checked_mul">g_size_checked_mul</primary></indexterm>
+<programlisting language="C">#define             g_size_checked_mul(dest, a, b)</programlisting>
+<para>Performs a checked multiplication of <parameter>a</parameter>
+ and <parameter>b</parameter>
+, storing the result in
+<parameter>dest</parameter>
+.</para>
+<para>If the operation is successful, <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> is returned.  If the operation
+overflows then the state of <parameter>dest</parameter>
+ is undefined and <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> is
+returned.</para>
+<refsect3 id="g-size-checked-mul.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>dest</para></entry>
+<entry role="parameter_description"><para>a pointer to the <link linkend="gsize"><type>gsize</type></link> destination</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>a</para></entry>
+<entry role="parameter_description"><para>the <link linkend="gsize"><type>gsize</type></link> left operand</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>b</para></entry>
+<entry role="parameter_description"><para>the <link linkend="gsize"><type>gsize</type></link> right operand</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-size-checked-mul.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if there was no overflow</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.48">2.48</link></para></refsect2>
+
+</refsect1>
+<refsect1 id="glib-Bounds-checked-integer-arithmetic.other_details" role="details">
+<title role="details.title">Types and Values</title>
+
+</refsect1>
+
+</refentry>

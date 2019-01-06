@@ -1,0 +1,397 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC '-//OASIS//DTD DocBook XML V4.5//EN'
+                      'http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd' [
+<!ENTITY % local.common.attrib "xmlns:xi  CDATA  #FIXED 'http://www.w3.org/2003/XInclude'">
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="GListStore">
+<refmeta>
+<refentrytitle role="top_of_page" id="GListStore.top_of_page">GListStore</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>GIO Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>GListStore</refname>
+<refpurpose>A simple implementation of <link linkend="GListModel"><type>GListModel</type></link></refpurpose>
+</refnamediv>
+
+<refsect1 id="GListStore.functions" role="functions_proto">
+<title role="functions_proto.title">Functions</title>
+<informaltable pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="functions_return" colwidth="150px"/>
+<colspec colname="functions_name"/>
+<tbody>
+<row><entry role="function_type"><link linkend="GListStore"><returnvalue>GListStore</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-list-store-new">g_list_store_new</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-list-store-insert">g_list_store_insert</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="guint"><returnvalue>guint</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-list-store-insert-sorted">g_list_store_insert_sorted</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-list-store-append">g_list_store_append</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-list-store-remove">g_list_store_remove</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-list-store-remove-all">g_list_store_remove_all</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-list-store-splice">g_list_store_splice</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-list-store-sort">g_list_store_sort</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GListStore.properties" role="properties">
+<title role="properties.title">Properties</title>
+<informaltable frame="none">
+<tgroup cols="3">
+<colspec colname="properties_type" colwidth="150px"/>
+<colspec colname="properties_name" colwidth="300px"/>
+<colspec colname="properties_flags" colwidth="200px"/>
+<tbody>
+<row><entry role="property_type"><link linkend="GType"><type>GType</type></link>&#160;*</entry><entry role="property_name"><link linkend="GListStore--item-type">item-type</link></entry><entry role="property_flags">Read / Write / Construct Only</entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GListStore.other" role="other_proto">
+<title role="other_proto.title">Types and Values</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="name" colwidth="150px"/>
+<colspec colname="description"/>
+<tbody>
+<row><entry role="datatype_keyword"></entry><entry role="function_name"><link linkend="GListStore-struct">GListStore</link></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GListStore.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<screen>    <link linkend="GObject">GObject</link>
+    <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> GListStore
+</screen>
+</refsect1>
+<refsect1 id="GListStore.implemented-interfaces" role="impl_interfaces">
+<title role="impl_interfaces.title">Implemented Interfaces</title>
+<para>
+GListStore implements
+ <link linkend="GListModel">GListModel</link>.</para>
+
+</refsect1>
+
+<refsect1 id="GListStore.includes"><title>Includes</title><synopsis>#include &lt;gio/gio.h&gt;
+</synopsis></refsect1>
+
+<refsect1 id="GListStore.description" role="desc">
+<title role="desc.title">Description</title>
+<para><link linkend="GListStore"><type>GListStore</type></link> is a simple implementation of <link linkend="GListModel"><type>GListModel</type></link> that stores all
+items in memory.</para>
+<para>It provides insertions, deletions, and lookups in logarithmic time
+with a fast path for the common case of iterating the list linearly.</para>
+
+</refsect1>
+<refsect1 id="GListStore.functions_details" role="details">
+<title role="details.title">Functions</title>
+<refsect2 id="g-list-store-new" role="function" condition="since:2.44">
+<title>g_list_store_new&#160;()</title>
+<indexterm zone="g-list-store-new" role="2.44"><primary sortas="list_store_new">g_list_store_new</primary></indexterm>
+<programlisting language="C"><link linkend="GListStore"><returnvalue>GListStore</returnvalue></link>&#160;*
+g_list_store_new (<parameter><link linkend="GType"><type>GType</type></link> item_type</parameter>);</programlisting>
+<para>Creates a new <link linkend="GListStore"><type>GListStore</type></link> with items of type <parameter>item_type</parameter>
+. <parameter>item_type</parameter>
+
+must be a subclass of <link linkend="GObject"><type>GObject</type></link>.</para>
+<refsect3 id="g-list-store-new.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>item_type</para></entry>
+<entry role="parameter_description"><para>the <link linkend="GType"><type>GType</type></link> of items in the list</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-list-store-new.returns" role="returns">
+<title>Returns</title>
+<para> a new <link linkend="GListStore"><type>GListStore</type></link></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.44">2.44</link></para></refsect2>
+<refsect2 id="g-list-store-insert" role="function" condition="since:2.44">
+<title>g_list_store_insert&#160;()</title>
+<indexterm zone="g-list-store-insert" role="2.44"><primary sortas="list_store_insert">g_list_store_insert</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_list_store_insert (<parameter><link linkend="GListStore"><type>GListStore</type></link> *store</parameter>,
+                     <parameter><link linkend="guint"><type>guint</type></link> position</parameter>,
+                     <parameter><link linkend="gpointer"><type>gpointer</type></link> item</parameter>);</programlisting>
+<para>Inserts <parameter>item</parameter>
+ into <parameter>store</parameter>
+ at <parameter>position</parameter>
+. <parameter>item</parameter>
+ must be of type
+<link linkend="GListStore--item-type"><type>“item-type”</type></link> or derived from it. <parameter>position</parameter>
+ must be smaller
+than the length of the list, or equal to it to append.</para>
+<para>This function takes a ref on <parameter>item</parameter>
+.</para>
+<para>Use <link linkend="g-list-store-splice"><function>g_list_store_splice()</function></link> to insert multiple items at the same time
+efficiently.</para>
+<refsect3 id="g-list-store-insert.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>store</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GListStore"><type>GListStore</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>position</para></entry>
+<entry role="parameter_description"><para>the position at which to insert the new item</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>item</para></entry>
+<entry role="parameter_description"><para>the new item. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>type</acronym> GObject]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.44">2.44</link></para></refsect2>
+<refsect2 id="g-list-store-insert-sorted" role="function" condition="since:2.44">
+<title>g_list_store_insert_sorted&#160;()</title>
+<indexterm zone="g-list-store-insert-sorted" role="2.44"><primary sortas="list_store_insert_sorted">g_list_store_insert_sorted</primary></indexterm>
+<programlisting language="C"><link linkend="guint"><returnvalue>guint</returnvalue></link>
+g_list_store_insert_sorted (<parameter><link linkend="GListStore"><type>GListStore</type></link> *store</parameter>,
+                            <parameter><link linkend="gpointer"><type>gpointer</type></link> item</parameter>,
+                            <parameter><link linkend="GCompareDataFunc"><type>GCompareDataFunc</type></link> compare_func</parameter>,
+                            <parameter><link linkend="gpointer"><type>gpointer</type></link> user_data</parameter>);</programlisting>
+<para>Inserts <parameter>item</parameter>
+ into <parameter>store</parameter>
+ at a position to be determined by the
+<parameter>compare_func</parameter>
+.</para>
+<para>The list must already be sorted before calling this function or the
+result is undefined.  Usually you would approach this by only ever
+inserting items by way of this function.</para>
+<para>This function takes a ref on <parameter>item</parameter>
+.</para>
+<refsect3 id="g-list-store-insert-sorted.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>store</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GListStore"><type>GListStore</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>item</para></entry>
+<entry role="parameter_description"><para>the new item. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>type</acronym> GObject]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>compare_func</para></entry>
+<entry role="parameter_description"><para>pairwise comparison function for sorting. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>scope call</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>user_data</para></entry>
+<entry role="parameter_description"><para>user data for <parameter>compare_func</parameter>
+. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>closure</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-list-store-insert-sorted.returns" role="returns">
+<title>Returns</title>
+<para> the position at which <parameter>item</parameter>
+was inserted</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.44">2.44</link></para></refsect2>
+<refsect2 id="g-list-store-append" role="function" condition="since:2.44">
+<title>g_list_store_append&#160;()</title>
+<indexterm zone="g-list-store-append" role="2.44"><primary sortas="list_store_append">g_list_store_append</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_list_store_append (<parameter><link linkend="GListStore"><type>GListStore</type></link> *store</parameter>,
+                     <parameter><link linkend="gpointer"><type>gpointer</type></link> item</parameter>);</programlisting>
+<para>Appends <parameter>item</parameter>
+ to <parameter>store</parameter>
+. <parameter>item</parameter>
+ must be of type <link linkend="GListStore--item-type"><type>“item-type”</type></link>.</para>
+<para>This function takes a ref on <parameter>item</parameter>
+.</para>
+<para>Use <link linkend="g-list-store-splice"><function>g_list_store_splice()</function></link> to append multiple items at the same time
+efficiently.</para>
+<refsect3 id="g-list-store-append.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>store</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GListStore"><type>GListStore</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>item</para></entry>
+<entry role="parameter_description"><para>the new item. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>type</acronym> GObject]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.44">2.44</link></para></refsect2>
+<refsect2 id="g-list-store-remove" role="function" condition="since:2.44">
+<title>g_list_store_remove&#160;()</title>
+<indexterm zone="g-list-store-remove" role="2.44"><primary sortas="list_store_remove">g_list_store_remove</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_list_store_remove (<parameter><link linkend="GListStore"><type>GListStore</type></link> *store</parameter>,
+                     <parameter><link linkend="guint"><type>guint</type></link> position</parameter>);</programlisting>
+<para>Removes the item from <parameter>store</parameter>
+ that is at <parameter>position</parameter>
+. <parameter>position</parameter>
+ must be
+smaller than the current length of the list.</para>
+<para>Use <link linkend="g-list-store-splice"><function>g_list_store_splice()</function></link> to remove multiple items at the same time
+efficiently.</para>
+<refsect3 id="g-list-store-remove.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>store</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GListStore"><type>GListStore</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>position</para></entry>
+<entry role="parameter_description"><para>the position of the item that is to be removed</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.44">2.44</link></para></refsect2>
+<refsect2 id="g-list-store-remove-all" role="function" condition="since:2.44">
+<title>g_list_store_remove_all&#160;()</title>
+<indexterm zone="g-list-store-remove-all" role="2.44"><primary sortas="list_store_remove_all">g_list_store_remove_all</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_list_store_remove_all (<parameter><link linkend="GListStore"><type>GListStore</type></link> *store</parameter>);</programlisting>
+<para>Removes all items from <parameter>store</parameter>
+.</para>
+<refsect3 id="g-list-store-remove-all.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>store</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GListStore"><type>GListStore</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.44">2.44</link></para></refsect2>
+<refsect2 id="g-list-store-splice" role="function" condition="since:2.44">
+<title>g_list_store_splice&#160;()</title>
+<indexterm zone="g-list-store-splice" role="2.44"><primary sortas="list_store_splice">g_list_store_splice</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_list_store_splice (<parameter><link linkend="GListStore"><type>GListStore</type></link> *store</parameter>,
+                     <parameter><link linkend="guint"><type>guint</type></link> position</parameter>,
+                     <parameter><link linkend="guint"><type>guint</type></link> n_removals</parameter>,
+                     <parameter><link linkend="gpointer"><type>gpointer</type></link> *additions</parameter>,
+                     <parameter><link linkend="guint"><type>guint</type></link> n_additions</parameter>);</programlisting>
+<para>Changes <parameter>store</parameter>
+ by removing <parameter>n_removals</parameter>
+ items and adding <parameter>n_additions</parameter>
+
+items to it. <parameter>additions</parameter>
+ must contain <parameter>n_additions</parameter>
+ items of type
+<link linkend="GListStore--item-type"><type>“item-type”</type></link>.  <link linkend="NULL:CAPS"><literal>NULL</literal></link> is not permitted.</para>
+<para>This function is more efficient than <link linkend="g-list-store-insert"><function>g_list_store_insert()</function></link> and
+<link linkend="g-list-store-remove"><function>g_list_store_remove()</function></link>, because it only emits
+<link linkend="GListModel-items-changed"><type>“items-changed”</type></link> once for the change.</para>
+<para>This function takes a ref on each item in <parameter>additions</parameter>
+.</para>
+<para>The parameters <parameter>position</parameter>
+ and <parameter>n_removals</parameter>
+ must be correct (ie:
+<parameter>position</parameter>
+ + <parameter>n_removals</parameter>
+ must be less than or equal to the length of
+the list at the time this function is called).</para>
+<refsect3 id="g-list-store-splice.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>store</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GListStore"><type>GListStore</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>position</para></entry>
+<entry role="parameter_description"><para>the position at which to make the change</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>n_removals</para></entry>
+<entry role="parameter_description"><para>the number of items to remove</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>additions</para></entry>
+<entry role="parameter_description"><para>the items to add. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>array</acronym> length=n_additions][<acronym>element-type</acronym> GObject]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>n_additions</para></entry>
+<entry role="parameter_description"><para>the number of items to add</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.44">2.44</link></para></refsect2>
+<refsect2 id="g-list-store-sort" role="function" condition="since:2.46">
+<title>g_list_store_sort&#160;()</title>
+<indexterm zone="g-list-store-sort" role="2.46"><primary sortas="list_store_sort">g_list_store_sort</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_list_store_sort (<parameter><link linkend="GListStore"><type>GListStore</type></link> *store</parameter>,
+                   <parameter><link linkend="GCompareDataFunc"><type>GCompareDataFunc</type></link> compare_func</parameter>,
+                   <parameter><link linkend="gpointer"><type>gpointer</type></link> user_data</parameter>);</programlisting>
+<para>Sort the items in <parameter>store</parameter>
+ according to <parameter>compare_func</parameter>
+.</para>
+<refsect3 id="g-list-store-sort.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>store</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GListStore"><type>GListStore</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>compare_func</para></entry>
+<entry role="parameter_description"><para>pairwise comparison function for sorting. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>scope call</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>user_data</para></entry>
+<entry role="parameter_description"><para>user data for <parameter>compare_func</parameter>
+. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>closure</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.46">2.46</link></para></refsect2>
+
+</refsect1>
+<refsect1 id="GListStore.other_details" role="details">
+<title role="details.title">Types and Values</title>
+<refsect2 id="GListStore-struct" role="struct">
+<title>GListStore</title>
+<indexterm zone="GListStore-struct"><primary sortas="ListStore">GListStore</primary></indexterm>
+<programlisting language="C">typedef struct _GListStore GListStore;</programlisting>
+<para><link linkend="GListStore"><type>GListStore</type></link> is an opaque data structure and can only be accessed
+using the following functions.</para>
+</refsect2>
+
+</refsect1>
+<refsect1 id="GListStore.property-details" role="property_details">
+<title role="property_details.title">Property Details</title>
+<refsect2 id="GListStore--item-type" role="property"><title>The <literal>“item-type”</literal> property</title>
+<indexterm zone="GListStore--item-type" role="2.44"><primary sortas="ListStore:item-type">GListStore:item-type</primary></indexterm>
+<programlisting>  “item-type”                <link linkend="GType"><type>GType</type></link>&#160;*</programlisting>
+<para>The type of items contained in this list store. Items must be
+subclasses of <link linkend="GObject"><type>GObject</type></link>.</para>
+<para>Flags: Read / Write / Construct Only</para>
+<para>Allowed values: GObject</para>
+<para role="since">Since: <link linkend="api-index-2.44">2.44</link></para></refsect2>
+
+</refsect1>
+
+</refentry>

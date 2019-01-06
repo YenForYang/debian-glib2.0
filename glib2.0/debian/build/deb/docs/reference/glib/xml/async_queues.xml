@@ -1,0 +1,1038 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC '-//OASIS//DTD DocBook XML V4.5//EN'
+                      'http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd' [
+<!ENTITY % local.common.attrib "xmlns:xi  CDATA  #FIXED 'http://www.w3.org/2003/XInclude'">
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="glib-Asynchronous-Queues">
+<refmeta>
+<refentrytitle role="top_of_page" id="glib-Asynchronous-Queues.top_of_page">Asynchronous Queues</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>GLIB Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>Asynchronous Queues</refname>
+<refpurpose>asynchronous communication between threads</refpurpose>
+</refnamediv>
+
+<refsect1 id="glib-Asynchronous-Queues.functions" role="functions_proto">
+<title role="functions_proto.title">Functions</title>
+<informaltable pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="functions_return" colwidth="150px"/>
+<colspec colname="functions_name"/>
+<tbody>
+<row><entry role="function_type"><link linkend="GAsyncQueue"><returnvalue>GAsyncQueue</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-async-queue-new">g_async_queue_new</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GAsyncQueue"><returnvalue>GAsyncQueue</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-async-queue-new-full">g_async_queue_new_full</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GAsyncQueue"><returnvalue>GAsyncQueue</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-async-queue-ref">g_async_queue_ref</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-async-queue-unref">g_async_queue_unref</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-async-queue-push">g_async_queue_push</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-async-queue-push-sorted">g_async_queue_push_sorted</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-async-queue-push-front">g_async_queue_push_front</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-async-queue-remove">g_async_queue_remove</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gpointer"><returnvalue>gpointer</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-async-queue-pop">g_async_queue_pop</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gpointer"><returnvalue>gpointer</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-async-queue-try-pop">g_async_queue_try_pop</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gpointer"><returnvalue>gpointer</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-async-queue-timeout-pop">g_async_queue_timeout_pop</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gint"><returnvalue>gint</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-async-queue-length">g_async_queue_length</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-async-queue-sort">g_async_queue_sort</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-async-queue-lock">g_async_queue_lock</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-async-queue-unlock">g_async_queue_unlock</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-async-queue-ref-unlocked">g_async_queue_ref_unlocked</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-async-queue-unref-and-unlock">g_async_queue_unref_and_unlock</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-async-queue-push-unlocked">g_async_queue_push_unlocked</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-async-queue-push-sorted-unlocked">g_async_queue_push_sorted_unlocked</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-async-queue-push-front-unlocked">g_async_queue_push_front_unlocked</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-async-queue-remove-unlocked">g_async_queue_remove_unlocked</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gpointer"><returnvalue>gpointer</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-async-queue-pop-unlocked">g_async_queue_pop_unlocked</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gpointer"><returnvalue>gpointer</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-async-queue-try-pop-unlocked">g_async_queue_try_pop_unlocked</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gpointer"><returnvalue>gpointer</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-async-queue-timeout-pop-unlocked">g_async_queue_timeout_pop_unlocked</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gint"><returnvalue>gint</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-async-queue-length-unlocked">g_async_queue_length_unlocked</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-async-queue-sort-unlocked">g_async_queue_sort_unlocked</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+<row><entry role="function_type"><link linkend="gpointer"><returnvalue>gpointer</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-async-queue-timed-pop">g_async_queue_timed_pop</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gpointer"><returnvalue>gpointer</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-async-queue-timed-pop-unlocked">g_async_queue_timed_pop_unlocked</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="glib-Asynchronous-Queues.other" role="other_proto">
+<title role="other_proto.title">Types and Values</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="name" colwidth="150px"/>
+<colspec colname="description"/>
+<tbody>
+<row><entry role="datatype_keyword"></entry><entry role="function_name"><link linkend="GAsyncQueue">GAsyncQueue</link></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+
+<refsect1 id="glib-Asynchronous-Queues.includes"><title>Includes</title><synopsis>#include &lt;glib.h&gt;
+</synopsis></refsect1>
+
+<refsect1 id="glib-Asynchronous-Queues.description" role="desc">
+<title role="desc.title">Description</title>
+<para>Often you need to communicate between different threads. In general
+it's safer not to do this by shared memory, but by explicit message
+passing. These messages only make sense asynchronously for
+multi-threaded applications though, as a synchronous operation could
+as well be done in the same thread.</para>
+<para>Asynchronous queues are an exception from most other GLib data
+structures, as they can be used simultaneously from multiple threads
+without explicit locking and they bring their own builtin reference
+counting. This is because the nature of an asynchronous queue is that
+it will always be used by at least 2 concurrent threads.</para>
+<para>For using an asynchronous queue you first have to create one with
+<link linkend="g-async-queue-new"><function>g_async_queue_new()</function></link>. <link linkend="GAsyncQueue"><type>GAsyncQueue</type></link> structs are reference counted,
+use <link linkend="g-async-queue-ref"><function>g_async_queue_ref()</function></link> and <link linkend="g-async-queue-unref"><function>g_async_queue_unref()</function></link> to manage your
+references.</para>
+<para>A thread which wants to send a message to that queue simply calls
+<link linkend="g-async-queue-push"><function>g_async_queue_push()</function></link> to push the message to the queue.</para>
+<para>A thread which is expecting messages from an asynchronous queue
+simply calls <link linkend="g-async-queue-pop"><function>g_async_queue_pop()</function></link> for that queue. If no message is
+available in the queue at that point, the thread is now put to sleep
+until a message arrives. The message will be removed from the queue
+and returned. The functions <link linkend="g-async-queue-try-pop"><function>g_async_queue_try_pop()</function></link> and
+<link linkend="g-async-queue-timeout-pop"><function>g_async_queue_timeout_pop()</function></link> can be used to only check for the presence
+of messages or to only wait a certain time for messages respectively.</para>
+<para>For almost every function there exist two variants, one that locks
+the queue and one that doesn't. That way you can hold the queue lock
+(acquire it with <link linkend="g-async-queue-lock"><function>g_async_queue_lock()</function></link> and release it with
+<link linkend="g-async-queue-unlock"><function>g_async_queue_unlock()</function></link>) over multiple queue accessing instructions.
+This can be necessary to ensure the integrity of the queue, but should
+only be used when really necessary, as it can make your life harder
+if used unwisely. Normally you should only use the locking function
+variants (those without the _unlocked suffix).</para>
+<para>In many cases, it may be more convenient to use <link linkend="GThreadPool"><type>GThreadPool</type></link> when
+you need to distribute work to a set of worker threads instead of
+using <link linkend="GAsyncQueue"><type>GAsyncQueue</type></link> manually. <link linkend="GThreadPool"><type>GThreadPool</type></link> uses a GAsyncQueue
+internally.</para>
+
+</refsect1>
+<refsect1 id="glib-Asynchronous-Queues.functions_details" role="details">
+<title role="details.title">Functions</title>
+<refsect2 id="g-async-queue-new" role="function">
+<title>g_async_queue_new&#160;()</title>
+<indexterm zone="g-async-queue-new"><primary sortas="async_queue_new">g_async_queue_new</primary></indexterm>
+<programlisting language="C"><link linkend="GAsyncQueue"><returnvalue>GAsyncQueue</returnvalue></link>&#160;*
+g_async_queue_new (<parameter><type>void</type></parameter>);</programlisting>
+<para>Creates a new asynchronous queue.</para>
+<refsect3 id="g-async-queue-new.returns" role="returns">
+<title>Returns</title>
+<para> a new <link linkend="GAsyncQueue"><type>GAsyncQueue</type></link>. Free with <link linkend="g-async-queue-unref"><function>g_async_queue_unref()</function></link></para>
+</refsect3></refsect2>
+<refsect2 id="g-async-queue-new-full" role="function" condition="since:2.16">
+<title>g_async_queue_new_full&#160;()</title>
+<indexterm zone="g-async-queue-new-full" role="2.16"><primary sortas="async_queue_new_full">g_async_queue_new_full</primary></indexterm>
+<programlisting language="C"><link linkend="GAsyncQueue"><returnvalue>GAsyncQueue</returnvalue></link>&#160;*
+g_async_queue_new_full (<parameter><link linkend="GDestroyNotify"><type>GDestroyNotify</type></link> item_free_func</parameter>);</programlisting>
+<para>Creates a new asynchronous queue and sets up a destroy notify
+function that is used to free any remaining queue items when
+the queue is destroyed after the final unref.</para>
+<refsect3 id="g-async-queue-new-full.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>item_free_func</para></entry>
+<entry role="parameter_description"><para>function to free queue elements</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-async-queue-new-full.returns" role="returns">
+<title>Returns</title>
+<para> a new <link linkend="GAsyncQueue"><type>GAsyncQueue</type></link>. Free with <link linkend="g-async-queue-unref"><function>g_async_queue_unref()</function></link></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.16">2.16</link></para></refsect2>
+<refsect2 id="g-async-queue-ref" role="function">
+<title>g_async_queue_ref&#160;()</title>
+<indexterm zone="g-async-queue-ref"><primary sortas="async_queue_ref">g_async_queue_ref</primary></indexterm>
+<programlisting language="C"><link linkend="GAsyncQueue"><returnvalue>GAsyncQueue</returnvalue></link>&#160;*
+g_async_queue_ref (<parameter><link linkend="GAsyncQueue"><type>GAsyncQueue</type></link> *queue</parameter>);</programlisting>
+<para>Increases the reference count of the asynchronous <parameter>queue</parameter>
+ by 1.
+You do not need to hold the lock to call this function.</para>
+<refsect3 id="g-async-queue-ref.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>queue</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GAsyncQueue"><type>GAsyncQueue</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-async-queue-ref.returns" role="returns">
+<title>Returns</title>
+<para> the <parameter>queue</parameter>
+that was passed in (since 2.6)</para>
+</refsect3></refsect2>
+<refsect2 id="g-async-queue-unref" role="function">
+<title>g_async_queue_unref&#160;()</title>
+<indexterm zone="g-async-queue-unref"><primary sortas="async_queue_unref">g_async_queue_unref</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_async_queue_unref (<parameter><link linkend="GAsyncQueue"><type>GAsyncQueue</type></link> *queue</parameter>);</programlisting>
+<para>Decreases the reference count of the asynchronous <parameter>queue</parameter>
+ by 1.</para>
+<para>If the reference count went to 0, the <parameter>queue</parameter>
+ will be destroyed
+and the memory allocated will be freed. So you are not allowed
+to use the <parameter>queue</parameter>
+ afterwards, as it might have disappeared.
+You do not need to hold the lock to call this function.</para>
+<refsect3 id="g-async-queue-unref.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>queue</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GAsyncQueue"><type>GAsyncQueue</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-async-queue-push" role="function">
+<title>g_async_queue_push&#160;()</title>
+<indexterm zone="g-async-queue-push"><primary sortas="async_queue_push">g_async_queue_push</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_async_queue_push (<parameter><link linkend="GAsyncQueue"><type>GAsyncQueue</type></link> *queue</parameter>,
+                    <parameter><link linkend="gpointer"><type>gpointer</type></link> data</parameter>);</programlisting>
+<para>Pushes the <parameter>data</parameter>
+ into the <parameter>queue</parameter>
+. <parameter>data</parameter>
+ must not be <link linkend="NULL:CAPS"><literal>NULL</literal></link>.</para>
+<refsect3 id="g-async-queue-push.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>queue</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GAsyncQueue"><type>GAsyncQueue</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>data</para></entry>
+<entry role="parameter_description"><para><parameter>data</parameter>
+to push into the <parameter>queue</parameter>
+</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-async-queue-push-sorted" role="function" condition="since:2.10">
+<title>g_async_queue_push_sorted&#160;()</title>
+<indexterm zone="g-async-queue-push-sorted" role="2.10"><primary sortas="async_queue_push_sorted">g_async_queue_push_sorted</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_async_queue_push_sorted (<parameter><link linkend="GAsyncQueue"><type>GAsyncQueue</type></link> *queue</parameter>,
+                           <parameter><link linkend="gpointer"><type>gpointer</type></link> data</parameter>,
+                           <parameter><link linkend="GCompareDataFunc"><type>GCompareDataFunc</type></link> func</parameter>,
+                           <parameter><link linkend="gpointer"><type>gpointer</type></link> user_data</parameter>);</programlisting>
+<para>Inserts <parameter>data</parameter>
+ into <parameter>queue</parameter>
+ using <parameter>func</parameter>
+ to determine the new
+position.</para>
+<para>This function requires that the <parameter>queue</parameter>
+ is sorted before pushing on
+new elements, see <link linkend="g-async-queue-sort"><function>g_async_queue_sort()</function></link>.</para>
+<para>This function will lock <parameter>queue</parameter>
+ before it sorts the queue and unlock
+it when it is finished.</para>
+<para>For an example of <parameter>func</parameter>
+ see <link linkend="g-async-queue-sort"><function>g_async_queue_sort()</function></link>.</para>
+<refsect3 id="g-async-queue-push-sorted.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>queue</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GAsyncQueue"><type>GAsyncQueue</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>data</para></entry>
+<entry role="parameter_description"><para>the <parameter>data</parameter>
+to push into the <parameter>queue</parameter>
+</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>func</para></entry>
+<entry role="parameter_description"><para>the <link linkend="GCompareDataFunc"><type>GCompareDataFunc</type></link> is used to sort <parameter>queue</parameter>
+</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>user_data</para></entry>
+<entry role="parameter_description"><para>user data passed to <parameter>func</parameter>
+.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.10">2.10</link></para></refsect2>
+<refsect2 id="g-async-queue-push-front" role="function" condition="since:2.46">
+<title>g_async_queue_push_front&#160;()</title>
+<indexterm zone="g-async-queue-push-front" role="2.46"><primary sortas="async_queue_push_front">g_async_queue_push_front</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_async_queue_push_front (<parameter><link linkend="GAsyncQueue"><type>GAsyncQueue</type></link> *queue</parameter>,
+                          <parameter><link linkend="gpointer"><type>gpointer</type></link> item</parameter>);</programlisting>
+<para>Pushes the <parameter>item</parameter>
+ into the <parameter>queue</parameter>
+. <parameter>item</parameter>
+ must not be <link linkend="NULL:CAPS"><literal>NULL</literal></link>.
+In contrast to <link linkend="g-async-queue-push"><function>g_async_queue_push()</function></link>, this function
+pushes the new item ahead of the items already in the queue,
+so that it will be the next one to be popped off the queue.</para>
+<refsect3 id="g-async-queue-push-front.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>queue</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GAsyncQueue"><type>GAsyncQueue</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>item</para></entry>
+<entry role="parameter_description"><para>data to push into the <parameter>queue</parameter>
+</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.46">2.46</link></para></refsect2>
+<refsect2 id="g-async-queue-remove" role="function" condition="since:2.46">
+<title>g_async_queue_remove&#160;()</title>
+<indexterm zone="g-async-queue-remove" role="2.46"><primary sortas="async_queue_remove">g_async_queue_remove</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_async_queue_remove (<parameter><link linkend="GAsyncQueue"><type>GAsyncQueue</type></link> *queue</parameter>,
+                      <parameter><link linkend="gpointer"><type>gpointer</type></link> item</parameter>);</programlisting>
+<para>Remove an item from the queue.</para>
+<refsect3 id="g-async-queue-remove.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>queue</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GAsyncQueue"><type>GAsyncQueue</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>item</para></entry>
+<entry role="parameter_description"><para>the data to remove from the <parameter>queue</parameter>
+</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-async-queue-remove.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if the item was removed</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.46">2.46</link></para></refsect2>
+<refsect2 id="g-async-queue-pop" role="function">
+<title>g_async_queue_pop&#160;()</title>
+<indexterm zone="g-async-queue-pop"><primary sortas="async_queue_pop">g_async_queue_pop</primary></indexterm>
+<programlisting language="C"><link linkend="gpointer"><returnvalue>gpointer</returnvalue></link>
+g_async_queue_pop (<parameter><link linkend="GAsyncQueue"><type>GAsyncQueue</type></link> *queue</parameter>);</programlisting>
+<para>Pops data from the <parameter>queue</parameter>
+. If <parameter>queue</parameter>
+ is empty, this function
+blocks until data becomes available.</para>
+<refsect3 id="g-async-queue-pop.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>queue</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GAsyncQueue"><type>GAsyncQueue</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-async-queue-pop.returns" role="returns">
+<title>Returns</title>
+<para> data from the queue</para>
+</refsect3></refsect2>
+<refsect2 id="g-async-queue-try-pop" role="function">
+<title>g_async_queue_try_pop&#160;()</title>
+<indexterm zone="g-async-queue-try-pop"><primary sortas="async_queue_try_pop">g_async_queue_try_pop</primary></indexterm>
+<programlisting language="C"><link linkend="gpointer"><returnvalue>gpointer</returnvalue></link>
+g_async_queue_try_pop (<parameter><link linkend="GAsyncQueue"><type>GAsyncQueue</type></link> *queue</parameter>);</programlisting>
+<para>Tries to pop data from the <parameter>queue</parameter>
+. If no data is available,
+<link linkend="NULL:CAPS"><literal>NULL</literal></link> is returned.</para>
+<refsect3 id="g-async-queue-try-pop.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>queue</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GAsyncQueue"><type>GAsyncQueue</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-async-queue-try-pop.returns" role="returns">
+<title>Returns</title>
+<para> data from the queue or <link linkend="NULL:CAPS"><literal>NULL</literal></link>, when no data is
+available immediately.</para>
+</refsect3></refsect2>
+<refsect2 id="g-async-queue-timeout-pop" role="function">
+<title>g_async_queue_timeout_pop&#160;()</title>
+<indexterm zone="g-async-queue-timeout-pop"><primary sortas="async_queue_timeout_pop">g_async_queue_timeout_pop</primary></indexterm>
+<programlisting language="C"><link linkend="gpointer"><returnvalue>gpointer</returnvalue></link>
+g_async_queue_timeout_pop (<parameter><link linkend="GAsyncQueue"><type>GAsyncQueue</type></link> *queue</parameter>,
+                           <parameter><link linkend="guint64"><type>guint64</type></link> timeout</parameter>);</programlisting>
+<para>Pops data from the <parameter>queue</parameter>
+. If the queue is empty, blocks for
+<parameter>timeout</parameter>
+ microseconds, or until data becomes available.</para>
+<para>If no data is received before the timeout, <link linkend="NULL:CAPS"><literal>NULL</literal></link> is returned.</para>
+<refsect3 id="g-async-queue-timeout-pop.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>queue</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GAsyncQueue"><type>GAsyncQueue</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>timeout</para></entry>
+<entry role="parameter_description"><para>the number of microseconds to wait</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-async-queue-timeout-pop.returns" role="returns">
+<title>Returns</title>
+<para> data from the queue or <link linkend="NULL:CAPS"><literal>NULL</literal></link>, when no data is
+received before the timeout.</para>
+</refsect3></refsect2>
+<refsect2 id="g-async-queue-length" role="function">
+<title>g_async_queue_length&#160;()</title>
+<indexterm zone="g-async-queue-length"><primary sortas="async_queue_length">g_async_queue_length</primary></indexterm>
+<programlisting language="C"><link linkend="gint"><returnvalue>gint</returnvalue></link>
+g_async_queue_length (<parameter><link linkend="GAsyncQueue"><type>GAsyncQueue</type></link> *queue</parameter>);</programlisting>
+<para>Returns the length of the queue.</para>
+<para>Actually this function returns the number of data items in
+the queue minus the number of waiting threads, so a negative
+value means waiting threads, and a positive value means available
+entries in the <parameter>queue</parameter>
+. A return value of 0 could mean n entries
+in the queue and n threads waiting. This can happen due to locking
+of the queue or due to scheduling.</para>
+<refsect3 id="g-async-queue-length.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>queue</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GAsyncQueue"><type>GAsyncQueue</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-async-queue-length.returns" role="returns">
+<title>Returns</title>
+<para> the length of the <parameter>queue</parameter>
+</para>
+</refsect3></refsect2>
+<refsect2 id="g-async-queue-sort" role="function" condition="since:2.10">
+<title>g_async_queue_sort&#160;()</title>
+<indexterm zone="g-async-queue-sort" role="2.10"><primary sortas="async_queue_sort">g_async_queue_sort</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_async_queue_sort (<parameter><link linkend="GAsyncQueue"><type>GAsyncQueue</type></link> *queue</parameter>,
+                    <parameter><link linkend="GCompareDataFunc"><type>GCompareDataFunc</type></link> func</parameter>,
+                    <parameter><link linkend="gpointer"><type>gpointer</type></link> user_data</parameter>);</programlisting>
+<para>Sorts <parameter>queue</parameter>
+ using <parameter>func</parameter>
+.</para>
+<para>The sort function <parameter>func</parameter>
+ is passed two elements of the <parameter>queue</parameter>
+.
+It should return 0 if they are equal, a negative value if the
+first element should be higher in the <parameter>queue</parameter>
+ or a positive value
+if the first element should be lower in the <parameter>queue</parameter>
+ than the second
+element.</para>
+<para>This function will lock <parameter>queue</parameter>
+ before it sorts the queue and unlock
+it when it is finished.</para>
+<para>If you were sorting a list of priority numbers to make sure the
+lowest priority would be at the top of the queue, you could use:</para>
+<informalexample><programlisting role="example"><![CDATA[
+ gint32 id1;
+ gint32 id2;
+
+ id1 = GPOINTER_TO_INT (element1);
+ id2 = GPOINTER_TO_INT (element2);
+
+ return (id1 > id2 ? +1 : id1 == id2 ? 0 : -1);
+]]></programlisting></informalexample>
+<para></para>
+<refsect3 id="g-async-queue-sort.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>queue</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GAsyncQueue"><type>GAsyncQueue</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>func</para></entry>
+<entry role="parameter_description"><para>the <link linkend="GCompareDataFunc"><type>GCompareDataFunc</type></link> is used to sort <parameter>queue</parameter>
+</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>user_data</para></entry>
+<entry role="parameter_description"><para>user data passed to <parameter>func</parameter>
+</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.10">2.10</link></para></refsect2>
+<refsect2 id="g-async-queue-lock" role="function">
+<title>g_async_queue_lock&#160;()</title>
+<indexterm zone="g-async-queue-lock"><primary sortas="async_queue_lock">g_async_queue_lock</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_async_queue_lock (<parameter><link linkend="GAsyncQueue"><type>GAsyncQueue</type></link> *queue</parameter>);</programlisting>
+<para>Acquires the <parameter>queue</parameter>
+'s lock. If another thread is already
+holding the lock, this call will block until the lock
+becomes available.</para>
+<para>Call <link linkend="g-async-queue-unlock"><function>g_async_queue_unlock()</function></link> to drop the lock again.</para>
+<para>While holding the lock, you can only call the
+g_async_queue_*_unlocked() functions on <parameter>queue</parameter>
+. Otherwise,
+deadlock may occur.</para>
+<refsect3 id="g-async-queue-lock.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>queue</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GAsyncQueue"><type>GAsyncQueue</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-async-queue-unlock" role="function">
+<title>g_async_queue_unlock&#160;()</title>
+<indexterm zone="g-async-queue-unlock"><primary sortas="async_queue_unlock">g_async_queue_unlock</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_async_queue_unlock (<parameter><link linkend="GAsyncQueue"><type>GAsyncQueue</type></link> *queue</parameter>);</programlisting>
+<para>Releases the queue's lock.</para>
+<para>Calling this function when you have not acquired
+the with <link linkend="g-async-queue-lock"><function>g_async_queue_lock()</function></link> leads to undefined
+behaviour.</para>
+<refsect3 id="g-async-queue-unlock.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>queue</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GAsyncQueue"><type>GAsyncQueue</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-async-queue-ref-unlocked" role="function" condition="deprecated">
+<title>g_async_queue_ref_unlocked&#160;()</title>
+<indexterm zone="g-async-queue-ref-unlocked" role="deprecated"><primary sortas="async_queue_ref_unlocked">g_async_queue_ref_unlocked</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_async_queue_ref_unlocked (<parameter><link linkend="GAsyncQueue"><type>GAsyncQueue</type></link> *queue</parameter>);</programlisting>
+<warning><para><literal>g_async_queue_ref_unlocked</literal> has been deprecated since version 2.8 and should not be used in newly-written code.</para> <para>Reference counting is done atomically.
+so <link linkend="g-async-queue-ref"><function>g_async_queue_ref()</function></link> can be used regardless of the <parameter>queue</parameter>
+'s
+lock.</para>
+</warning>
+<para>Increases the reference count of the asynchronous <parameter>queue</parameter>
+ by 1.</para>
+<refsect3 id="g-async-queue-ref-unlocked.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>queue</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GAsyncQueue"><type>GAsyncQueue</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-async-queue-unref-and-unlock" role="function" condition="deprecated">
+<title>g_async_queue_unref_and_unlock&#160;()</title>
+<indexterm zone="g-async-queue-unref-and-unlock" role="deprecated"><primary sortas="async_queue_unref_and_unlock">g_async_queue_unref_and_unlock</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_async_queue_unref_and_unlock (<parameter><link linkend="GAsyncQueue"><type>GAsyncQueue</type></link> *queue</parameter>);</programlisting>
+<warning><para><literal>g_async_queue_unref_and_unlock</literal> has been deprecated since version 2.8 and should not be used in newly-written code.</para> <para>Reference counting is done atomically.
+so <link linkend="g-async-queue-unref"><function>g_async_queue_unref()</function></link> can be used regardless of the <parameter>queue</parameter>
+'s
+lock.</para>
+</warning>
+<para>Decreases the reference count of the asynchronous <parameter>queue</parameter>
+ by 1
+and releases the lock. This function must be called while holding
+the <parameter>queue</parameter>
+'s lock. If the reference count went to 0, the <parameter>queue</parameter>
+
+will be destroyed and the memory allocated will be freed.</para>
+<refsect3 id="g-async-queue-unref-and-unlock.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>queue</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GAsyncQueue"><type>GAsyncQueue</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-async-queue-push-unlocked" role="function">
+<title>g_async_queue_push_unlocked&#160;()</title>
+<indexterm zone="g-async-queue-push-unlocked"><primary sortas="async_queue_push_unlocked">g_async_queue_push_unlocked</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_async_queue_push_unlocked (<parameter><link linkend="GAsyncQueue"><type>GAsyncQueue</type></link> *queue</parameter>,
+                             <parameter><link linkend="gpointer"><type>gpointer</type></link> data</parameter>);</programlisting>
+<para>Pushes the <parameter>data</parameter>
+ into the <parameter>queue</parameter>
+. <parameter>data</parameter>
+ must not be <link linkend="NULL:CAPS"><literal>NULL</literal></link>.</para>
+<para>This function must be called while holding the <parameter>queue</parameter>
+'s lock.</para>
+<refsect3 id="g-async-queue-push-unlocked.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>queue</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GAsyncQueue"><type>GAsyncQueue</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>data</para></entry>
+<entry role="parameter_description"><para><parameter>data</parameter>
+to push into the <parameter>queue</parameter>
+</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-async-queue-push-sorted-unlocked" role="function" condition="since:2.10">
+<title>g_async_queue_push_sorted_unlocked&#160;()</title>
+<indexterm zone="g-async-queue-push-sorted-unlocked" role="2.10"><primary sortas="async_queue_push_sorted_unlocked">g_async_queue_push_sorted_unlocked</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_async_queue_push_sorted_unlocked (<parameter><link linkend="GAsyncQueue"><type>GAsyncQueue</type></link> *queue</parameter>,
+                                    <parameter><link linkend="gpointer"><type>gpointer</type></link> data</parameter>,
+                                    <parameter><link linkend="GCompareDataFunc"><type>GCompareDataFunc</type></link> func</parameter>,
+                                    <parameter><link linkend="gpointer"><type>gpointer</type></link> user_data</parameter>);</programlisting>
+<para>Inserts <parameter>data</parameter>
+ into <parameter>queue</parameter>
+ using <parameter>func</parameter>
+ to determine the new
+position.</para>
+<para>The sort function <parameter>func</parameter>
+ is passed two elements of the <parameter>queue</parameter>
+.
+It should return 0 if they are equal, a negative value if the
+first element should be higher in the <parameter>queue</parameter>
+ or a positive value
+if the first element should be lower in the <parameter>queue</parameter>
+ than the second
+element.</para>
+<para>This function requires that the <parameter>queue</parameter>
+ is sorted before pushing on
+new elements, see <link linkend="g-async-queue-sort"><function>g_async_queue_sort()</function></link>.</para>
+<para>This function must be called while holding the <parameter>queue</parameter>
+'s lock.</para>
+<para>For an example of <parameter>func</parameter>
+ see <link linkend="g-async-queue-sort"><function>g_async_queue_sort()</function></link>.</para>
+<refsect3 id="g-async-queue-push-sorted-unlocked.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>queue</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GAsyncQueue"><type>GAsyncQueue</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>data</para></entry>
+<entry role="parameter_description"><para>the <parameter>data</parameter>
+to push into the <parameter>queue</parameter>
+</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>func</para></entry>
+<entry role="parameter_description"><para>the <link linkend="GCompareDataFunc"><type>GCompareDataFunc</type></link> is used to sort <parameter>queue</parameter>
+</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>user_data</para></entry>
+<entry role="parameter_description"><para>user data passed to <parameter>func</parameter>
+.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.10">2.10</link></para></refsect2>
+<refsect2 id="g-async-queue-push-front-unlocked" role="function" condition="since:2.46">
+<title>g_async_queue_push_front_unlocked&#160;()</title>
+<indexterm zone="g-async-queue-push-front-unlocked" role="2.46"><primary sortas="async_queue_push_front_unlocked">g_async_queue_push_front_unlocked</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_async_queue_push_front_unlocked (<parameter><link linkend="GAsyncQueue"><type>GAsyncQueue</type></link> *queue</parameter>,
+                                   <parameter><link linkend="gpointer"><type>gpointer</type></link> item</parameter>);</programlisting>
+<para>Pushes the <parameter>item</parameter>
+ into the <parameter>queue</parameter>
+. <parameter>item</parameter>
+ must not be <link linkend="NULL:CAPS"><literal>NULL</literal></link>.
+In contrast to <link linkend="g-async-queue-push-unlocked"><function>g_async_queue_push_unlocked()</function></link>, this function
+pushes the new item ahead of the items already in the queue,
+so that it will be the next one to be popped off the queue.</para>
+<para>This function must be called while holding the <parameter>queue</parameter>
+'s lock.</para>
+<refsect3 id="g-async-queue-push-front-unlocked.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>queue</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GAsyncQueue"><type>GAsyncQueue</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>item</para></entry>
+<entry role="parameter_description"><para>data to push into the <parameter>queue</parameter>
+</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.46">2.46</link></para></refsect2>
+<refsect2 id="g-async-queue-remove-unlocked" role="function" condition="since:2.46">
+<title>g_async_queue_remove_unlocked&#160;()</title>
+<indexterm zone="g-async-queue-remove-unlocked" role="2.46"><primary sortas="async_queue_remove_unlocked">g_async_queue_remove_unlocked</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_async_queue_remove_unlocked (<parameter><link linkend="GAsyncQueue"><type>GAsyncQueue</type></link> *queue</parameter>,
+                               <parameter><link linkend="gpointer"><type>gpointer</type></link> item</parameter>);</programlisting>
+<para>Remove an item from the queue.</para>
+<para>This function must be called while holding the <parameter>queue</parameter>
+'s lock.</para>
+<refsect3 id="g-async-queue-remove-unlocked.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>queue</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GAsyncQueue"><type>GAsyncQueue</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>item</para></entry>
+<entry role="parameter_description"><para>the data to remove from the <parameter>queue</parameter>
+</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-async-queue-remove-unlocked.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if the item was removed</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.46">2.46</link></para></refsect2>
+<refsect2 id="g-async-queue-pop-unlocked" role="function">
+<title>g_async_queue_pop_unlocked&#160;()</title>
+<indexterm zone="g-async-queue-pop-unlocked"><primary sortas="async_queue_pop_unlocked">g_async_queue_pop_unlocked</primary></indexterm>
+<programlisting language="C"><link linkend="gpointer"><returnvalue>gpointer</returnvalue></link>
+g_async_queue_pop_unlocked (<parameter><link linkend="GAsyncQueue"><type>GAsyncQueue</type></link> *queue</parameter>);</programlisting>
+<para>Pops data from the <parameter>queue</parameter>
+. If <parameter>queue</parameter>
+ is empty, this function
+blocks until data becomes available.</para>
+<para>This function must be called while holding the <parameter>queue</parameter>
+'s lock.</para>
+<refsect3 id="g-async-queue-pop-unlocked.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>queue</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GAsyncQueue"><type>GAsyncQueue</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-async-queue-pop-unlocked.returns" role="returns">
+<title>Returns</title>
+<para> data from the queue.</para>
+</refsect3></refsect2>
+<refsect2 id="g-async-queue-try-pop-unlocked" role="function">
+<title>g_async_queue_try_pop_unlocked&#160;()</title>
+<indexterm zone="g-async-queue-try-pop-unlocked"><primary sortas="async_queue_try_pop_unlocked">g_async_queue_try_pop_unlocked</primary></indexterm>
+<programlisting language="C"><link linkend="gpointer"><returnvalue>gpointer</returnvalue></link>
+g_async_queue_try_pop_unlocked (<parameter><link linkend="GAsyncQueue"><type>GAsyncQueue</type></link> *queue</parameter>);</programlisting>
+<para>Tries to pop data from the <parameter>queue</parameter>
+. If no data is available,
+<link linkend="NULL:CAPS"><literal>NULL</literal></link> is returned.</para>
+<para>This function must be called while holding the <parameter>queue</parameter>
+'s lock.</para>
+<refsect3 id="g-async-queue-try-pop-unlocked.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>queue</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GAsyncQueue"><type>GAsyncQueue</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-async-queue-try-pop-unlocked.returns" role="returns">
+<title>Returns</title>
+<para> data from the queue or <link linkend="NULL:CAPS"><literal>NULL</literal></link>, when no data is
+available immediately.</para>
+</refsect3></refsect2>
+<refsect2 id="g-async-queue-timeout-pop-unlocked" role="function">
+<title>g_async_queue_timeout_pop_unlocked&#160;()</title>
+<indexterm zone="g-async-queue-timeout-pop-unlocked"><primary sortas="async_queue_timeout_pop_unlocked">g_async_queue_timeout_pop_unlocked</primary></indexterm>
+<programlisting language="C"><link linkend="gpointer"><returnvalue>gpointer</returnvalue></link>
+g_async_queue_timeout_pop_unlocked (<parameter><link linkend="GAsyncQueue"><type>GAsyncQueue</type></link> *queue</parameter>,
+                                    <parameter><link linkend="guint64"><type>guint64</type></link> timeout</parameter>);</programlisting>
+<para>Pops data from the <parameter>queue</parameter>
+. If the queue is empty, blocks for
+<parameter>timeout</parameter>
+ microseconds, or until data becomes available.</para>
+<para>If no data is received before the timeout, <link linkend="NULL:CAPS"><literal>NULL</literal></link> is returned.</para>
+<para>This function must be called while holding the <parameter>queue</parameter>
+'s lock.</para>
+<refsect3 id="g-async-queue-timeout-pop-unlocked.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>queue</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GAsyncQueue"><type>GAsyncQueue</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>timeout</para></entry>
+<entry role="parameter_description"><para>the number of microseconds to wait</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-async-queue-timeout-pop-unlocked.returns" role="returns">
+<title>Returns</title>
+<para> data from the queue or <link linkend="NULL:CAPS"><literal>NULL</literal></link>, when no data is
+received before the timeout.</para>
+</refsect3></refsect2>
+<refsect2 id="g-async-queue-length-unlocked" role="function">
+<title>g_async_queue_length_unlocked&#160;()</title>
+<indexterm zone="g-async-queue-length-unlocked"><primary sortas="async_queue_length_unlocked">g_async_queue_length_unlocked</primary></indexterm>
+<programlisting language="C"><link linkend="gint"><returnvalue>gint</returnvalue></link>
+g_async_queue_length_unlocked (<parameter><link linkend="GAsyncQueue"><type>GAsyncQueue</type></link> *queue</parameter>);</programlisting>
+<para>Returns the length of the queue.</para>
+<para>Actually this function returns the number of data items in
+the queue minus the number of waiting threads, so a negative
+value means waiting threads, and a positive value means available
+entries in the <parameter>queue</parameter>
+. A return value of 0 could mean n entries
+in the queue and n threads waiting. This can happen due to locking
+of the queue or due to scheduling.</para>
+<para>This function must be called while holding the <parameter>queue</parameter>
+'s lock.</para>
+<refsect3 id="g-async-queue-length-unlocked.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>queue</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GAsyncQueue"><type>GAsyncQueue</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-async-queue-length-unlocked.returns" role="returns">
+<title>Returns</title>
+<para> the length of the <parameter>queue</parameter>
+.</para>
+</refsect3></refsect2>
+<refsect2 id="g-async-queue-sort-unlocked" role="function" condition="since:2.10">
+<title>g_async_queue_sort_unlocked&#160;()</title>
+<indexterm zone="g-async-queue-sort-unlocked" role="2.10"><primary sortas="async_queue_sort_unlocked">g_async_queue_sort_unlocked</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_async_queue_sort_unlocked (<parameter><link linkend="GAsyncQueue"><type>GAsyncQueue</type></link> *queue</parameter>,
+                             <parameter><link linkend="GCompareDataFunc"><type>GCompareDataFunc</type></link> func</parameter>,
+                             <parameter><link linkend="gpointer"><type>gpointer</type></link> user_data</parameter>);</programlisting>
+<para>Sorts <parameter>queue</parameter>
+ using <parameter>func</parameter>
+.</para>
+<para>The sort function <parameter>func</parameter>
+ is passed two elements of the <parameter>queue</parameter>
+.
+It should return 0 if they are equal, a negative value if the
+first element should be higher in the <parameter>queue</parameter>
+ or a positive value
+if the first element should be lower in the <parameter>queue</parameter>
+ than the second
+element.</para>
+<para>This function must be called while holding the <parameter>queue</parameter>
+'s lock.</para>
+<refsect3 id="g-async-queue-sort-unlocked.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>queue</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GAsyncQueue"><type>GAsyncQueue</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>func</para></entry>
+<entry role="parameter_description"><para>the <link linkend="GCompareDataFunc"><type>GCompareDataFunc</type></link> is used to sort <parameter>queue</parameter>
+</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>user_data</para></entry>
+<entry role="parameter_description"><para>user data passed to <parameter>func</parameter>
+</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.10">2.10</link></para></refsect2>
+<refsect2 id="g-async-queue-timed-pop" role="function" condition="deprecated:use g_async_queue_timeout_pop().">
+<title>g_async_queue_timed_pop&#160;()</title>
+<indexterm zone="g-async-queue-timed-pop" role="deprecated"><primary sortas="async_queue_timed_pop">g_async_queue_timed_pop</primary></indexterm>
+<programlisting language="C"><link linkend="gpointer"><returnvalue>gpointer</returnvalue></link>
+g_async_queue_timed_pop (<parameter><link linkend="GAsyncQueue"><type>GAsyncQueue</type></link> *queue</parameter>,
+                         <parameter><link linkend="GTimeVal"><type>GTimeVal</type></link> *end_time</parameter>);</programlisting>
+<warning><para><literal>g_async_queue_timed_pop</literal> is deprecated and should not be used in newly-written code.</para> <para>use <link linkend="g-async-queue-timeout-pop"><function>g_async_queue_timeout_pop()</function></link>.</para>
+</warning>
+<para>Pops data from the <parameter>queue</parameter>
+. If the queue is empty, blocks until
+<parameter>end_time</parameter>
+ or until data becomes available.</para>
+<para>If no data is received before <parameter>end_time</parameter>
+, <link linkend="NULL:CAPS"><literal>NULL</literal></link> is returned.</para>
+<para>To easily calculate <parameter>end_time</parameter>
+, a combination of <link linkend="g-get-current-time"><function>g_get_current_time()</function></link>
+and <link linkend="g-time-val-add"><function>g_time_val_add()</function></link> can be used.</para>
+<refsect3 id="g-async-queue-timed-pop.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>queue</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GAsyncQueue"><type>GAsyncQueue</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>end_time</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GTimeVal"><type>GTimeVal</type></link>, determining the final time</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-async-queue-timed-pop.returns" role="returns">
+<title>Returns</title>
+<para> data from the queue or <link linkend="NULL:CAPS"><literal>NULL</literal></link>, when no data is
+received before <parameter>end_time</parameter>
+.</para>
+</refsect3></refsect2>
+<refsect2 id="g-async-queue-timed-pop-unlocked" role="function" condition="deprecated:use g_async_queue_timeout_pop_unlocked().">
+<title>g_async_queue_timed_pop_unlocked&#160;()</title>
+<indexterm zone="g-async-queue-timed-pop-unlocked" role="deprecated"><primary sortas="async_queue_timed_pop_unlocked">g_async_queue_timed_pop_unlocked</primary></indexterm>
+<programlisting language="C"><link linkend="gpointer"><returnvalue>gpointer</returnvalue></link>
+g_async_queue_timed_pop_unlocked (<parameter><link linkend="GAsyncQueue"><type>GAsyncQueue</type></link> *queue</parameter>,
+                                  <parameter><link linkend="GTimeVal"><type>GTimeVal</type></link> *end_time</parameter>);</programlisting>
+<warning><para><literal>g_async_queue_timed_pop_unlocked</literal> is deprecated and should not be used in newly-written code.</para> <para>use <link linkend="g-async-queue-timeout-pop-unlocked"><function>g_async_queue_timeout_pop_unlocked()</function></link>.</para>
+</warning>
+<para>Pops data from the <parameter>queue</parameter>
+. If the queue is empty, blocks until
+<parameter>end_time</parameter>
+ or until data becomes available.</para>
+<para>If no data is received before <parameter>end_time</parameter>
+, <link linkend="NULL:CAPS"><literal>NULL</literal></link> is returned.</para>
+<para>To easily calculate <parameter>end_time</parameter>
+, a combination of <link linkend="g-get-current-time"><function>g_get_current_time()</function></link>
+and <link linkend="g-time-val-add"><function>g_time_val_add()</function></link> can be used.</para>
+<para>This function must be called while holding the <parameter>queue</parameter>
+'s lock.</para>
+<refsect3 id="g-async-queue-timed-pop-unlocked.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>queue</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GAsyncQueue"><type>GAsyncQueue</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>end_time</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GTimeVal"><type>GTimeVal</type></link>, determining the final time</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-async-queue-timed-pop-unlocked.returns" role="returns">
+<title>Returns</title>
+<para> data from the queue or <link linkend="NULL:CAPS"><literal>NULL</literal></link>, when no data is
+received before <parameter>end_time</parameter>
+.</para>
+</refsect3></refsect2>
+
+</refsect1>
+<refsect1 id="glib-Asynchronous-Queues.other_details" role="details">
+<title role="details.title">Types and Values</title>
+<refsect2 id="GAsyncQueue" role="struct">
+<title>GAsyncQueue</title>
+<indexterm zone="GAsyncQueue"><primary sortas="AsyncQueue">GAsyncQueue</primary></indexterm>
+<programlisting language="C">typedef struct _GAsyncQueue GAsyncQueue;</programlisting>
+<para>The GAsyncQueue struct is an opaque data structure which represents
+an asynchronous queue. It should only be accessed through the
+g_async_queue_* functions.</para>
+</refsect2>
+
+</refsect1>
+<refsect1 id="glib-Asynchronous-Queues.see-also">
+<title>See Also</title>
+<para><link linkend="GThreadPool"><type>GThreadPool</type></link></para>
+
+</refsect1>
+
+</refentry>

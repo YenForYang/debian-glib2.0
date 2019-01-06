@@ -1,0 +1,411 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC '-//OASIS//DTD DocBook XML V4.5//EN'
+                      'http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd' [
+<!ENTITY % local.common.attrib "xmlns:xi  CDATA  #FIXED 'http://www.w3.org/2003/XInclude'">
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="GTlsBackend">
+<refmeta>
+<refentrytitle role="top_of_page" id="GTlsBackend.top_of_page">GTlsBackend</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>GIO Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>GTlsBackend</refname>
+<refpurpose>TLS backend implementation</refpurpose>
+</refnamediv>
+
+<refsect1 id="GTlsBackend.functions" role="functions_proto">
+<title role="functions_proto.title">Functions</title>
+<informaltable pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="functions_return" colwidth="150px"/>
+<colspec colname="functions_name"/>
+<tbody>
+<row><entry role="function_type"><link linkend="GTlsBackend"><returnvalue>GTlsBackend</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-tls-backend-get-default">g_tls_backend_get_default</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-tls-backend-supports-tls">g_tls_backend_supports_tls</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-tls-backend-supports-dtls">g_tls_backend_supports_dtls</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GTlsDatabase"><returnvalue>GTlsDatabase</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-tls-backend-get-default-database">g_tls_backend_get_default_database</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GType"><returnvalue>GType</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-tls-backend-get-certificate-type">g_tls_backend_get_certificate_type</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GType"><returnvalue>GType</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-tls-backend-get-client-connection-type">g_tls_backend_get_client_connection_type</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GType"><returnvalue>GType</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-tls-backend-get-server-connection-type">g_tls_backend_get_server_connection_type</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GType"><returnvalue>GType</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-tls-backend-get-dtls-client-connection-type">g_tls_backend_get_dtls_client_connection_type</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GType"><returnvalue>GType</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-tls-backend-get-dtls-server-connection-type">g_tls_backend_get_dtls_server_connection_type</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GType"><returnvalue>GType</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-tls-backend-get-file-database-type">g_tls_backend_get_file_database_type</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GTlsBackend.other" role="other_proto">
+<title role="other_proto.title">Types and Values</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="name" colwidth="150px"/>
+<colspec colname="description"/>
+<tbody>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="G-TLS-BACKEND-EXTENSION-POINT-NAME:CAPS">G_TLS_BACKEND_EXTENSION_POINT_NAME</link></entry></row>
+<row><entry role="datatype_keyword"></entry><entry role="function_name"><link linkend="GTlsBackend-struct">GTlsBackend</link></entry></row>
+<row><entry role="datatype_keyword">struct</entry><entry role="function_name"><link linkend="GTlsBackendInterface">GTlsBackendInterface</link></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GTlsBackend.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<screen>    <link linkend="GInterface">GInterface</link>
+    <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> GTlsBackend
+</screen>
+</refsect1>
+<refsect1 id="GTlsBackend.prerequisites" role="prerequisites">
+<title role="prerequisites.title">Prerequisites</title>
+<para>
+GTlsBackend requires
+ <link linkend="GObject">GObject</link>.</para>
+
+</refsect1>
+
+<refsect1 id="GTlsBackend.includes"><title>Includes</title><synopsis>#include &lt;gio/gio.h&gt;
+</synopsis></refsect1>
+
+<refsect1 id="GTlsBackend.description" role="desc">
+<title role="desc.title">Description</title>
+<para>TLS (Transport Layer Security, aka SSL) and DTLS backend.</para>
+
+</refsect1>
+<refsect1 id="GTlsBackend.functions_details" role="details">
+<title role="details.title">Functions</title>
+<refsect2 id="g-tls-backend-get-default" role="function" condition="since:2.28">
+<title>g_tls_backend_get_default&#160;()</title>
+<indexterm zone="g-tls-backend-get-default" role="2.28"><primary sortas="tls_backend_get_default">g_tls_backend_get_default</primary></indexterm>
+<programlisting language="C"><link linkend="GTlsBackend"><returnvalue>GTlsBackend</returnvalue></link>&#160;*
+g_tls_backend_get_default (<parameter><type>void</type></parameter>);</programlisting>
+<para>Gets the default <link linkend="GTlsBackend"><type>GTlsBackend</type></link> for the system.</para>
+<refsect3 id="g-tls-backend-get-default.returns" role="returns">
+<title>Returns</title>
+<para>a <link linkend="GTlsBackend"><type>GTlsBackend</type></link>. </para>
+<para><emphasis role="annotation">[<acronym>transfer none</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.28">2.28</link></para></refsect2>
+<refsect2 id="g-tls-backend-supports-tls" role="function" condition="since:2.28">
+<title>g_tls_backend_supports_tls&#160;()</title>
+<indexterm zone="g-tls-backend-supports-tls" role="2.28"><primary sortas="tls_backend_supports_tls">g_tls_backend_supports_tls</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_tls_backend_supports_tls (<parameter><link linkend="GTlsBackend"><type>GTlsBackend</type></link> *backend</parameter>);</programlisting>
+<para>Checks if TLS is supported; if this returns <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> for the default
+<link linkend="GTlsBackend"><type>GTlsBackend</type></link>, it means no "real" TLS backend is available.</para>
+<refsect3 id="g-tls-backend-supports-tls.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>backend</para></entry>
+<entry role="parameter_description"><para>the <link linkend="GTlsBackend"><type>GTlsBackend</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-tls-backend-supports-tls.returns" role="returns">
+<title>Returns</title>
+<para> whether or not TLS is supported</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.28">2.28</link></para></refsect2>
+<refsect2 id="g-tls-backend-supports-dtls" role="function" condition="since:2.48">
+<title>g_tls_backend_supports_dtls&#160;()</title>
+<indexterm zone="g-tls-backend-supports-dtls" role="2.48"><primary sortas="tls_backend_supports_dtls">g_tls_backend_supports_dtls</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_tls_backend_supports_dtls (<parameter><link linkend="GTlsBackend"><type>GTlsBackend</type></link> *backend</parameter>);</programlisting>
+<para>Checks if DTLS is supported. DTLS support may not be available even if TLS
+support is available, and vice-versa.</para>
+<refsect3 id="g-tls-backend-supports-dtls.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>backend</para></entry>
+<entry role="parameter_description"><para>the <link linkend="GTlsBackend"><type>GTlsBackend</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-tls-backend-supports-dtls.returns" role="returns">
+<title>Returns</title>
+<para> whether DTLS is supported</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.48">2.48</link></para></refsect2>
+<refsect2 id="g-tls-backend-get-default-database" role="function" condition="since:2.30">
+<title>g_tls_backend_get_default_database&#160;()</title>
+<indexterm zone="g-tls-backend-get-default-database" role="2.30"><primary sortas="tls_backend_get_default_database">g_tls_backend_get_default_database</primary></indexterm>
+<programlisting language="C"><link linkend="GTlsDatabase"><returnvalue>GTlsDatabase</returnvalue></link>&#160;*
+g_tls_backend_get_default_database (<parameter><link linkend="GTlsBackend"><type>GTlsBackend</type></link> *backend</parameter>);</programlisting>
+<para>Gets the default <link linkend="GTlsDatabase"><type>GTlsDatabase</type></link> used to verify TLS connections.</para>
+<refsect3 id="g-tls-backend-get-default-database.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>backend</para></entry>
+<entry role="parameter_description"><para>the <link linkend="GTlsBackend"><type>GTlsBackend</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-tls-backend-get-default-database.returns" role="returns">
+<title>Returns</title>
+<para>the default database, which should be
+unreffed when done. </para>
+<para><emphasis role="annotation">[<acronym>transfer full</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.30">2.30</link></para></refsect2>
+<refsect2 id="g-tls-backend-get-certificate-type" role="function" condition="since:2.28">
+<title>g_tls_backend_get_certificate_type&#160;()</title>
+<indexterm zone="g-tls-backend-get-certificate-type" role="2.28"><primary sortas="tls_backend_get_certificate_type">g_tls_backend_get_certificate_type</primary></indexterm>
+<programlisting language="C"><link linkend="GType"><returnvalue>GType</returnvalue></link>
+g_tls_backend_get_certificate_type (<parameter><link linkend="GTlsBackend"><type>GTlsBackend</type></link> *backend</parameter>);</programlisting>
+<para>Gets the <link linkend="GType"><type>GType</type></link> of <parameter>backend</parameter>
+'s <link linkend="GTlsCertificate"><type>GTlsCertificate</type></link> implementation.</para>
+<refsect3 id="g-tls-backend-get-certificate-type.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>backend</para></entry>
+<entry role="parameter_description"><para>the <link linkend="GTlsBackend"><type>GTlsBackend</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-tls-backend-get-certificate-type.returns" role="returns">
+<title>Returns</title>
+<para> the <link linkend="GType"><type>GType</type></link> of <parameter>backend</parameter>
+'s <link linkend="GTlsCertificate"><type>GTlsCertificate</type></link>
+implementation.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.28">2.28</link></para></refsect2>
+<refsect2 id="g-tls-backend-get-client-connection-type" role="function" condition="since:2.28">
+<title>g_tls_backend_get_client_connection_type&#160;()</title>
+<indexterm zone="g-tls-backend-get-client-connection-type" role="2.28"><primary sortas="tls_backend_get_client_connection_type">g_tls_backend_get_client_connection_type</primary></indexterm>
+<programlisting language="C"><link linkend="GType"><returnvalue>GType</returnvalue></link>
+g_tls_backend_get_client_connection_type
+                               (<parameter><link linkend="GTlsBackend"><type>GTlsBackend</type></link> *backend</parameter>);</programlisting>
+<para>Gets the <link linkend="GType"><type>GType</type></link> of <parameter>backend</parameter>
+'s <link linkend="GTlsClientConnection"><type>GTlsClientConnection</type></link> implementation.</para>
+<refsect3 id="g-tls-backend-get-client-connection-type.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>backend</para></entry>
+<entry role="parameter_description"><para>the <link linkend="GTlsBackend"><type>GTlsBackend</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-tls-backend-get-client-connection-type.returns" role="returns">
+<title>Returns</title>
+<para> the <link linkend="GType"><type>GType</type></link> of <parameter>backend</parameter>
+'s <link linkend="GTlsClientConnection"><type>GTlsClientConnection</type></link>
+implementation.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.28">2.28</link></para></refsect2>
+<refsect2 id="g-tls-backend-get-server-connection-type" role="function" condition="since:2.28">
+<title>g_tls_backend_get_server_connection_type&#160;()</title>
+<indexterm zone="g-tls-backend-get-server-connection-type" role="2.28"><primary sortas="tls_backend_get_server_connection_type">g_tls_backend_get_server_connection_type</primary></indexterm>
+<programlisting language="C"><link linkend="GType"><returnvalue>GType</returnvalue></link>
+g_tls_backend_get_server_connection_type
+                               (<parameter><link linkend="GTlsBackend"><type>GTlsBackend</type></link> *backend</parameter>);</programlisting>
+<para>Gets the <link linkend="GType"><type>GType</type></link> of <parameter>backend</parameter>
+'s <link linkend="GTlsServerConnection"><type>GTlsServerConnection</type></link> implementation.</para>
+<refsect3 id="g-tls-backend-get-server-connection-type.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>backend</para></entry>
+<entry role="parameter_description"><para>the <link linkend="GTlsBackend"><type>GTlsBackend</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-tls-backend-get-server-connection-type.returns" role="returns">
+<title>Returns</title>
+<para> the <link linkend="GType"><type>GType</type></link> of <parameter>backend</parameter>
+'s <link linkend="GTlsServerConnection"><type>GTlsServerConnection</type></link>
+implementation.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.28">2.28</link></para></refsect2>
+<refsect2 id="g-tls-backend-get-dtls-client-connection-type" role="function" condition="since:2.48">
+<title>g_tls_backend_get_dtls_client_connection_type&#160;()</title>
+<indexterm zone="g-tls-backend-get-dtls-client-connection-type" role="2.48"><primary sortas="tls_backend_get_dtls_client_connection_type">g_tls_backend_get_dtls_client_connection_type</primary></indexterm>
+<programlisting language="C"><link linkend="GType"><returnvalue>GType</returnvalue></link>
+g_tls_backend_get_dtls_client_connection_type
+                               (<parameter><link linkend="GTlsBackend"><type>GTlsBackend</type></link> *backend</parameter>);</programlisting>
+<para>Gets the <link linkend="GType"><type>GType</type></link> of <parameter>backend</parameter>
+’s <link linkend="GDtlsClientConnection"><type>GDtlsClientConnection</type></link> implementation.</para>
+<refsect3 id="g-tls-backend-get-dtls-client-connection-type.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>backend</para></entry>
+<entry role="parameter_description"><para>the <link linkend="GTlsBackend"><type>GTlsBackend</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-tls-backend-get-dtls-client-connection-type.returns" role="returns">
+<title>Returns</title>
+<para> the <link linkend="GType"><type>GType</type></link> of <parameter>backend</parameter>
+’s <link linkend="GDtlsClientConnection"><type>GDtlsClientConnection</type></link>
+implementation, or <link linkend="G-TYPE-INVALID:CAPS"><literal>G_TYPE_INVALID</literal></link> if this backend doesn’t support DTLS.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.48">2.48</link></para></refsect2>
+<refsect2 id="g-tls-backend-get-dtls-server-connection-type" role="function" condition="since:2.48">
+<title>g_tls_backend_get_dtls_server_connection_type&#160;()</title>
+<indexterm zone="g-tls-backend-get-dtls-server-connection-type" role="2.48"><primary sortas="tls_backend_get_dtls_server_connection_type">g_tls_backend_get_dtls_server_connection_type</primary></indexterm>
+<programlisting language="C"><link linkend="GType"><returnvalue>GType</returnvalue></link>
+g_tls_backend_get_dtls_server_connection_type
+                               (<parameter><link linkend="GTlsBackend"><type>GTlsBackend</type></link> *backend</parameter>);</programlisting>
+<para>Gets the <link linkend="GType"><type>GType</type></link> of <parameter>backend</parameter>
+’s <link linkend="GDtlsServerConnection"><type>GDtlsServerConnection</type></link> implementation.</para>
+<refsect3 id="g-tls-backend-get-dtls-server-connection-type.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>backend</para></entry>
+<entry role="parameter_description"><para>the <link linkend="GTlsBackend"><type>GTlsBackend</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-tls-backend-get-dtls-server-connection-type.returns" role="returns">
+<title>Returns</title>
+<para> the <link linkend="GType"><type>GType</type></link> of <parameter>backend</parameter>
+’s <link linkend="GDtlsServerConnection"><type>GDtlsServerConnection</type></link>
+implementation, or <link linkend="G-TYPE-INVALID:CAPS"><literal>G_TYPE_INVALID</literal></link> if this backend doesn’t support DTLS.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.48">2.48</link></para></refsect2>
+<refsect2 id="g-tls-backend-get-file-database-type" role="function" condition="since:2.30">
+<title>g_tls_backend_get_file_database_type&#160;()</title>
+<indexterm zone="g-tls-backend-get-file-database-type" role="2.30"><primary sortas="tls_backend_get_file_database_type">g_tls_backend_get_file_database_type</primary></indexterm>
+<programlisting language="C"><link linkend="GType"><returnvalue>GType</returnvalue></link>
+g_tls_backend_get_file_database_type (<parameter><link linkend="GTlsBackend"><type>GTlsBackend</type></link> *backend</parameter>);</programlisting>
+<para>Gets the <link linkend="GType"><type>GType</type></link> of <parameter>backend</parameter>
+'s <link linkend="GTlsFileDatabase"><type>GTlsFileDatabase</type></link> implementation.</para>
+<refsect3 id="g-tls-backend-get-file-database-type.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>backend</para></entry>
+<entry role="parameter_description"><para>the <link linkend="GTlsBackend"><type>GTlsBackend</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-tls-backend-get-file-database-type.returns" role="returns">
+<title>Returns</title>
+<para> the <link linkend="GType"><type>GType</type></link> of backend's <link linkend="GTlsFileDatabase"><type>GTlsFileDatabase</type></link> implementation.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.30">2.30</link></para></refsect2>
+
+</refsect1>
+<refsect1 id="GTlsBackend.other_details" role="details">
+<title role="details.title">Types and Values</title>
+<refsect2 id="G-TLS-BACKEND-EXTENSION-POINT-NAME:CAPS" role="macro">
+<title>G_TLS_BACKEND_EXTENSION_POINT_NAME</title>
+<indexterm zone="G-TLS-BACKEND-EXTENSION-POINT-NAME:CAPS"><primary sortas="TLS_BACKEND_EXTENSION_POINT_NAME">G_TLS_BACKEND_EXTENSION_POINT_NAME</primary></indexterm>
+<programlisting language="C">#define G_TLS_BACKEND_EXTENSION_POINT_NAME "gio-tls-backend"
+</programlisting>
+<para>Extension point for TLS functionality via <link linkend="GTlsBackend"><type>GTlsBackend</type></link>.
+See <link linkend="extending-gio">Extending GIO</link>.</para>
+</refsect2>
+<refsect2 id="GTlsBackend-struct" role="struct">
+<title>GTlsBackend</title>
+<indexterm zone="GTlsBackend-struct" role="2.28"><primary sortas="TlsBackend">GTlsBackend</primary></indexterm>
+<programlisting language="C">typedef struct _GTlsBackend GTlsBackend;</programlisting>
+<para>TLS (Transport Layer Security, aka SSL) and DTLS backend. This is an
+internal type used to coordinate the different classes implemented
+by a TLS backend.</para>
+<para role="since">Since: <link linkend="api-index-2.28">2.28</link></para></refsect2>
+<refsect2 id="GTlsBackendInterface" role="struct" condition="since:2.28">
+<title>struct GTlsBackendInterface</title>
+<indexterm zone="GTlsBackendInterface" role="2.28"><primary sortas="TlsBackendInterface">GTlsBackendInterface</primary></indexterm>
+<programlisting language="C">struct GTlsBackendInterface {
+  GTypeInterface g_iface;
+
+  /* methods */
+  gboolean       ( *supports_tls)               (GTlsBackend *backend);
+  GType          ( *get_certificate_type)       (void);
+  GType          ( *get_client_connection_type) (void);
+  GType          ( *get_server_connection_type) (void);
+  GType          ( *get_file_database_type)     (void);
+  GTlsDatabase * ( *get_default_database)       (GTlsBackend *backend);
+  gboolean       ( *supports_dtls)              (GTlsBackend *backend);
+  GType          ( *get_dtls_client_connection_type) (void);
+  GType          ( *get_dtls_server_connection_type) (void);
+};
+</programlisting>
+<para>Provides an interface for describing TLS-related types.</para>
+<refsect3 id="GTlsBackendInterface.members" role="struct_members">
+<title>Members</title>
+<informaltable role="struct_members_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="struct_members_name" colwidth="300px"/>
+<colspec colname="struct_members_description"/>
+<colspec colname="struct_members_annotations" colwidth="200px"/>
+<tbody>
+<row role="member"><entry role="struct_member_name"><para><structfield id="GTlsBackendInterface.supports-tls">supports_tls</structfield>&#160;()</para></entry>
+<entry role="struct_member_description"><para>returns whether the backend supports TLS.</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><structfield id="GTlsBackendInterface.get-certificate-type">get_certificate_type</structfield>&#160;()</para></entry>
+<entry role="struct_member_description"><para>returns the <link linkend="GTlsCertificate"><type>GTlsCertificate</type></link> implementation type</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><structfield id="GTlsBackendInterface.get-client-connection-type">get_client_connection_type</structfield>&#160;()</para></entry>
+<entry role="struct_member_description"><para>returns the <link linkend="GTlsClientConnection"><type>GTlsClientConnection</type></link> implementation type</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><structfield id="GTlsBackendInterface.get-server-connection-type">get_server_connection_type</structfield>&#160;()</para></entry>
+<entry role="struct_member_description"><para>returns the <link linkend="GTlsServerConnection"><type>GTlsServerConnection</type></link> implementation type</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><structfield id="GTlsBackendInterface.get-file-database-type">get_file_database_type</structfield>&#160;()</para></entry>
+<entry role="struct_member_description"><para>returns the <link linkend="GTlsFileDatabase"><type>GTlsFileDatabase</type></link> implementation type.</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><structfield id="GTlsBackendInterface.get-default-database">get_default_database</structfield>&#160;()</para></entry>
+<entry role="struct_member_description"><para>returns a default <link linkend="GTlsDatabase"><type>GTlsDatabase</type></link> instance.</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><structfield id="GTlsBackendInterface.supports-dtls">supports_dtls</structfield>&#160;()</para></entry>
+<entry role="struct_member_description"><para>returns whether the backend supports DTLS</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><structfield id="GTlsBackendInterface.get-dtls-client-connection-type">get_dtls_client_connection_type</structfield>&#160;()</para></entry>
+<entry role="struct_member_description"><para>returns the <link linkend="GDtlsClientConnection"><type>GDtlsClientConnection</type></link> implementation type</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><structfield id="GTlsBackendInterface.get-dtls-server-connection-type">get_dtls_server_connection_type</structfield>&#160;()</para></entry>
+<entry role="struct_member_description"><para>returns the <link linkend="GDtlsServerConnection"><type>GDtlsServerConnection</type></link> implementation type</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+</tbody></tgroup></informaltable>
+</refsect3>
+<para role="since">Since: <link linkend="api-index-2.28">2.28</link></para></refsect2>
+
+</refsect1>
+
+</refentry>

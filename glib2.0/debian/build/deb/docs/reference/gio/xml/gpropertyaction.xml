@@ -1,0 +1,248 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC '-//OASIS//DTD DocBook XML V4.5//EN'
+                      'http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd' [
+<!ENTITY % local.common.attrib "xmlns:xi  CDATA  #FIXED 'http://www.w3.org/2003/XInclude'">
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="GPropertyAction">
+<refmeta>
+<refentrytitle role="top_of_page" id="GPropertyAction.top_of_page">GPropertyAction</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>GIO Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>GPropertyAction</refname>
+<refpurpose>A GAction reflecting a GObject property</refpurpose>
+</refnamediv>
+
+<refsect1 id="GPropertyAction.functions" role="functions_proto">
+<title role="functions_proto.title">Functions</title>
+<informaltable pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="functions_return" colwidth="150px"/>
+<colspec colname="functions_name"/>
+<tbody>
+<row><entry role="function_type"><link linkend="GPropertyAction"><returnvalue>GPropertyAction</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-property-action-new">g_property_action_new</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GPropertyAction.properties" role="properties">
+<title role="properties.title">Properties</title>
+<informaltable frame="none">
+<tgroup cols="3">
+<colspec colname="properties_type" colwidth="150px"/>
+<colspec colname="properties_name" colwidth="300px"/>
+<colspec colname="properties_flags" colwidth="200px"/>
+<tbody>
+<row><entry role="property_type"><link linkend="gboolean"><type>gboolean</type></link></entry><entry role="property_name"><link linkend="GPropertyAction--enabled">enabled</link></entry><entry role="property_flags">Read</entry></row>
+<row><entry role="property_type"><link linkend="gboolean"><type>gboolean</type></link></entry><entry role="property_name"><link linkend="GPropertyAction--invert-boolean">invert-boolean</link></entry><entry role="property_flags">Read / Write / Construct Only</entry></row>
+<row><entry role="property_type"><link linkend="gchar"><type>gchar</type></link>&#160;*</entry><entry role="property_name"><link linkend="GPropertyAction--name">name</link></entry><entry role="property_flags">Read / Write / Construct Only</entry></row>
+<row><entry role="property_type"><link linkend="GObject"><type>GObject</type></link>&#160;*</entry><entry role="property_name"><link linkend="GPropertyAction--object">object</link></entry><entry role="property_flags">Write / Construct Only</entry></row>
+<row><entry role="property_type"><link linkend="GVariantType"><type>GVariantType</type></link>&#160;*</entry><entry role="property_name"><link linkend="GPropertyAction--parameter-type">parameter-type</link></entry><entry role="property_flags">Read</entry></row>
+<row><entry role="property_type"><link linkend="gchar"><type>gchar</type></link>&#160;*</entry><entry role="property_name"><link linkend="GPropertyAction--property-name">property-name</link></entry><entry role="property_flags">Write / Construct Only</entry></row>
+<row><entry role="property_type"><link linkend="GVariant"><type>GVariant</type></link>&#160;*</entry><entry role="property_name"><link linkend="GPropertyAction--state">state</link></entry><entry role="property_flags">Read</entry></row>
+<row><entry role="property_type"><link linkend="GVariantType"><type>GVariantType</type></link>&#160;*</entry><entry role="property_name"><link linkend="GPropertyAction--state-type">state-type</link></entry><entry role="property_flags">Read</entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GPropertyAction.other" role="other_proto">
+<title role="other_proto.title">Types and Values</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="name" colwidth="150px"/>
+<colspec colname="description"/>
+<tbody>
+<row><entry role="datatype_keyword"></entry><entry role="function_name"><link linkend="GPropertyAction-struct">GPropertyAction</link></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GPropertyAction.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<screen>    <link linkend="GObject">GObject</link>
+    <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> GPropertyAction
+</screen>
+</refsect1>
+<refsect1 id="GPropertyAction.implemented-interfaces" role="impl_interfaces">
+<title role="impl_interfaces.title">Implemented Interfaces</title>
+<para>
+GPropertyAction implements
+ <link linkend="GAction">GAction</link>.</para>
+
+</refsect1>
+
+<refsect1 id="GPropertyAction.includes"><title>Includes</title><synopsis>#include &lt;gio/gio.h&gt;
+</synopsis></refsect1>
+
+<refsect1 id="GPropertyAction.description" role="desc">
+<title role="desc.title">Description</title>
+<para>A <link linkend="GPropertyAction"><type>GPropertyAction</type></link> is a way to get a <link linkend="GAction"><type>GAction</type></link> with a state value
+reflecting and controlling the value of a <link linkend="GObject"><type>GObject</type></link> property.</para>
+<para>The state of the action will correspond to the value of the property.
+Changing it will change the property (assuming the requested value
+matches the requirements as specified in the <link linkend="GParamSpec"><type>GParamSpec</type></link>).</para>
+<para>Only the most common types are presently supported.  Booleans are
+mapped to booleans, strings to strings, signed/unsigned integers to
+int32/uint32 and floats and doubles to doubles.</para>
+<para>If the property is an enum then the state will be string-typed and
+conversion will automatically be performed between the enum value and
+"nick" string as per the <link linkend="GEnumValue"><type>GEnumValue</type></link> table.</para>
+<para>Flags types are not currently supported.</para>
+<para>Properties of object types, boxed types and pointer types are not
+supported and probably never will be.</para>
+<para>Properties of <link linkend="GVariant"><type>GVariant</type></link> types are not currently supported.</para>
+<para>If the property is boolean-valued then the action will have a NULL
+parameter type, and activating the action (with no parameter) will
+toggle the value of the property.</para>
+<para>In all other cases, the parameter type will correspond to the type of
+the property.</para>
+<para>The general idea here is to reduce the number of locations where a
+particular piece of state is kept (and therefore has to be synchronised
+between). <link linkend="GPropertyAction"><type>GPropertyAction</type></link> does not have a separate state that is kept
+in sync with the property value -- its state is the property value.</para>
+<para>For example, it might be useful to create a <link linkend="GAction"><type>GAction</type></link> corresponding to
+the "visible-child-name" property of a <link linkend="GtkStack"><type>GtkStack</type></link> so that the current
+page can be switched from a menu.  The active radio indication in the
+menu is then directly determined from the active page of the
+<link linkend="GtkStack"><type>GtkStack</type></link>.</para>
+<para>An anti-example would be binding the "active-id" property on a
+<link linkend="GtkComboBox"><type>GtkComboBox</type></link>.  This is because the state of the combobox itself is
+probably uninteresting and is actually being used to control
+something else.</para>
+<para>Another anti-example would be to bind to the "visible-child-name"
+property of a <link linkend="GtkStack"><type>GtkStack</type></link> if this value is actually stored in
+<link linkend="GSettings"><type>GSettings</type></link>.  In that case, the real source of the value is
+<link linkend="GSettings"><type>GSettings</type></link>.  If you want a <link linkend="GAction"><type>GAction</type></link> to control a setting stored in
+<link linkend="GSettings"><type>GSettings</type></link>, see <link linkend="g-settings-create-action"><function>g_settings_create_action()</function></link> instead, and possibly
+combine its use with <link linkend="g-settings-bind"><function>g_settings_bind()</function></link>.</para>
+
+</refsect1>
+<refsect1 id="GPropertyAction.functions_details" role="details">
+<title role="details.title">Functions</title>
+<refsect2 id="g-property-action-new" role="function" condition="since:2.38">
+<title>g_property_action_new&#160;()</title>
+<indexterm zone="g-property-action-new" role="2.38"><primary sortas="property_action_new">g_property_action_new</primary></indexterm>
+<programlisting language="C"><link linkend="GPropertyAction"><returnvalue>GPropertyAction</returnvalue></link>&#160;*
+g_property_action_new (<parameter>const <link linkend="gchar"><type>gchar</type></link> *name</parameter>,
+                       <parameter><link linkend="gpointer"><type>gpointer</type></link> object</parameter>,
+                       <parameter>const <link linkend="gchar"><type>gchar</type></link> *property_name</parameter>);</programlisting>
+<para>Creates a <link linkend="GAction"><type>GAction</type></link> corresponding to the value of property
+<parameter>property_name</parameter>
+ on <parameter>object</parameter>
+.</para>
+<para>The property must be existent and readable and writable (and not
+construct-only).</para>
+<para>This function takes a reference on <parameter>object</parameter>
+ and doesn't release it
+until the action is destroyed.</para>
+<refsect3 id="g-property-action-new.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>name</para></entry>
+<entry role="parameter_description"><para>the name of the action to create</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>object</para></entry>
+<entry role="parameter_description"><para>the object that has the property
+to wrap. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>type</acronym> GObject.Object]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>property_name</para></entry>
+<entry role="parameter_description"><para>the name of the property</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-property-action-new.returns" role="returns">
+<title>Returns</title>
+<para> a new <link linkend="GPropertyAction"><type>GPropertyAction</type></link></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.38">2.38</link></para></refsect2>
+
+</refsect1>
+<refsect1 id="GPropertyAction.other_details" role="details">
+<title role="details.title">Types and Values</title>
+<refsect2 id="GPropertyAction-struct" role="struct">
+<title>GPropertyAction</title>
+<indexterm zone="GPropertyAction-struct" role="2.38"><primary sortas="PropertyAction">GPropertyAction</primary></indexterm>
+<programlisting language="C">typedef struct _GPropertyAction GPropertyAction;</programlisting>
+<para>This type is opaque.</para>
+<para role="since">Since: <link linkend="api-index-2.38">2.38</link></para></refsect2>
+
+</refsect1>
+<refsect1 id="GPropertyAction.property-details" role="property_details">
+<title role="property_details.title">Property Details</title>
+<refsect2 id="GPropertyAction--enabled" role="property"><title>The <literal>“enabled”</literal> property</title>
+<indexterm zone="GPropertyAction--enabled" role="2.38"><primary sortas="PropertyAction:enabled">GPropertyAction:enabled</primary></indexterm>
+<programlisting>  “enabled”                  <link linkend="gboolean"><type>gboolean</type></link></programlisting>
+<para>If <parameter>action</parameter>
+ is currently enabled.</para>
+<para>If the action is disabled then calls to <link linkend="g-action-activate"><function>g_action_activate()</function></link> and
+<link linkend="g-action-change-state"><function>g_action_change_state()</function></link> have no effect.</para>
+<para>Flags: Read</para>
+<para>Default value: TRUE</para>
+<para role="since">Since: <link linkend="api-index-2.38">2.38</link></para></refsect2>
+<refsect2 id="GPropertyAction--invert-boolean" role="property"><title>The <literal>“invert-boolean”</literal> property</title>
+<indexterm zone="GPropertyAction--invert-boolean" role="2.46"><primary sortas="PropertyAction:invert-boolean">GPropertyAction:invert-boolean</primary></indexterm>
+<programlisting>  “invert-boolean”           <link linkend="gboolean"><type>gboolean</type></link></programlisting>
+<para>If <link linkend="TRUE:CAPS"><literal>TRUE</literal></link>, the state of the action will be the negation of the
+property value, provided the property is boolean.</para>
+<para>Flags: Read / Write / Construct Only</para>
+<para>Default value: FALSE</para>
+<para role="since">Since: <link linkend="api-index-2.46">2.46</link></para></refsect2>
+<refsect2 id="GPropertyAction--name" role="property"><title>The <literal>“name”</literal> property</title>
+<indexterm zone="GPropertyAction--name" role="2.38"><primary sortas="PropertyAction:name">GPropertyAction:name</primary></indexterm>
+<programlisting>  “name”                     <link linkend="gchar"><type>gchar</type></link>&#160;*</programlisting>
+<para>The name of the action.  This is mostly meaningful for identifying
+the action once it has been added to a <link linkend="GActionMap"><type>GActionMap</type></link>.</para>
+<para>Flags: Read / Write / Construct Only</para>
+<para>Default value: NULL</para>
+<para role="since">Since: <link linkend="api-index-2.38">2.38</link></para></refsect2>
+<refsect2 id="GPropertyAction--object" role="property"><title>The <literal>“object”</literal> property</title>
+<indexterm zone="GPropertyAction--object" role="2.38"><primary sortas="PropertyAction:object">GPropertyAction:object</primary></indexterm>
+<programlisting>  “object”                   <link linkend="GObject"><type>GObject</type></link>&#160;*</programlisting>
+<para>The object to wrap a property on.</para>
+<para>The object must be a non-<link linkend="NULL:CAPS"><literal>NULL</literal></link> <link linkend="GObject"><type>GObject</type></link> with properties.</para>
+<para>Flags: Write / Construct Only</para>
+<para role="since">Since: <link linkend="api-index-2.38">2.38</link></para></refsect2>
+<refsect2 id="GPropertyAction--parameter-type" role="property"><title>The <literal>“parameter-type”</literal> property</title>
+<indexterm zone="GPropertyAction--parameter-type" role="2.38"><primary sortas="PropertyAction:parameter-type">GPropertyAction:parameter-type</primary></indexterm>
+<programlisting>  “parameter-type”           <link linkend="GVariantType"><type>GVariantType</type></link>&#160;*</programlisting>
+<para>The type of the parameter that must be given when activating the
+action.</para>
+<para>Flags: Read</para>
+<para role="since">Since: <link linkend="api-index-2.38">2.38</link></para></refsect2>
+<refsect2 id="GPropertyAction--property-name" role="property"><title>The <literal>“property-name”</literal> property</title>
+<indexterm zone="GPropertyAction--property-name" role="2.38"><primary sortas="PropertyAction:property-name">GPropertyAction:property-name</primary></indexterm>
+<programlisting>  “property-name”            <link linkend="gchar"><type>gchar</type></link>&#160;*</programlisting>
+<para>The name of the property to wrap on the object.</para>
+<para>The property must exist on the passed-in object and it must be
+readable and writable (and not construct-only).</para>
+<para>Flags: Write / Construct Only</para>
+<para>Default value: NULL</para>
+<para role="since">Since: <link linkend="api-index-2.38">2.38</link></para></refsect2>
+<refsect2 id="GPropertyAction--state" role="property"><title>The <literal>“state”</literal> property</title>
+<indexterm zone="GPropertyAction--state" role="2.38"><primary sortas="PropertyAction:state">GPropertyAction:state</primary></indexterm>
+<programlisting>  “state”                    <link linkend="GVariant"><type>GVariant</type></link>&#160;*</programlisting>
+<para>The state of the action, or <link linkend="NULL:CAPS"><literal>NULL</literal></link> if the action is stateless.</para>
+<para>Flags: Read</para>
+<para>Allowed values: GVariant&lt;*&gt;</para>
+<para>Default value: NULL</para>
+<para role="since">Since: <link linkend="api-index-2.38">2.38</link></para></refsect2>
+<refsect2 id="GPropertyAction--state-type" role="property"><title>The <literal>“state-type”</literal> property</title>
+<indexterm zone="GPropertyAction--state-type" role="2.38"><primary sortas="PropertyAction:state-type">GPropertyAction:state-type</primary></indexterm>
+<programlisting>  “state-type”               <link linkend="GVariantType"><type>GVariantType</type></link>&#160;*</programlisting>
+<para>The <link linkend="GVariantType"><type>GVariantType</type></link> of the state that the action has, or <link linkend="NULL:CAPS"><literal>NULL</literal></link> if the
+action is stateless.</para>
+<para>Flags: Read</para>
+<para role="since">Since: <link linkend="api-index-2.38">2.38</link></para></refsect2>
+
+</refsect1>
+
+</refentry>

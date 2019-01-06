@@ -1,0 +1,265 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC '-//OASIS//DTD DocBook XML V4.5//EN'
+                      'http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd' [
+<!ENTITY % local.common.attrib "xmlns:xi  CDATA  #FIXED 'http://www.w3.org/2003/XInclude'">
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="GDBusAuthObserver">
+<refmeta>
+<refentrytitle role="top_of_page" id="GDBusAuthObserver.top_of_page">GDBusAuthObserver</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>GIO Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>GDBusAuthObserver</refname>
+<refpurpose>Object used for authenticating connections</refpurpose>
+</refnamediv>
+
+<refsect1 id="GDBusAuthObserver.functions" role="functions_proto">
+<title role="functions_proto.title">Functions</title>
+<informaltable pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="functions_return" colwidth="150px"/>
+<colspec colname="functions_name"/>
+<tbody>
+<row><entry role="function_type"><link linkend="GDBusAuthObserver"><returnvalue>GDBusAuthObserver</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-dbus-auth-observer-new">g_dbus_auth_observer_new</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-dbus-auth-observer-authorize-authenticated-peer">g_dbus_auth_observer_authorize_authenticated_peer</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-dbus-auth-observer-allow-mechanism">g_dbus_auth_observer_allow_mechanism</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GDBusAuthObserver.signals" role="signal_proto">
+<title role="signal_proto.title">Signals</title>
+<informaltable frame="none">
+<tgroup cols="3">
+<colspec colname="signals_return" colwidth="150px"/>
+<colspec colname="signals_name" colwidth="300px"/>
+<colspec colname="signals_flags" colwidth="200px"/>
+<tbody>
+<row><entry role="signal_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link></entry><entry role="signal_name"><link linkend="GDBusAuthObserver-allow-mechanism">allow-mechanism</link></entry><entry role="signal_flags"><link linkend="G-SIGNAL-RUN-LAST:CAPS">Run Last</link></entry></row>
+<row><entry role="signal_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link></entry><entry role="signal_name"><link linkend="GDBusAuthObserver-authorize-authenticated-peer">authorize-authenticated-peer</link></entry><entry role="signal_flags"><link linkend="G-SIGNAL-RUN-LAST:CAPS">Run Last</link></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GDBusAuthObserver.other" role="other_proto">
+<title role="other_proto.title">Types and Values</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="name" colwidth="150px"/>
+<colspec colname="description"/>
+<tbody>
+<row><entry role="datatype_keyword"></entry><entry role="function_name"><link linkend="GDBusAuthObserver-struct">GDBusAuthObserver</link></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GDBusAuthObserver.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<screen>    <link linkend="GObject">GObject</link>
+    <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> GDBusAuthObserver
+</screen>
+</refsect1>
+
+<refsect1 id="GDBusAuthObserver.includes"><title>Includes</title><synopsis>#include &lt;gio/gio.h&gt;
+</synopsis></refsect1>
+
+<refsect1 id="GDBusAuthObserver.description" role="desc">
+<title role="desc.title">Description</title>
+<para>The <link linkend="GDBusAuthObserver"><type>GDBusAuthObserver</type></link> type provides a mechanism for participating
+in how a <link linkend="GDBusServer"><type>GDBusServer</type></link> (or a <link linkend="GDBusConnection"><type>GDBusConnection</type></link>) authenticates remote
+peers. Simply instantiate a <link linkend="GDBusAuthObserver"><type>GDBusAuthObserver</type></link> and connect to the
+signals you are interested in. Note that new signals may be added
+in the future</para>
+<refsect3 id="auth-observer"><title>Controlling Authentication</title><para>For example, if you only want to allow D-Bus connections from
+processes owned by the same uid as the server, you would use a
+signal handler like the following:</para>
+<informalexample><programlisting role="example"><![CDATA[
+static gboolean
+on_authorize_authenticated_peer (GDBusAuthObserver *observer,
+                                 GIOStream         *stream,
+                                 GCredentials      *credentials,
+                                 gpointer           user_data)
+{
+  gboolean authorized;
+
+  authorized = FALSE;
+  if (credentials != NULL)
+    {
+      GCredentials *own_credentials;
+      own_credentials = g_credentials_new ();
+      if (g_credentials_is_same_user (credentials, own_credentials, NULL))
+        authorized = TRUE;
+      g_object_unref (own_credentials);
+    }
+
+  return authorized;
+}
+]]></programlisting></informalexample>
+<para></para>
+</refsect3>
+
+</refsect1>
+<refsect1 id="GDBusAuthObserver.functions_details" role="details">
+<title role="details.title">Functions</title>
+<refsect2 id="g-dbus-auth-observer-new" role="function" condition="since:2.26">
+<title>g_dbus_auth_observer_new&#160;()</title>
+<indexterm zone="g-dbus-auth-observer-new" role="2.26"><primary sortas="dbus_auth_observer_new">g_dbus_auth_observer_new</primary></indexterm>
+<programlisting language="C"><link linkend="GDBusAuthObserver"><returnvalue>GDBusAuthObserver</returnvalue></link>&#160;*
+g_dbus_auth_observer_new (<parameter><type>void</type></parameter>);</programlisting>
+<para>Creates a new <link linkend="GDBusAuthObserver"><type>GDBusAuthObserver</type></link> object.</para>
+<refsect3 id="g-dbus-auth-observer-new.returns" role="returns">
+<title>Returns</title>
+<para> A <link linkend="GDBusAuthObserver"><type>GDBusAuthObserver</type></link>. Free with <link linkend="g-object-unref"><function>g_object_unref()</function></link>.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.26">2.26</link></para></refsect2>
+<refsect2 id="g-dbus-auth-observer-authorize-authenticated-peer" role="function" condition="since:2.26">
+<title>g_dbus_auth_observer_authorize_authenticated_peer&#160;()</title>
+<indexterm zone="g-dbus-auth-observer-authorize-authenticated-peer" role="2.26"><primary sortas="dbus_auth_observer_authorize_authenticated_peer">g_dbus_auth_observer_authorize_authenticated_peer</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_dbus_auth_observer_authorize_authenticated_peer
+                               (<parameter><link linkend="GDBusAuthObserver"><type>GDBusAuthObserver</type></link> *observer</parameter>,
+                                <parameter><link linkend="GIOStream"><type>GIOStream</type></link> *stream</parameter>,
+                                <parameter><link linkend="GCredentials"><type>GCredentials</type></link> *credentials</parameter>);</programlisting>
+<para>Emits the <link linkend="GDBusAuthObserver-authorize-authenticated-peer"><type>“authorize-authenticated-peer”</type></link> signal on <parameter>observer</parameter>
+.</para>
+<refsect3 id="g-dbus-auth-observer-authorize-authenticated-peer.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>observer</para></entry>
+<entry role="parameter_description"><para>A <link linkend="GDBusAuthObserver"><type>GDBusAuthObserver</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>stream</para></entry>
+<entry role="parameter_description"><para>A <link linkend="GIOStream"><type>GIOStream</type></link> for the <link linkend="GDBusConnection"><type>GDBusConnection</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>credentials</para></entry>
+<entry role="parameter_description"><para>Credentials received from the peer or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-dbus-auth-observer-authorize-authenticated-peer.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if the peer is authorized, <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> if not.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.26">2.26</link></para></refsect2>
+<refsect2 id="g-dbus-auth-observer-allow-mechanism" role="function" condition="since:2.34">
+<title>g_dbus_auth_observer_allow_mechanism&#160;()</title>
+<indexterm zone="g-dbus-auth-observer-allow-mechanism" role="2.34"><primary sortas="dbus_auth_observer_allow_mechanism">g_dbus_auth_observer_allow_mechanism</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_dbus_auth_observer_allow_mechanism (<parameter><link linkend="GDBusAuthObserver"><type>GDBusAuthObserver</type></link> *observer</parameter>,
+                                      <parameter>const <link linkend="gchar"><type>gchar</type></link> *mechanism</parameter>);</programlisting>
+<para>Emits the <link linkend="GDBusAuthObserver-allow-mechanism"><type>“allow-mechanism”</type></link> signal on <parameter>observer</parameter>
+.</para>
+<refsect3 id="g-dbus-auth-observer-allow-mechanism.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>observer</para></entry>
+<entry role="parameter_description"><para>A <link linkend="GDBusAuthObserver"><type>GDBusAuthObserver</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>mechanism</para></entry>
+<entry role="parameter_description"><para>The name of the mechanism, e.g. <literal>DBUS_COOKIE_SHA1</literal>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-dbus-auth-observer-allow-mechanism.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if <parameter>mechanism</parameter>
+can be used to authenticate the other peer, <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> if not.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.34">2.34</link></para></refsect2>
+
+</refsect1>
+<refsect1 id="GDBusAuthObserver.other_details" role="details">
+<title role="details.title">Types and Values</title>
+<refsect2 id="GDBusAuthObserver-struct" role="struct">
+<title>GDBusAuthObserver</title>
+<indexterm zone="GDBusAuthObserver-struct" role="2.26"><primary sortas="DBusAuthObserver">GDBusAuthObserver</primary></indexterm>
+<programlisting language="C">typedef struct _GDBusAuthObserver GDBusAuthObserver;</programlisting>
+<para>The <link linkend="GDBusAuthObserver"><type>GDBusAuthObserver</type></link> structure contains only private data and
+should only be accessed using the provided API.</para>
+<para role="since">Since: <link linkend="api-index-2.26">2.26</link></para></refsect2>
+
+</refsect1>
+<refsect1 id="GDBusAuthObserver.signal-details" role="signals">
+<title role="signals.title">Signal Details</title>
+<refsect2 id="GDBusAuthObserver-allow-mechanism" role="signal"><title>The <literal>“allow-mechanism”</literal> signal</title>
+<indexterm zone="GDBusAuthObserver-allow-mechanism" role="2.34"><primary sortas="DBusAuthObserver::allow-mechanism">GDBusAuthObserver::allow-mechanism</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+user_function (<link linkend="GDBusAuthObserver"><type>GDBusAuthObserver</type></link> *observer,
+               <link linkend="gchar"><type>gchar</type></link>             *mechanism,
+               <link linkend="gpointer"><type>gpointer</type></link>           user_data)</programlisting>
+<para>Emitted to check if <parameter>mechanism</parameter>
+ is allowed to be used.</para>
+<refsect3 id="GDBusAuthObserver-allow-mechanism.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>observer</para></entry>
+<entry role="parameter_description"><para>The <link linkend="GDBusAuthObserver"><type>GDBusAuthObserver</type></link> emitting the signal.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>mechanism</para></entry>
+<entry role="parameter_description"><para>The name of the mechanism, e.g. <literal>DBUS_COOKIE_SHA1</literal>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><simpara>user_data</simpara></entry>
+<entry role="parameter_description"><simpara>user data set when the signal handler was connected.</simpara></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="GDBusAuthObserver-allow-mechanism.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if <parameter>mechanism</parameter>
+can be used to authenticate the other peer, <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> if not.</para>
+</refsect3><para>Flags: <link linkend="G-SIGNAL-RUN-LAST:CAPS">Run Last</link></para>
+<para role="since">Since: <link linkend="api-index-2.34">2.34</link></para></refsect2><refsect2 id="GDBusAuthObserver-authorize-authenticated-peer" role="signal"><title>The <literal>“authorize-authenticated-peer”</literal> signal</title>
+<indexterm zone="GDBusAuthObserver-authorize-authenticated-peer" role="2.26"><primary sortas="DBusAuthObserver::authorize-authenticated-peer">GDBusAuthObserver::authorize-authenticated-peer</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+user_function (<link linkend="GDBusAuthObserver"><type>GDBusAuthObserver</type></link> *observer,
+               <link linkend="GIOStream"><type>GIOStream</type></link>         *stream,
+               <link linkend="GCredentials"><type>GCredentials</type></link>      *credentials,
+               <link linkend="gpointer"><type>gpointer</type></link>           user_data)</programlisting>
+<para>Emitted to check if a peer that is successfully authenticated
+is authorized.</para>
+<refsect3 id="GDBusAuthObserver-authorize-authenticated-peer.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>observer</para></entry>
+<entry role="parameter_description"><para>The <link linkend="GDBusAuthObserver"><type>GDBusAuthObserver</type></link> emitting the signal.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>stream</para></entry>
+<entry role="parameter_description"><para>A <link linkend="GIOStream"><type>GIOStream</type></link> for the <link linkend="GDBusConnection"><type>GDBusConnection</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>credentials</para></entry>
+<entry role="parameter_description"><para>Credentials received from the peer or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><simpara>user_data</simpara></entry>
+<entry role="parameter_description"><simpara>user data set when the signal handler was connected.</simpara></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="GDBusAuthObserver-authorize-authenticated-peer.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if the peer is authorized, <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> if not.</para>
+</refsect3><para>Flags: <link linkend="G-SIGNAL-RUN-LAST:CAPS">Run Last</link></para>
+<para role="since">Since: <link linkend="api-index-2.26">2.26</link></para></refsect2>
+</refsect1>
+
+</refentry>

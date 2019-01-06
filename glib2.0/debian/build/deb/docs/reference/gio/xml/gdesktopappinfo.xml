@@ -1,0 +1,1008 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC '-//OASIS//DTD DocBook XML V4.5//EN'
+                      'http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd' [
+<!ENTITY % local.common.attrib "xmlns:xi  CDATA  #FIXED 'http://www.w3.org/2003/XInclude'">
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="gio-Desktop-file-based-GAppInfo">
+<refmeta>
+<refentrytitle role="top_of_page" id="gio-Desktop-file-based-GAppInfo.top_of_page">GDesktopAppInfo</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>GIO Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>GDesktopAppInfo</refname>
+<refpurpose>Application information from desktop files</refpurpose>
+</refnamediv>
+
+<refsect1 id="gio-Desktop-file-based-GAppInfo.functions" role="functions_proto">
+<title role="functions_proto.title">Functions</title>
+<informaltable pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="functions_return" colwidth="150px"/>
+<colspec colname="functions_name"/>
+<tbody>
+<row><entry role="function_type"><link linkend="GDesktopAppInfo"><returnvalue>GDesktopAppInfo</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-desktop-app-info-new-from-filename">g_desktop_app_info_new_from_filename</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GDesktopAppInfo"><returnvalue>GDesktopAppInfo</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-desktop-app-info-new-from-keyfile">g_desktop_app_info_new_from_keyfile</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GDesktopAppInfo"><returnvalue>GDesktopAppInfo</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-desktop-app-info-new">g_desktop_app_info_new</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type">const <link linkend="char"><returnvalue>char</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-desktop-app-info-get-filename">g_desktop_app_info_get_filename</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-desktop-app-info-get-is-hidden">g_desktop_app_info_get_is_hidden</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-desktop-app-info-get-nodisplay">g_desktop_app_info_get_nodisplay</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-desktop-app-info-get-show-in">g_desktop_app_info_get_show_in</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type">const <link linkend="char"><returnvalue>char</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-desktop-app-info-get-generic-name">g_desktop_app_info_get_generic_name</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type">const <link linkend="char"><returnvalue>char</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-desktop-app-info-get-categories">g_desktop_app_info_get_categories</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type">const <link linkend="char"><returnvalue>char</returnvalue></link>&#160;* const *
+</entry><entry role="function_name"><link linkend="g-desktop-app-info-get-keywords">g_desktop_app_info_get_keywords</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type">const <link linkend="char"><returnvalue>char</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-desktop-app-info-get-startup-wm-class">g_desktop_app_info_get_startup_wm_class</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-desktop-app-info-set-desktop-env">g_desktop_app_info_set_desktop_env</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="char"><returnvalue>char</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-desktop-app-info-get-string">g_desktop_app_info_get_string</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="char"><returnvalue>char</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-desktop-app-info-get-locale-string">g_desktop_app_info_get_locale_string</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-desktop-app-info-get-boolean">g_desktop_app_info_get_boolean</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-desktop-app-info-has-key">g_desktop_app_info_has_key</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><phrase role="c_punctuation">(</phrase><link linkend="GDesktopAppLaunchCallback">*GDesktopAppLaunchCallback</link><phrase role="c_punctuation">)</phrase>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-desktop-app-info-launch-uris-as-manager">g_desktop_app_info_launch_uris_as_manager</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-desktop-app-info-launch-uris-as-manager-with-fds">g_desktop_app_info_launch_uris_as_manager_with_fds</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+<row><entry role="function_type">const <link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;* const *
+</entry><entry role="function_name"><link linkend="g-desktop-app-info-list-actions">g_desktop_app_info_list_actions</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-desktop-app-info-get-action-name">g_desktop_app_info_get_action_name</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-desktop-app-info-launch-action">g_desktop_app_info_launch_action</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+<row><entry role="function_type"><link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;***
+</entry><entry role="function_name"><link linkend="g-desktop-app-info-search">g_desktop_app_info_search</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GList"><returnvalue>GList</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-desktop-app-info-get-implementations">g_desktop_app_info_get_implementations</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="gio-Desktop-file-based-GAppInfo.properties" role="properties">
+<title role="properties.title">Properties</title>
+<informaltable frame="none">
+<tgroup cols="3">
+<colspec colname="properties_type" colwidth="150px"/>
+<colspec colname="properties_name" colwidth="300px"/>
+<colspec colname="properties_flags" colwidth="200px"/>
+<tbody>
+<row><entry role="property_type"><link linkend="gchar"><type>gchar</type></link>&#160;*</entry><entry role="property_name"><link linkend="GDesktopAppInfo--filename">filename</link></entry><entry role="property_flags">Read / Write / Construct Only</entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<anchor id="GDesktopAppInfo"/><anchor id="GDesktopAppInfoLookup"/><refsect1 id="gio-Desktop-file-based-GAppInfo.other" role="other_proto">
+<title role="other_proto.title">Types and Values</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="name" colwidth="150px"/>
+<colspec colname="description"/>
+<tbody>
+<row><entry role="datatype_keyword"></entry><entry role="function_name"><link linkend="GDesktopAppInfo-struct">GDesktopAppInfo</link></entry></row>
+
+
+
+<row><entry role="datatype_keyword"></entry><entry role="function_name"><link linkend="GDesktopAppInfoLookup-struct">GDesktopAppInfoLookup</link></entry></row>
+<row><entry role="datatype_keyword">struct</entry><entry role="function_name"><link linkend="GDesktopAppInfoLookupIface">GDesktopAppInfoLookupIface</link></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="G-DESKTOP-APP-INFO-LOOKUP-EXTENSION-POINT-NAME:CAPS">G_DESKTOP_APP_INFO_LOOKUP_EXTENSION_POINT_NAME</link></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="gio-Desktop-file-based-GAppInfo.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<screen>    <link linkend="GInterface">GInterface</link>
+    <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> GDesktopAppInfoLookup
+    <link linkend="GObject">GObject</link>
+    <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> GDesktopAppInfo
+</screen>
+</refsect1>
+<refsect1 id="gio-Desktop-file-based-GAppInfo.prerequisites" role="prerequisites">
+<title role="prerequisites.title">Prerequisites</title>
+<para>
+GDesktopAppInfoLookup requires
+ <link linkend="GObject">GObject</link>.</para>
+
+</refsect1>
+<refsect1 id="gio-Desktop-file-based-GAppInfo.implemented-interfaces" role="impl_interfaces">
+<title role="impl_interfaces.title">Implemented Interfaces</title>
+<para>
+GDesktopAppInfo implements
+ <link linkend="GAppInfo">GAppInfo</link>.</para>
+
+</refsect1>
+
+<refsect1 id="gio-Desktop-file-based-GAppInfo.includes"><title>Includes</title><synopsis>#include &lt;gio/gdesktopappinfo.h&gt;
+</synopsis></refsect1>
+
+<refsect1 id="gio-Desktop-file-based-GAppInfo.description" role="desc">
+<title role="desc.title">Description</title>
+<para><link linkend="GDesktopAppInfo"><type>GDesktopAppInfo</type></link> is an implementation of <link linkend="GAppInfo"><type>GAppInfo</type></link> based on
+desktop files.</para>
+<para>Note that <literal>&amp;lt;gio/gdesktopappinfo.h&gt;</literal> belongs to the UNIX-specific
+GIO interfaces, thus you have to use the <literal>gio-unix-2.0.pc</literal> pkg-config
+file when using it.</para>
+
+</refsect1>
+<refsect1 id="gio-Desktop-file-based-GAppInfo.functions_details" role="details">
+<title role="details.title">Functions</title>
+<refsect2 id="g-desktop-app-info-new-from-filename" role="function">
+<title>g_desktop_app_info_new_from_filename&#160;()</title>
+<indexterm zone="g-desktop-app-info-new-from-filename"><primary sortas="desktop_app_info_new_from_filename">g_desktop_app_info_new_from_filename</primary></indexterm>
+<programlisting language="C"><link linkend="GDesktopAppInfo"><returnvalue>GDesktopAppInfo</returnvalue></link>&#160;*
+g_desktop_app_info_new_from_filename (<parameter>const <link linkend="char"><type>char</type></link> *filename</parameter>);</programlisting>
+<para>Creates a new <link linkend="GDesktopAppInfo"><type>GDesktopAppInfo</type></link>.</para>
+<refsect3 id="g-desktop-app-info-new-from-filename.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>filename</para></entry>
+<entry role="parameter_description"><para>the path of a desktop file, in the GLib
+filename encoding. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>type</acronym> filename]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-desktop-app-info-new-from-filename.returns" role="returns">
+<title>Returns</title>
+<para>a new <link linkend="GDesktopAppInfo"><type>GDesktopAppInfo</type></link> or <link linkend="NULL:CAPS"><literal>NULL</literal></link> on error. </para>
+<para><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></para>
+</refsect3></refsect2>
+<refsect2 id="g-desktop-app-info-new-from-keyfile" role="function" condition="since:2.18">
+<title>g_desktop_app_info_new_from_keyfile&#160;()</title>
+<indexterm zone="g-desktop-app-info-new-from-keyfile" role="2.18"><primary sortas="desktop_app_info_new_from_keyfile">g_desktop_app_info_new_from_keyfile</primary></indexterm>
+<programlisting language="C"><link linkend="GDesktopAppInfo"><returnvalue>GDesktopAppInfo</returnvalue></link>&#160;*
+g_desktop_app_info_new_from_keyfile (<parameter><link linkend="GKeyFile"><type>GKeyFile</type></link> *key_file</parameter>);</programlisting>
+<para>Creates a new <link linkend="GDesktopAppInfo"><type>GDesktopAppInfo</type></link>.</para>
+<refsect3 id="g-desktop-app-info-new-from-keyfile.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>key_file</para></entry>
+<entry role="parameter_description"><para>an opened <link linkend="GKeyFile"><type>GKeyFile</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-desktop-app-info-new-from-keyfile.returns" role="returns">
+<title>Returns</title>
+<para>a new <link linkend="GDesktopAppInfo"><type>GDesktopAppInfo</type></link> or <link linkend="NULL:CAPS"><literal>NULL</literal></link> on error. </para>
+<para><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.18">2.18</link></para></refsect2>
+<refsect2 id="g-desktop-app-info-new" role="function">
+<title>g_desktop_app_info_new&#160;()</title>
+<indexterm zone="g-desktop-app-info-new"><primary sortas="desktop_app_info_new">g_desktop_app_info_new</primary></indexterm>
+<programlisting language="C"><link linkend="GDesktopAppInfo"><returnvalue>GDesktopAppInfo</returnvalue></link>&#160;*
+g_desktop_app_info_new (<parameter>const <link linkend="char"><type>char</type></link> *desktop_id</parameter>);</programlisting>
+<para>Creates a new <link linkend="GDesktopAppInfo"><type>GDesktopAppInfo</type></link> based on a desktop file id.</para>
+<para>A desktop file id is the basename of the desktop file, including the
+.desktop extension. GIO is looking for a desktop file with this name
+in the <literal>applications</literal> subdirectories of the XDG
+data directories (i.e. the directories specified in the <literal>XDG_DATA_HOME</literal>
+and <literal>XDG_DATA_DIRS</literal> environment variables). GIO also supports the
+prefix-to-subdirectory mapping that is described in the
+<ulink url="http://standards.freedesktop.org/menu-spec/latest/">Menu Spec</ulink>
+(i.e. a desktop id of kde-foo.desktop will match
+<literal>/usr/share/applications/kde/foo.desktop</literal>).</para>
+<refsect3 id="g-desktop-app-info-new.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>desktop_id</para></entry>
+<entry role="parameter_description"><para>the desktop file id</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-desktop-app-info-new.returns" role="returns">
+<title>Returns</title>
+<para>a new <link linkend="GDesktopAppInfo"><type>GDesktopAppInfo</type></link>, or <link linkend="NULL:CAPS"><literal>NULL</literal></link> if no desktop
+file with that id exists. </para>
+<para><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></para>
+</refsect3></refsect2>
+<refsect2 id="g-desktop-app-info-get-filename" role="function" condition="since:2.24">
+<title>g_desktop_app_info_get_filename&#160;()</title>
+<indexterm zone="g-desktop-app-info-get-filename" role="2.24"><primary sortas="desktop_app_info_get_filename">g_desktop_app_info_get_filename</primary></indexterm>
+<programlisting language="C">const <link linkend="char"><returnvalue>char</returnvalue></link>&#160;*
+g_desktop_app_info_get_filename (<parameter><link linkend="GDesktopAppInfo"><type>GDesktopAppInfo</type></link> *info</parameter>);</programlisting>
+<para>When <parameter>info</parameter>
+ was created from a known filename, return it.  In some
+situations such as the <link linkend="GDesktopAppInfo"><type>GDesktopAppInfo</type></link> returned from
+<link linkend="g-desktop-app-info-new-from-keyfile"><function>g_desktop_app_info_new_from_keyfile()</function></link>, this function will return <link linkend="NULL:CAPS"><literal>NULL</literal></link>.</para>
+<refsect3 id="g-desktop-app-info-get-filename.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>info</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GDesktopAppInfo"><type>GDesktopAppInfo</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-desktop-app-info-get-filename.returns" role="returns">
+<title>Returns</title>
+<para>The full path to the file for <parameter>info</parameter>
+,
+or <link linkend="NULL:CAPS"><literal>NULL</literal></link> if not known. </para>
+<para><emphasis role="annotation">[<acronym>type</acronym> filename]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.24">2.24</link></para></refsect2>
+<refsect2 id="g-desktop-app-info-get-is-hidden" role="function">
+<title>g_desktop_app_info_get_is_hidden&#160;()</title>
+<indexterm zone="g-desktop-app-info-get-is-hidden"><primary sortas="desktop_app_info_get_is_hidden">g_desktop_app_info_get_is_hidden</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_desktop_app_info_get_is_hidden (<parameter><link linkend="GDesktopAppInfo"><type>GDesktopAppInfo</type></link> *info</parameter>);</programlisting>
+<para>A desktop file is hidden if the Hidden key in it is
+set to True.</para>
+<refsect3 id="g-desktop-app-info-get-is-hidden.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>info</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GDesktopAppInfo"><type>GDesktopAppInfo</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-desktop-app-info-get-is-hidden.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if hidden, <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> otherwise.</para>
+</refsect3></refsect2>
+<refsect2 id="g-desktop-app-info-get-nodisplay" role="function" condition="since:2.30">
+<title>g_desktop_app_info_get_nodisplay&#160;()</title>
+<indexterm zone="g-desktop-app-info-get-nodisplay" role="2.30"><primary sortas="desktop_app_info_get_nodisplay">g_desktop_app_info_get_nodisplay</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_desktop_app_info_get_nodisplay (<parameter><link linkend="GDesktopAppInfo"><type>GDesktopAppInfo</type></link> *info</parameter>);</programlisting>
+<para>Gets the value of the NoDisplay key, which helps determine if the
+application info should be shown in menus. See
+<link linkend="G-KEY-FILE-DESKTOP-KEY-NO-DISPLAY:CAPS"><type>G_KEY_FILE_DESKTOP_KEY_NO_DISPLAY</type></link> and <link linkend="g-app-info-should-show"><function>g_app_info_should_show()</function></link>.</para>
+<refsect3 id="g-desktop-app-info-get-nodisplay.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>info</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GDesktopAppInfo"><type>GDesktopAppInfo</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-desktop-app-info-get-nodisplay.returns" role="returns">
+<title>Returns</title>
+<para> The value of the NoDisplay key</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.30">2.30</link></para></refsect2>
+<refsect2 id="g-desktop-app-info-get-show-in" role="function" condition="since:2.30">
+<title>g_desktop_app_info_get_show_in&#160;()</title>
+<indexterm zone="g-desktop-app-info-get-show-in" role="2.30"><primary sortas="desktop_app_info_get_show_in">g_desktop_app_info_get_show_in</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_desktop_app_info_get_show_in (<parameter><link linkend="GDesktopAppInfo"><type>GDesktopAppInfo</type></link> *info</parameter>,
+                                <parameter>const <link linkend="gchar"><type>gchar</type></link> *desktop_env</parameter>);</programlisting>
+<para>Checks if the application info should be shown in menus that list available
+applications for a specific name of the desktop, based on the
+<literal>OnlyShowIn</literal> and <literal>NotShowIn</literal> keys.</para>
+<para><parameter>desktop_env</parameter>
+ should typically be given as <link linkend="NULL:CAPS"><literal>NULL</literal></link>, in which case the
+<literal>XDG_CURRENT_DESKTOP</literal> environment variable is consulted.  If you want
+to override the default mechanism then you may specify <parameter>desktop_env</parameter>
+,
+but this is not recommended.</para>
+<para>Note that <link linkend="g-app-info-should-show"><function>g_app_info_should_show()</function></link> for <parameter>info</parameter>
+ will include this check (with
+<link linkend="NULL:CAPS"><literal>NULL</literal></link> for <parameter>desktop_env</parameter>
+) as well as additional checks.</para>
+<refsect3 id="g-desktop-app-info-get-show-in.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>info</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GDesktopAppInfo"><type>GDesktopAppInfo</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>desktop_env</para></entry>
+<entry role="parameter_description"><para>a string specifying a desktop name. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-desktop-app-info-get-show-in.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if the <parameter>info</parameter>
+should be shown in <parameter>desktop_env</parameter>
+according to the
+<literal>OnlyShowIn</literal> and <literal>NotShowIn</literal> keys, <link linkend="FALSE:CAPS"><literal>FALSE</literal></link>
+otherwise.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.30">2.30</link></para></refsect2>
+<refsect2 id="g-desktop-app-info-get-generic-name" role="function">
+<title>g_desktop_app_info_get_generic_name&#160;()</title>
+<indexterm zone="g-desktop-app-info-get-generic-name"><primary sortas="desktop_app_info_get_generic_name">g_desktop_app_info_get_generic_name</primary></indexterm>
+<programlisting language="C">const <link linkend="char"><returnvalue>char</returnvalue></link>&#160;*
+g_desktop_app_info_get_generic_name (<parameter><link linkend="GDesktopAppInfo"><type>GDesktopAppInfo</type></link> *info</parameter>);</programlisting>
+<para>Gets the generic name from the destkop file.</para>
+<refsect3 id="g-desktop-app-info-get-generic-name.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>info</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GDesktopAppInfo"><type>GDesktopAppInfo</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-desktop-app-info-get-generic-name.returns" role="returns">
+<title>Returns</title>
+<para> The value of the GenericName key</para>
+</refsect3></refsect2>
+<refsect2 id="g-desktop-app-info-get-categories" role="function">
+<title>g_desktop_app_info_get_categories&#160;()</title>
+<indexterm zone="g-desktop-app-info-get-categories"><primary sortas="desktop_app_info_get_categories">g_desktop_app_info_get_categories</primary></indexterm>
+<programlisting language="C">const <link linkend="char"><returnvalue>char</returnvalue></link>&#160;*
+g_desktop_app_info_get_categories (<parameter><link linkend="GDesktopAppInfo"><type>GDesktopAppInfo</type></link> *info</parameter>);</programlisting>
+<para>Gets the categories from the desktop file.</para>
+<refsect3 id="g-desktop-app-info-get-categories.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>info</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GDesktopAppInfo"><type>GDesktopAppInfo</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-desktop-app-info-get-categories.returns" role="returns">
+<title>Returns</title>
+<para> The unparsed Categories key from the desktop file;
+i.e. no attempt is made to split it by ';' or validate it.</para>
+</refsect3></refsect2>
+<refsect2 id="g-desktop-app-info-get-keywords" role="function" condition="since:2.32">
+<title>g_desktop_app_info_get_keywords&#160;()</title>
+<indexterm zone="g-desktop-app-info-get-keywords" role="2.32"><primary sortas="desktop_app_info_get_keywords">g_desktop_app_info_get_keywords</primary></indexterm>
+<programlisting language="C">const <link linkend="char"><returnvalue>char</returnvalue></link>&#160;* const *
+g_desktop_app_info_get_keywords (<parameter><link linkend="GDesktopAppInfo"><type>GDesktopAppInfo</type></link> *info</parameter>);</programlisting>
+<para>Gets the keywords from the desktop file.</para>
+<refsect3 id="g-desktop-app-info-get-keywords.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>info</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GDesktopAppInfo"><type>GDesktopAppInfo</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-desktop-app-info-get-keywords.returns" role="returns">
+<title>Returns</title>
+<para>The value of the Keywords key. </para>
+<para><emphasis role="annotation">[<acronym>transfer none</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.32">2.32</link></para></refsect2>
+<refsect2 id="g-desktop-app-info-get-startup-wm-class" role="function" condition="since:2.34">
+<title>g_desktop_app_info_get_startup_wm_class&#160;()</title>
+<indexterm zone="g-desktop-app-info-get-startup-wm-class" role="2.34"><primary sortas="desktop_app_info_get_startup_wm_class">g_desktop_app_info_get_startup_wm_class</primary></indexterm>
+<programlisting language="C">const <link linkend="char"><returnvalue>char</returnvalue></link>&#160;*
+g_desktop_app_info_get_startup_wm_class
+                               (<parameter><link linkend="GDesktopAppInfo"><type>GDesktopAppInfo</type></link> *info</parameter>);</programlisting>
+<para>Retrieves the StartupWMClass field from <parameter>info</parameter>
+. This represents the
+WM_CLASS property of the main window of the application, if launched
+through <parameter>info</parameter>
+.</para>
+<refsect3 id="g-desktop-app-info-get-startup-wm-class.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>info</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GDesktopAppInfo"><type>GDesktopAppInfo</type></link> that supports startup notify</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-desktop-app-info-get-startup-wm-class.returns" role="returns">
+<title>Returns</title>
+<para>the startup WM class, or <link linkend="NULL:CAPS"><literal>NULL</literal></link> if none is set
+in the desktop file. </para>
+<para><emphasis role="annotation">[<acronym>transfer none</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.34">2.34</link></para></refsect2>
+<refsect2 id="g-desktop-app-info-set-desktop-env" role="function" condition="deprecated">
+<title>g_desktop_app_info_set_desktop_env&#160;()</title>
+<indexterm zone="g-desktop-app-info-set-desktop-env" role="deprecated"><primary sortas="desktop_app_info_set_desktop_env">g_desktop_app_info_set_desktop_env</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_desktop_app_info_set_desktop_env (<parameter>const <link linkend="char"><type>char</type></link> *desktop_env</parameter>);</programlisting>
+<warning><para><literal>g_desktop_app_info_set_desktop_env</literal> has been deprecated since version 2.42 and should not be used in newly-written code.</para> <para>do not use this API.  Since 2.42 the value of the
+<literal>XDG_CURRENT_DESKTOP</literal> environment variable will be used.</para>
+</warning>
+<para>Sets the name of the desktop that the application is running in.
+This is used by <link linkend="g-app-info-should-show"><function>g_app_info_should_show()</function></link> and
+<link linkend="g-desktop-app-info-get-show-in"><function>g_desktop_app_info_get_show_in()</function></link> to evaluate the
+<literal>OnlyShowIn</literal> and <literal>NotShowIn</literal>
+desktop entry fields.</para>
+<para>Should be called only once; subsequent calls are ignored.</para>
+<refsect3 id="g-desktop-app-info-set-desktop-env.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>desktop_env</para></entry>
+<entry role="parameter_description"><para>a string specifying what desktop this is</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-desktop-app-info-get-string" role="function" condition="since:2.36">
+<title>g_desktop_app_info_get_string&#160;()</title>
+<indexterm zone="g-desktop-app-info-get-string" role="2.36"><primary sortas="desktop_app_info_get_string">g_desktop_app_info_get_string</primary></indexterm>
+<programlisting language="C"><link linkend="char"><returnvalue>char</returnvalue></link>&#160;*
+g_desktop_app_info_get_string (<parameter><link linkend="GDesktopAppInfo"><type>GDesktopAppInfo</type></link> *info</parameter>,
+                               <parameter>const <link linkend="char"><type>char</type></link> *key</parameter>);</programlisting>
+<para>Looks up a string value in the keyfile backing <parameter>info</parameter>
+.</para>
+<para>The <parameter>key</parameter>
+ is looked up in the "Desktop Entry" group.</para>
+<refsect3 id="g-desktop-app-info-get-string.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>info</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GDesktopAppInfo"><type>GDesktopAppInfo</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>key</para></entry>
+<entry role="parameter_description"><para>the key to look up</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-desktop-app-info-get-string.returns" role="returns">
+<title>Returns</title>
+<para> a newly allocated string, or <link linkend="NULL:CAPS"><literal>NULL</literal></link> if the key
+is not found</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.36">2.36</link></para></refsect2>
+<refsect2 id="g-desktop-app-info-get-locale-string" role="function" condition="since:2.56">
+<title>g_desktop_app_info_get_locale_string&#160;()</title>
+<indexterm zone="g-desktop-app-info-get-locale-string" role="2.56"><primary sortas="desktop_app_info_get_locale_string">g_desktop_app_info_get_locale_string</primary></indexterm>
+<programlisting language="C"><link linkend="char"><returnvalue>char</returnvalue></link>&#160;*
+g_desktop_app_info_get_locale_string (<parameter><link linkend="GDesktopAppInfo"><type>GDesktopAppInfo</type></link> *info</parameter>,
+                                      <parameter>const <link linkend="char"><type>char</type></link> *key</parameter>);</programlisting>
+<para>Looks up a localized string value in the keyfile backing <parameter>info</parameter>
+
+translated to the current locale.</para>
+<para>The <parameter>key</parameter>
+ is looked up in the "Desktop Entry" group.</para>
+<refsect3 id="g-desktop-app-info-get-locale-string.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>info</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GDesktopAppInfo"><type>GDesktopAppInfo</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>key</para></entry>
+<entry role="parameter_description"><para>the key to look up</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-desktop-app-info-get-locale-string.returns" role="returns">
+<title>Returns</title>
+<para>a newly allocated string, or <link linkend="NULL:CAPS"><literal>NULL</literal></link> if the key
+is not found. </para>
+<para><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.56">2.56</link></para></refsect2>
+<refsect2 id="g-desktop-app-info-get-boolean" role="function" condition="since:2.36">
+<title>g_desktop_app_info_get_boolean&#160;()</title>
+<indexterm zone="g-desktop-app-info-get-boolean" role="2.36"><primary sortas="desktop_app_info_get_boolean">g_desktop_app_info_get_boolean</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_desktop_app_info_get_boolean (<parameter><link linkend="GDesktopAppInfo"><type>GDesktopAppInfo</type></link> *info</parameter>,
+                                <parameter>const <link linkend="char"><type>char</type></link> *key</parameter>);</programlisting>
+<para>Looks up a boolean value in the keyfile backing <parameter>info</parameter>
+.</para>
+<para>The <parameter>key</parameter>
+ is looked up in the "Desktop Entry" group.</para>
+<refsect3 id="g-desktop-app-info-get-boolean.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>info</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GDesktopAppInfo"><type>GDesktopAppInfo</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>key</para></entry>
+<entry role="parameter_description"><para>the key to look up</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-desktop-app-info-get-boolean.returns" role="returns">
+<title>Returns</title>
+<para> the boolean value, or <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> if the key
+is not found</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.36">2.36</link></para></refsect2>
+<refsect2 id="g-desktop-app-info-has-key" role="function" condition="since:2.36">
+<title>g_desktop_app_info_has_key&#160;()</title>
+<indexterm zone="g-desktop-app-info-has-key" role="2.36"><primary sortas="desktop_app_info_has_key">g_desktop_app_info_has_key</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_desktop_app_info_has_key (<parameter><link linkend="GDesktopAppInfo"><type>GDesktopAppInfo</type></link> *info</parameter>,
+                            <parameter>const <link linkend="char"><type>char</type></link> *key</parameter>);</programlisting>
+<para>Returns whether <parameter>key</parameter>
+ exists in the "Desktop Entry" group
+of the keyfile backing <parameter>info</parameter>
+.</para>
+<refsect3 id="g-desktop-app-info-has-key.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>info</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GDesktopAppInfo"><type>GDesktopAppInfo</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>key</para></entry>
+<entry role="parameter_description"><para>the key to look up</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-desktop-app-info-has-key.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if the <parameter>key</parameter>
+exists</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.36">2.36</link></para></refsect2>
+<refsect2 id="GDesktopAppLaunchCallback" role="function">
+<title>GDesktopAppLaunchCallback&#160;()</title>
+<indexterm zone="GDesktopAppLaunchCallback"><primary sortas="DesktopAppLaunchCallback">GDesktopAppLaunchCallback</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+<phrase role="c_punctuation">(</phrase>*GDesktopAppLaunchCallback<phrase role="c_punctuation">)</phrase> (<parameter><link linkend="GDesktopAppInfo"><type>GDesktopAppInfo</type></link> *appinfo</parameter>,
+                              <parameter><link linkend="GPid"><type>GPid</type></link> pid</parameter>,
+                              <parameter><link linkend="gpointer"><type>gpointer</type></link> user_data</parameter>);</programlisting>
+<para>During invocation, <link linkend="g-desktop-app-info-launch-uris-as-manager"><function>g_desktop_app_info_launch_uris_as_manager()</function></link> may
+create one or more child processes.  This callback is invoked once
+for each, providing the process ID.</para>
+<refsect3 id="GDesktopAppLaunchCallback.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>appinfo</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GDesktopAppInfo"><type>GDesktopAppInfo</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>pid</para></entry>
+<entry role="parameter_description"><para>Process identifier</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>user_data</para></entry>
+<entry role="parameter_description"><para>User data</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-desktop-app-info-launch-uris-as-manager" role="function">
+<title>g_desktop_app_info_launch_uris_as_manager&#160;()</title>
+<indexterm zone="g-desktop-app-info-launch-uris-as-manager"><primary sortas="desktop_app_info_launch_uris_as_manager">g_desktop_app_info_launch_uris_as_manager</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_desktop_app_info_launch_uris_as_manager
+                               (<parameter><link linkend="GDesktopAppInfo"><type>GDesktopAppInfo</type></link> *appinfo</parameter>,
+                                <parameter><link linkend="GList"><type>GList</type></link> *uris</parameter>,
+                                <parameter><link linkend="GAppLaunchContext"><type>GAppLaunchContext</type></link> *launch_context</parameter>,
+                                <parameter><link linkend="GSpawnFlags"><type>GSpawnFlags</type></link> spawn_flags</parameter>,
+                                <parameter><link linkend="GSpawnChildSetupFunc"><type>GSpawnChildSetupFunc</type></link> user_setup</parameter>,
+                                <parameter><link linkend="gpointer"><type>gpointer</type></link> user_setup_data</parameter>,
+                                <parameter><link linkend="GDesktopAppLaunchCallback"><type>GDesktopAppLaunchCallback</type></link> pid_callback</parameter>,
+                                <parameter><link linkend="gpointer"><type>gpointer</type></link> pid_callback_data</parameter>,
+                                <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para>This function performs the equivalent of <link linkend="g-app-info-launch-uris"><function>g_app_info_launch_uris()</function></link>,
+but is intended primarily for operating system components that
+launch applications.  Ordinary applications should use
+<link linkend="g-app-info-launch-uris"><function>g_app_info_launch_uris()</function></link>.</para>
+<para>If the application is launched via GSpawn, then <parameter>spawn_flags</parameter>
+, <parameter>user_setup</parameter>
+
+and <parameter>user_setup_data</parameter>
+ are used for the call to <link linkend="g-spawn-async"><function>g_spawn_async()</function></link>.
+Additionally, <parameter>pid_callback</parameter>
+ (with <parameter>pid_callback_data</parameter>
+) will be called to
+inform about the PID of the created process. See <link linkend="g-spawn-async-with-pipes"><function>g_spawn_async_with_pipes()</function></link>
+for information on certain parameter conditions that can enable an
+optimized <link linkend="posix-spawn"><function>posix_spawn()</function></link> codepath to be used.</para>
+<para>If application launching occurs via some other mechanism (eg: D-Bus
+activation) then <parameter>spawn_flags</parameter>
+, <parameter>user_setup</parameter>
+, <parameter>user_setup_data</parameter>
+,
+<parameter>pid_callback</parameter>
+ and <parameter>pid_callback_data</parameter>
+ are ignored.</para>
+<refsect3 id="g-desktop-app-info-launch-uris-as-manager.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>appinfo</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GDesktopAppInfo"><type>GDesktopAppInfo</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>uris</para></entry>
+<entry role="parameter_description"><para>List of URIs. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>element-type</acronym> utf8]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>launch_context</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GAppLaunchContext"><type>GAppLaunchContext</type></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>spawn_flags</para></entry>
+<entry role="parameter_description"><para><link linkend="GSpawnFlags"><type>GSpawnFlags</type></link>, used for each process</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>user_setup</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSpawnChildSetupFunc"><type>GSpawnChildSetupFunc</type></link>, used once
+for each process. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>scope async</acronym>][<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>user_setup_data</para></entry>
+<entry role="parameter_description"><para>User data for <parameter>user_setup</parameter>
+. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>closure</acronym> user_setup][<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>pid_callback</para></entry>
+<entry role="parameter_description"><para>Callback for child processes. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>scope call</acronym>][<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>pid_callback_data</para></entry>
+<entry role="parameter_description"><para>User data for <parameter>callback</parameter>
+. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>closure</acronym> pid_callback][<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para>return location for a <link linkend="GError"><type>GError</type></link>, or <link linkend="NULL:CAPS"><literal>NULL</literal></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-desktop-app-info-launch-uris-as-manager.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> on successful launch, <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> otherwise.</para>
+</refsect3></refsect2>
+<refsect2 id="g-desktop-app-info-launch-uris-as-manager-with-fds" role="function" condition="since:2.58">
+<title>g_desktop_app_info_launch_uris_as_manager_with_fds&#160;()</title>
+<indexterm zone="g-desktop-app-info-launch-uris-as-manager-with-fds" role="2.58"><primary sortas="desktop_app_info_launch_uris_as_manager_with_fds">g_desktop_app_info_launch_uris_as_manager_with_fds</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_desktop_app_info_launch_uris_as_manager_with_fds
+                               (<parameter><link linkend="GDesktopAppInfo"><type>GDesktopAppInfo</type></link> *appinfo</parameter>,
+                                <parameter><link linkend="GList"><type>GList</type></link> *uris</parameter>,
+                                <parameter><link linkend="GAppLaunchContext"><type>GAppLaunchContext</type></link> *launch_context</parameter>,
+                                <parameter><link linkend="GSpawnFlags"><type>GSpawnFlags</type></link> spawn_flags</parameter>,
+                                <parameter><link linkend="GSpawnChildSetupFunc"><type>GSpawnChildSetupFunc</type></link> user_setup</parameter>,
+                                <parameter><link linkend="gpointer"><type>gpointer</type></link> user_setup_data</parameter>,
+                                <parameter><link linkend="GDesktopAppLaunchCallback"><type>GDesktopAppLaunchCallback</type></link> pid_callback</parameter>,
+                                <parameter><link linkend="gpointer"><type>gpointer</type></link> pid_callback_data</parameter>,
+                                <parameter><link linkend="gint"><type>gint</type></link> stdin_fd</parameter>,
+                                <parameter><link linkend="gint"><type>gint</type></link> stdout_fd</parameter>,
+                                <parameter><link linkend="gint"><type>gint</type></link> stderr_fd</parameter>,
+                                <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para>Equivalent to <link linkend="g-desktop-app-info-launch-uris-as-manager"><function>g_desktop_app_info_launch_uris_as_manager()</function></link> but allows
+you to pass in file descriptors for the stdin, stdout and stderr streams
+of the launched process.</para>
+<para>If application launching occurs via some non-spawn mechanism (e.g. D-Bus
+activation) then <parameter>stdin_fd</parameter>
+, <parameter>stdout_fd</parameter>
+ and <parameter>stderr_fd</parameter>
+ are ignored.</para>
+<refsect3 id="g-desktop-app-info-launch-uris-as-manager-with-fds.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>appinfo</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GDesktopAppInfo"><type>GDesktopAppInfo</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>uris</para></entry>
+<entry role="parameter_description"><para>List of URIs. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>element-type</acronym> utf8]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>launch_context</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GAppLaunchContext"><type>GAppLaunchContext</type></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>spawn_flags</para></entry>
+<entry role="parameter_description"><para><link linkend="GSpawnFlags"><type>GSpawnFlags</type></link>, used for each process</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>user_setup</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSpawnChildSetupFunc"><type>GSpawnChildSetupFunc</type></link>, used once
+for each process. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>scope async</acronym>][<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>user_setup_data</para></entry>
+<entry role="parameter_description"><para>User data for <parameter>user_setup</parameter>
+. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>closure</acronym> user_setup][<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>pid_callback</para></entry>
+<entry role="parameter_description"><para>Callback for child processes. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>scope call</acronym>][<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>pid_callback_data</para></entry>
+<entry role="parameter_description"><para>User data for <parameter>callback</parameter>
+. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>closure</acronym> pid_callback][<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>stdin_fd</para></entry>
+<entry role="parameter_description"><para>file descriptor to use for child's stdin, or -1</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>stdout_fd</para></entry>
+<entry role="parameter_description"><para>file descriptor to use for child's stdout, or -1</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>stderr_fd</para></entry>
+<entry role="parameter_description"><para>file descriptor to use for child's stderr, or -1</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para>return location for a <link linkend="GError"><type>GError</type></link>, or <link linkend="NULL:CAPS"><literal>NULL</literal></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-desktop-app-info-launch-uris-as-manager-with-fds.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> on successful launch, <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> otherwise.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.58">2.58</link></para></refsect2>
+<refsect2 id="g-desktop-app-info-list-actions" role="function" condition="since:2.38">
+<title>g_desktop_app_info_list_actions&#160;()</title>
+<indexterm zone="g-desktop-app-info-list-actions" role="2.38"><primary sortas="desktop_app_info_list_actions">g_desktop_app_info_list_actions</primary></indexterm>
+<programlisting language="C">const <link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;* const *
+g_desktop_app_info_list_actions (<parameter><link linkend="GDesktopAppInfo"><type>GDesktopAppInfo</type></link> *info</parameter>);</programlisting>
+<para>Returns the list of "additional application actions" supported on the
+desktop file, as per the desktop file specification.</para>
+<para>As per the specification, this is the list of actions that are
+explicitly listed in the "Actions" key of the [Desktop Entry] group.</para>
+<refsect3 id="g-desktop-app-info-list-actions.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>info</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GDesktopAppInfo"><type>GDesktopAppInfo</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-desktop-app-info-list-actions.returns" role="returns">
+<title>Returns</title>
+<para>a list of strings, always non-<link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para>
+<para><emphasis role="annotation">[<acronym>array</acronym> zero-terminated=1][<acronym>element-type</acronym> utf8][<acronym>transfer none</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.38">2.38</link></para></refsect2>
+<refsect2 id="g-desktop-app-info-get-action-name" role="function" condition="since:2.38">
+<title>g_desktop_app_info_get_action_name&#160;()</title>
+<indexterm zone="g-desktop-app-info-get-action-name" role="2.38"><primary sortas="desktop_app_info_get_action_name">g_desktop_app_info_get_action_name</primary></indexterm>
+<programlisting language="C"><link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+g_desktop_app_info_get_action_name (<parameter><link linkend="GDesktopAppInfo"><type>GDesktopAppInfo</type></link> *info</parameter>,
+                                    <parameter>const <link linkend="gchar"><type>gchar</type></link> *action_name</parameter>);</programlisting>
+<para>Gets the user-visible display name of the "additional application
+action" specified by <parameter>action_name</parameter>
+.</para>
+<para>This corresponds to the "Name" key within the keyfile group for the
+action.</para>
+<refsect3 id="g-desktop-app-info-get-action-name.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>info</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GDesktopAppInfo"><type>GDesktopAppInfo</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>action_name</para></entry>
+<entry role="parameter_description"><para>the name of the action as from
+<link linkend="g-desktop-app-info-list-actions"><function>g_desktop_app_info_list_actions()</function></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-desktop-app-info-get-action-name.returns" role="returns">
+<title>Returns</title>
+<para>the locale-specific action name. </para>
+<para><emphasis role="annotation">[<acronym>transfer full</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.38">2.38</link></para></refsect2>
+<refsect2 id="g-desktop-app-info-launch-action" role="function" condition="since:2.38">
+<title>g_desktop_app_info_launch_action&#160;()</title>
+<indexterm zone="g-desktop-app-info-launch-action" role="2.38"><primary sortas="desktop_app_info_launch_action">g_desktop_app_info_launch_action</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_desktop_app_info_launch_action (<parameter><link linkend="GDesktopAppInfo"><type>GDesktopAppInfo</type></link> *info</parameter>,
+                                  <parameter>const <link linkend="gchar"><type>gchar</type></link> *action_name</parameter>,
+                                  <parameter><link linkend="GAppLaunchContext"><type>GAppLaunchContext</type></link> *launch_context</parameter>);</programlisting>
+<para>Activates the named application action.</para>
+<para>You may only call this function on action names that were
+returned from <link linkend="g-desktop-app-info-list-actions"><function>g_desktop_app_info_list_actions()</function></link>.</para>
+<para>Note that if the main entry of the desktop file indicates that the
+application supports startup notification, and <parameter>launch_context</parameter>
+ is
+non-<link linkend="NULL:CAPS"><literal>NULL</literal></link>, then startup notification will be used when activating the
+action (and as such, invocation of the action on the receiving side
+must signal the end of startup notification when it is completed).
+This is the expected behaviour of applications declaring additional
+actions, as per the desktop file specification.</para>
+<para>As with <link linkend="g-app-info-launch"><function>g_app_info_launch()</function></link> there is no way to detect failures that
+occur while using this function.</para>
+<refsect3 id="g-desktop-app-info-launch-action.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>info</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GDesktopAppInfo"><type>GDesktopAppInfo</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>action_name</para></entry>
+<entry role="parameter_description"><para>the name of the action as from
+<link linkend="g-desktop-app-info-list-actions"><function>g_desktop_app_info_list_actions()</function></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>launch_context</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GAppLaunchContext"><type>GAppLaunchContext</type></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.38">2.38</link></para></refsect2>
+<refsect2 id="g-desktop-app-info-search" role="function">
+<title>g_desktop_app_info_search&#160;()</title>
+<indexterm zone="g-desktop-app-info-search"><primary sortas="desktop_app_info_search">g_desktop_app_info_search</primary></indexterm>
+<programlisting language="C"><link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;***
+g_desktop_app_info_search (<parameter>const <link linkend="gchar"><type>gchar</type></link> *search_string</parameter>);</programlisting>
+<para>Searches desktop files for ones that match <parameter>search_string</parameter>
+.</para>
+<para>The return value is an array of strvs.  Each strv contains a list of
+applications that matched <parameter>search_string</parameter>
+ with an equal score.  The
+outer list is sorted by score so that the first strv contains the
+best-matching applications, and so on.
+The algorithm for determining matches is undefined and may change at
+any time.</para>
+<refsect3 id="g-desktop-app-info-search.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>search_string</para></entry>
+<entry role="parameter_description"><para>the search string to use</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-desktop-app-info-search.returns" role="returns">
+<title>Returns</title>
+<para>a
+list of strvs.  Free each item with <link linkend="g-strfreev"><function>g_strfreev()</function></link> and free the outer
+list with <link linkend="g-free"><function>g_free()</function></link>. </para>
+<para><emphasis role="annotation">[<acronym>array</acronym> zero-terminated=1][<acronym>element-type</acronym> GStrv][<acronym>transfer full</acronym>]</emphasis></para>
+</refsect3></refsect2>
+<refsect2 id="g-desktop-app-info-get-implementations" role="function" condition="since:2.42">
+<title>g_desktop_app_info_get_implementations&#160;()</title>
+<indexterm zone="g-desktop-app-info-get-implementations" role="2.42"><primary sortas="desktop_app_info_get_implementations">g_desktop_app_info_get_implementations</primary></indexterm>
+<programlisting language="C"><link linkend="GList"><returnvalue>GList</returnvalue></link>&#160;*
+g_desktop_app_info_get_implementations
+                               (<parameter>const <link linkend="gchar"><type>gchar</type></link> *interface</parameter>);</programlisting>
+<para>Gets all applications that implement <parameter>interface</parameter>
+.</para>
+<para>An application implements an interface if that interface is listed in
+the Implements= line of the desktop file of the application.</para>
+<refsect3 id="g-desktop-app-info-get-implementations.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>interface</para></entry>
+<entry role="parameter_description"><para>the name of the interface</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-desktop-app-info-get-implementations.returns" role="returns">
+<title>Returns</title>
+<para>a list of <link linkend="GDesktopAppInfo"><type>GDesktopAppInfo</type></link>
+objects. </para>
+<para><emphasis role="annotation">[<acronym>element-type</acronym> GDesktopAppInfo][<acronym>transfer full</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.42">2.42</link></para></refsect2>
+
+</refsect1>
+<refsect1 id="gio-Desktop-file-based-GAppInfo.other_details" role="details">
+<title role="details.title">Types and Values</title>
+<refsect2 id="GDesktopAppInfo-struct" role="struct">
+<title>GDesktopAppInfo</title>
+<indexterm zone="GDesktopAppInfo-struct"><primary sortas="DesktopAppInfo">GDesktopAppInfo</primary></indexterm>
+<programlisting language="C">typedef struct _GDesktopAppInfo GDesktopAppInfo;</programlisting>
+<para>Information about an installed application from a desktop file.</para>
+</refsect2>
+<refsect2 id="GDesktopAppInfoLookup-struct" role="struct">
+<title>GDesktopAppInfoLookup</title>
+<indexterm zone="GDesktopAppInfoLookup-struct" role="deprecated"><primary sortas="DesktopAppInfoLookup">GDesktopAppInfoLookup</primary></indexterm>
+<programlisting language="C">typedef struct _GDesktopAppInfoLookup GDesktopAppInfoLookup;</programlisting>
+<warning><para><literal>GDesktopAppInfoLookup</literal> is deprecated and should not be used in newly-written code.</para></warning>
+<para><link linkend="GDesktopAppInfoLookup"><type>GDesktopAppInfoLookup</type></link> is an opaque data structure and can only be accessed
+using the following functions.</para>
+</refsect2>
+<refsect2 id="GDesktopAppInfoLookupIface" role="struct" condition="deprecated:">
+<title>struct GDesktopAppInfoLookupIface</title>
+<indexterm zone="GDesktopAppInfoLookupIface" role="deprecated"><primary sortas="DesktopAppInfoLookupIface">GDesktopAppInfoLookupIface</primary></indexterm>
+<programlisting language="C">struct GDesktopAppInfoLookupIface {
+  GTypeInterface g_iface;
+
+  GAppInfo * (* get_default_for_uri_scheme) (GDesktopAppInfoLookup *lookup,
+                                             const char            *uri_scheme);
+};
+</programlisting>
+<warning><para><literal>GDesktopAppInfoLookupIface</literal> is deprecated and should not be used in newly-written code.</para></warning>
+<para>Interface that is used by backends to associate default
+handlers with URI schemes.</para>
+<refsect3 id="GDesktopAppInfoLookupIface.members" role="struct_members">
+<title>Members</title>
+<informaltable role="struct_members_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="struct_members_name" colwidth="300px"/>
+<colspec colname="struct_members_description"/>
+<colspec colname="struct_members_annotations" colwidth="200px"/>
+<tbody>
+<row role="member"><entry role="struct_member_name"><para><structfield id="GDesktopAppInfoLookupIface.get-default-for-uri-scheme">get_default_for_uri_scheme</structfield>&#160;()</para></entry>
+<entry role="struct_member_description"><para>Virtual method for
+<link linkend="g-desktop-app-info-lookup-get-default-for-uri-scheme"><function>g_desktop_app_info_lookup_get_default_for_uri_scheme()</function></link>.</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+</tbody></tgroup></informaltable>
+</refsect3>
+</refsect2>
+<refsect2 id="G-DESKTOP-APP-INFO-LOOKUP-EXTENSION-POINT-NAME:CAPS" role="macro" condition="deprecated:">
+<title>G_DESKTOP_APP_INFO_LOOKUP_EXTENSION_POINT_NAME</title>
+<indexterm zone="G-DESKTOP-APP-INFO-LOOKUP-EXTENSION-POINT-NAME:CAPS" role="deprecated"><primary sortas="DESKTOP_APP_INFO_LOOKUP_EXTENSION_POINT_NAME">G_DESKTOP_APP_INFO_LOOKUP_EXTENSION_POINT_NAME</primary></indexterm>
+<programlisting language="C">#define G_DESKTOP_APP_INFO_LOOKUP_EXTENSION_POINT_NAME "gio-desktop-app-info-lookup"
+</programlisting>
+<warning><para><literal>G_DESKTOP_APP_INFO_LOOKUP_EXTENSION_POINT_NAME</literal> is deprecated and should not be used in newly-written code.</para></warning>
+<para>Extension point for default handler to URI association. See
+<link linkend="extending-gio">Extending GIO</link>.</para>
+</refsect2>
+
+</refsect1>
+<refsect1 id="gio-Desktop-file-based-GAppInfo.property-details" role="property_details">
+<title role="property_details.title">Property Details</title>
+<refsect2 id="GDesktopAppInfo--filename" role="property"><title>The <literal>“filename”</literal> property</title>
+<indexterm zone="GDesktopAppInfo--filename"><primary sortas="DesktopAppInfo:filename">GDesktopAppInfo:filename</primary></indexterm>
+<programlisting>  “filename”                 <link linkend="gchar"><type>gchar</type></link>&#160;*</programlisting>
+<para>The origin filename of this <link linkend="GDesktopAppInfo"><type>GDesktopAppInfo</type></link></para>
+<para>Flags: Read / Write / Construct Only</para>
+<para>Default value: NULL</para>
+</refsect2>
+
+</refsect1>
+
+</refentry>

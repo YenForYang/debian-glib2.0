@@ -1,0 +1,1072 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC '-//OASIS//DTD DocBook XML V4.5//EN'
+                      'http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd' [
+<!ENTITY % local.common.attrib "xmlns:xi  CDATA  #FIXED 'http://www.w3.org/2003/XInclude'">
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="glib-Memory-Allocation">
+<refmeta>
+<refentrytitle role="top_of_page" id="glib-Memory-Allocation.top_of_page">Memory Allocation</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>GLIB Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>Memory Allocation</refname>
+<refpurpose>general memory-handling</refpurpose>
+</refnamediv>
+
+<refsect1 id="glib-Memory-Allocation.functions" role="functions_proto">
+<title role="functions_proto.title">Functions</title>
+<informaltable pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="functions_return" colwidth="150px"/>
+<colspec colname="functions_name"/>
+<tbody>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="g-new">g_new</link><phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="g-new0">g_new0</link><phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="g-renew">g_renew</link><phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="g-try-new">g_try_new</link><phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="g-try-new0">g_try_new0</link><phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="g-try-renew">g_try_renew</link><phrase role="c_punctuation">()</phrase></entry></row>
+
+<row><entry role="function_type"><link linkend="gpointer"><returnvalue>gpointer</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-malloc">g_malloc</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gpointer"><returnvalue>gpointer</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-malloc0">g_malloc0</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gpointer"><returnvalue>gpointer</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-realloc">g_realloc</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gpointer"><returnvalue>gpointer</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-try-malloc">g_try_malloc</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gpointer"><returnvalue>gpointer</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-try-malloc0">g_try_malloc0</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gpointer"><returnvalue>gpointer</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-try-realloc">g_try_realloc</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gpointer"><returnvalue>gpointer</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-malloc-n">g_malloc_n</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gpointer"><returnvalue>gpointer</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-malloc0-n">g_malloc0_n</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gpointer"><returnvalue>gpointer</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-realloc-n">g_realloc_n</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gpointer"><returnvalue>gpointer</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-try-malloc-n">g_try_malloc_n</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gpointer"><returnvalue>gpointer</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-try-malloc0-n">g_try_malloc0_n</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gpointer"><returnvalue>gpointer</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-try-realloc-n">g_try_realloc_n</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-free">g_free</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-clear-pointer">g_clear_pointer</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gpointer"><returnvalue>gpointer</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-steal-pointer">g_steal_pointer</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="g-alloca">g_alloca</link><phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="g-newa">g_newa</link><phrase role="c_punctuation">()</phrase></entry></row>
+
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="g-memmove">g_memmove</link><phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gpointer"><returnvalue>gpointer</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-memdup">g_memdup</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-mem-set-vtable">g_mem_set_vtable</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-mem-is-system-malloc">g_mem_is_system_malloc</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-mem-profile">g_mem_profile</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="glib-Memory-Allocation.other" role="other_proto">
+<title role="other_proto.title">Types and Values</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="name" colwidth="150px"/>
+<colspec colname="description"/>
+<tbody>
+<row><entry role="variable_type">extern gboolean </entry><entry role="function_name"><link linkend="g-mem-gc-friendly">g_mem_gc_friendly</link></entry></row>
+
+
+
+<row><entry role="datatype_keyword">struct</entry><entry role="function_name"><link linkend="GMemVTable">GMemVTable</link></entry></row>
+
+<row><entry role="variable_type">extern GMemVTable	*</entry><entry role="function_name"><link linkend="glib-mem-profiler-table">glib_mem_profiler_table</link></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+
+<refsect1 id="glib-Memory-Allocation.includes"><title>Includes</title><synopsis>#include &lt;glib.h&gt;
+</synopsis></refsect1>
+
+<refsect1 id="glib-Memory-Allocation.description" role="desc">
+<title role="desc.title">Description</title>
+<para>These functions provide support for allocating and freeing memory.</para>
+<para>If any call to allocate memory using functions <link linkend="g-new"><function>g_new()</function></link>, <link linkend="g-new0"><function>g_new0()</function></link>, <link linkend="g-renew"><function>g_renew()</function></link>,
+<link linkend="g-malloc"><function>g_malloc()</function></link>, <link linkend="g-malloc0"><function>g_malloc0()</function></link>, <link linkend="g-malloc0-n"><function>g_malloc0_n()</function></link>, <link linkend="g-realloc"><function>g_realloc()</function></link>, and <link linkend="g-realloc-n"><function>g_realloc_n()</function></link>
+fails, the application is terminated. This also means that there is no
+need to check if the call succeeded. On the other hand, g_try_...() family
+of functions returns <link linkend="NULL:CAPS"><literal>NULL</literal></link> on failure that can be used as a check
+for unsuccessful memory allocation. The application is not terminated
+in this case.</para>
+<para>It's important to match <link linkend="g-malloc"><function>g_malloc()</function></link> (and wrappers such as <link linkend="g-new"><function>g_new()</function></link>) with
+<link linkend="g-free"><function>g_free()</function></link>, <link linkend="g-slice-alloc"><function>g_slice_alloc()</function></link> (and wrappers such as <link linkend="g-slice-new"><function>g_slice_new()</function></link>) with
+<link linkend="g-slice-free"><function>g_slice_free()</function></link>, plain <link linkend="malloc"><function>malloc()</function></link> with <link linkend="free"><function>free()</function></link>, and (if you're using C++)
+new with delete and new[] with delete[]. Otherwise bad things can happen,
+since these allocators may use different memory pools (and new/delete call
+constructors and destructors).</para>
+
+</refsect1>
+<refsect1 id="glib-Memory-Allocation.functions_details" role="details">
+<title role="details.title">Functions</title>
+<refsect2 id="g-new" role="macro">
+<title>g_new()</title>
+<indexterm zone="g-new"><primary sortas="new">g_new</primary></indexterm>
+<programlisting language="C">#define             g_new(struct_type, n_structs)</programlisting>
+<para>Allocates <parameter>n_structs</parameter>
+ elements of type <parameter>struct_type</parameter>
+.
+The returned pointer is cast to a pointer to the given type.
+If <parameter>n_structs</parameter>
+ is 0 it returns <link linkend="NULL:CAPS"><literal>NULL</literal></link>.
+Care is taken to avoid overflow when calculating the size of the allocated block.</para>
+<para>Since the returned pointer is already casted to the right type,
+it is normally unnecessary to cast it explicitly, and doing
+so might hide memory allocation errors.</para>
+<refsect3 id="g-new.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>struct_type</para></entry>
+<entry role="parameter_description"><para>the type of the elements to allocate</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>n_structs</para></entry>
+<entry role="parameter_description"><para>the number of elements to allocate</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-new.returns" role="returns">
+<title>Returns</title>
+<para> a pointer to the allocated memory, cast to a pointer to <parameter>struct_type</parameter>
+</para>
+</refsect3></refsect2>
+<refsect2 id="g-new0" role="macro">
+<title>g_new0()</title>
+<indexterm zone="g-new0"><primary sortas="new0">g_new0</primary></indexterm>
+<programlisting language="C">#define             g_new0(struct_type, n_structs)</programlisting>
+<para>Allocates <parameter>n_structs</parameter>
+ elements of type <parameter>struct_type</parameter>
+, initialized to 0's.
+The returned pointer is cast to a pointer to the given type.
+If <parameter>n_structs</parameter>
+ is 0 it returns <link linkend="NULL:CAPS"><literal>NULL</literal></link>.
+Care is taken to avoid overflow when calculating the size of the allocated block.</para>
+<para>Since the returned pointer is already casted to the right type,
+it is normally unnecessary to cast it explicitly, and doing
+so might hide memory allocation errors.</para>
+<refsect3 id="g-new0.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>struct_type</para></entry>
+<entry role="parameter_description"><para>the type of the elements to allocate.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>n_structs</para></entry>
+<entry role="parameter_description"><para>the number of elements to allocate.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-new0.returns" role="returns">
+<title>Returns</title>
+<para> a pointer to the allocated memory, cast to a pointer to <parameter>struct_type</parameter>
+.</para>
+</refsect3></refsect2>
+<refsect2 id="g-renew" role="macro">
+<title>g_renew()</title>
+<indexterm zone="g-renew"><primary sortas="renew">g_renew</primary></indexterm>
+<programlisting language="C">#define             g_renew(struct_type, mem, n_structs)</programlisting>
+<para>Reallocates the memory pointed to by <parameter>mem</parameter>
+, so that it now has space for
+<parameter>n_structs</parameter>
+ elements of type <parameter>struct_type</parameter>
+. It returns the new address of
+the memory, which may have been moved.
+Care is taken to avoid overflow when calculating the size of the allocated block.</para>
+<refsect3 id="g-renew.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>struct_type</para></entry>
+<entry role="parameter_description"><para>the type of the elements to allocate</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>mem</para></entry>
+<entry role="parameter_description"><para>the currently allocated memory</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>n_structs</para></entry>
+<entry role="parameter_description"><para>the number of elements to allocate</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-renew.returns" role="returns">
+<title>Returns</title>
+<para> a pointer to the new allocated memory, cast to a pointer to <parameter>struct_type</parameter>
+</para>
+</refsect3></refsect2>
+<refsect2 id="g-try-new" role="macro" condition="since:2.8">
+<title>g_try_new()</title>
+<indexterm zone="g-try-new" role="2.8"><primary sortas="try_new">g_try_new</primary></indexterm>
+<programlisting language="C">#define             g_try_new(struct_type, n_structs)</programlisting>
+<para>Attempts to allocate <parameter>n_structs</parameter>
+ elements of type <parameter>struct_type</parameter>
+, and returns
+<link linkend="NULL:CAPS"><literal>NULL</literal></link> on failure. Contrast with <link linkend="g-new"><function>g_new()</function></link>, which aborts the program on failure.
+The returned pointer is cast to a pointer to the given type.
+The function returns <link linkend="NULL:CAPS"><literal>NULL</literal></link> when <parameter>n_structs</parameter>
+ is 0 of if an overflow occurs.</para>
+<refsect3 id="g-try-new.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>struct_type</para></entry>
+<entry role="parameter_description"><para>the type of the elements to allocate</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>n_structs</para></entry>
+<entry role="parameter_description"><para>the number of elements to allocate</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-try-new.returns" role="returns">
+<title>Returns</title>
+<para> a pointer to the allocated memory, cast to a pointer to <parameter>struct_type</parameter>
+</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.8">2.8</link></para></refsect2>
+<refsect2 id="g-try-new0" role="macro" condition="since:2.8">
+<title>g_try_new0()</title>
+<indexterm zone="g-try-new0" role="2.8"><primary sortas="try_new0">g_try_new0</primary></indexterm>
+<programlisting language="C">#define             g_try_new0(struct_type, n_structs)</programlisting>
+<para>Attempts to allocate <parameter>n_structs</parameter>
+ elements of type <parameter>struct_type</parameter>
+, initialized
+to 0's, and returns <link linkend="NULL:CAPS"><literal>NULL</literal></link> on failure. Contrast with <link linkend="g-new0"><function>g_new0()</function></link>, which aborts
+the program on failure.
+The returned pointer is cast to a pointer to the given type.
+The function returns <link linkend="NULL:CAPS"><literal>NULL</literal></link> when <parameter>n_structs</parameter>
+ is 0 or if an overflow occurs.</para>
+<refsect3 id="g-try-new0.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>struct_type</para></entry>
+<entry role="parameter_description"><para>the type of the elements to allocate</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>n_structs</para></entry>
+<entry role="parameter_description"><para>the number of elements to allocate</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-try-new0.returns" role="returns">
+<title>Returns</title>
+<para> a pointer to the allocated memory, cast to a pointer to <parameter>struct_type</parameter>
+</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.8">2.8</link></para></refsect2>
+<refsect2 id="g-try-renew" role="macro" condition="since:2.8">
+<title>g_try_renew()</title>
+<indexterm zone="g-try-renew" role="2.8"><primary sortas="try_renew">g_try_renew</primary></indexterm>
+<programlisting language="C">#define             g_try_renew(struct_type, mem, n_structs)</programlisting>
+<para>Attempts to reallocate the memory pointed to by <parameter>mem</parameter>
+, so that it now has
+space for <parameter>n_structs</parameter>
+ elements of type <parameter>struct_type</parameter>
+, and returns <link linkend="NULL:CAPS"><literal>NULL</literal></link> on
+failure. Contrast with <link linkend="g-renew"><function>g_renew()</function></link>, which aborts the program on failure.
+It returns the new address of the memory, which may have been moved.
+The function returns <link linkend="NULL:CAPS"><literal>NULL</literal></link> if an overflow occurs.</para>
+<refsect3 id="g-try-renew.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>struct_type</para></entry>
+<entry role="parameter_description"><para>the type of the elements to allocate</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>mem</para></entry>
+<entry role="parameter_description"><para>the currently allocated memory</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>n_structs</para></entry>
+<entry role="parameter_description"><para>the number of elements to allocate</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-try-renew.returns" role="returns">
+<title>Returns</title>
+<para> a pointer to the new allocated memory, cast to a pointer to <parameter>struct_type</parameter>
+</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.8">2.8</link></para></refsect2>
+<refsect2 id="g-malloc" role="function">
+<title>g_malloc&#160;()</title>
+<indexterm zone="g-malloc"><primary sortas="malloc">g_malloc</primary></indexterm>
+<programlisting language="C"><link linkend="gpointer"><returnvalue>gpointer</returnvalue></link>
+g_malloc (<parameter><link linkend="gsize"><type>gsize</type></link> n_bytes</parameter>);</programlisting>
+<para>Allocates <parameter>n_bytes</parameter>
+ bytes of memory.
+If <parameter>n_bytes</parameter>
+ is 0 it returns <link linkend="NULL:CAPS"><literal>NULL</literal></link>.</para>
+<refsect3 id="g-malloc.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>n_bytes</para></entry>
+<entry role="parameter_description"><para>the number of bytes to allocate</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-malloc.returns" role="returns">
+<title>Returns</title>
+<para> a pointer to the allocated memory</para>
+</refsect3></refsect2>
+<refsect2 id="g-malloc0" role="function">
+<title>g_malloc0&#160;()</title>
+<indexterm zone="g-malloc0"><primary sortas="malloc0">g_malloc0</primary></indexterm>
+<programlisting language="C"><link linkend="gpointer"><returnvalue>gpointer</returnvalue></link>
+g_malloc0 (<parameter><link linkend="gsize"><type>gsize</type></link> n_bytes</parameter>);</programlisting>
+<para>Allocates <parameter>n_bytes</parameter>
+ bytes of memory, initialized to 0's.
+If <parameter>n_bytes</parameter>
+ is 0 it returns <link linkend="NULL:CAPS"><literal>NULL</literal></link>.</para>
+<refsect3 id="g-malloc0.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>n_bytes</para></entry>
+<entry role="parameter_description"><para>the number of bytes to allocate</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-malloc0.returns" role="returns">
+<title>Returns</title>
+<para> a pointer to the allocated memory</para>
+</refsect3></refsect2>
+<refsect2 id="g-realloc" role="function">
+<title>g_realloc&#160;()</title>
+<indexterm zone="g-realloc"><primary sortas="realloc">g_realloc</primary></indexterm>
+<programlisting language="C"><link linkend="gpointer"><returnvalue>gpointer</returnvalue></link>
+g_realloc (<parameter><link linkend="gpointer"><type>gpointer</type></link> mem</parameter>,
+           <parameter><link linkend="gsize"><type>gsize</type></link> n_bytes</parameter>);</programlisting>
+<para>Reallocates the memory pointed to by <parameter>mem</parameter>
+, so that it now has space for
+<parameter>n_bytes</parameter>
+ bytes of memory. It returns the new address of the memory, which may
+have been moved. <parameter>mem</parameter>
+ may be <link linkend="NULL:CAPS"><literal>NULL</literal></link>, in which case it's considered to
+have zero-length. <parameter>n_bytes</parameter>
+ may be 0, in which case <link linkend="NULL:CAPS"><literal>NULL</literal></link> will be returned
+and <parameter>mem</parameter>
+ will be freed unless it is <link linkend="NULL:CAPS"><literal>NULL</literal></link>.</para>
+<refsect3 id="g-realloc.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>mem</para></entry>
+<entry role="parameter_description"><para>the memory to reallocate. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>n_bytes</para></entry>
+<entry role="parameter_description"><para>new size of the memory in bytes</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-realloc.returns" role="returns">
+<title>Returns</title>
+<para> the new address of the allocated memory</para>
+</refsect3></refsect2>
+<refsect2 id="g-try-malloc" role="function">
+<title>g_try_malloc&#160;()</title>
+<indexterm zone="g-try-malloc"><primary sortas="try_malloc">g_try_malloc</primary></indexterm>
+<programlisting language="C"><link linkend="gpointer"><returnvalue>gpointer</returnvalue></link>
+g_try_malloc (<parameter><link linkend="gsize"><type>gsize</type></link> n_bytes</parameter>);</programlisting>
+<para>Attempts to allocate <parameter>n_bytes</parameter>
+, and returns <link linkend="NULL:CAPS"><literal>NULL</literal></link> on failure.
+Contrast with <link linkend="g-malloc"><function>g_malloc()</function></link>, which aborts the program on failure.</para>
+<refsect3 id="g-try-malloc.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>n_bytes</para></entry>
+<entry role="parameter_description"><para>number of bytes to allocate.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-try-malloc.returns" role="returns">
+<title>Returns</title>
+<para> the allocated memory, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>.</para>
+</refsect3></refsect2>
+<refsect2 id="g-try-malloc0" role="function" condition="since:2.8">
+<title>g_try_malloc0&#160;()</title>
+<indexterm zone="g-try-malloc0" role="2.8"><primary sortas="try_malloc0">g_try_malloc0</primary></indexterm>
+<programlisting language="C"><link linkend="gpointer"><returnvalue>gpointer</returnvalue></link>
+g_try_malloc0 (<parameter><link linkend="gsize"><type>gsize</type></link> n_bytes</parameter>);</programlisting>
+<para>Attempts to allocate <parameter>n_bytes</parameter>
+, initialized to 0's, and returns <link linkend="NULL:CAPS"><literal>NULL</literal></link> on
+failure. Contrast with <link linkend="g-malloc0"><function>g_malloc0()</function></link>, which aborts the program on failure.</para>
+<refsect3 id="g-try-malloc0.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>n_bytes</para></entry>
+<entry role="parameter_description"><para>number of bytes to allocate</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-try-malloc0.returns" role="returns">
+<title>Returns</title>
+<para> the allocated memory, or <link linkend="NULL:CAPS"><literal>NULL</literal></link></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.8">2.8</link></para></refsect2>
+<refsect2 id="g-try-realloc" role="function">
+<title>g_try_realloc&#160;()</title>
+<indexterm zone="g-try-realloc"><primary sortas="try_realloc">g_try_realloc</primary></indexterm>
+<programlisting language="C"><link linkend="gpointer"><returnvalue>gpointer</returnvalue></link>
+g_try_realloc (<parameter><link linkend="gpointer"><type>gpointer</type></link> mem</parameter>,
+               <parameter><link linkend="gsize"><type>gsize</type></link> n_bytes</parameter>);</programlisting>
+<para>Attempts to realloc <parameter>mem</parameter>
+ to a new size, <parameter>n_bytes</parameter>
+, and returns <link linkend="NULL:CAPS"><literal>NULL</literal></link>
+on failure. Contrast with <link linkend="g-realloc"><function>g_realloc()</function></link>, which aborts the program
+on failure.</para>
+<para>If <parameter>mem</parameter>
+ is <link linkend="NULL:CAPS"><literal>NULL</literal></link>, behaves the same as <link linkend="g-try-malloc"><function>g_try_malloc()</function></link>.</para>
+<refsect3 id="g-try-realloc.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>mem</para></entry>
+<entry role="parameter_description"><para>previously-allocated memory, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>n_bytes</para></entry>
+<entry role="parameter_description"><para>number of bytes to allocate.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-try-realloc.returns" role="returns">
+<title>Returns</title>
+<para> the allocated memory, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>.</para>
+</refsect3></refsect2>
+<refsect2 id="g-malloc-n" role="function" condition="since:2.24">
+<title>g_malloc_n&#160;()</title>
+<indexterm zone="g-malloc-n" role="2.24"><primary sortas="malloc_n">g_malloc_n</primary></indexterm>
+<programlisting language="C"><link linkend="gpointer"><returnvalue>gpointer</returnvalue></link>
+g_malloc_n (<parameter><link linkend="gsize"><type>gsize</type></link> n_blocks</parameter>,
+            <parameter><link linkend="gsize"><type>gsize</type></link> n_block_bytes</parameter>);</programlisting>
+<para>This function is similar to <link linkend="g-malloc"><function>g_malloc()</function></link>, allocating (<parameter>n_blocks</parameter>
+ * <parameter>n_block_bytes</parameter>
+) bytes,
+but care is taken to detect possible overflow during multiplication.</para>
+<refsect3 id="g-malloc-n.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>n_blocks</para></entry>
+<entry role="parameter_description"><para>the number of blocks to allocate</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>n_block_bytes</para></entry>
+<entry role="parameter_description"><para>the size of each block in bytes</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-malloc-n.returns" role="returns">
+<title>Returns</title>
+<para> a pointer to the allocated memory</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.24">2.24</link></para></refsect2>
+<refsect2 id="g-malloc0-n" role="function" condition="since:2.24">
+<title>g_malloc0_n&#160;()</title>
+<indexterm zone="g-malloc0-n" role="2.24"><primary sortas="malloc0_n">g_malloc0_n</primary></indexterm>
+<programlisting language="C"><link linkend="gpointer"><returnvalue>gpointer</returnvalue></link>
+g_malloc0_n (<parameter><link linkend="gsize"><type>gsize</type></link> n_blocks</parameter>,
+             <parameter><link linkend="gsize"><type>gsize</type></link> n_block_bytes</parameter>);</programlisting>
+<para>This function is similar to <link linkend="g-malloc0"><function>g_malloc0()</function></link>, allocating (<parameter>n_blocks</parameter>
+ * <parameter>n_block_bytes</parameter>
+) bytes,
+but care is taken to detect possible overflow during multiplication.</para>
+<refsect3 id="g-malloc0-n.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>n_blocks</para></entry>
+<entry role="parameter_description"><para>the number of blocks to allocate</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>n_block_bytes</para></entry>
+<entry role="parameter_description"><para>the size of each block in bytes</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-malloc0-n.returns" role="returns">
+<title>Returns</title>
+<para> a pointer to the allocated memory</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.24">2.24</link></para></refsect2>
+<refsect2 id="g-realloc-n" role="function" condition="since:2.24">
+<title>g_realloc_n&#160;()</title>
+<indexterm zone="g-realloc-n" role="2.24"><primary sortas="realloc_n">g_realloc_n</primary></indexterm>
+<programlisting language="C"><link linkend="gpointer"><returnvalue>gpointer</returnvalue></link>
+g_realloc_n (<parameter><link linkend="gpointer"><type>gpointer</type></link> mem</parameter>,
+             <parameter><link linkend="gsize"><type>gsize</type></link> n_blocks</parameter>,
+             <parameter><link linkend="gsize"><type>gsize</type></link> n_block_bytes</parameter>);</programlisting>
+<para>This function is similar to <link linkend="g-realloc"><function>g_realloc()</function></link>, allocating (<parameter>n_blocks</parameter>
+ * <parameter>n_block_bytes</parameter>
+) bytes,
+but care is taken to detect possible overflow during multiplication.</para>
+<refsect3 id="g-realloc-n.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>mem</para></entry>
+<entry role="parameter_description"><para>the memory to reallocate. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>n_blocks</para></entry>
+<entry role="parameter_description"><para>the number of blocks to allocate</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>n_block_bytes</para></entry>
+<entry role="parameter_description"><para>the size of each block in bytes</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-realloc-n.returns" role="returns">
+<title>Returns</title>
+<para> the new address of the allocated memory</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.24">2.24</link></para></refsect2>
+<refsect2 id="g-try-malloc-n" role="function" condition="since:2.24">
+<title>g_try_malloc_n&#160;()</title>
+<indexterm zone="g-try-malloc-n" role="2.24"><primary sortas="try_malloc_n">g_try_malloc_n</primary></indexterm>
+<programlisting language="C"><link linkend="gpointer"><returnvalue>gpointer</returnvalue></link>
+g_try_malloc_n (<parameter><link linkend="gsize"><type>gsize</type></link> n_blocks</parameter>,
+                <parameter><link linkend="gsize"><type>gsize</type></link> n_block_bytes</parameter>);</programlisting>
+<para>This function is similar to <link linkend="g-try-malloc"><function>g_try_malloc()</function></link>, allocating (<parameter>n_blocks</parameter>
+ * <parameter>n_block_bytes</parameter>
+) bytes,
+but care is taken to detect possible overflow during multiplication.</para>
+<refsect3 id="g-try-malloc-n.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>n_blocks</para></entry>
+<entry role="parameter_description"><para>the number of blocks to allocate</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>n_block_bytes</para></entry>
+<entry role="parameter_description"><para>the size of each block in bytes</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-try-malloc-n.returns" role="returns">
+<title>Returns</title>
+<para> the allocated memory, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.24">2.24</link></para></refsect2>
+<refsect2 id="g-try-malloc0-n" role="function" condition="since:2.24">
+<title>g_try_malloc0_n&#160;()</title>
+<indexterm zone="g-try-malloc0-n" role="2.24"><primary sortas="try_malloc0_n">g_try_malloc0_n</primary></indexterm>
+<programlisting language="C"><link linkend="gpointer"><returnvalue>gpointer</returnvalue></link>
+g_try_malloc0_n (<parameter><link linkend="gsize"><type>gsize</type></link> n_blocks</parameter>,
+                 <parameter><link linkend="gsize"><type>gsize</type></link> n_block_bytes</parameter>);</programlisting>
+<para>This function is similar to <link linkend="g-try-malloc0"><function>g_try_malloc0()</function></link>, allocating (<parameter>n_blocks</parameter>
+ * <parameter>n_block_bytes</parameter>
+) bytes,
+but care is taken to detect possible overflow during multiplication.</para>
+<refsect3 id="g-try-malloc0-n.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>n_blocks</para></entry>
+<entry role="parameter_description"><para>the number of blocks to allocate</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>n_block_bytes</para></entry>
+<entry role="parameter_description"><para>the size of each block in bytes</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-try-malloc0-n.returns" role="returns">
+<title>Returns</title>
+<para> the allocated memory, or <link linkend="NULL:CAPS"><literal>NULL</literal></link></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.24">2.24</link></para></refsect2>
+<refsect2 id="g-try-realloc-n" role="function" condition="since:2.24">
+<title>g_try_realloc_n&#160;()</title>
+<indexterm zone="g-try-realloc-n" role="2.24"><primary sortas="try_realloc_n">g_try_realloc_n</primary></indexterm>
+<programlisting language="C"><link linkend="gpointer"><returnvalue>gpointer</returnvalue></link>
+g_try_realloc_n (<parameter><link linkend="gpointer"><type>gpointer</type></link> mem</parameter>,
+                 <parameter><link linkend="gsize"><type>gsize</type></link> n_blocks</parameter>,
+                 <parameter><link linkend="gsize"><type>gsize</type></link> n_block_bytes</parameter>);</programlisting>
+<para>This function is similar to <link linkend="g-try-realloc"><function>g_try_realloc()</function></link>, allocating (<parameter>n_blocks</parameter>
+ * <parameter>n_block_bytes</parameter>
+) bytes,
+but care is taken to detect possible overflow during multiplication.</para>
+<refsect3 id="g-try-realloc-n.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>mem</para></entry>
+<entry role="parameter_description"><para>previously-allocated memory, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>n_blocks</para></entry>
+<entry role="parameter_description"><para>the number of blocks to allocate</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>n_block_bytes</para></entry>
+<entry role="parameter_description"><para>the size of each block in bytes</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-try-realloc-n.returns" role="returns">
+<title>Returns</title>
+<para> the allocated memory, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.24">2.24</link></para></refsect2>
+<refsect2 id="g-free" role="function">
+<title>g_free&#160;()</title>
+<indexterm zone="g-free"><primary sortas="free">g_free</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_free (<parameter><link linkend="gpointer"><type>gpointer</type></link> mem</parameter>);</programlisting>
+<para>Frees the memory pointed to by <parameter>mem</parameter>
+.</para>
+<para>If <parameter>mem</parameter>
+ is <link linkend="NULL:CAPS"><literal>NULL</literal></link> it simply returns, so there is no need to check <parameter>mem</parameter>
+
+against <link linkend="NULL:CAPS"><literal>NULL</literal></link> before calling this function.</para>
+<refsect3 id="g-free.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>mem</para></entry>
+<entry role="parameter_description"><para>the memory to free. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-clear-pointer" role="function" condition="since:2.34">
+<title>g_clear_pointer&#160;()</title>
+<indexterm zone="g-clear-pointer" role="2.34"><primary sortas="clear_pointer">g_clear_pointer</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_clear_pointer (<parameter><link linkend="gpointer"><type>gpointer</type></link> *pp</parameter>,
+                 <parameter><link linkend="GDestroyNotify"><type>GDestroyNotify</type></link> destroy</parameter>);</programlisting>
+<para>Clears a reference to a variable.</para>
+<para><parameter>pp</parameter>
+ must not be <link linkend="NULL:CAPS"><literal>NULL</literal></link>.</para>
+<para>If the reference is <link linkend="NULL:CAPS"><literal>NULL</literal></link> then this function does nothing.
+Otherwise, the variable is destroyed using <parameter>destroy</parameter>
+ and the
+pointer is set to <link linkend="NULL:CAPS"><literal>NULL</literal></link>.</para>
+<para>A macro is also included that allows this function to be used without
+pointer casts. This will mask any warnings about incompatible function types
+or calling conventions, so you must ensure that your <parameter>destroy</parameter>
+ function is
+compatible with being called as <literal>GDestroyNotify</literal> using the standard calling
+convention for the platform that GLib was compiled for; otherwise the program
+will experience undefined behaviour.</para>
+
+<para><emphasis role="annotation">[<acronym>skip</acronym>]</emphasis></para><refsect3 id="g-clear-pointer.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>pp</para></entry>
+<entry role="parameter_description"><para>a pointer to a variable, struct member etc. holding a
+pointer. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>not nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>destroy</para></entry>
+<entry role="parameter_description"><para>a function to which a gpointer can be passed, to destroy *<parameter>pp</parameter>
+</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.34">2.34</link></para></refsect2>
+<refsect2 id="g-steal-pointer" role="function" condition="since:2.44">
+<title>g_steal_pointer&#160;()</title>
+<indexterm zone="g-steal-pointer" role="2.44"><primary sortas="steal_pointer">g_steal_pointer</primary></indexterm>
+<programlisting language="C"><link linkend="gpointer"><returnvalue>gpointer</returnvalue></link>
+g_steal_pointer (<parameter><link linkend="gpointer"><type>gpointer</type></link> pp</parameter>);</programlisting>
+<para>Sets <parameter>pp</parameter>
+ to <link linkend="NULL:CAPS"><literal>NULL</literal></link>, returning the value that was there before.</para>
+<para>Conceptually, this transfers the ownership of the pointer from the
+referenced variable to the "caller" of the macro (ie: "steals" the
+reference).</para>
+<para>The return value will be properly typed, according to the type of
+<parameter>pp</parameter>
+.</para>
+<para>This can be very useful when combined with <link linkend="g-autoptr"><function>g_autoptr()</function></link> to prevent the
+return value of a function from being automatically freed.  Consider
+the following example (which only works on GCC and clang):</para>
+<informalexample><programlisting role="example"><![CDATA[
+GObject *
+create_object (void)
+{
+  g_autoptr(GObject) obj = g_object_new (G_TYPE_OBJECT, NULL);
+
+  if (early_error_case)
+    return NULL;
+
+  return g_steal_pointer (&obj);
+}
+]]></programlisting></informalexample>
+<para></para>
+<para>It can also be used in similar ways for 'out' parameters and is
+particularly useful for dealing with optional out parameters:</para>
+<informalexample><programlisting role="example"><![CDATA[
+gboolean
+get_object (GObject **obj_out)
+{
+  g_autoptr(GObject) obj = g_object_new (G_TYPE_OBJECT, NULL);
+
+  if (early_error_case)
+    return FALSE;
+
+  if (obj_out)
+    *obj_out = g_steal_pointer (&obj);
+
+  return TRUE;
+}
+]]></programlisting></informalexample>
+<para></para>
+<para>In the above example, the object will be automatically freed in the
+early error case and also in the case that <link linkend="NULL:CAPS"><literal>NULL</literal></link> was given for
+<parameter>obj_out</parameter>
+.</para>
+<refsect3 id="g-steal-pointer.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>pp</para></entry>
+<entry role="parameter_description"><para>a pointer to a pointer. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>not nullable</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.44">2.44</link></para></refsect2>
+<refsect2 id="g-alloca" role="macro">
+<title>g_alloca()</title>
+<indexterm zone="g-alloca"><primary sortas="alloca">g_alloca</primary></indexterm>
+<programlisting language="C">#define             g_alloca(size)</programlisting>
+<para>Allocates <parameter>size</parameter>
+ bytes on the stack; these bytes will be freed when the current
+stack frame is cleaned up. This macro essentially just wraps the <link linkend="alloca"><function>alloca()</function></link>
+function present on most UNIX variants.
+Thus it provides the same advantages and pitfalls as <link linkend="alloca"><function>alloca()</function></link>:</para>
+<itemizedlist>
+<listitem>
+<para>alloca() is very fast, as on most systems it's implemented by just adjusting
+the stack pointer register.</para>
+</listitem>
+<listitem>
+<para>It doesn't cause any memory fragmentation, within its scope, separate <link linkend="alloca"><function>alloca()</function></link>
+blocks just build up and are released together at function end.</para>
+</listitem>
+<listitem>
+<para>Allocation sizes have to fit into the current stack frame. For instance in a
+threaded environment on Linux, the per-thread stack size is limited to 2 Megabytes,
+so be sparse with <link linkend="alloca"><function>alloca()</function></link> uses.</para>
+</listitem>
+<listitem>
+<para>Allocation failure due to insufficient stack space is not indicated with a <link linkend="NULL:CAPS"><literal>NULL</literal></link>
+return like e.g. with <link linkend="malloc"><function>malloc()</function></link>. Instead, most systems probably handle it the same
+way as out of stack space situations from infinite function recursion, i.e.
+with a segmentation fault.</para>
+</listitem>
+<listitem><para>Special care has to be taken when mixing <link linkend="alloca"><function>alloca()</function></link> with GNU C variable sized arrays.
+Stack space allocated with <link linkend="alloca"><function>alloca()</function></link> in the same scope as a variable sized array
+will be freed together with the variable sized array upon exit of that scope, and
+not upon exit of the enclosing function scope.</para></listitem>
+</itemizedlist>
+<refsect3 id="g-alloca.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>size</para></entry>
+<entry role="parameter_description"><para>number of bytes to allocate.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-alloca.returns" role="returns">
+<title>Returns</title>
+<para> space for <parameter>size</parameter>
+bytes, allocated on the stack</para>
+</refsect3></refsect2>
+<refsect2 id="g-newa" role="macro">
+<title>g_newa()</title>
+<indexterm zone="g-newa"><primary sortas="newa">g_newa</primary></indexterm>
+<programlisting language="C">#define             g_newa(struct_type, n_structs)</programlisting>
+<para>Wraps <link linkend="g-alloca"><function>g_alloca()</function></link> in a more typesafe manner.</para>
+<refsect3 id="g-newa.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>struct_type</para></entry>
+<entry role="parameter_description"><para>Type of memory chunks to be allocated</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>n_structs</para></entry>
+<entry role="parameter_description"><para>Number of chunks to be allocated</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-newa.returns" role="returns">
+<title>Returns</title>
+<para> Pointer to stack space for <parameter>n_structs</parameter>
+chunks of type <parameter>struct_type</parameter>
+</para>
+</refsect3></refsect2>
+<refsect2 id="g-memmove" role="macro" condition="deprecated:2.40: Just use memmove().">
+<title>g_memmove()</title>
+<indexterm zone="g-memmove" role="deprecated"><primary sortas="memmove">g_memmove</primary></indexterm>
+<programlisting language="C">#define             g_memmove(dest,src,len)</programlisting>
+<warning><para><literal>g_memmove</literal> has been deprecated since version 2.40 and should not be used in newly-written code.</para> <para>Just use <link linkend="memmove"><function>memmove()</function></link>.</para>
+</warning>
+<para>Copies a block of memory <parameter>len</parameter>
+ bytes long, from <parameter>src</parameter>
+ to <parameter>dest</parameter>
+.
+The source and destination areas may overlap.</para>
+<refsect3 id="g-memmove.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>dest</para></entry>
+<entry role="parameter_description"><para>the destination address to copy the bytes to.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>src</para></entry>
+<entry role="parameter_description"><para>the source address to copy the bytes from.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>len</para></entry>
+<entry role="parameter_description"><para>the number of bytes to copy.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-memdup" role="function">
+<title>g_memdup&#160;()</title>
+<indexterm zone="g-memdup"><primary sortas="memdup">g_memdup</primary></indexterm>
+<programlisting language="C"><link linkend="gpointer"><returnvalue>gpointer</returnvalue></link>
+g_memdup (<parameter><link linkend="gconstpointer"><type>gconstpointer</type></link> mem</parameter>,
+          <parameter><link linkend="guint"><type>guint</type></link> byte_size</parameter>);</programlisting>
+<para>Allocates <parameter>byte_size</parameter>
+ bytes of memory, and copies <parameter>byte_size</parameter>
+ bytes into it
+from <parameter>mem</parameter>
+. If <parameter>mem</parameter>
+ is <link linkend="NULL:CAPS"><literal>NULL</literal></link> it returns <link linkend="NULL:CAPS"><literal>NULL</literal></link>.</para>
+<refsect3 id="g-memdup.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>mem</para></entry>
+<entry role="parameter_description"><para>the memory to copy.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>byte_size</para></entry>
+<entry role="parameter_description"><para>the number of bytes to copy.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-memdup.returns" role="returns">
+<title>Returns</title>
+<para> a pointer to the newly-allocated copy of the memory, or <link linkend="NULL:CAPS"><literal>NULL</literal></link> if <parameter>mem</parameter>
+is <link linkend="NULL:CAPS"><literal>NULL</literal></link>.</para>
+</refsect3></refsect2>
+<refsect2 id="g-mem-set-vtable" role="function" condition="deprecated">
+<title>g_mem_set_vtable&#160;()</title>
+<indexterm zone="g-mem-set-vtable" role="deprecated"><primary sortas="mem_set_vtable">g_mem_set_vtable</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_mem_set_vtable (<parameter><link linkend="GMemVTable"><type>GMemVTable</type></link> *vtable</parameter>);</programlisting>
+<warning><para><literal>g_mem_set_vtable</literal> has been deprecated since version 2.46 and should not be used in newly-written code.</para> <para>This function now does nothing. Use other memory
+profiling tools instead</para>
+</warning>
+<para>This function used to let you override the memory allocation function.
+However, its use was incompatible with the use of global constructors
+in GLib and GIO, because those use the GLib allocators before main is
+reached. Therefore this function is now deprecated and is just a stub.</para>
+<refsect3 id="g-mem-set-vtable.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>vtable</para></entry>
+<entry role="parameter_description"><para>table of memory allocation routines.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-mem-is-system-malloc" role="function" condition="deprecated">
+<title>g_mem_is_system_malloc&#160;()</title>
+<indexterm zone="g-mem-is-system-malloc" role="deprecated"><primary sortas="mem_is_system_malloc">g_mem_is_system_malloc</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_mem_is_system_malloc (<parameter><type>void</type></parameter>);</programlisting>
+<warning><para><literal>g_mem_is_system_malloc</literal> has been deprecated since version 2.46 and should not be used in newly-written code.</para> <para>GLib always uses the system malloc, so this function always
+returns <link linkend="TRUE:CAPS"><literal>TRUE</literal></link>.</para>
+</warning>
+<para>Checks whether the allocator used by <link linkend="g-malloc"><function>g_malloc()</function></link> is the system's
+malloc implementation. If it returns <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> memory allocated with
+<link linkend="malloc"><function>malloc()</function></link> can be used interchangeable with memory allocated using <link linkend="g-malloc"><function>g_malloc()</function></link>.
+This function is useful for avoiding an extra copy of allocated memory returned
+by a non-GLib-based API.</para>
+<refsect3 id="g-mem-is-system-malloc.returns" role="returns">
+<title>Returns</title>
+<para> if <link linkend="TRUE:CAPS"><literal>TRUE</literal></link>, <link linkend="malloc"><function>malloc()</function></link> and <link linkend="g-malloc"><function>g_malloc()</function></link> can be mixed.</para>
+</refsect3></refsect2>
+<refsect2 id="g-mem-profile" role="function" condition="deprecated:2.46: Use other memory profiling tools instead">
+<title>g_mem_profile&#160;()</title>
+<indexterm zone="g-mem-profile" role="deprecated"><primary sortas="mem_profile">g_mem_profile</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_mem_profile (<parameter><type>void</type></parameter>);</programlisting>
+<warning><para><literal>g_mem_profile</literal> has been deprecated since version 2.46 and should not be used in newly-written code.</para> <para>Use other memory profiling tools instead</para>
+</warning>
+<para>GLib used to support some tools for memory profiling, but this
+no longer works. There are many other useful tools for memory
+profiling these days which can be used instead.</para>
+</refsect2>
+
+</refsect1>
+<refsect1 id="glib-Memory-Allocation.other_details" role="details">
+<title role="details.title">Types and Values</title>
+<refsect2 id="g-mem-gc-friendly" role="variable">
+<title>g_mem_gc_friendly</title>
+<indexterm zone="g-mem-gc-friendly"><primary sortas="mem_gc_friendly">g_mem_gc_friendly</primary></indexterm>
+<programlisting language="C">extern gboolean g_mem_gc_friendly;
+</programlisting>
+<para>This variable is <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if the <literal>G_DEBUG</literal> environment variable
+includes the key <literal>gc-friendly</literal>.</para>
+</refsect2>
+<refsect2 id="GMemVTable" role="struct">
+<title>struct GMemVTable</title>
+<indexterm zone="GMemVTable"><primary sortas="MemVTable">GMemVTable</primary></indexterm>
+<programlisting language="C">struct GMemVTable {
+  gpointer (*malloc)      (gsize    n_bytes);
+  gpointer (*realloc)     (gpointer mem,
+			   gsize    n_bytes);
+  void     (*free)        (gpointer mem);
+  /* optional; set to NULL if not used ! */
+  gpointer (*calloc)      (gsize    n_blocks,
+			   gsize    n_block_bytes);
+  gpointer (*try_malloc)  (gsize    n_bytes);
+  gpointer (*try_realloc) (gpointer mem,
+			   gsize    n_bytes);
+};
+</programlisting>
+<para>A set of functions used to perform memory allocation. The same <link linkend="GMemVTable"><type>GMemVTable</type></link> must
+be used for all allocations in the same program; a call to <link linkend="g-mem-set-vtable"><function>g_mem_set_vtable()</function></link>,
+if it exists, should be prior to any use of GLib.</para>
+<para>This functions related to this has been deprecated in 2.46, and no longer work.</para>
+<refsect3 id="GMemVTable.members" role="struct_members">
+<title>Members</title>
+<informaltable role="struct_members_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="struct_members_name" colwidth="300px"/>
+<colspec colname="struct_members_description"/>
+<colspec colname="struct_members_annotations" colwidth="200px"/>
+<tbody>
+<row role="member"><entry role="struct_member_name"><para><structfield id="GMemVTable.malloc">malloc</structfield>&#160;()</para></entry>
+<entry role="struct_member_description"><para>function to use for allocating memory.</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><structfield id="GMemVTable.realloc">realloc</structfield>&#160;()</para></entry>
+<entry role="struct_member_description"><para>function to use for reallocating memory.</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><structfield id="GMemVTable.free">free</structfield>&#160;()</para></entry>
+<entry role="struct_member_description"><para>function to use to free memory.</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><structfield id="GMemVTable.calloc">calloc</structfield>&#160;()</para></entry>
+<entry role="struct_member_description"><para>function to use for allocating zero-filled memory.</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><structfield id="GMemVTable.try-malloc">try_malloc</structfield>&#160;()</para></entry>
+<entry role="struct_member_description"><para>function to use for allocating memory without a default error handler.</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><structfield id="GMemVTable.try-realloc">try_realloc</structfield>&#160;()</para></entry>
+<entry role="struct_member_description"><para>function to use for reallocating memory without a default error handler.</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+</tbody></tgroup></informaltable>
+</refsect3>
+</refsect2>
+<refsect2 id="glib-mem-profiler-table" role="variable" condition="deprecated:2.46: Use other memory profiling tools instead">
+<title>glib_mem_profiler_table</title>
+<indexterm zone="glib-mem-profiler-table" role="deprecated"><primary sortas="lib_mem_profiler_table">glib_mem_profiler_table</primary></indexterm>
+<programlisting language="C">extern GMemVTable&#160;*glib_mem_profiler_table;
+</programlisting>
+<warning><para><literal>glib_mem_profiler_table</literal> has been deprecated since version 2.46 and should not be used in newly-written code.</para> <para>Use other memory profiling tools instead</para>
+</warning>
+<para>Used to be a <link linkend="GMemVTable"><type>GMemVTable</type></link> containing profiling variants of the memory
+allocation functions, but this variable shouldn't be modified anymore.</para>
+</refsect2>
+
+</refsect1>
+
+</refentry>

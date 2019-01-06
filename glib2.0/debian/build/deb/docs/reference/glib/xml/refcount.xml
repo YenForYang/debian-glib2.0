@@ -1,0 +1,296 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC '-//OASIS//DTD DocBook XML V4.5//EN'
+                      'http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd' [
+<!ENTITY % local.common.attrib "xmlns:xi  CDATA  #FIXED 'http://www.w3.org/2003/XInclude'">
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="glib-Reference-counting">
+<refmeta>
+<refentrytitle role="top_of_page" id="glib-Reference-counting.top_of_page">Reference counting</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>GLIB Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>Reference counting</refname>
+<refpurpose>Reference counting types and functions</refpurpose>
+</refnamediv>
+
+<refsect1 id="glib-Reference-counting.functions" role="functions_proto">
+<title role="functions_proto.title">Functions</title>
+<informaltable pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="functions_return" colwidth="150px"/>
+<colspec colname="functions_name"/>
+<tbody>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-ref-count-init">g_ref_count_init</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-ref-count-inc">g_ref_count_inc</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-ref-count-dec">g_ref_count_dec</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-ref-count-compare">g_ref_count_compare</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-atomic-ref-count-init">g_atomic_ref_count_init</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-atomic-ref-count-inc">g_atomic_ref_count_inc</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-atomic-ref-count-dec">g_atomic_ref_count_dec</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-atomic-ref-count-compare">g_atomic_ref_count_compare</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="glib-Reference-counting.other" role="other_proto">
+<title role="other_proto.title">Types and Values</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="name" colwidth="150px"/>
+<colspec colname="description"/>
+<tbody>
+<row><entry role="typedef_keyword">typedef</entry><entry role="function_name"><link linkend="grefcount">grefcount</link></entry></row>
+
+<row><entry role="typedef_keyword">typedef</entry><entry role="function_name"><link linkend="gatomicrefcount">gatomicrefcount</link></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+
+<refsect1 id="glib-Reference-counting.includes"><title>Includes</title><synopsis>#include &lt;glib.h&gt;
+#include &lt;glib/gi18n.h&gt;
+</synopsis></refsect1>
+
+<refsect1 id="glib-Reference-counting.description" role="desc">
+<title role="desc.title">Description</title>
+<para>Reference counting is a garbage collection mechanism that is based on
+assigning a counter to a data type, or any memory area; the counter is
+increased whenever a new reference to that data type is acquired, and
+decreased whenever the reference is released. Once the last reference
+is released, the resources associated to that data type are freed.</para>
+<para>GLib uses reference counting in many of its data types, and provides
+the <link linkend="grefcount"><type>grefcount</type></link> and <link linkend="gatomicrefcount"><type>gatomicrefcount</type></link> types to implement safe and atomic
+reference counting semantics in new data types.</para>
+<para>It is important to note that <link linkend="grefcount"><type>grefcount</type></link> and <link linkend="gatomicrefcount"><type>gatomicrefcount</type></link> should be
+considered completely opaque types; you should always use the provided
+API to increase and decrease the counters, and you should never check
+their content directly, or compare their content with other values.</para>
+
+</refsect1>
+<refsect1 id="glib-Reference-counting.functions_details" role="details">
+<title role="details.title">Functions</title>
+<refsect2 id="g-ref-count-init" role="function" condition="since:2.58">
+<title>g_ref_count_init&#160;()</title>
+<indexterm zone="g-ref-count-init" role="2.58"><primary sortas="ref_count_init">g_ref_count_init</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_ref_count_init (<parameter><link linkend="grefcount"><type>grefcount</type></link> *rc</parameter>);</programlisting>
+<para>Initializes a reference count variable.</para>
+<refsect3 id="g-ref-count-init.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>rc</para></entry>
+<entry role="parameter_description"><para>the address of a reference count variable</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.58">2.58</link></para></refsect2>
+<refsect2 id="g-ref-count-inc" role="function" condition="since:2.58">
+<title>g_ref_count_inc&#160;()</title>
+<indexterm zone="g-ref-count-inc" role="2.58"><primary sortas="ref_count_inc">g_ref_count_inc</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_ref_count_inc (<parameter><link linkend="grefcount"><type>grefcount</type></link> *rc</parameter>);</programlisting>
+<para>Increases the reference count.</para>
+<refsect3 id="g-ref-count-inc.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>rc</para></entry>
+<entry role="parameter_description"><para>the address of a reference count variable</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.58">2.58</link></para></refsect2>
+<refsect2 id="g-ref-count-dec" role="function" condition="since:2.58">
+<title>g_ref_count_dec&#160;()</title>
+<indexterm zone="g-ref-count-dec" role="2.58"><primary sortas="ref_count_dec">g_ref_count_dec</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_ref_count_dec (<parameter><link linkend="grefcount"><type>grefcount</type></link> *rc</parameter>);</programlisting>
+<para>Decreases the reference count.</para>
+<refsect3 id="g-ref-count-dec.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>rc</para></entry>
+<entry role="parameter_description"><para>the address of a reference count variable</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-ref-count-dec.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if the reference count reached 0, and <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> otherwise</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.58">2.58</link></para></refsect2>
+<refsect2 id="g-ref-count-compare" role="function" condition="since:2.58">
+<title>g_ref_count_compare&#160;()</title>
+<indexterm zone="g-ref-count-compare" role="2.58"><primary sortas="ref_count_compare">g_ref_count_compare</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_ref_count_compare (<parameter><link linkend="grefcount"><type>grefcount</type></link> *rc</parameter>,
+                     <parameter><link linkend="gint"><type>gint</type></link> val</parameter>);</programlisting>
+<para>Compares the current value of <parameter>rc</parameter>
+ with <parameter>val</parameter>
+.</para>
+<refsect3 id="g-ref-count-compare.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>rc</para></entry>
+<entry role="parameter_description"><para>the address of a reference count variable</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>val</para></entry>
+<entry role="parameter_description"><para>the value to compare</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-ref-count-compare.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if the reference count is the same
+as the given value</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.58">2.58</link></para></refsect2>
+<refsect2 id="g-atomic-ref-count-init" role="function" condition="since:2.58">
+<title>g_atomic_ref_count_init&#160;()</title>
+<indexterm zone="g-atomic-ref-count-init" role="2.58"><primary sortas="atomic_ref_count_init">g_atomic_ref_count_init</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_atomic_ref_count_init (<parameter><link linkend="gatomicrefcount"><type>gatomicrefcount</type></link> *arc</parameter>);</programlisting>
+<para>Atomically initializes a reference count variable.</para>
+<refsect3 id="g-atomic-ref-count-init.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>arc</para></entry>
+<entry role="parameter_description"><para>the address of an atomic reference count variable</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.58">2.58</link></para></refsect2>
+<refsect2 id="g-atomic-ref-count-inc" role="function" condition="since:2.58">
+<title>g_atomic_ref_count_inc&#160;()</title>
+<indexterm zone="g-atomic-ref-count-inc" role="2.58"><primary sortas="atomic_ref_count_inc">g_atomic_ref_count_inc</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_atomic_ref_count_inc (<parameter><link linkend="gatomicrefcount"><type>gatomicrefcount</type></link> *arc</parameter>);</programlisting>
+<para>Atomically increases the reference count.</para>
+<refsect3 id="g-atomic-ref-count-inc.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>arc</para></entry>
+<entry role="parameter_description"><para>the address of an atomic reference count variable</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.58">2.58</link></para></refsect2>
+<refsect2 id="g-atomic-ref-count-dec" role="function" condition="since:2.58">
+<title>g_atomic_ref_count_dec&#160;()</title>
+<indexterm zone="g-atomic-ref-count-dec" role="2.58"><primary sortas="atomic_ref_count_dec">g_atomic_ref_count_dec</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_atomic_ref_count_dec (<parameter><link linkend="gatomicrefcount"><type>gatomicrefcount</type></link> *arc</parameter>);</programlisting>
+<para>Atomically decreases the reference count.</para>
+<refsect3 id="g-atomic-ref-count-dec.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>arc</para></entry>
+<entry role="parameter_description"><para>the address of an atomic reference count variable</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-atomic-ref-count-dec.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if the reference count reached 0, and <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> otherwise</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.58">2.58</link></para></refsect2>
+<refsect2 id="g-atomic-ref-count-compare" role="function" condition="since:2.58">
+<title>g_atomic_ref_count_compare&#160;()</title>
+<indexterm zone="g-atomic-ref-count-compare" role="2.58"><primary sortas="atomic_ref_count_compare">g_atomic_ref_count_compare</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_atomic_ref_count_compare (<parameter><link linkend="gatomicrefcount"><type>gatomicrefcount</type></link> *arc</parameter>,
+                            <parameter><link linkend="gint"><type>gint</type></link> val</parameter>);</programlisting>
+<para>Atomically compares the current value of <parameter>arc</parameter>
+ with <parameter>val</parameter>
+.</para>
+<refsect3 id="g-atomic-ref-count-compare.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>arc</para></entry>
+<entry role="parameter_description"><para>the address of an atomic reference count variable</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>val</para></entry>
+<entry role="parameter_description"><para>the value to compare</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-atomic-ref-count-compare.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if the reference count is the same
+as the given value</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.58">2.58</link></para></refsect2>
+
+</refsect1>
+<refsect1 id="glib-Reference-counting.other_details" role="details">
+<title role="details.title">Types and Values</title>
+<refsect2 id="grefcount" role="typedef" condition="since:2.58">
+<title>grefcount</title>
+<indexterm zone="grefcount" role="2.58"><primary sortas="refcount">grefcount</primary></indexterm>
+<programlisting language="C">typedef gint            grefcount;
+</programlisting>
+<para>A type for implementing non-atomic reference count semantics.</para>
+<para>Use <link linkend="g-ref-count-init"><function>g_ref_count_init()</function></link> to initialize it; <link linkend="g-ref-count-inc"><function>g_ref_count_inc()</function></link> to
+increase the counter, and <link linkend="g-ref-count-dec"><function>g_ref_count_dec()</function></link> to decrease it.</para>
+<para>It is safe to use <link linkend="grefcount"><type>grefcount</type></link> only if you're expecting to operate
+on the reference counter from a single thread. It is entirely up
+to you to ensure that all reference count changes happen in the
+same thread.</para>
+<para>See also: <link linkend="gatomicrefcount"><type>gatomicrefcount</type></link></para>
+<para role="since">Since: <link linkend="api-index-2.58">2.58</link></para></refsect2>
+<refsect2 id="gatomicrefcount" role="typedef" condition="since:2.58">
+<title>gatomicrefcount</title>
+<indexterm zone="gatomicrefcount" role="2.58"><primary sortas="atomicrefcount">gatomicrefcount</primary></indexterm>
+<programlisting language="C">typedef volatile gint   gatomicrefcount;
+</programlisting>
+<para>A type for implementing atomic reference count semantics.</para>
+<para>Use <link linkend="g-atomic-ref-count-init"><function>g_atomic_ref_count_init()</function></link> to initialize it; <link linkend="g-atomic-ref-count-inc"><function>g_atomic_ref_count_inc()</function></link>
+to increase the counter, and <link linkend="g-atomic-ref-count-dec"><function>g_atomic_ref_count_dec()</function></link> to decrease it.</para>
+<para>It is safe to use <link linkend="gatomicrefcount"><type>gatomicrefcount</type></link> if you're expecting to operate on the
+reference counter from multiple threads.</para>
+<para>See also: <link linkend="grefcount"><type>grefcount</type></link></para>
+<para role="since">Since: <link linkend="api-index-2.58">2.58</link></para></refsect2>
+
+</refsect1>
+
+</refentry>

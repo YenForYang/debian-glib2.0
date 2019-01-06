@@ -1,0 +1,236 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC '-//OASIS//DTD DocBook XML V4.5//EN'
+                      'http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd' [
+<!ENTITY % local.common.attrib "xmlns:xi  CDATA  #FIXED 'http://www.w3.org/2003/XInclude'">
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="GUnixOutputStream">
+<refmeta>
+<refentrytitle role="top_of_page" id="GUnixOutputStream.top_of_page">GUnixOutputStream</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>GIO Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>GUnixOutputStream</refname>
+<refpurpose>Streaming output operations for UNIX file descriptors</refpurpose>
+</refnamediv>
+
+<refsect1 id="GUnixOutputStream.functions" role="functions_proto">
+<title role="functions_proto.title">Functions</title>
+<informaltable pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="functions_return" colwidth="150px"/>
+<colspec colname="functions_name"/>
+<tbody>
+<row><entry role="function_type"><link linkend="GOutputStream"><returnvalue>GOutputStream</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-unix-output-stream-new">g_unix_output_stream_new</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-unix-output-stream-set-close-fd">g_unix_output_stream_set_close_fd</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-unix-output-stream-get-close-fd">g_unix_output_stream_get_close_fd</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gint"><returnvalue>gint</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-unix-output-stream-get-fd">g_unix_output_stream_get_fd</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GUnixOutputStream.properties" role="properties">
+<title role="properties.title">Properties</title>
+<informaltable frame="none">
+<tgroup cols="3">
+<colspec colname="properties_type" colwidth="150px"/>
+<colspec colname="properties_name" colwidth="300px"/>
+<colspec colname="properties_flags" colwidth="200px"/>
+<tbody>
+<row><entry role="property_type"><link linkend="gboolean"><type>gboolean</type></link></entry><entry role="property_name"><link linkend="GUnixOutputStream--close-fd">close-fd</link></entry><entry role="property_flags">Read / Write</entry></row>
+<row><entry role="property_type"><link linkend="gint"><type>gint</type></link></entry><entry role="property_name"><link linkend="GUnixOutputStream--fd">fd</link></entry><entry role="property_flags">Read / Write / Construct Only</entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GUnixOutputStream.other" role="other_proto">
+<title role="other_proto.title">Types and Values</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="name" colwidth="150px"/>
+<colspec colname="description"/>
+<tbody>
+<row><entry role="datatype_keyword">struct</entry><entry role="function_name"><link linkend="GUnixOutputStream-struct">GUnixOutputStream</link></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GUnixOutputStream.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<screen>    <link linkend="GObject">GObject</link>
+    <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> <link linkend="GOutputStream">GOutputStream</link>
+        <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> GUnixOutputStream
+</screen>
+</refsect1>
+<refsect1 id="GUnixOutputStream.implemented-interfaces" role="impl_interfaces">
+<title role="impl_interfaces.title">Implemented Interfaces</title>
+<para>
+GUnixOutputStream implements
+ <link linkend="GPollableOutputStream">GPollableOutputStream</link> and  <link linkend="GFileDescriptorBased">GFileDescriptorBased</link>.</para>
+
+</refsect1>
+
+<refsect1 id="GUnixOutputStream.includes"><title>Includes</title><synopsis>#include &lt;gio/gunixoutputstream.h&gt;
+</synopsis></refsect1>
+
+<refsect1 id="GUnixOutputStream.description" role="desc">
+<title role="desc.title">Description</title>
+<para><link linkend="GUnixOutputStream"><type>GUnixOutputStream</type></link> implements <link linkend="GOutputStream"><type>GOutputStream</type></link> for writing to a UNIX
+file descriptor, including asynchronous operations. (If the file
+descriptor refers to a socket or pipe, this will use <link linkend="poll"><function>poll()</function></link> to do
+asynchronous I/O. If it refers to a regular file, it will fall back
+to doing asynchronous I/O in another thread.)</para>
+<para>Note that <literal>&amp;lt;gio/gunixoutputstream.h&gt;</literal> belongs to the UNIX-specific GIO
+interfaces, thus you have to use the <literal>gio-unix-2.0.pc</literal> pkg-config file
+when using it.</para>
+
+</refsect1>
+<refsect1 id="GUnixOutputStream.functions_details" role="details">
+<title role="details.title">Functions</title>
+<refsect2 id="g-unix-output-stream-new" role="function">
+<title>g_unix_output_stream_new&#160;()</title>
+<indexterm zone="g-unix-output-stream-new"><primary sortas="unix_output_stream_new">g_unix_output_stream_new</primary></indexterm>
+<programlisting language="C"><link linkend="GOutputStream"><returnvalue>GOutputStream</returnvalue></link>&#160;*
+g_unix_output_stream_new (<parameter><link linkend="gint"><type>gint</type></link> fd</parameter>,
+                          <parameter><link linkend="gboolean"><type>gboolean</type></link> close_fd</parameter>);</programlisting>
+<para>Creates a new <link linkend="GUnixOutputStream"><type>GUnixOutputStream</type></link> for the given <parameter>fd</parameter>
+. </para>
+<para>If <parameter>close_fd</parameter>
+, is <link linkend="TRUE:CAPS"><literal>TRUE</literal></link>, the file descriptor will be closed when 
+the output stream is destroyed.</para>
+<refsect3 id="g-unix-output-stream-new.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>fd</para></entry>
+<entry role="parameter_description"><para>a UNIX file descriptor</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>close_fd</para></entry>
+<entry role="parameter_description"><para><link linkend="TRUE:CAPS"><literal>TRUE</literal></link> to close the file descriptor when done</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-unix-output-stream-new.returns" role="returns">
+<title>Returns</title>
+<para> a new <link linkend="GOutputStream"><type>GOutputStream</type></link></para>
+</refsect3></refsect2>
+<refsect2 id="g-unix-output-stream-set-close-fd" role="function" condition="since:2.20">
+<title>g_unix_output_stream_set_close_fd&#160;()</title>
+<indexterm zone="g-unix-output-stream-set-close-fd" role="2.20"><primary sortas="unix_output_stream_set_close_fd">g_unix_output_stream_set_close_fd</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_unix_output_stream_set_close_fd (<parameter><link linkend="GUnixOutputStream"><type>GUnixOutputStream</type></link> *stream</parameter>,
+                                   <parameter><link linkend="gboolean"><type>gboolean</type></link> close_fd</parameter>);</programlisting>
+<para>Sets whether the file descriptor of <parameter>stream</parameter>
+ shall be closed
+when the stream is closed.</para>
+<refsect3 id="g-unix-output-stream-set-close-fd.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>stream</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GUnixOutputStream"><type>GUnixOutputStream</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>close_fd</para></entry>
+<entry role="parameter_description"><para><link linkend="TRUE:CAPS"><literal>TRUE</literal></link> to close the file descriptor when done</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.20">2.20</link></para></refsect2>
+<refsect2 id="g-unix-output-stream-get-close-fd" role="function" condition="since:2.20">
+<title>g_unix_output_stream_get_close_fd&#160;()</title>
+<indexterm zone="g-unix-output-stream-get-close-fd" role="2.20"><primary sortas="unix_output_stream_get_close_fd">g_unix_output_stream_get_close_fd</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_unix_output_stream_get_close_fd (<parameter><link linkend="GUnixOutputStream"><type>GUnixOutputStream</type></link> *stream</parameter>);</programlisting>
+<para>Returns whether the file descriptor of <parameter>stream</parameter>
+ will be
+closed when the stream is closed.</para>
+<refsect3 id="g-unix-output-stream-get-close-fd.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>stream</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GUnixOutputStream"><type>GUnixOutputStream</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-unix-output-stream-get-close-fd.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if the file descriptor is closed when done</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.20">2.20</link></para></refsect2>
+<refsect2 id="g-unix-output-stream-get-fd" role="function" condition="since:2.20">
+<title>g_unix_output_stream_get_fd&#160;()</title>
+<indexterm zone="g-unix-output-stream-get-fd" role="2.20"><primary sortas="unix_output_stream_get_fd">g_unix_output_stream_get_fd</primary></indexterm>
+<programlisting language="C"><link linkend="gint"><returnvalue>gint</returnvalue></link>
+g_unix_output_stream_get_fd (<parameter><link linkend="GUnixOutputStream"><type>GUnixOutputStream</type></link> *stream</parameter>);</programlisting>
+<para>Return the UNIX file descriptor that the stream writes to.</para>
+<refsect3 id="g-unix-output-stream-get-fd.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>stream</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GUnixOutputStream"><type>GUnixOutputStream</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-unix-output-stream-get-fd.returns" role="returns">
+<title>Returns</title>
+<para> The file descriptor of <parameter>stream</parameter>
+</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.20">2.20</link></para></refsect2>
+
+</refsect1>
+<refsect1 id="GUnixOutputStream.other_details" role="details">
+<title role="details.title">Types and Values</title>
+<refsect2 id="GUnixOutputStream-struct" role="struct">
+<title>struct GUnixOutputStream</title>
+<indexterm zone="GUnixOutputStream-struct"><primary sortas="UnixOutputStream">GUnixOutputStream</primary></indexterm>
+<programlisting language="C">struct GUnixOutputStream;</programlisting>
+<para>Implements <link linkend="GOutputStream"><type>GOutputStream</type></link> for outputting to selectable unix file descriptors</para>
+</refsect2>
+
+</refsect1>
+<refsect1 id="GUnixOutputStream.property-details" role="property_details">
+<title role="property_details.title">Property Details</title>
+<refsect2 id="GUnixOutputStream--close-fd" role="property"><title>The <literal>“close-fd”</literal> property</title>
+<indexterm zone="GUnixOutputStream--close-fd" role="2.20"><primary sortas="UnixOutputStream:close-fd">GUnixOutputStream:close-fd</primary></indexterm>
+<programlisting>  “close-fd”                 <link linkend="gboolean"><type>gboolean</type></link></programlisting>
+<para>Whether to close the file descriptor when the stream is closed.</para>
+<para>Flags: Read / Write</para>
+<para>Default value: TRUE</para>
+<para role="since">Since: <link linkend="api-index-2.20">2.20</link></para></refsect2>
+<refsect2 id="GUnixOutputStream--fd" role="property"><title>The <literal>“fd”</literal> property</title>
+<indexterm zone="GUnixOutputStream--fd" role="2.20"><primary sortas="UnixOutputStream:fd">GUnixOutputStream:fd</primary></indexterm>
+<programlisting>  “fd”                       <link linkend="gint"><type>gint</type></link></programlisting>
+<para>The file descriptor that the stream writes to.</para>
+<para>Flags: Read / Write / Construct Only</para>
+<para>Default value: -1</para>
+<para role="since">Since: <link linkend="api-index-2.20">2.20</link></para></refsect2>
+
+</refsect1>
+<refsect1 id="GUnixOutputStream.see-also">
+<title>See Also</title>
+<para><link linkend="GOutputStream"><type>GOutputStream</type></link></para>
+
+</refsect1>
+
+</refentry>

@@ -1,0 +1,1108 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC '-//OASIS//DTD DocBook XML V4.5//EN'
+                      'http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd' [
+<!ENTITY % local.common.attrib "xmlns:xi  CDATA  #FIXED 'http://www.w3.org/2003/XInclude'">
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="GDtlsConnection">
+<refmeta>
+<refentrytitle role="top_of_page" id="GDtlsConnection.top_of_page">GDtlsConnection</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>GIO Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>GDtlsConnection</refname>
+<refpurpose>DTLS connection type</refpurpose>
+</refnamediv>
+
+<refsect1 id="GDtlsConnection.functions" role="functions_proto">
+<title role="functions_proto.title">Functions</title>
+<informaltable pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="functions_return" colwidth="150px"/>
+<colspec colname="functions_name"/>
+<tbody>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-dtls-connection-set-certificate">g_dtls_connection_set_certificate</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GTlsCertificate"><returnvalue>GTlsCertificate</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-dtls-connection-get-certificate">g_dtls_connection_get_certificate</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GTlsCertificate"><returnvalue>GTlsCertificate</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-dtls-connection-get-peer-certificate">g_dtls_connection_get_peer_certificate</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GTlsCertificateFlags"><returnvalue>GTlsCertificateFlags</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-dtls-connection-get-peer-certificate-errors">g_dtls_connection_get_peer_certificate_errors</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-dtls-connection-set-require-close-notify">g_dtls_connection_set_require_close_notify</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-dtls-connection-get-require-close-notify">g_dtls_connection_get_require_close_notify</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-dtls-connection-set-rehandshake-mode">g_dtls_connection_set_rehandshake_mode</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GTlsRehandshakeMode"><returnvalue>GTlsRehandshakeMode</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-dtls-connection-get-rehandshake-mode">g_dtls_connection_get_rehandshake_mode</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GTlsDatabase"><returnvalue>GTlsDatabase</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-dtls-connection-get-database">g_dtls_connection_get_database</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-dtls-connection-set-database">g_dtls_connection_set_database</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GTlsInteraction"><returnvalue>GTlsInteraction</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-dtls-connection-get-interaction">g_dtls_connection_get_interaction</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-dtls-connection-set-interaction">g_dtls_connection_set_interaction</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-dtls-connection-handshake">g_dtls_connection_handshake</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-dtls-connection-handshake-async">g_dtls_connection_handshake_async</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-dtls-connection-handshake-finish">g_dtls_connection_handshake_finish</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-dtls-connection-shutdown">g_dtls_connection_shutdown</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-dtls-connection-shutdown-async">g_dtls_connection_shutdown_async</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-dtls-connection-shutdown-finish">g_dtls_connection_shutdown_finish</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-dtls-connection-close">g_dtls_connection_close</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-dtls-connection-close-async">g_dtls_connection_close_async</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-dtls-connection-close-finish">g_dtls_connection_close_finish</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-dtls-connection-emit-accept-certificate">g_dtls_connection_emit_accept_certificate</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GDtlsConnection.properties" role="properties">
+<title role="properties.title">Properties</title>
+<informaltable frame="none">
+<tgroup cols="3">
+<colspec colname="properties_type" colwidth="150px"/>
+<colspec colname="properties_name" colwidth="300px"/>
+<colspec colname="properties_flags" colwidth="200px"/>
+<tbody>
+<row><entry role="property_type"><link linkend="GDatagramBased"><type>GDatagramBased</type></link>&#160;*</entry><entry role="property_name"><link linkend="GDtlsConnection--base-socket">base-socket</link></entry><entry role="property_flags">Read / Write / Construct Only</entry></row>
+<row><entry role="property_type"><link linkend="GTlsCertificate"><type>GTlsCertificate</type></link>&#160;*</entry><entry role="property_name"><link linkend="GDtlsConnection--certificate">certificate</link></entry><entry role="property_flags">Read / Write</entry></row>
+<row><entry role="property_type"><link linkend="GTlsDatabase"><type>GTlsDatabase</type></link>&#160;*</entry><entry role="property_name"><link linkend="GDtlsConnection--database">database</link></entry><entry role="property_flags">Read / Write</entry></row>
+<row><entry role="property_type"><link linkend="GTlsInteraction"><type>GTlsInteraction</type></link>&#160;*</entry><entry role="property_name"><link linkend="GDtlsConnection--interaction">interaction</link></entry><entry role="property_flags">Read / Write</entry></row>
+<row><entry role="property_type"><link linkend="GTlsCertificate"><type>GTlsCertificate</type></link>&#160;*</entry><entry role="property_name"><link linkend="GDtlsConnection--peer-certificate">peer-certificate</link></entry><entry role="property_flags">Read</entry></row>
+<row><entry role="property_type"><link linkend="GTlsCertificateFlags"><type>GTlsCertificateFlags</type></link></entry><entry role="property_name"><link linkend="GDtlsConnection--peer-certificate-errors">peer-certificate-errors</link></entry><entry role="property_flags">Read</entry></row>
+<row><entry role="property_type"><link linkend="GTlsRehandshakeMode"><type>GTlsRehandshakeMode</type></link></entry><entry role="property_name"><link linkend="GDtlsConnection--rehandshake-mode">rehandshake-mode</link></entry><entry role="property_flags">Read / Write / Construct</entry></row>
+<row><entry role="property_type"><link linkend="gboolean"><type>gboolean</type></link></entry><entry role="property_name"><link linkend="GDtlsConnection--require-close-notify">require-close-notify</link></entry><entry role="property_flags">Read / Write / Construct</entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GDtlsConnection.signals" role="signal_proto">
+<title role="signal_proto.title">Signals</title>
+<informaltable frame="none">
+<tgroup cols="3">
+<colspec colname="signals_return" colwidth="150px"/>
+<colspec colname="signals_name" colwidth="300px"/>
+<colspec colname="signals_flags" colwidth="200px"/>
+<tbody>
+<row><entry role="signal_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link></entry><entry role="signal_name"><link linkend="GDtlsConnection-accept-certificate">accept-certificate</link></entry><entry role="signal_flags"><link linkend="G-SIGNAL-RUN-LAST:CAPS">Run Last</link></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GDtlsConnection.other" role="other_proto">
+<title role="other_proto.title">Types and Values</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="name" colwidth="150px"/>
+<colspec colname="description"/>
+<tbody>
+<row><entry role="datatype_keyword"></entry><entry role="function_name"><link linkend="GDtlsConnection-struct">GDtlsConnection</link></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GDtlsConnection.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<screen>    <link linkend="GInterface">GInterface</link>
+    <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> GDtlsConnection
+</screen>
+</refsect1>
+<refsect1 id="GDtlsConnection.prerequisites" role="prerequisites">
+<title role="prerequisites.title">Prerequisites</title>
+<para>
+GDtlsConnection requires
+ <link linkend="GDatagramBased">GDatagramBased</link> and  <link linkend="GObject">GObject</link>.</para>
+
+</refsect1>
+<refsect1 id="GDtlsConnection.derived-interfaces" role="derived_interfaces">
+<title role="derived_interfaces.title">Known Derived Interfaces</title>
+<para>
+GDtlsConnection is required by
+ <link linkend="GDtlsClientConnection">GDtlsClientConnection</link> and  <link linkend="GDtlsServerConnection">GDtlsServerConnection</link>.</para>
+
+</refsect1>
+
+<refsect1 id="GDtlsConnection.includes"><title>Includes</title><synopsis>#include &lt;gio/gio.h&gt;
+</synopsis></refsect1>
+
+<refsect1 id="GDtlsConnection.description" role="desc">
+<title role="desc.title">Description</title>
+<para><link linkend="GDtlsConnection"><type>GDtlsConnection</type></link> is the base DTLS connection class type, which wraps
+a <link linkend="GDatagramBased"><type>GDatagramBased</type></link> and provides DTLS encryption on top of it. Its
+subclasses, <link linkend="GDtlsClientConnection"><type>GDtlsClientConnection</type></link> and <link linkend="GDtlsServerConnection"><type>GDtlsServerConnection</type></link>,
+implement client-side and server-side DTLS, respectively.</para>
+<para>For TLS support, see <link linkend="GTlsConnection"><type>GTlsConnection</type></link>.</para>
+<para>As DTLS is datagram based, <link linkend="GDtlsConnection"><type>GDtlsConnection</type></link> implements <link linkend="GDatagramBased"><type>GDatagramBased</type></link>,
+presenting a datagram-socket-like API for the encrypted connection. This
+operates over a base datagram connection, which is also a <link linkend="GDatagramBased"><type>GDatagramBased</type></link>
+(<link linkend="GDtlsConnection--base-socket"><type>“base-socket”</type></link>).</para>
+<para>To close a DTLS connection, use <link linkend="g-dtls-connection-close"><function>g_dtls_connection_close()</function></link>.</para>
+<para>Neither <link linkend="GDtlsServerConnection"><type>GDtlsServerConnection</type></link> or <link linkend="GDtlsClientConnection"><type>GDtlsClientConnection</type></link> set the peer address
+on their base <link linkend="GDatagramBased"><type>GDatagramBased</type></link> if it is a <link linkend="GSocket"><type>GSocket</type></link> — it is up to the caller to
+do that if they wish. If they do not, and <link linkend="g-socket-close"><function>g_socket_close()</function></link> is called on the
+base socket, the <link linkend="GDtlsConnection"><type>GDtlsConnection</type></link> will not raise a <link linkend="G-IO-ERROR-NOT-CONNECTED:CAPS"><literal>G_IO_ERROR_NOT_CONNECTED</literal></link>
+error on further I/O.</para>
+
+</refsect1>
+<refsect1 id="GDtlsConnection.functions_details" role="details">
+<title role="details.title">Functions</title>
+<refsect2 id="g-dtls-connection-set-certificate" role="function" condition="since:2.48">
+<title>g_dtls_connection_set_certificate&#160;()</title>
+<indexterm zone="g-dtls-connection-set-certificate" role="2.48"><primary sortas="dtls_connection_set_certificate">g_dtls_connection_set_certificate</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_dtls_connection_set_certificate (<parameter><link linkend="GDtlsConnection"><type>GDtlsConnection</type></link> *conn</parameter>,
+                                   <parameter><link linkend="GTlsCertificate"><type>GTlsCertificate</type></link> *certificate</parameter>);</programlisting>
+<para>This sets the certificate that <parameter>conn</parameter>
+ will present to its peer
+during the TLS handshake. For a <link linkend="GDtlsServerConnection"><type>GDtlsServerConnection</type></link>, it is
+mandatory to set this, and that will normally be done at construct
+time.</para>
+<para>For a <link linkend="GDtlsClientConnection"><type>GDtlsClientConnection</type></link>, this is optional. If a handshake fails
+with <link linkend="G-TLS-ERROR-CERTIFICATE-REQUIRED:CAPS"><literal>G_TLS_ERROR_CERTIFICATE_REQUIRED</literal></link>, that means that the server
+requires a certificate, and if you try connecting again, you should
+call this method first. You can call
+<link linkend="g-dtls-client-connection-get-accepted-cas"><function>g_dtls_client_connection_get_accepted_cas()</function></link> on the failed connection
+to get a list of Certificate Authorities that the server will
+accept certificates from.</para>
+<para>(It is also possible that a server will allow the connection with
+or without a certificate; in that case, if you don't provide a
+certificate, you can tell that the server requested one by the fact
+that <link linkend="g-dtls-client-connection-get-accepted-cas"><function>g_dtls_client_connection_get_accepted_cas()</function></link> will return
+non-<link linkend="NULL:CAPS"><literal>NULL</literal></link>.)</para>
+<refsect3 id="g-dtls-connection-set-certificate.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>conn</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GDtlsConnection"><type>GDtlsConnection</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>certificate</para></entry>
+<entry role="parameter_description"><para>the certificate to use for <parameter>conn</parameter>
+</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.48">2.48</link></para></refsect2>
+<refsect2 id="g-dtls-connection-get-certificate" role="function" condition="since:2.48">
+<title>g_dtls_connection_get_certificate&#160;()</title>
+<indexterm zone="g-dtls-connection-get-certificate" role="2.48"><primary sortas="dtls_connection_get_certificate">g_dtls_connection_get_certificate</primary></indexterm>
+<programlisting language="C"><link linkend="GTlsCertificate"><returnvalue>GTlsCertificate</returnvalue></link>&#160;*
+g_dtls_connection_get_certificate (<parameter><link linkend="GDtlsConnection"><type>GDtlsConnection</type></link> *conn</parameter>);</programlisting>
+<para>Gets <parameter>conn</parameter>
+'s certificate, as set by
+<link linkend="g-dtls-connection-set-certificate"><function>g_dtls_connection_set_certificate()</function></link>.</para>
+<refsect3 id="g-dtls-connection-get-certificate.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>conn</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GDtlsConnection"><type>GDtlsConnection</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-dtls-connection-get-certificate.returns" role="returns">
+<title>Returns</title>
+<para><parameter>conn</parameter>
+'s certificate, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para>
+<para><emphasis role="annotation">[<acronym>transfer none</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.48">2.48</link></para></refsect2>
+<refsect2 id="g-dtls-connection-get-peer-certificate" role="function" condition="since:2.48">
+<title>g_dtls_connection_get_peer_certificate&#160;()</title>
+<indexterm zone="g-dtls-connection-get-peer-certificate" role="2.48"><primary sortas="dtls_connection_get_peer_certificate">g_dtls_connection_get_peer_certificate</primary></indexterm>
+<programlisting language="C"><link linkend="GTlsCertificate"><returnvalue>GTlsCertificate</returnvalue></link>&#160;*
+g_dtls_connection_get_peer_certificate
+                               (<parameter><link linkend="GDtlsConnection"><type>GDtlsConnection</type></link> *conn</parameter>);</programlisting>
+<para>Gets <parameter>conn</parameter>
+'s peer's certificate after the handshake has completed.
+(It is not set during the emission of
+<link linkend="GDtlsConnection-accept-certificate"><type>“accept-certificate”</type></link>.)</para>
+<refsect3 id="g-dtls-connection-get-peer-certificate.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>conn</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GDtlsConnection"><type>GDtlsConnection</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-dtls-connection-get-peer-certificate.returns" role="returns">
+<title>Returns</title>
+<para><parameter>conn</parameter>
+'s peer's certificate, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para>
+<para><emphasis role="annotation">[<acronym>transfer none</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.48">2.48</link></para></refsect2>
+<refsect2 id="g-dtls-connection-get-peer-certificate-errors" role="function" condition="since:2.48">
+<title>g_dtls_connection_get_peer_certificate_errors&#160;()</title>
+<indexterm zone="g-dtls-connection-get-peer-certificate-errors" role="2.48"><primary sortas="dtls_connection_get_peer_certificate_errors">g_dtls_connection_get_peer_certificate_errors</primary></indexterm>
+<programlisting language="C"><link linkend="GTlsCertificateFlags"><returnvalue>GTlsCertificateFlags</returnvalue></link>
+g_dtls_connection_get_peer_certificate_errors
+                               (<parameter><link linkend="GDtlsConnection"><type>GDtlsConnection</type></link> *conn</parameter>);</programlisting>
+<para>Gets the errors associated with validating <parameter>conn</parameter>
+'s peer's
+certificate, after the handshake has completed. (It is not set
+during the emission of <link linkend="GDtlsConnection-accept-certificate"><type>“accept-certificate”</type></link>.)</para>
+<refsect3 id="g-dtls-connection-get-peer-certificate-errors.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>conn</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GDtlsConnection"><type>GDtlsConnection</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-dtls-connection-get-peer-certificate-errors.returns" role="returns">
+<title>Returns</title>
+<para> <parameter>conn</parameter>
+'s peer's certificate errors</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.48">2.48</link></para></refsect2>
+<refsect2 id="g-dtls-connection-set-require-close-notify" role="function" condition="since:2.48">
+<title>g_dtls_connection_set_require_close_notify&#160;()</title>
+<indexterm zone="g-dtls-connection-set-require-close-notify" role="2.48"><primary sortas="dtls_connection_set_require_close_notify">g_dtls_connection_set_require_close_notify</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_dtls_connection_set_require_close_notify
+                               (<parameter><link linkend="GDtlsConnection"><type>GDtlsConnection</type></link> *conn</parameter>,
+                                <parameter><link linkend="gboolean"><type>gboolean</type></link> require_close_notify</parameter>);</programlisting>
+<para>Sets whether or not <parameter>conn</parameter>
+ expects a proper TLS close notification
+before the connection is closed. If this is <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> (the default),
+then <parameter>conn</parameter>
+ will expect to receive a TLS close notification from its
+peer before the connection is closed, and will return a
+<link linkend="G-TLS-ERROR-EOF:CAPS"><literal>G_TLS_ERROR_EOF</literal></link> error if the connection is closed without proper
+notification (since this may indicate a network error, or
+man-in-the-middle attack).</para>
+<para>In some protocols, the application will know whether or not the
+connection was closed cleanly based on application-level data
+(because the application-level data includes a length field, or is
+somehow self-delimiting); in this case, the close notify is
+redundant and may be omitted. You
+can use <link linkend="g-dtls-connection-set-require-close-notify"><function>g_dtls_connection_set_require_close_notify()</function></link> to tell <parameter>conn</parameter>
+
+to allow an "unannounced" connection close, in which case the close
+will show up as a 0-length read, as in a non-TLS
+<link linkend="GDatagramBased"><type>GDatagramBased</type></link>, and it is up to the application to check that
+the data has been fully received.</para>
+<para>Note that this only affects the behavior when the peer closes the
+connection; when the application calls <link linkend="g-dtls-connection-close-async"><function>g_dtls_connection_close_async()</function></link> on
+<parameter>conn</parameter>
+ itself, this will send a close notification regardless of the
+setting of this property. If you explicitly want to do an unclean
+close, you can close <parameter>conn</parameter>
+'s <link linkend="GDtlsConnection--base-socket"><type>“base-socket”</type></link> rather
+than closing <parameter>conn</parameter>
+ itself.</para>
+<refsect3 id="g-dtls-connection-set-require-close-notify.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>conn</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GDtlsConnection"><type>GDtlsConnection</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>require_close_notify</para></entry>
+<entry role="parameter_description"><para>whether or not to require close notification</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.48">2.48</link></para></refsect2>
+<refsect2 id="g-dtls-connection-get-require-close-notify" role="function" condition="since:2.48">
+<title>g_dtls_connection_get_require_close_notify&#160;()</title>
+<indexterm zone="g-dtls-connection-get-require-close-notify" role="2.48"><primary sortas="dtls_connection_get_require_close_notify">g_dtls_connection_get_require_close_notify</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_dtls_connection_get_require_close_notify
+                               (<parameter><link linkend="GDtlsConnection"><type>GDtlsConnection</type></link> *conn</parameter>);</programlisting>
+<para>Tests whether or not <parameter>conn</parameter>
+ expects a proper TLS close notification
+when the connection is closed. See
+<link linkend="g-dtls-connection-set-require-close-notify"><function>g_dtls_connection_set_require_close_notify()</function></link> for details.</para>
+<refsect3 id="g-dtls-connection-get-require-close-notify.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>conn</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GDtlsConnection"><type>GDtlsConnection</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-dtls-connection-get-require-close-notify.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if <parameter>conn</parameter>
+requires a proper TLS close notification.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.48">2.48</link></para></refsect2>
+<refsect2 id="g-dtls-connection-set-rehandshake-mode" role="function" condition="since:2.48">
+<title>g_dtls_connection_set_rehandshake_mode&#160;()</title>
+<indexterm zone="g-dtls-connection-set-rehandshake-mode" role="2.48"><primary sortas="dtls_connection_set_rehandshake_mode">g_dtls_connection_set_rehandshake_mode</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_dtls_connection_set_rehandshake_mode
+                               (<parameter><link linkend="GDtlsConnection"><type>GDtlsConnection</type></link> *conn</parameter>,
+                                <parameter><link linkend="GTlsRehandshakeMode"><type>GTlsRehandshakeMode</type></link> mode</parameter>);</programlisting>
+<para>Sets how <parameter>conn</parameter>
+ behaves with respect to rehandshaking requests.</para>
+<para><link linkend="G-TLS-REHANDSHAKE-NEVER:CAPS"><literal>G_TLS_REHANDSHAKE_NEVER</literal></link> means that it will never agree to
+rehandshake after the initial handshake is complete. (For a client,
+this means it will refuse rehandshake requests from the server, and
+for a server, this means it will close the connection with an error
+if the client attempts to rehandshake.)</para>
+<para><link linkend="G-TLS-REHANDSHAKE-SAFELY:CAPS"><literal>G_TLS_REHANDSHAKE_SAFELY</literal></link> means that the connection will allow a
+rehandshake only if the other end of the connection supports the
+TLS <literal>renegotiation_info</literal> extension. This is the default behavior,
+but means that rehandshaking will not work against older
+implementations that do not support that extension.</para>
+<para><link linkend="G-TLS-REHANDSHAKE-UNSAFELY:CAPS"><literal>G_TLS_REHANDSHAKE_UNSAFELY</literal></link> means that the connection will allow
+rehandshaking even without the <literal>renegotiation_info</literal> extension. On
+the server side in particular, this is not recommended, since it
+leaves the server open to certain attacks. However, this mode is
+necessary if you need to allow renegotiation with older client
+software.</para>
+<refsect3 id="g-dtls-connection-set-rehandshake-mode.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>conn</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GDtlsConnection"><type>GDtlsConnection</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>mode</para></entry>
+<entry role="parameter_description"><para>the rehandshaking mode</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.48">2.48</link></para></refsect2>
+<refsect2 id="g-dtls-connection-get-rehandshake-mode" role="function" condition="since:2.48">
+<title>g_dtls_connection_get_rehandshake_mode&#160;()</title>
+<indexterm zone="g-dtls-connection-get-rehandshake-mode" role="2.48"><primary sortas="dtls_connection_get_rehandshake_mode">g_dtls_connection_get_rehandshake_mode</primary></indexterm>
+<programlisting language="C"><link linkend="GTlsRehandshakeMode"><returnvalue>GTlsRehandshakeMode</returnvalue></link>
+g_dtls_connection_get_rehandshake_mode
+                               (<parameter><link linkend="GDtlsConnection"><type>GDtlsConnection</type></link> *conn</parameter>);</programlisting>
+<para>Gets <parameter>conn</parameter>
+ rehandshaking mode. See
+<link linkend="g-dtls-connection-set-rehandshake-mode"><function>g_dtls_connection_set_rehandshake_mode()</function></link> for details.</para>
+<refsect3 id="g-dtls-connection-get-rehandshake-mode.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>conn</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GDtlsConnection"><type>GDtlsConnection</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-dtls-connection-get-rehandshake-mode.returns" role="returns">
+<title>Returns</title>
+<para> <parameter>conn</parameter>
+'s rehandshaking mode</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.48">2.48</link></para></refsect2>
+<refsect2 id="g-dtls-connection-get-database" role="function" condition="since:2.48">
+<title>g_dtls_connection_get_database&#160;()</title>
+<indexterm zone="g-dtls-connection-get-database" role="2.48"><primary sortas="dtls_connection_get_database">g_dtls_connection_get_database</primary></indexterm>
+<programlisting language="C"><link linkend="GTlsDatabase"><returnvalue>GTlsDatabase</returnvalue></link>&#160;*
+g_dtls_connection_get_database (<parameter><link linkend="GDtlsConnection"><type>GDtlsConnection</type></link> *conn</parameter>);</programlisting>
+<para>Gets the certificate database that <parameter>conn</parameter>
+ uses to verify
+peer certificates. See <link linkend="g-dtls-connection-set-database"><function>g_dtls_connection_set_database()</function></link>.</para>
+<refsect3 id="g-dtls-connection-get-database.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>conn</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GDtlsConnection"><type>GDtlsConnection</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-dtls-connection-get-database.returns" role="returns">
+<title>Returns</title>
+<para>the certificate database that <parameter>conn</parameter>
+uses or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para>
+<para><emphasis role="annotation">[<acronym>transfer none</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.48">2.48</link></para></refsect2>
+<refsect2 id="g-dtls-connection-set-database" role="function" condition="since:2.48">
+<title>g_dtls_connection_set_database&#160;()</title>
+<indexterm zone="g-dtls-connection-set-database" role="2.48"><primary sortas="dtls_connection_set_database">g_dtls_connection_set_database</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_dtls_connection_set_database (<parameter><link linkend="GDtlsConnection"><type>GDtlsConnection</type></link> *conn</parameter>,
+                                <parameter><link linkend="GTlsDatabase"><type>GTlsDatabase</type></link> *database</parameter>);</programlisting>
+<para>Sets the certificate database that is used to verify peer certificates.
+This is set to the default database by default. See
+<link linkend="g-tls-backend-get-default-database"><function>g_tls_backend_get_default_database()</function></link>. If set to <link linkend="NULL:CAPS"><literal>NULL</literal></link>, then
+peer certificate validation will always set the
+<link linkend="G-TLS-CERTIFICATE-UNKNOWN-CA:CAPS"><literal>G_TLS_CERTIFICATE_UNKNOWN_CA</literal></link> error (meaning
+<link linkend="GDtlsConnection-accept-certificate"><type>“accept-certificate”</type></link> will always be emitted on
+client-side connections, unless that bit is not set in
+<link linkend="GDtlsClientConnection--validation-flags"><type>“validation-flags”</type></link>).</para>
+<refsect3 id="g-dtls-connection-set-database.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>conn</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GDtlsConnection"><type>GDtlsConnection</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>database</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GTlsDatabase"><type>GTlsDatabase</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.48">2.48</link></para></refsect2>
+<refsect2 id="g-dtls-connection-get-interaction" role="function" condition="since:2.48">
+<title>g_dtls_connection_get_interaction&#160;()</title>
+<indexterm zone="g-dtls-connection-get-interaction" role="2.48"><primary sortas="dtls_connection_get_interaction">g_dtls_connection_get_interaction</primary></indexterm>
+<programlisting language="C"><link linkend="GTlsInteraction"><returnvalue>GTlsInteraction</returnvalue></link>&#160;*
+g_dtls_connection_get_interaction (<parameter><link linkend="GDtlsConnection"><type>GDtlsConnection</type></link> *conn</parameter>);</programlisting>
+<para>Get the object that will be used to interact with the user. It will be used
+for things like prompting the user for passwords. If <link linkend="NULL:CAPS"><literal>NULL</literal></link> is returned, then
+no user interaction will occur for this connection.</para>
+<refsect3 id="g-dtls-connection-get-interaction.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>conn</para></entry>
+<entry role="parameter_description"><para>a connection</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-dtls-connection-get-interaction.returns" role="returns">
+<title>Returns</title>
+<para>The interaction object. </para>
+<para><emphasis role="annotation">[<acronym>transfer none</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.48">2.48</link></para></refsect2>
+<refsect2 id="g-dtls-connection-set-interaction" role="function" condition="since:2.48">
+<title>g_dtls_connection_set_interaction&#160;()</title>
+<indexterm zone="g-dtls-connection-set-interaction" role="2.48"><primary sortas="dtls_connection_set_interaction">g_dtls_connection_set_interaction</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_dtls_connection_set_interaction (<parameter><link linkend="GDtlsConnection"><type>GDtlsConnection</type></link> *conn</parameter>,
+                                   <parameter><link linkend="GTlsInteraction"><type>GTlsInteraction</type></link> *interaction</parameter>);</programlisting>
+<para>Set the object that will be used to interact with the user. It will be used
+for things like prompting the user for passwords.</para>
+<para>The <parameter>interaction</parameter>
+ argument will normally be a derived subclass of
+<link linkend="GTlsInteraction"><type>GTlsInteraction</type></link>. <link linkend="NULL:CAPS"><literal>NULL</literal></link> can also be provided if no user interaction
+should occur for this connection.</para>
+<refsect3 id="g-dtls-connection-set-interaction.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>conn</para></entry>
+<entry role="parameter_description"><para>a connection</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>interaction</para></entry>
+<entry role="parameter_description"><para>an interaction object, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.48">2.48</link></para></refsect2>
+<refsect2 id="g-dtls-connection-handshake" role="function" condition="since:2.48">
+<title>g_dtls_connection_handshake&#160;()</title>
+<indexterm zone="g-dtls-connection-handshake" role="2.48"><primary sortas="dtls_connection_handshake">g_dtls_connection_handshake</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_dtls_connection_handshake (<parameter><link linkend="GDtlsConnection"><type>GDtlsConnection</type></link> *conn</parameter>,
+                             <parameter><link linkend="GCancellable"><type>GCancellable</type></link> *cancellable</parameter>,
+                             <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para>Attempts a TLS handshake on <parameter>conn</parameter>
+.</para>
+<para>On the client side, it is never necessary to call this method;
+although the connection needs to perform a handshake after
+connecting (or after sending a "STARTTLS"-type command) and may
+need to rehandshake later if the server requests it,
+<link linkend="GDtlsConnection"><type>GDtlsConnection</type></link> will handle this for you automatically when you try
+to send or receive data on the connection. However, you can call
+<link linkend="g-dtls-connection-handshake"><function>g_dtls_connection_handshake()</function></link> manually if you want to know for sure
+whether the initial handshake succeeded or failed (as opposed to
+just immediately trying to write to <parameter>conn</parameter>
+, in which
+case if it fails, it may not be possible to tell if it failed
+before or after completing the handshake).</para>
+<para>Likewise, on the server side, although a handshake is necessary at
+the beginning of the communication, you do not need to call this
+function explicitly unless you want clearer error reporting.
+However, you may call <link linkend="g-dtls-connection-handshake"><function>g_dtls_connection_handshake()</function></link> later on to
+renegotiate parameters (encryption methods, etc) with the client.</para>
+<para><link linkend="GDtlsConnection-accept-certificate"><type>“accept_certificate”</type></link> may be emitted during the
+handshake.</para>
+<refsect3 id="g-dtls-connection-handshake.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>conn</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GDtlsConnection"><type>GDtlsConnection</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>cancellable</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GCancellable"><type>GCancellable</type></link>, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GError"><type>GError</type></link>, or <link linkend="NULL:CAPS"><literal>NULL</literal></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-dtls-connection-handshake.returns" role="returns">
+<title>Returns</title>
+<para> success or failure</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.48">2.48</link></para></refsect2>
+<refsect2 id="g-dtls-connection-handshake-async" role="function" condition="since:2.48">
+<title>g_dtls_connection_handshake_async&#160;()</title>
+<indexterm zone="g-dtls-connection-handshake-async" role="2.48"><primary sortas="dtls_connection_handshake_async">g_dtls_connection_handshake_async</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_dtls_connection_handshake_async (<parameter><link linkend="GDtlsConnection"><type>GDtlsConnection</type></link> *conn</parameter>,
+                                   <parameter><link linkend="int"><type>int</type></link> io_priority</parameter>,
+                                   <parameter><link linkend="GCancellable"><type>GCancellable</type></link> *cancellable</parameter>,
+                                   <parameter><link linkend="GAsyncReadyCallback"><type>GAsyncReadyCallback</type></link> callback</parameter>,
+                                   <parameter><link linkend="gpointer"><type>gpointer</type></link> user_data</parameter>);</programlisting>
+<para>Asynchronously performs a TLS handshake on <parameter>conn</parameter>
+. See
+<link linkend="g-dtls-connection-handshake"><function>g_dtls_connection_handshake()</function></link> for more information.</para>
+<refsect3 id="g-dtls-connection-handshake-async.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>conn</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GDtlsConnection"><type>GDtlsConnection</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>io_priority</para></entry>
+<entry role="parameter_description"><para>the <link linkend="io-priority">I/O priority</link> of the request</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>cancellable</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GCancellable"><type>GCancellable</type></link>, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>callback</para></entry>
+<entry role="parameter_description"><para>callback to call when the handshake is complete</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>user_data</para></entry>
+<entry role="parameter_description"><para>the data to pass to the callback function</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.48">2.48</link></para></refsect2>
+<refsect2 id="g-dtls-connection-handshake-finish" role="function" condition="since:2.48">
+<title>g_dtls_connection_handshake_finish&#160;()</title>
+<indexterm zone="g-dtls-connection-handshake-finish" role="2.48"><primary sortas="dtls_connection_handshake_finish">g_dtls_connection_handshake_finish</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_dtls_connection_handshake_finish (<parameter><link linkend="GDtlsConnection"><type>GDtlsConnection</type></link> *conn</parameter>,
+                                    <parameter><link linkend="GAsyncResult"><type>GAsyncResult</type></link> *result</parameter>,
+                                    <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para>Finish an asynchronous TLS handshake operation. See
+<link linkend="g-dtls-connection-handshake"><function>g_dtls_connection_handshake()</function></link> for more information.</para>
+<refsect3 id="g-dtls-connection-handshake-finish.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>conn</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GDtlsConnection"><type>GDtlsConnection</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>result</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GAsyncResult"><type>GAsyncResult</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GError"><type>GError</type></link> pointer, or <link linkend="NULL:CAPS"><literal>NULL</literal></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-dtls-connection-handshake-finish.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> on success, <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> on failure, in which
+case <parameter>error</parameter>
+will be set.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.48">2.48</link></para></refsect2>
+<refsect2 id="g-dtls-connection-shutdown" role="function" condition="since:2.48">
+<title>g_dtls_connection_shutdown&#160;()</title>
+<indexterm zone="g-dtls-connection-shutdown" role="2.48"><primary sortas="dtls_connection_shutdown">g_dtls_connection_shutdown</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_dtls_connection_shutdown (<parameter><link linkend="GDtlsConnection"><type>GDtlsConnection</type></link> *conn</parameter>,
+                            <parameter><link linkend="gboolean"><type>gboolean</type></link> shutdown_read</parameter>,
+                            <parameter><link linkend="gboolean"><type>gboolean</type></link> shutdown_write</parameter>,
+                            <parameter><link linkend="GCancellable"><type>GCancellable</type></link> *cancellable</parameter>,
+                            <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para>Shut down part or all of a DTLS connection.</para>
+<para>If <parameter>shutdown_read</parameter>
+ is <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> then the receiving side of the connection is shut
+down, and further reading is disallowed. Subsequent calls to
+<link linkend="g-datagram-based-receive-messages"><function>g_datagram_based_receive_messages()</function></link> will return <link linkend="G-IO-ERROR-CLOSED:CAPS"><literal>G_IO_ERROR_CLOSED</literal></link>.</para>
+<para>If <parameter>shutdown_write</parameter>
+ is <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> then the sending side of the connection is shut
+down, and further writing is disallowed. Subsequent calls to
+<link linkend="g-datagram-based-send-messages"><function>g_datagram_based_send_messages()</function></link> will return <link linkend="G-IO-ERROR-CLOSED:CAPS"><literal>G_IO_ERROR_CLOSED</literal></link>.</para>
+<para>It is allowed for both <parameter>shutdown_read</parameter>
+ and <parameter>shutdown_write</parameter>
+ to be TRUE — this
+is equivalent to calling <link linkend="g-dtls-connection-close"><function>g_dtls_connection_close()</function></link>.</para>
+<para>If <parameter>cancellable</parameter>
+ is cancelled, the <link linkend="GDtlsConnection"><type>GDtlsConnection</type></link> may be left
+partially-closed and any pending untransmitted data may be lost. Call
+<link linkend="g-dtls-connection-shutdown"><function>g_dtls_connection_shutdown()</function></link> again to complete closing the <link linkend="GDtlsConnection"><type>GDtlsConnection</type></link>.</para>
+<refsect3 id="g-dtls-connection-shutdown.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>conn</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GDtlsConnection"><type>GDtlsConnection</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>shutdown_read</para></entry>
+<entry role="parameter_description"><para><link linkend="TRUE:CAPS"><literal>TRUE</literal></link> to stop reception of incoming datagrams</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>shutdown_write</para></entry>
+<entry role="parameter_description"><para><link linkend="TRUE:CAPS"><literal>TRUE</literal></link> to stop sending outgoing datagrams</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>cancellable</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GCancellable"><type>GCancellable</type></link>, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GError"><type>GError</type></link>, or <link linkend="NULL:CAPS"><literal>NULL</literal></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-dtls-connection-shutdown.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> on success, <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> otherwise</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.48">2.48</link></para></refsect2>
+<refsect2 id="g-dtls-connection-shutdown-async" role="function" condition="since:2.48">
+<title>g_dtls_connection_shutdown_async&#160;()</title>
+<indexterm zone="g-dtls-connection-shutdown-async" role="2.48"><primary sortas="dtls_connection_shutdown_async">g_dtls_connection_shutdown_async</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_dtls_connection_shutdown_async (<parameter><link linkend="GDtlsConnection"><type>GDtlsConnection</type></link> *conn</parameter>,
+                                  <parameter><link linkend="gboolean"><type>gboolean</type></link> shutdown_read</parameter>,
+                                  <parameter><link linkend="gboolean"><type>gboolean</type></link> shutdown_write</parameter>,
+                                  <parameter><link linkend="int"><type>int</type></link> io_priority</parameter>,
+                                  <parameter><link linkend="GCancellable"><type>GCancellable</type></link> *cancellable</parameter>,
+                                  <parameter><link linkend="GAsyncReadyCallback"><type>GAsyncReadyCallback</type></link> callback</parameter>,
+                                  <parameter><link linkend="gpointer"><type>gpointer</type></link> user_data</parameter>);</programlisting>
+<para>Asynchronously shut down part or all of the DTLS connection. See
+<link linkend="g-dtls-connection-shutdown"><function>g_dtls_connection_shutdown()</function></link> for more information.</para>
+<refsect3 id="g-dtls-connection-shutdown-async.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>conn</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GDtlsConnection"><type>GDtlsConnection</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>shutdown_read</para></entry>
+<entry role="parameter_description"><para><link linkend="TRUE:CAPS"><literal>TRUE</literal></link> to stop reception of incoming datagrams</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>shutdown_write</para></entry>
+<entry role="parameter_description"><para><link linkend="TRUE:CAPS"><literal>TRUE</literal></link> to stop sending outgoing datagrams</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>io_priority</para></entry>
+<entry role="parameter_description"><para>the <link linkend="io-priority">I/O priority</link> of the request</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>cancellable</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GCancellable"><type>GCancellable</type></link>, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>callback</para></entry>
+<entry role="parameter_description"><para>callback to call when the shutdown operation is complete</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>user_data</para></entry>
+<entry role="parameter_description"><para>the data to pass to the callback function</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.48">2.48</link></para></refsect2>
+<refsect2 id="g-dtls-connection-shutdown-finish" role="function" condition="since:2.48">
+<title>g_dtls_connection_shutdown_finish&#160;()</title>
+<indexterm zone="g-dtls-connection-shutdown-finish" role="2.48"><primary sortas="dtls_connection_shutdown_finish">g_dtls_connection_shutdown_finish</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_dtls_connection_shutdown_finish (<parameter><link linkend="GDtlsConnection"><type>GDtlsConnection</type></link> *conn</parameter>,
+                                   <parameter><link linkend="GAsyncResult"><type>GAsyncResult</type></link> *result</parameter>,
+                                   <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para>Finish an asynchronous TLS shutdown operation. See
+<link linkend="g-dtls-connection-shutdown"><function>g_dtls_connection_shutdown()</function></link> for more information.</para>
+<refsect3 id="g-dtls-connection-shutdown-finish.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>conn</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GDtlsConnection"><type>GDtlsConnection</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>result</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GAsyncResult"><type>GAsyncResult</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GError"><type>GError</type></link> pointer, or <link linkend="NULL:CAPS"><literal>NULL</literal></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-dtls-connection-shutdown-finish.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> on success, <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> on failure, in which
+case <parameter>error</parameter>
+will be set</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.48">2.48</link></para></refsect2>
+<refsect2 id="g-dtls-connection-close" role="function" condition="since:2.48">
+<title>g_dtls_connection_close&#160;()</title>
+<indexterm zone="g-dtls-connection-close" role="2.48"><primary sortas="dtls_connection_close">g_dtls_connection_close</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_dtls_connection_close (<parameter><link linkend="GDtlsConnection"><type>GDtlsConnection</type></link> *conn</parameter>,
+                         <parameter><link linkend="GCancellable"><type>GCancellable</type></link> *cancellable</parameter>,
+                         <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para>Close the DTLS connection. This is equivalent to calling
+<link linkend="g-dtls-connection-shutdown"><function>g_dtls_connection_shutdown()</function></link> to shut down both sides of the connection.</para>
+<para>Closing a <link linkend="GDtlsConnection"><type>GDtlsConnection</type></link> waits for all buffered but untransmitted data to
+be sent before it completes. It then sends a <literal>close_notify</literal> DTLS alert to the
+peer and may wait for a <literal>close_notify</literal> to be received from the peer. It does
+not close the underlying <link linkend="GDtlsConnection--base-socket"><type>“base-socket”</type></link>; that must be closed
+separately.</para>
+<para>Once <parameter>conn</parameter>
+ is closed, all other operations will return <link linkend="G-IO-ERROR-CLOSED:CAPS"><literal>G_IO_ERROR_CLOSED</literal></link>.
+Closing a <link linkend="GDtlsConnection"><type>GDtlsConnection</type></link> multiple times will not return an error.</para>
+<para><link linkend="GDtlsConnections"><type>GDtlsConnections</type></link> will be automatically closed when the last reference is
+dropped, but you might want to call this function to make sure resources are
+released as early as possible.</para>
+<para>If <parameter>cancellable</parameter>
+ is cancelled, the <link linkend="GDtlsConnection"><type>GDtlsConnection</type></link> may be left
+partially-closed and any pending untransmitted data may be lost. Call
+<link linkend="g-dtls-connection-close"><function>g_dtls_connection_close()</function></link> again to complete closing the <link linkend="GDtlsConnection"><type>GDtlsConnection</type></link>.</para>
+<refsect3 id="g-dtls-connection-close.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>conn</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GDtlsConnection"><type>GDtlsConnection</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>cancellable</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GCancellable"><type>GCancellable</type></link>, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GError"><type>GError</type></link>, or <link linkend="NULL:CAPS"><literal>NULL</literal></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-dtls-connection-close.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> on success, <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> otherwise</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.48">2.48</link></para></refsect2>
+<refsect2 id="g-dtls-connection-close-async" role="function" condition="since:2.48">
+<title>g_dtls_connection_close_async&#160;()</title>
+<indexterm zone="g-dtls-connection-close-async" role="2.48"><primary sortas="dtls_connection_close_async">g_dtls_connection_close_async</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_dtls_connection_close_async (<parameter><link linkend="GDtlsConnection"><type>GDtlsConnection</type></link> *conn</parameter>,
+                               <parameter><link linkend="int"><type>int</type></link> io_priority</parameter>,
+                               <parameter><link linkend="GCancellable"><type>GCancellable</type></link> *cancellable</parameter>,
+                               <parameter><link linkend="GAsyncReadyCallback"><type>GAsyncReadyCallback</type></link> callback</parameter>,
+                               <parameter><link linkend="gpointer"><type>gpointer</type></link> user_data</parameter>);</programlisting>
+<para>Asynchronously close the DTLS connection. See <link linkend="g-dtls-connection-close"><function>g_dtls_connection_close()</function></link> for
+more information.</para>
+<refsect3 id="g-dtls-connection-close-async.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>conn</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GDtlsConnection"><type>GDtlsConnection</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>io_priority</para></entry>
+<entry role="parameter_description"><para>the <link linkend="io-priority">I/O priority</link> of the request</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>cancellable</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GCancellable"><type>GCancellable</type></link>, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>callback</para></entry>
+<entry role="parameter_description"><para>callback to call when the close operation is complete</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>user_data</para></entry>
+<entry role="parameter_description"><para>the data to pass to the callback function</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.48">2.48</link></para></refsect2>
+<refsect2 id="g-dtls-connection-close-finish" role="function" condition="since:2.48">
+<title>g_dtls_connection_close_finish&#160;()</title>
+<indexterm zone="g-dtls-connection-close-finish" role="2.48"><primary sortas="dtls_connection_close_finish">g_dtls_connection_close_finish</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_dtls_connection_close_finish (<parameter><link linkend="GDtlsConnection"><type>GDtlsConnection</type></link> *conn</parameter>,
+                                <parameter><link linkend="GAsyncResult"><type>GAsyncResult</type></link> *result</parameter>,
+                                <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para>Finish an asynchronous TLS close operation. See <link linkend="g-dtls-connection-close"><function>g_dtls_connection_close()</function></link>
+for more information.</para>
+<refsect3 id="g-dtls-connection-close-finish.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>conn</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GDtlsConnection"><type>GDtlsConnection</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>result</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GAsyncResult"><type>GAsyncResult</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GError"><type>GError</type></link> pointer, or <link linkend="NULL:CAPS"><literal>NULL</literal></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-dtls-connection-close-finish.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> on success, <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> on failure, in which
+case <parameter>error</parameter>
+will be set</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.48">2.48</link></para></refsect2>
+<refsect2 id="g-dtls-connection-emit-accept-certificate" role="function" condition="since:2.48">
+<title>g_dtls_connection_emit_accept_certificate&#160;()</title>
+<indexterm zone="g-dtls-connection-emit-accept-certificate" role="2.48"><primary sortas="dtls_connection_emit_accept_certificate">g_dtls_connection_emit_accept_certificate</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_dtls_connection_emit_accept_certificate
+                               (<parameter><link linkend="GDtlsConnection"><type>GDtlsConnection</type></link> *conn</parameter>,
+                                <parameter><link linkend="GTlsCertificate"><type>GTlsCertificate</type></link> *peer_cert</parameter>,
+                                <parameter><link linkend="GTlsCertificateFlags"><type>GTlsCertificateFlags</type></link> errors</parameter>);</programlisting>
+<para>Used by <link linkend="GDtlsConnection"><type>GDtlsConnection</type></link> implementations to emit the
+<link linkend="GDtlsConnection-accept-certificate"><type>“accept-certificate”</type></link> signal.</para>
+<refsect3 id="g-dtls-connection-emit-accept-certificate.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>conn</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GDtlsConnection"><type>GDtlsConnection</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>peer_cert</para></entry>
+<entry role="parameter_description"><para>the peer's <link linkend="GTlsCertificate"><type>GTlsCertificate</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>errors</para></entry>
+<entry role="parameter_description"><para>the problems with <parameter>peer_cert</parameter>
+</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-dtls-connection-emit-accept-certificate.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if one of the signal handlers has returned
+<link linkend="TRUE:CAPS"><literal>TRUE</literal></link> to accept <parameter>peer_cert</parameter>
+</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.48">2.48</link></para></refsect2>
+
+</refsect1>
+<refsect1 id="GDtlsConnection.other_details" role="details">
+<title role="details.title">Types and Values</title>
+<refsect2 id="GDtlsConnection-struct" role="struct">
+<title>GDtlsConnection</title>
+<indexterm zone="GDtlsConnection-struct" role="2.48"><primary sortas="DtlsConnection">GDtlsConnection</primary></indexterm>
+<programlisting language="C">typedef struct _GDtlsConnection GDtlsConnection;</programlisting>
+<para>Abstract base class for the backend-specific <link linkend="GDtlsClientConnection"><type>GDtlsClientConnection</type></link>
+and <link linkend="GDtlsServerConnection"><type>GDtlsServerConnection</type></link> types.</para>
+<para role="since">Since: <link linkend="api-index-2.48">2.48</link></para></refsect2>
+
+</refsect1>
+<refsect1 id="GDtlsConnection.property-details" role="property_details">
+<title role="property_details.title">Property Details</title>
+<refsect2 id="GDtlsConnection--base-socket" role="property"><title>The <literal>“base-socket”</literal> property</title>
+<indexterm zone="GDtlsConnection--base-socket" role="2.48"><primary sortas="DtlsConnection:base-socket">GDtlsConnection:base-socket</primary></indexterm>
+<programlisting>  “base-socket”              <link linkend="GDatagramBased"><type>GDatagramBased</type></link>&#160;*</programlisting>
+<para>The <link linkend="GDatagramBased"><type>GDatagramBased</type></link> that the connection wraps. Note that this may be any
+implementation of <link linkend="GDatagramBased"><type>GDatagramBased</type></link>, not just a <link linkend="GSocket"><type>GSocket</type></link>.</para>
+<para>Flags: Read / Write / Construct Only</para>
+<para role="since">Since: <link linkend="api-index-2.48">2.48</link></para></refsect2>
+<refsect2 id="GDtlsConnection--certificate" role="property"><title>The <literal>“certificate”</literal> property</title>
+<indexterm zone="GDtlsConnection--certificate" role="2.48"><primary sortas="DtlsConnection:certificate">GDtlsConnection:certificate</primary></indexterm>
+<programlisting>  “certificate”              <link linkend="GTlsCertificate"><type>GTlsCertificate</type></link>&#160;*</programlisting>
+<para>The connection's certificate; see
+<link linkend="g-dtls-connection-set-certificate"><function>g_dtls_connection_set_certificate()</function></link>.</para>
+<para>Flags: Read / Write</para>
+<para role="since">Since: <link linkend="api-index-2.48">2.48</link></para></refsect2>
+<refsect2 id="GDtlsConnection--database" role="property"><title>The <literal>“database”</literal> property</title>
+<indexterm zone="GDtlsConnection--database" role="2.48"><primary sortas="DtlsConnection:database">GDtlsConnection:database</primary></indexterm>
+<programlisting>  “database”                 <link linkend="GTlsDatabase"><type>GTlsDatabase</type></link>&#160;*</programlisting>
+<para>The certificate database to use when verifying this TLS connection.
+If no certificate database is set, then the default database will be
+used. See <link linkend="g-tls-backend-get-default-database"><function>g_tls_backend_get_default_database()</function></link>.</para>
+<para>Flags: Read / Write</para>
+<para role="since">Since: <link linkend="api-index-2.48">2.48</link></para></refsect2>
+<refsect2 id="GDtlsConnection--interaction" role="property"><title>The <literal>“interaction”</literal> property</title>
+<indexterm zone="GDtlsConnection--interaction" role="2.48"><primary sortas="DtlsConnection:interaction">GDtlsConnection:interaction</primary></indexterm>
+<programlisting>  “interaction”              <link linkend="GTlsInteraction"><type>GTlsInteraction</type></link>&#160;*</programlisting>
+<para>A <link linkend="GTlsInteraction"><type>GTlsInteraction</type></link> object to be used when the connection or certificate
+database need to interact with the user. This will be used to prompt the
+user for passwords where necessary.</para>
+<para>Flags: Read / Write</para>
+<para role="since">Since: <link linkend="api-index-2.48">2.48</link></para></refsect2>
+<refsect2 id="GDtlsConnection--peer-certificate" role="property"><title>The <literal>“peer-certificate”</literal> property</title>
+<indexterm zone="GDtlsConnection--peer-certificate" role="2.48"><primary sortas="DtlsConnection:peer-certificate">GDtlsConnection:peer-certificate</primary></indexterm>
+<programlisting>  “peer-certificate”         <link linkend="GTlsCertificate"><type>GTlsCertificate</type></link>&#160;*</programlisting>
+<para>The connection's peer's certificate, after the TLS handshake has
+completed and the certificate has been accepted. Note in
+particular that this is not yet set during the emission of
+<link linkend="GDtlsConnection-accept-certificate"><type>“accept-certificate”</type></link>.</para>
+<para>(You can watch for a <link linkend="GObject-notify"><type>“notify”</type></link> signal on this property to
+detect when a handshake has occurred.)</para>
+<para>Flags: Read</para>
+<para role="since">Since: <link linkend="api-index-2.48">2.48</link></para></refsect2>
+<refsect2 id="GDtlsConnection--peer-certificate-errors" role="property"><title>The <literal>“peer-certificate-errors”</literal> property</title>
+<indexterm zone="GDtlsConnection--peer-certificate-errors" role="2.48"><primary sortas="DtlsConnection:peer-certificate-errors">GDtlsConnection:peer-certificate-errors</primary></indexterm>
+<programlisting>  “peer-certificate-errors”  <link linkend="GTlsCertificateFlags"><type>GTlsCertificateFlags</type></link></programlisting>
+<para>The errors noticed-and-ignored while verifying
+<link linkend="GDtlsConnection--peer-certificate"><type>“peer-certificate”</type></link>. Normally this should be 0, but
+it may not be if <link linkend="GDtlsClientConnection--validation-flags"><type>“validation-flags”</type></link> is not
+<link linkend="G-TLS-CERTIFICATE-VALIDATE-ALL:CAPS"><literal>G_TLS_CERTIFICATE_VALIDATE_ALL</literal></link>, or if
+<link linkend="GDtlsConnection-accept-certificate"><type>“accept-certificate”</type></link> overrode the default
+behavior.</para>
+<para>Flags: Read</para>
+<para role="since">Since: <link linkend="api-index-2.48">2.48</link></para></refsect2>
+<refsect2 id="GDtlsConnection--rehandshake-mode" role="property"><title>The <literal>“rehandshake-mode”</literal> property</title>
+<indexterm zone="GDtlsConnection--rehandshake-mode" role="2.48"><primary sortas="DtlsConnection:rehandshake-mode">GDtlsConnection:rehandshake-mode</primary></indexterm>
+<programlisting>  “rehandshake-mode”         <link linkend="GTlsRehandshakeMode"><type>GTlsRehandshakeMode</type></link></programlisting>
+<para>The rehandshaking mode. See
+<link linkend="g-dtls-connection-set-rehandshake-mode"><function>g_dtls_connection_set_rehandshake_mode()</function></link>.</para>
+<para>Flags: Read / Write / Construct</para>
+<para>Default value: G_TLS_REHANDSHAKE_NEVER</para>
+<para role="since">Since: <link linkend="api-index-2.48">2.48</link></para></refsect2>
+<refsect2 id="GDtlsConnection--require-close-notify" role="property"><title>The <literal>“require-close-notify”</literal> property</title>
+<indexterm zone="GDtlsConnection--require-close-notify" role="2.48"><primary sortas="DtlsConnection:require-close-notify">GDtlsConnection:require-close-notify</primary></indexterm>
+<programlisting>  “require-close-notify”     <link linkend="gboolean"><type>gboolean</type></link></programlisting>
+<para>Whether or not proper TLS close notification is required.
+See <link linkend="g-dtls-connection-set-require-close-notify"><function>g_dtls_connection_set_require_close_notify()</function></link>.</para>
+<para>Flags: Read / Write / Construct</para>
+<para>Default value: TRUE</para>
+<para role="since">Since: <link linkend="api-index-2.48">2.48</link></para></refsect2>
+
+</refsect1>
+<refsect1 id="GDtlsConnection.signal-details" role="signals">
+<title role="signals.title">Signal Details</title>
+<refsect2 id="GDtlsConnection-accept-certificate" role="signal"><title>The <literal>“accept-certificate”</literal> signal</title>
+<indexterm zone="GDtlsConnection-accept-certificate" role="2.48"><primary sortas="DtlsConnection::accept-certificate">GDtlsConnection::accept-certificate</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+user_function (<link linkend="GDtlsConnection"><type>GDtlsConnection</type></link>     *conn,
+               <link linkend="GTlsCertificate"><type>GTlsCertificate</type></link>     *peer_cert,
+               <link linkend="GTlsCertificateFlags"><type>GTlsCertificateFlags</type></link> errors,
+               <link linkend="gpointer"><type>gpointer</type></link>             user_data)</programlisting>
+<para>Emitted during the TLS handshake after the peer certificate has
+been received. You can examine <parameter>peer_cert</parameter>
+'s certification path by
+calling <link linkend="g-tls-certificate-get-issuer"><function>g_tls_certificate_get_issuer()</function></link> on it.</para>
+<para>For a client-side connection, <parameter>peer_cert</parameter>
+ is the server's
+certificate, and the signal will only be emitted if the
+certificate was not acceptable according to <parameter>conn</parameter>
+'s
+<link linkend="GDtlsClientConnection--validation-flags"><type>“validation_flags”</type></link>. If you would like the
+certificate to be accepted despite <parameter>errors</parameter>
+, return <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> from the
+signal handler. Otherwise, if no handler accepts the certificate,
+the handshake will fail with <link linkend="G-TLS-ERROR-BAD-CERTIFICATE:CAPS"><literal>G_TLS_ERROR_BAD_CERTIFICATE</literal></link>.</para>
+<para>For a server-side connection, <parameter>peer_cert</parameter>
+ is the certificate
+presented by the client, if this was requested via the server's
+<link linkend="GDtlsServerConnection--authentication-mode"><type>“authentication_mode”</type></link>. On the server side,
+the signal is always emitted when the client presents a
+certificate, and the certificate will only be accepted if a
+handler returns <link linkend="TRUE:CAPS"><literal>TRUE</literal></link>.</para>
+<para>Note that if this signal is emitted as part of asynchronous I/O
+in the main thread, then you should not attempt to interact with
+the user before returning from the signal handler. If you want to
+let the user decide whether or not to accept the certificate, you
+would have to return <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> from the signal handler on the first
+attempt, and then after the connection attempt returns a
+<link linkend="G-TLS-ERROR-HANDSHAKE:CAPS"><literal>G_TLS_ERROR_HANDSHAKE</literal></link>, you can interact with the user, and if
+the user decides to accept the certificate, remember that fact,
+create a new connection, and return <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> from the signal handler
+the next time.</para>
+<para>If you are doing I/O in another thread, you do not
+need to worry about this, and can simply block in the signal
+handler until the UI thread returns an answer.</para>
+<refsect3 id="GDtlsConnection-accept-certificate.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>conn</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GDtlsConnection"><type>GDtlsConnection</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>peer_cert</para></entry>
+<entry role="parameter_description"><para>the peer's <link linkend="GTlsCertificate"><type>GTlsCertificate</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>errors</para></entry>
+<entry role="parameter_description"><para>the problems with <parameter>peer_cert</parameter>
+.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><simpara>user_data</simpara></entry>
+<entry role="parameter_description"><simpara>user data set when the signal handler was connected.</simpara></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="GDtlsConnection-accept-certificate.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> to accept <parameter>peer_cert</parameter>
+(which will also
+immediately end the signal emission). <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> to allow the signal
+emission to continue, which will cause the handshake to fail if
+no one else overrides it.</para>
+</refsect3><para>Flags: <link linkend="G-SIGNAL-RUN-LAST:CAPS">Run Last</link></para>
+<para role="since">Since: <link linkend="api-index-2.48">2.48</link></para></refsect2>
+</refsect1>
+
+</refentry>

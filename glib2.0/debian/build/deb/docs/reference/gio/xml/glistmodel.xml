@@ -1,0 +1,415 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC '-//OASIS//DTD DocBook XML V4.5//EN'
+                      'http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd' [
+<!ENTITY % local.common.attrib "xmlns:xi  CDATA  #FIXED 'http://www.w3.org/2003/XInclude'">
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="GListModel">
+<refmeta>
+<refentrytitle role="top_of_page" id="GListModel.top_of_page">GListModel</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>GIO Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>GListModel</refname>
+<refpurpose>An interface describing a dynamic list of objects</refpurpose>
+</refnamediv>
+
+<refsect1 id="GListModel.functions" role="functions_proto">
+<title role="functions_proto.title">Functions</title>
+<informaltable pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="functions_return" colwidth="150px"/>
+<colspec colname="functions_name"/>
+<tbody>
+<row><entry role="function_type"><link linkend="GType"><returnvalue>GType</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-list-model-get-item-type">g_list_model_get_item_type</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="guint"><returnvalue>guint</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-list-model-get-n-items">g_list_model_get_n_items</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gpointer"><returnvalue>gpointer</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-list-model-get-item">g_list_model_get_item</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GObject"><returnvalue>GObject</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-list-model-get-object">g_list_model_get_object</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-list-model-items-changed">g_list_model_items_changed</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GListModel.signals" role="signal_proto">
+<title role="signal_proto.title">Signals</title>
+<informaltable frame="none">
+<tgroup cols="3">
+<colspec colname="signals_return" colwidth="150px"/>
+<colspec colname="signals_name" colwidth="300px"/>
+<colspec colname="signals_flags" colwidth="200px"/>
+<tbody>
+<row><entry role="signal_type"><link linkend="void"><returnvalue>void</returnvalue></link></entry><entry role="signal_name"><link linkend="GListModel-items-changed">items-changed</link></entry><entry role="signal_flags"><link linkend="G-SIGNAL-RUN-LAST:CAPS">Run Last</link></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GListModel.other" role="other_proto">
+<title role="other_proto.title">Types and Values</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="name" colwidth="150px"/>
+<colspec colname="description"/>
+<tbody>
+<row><entry role="datatype_keyword"></entry><entry role="function_name"><link linkend="GListModel-struct">GListModel</link></entry></row>
+<row><entry role="datatype_keyword">struct</entry><entry role="function_name"><link linkend="GListModelInterface">GListModelInterface</link></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GListModel.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<screen>    <link linkend="GInterface">GInterface</link>
+    <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> GListModel
+</screen>
+</refsect1>
+<refsect1 id="GListModel.prerequisites" role="prerequisites">
+<title role="prerequisites.title">Prerequisites</title>
+<para>
+GListModel requires
+ <link linkend="GObject">GObject</link>.</para>
+
+</refsect1>
+<refsect1 id="GListModel.implementations" role="implementations">
+<title role="implementations.title">Known Implementations</title>
+<para>
+GListModel is implemented by
+ <link linkend="GListStore">GListStore</link>.</para>
+
+</refsect1>
+
+<refsect1 id="GListModel.includes"><title>Includes</title><synopsis>#include &lt;gio/gio.h&gt;
+</synopsis></refsect1>
+
+<refsect1 id="GListModel.description" role="desc">
+<title role="desc.title">Description</title>
+<para><link linkend="GListModel"><type>GListModel</type></link> is an interface that represents a mutable list of
+<link linkend="GObjects"><type>GObjects</type></link>. Its main intention is as a model for various widgets in
+user interfaces, such as list views, but it can also be used as a
+convenient method of returning lists of data, with support for
+updates.</para>
+<para>Each object in the list may also report changes in itself via some
+mechanism (normally the <link linkend="GObject-notify"><type>“notify”</type></link> signal).  Taken together
+with the <link linkend="GListModel-items-changed"><type>“items-changed”</type></link> signal, this provides for a list
+that can change its membership, and in which the members can change
+their individual properties.</para>
+<para>A good example would be the list of visible wireless network access
+points, where each access point can report dynamic properties such as
+signal strength.</para>
+<para>It is important to note that the <link linkend="GListModel"><type>GListModel</type></link> itself does not report
+changes to the individual items.  It only reports changes to the list
+membership.  If you want to observe changes to the objects themselves
+then you need to connect signals to the objects that you are
+interested in.</para>
+<para>All items in a <link linkend="GListModel"><type>GListModel</type></link> are of (or derived from) the same type.
+<link linkend="g-list-model-get-item-type"><function>g_list_model_get_item_type()</function></link> returns that type.  The type may be an
+interface, in which case all objects in the list must implement it.</para>
+<para>The semantics are close to that of an array:
+<link linkend="g-list-model-get-n-items"><function>g_list_model_get_n_items()</function></link> returns the number of items in the list and
+<link linkend="g-list-model-get-item"><function>g_list_model_get_item()</function></link> returns an item at a (0-based) position. In
+order to allow implementations to calculate the list length lazily,
+you can also iterate over items: starting from 0, repeatedly call
+<link linkend="g-list-model-get-item"><function>g_list_model_get_item()</function></link> until it returns <link linkend="NULL:CAPS"><literal>NULL</literal></link>.</para>
+<para>An implementation may create objects lazily, but must take care to
+return the same object for a given position until all references to
+it are gone.</para>
+<para>On the other side, a consumer is expected only to hold references on
+objects that are currently "user visible", in order to faciliate the
+maximum level of laziness in the implementation of the list and to
+reduce the required number of signal connections at a given time.</para>
+<para>This interface is intended only to be used from a single thread.  The
+thread in which it is appropriate to use it depends on the particular
+implementation, but typically it will be from the thread that owns
+the <link linkend="g-main-context-push-thread-default">thread-default main context</link>
+in effect at the time that the model was created.</para>
+
+</refsect1>
+<refsect1 id="GListModel.functions_details" role="details">
+<title role="details.title">Functions</title>
+<refsect2 id="g-list-model-get-item-type" role="function" condition="since:2.44">
+<title>g_list_model_get_item_type&#160;()</title>
+<indexterm zone="g-list-model-get-item-type" role="2.44"><primary sortas="list_model_get_item_type">g_list_model_get_item_type</primary></indexterm>
+<programlisting language="C"><link linkend="GType"><returnvalue>GType</returnvalue></link>
+g_list_model_get_item_type (<parameter><link linkend="GListModel"><type>GListModel</type></link> *list</parameter>);</programlisting>
+<para>Gets the type of the items in <parameter>list</parameter>
+. All items returned from
+<link linkend="g-list-model-get-type"><function>g_list_model_get_type()</function></link> are of that type or a subtype, or are an
+implementation of that interface.</para>
+<para>The item type of a <link linkend="GListModel"><type>GListModel</type></link> can not change during the life of the
+model.</para>
+<refsect3 id="g-list-model-get-item-type.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>list</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GListModel"><type>GListModel</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-list-model-get-item-type.returns" role="returns">
+<title>Returns</title>
+<para> the <link linkend="GType"><type>GType</type></link> of the items contained in <parameter>list</parameter>
+.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.44">2.44</link></para></refsect2>
+<refsect2 id="g-list-model-get-n-items" role="function" condition="since:2.44">
+<title>g_list_model_get_n_items&#160;()</title>
+<indexterm zone="g-list-model-get-n-items" role="2.44"><primary sortas="list_model_get_n_items">g_list_model_get_n_items</primary></indexterm>
+<programlisting language="C"><link linkend="guint"><returnvalue>guint</returnvalue></link>
+g_list_model_get_n_items (<parameter><link linkend="GListModel"><type>GListModel</type></link> *list</parameter>);</programlisting>
+<para>Gets the number of items in <parameter>list</parameter>
+.</para>
+<para>Depending on the model implementation, calling this function may be
+less efficient than iterating the list with increasing values for
+<parameter>position</parameter>
+ until <link linkend="g-list-model-get-item"><function>g_list_model_get_item()</function></link> returns <link linkend="NULL:CAPS"><literal>NULL</literal></link>.</para>
+<refsect3 id="g-list-model-get-n-items.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>list</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GListModel"><type>GListModel</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-list-model-get-n-items.returns" role="returns">
+<title>Returns</title>
+<para> the number of items in <parameter>list</parameter>
+.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.44">2.44</link></para></refsect2>
+<refsect2 id="g-list-model-get-item" role="function" condition="since:2.44">
+<title>g_list_model_get_item&#160;()</title>
+<indexterm zone="g-list-model-get-item" role="2.44"><primary sortas="list_model_get_item">g_list_model_get_item</primary></indexterm>
+<programlisting language="C"><link linkend="gpointer"><returnvalue>gpointer</returnvalue></link>
+g_list_model_get_item (<parameter><link linkend="GListModel"><type>GListModel</type></link> *list</parameter>,
+                       <parameter><link linkend="guint"><type>guint</type></link> position</parameter>);</programlisting>
+<para>Get the item at <parameter>position</parameter>
+. If <parameter>position</parameter>
+ is greater than the number of
+items in <parameter>list</parameter>
+, <link linkend="NULL:CAPS"><literal>NULL</literal></link> is returned.</para>
+<para><link linkend="NULL:CAPS"><literal>NULL</literal></link> is never returned for an index that is smaller than the length
+of the list.  See <link linkend="g-list-model-get-n-items"><function>g_list_model_get_n_items()</function></link>.</para>
+
+<para><emphasis role="annotation">[<acronym>skip</acronym>]</emphasis></para><refsect3 id="g-list-model-get-item.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>list</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GListModel"><type>GListModel</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>position</para></entry>
+<entry role="parameter_description"><para>the position of the item to fetch</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-list-model-get-item.returns" role="returns">
+<title>Returns</title>
+<para>the item at <parameter>position</parameter>
+. </para>
+<para><emphasis role="annotation">[<acronym>transfer full</acronym>][<acronym>nullable</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.44">2.44</link></para></refsect2>
+<refsect2 id="g-list-model-get-object" role="function" condition="since:2.44">
+<title>g_list_model_get_object&#160;()</title>
+<indexterm zone="g-list-model-get-object" role="2.44"><primary sortas="list_model_get_object">g_list_model_get_object</primary></indexterm>
+<programlisting language="C"><link linkend="GObject"><returnvalue>GObject</returnvalue></link>&#160;*
+g_list_model_get_object (<parameter><link linkend="GListModel"><type>GListModel</type></link> *list</parameter>,
+                         <parameter><link linkend="guint"><type>guint</type></link> position</parameter>);</programlisting>
+<para>Get the item at <parameter>position</parameter>
+. If <parameter>position</parameter>
+ is greater than the number of
+items in <parameter>list</parameter>
+, <link linkend="NULL:CAPS"><literal>NULL</literal></link> is returned.</para>
+<para><link linkend="NULL:CAPS"><literal>NULL</literal></link> is never returned for an index that is smaller than the length
+of the list.  See <link linkend="g-list-model-get-n-items"><function>g_list_model_get_n_items()</function></link>.</para>
+
+<para><emphasis role="annotation">[<acronym>rename-to</acronym> g_list_model_get_item]</emphasis></para><refsect3 id="g-list-model-get-object.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>list</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GListModel"><type>GListModel</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>position</para></entry>
+<entry role="parameter_description"><para>the position of the item to fetch</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-list-model-get-object.returns" role="returns">
+<title>Returns</title>
+<para>the object at <parameter>position</parameter>
+. </para>
+<para><emphasis role="annotation">[<acronym>transfer full</acronym>][<acronym>nullable</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.44">2.44</link></para></refsect2>
+<refsect2 id="g-list-model-items-changed" role="function" condition="since:2.44">
+<title>g_list_model_items_changed&#160;()</title>
+<indexterm zone="g-list-model-items-changed" role="2.44"><primary sortas="list_model_items_changed">g_list_model_items_changed</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_list_model_items_changed (<parameter><link linkend="GListModel"><type>GListModel</type></link> *list</parameter>,
+                            <parameter><link linkend="guint"><type>guint</type></link> position</parameter>,
+                            <parameter><link linkend="guint"><type>guint</type></link> removed</parameter>,
+                            <parameter><link linkend="guint"><type>guint</type></link> added</parameter>);</programlisting>
+<para>Emits the <link linkend="GListModel-items-changed"><type>“items-changed”</type></link> signal on <parameter>list</parameter>
+.</para>
+<para>This function should only be called by classes implementing
+<link linkend="GListModel"><type>GListModel</type></link>. It has to be called after the internal representation
+of <parameter>list</parameter>
+ has been updated, because handlers connected to this signal
+might query the new state of the list.</para>
+<para>Implementations must only make changes to the model (as visible to
+its consumer) in places that will not cause problems for that
+consumer.  For models that are driven directly by a write API (such
+as <link linkend="GListStore"><type>GListStore</type></link>), changes can be reported in response to uses of that
+API.  For models that represent remote data, changes should only be
+made from a fresh mainloop dispatch.  It is particularly not
+permitted to make changes in response to a call to the <link linkend="GListModel"><type>GListModel</type></link>
+consumer API.</para>
+<para>Stated another way: in general, it is assumed that code making a
+series of accesses to the model via the API, without returning to the
+mainloop, and without calling other code, will continue to view the
+same contents of the model.</para>
+<refsect3 id="g-list-model-items-changed.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>list</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GListModel"><type>GListModel</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>position</para></entry>
+<entry role="parameter_description"><para>the position at which <parameter>list</parameter>
+changed</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>removed</para></entry>
+<entry role="parameter_description"><para>the number of items removed</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>added</para></entry>
+<entry role="parameter_description"><para>the number of items added</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.44">2.44</link></para></refsect2>
+
+</refsect1>
+<refsect1 id="GListModel.other_details" role="details">
+<title role="details.title">Types and Values</title>
+<refsect2 id="GListModel-struct" role="struct">
+<title>GListModel</title>
+<indexterm zone="GListModel-struct"><primary sortas="ListModel">GListModel</primary></indexterm>
+<programlisting language="C">typedef struct _GListModel GListModel;</programlisting>
+<para><link linkend="GListModel"><type>GListModel</type></link> is an opaque data structure and can only be accessed
+using the following functions.</para>
+</refsect2>
+<refsect2 id="GListModelInterface" role="struct" condition="since:2.44">
+<title>struct GListModelInterface</title>
+<indexterm zone="GListModelInterface" role="2.44"><primary sortas="ListModelInterface">GListModelInterface</primary></indexterm>
+<programlisting language="C">struct GListModelInterface {
+  GTypeInterface g_iface;
+
+  GType     (* get_item_type)   (GListModel *list);
+
+  guint     (* get_n_items)     (GListModel *list);
+
+  gpointer  (* get_item)        (GListModel *list,
+                                 guint       position);
+};
+</programlisting>
+<para>The virtual function table for <link linkend="GListModel"><type>GListModel</type></link>.</para>
+<refsect3 id="GListModelInterface.members" role="struct_members">
+<title>Members</title>
+<informaltable role="struct_members_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="struct_members_name" colwidth="300px"/>
+<colspec colname="struct_members_description"/>
+<colspec colname="struct_members_annotations" colwidth="200px"/>
+<tbody>
+<row role="member"><entry role="struct_member_name"><para><structfield id="GListModelInterface.get-item-type">get_item_type</structfield>&#160;()</para></entry>
+<entry role="struct_member_description"><para>the virtual function pointer for <link linkend="g-list-model-get-item-type"><function>g_list_model_get_item_type()</function></link></para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><structfield id="GListModelInterface.get-n-items">get_n_items</structfield>&#160;()</para></entry>
+<entry role="struct_member_description"><para>the virtual function pointer for <link linkend="g-list-model-get-n-items"><function>g_list_model_get_n_items()</function></link></para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><structfield id="GListModelInterface.get-item">get_item</structfield>&#160;()</para></entry>
+<entry role="struct_member_description"><para>the virtual function pointer for <link linkend="g-list-model-get-item"><function>g_list_model_get_item()</function></link></para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+</tbody></tgroup></informaltable>
+</refsect3>
+<para role="since">Since: <link linkend="api-index-2.44">2.44</link></para></refsect2>
+
+</refsect1>
+<refsect1 id="GListModel.signal-details" role="signals">
+<title role="signals.title">Signal Details</title>
+<refsect2 id="GListModel-items-changed" role="signal"><title>The <literal>“items-changed”</literal> signal</title>
+<indexterm zone="GListModel-items-changed" role="2.44"><primary sortas="ListModel::items-changed">GListModel::items-changed</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+user_function (<link linkend="GListModel"><type>GListModel</type></link> *list,
+               <link linkend="guint"><type>guint</type></link>       position,
+               <link linkend="guint"><type>guint</type></link>       removed,
+               <link linkend="guint"><type>guint</type></link>       added,
+               <link linkend="gpointer"><type>gpointer</type></link>    user_data)</programlisting>
+<para>This signal is emitted whenever items were added or removed to
+<parameter>list</parameter>
+. At <parameter>position</parameter>
+, <parameter>removed</parameter>
+ items were removed and <parameter>added</parameter>
+ items
+were added in their place.</para>
+<refsect3 id="GListModel-items-changed.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>list</para></entry>
+<entry role="parameter_description"><para>the <link linkend="GListModel"><type>GListModel</type></link> that changed</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>position</para></entry>
+<entry role="parameter_description"><para>the position at which <parameter>list</parameter>
+changed</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>removed</para></entry>
+<entry role="parameter_description"><para>the number of items removed</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>added</para></entry>
+<entry role="parameter_description"><para>the number of items added</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><simpara>user_data</simpara></entry>
+<entry role="parameter_description"><simpara>user data set when the signal handler was connected.</simpara></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para>Flags: <link linkend="G-SIGNAL-RUN-LAST:CAPS">Run Last</link></para>
+<para role="since">Since: <link linkend="api-index-2.44">2.44</link></para></refsect2>
+</refsect1>
+<refsect1 id="GListModel.see-also">
+<title>See Also</title>
+<para><link linkend="GListStore"><type>GListStore</type></link></para>
+
+</refsect1>
+
+</refentry>

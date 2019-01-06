@@ -1,0 +1,2451 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC '-//OASIS//DTD DocBook XML V4.5//EN'
+                      'http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd' [
+
+<!ENTITY % local.common.attrib "xmlns:xi  CDATA  #FIXED 'http://www.w3.org/2003/XInclude'">
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="gobject-Signals">
+<refmeta>
+<refentrytitle role="top_of_page" id="gobject-Signals.top_of_page">Signals</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>GOBJECT Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>Signals</refname>
+<refpurpose>A means for customization of object behaviour
+    and a general purpose notification mechanism</refpurpose>
+</refnamediv>
+
+<refsect1 id="gobject-Signals.functions" role="functions_proto">
+<title role="functions_proto.title">Functions</title>
+<informaltable pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="functions_return" colwidth="150px"/>
+<colspec colname="functions_name"/>
+<tbody>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><phrase role="c_punctuation">(</phrase><link linkend="GSignalAccumulator">*GSignalAccumulator</link><phrase role="c_punctuation">)</phrase>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><phrase role="c_punctuation">(</phrase><link linkend="GSignalEmissionHook">*GSignalEmissionHook</link><phrase role="c_punctuation">)</phrase>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="guint"><returnvalue>guint</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-signal-new">g_signal_new</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="guint"><returnvalue>guint</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-signal-newv">g_signal_newv</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="guint"><returnvalue>guint</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-signal-new-valist">g_signal_new_valist</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-signal-set-va-marshaller">g_signal_set_va_marshaller</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-signal-query">g_signal_query</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="guint"><returnvalue>guint</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-signal-lookup">g_signal_lookup</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type">const <link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-signal-name">g_signal_name</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="guint"><returnvalue>guint</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-signal-list-ids">g_signal_list_ids</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-signal-emit">g_signal_emit</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-signal-emit-by-name">g_signal_emit_by_name</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-signal-emitv">g_signal_emitv</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-signal-emit-valist">g_signal_emit_valist</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="g-signal-connect">g_signal_connect</link><phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="g-signal-connect-after">g_signal_connect_after</link><phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="g-signal-connect-swapped">g_signal_connect_swapped</link><phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gulong"><returnvalue>gulong</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-signal-connect-object">g_signal_connect_object</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gulong"><returnvalue>gulong</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-signal-connect-data">g_signal_connect_data</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gulong"><returnvalue>gulong</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-signal-connect-closure">g_signal_connect_closure</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gulong"><returnvalue>gulong</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-signal-connect-closure-by-id">g_signal_connect_closure_by_id</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-signal-handler-block">g_signal_handler_block</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-signal-handler-unblock">g_signal_handler_unblock</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-signal-handler-disconnect">g_signal_handler_disconnect</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gulong"><returnvalue>gulong</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-signal-handler-find">g_signal_handler_find</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="guint"><returnvalue>guint</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-signal-handlers-block-matched">g_signal_handlers_block_matched</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="guint"><returnvalue>guint</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-signal-handlers-unblock-matched">g_signal_handlers_unblock_matched</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="guint"><returnvalue>guint</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-signal-handlers-disconnect-matched">g_signal_handlers_disconnect_matched</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-signal-handler-is-connected">g_signal_handler_is_connected</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="g-signal-handlers-block-by-func">g_signal_handlers_block_by_func</link><phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="g-signal-handlers-unblock-by-func">g_signal_handlers_unblock_by_func</link><phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="g-signal-handlers-disconnect-by-func">g_signal_handlers_disconnect_by_func</link><phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="g-signal-handlers-disconnect-by-data">g_signal_handlers_disconnect_by_data</link><phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-signal-has-handler-pending">g_signal_has_handler_pending</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-signal-stop-emission">g_signal_stop_emission</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-signal-stop-emission-by-name">g_signal_stop_emission_by_name</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-signal-override-class-closure">g_signal_override_class_closure</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-signal-chain-from-overridden">g_signal_chain_from_overridden</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="guint"><returnvalue>guint</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-signal-new-class-handler">g_signal_new_class_handler</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-signal-override-class-handler">g_signal_override_class_handler</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-signal-chain-from-overridden-handler">g_signal_chain_from_overridden_handler</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gulong"><returnvalue>gulong</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-signal-add-emission-hook">g_signal_add_emission_hook</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-signal-remove-emission-hook">g_signal_remove_emission_hook</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-signal-parse-name">g_signal_parse_name</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GSignalInvocationHint"><returnvalue>GSignalInvocationHint</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-signal-get-invocation-hint">g_signal_get_invocation_hint</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GClosure"><returnvalue>GClosure</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-signal-type-cclosure-new">g_signal_type_cclosure_new</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-signal-accumulator-first-wins">g_signal_accumulator_first_wins</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-signal-accumulator-true-handled">g_signal_accumulator_true_handled</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="gobject-Signals.other" role="other_proto">
+<title role="other_proto.title">Types and Values</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="name" colwidth="150px"/>
+<colspec colname="description"/>
+<tbody>
+<row><entry role="datatype_keyword">struct</entry><entry role="function_name"><link linkend="GSignalInvocationHint">GSignalInvocationHint</link></entry></row>
+<row><entry role="typedef_keyword">typedef</entry><entry role="function_name"><link linkend="GSignalCMarshaller">GSignalCMarshaller</link></entry></row>
+<row><entry role="typedef_keyword">typedef</entry><entry role="function_name"><link linkend="GSignalCVaMarshaller">GSignalCVaMarshaller</link></entry></row>
+<row><entry role="datatype_keyword">enum</entry><entry role="function_name"><link linkend="GSignalFlags">GSignalFlags</link></entry></row>
+<row><entry role="datatype_keyword">enum</entry><entry role="function_name"><link linkend="GSignalMatchType">GSignalMatchType</link></entry></row>
+<row><entry role="datatype_keyword">struct</entry><entry role="function_name"><link linkend="GSignalQuery">GSignalQuery</link></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="G-SIGNAL-TYPE-STATIC-SCOPE:CAPS">G_SIGNAL_TYPE_STATIC_SCOPE</link></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="G-SIGNAL-MATCH-MASK:CAPS">G_SIGNAL_MATCH_MASK</link></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="G-SIGNAL-FLAGS-MASK:CAPS">G_SIGNAL_FLAGS_MASK</link></entry></row>
+<row><entry role="datatype_keyword">enum</entry><entry role="function_name"><link linkend="GConnectFlags">GConnectFlags</link></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+
+<refsect1 id="gobject-Signals.includes"><title>Includes</title><synopsis>#include &lt;glib-object.h&gt;
+#include &lt;gobject/gvaluecollector.h&gt;
+</synopsis></refsect1>
+
+<refsect1 id="gobject-Signals.description" role="desc">
+<title role="desc.title">Description</title>
+<para>The basic concept of the signal system is that of the emission
+of a signal. Signals are introduced per-type and are identified
+through strings. Signals introduced for a parent type are available
+in derived types as well, so basically they are a per-type facility
+that is inherited.</para>
+<para>A signal emission mainly involves invocation of a certain set of
+callbacks in precisely defined manner. There are two main categories
+of such callbacks, per-object ones and user provided ones.
+(Although signals can deal with any kind of instantiatable type, I'm
+referring to those types as "object types" in the following, simply
+because that is the context most users will encounter signals in.)
+The per-object callbacks are most often referred to as "object method
+handler" or "default (signal) handler", while user provided callbacks are
+usually just called "signal handler".</para>
+<para>The object method handler is provided at signal creation time (this most
+frequently happens at the end of an object class' creation), while user
+provided handlers are frequently connected and disconnected to/from a
+certain signal on certain object instances.</para>
+<para>A signal emission consists of five stages, unless prematurely stopped:</para>
+<orderedlist>
+<listitem>
+<para>Invocation of the object method handler for <link linkend="G-SIGNAL-RUN-FIRST:CAPS"><literal>G_SIGNAL_RUN_FIRST</literal></link> signals</para>
+</listitem>
+<listitem>
+<para>Invocation of normal user-provided signal handlers (where the <parameter>after</parameter>
+
+flag is not set)</para>
+</listitem>
+<listitem>
+<para>Invocation of the object method handler for <link linkend="G-SIGNAL-RUN-LAST:CAPS"><literal>G_SIGNAL_RUN_LAST</literal></link> signals</para>
+</listitem>
+<listitem>
+<para>Invocation of user provided signal handlers (where the <parameter>after</parameter>
+ flag is set)</para>
+</listitem>
+<listitem>
+<para>Invocation of the object method handler for <link linkend="G-SIGNAL-RUN-CLEANUP:CAPS"><literal>G_SIGNAL_RUN_CLEANUP</literal></link> signals</para>
+</listitem>
+</orderedlist>
+<para>The user-provided signal handlers are called in the order they were
+connected in.</para>
+<para>All handlers may prematurely stop a signal emission, and any number of
+handlers may be connected, disconnected, blocked or unblocked during
+a signal emission.</para>
+<para>There are certain criteria for skipping user handlers in stages 2 and 4
+of a signal emission.</para>
+<para>First, user handlers may be blocked. Blocked handlers are omitted during
+callback invocation, to return from the blocked state, a handler has to
+get unblocked exactly the same amount of times it has been blocked before.</para>
+<para>Second, upon emission of a <link linkend="G-SIGNAL-DETAILED:CAPS"><literal>G_SIGNAL_DETAILED</literal></link> signal, an additional
+<parameter>detail</parameter>
+ argument passed in to <link linkend="g-signal-emit"><function>g_signal_emit()</function></link> has to match the detail
+argument of the signal handler currently subject to invocation.
+Specification of no detail argument for signal handlers (omission of the
+detail part of the signal specification upon connection) serves as a
+wildcard and matches any detail argument passed in to emission.</para>
+<refsect3 id="signal-memory-management"><title>Memory management of signal handlers</title><para>If you are connecting handlers to signals and using a <link linkend="GObject"><type>GObject</type></link> instance as
+your signal handler user data, you should remember to pair calls to
+<link linkend="g-signal-connect"><function>g_signal_connect()</function></link> with calls to <link linkend="g-signal-handler-disconnect"><function>g_signal_handler_disconnect()</function></link> or
+<link linkend="g-signal-handlers-disconnect-by-func"><function>g_signal_handlers_disconnect_by_func()</function></link>. While signal handlers are
+automatically disconnected when the object emitting the signal is finalised,
+they are not automatically disconnected when the signal handler user data is
+destroyed. If this user data is a <link linkend="GObject"><type>GObject</type></link> instance, using it from a
+signal handler after it has been finalised is an error.</para>
+<para>There are two strategies for managing such user data. The first is to
+disconnect the signal handler (using <link linkend="g-signal-handler-disconnect"><function>g_signal_handler_disconnect()</function></link> or
+<link linkend="g-signal-handlers-disconnect-by-func"><function>g_signal_handlers_disconnect_by_func()</function></link>) when the user data (object) is
+finalised; this has to be implemented manually. For non-threaded programs,
+<link linkend="g-signal-connect-object"><function>g_signal_connect_object()</function></link> can be used to implement this automatically.
+Currently, however, it is unsafe to use in threaded programs.</para>
+<para>The second is to hold a strong reference on the user data until after the
+signal is disconnected for other reasons. This can be implemented
+automatically using <link linkend="g-signal-connect-data"><function>g_signal_connect_data()</function></link>.</para>
+<para>The first approach is recommended, as the second approach can result in
+effective memory leaks of the user data if the signal handler is never
+disconnected for some reason.</para>
+</refsect3>
+
+</refsect1>
+<refsect1 id="gobject-Signals.functions_details" role="details">
+<title role="details.title">Functions</title>
+<refsect2 id="GSignalAccumulator" role="function">
+<title>GSignalAccumulator&#160;()</title>
+<indexterm zone="GSignalAccumulator"><primary sortas="SignalAccumulator">GSignalAccumulator</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+<phrase role="c_punctuation">(</phrase>*GSignalAccumulator<phrase role="c_punctuation">)</phrase> (<parameter><link linkend="GSignalInvocationHint"><type>GSignalInvocationHint</type></link> *ihint</parameter>,
+                       <parameter><link linkend="GValue"><type>GValue</type></link> *return_accu</parameter>,
+                       <parameter>const <link linkend="GValue"><type>GValue</type></link> *handler_return</parameter>,
+                       <parameter><link linkend="gpointer"><type>gpointer</type></link> data</parameter>);</programlisting>
+<para>The signal accumulator is a special callback function that can be used
+to collect return values of the various callbacks that are called
+during a signal emission. The signal accumulator is specified at signal
+creation time, if it is left <link linkend="NULL:CAPS"><literal>NULL</literal></link>, no accumulation of callback return
+values is performed. The return value of signal emissions is then the
+value returned by the last callback.</para>
+<refsect3 id="GSignalAccumulator.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>ihint</para></entry>
+<entry role="parameter_description"><para>Signal invocation hint, see <link linkend="GSignalInvocationHint"><type>GSignalInvocationHint</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>return_accu</para></entry>
+<entry role="parameter_description"><para>Accumulator to collect callback return values in, this
+is the return value of the current signal emission.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>handler_return</para></entry>
+<entry role="parameter_description"><para>A <link linkend="GValue"><type>GValue</type></link> holding the return value of the signal handler.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>data</para></entry>
+<entry role="parameter_description"><para>Callback data that was specified when creating the signal.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="GSignalAccumulator.returns" role="returns">
+<title>Returns</title>
+<para> The accumulator function returns whether the signal emission
+should be aborted. Returning <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> means to abort the
+current emission and <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> is returned for continuation.</para>
+</refsect3></refsect2>
+<refsect2 id="GSignalEmissionHook" role="function">
+<title>GSignalEmissionHook&#160;()</title>
+<indexterm zone="GSignalEmissionHook"><primary sortas="SignalEmissionHook">GSignalEmissionHook</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+<phrase role="c_punctuation">(</phrase>*GSignalEmissionHook<phrase role="c_punctuation">)</phrase> (<parameter><link linkend="GSignalInvocationHint"><type>GSignalInvocationHint</type></link> *ihint</parameter>,
+                        <parameter><link linkend="guint"><type>guint</type></link> n_param_values</parameter>,
+                        <parameter>const <link linkend="GValue"><type>GValue</type></link> *param_values</parameter>,
+                        <parameter><link linkend="gpointer"><type>gpointer</type></link> data</parameter>);</programlisting>
+<para>A simple function pointer to get invoked when the signal is emitted. This 
+allows you to tie a hook to the signal type, so that it will trap all 
+emissions of that signal, from any object.</para>
+<para>You may not attach these to signals created with the <link linkend="G-SIGNAL-NO-HOOKS:CAPS"><type>G_SIGNAL_NO_HOOKS</type></link> flag.</para>
+<refsect3 id="GSignalEmissionHook.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>ihint</para></entry>
+<entry role="parameter_description"><para>Signal invocation hint, see <link linkend="GSignalInvocationHint"><type>GSignalInvocationHint</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>n_param_values</para></entry>
+<entry role="parameter_description"><para>the number of parameters to the function, including
+the instance on which the signal was emitted.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>param_values</para></entry>
+<entry role="parameter_description"><para>the instance on which
+the signal was emitted, followed by the parameters of the emission. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>array</acronym> length=n_param_values]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>data</para></entry>
+<entry role="parameter_description"><para>user data associated with the hook.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="GSignalEmissionHook.returns" role="returns">
+<title>Returns</title>
+<para> whether it wants to stay connected. If it returns <link linkend="FALSE:CAPS"><literal>FALSE</literal></link>, the signal
+hook is disconnected (and destroyed).</para>
+</refsect3></refsect2>
+<refsect2 id="g-signal-new" role="function">
+<title>g_signal_new&#160;()</title>
+<indexterm zone="g-signal-new"><primary sortas="signal_new">g_signal_new</primary></indexterm>
+<programlisting language="C"><link linkend="guint"><returnvalue>guint</returnvalue></link>
+g_signal_new (<parameter>const <link linkend="gchar"><type>gchar</type></link> *signal_name</parameter>,
+              <parameter><link linkend="GType"><type>GType</type></link> itype</parameter>,
+              <parameter><link linkend="GSignalFlags"><type>GSignalFlags</type></link> signal_flags</parameter>,
+              <parameter><link linkend="guint"><type>guint</type></link> class_offset</parameter>,
+              <parameter><link linkend="GSignalAccumulator"><type>GSignalAccumulator</type></link> accumulator</parameter>,
+              <parameter><link linkend="gpointer"><type>gpointer</type></link> accu_data</parameter>,
+              <parameter><link linkend="GSignalCMarshaller"><type>GSignalCMarshaller</type></link> c_marshaller</parameter>,
+              <parameter><link linkend="GType"><type>GType</type></link> return_type</parameter>,
+              <parameter><link linkend="guint"><type>guint</type></link> n_params</parameter>,
+              <parameter>...</parameter>);</programlisting>
+<para>Creates a new signal. (This is usually done in the class initializer.)</para>
+<para>A signal name consists of segments consisting of ASCII letters and
+digits, separated by either the '-' or '_' character. The first
+character of a signal name must be a letter. Names which violate these
+rules lead to undefined behaviour of the GSignal system.</para>
+<para>When registering a signal and looking up a signal, either separator can
+be used, but they cannot be mixed.</para>
+<para>If 0 is used for <parameter>class_offset</parameter>
+ subclasses cannot override the class handler
+in their class_init method by doing super_class->signal_handler = my_signal_handler.
+Instead they will have to use <link linkend="g-signal-override-class-handler"><function>g_signal_override_class_handler()</function></link>.</para>
+<para>If c_marshaller is <link linkend="NULL:CAPS"><literal>NULL</literal></link>, <link linkend="g-cclosure-marshal-generic"><function>g_cclosure_marshal_generic()</function></link> will be used as
+the marshaller for this signal.</para>
+<refsect3 id="g-signal-new.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>signal_name</para></entry>
+<entry role="parameter_description"><para>the name for the signal</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>itype</para></entry>
+<entry role="parameter_description"><para>the type this signal pertains to. It will also pertain to
+types which are derived from this type.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>signal_flags</para></entry>
+<entry role="parameter_description"><para>a combination of <link linkend="GSignalFlags"><type>GSignalFlags</type></link> specifying detail of when
+the default handler is to be invoked. You should at least specify
+<link linkend="G-SIGNAL-RUN-FIRST:CAPS"><literal>G_SIGNAL_RUN_FIRST</literal></link> or <link linkend="G-SIGNAL-RUN-LAST:CAPS"><literal>G_SIGNAL_RUN_LAST</literal></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>class_offset</para></entry>
+<entry role="parameter_description"><para>The offset of the function pointer in the class structure
+for this type. Used to invoke a class method generically. Pass 0 to
+not associate a class method slot with this signal.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>accumulator</para></entry>
+<entry role="parameter_description"><para>the accumulator for this signal; may be <link linkend="NULL:CAPS"><literal>NULL</literal></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>accu_data</para></entry>
+<entry role="parameter_description"><para>user data for the <parameter>accumulator</parameter>
+.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>c_marshaller</para></entry>
+<entry role="parameter_description"><para>the function to translate arrays of parameter
+values to signal emissions into C language callback invocations or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>return_type</para></entry>
+<entry role="parameter_description"><para>the type of return value, or <link linkend="G-TYPE-NONE:CAPS"><type>G_TYPE_NONE</type></link> for a signal
+without a return value.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>n_params</para></entry>
+<entry role="parameter_description"><para>the number of parameter types to follow.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>...</para></entry>
+<entry role="parameter_description"><para>a list of types, one for each parameter.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-signal-new.returns" role="returns">
+<title>Returns</title>
+<para> the signal id</para>
+</refsect3></refsect2>
+<refsect2 id="g-signal-newv" role="function">
+<title>g_signal_newv&#160;()</title>
+<indexterm zone="g-signal-newv"><primary sortas="signal_newv">g_signal_newv</primary></indexterm>
+<programlisting language="C"><link linkend="guint"><returnvalue>guint</returnvalue></link>
+g_signal_newv (<parameter>const <link linkend="gchar"><type>gchar</type></link> *signal_name</parameter>,
+               <parameter><link linkend="GType"><type>GType</type></link> itype</parameter>,
+               <parameter><link linkend="GSignalFlags"><type>GSignalFlags</type></link> signal_flags</parameter>,
+               <parameter><link linkend="GClosure"><type>GClosure</type></link> *class_closure</parameter>,
+               <parameter><link linkend="GSignalAccumulator"><type>GSignalAccumulator</type></link> accumulator</parameter>,
+               <parameter><link linkend="gpointer"><type>gpointer</type></link> accu_data</parameter>,
+               <parameter><link linkend="GSignalCMarshaller"><type>GSignalCMarshaller</type></link> c_marshaller</parameter>,
+               <parameter><link linkend="GType"><type>GType</type></link> return_type</parameter>,
+               <parameter><link linkend="guint"><type>guint</type></link> n_params</parameter>,
+               <parameter><link linkend="GType"><type>GType</type></link> *param_types</parameter>);</programlisting>
+<para>Creates a new signal. (This is usually done in the class initializer.)</para>
+<para>See <link linkend="g-signal-new"><function>g_signal_new()</function></link> for details on allowed signal names.</para>
+<para>If c_marshaller is <link linkend="NULL:CAPS"><literal>NULL</literal></link>, <link linkend="g-cclosure-marshal-generic"><function>g_cclosure_marshal_generic()</function></link> will be used as
+the marshaller for this signal.</para>
+<refsect3 id="g-signal-newv.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>signal_name</para></entry>
+<entry role="parameter_description"><para>the name for the signal</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>itype</para></entry>
+<entry role="parameter_description"><para>the type this signal pertains to. It will also pertain to
+types which are derived from this type</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>signal_flags</para></entry>
+<entry role="parameter_description"><para>a combination of <link linkend="GSignalFlags"><type>GSignalFlags</type></link> specifying detail of when
+the default handler is to be invoked. You should at least specify
+<link linkend="G-SIGNAL-RUN-FIRST:CAPS"><literal>G_SIGNAL_RUN_FIRST</literal></link> or <link linkend="G-SIGNAL-RUN-LAST:CAPS"><literal>G_SIGNAL_RUN_LAST</literal></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>class_closure</para></entry>
+<entry role="parameter_description"><para>The closure to invoke on signal emission;
+may be <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>accumulator</para></entry>
+<entry role="parameter_description"><para>the accumulator for this signal; may be <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>accu_data</para></entry>
+<entry role="parameter_description"><para>user data for the <parameter>accumulator</parameter>
+</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>c_marshaller</para></entry>
+<entry role="parameter_description"><para>the function to translate arrays of
+parameter values to signal emissions into C language callback
+invocations or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>return_type</para></entry>
+<entry role="parameter_description"><para>the type of return value, or <link linkend="G-TYPE-NONE:CAPS"><type>G_TYPE_NONE</type></link> for a signal
+without a return value</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>n_params</para></entry>
+<entry role="parameter_description"><para>the length of <parameter>param_types</parameter>
+</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>param_types</para></entry>
+<entry role="parameter_description"><para>an array of types, one for
+each parameter. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>array</acronym> length=n_params]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-signal-newv.returns" role="returns">
+<title>Returns</title>
+<para> the signal id</para>
+</refsect3></refsect2>
+<refsect2 id="g-signal-new-valist" role="function">
+<title>g_signal_new_valist&#160;()</title>
+<indexterm zone="g-signal-new-valist"><primary sortas="signal_new_valist">g_signal_new_valist</primary></indexterm>
+<programlisting language="C"><link linkend="guint"><returnvalue>guint</returnvalue></link>
+g_signal_new_valist (<parameter>const <link linkend="gchar"><type>gchar</type></link> *signal_name</parameter>,
+                     <parameter><link linkend="GType"><type>GType</type></link> itype</parameter>,
+                     <parameter><link linkend="GSignalFlags"><type>GSignalFlags</type></link> signal_flags</parameter>,
+                     <parameter><link linkend="GClosure"><type>GClosure</type></link> *class_closure</parameter>,
+                     <parameter><link linkend="GSignalAccumulator"><type>GSignalAccumulator</type></link> accumulator</parameter>,
+                     <parameter><link linkend="gpointer"><type>gpointer</type></link> accu_data</parameter>,
+                     <parameter><link linkend="GSignalCMarshaller"><type>GSignalCMarshaller</type></link> c_marshaller</parameter>,
+                     <parameter><link linkend="GType"><type>GType</type></link> return_type</parameter>,
+                     <parameter><link linkend="guint"><type>guint</type></link> n_params</parameter>,
+                     <parameter><link linkend="va-list"><type>va_list</type></link> args</parameter>);</programlisting>
+<para>Creates a new signal. (This is usually done in the class initializer.)</para>
+<para>See <link linkend="g-signal-new"><function>g_signal_new()</function></link> for details on allowed signal names.</para>
+<para>If c_marshaller is <link linkend="NULL:CAPS"><literal>NULL</literal></link>, <link linkend="g-cclosure-marshal-generic"><function>g_cclosure_marshal_generic()</function></link> will be used as
+the marshaller for this signal.</para>
+<refsect3 id="g-signal-new-valist.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>signal_name</para></entry>
+<entry role="parameter_description"><para>the name for the signal</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>itype</para></entry>
+<entry role="parameter_description"><para>the type this signal pertains to. It will also pertain to
+types which are derived from this type.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>signal_flags</para></entry>
+<entry role="parameter_description"><para>a combination of <link linkend="GSignalFlags"><type>GSignalFlags</type></link> specifying detail of when
+the default handler is to be invoked. You should at least specify
+<link linkend="G-SIGNAL-RUN-FIRST:CAPS"><literal>G_SIGNAL_RUN_FIRST</literal></link> or <link linkend="G-SIGNAL-RUN-LAST:CAPS"><literal>G_SIGNAL_RUN_LAST</literal></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>class_closure</para></entry>
+<entry role="parameter_description"><para>The closure to invoke on signal emission; may be <link linkend="NULL:CAPS"><literal>NULL</literal></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>accumulator</para></entry>
+<entry role="parameter_description"><para>the accumulator for this signal; may be <link linkend="NULL:CAPS"><literal>NULL</literal></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>accu_data</para></entry>
+<entry role="parameter_description"><para>user data for the <parameter>accumulator</parameter>
+.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>c_marshaller</para></entry>
+<entry role="parameter_description"><para>the function to translate arrays of parameter
+values to signal emissions into C language callback invocations or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>return_type</para></entry>
+<entry role="parameter_description"><para>the type of return value, or <link linkend="G-TYPE-NONE:CAPS"><type>G_TYPE_NONE</type></link> for a signal
+without a return value.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>n_params</para></entry>
+<entry role="parameter_description"><para>the number of parameter types in <parameter>args</parameter>
+.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>args</para></entry>
+<entry role="parameter_description"><para>va_list of <link linkend="GType"><type>GType</type></link>, one for each parameter.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-signal-new-valist.returns" role="returns">
+<title>Returns</title>
+<para> the signal id</para>
+</refsect3></refsect2>
+<refsect2 id="g-signal-set-va-marshaller" role="function" condition="since:2.32">
+<title>g_signal_set_va_marshaller&#160;()</title>
+<indexterm zone="g-signal-set-va-marshaller" role="2.32"><primary sortas="signal_set_va_marshaller">g_signal_set_va_marshaller</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_signal_set_va_marshaller (<parameter><link linkend="guint"><type>guint</type></link> signal_id</parameter>,
+                            <parameter><link linkend="GType"><type>GType</type></link> instance_type</parameter>,
+                            <parameter><link linkend="GSignalCVaMarshaller"><type>GSignalCVaMarshaller</type></link> va_marshaller</parameter>);</programlisting>
+<para>Change the <link linkend="GSignalCVaMarshaller"><type>GSignalCVaMarshaller</type></link> used for a given signal.  This is a
+specialised form of the marshaller that can often be used for the
+common case of a single connected signal handler and avoids the
+overhead of <link linkend="GValue"><type>GValue</type></link>.  Its use is optional.</para>
+<refsect3 id="g-signal-set-va-marshaller.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>signal_id</para></entry>
+<entry role="parameter_description"><para>the signal id</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>instance_type</para></entry>
+<entry role="parameter_description"><para>the instance type on which to set the marshaller.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>va_marshaller</para></entry>
+<entry role="parameter_description"><para>the marshaller to set.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.32">2.32</link></para></refsect2>
+<refsect2 id="g-signal-query" role="function">
+<title>g_signal_query&#160;()</title>
+<indexterm zone="g-signal-query"><primary sortas="signal_query">g_signal_query</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_signal_query (<parameter><link linkend="guint"><type>guint</type></link> signal_id</parameter>,
+                <parameter><link linkend="GSignalQuery"><type>GSignalQuery</type></link> *query</parameter>);</programlisting>
+<para>Queries the signal system for in-depth information about a
+specific signal. This function will fill in a user-provided
+structure to hold signal-specific information. If an invalid
+signal id is passed in, the <parameter>signal_id</parameter>
+ member of the <link linkend="GSignalQuery"><type>GSignalQuery</type></link>
+is 0. All members filled into the <link linkend="GSignalQuery"><type>GSignalQuery</type></link> structure should
+be considered constant and have to be left untouched.</para>
+<refsect3 id="g-signal-query.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>signal_id</para></entry>
+<entry role="parameter_description"><para>The signal id of the signal to query information for.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>query</para></entry>
+<entry role="parameter_description"><para>A user provided structure that is
+filled in with constant values upon success. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>out caller-allocates</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-signal-lookup" role="function">
+<title>g_signal_lookup&#160;()</title>
+<indexterm zone="g-signal-lookup"><primary sortas="signal_lookup">g_signal_lookup</primary></indexterm>
+<programlisting language="C"><link linkend="guint"><returnvalue>guint</returnvalue></link>
+g_signal_lookup (<parameter>const <link linkend="gchar"><type>gchar</type></link> *name</parameter>,
+                 <parameter><link linkend="GType"><type>GType</type></link> itype</parameter>);</programlisting>
+<para>Given the name of the signal and the type of object it connects to, gets
+the signal's identifying integer. Emitting the signal by number is
+somewhat faster than using the name each time.</para>
+<para>Also tries the ancestors of the given type.</para>
+<para>See <link linkend="g-signal-new"><function>g_signal_new()</function></link> for details on allowed signal names.</para>
+<refsect3 id="g-signal-lookup.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>name</para></entry>
+<entry role="parameter_description"><para>the signal's name.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>itype</para></entry>
+<entry role="parameter_description"><para>the type that the signal operates on.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-signal-lookup.returns" role="returns">
+<title>Returns</title>
+<para> the signal's identifying number, or 0 if no signal was found.</para>
+</refsect3></refsect2>
+<refsect2 id="g-signal-name" role="function">
+<title>g_signal_name&#160;()</title>
+<indexterm zone="g-signal-name"><primary sortas="signal_name">g_signal_name</primary></indexterm>
+<programlisting language="C">const <link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+g_signal_name (<parameter><link linkend="guint"><type>guint</type></link> signal_id</parameter>);</programlisting>
+<para>Given the signal's identifier, finds its name.</para>
+<para>Two different signals may have the same name, if they have differing types.</para>
+<refsect3 id="g-signal-name.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>signal_id</para></entry>
+<entry role="parameter_description"><para>the signal's identifying number.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-signal-name.returns" role="returns">
+<title>Returns</title>
+<para> the signal name, or <link linkend="NULL:CAPS"><literal>NULL</literal></link> if the signal number was invalid.</para>
+</refsect3></refsect2>
+<refsect2 id="g-signal-list-ids" role="function">
+<title>g_signal_list_ids&#160;()</title>
+<indexterm zone="g-signal-list-ids"><primary sortas="signal_list_ids">g_signal_list_ids</primary></indexterm>
+<programlisting language="C"><link linkend="guint"><returnvalue>guint</returnvalue></link>&#160;*
+g_signal_list_ids (<parameter><link linkend="GType"><type>GType</type></link> itype</parameter>,
+                   <parameter><link linkend="guint"><type>guint</type></link> *n_ids</parameter>);</programlisting>
+<para>Lists the signals by id that a certain instance or interface type
+created. Further information about the signals can be acquired through
+<link linkend="g-signal-query"><function>g_signal_query()</function></link>.</para>
+<refsect3 id="g-signal-list-ids.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>itype</para></entry>
+<entry role="parameter_description"><para>Instance or interface type.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>n_ids</para></entry>
+<entry role="parameter_description"><para>Location to store the number of signal ids for <parameter>itype</parameter>
+.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-signal-list-ids.returns" role="returns">
+<title>Returns</title>
+<para>Newly allocated array of signal IDs. </para>
+<para><emphasis role="annotation">[<acronym>array</acronym> length=n_ids][<acronym>transfer full</acronym>]</emphasis></para>
+</refsect3></refsect2>
+<refsect2 id="g-signal-emit" role="function">
+<title>g_signal_emit&#160;()</title>
+<indexterm zone="g-signal-emit"><primary sortas="signal_emit">g_signal_emit</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_signal_emit (<parameter><link linkend="gpointer"><type>gpointer</type></link> instance</parameter>,
+               <parameter><link linkend="guint"><type>guint</type></link> signal_id</parameter>,
+               <parameter><link linkend="GQuark"><type>GQuark</type></link> detail</parameter>,
+               <parameter>...</parameter>);</programlisting>
+<para>Emits a signal.</para>
+<para>Note that <link linkend="g-signal-emit"><function>g_signal_emit()</function></link> resets the return value to the default
+if no handlers are connected, in contrast to <link linkend="g-signal-emitv"><function>g_signal_emitv()</function></link>.</para>
+<refsect3 id="g-signal-emit.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>instance</para></entry>
+<entry role="parameter_description"><para>the instance the signal is being emitted on. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>type</acronym> GObject.Object]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>signal_id</para></entry>
+<entry role="parameter_description"><para>the signal id</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>detail</para></entry>
+<entry role="parameter_description"><para>the detail</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>...</para></entry>
+<entry role="parameter_description"><para>parameters to be passed to the signal, followed by a
+location for the return value. If the return type of the signal
+is <link linkend="G-TYPE-NONE:CAPS"><type>G_TYPE_NONE</type></link>, the return value location can be omitted.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-signal-emit-by-name" role="function">
+<title>g_signal_emit_by_name&#160;()</title>
+<indexterm zone="g-signal-emit-by-name"><primary sortas="signal_emit_by_name">g_signal_emit_by_name</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_signal_emit_by_name (<parameter><link linkend="gpointer"><type>gpointer</type></link> instance</parameter>,
+                       <parameter>const <link linkend="gchar"><type>gchar</type></link> *detailed_signal</parameter>,
+                       <parameter>...</parameter>);</programlisting>
+<para>Emits a signal.</para>
+<para>Note that <link linkend="g-signal-emit-by-name"><function>g_signal_emit_by_name()</function></link> resets the return value to the default
+if no handlers are connected, in contrast to <link linkend="g-signal-emitv"><function>g_signal_emitv()</function></link>.</para>
+<refsect3 id="g-signal-emit-by-name.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>instance</para></entry>
+<entry role="parameter_description"><para>the instance the signal is being emitted on. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>type</acronym> GObject.Object]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>detailed_signal</para></entry>
+<entry role="parameter_description"><para>a string of the form "signal-name::detail".</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>...</para></entry>
+<entry role="parameter_description"><para>parameters to be passed to the signal, followed by a
+location for the return value. If the return type of the signal
+is <link linkend="G-TYPE-NONE:CAPS"><type>G_TYPE_NONE</type></link>, the return value location can be omitted.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-signal-emitv" role="function">
+<title>g_signal_emitv&#160;()</title>
+<indexterm zone="g-signal-emitv"><primary sortas="signal_emitv">g_signal_emitv</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_signal_emitv (<parameter>const <link linkend="GValue"><type>GValue</type></link> *instance_and_params</parameter>,
+                <parameter><link linkend="guint"><type>guint</type></link> signal_id</parameter>,
+                <parameter><link linkend="GQuark"><type>GQuark</type></link> detail</parameter>,
+                <parameter><link linkend="GValue"><type>GValue</type></link> *return_value</parameter>);</programlisting>
+<para>Emits a signal.</para>
+<para>Note that <link linkend="g-signal-emitv"><function>g_signal_emitv()</function></link> doesn't change <parameter>return_value</parameter>
+ if no handlers are
+connected, in contrast to <link linkend="g-signal-emit"><function>g_signal_emit()</function></link> and <link linkend="g-signal-emit-valist"><function>g_signal_emit_valist()</function></link>.</para>
+<refsect3 id="g-signal-emitv.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>instance_and_params</para></entry>
+<entry role="parameter_description"><para>argument list for the signal emission.
+The first element in the array is a <link linkend="GValue"><type>GValue</type></link> for the instance the signal
+is being emitted on. The rest are any arguments to be passed to the signal. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>array</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>signal_id</para></entry>
+<entry role="parameter_description"><para>the signal id</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>detail</para></entry>
+<entry role="parameter_description"><para>the detail</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>return_value</para></entry>
+<entry role="parameter_description"><para>Location to
+store the return value of the signal emission. This must be provided if the
+specified signal returns a value, but may be ignored otherwise. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>inout</acronym>][<acronym>optional</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-signal-emit-valist" role="function">
+<title>g_signal_emit_valist&#160;()</title>
+<indexterm zone="g-signal-emit-valist"><primary sortas="signal_emit_valist">g_signal_emit_valist</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_signal_emit_valist (<parameter><link linkend="gpointer"><type>gpointer</type></link> instance</parameter>,
+                      <parameter><link linkend="guint"><type>guint</type></link> signal_id</parameter>,
+                      <parameter><link linkend="GQuark"><type>GQuark</type></link> detail</parameter>,
+                      <parameter><link linkend="va-list"><type>va_list</type></link> var_args</parameter>);</programlisting>
+<para>Emits a signal.</para>
+<para>Note that <link linkend="g-signal-emit-valist"><function>g_signal_emit_valist()</function></link> resets the return value to the default
+if no handlers are connected, in contrast to <link linkend="g-signal-emitv"><function>g_signal_emitv()</function></link>.</para>
+
+<para><emphasis role="annotation">[<acronym>skip</acronym>]</emphasis></para><refsect3 id="g-signal-emit-valist.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>instance</para></entry>
+<entry role="parameter_description"><para>the instance the signal is being
+emitted on. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>type</acronym> GObject.TypeInstance]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>signal_id</para></entry>
+<entry role="parameter_description"><para>the signal id</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>detail</para></entry>
+<entry role="parameter_description"><para>the detail</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>var_args</para></entry>
+<entry role="parameter_description"><para>a list of parameters to be passed to the signal, followed by a
+location for the return value. If the return type of the signal
+is <link linkend="G-TYPE-NONE:CAPS"><type>G_TYPE_NONE</type></link>, the return value location can be omitted.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-signal-connect" role="macro">
+<title>g_signal_connect()</title>
+<indexterm zone="g-signal-connect"><primary sortas="signal_connect">g_signal_connect</primary></indexterm>
+<programlisting language="C">#define             g_signal_connect(instance, detailed_signal, c_handler, data)</programlisting>
+<para>Connects a <link linkend="GCallback"><type>GCallback</type></link> function to a signal for a particular object.</para>
+<para>The handler will be called before the default handler of the signal.</para>
+<para>See <link linkend="signal-memory-management">memory management of signal handlers</link> for
+details on how to handle the return value and memory management of <parameter>data</parameter>
+.</para>
+<refsect3 id="g-signal-connect.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>instance</para></entry>
+<entry role="parameter_description"><para>the instance to connect to.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>detailed_signal</para></entry>
+<entry role="parameter_description"><para>a string of the form "signal-name::detail".</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>c_handler</para></entry>
+<entry role="parameter_description"><para>the <link linkend="GCallback"><type>GCallback</type></link> to connect.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>data</para></entry>
+<entry role="parameter_description"><para>data to pass to <parameter>c_handler</parameter>
+calls.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-signal-connect.returns" role="returns">
+<title>Returns</title>
+<para> the handler ID, of type <link linkend="gulong"><type>gulong</type></link> (always greater than 0 for successful connections)</para>
+</refsect3></refsect2>
+<refsect2 id="g-signal-connect-after" role="macro">
+<title>g_signal_connect_after()</title>
+<indexterm zone="g-signal-connect-after"><primary sortas="signal_connect_after">g_signal_connect_after</primary></indexterm>
+<programlisting language="C">#define             g_signal_connect_after(instance, detailed_signal, c_handler, data)</programlisting>
+<para>Connects a <link linkend="GCallback"><type>GCallback</type></link> function to a signal for a particular object.</para>
+<para>The handler will be called after the default handler of the signal.</para>
+<refsect3 id="g-signal-connect-after.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>instance</para></entry>
+<entry role="parameter_description"><para>the instance to connect to.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>detailed_signal</para></entry>
+<entry role="parameter_description"><para>a string of the form "signal-name::detail".</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>c_handler</para></entry>
+<entry role="parameter_description"><para>the <link linkend="GCallback"><type>GCallback</type></link> to connect.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>data</para></entry>
+<entry role="parameter_description"><para>data to pass to <parameter>c_handler</parameter>
+calls.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-signal-connect-after.returns" role="returns">
+<title>Returns</title>
+<para> the handler ID, of type <link linkend="gulong"><type>gulong</type></link> (always greater than 0 for successful connections)</para>
+</refsect3></refsect2>
+<refsect2 id="g-signal-connect-swapped" role="macro">
+<title>g_signal_connect_swapped()</title>
+<indexterm zone="g-signal-connect-swapped"><primary sortas="signal_connect_swapped">g_signal_connect_swapped</primary></indexterm>
+<programlisting language="C">#define             g_signal_connect_swapped(instance, detailed_signal, c_handler, data)</programlisting>
+<para>Connects a <link linkend="GCallback"><type>GCallback</type></link> function to a signal for a particular object.</para>
+<para>The instance on which the signal is emitted and <parameter>data</parameter>
+ will be swapped when 
+calling the handler. This is useful when calling pre-existing functions to
+operate purely on the <parameter>data</parameter>
+, rather than the <parameter>instance</parameter>
+: swapping the
+parameters avoids the need to write a wrapper function.</para>
+<para>For example, this allows the shorter code:</para>
+<informalexample><programlisting role="example"><![CDATA[
+g_signal_connect_swapped (button, "clicked",
+                          (GCallback) gtk_widget_hide, other_widget);
+]]></programlisting></informalexample>
+<para></para>
+<para>Rather than the cumbersome:</para>
+<informalexample><programlisting role="example"><![CDATA[
+static void
+button_clicked_cb (GtkButton *button, GtkWidget *other_widget)
+{
+    gtk_widget_hide (other_widget);
+}
+
+...
+
+g_signal_connect (button, "clicked",
+                  (GCallback) button_clicked_cb, other_widget);
+]]></programlisting></informalexample>
+<para></para>
+<refsect3 id="g-signal-connect-swapped.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>instance</para></entry>
+<entry role="parameter_description"><para>the instance to connect to.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>detailed_signal</para></entry>
+<entry role="parameter_description"><para>a string of the form "signal-name::detail".</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>c_handler</para></entry>
+<entry role="parameter_description"><para>the <link linkend="GCallback"><type>GCallback</type></link> to connect.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>data</para></entry>
+<entry role="parameter_description"><para>data to pass to <parameter>c_handler</parameter>
+calls.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-signal-connect-swapped.returns" role="returns">
+<title>Returns</title>
+<para> the handler ID, of type <link linkend="gulong"><type>gulong</type></link> (always greater than 0 for successful connections)</para>
+</refsect3></refsect2>
+<refsect2 id="g-signal-connect-object" role="function">
+<title>g_signal_connect_object&#160;()</title>
+<indexterm zone="g-signal-connect-object"><primary sortas="signal_connect_object">g_signal_connect_object</primary></indexterm>
+<programlisting language="C"><link linkend="gulong"><returnvalue>gulong</returnvalue></link>
+g_signal_connect_object (<parameter><link linkend="gpointer"><type>gpointer</type></link> instance</parameter>,
+                         <parameter>const <link linkend="gchar"><type>gchar</type></link> *detailed_signal</parameter>,
+                         <parameter><link linkend="GCallback"><type>GCallback</type></link> c_handler</parameter>,
+                         <parameter><link linkend="gpointer"><type>gpointer</type></link> gobject</parameter>,
+                         <parameter><link linkend="GConnectFlags"><type>GConnectFlags</type></link> connect_flags</parameter>);</programlisting>
+<para>This is similar to <link linkend="g-signal-connect-data"><function>g_signal_connect_data()</function></link>, but uses a closure which
+ensures that the <parameter>gobject</parameter>
+ stays alive during the call to <parameter>c_handler</parameter>
+
+by temporarily adding a reference count to <parameter>gobject</parameter>
+.</para>
+<para>When the <parameter>gobject</parameter>
+ is destroyed the signal handler will be automatically
+disconnected.  Note that this is not currently threadsafe (ie:
+emitting a signal while <parameter>gobject</parameter>
+ is being destroyed in another thread
+is not safe).</para>
+
+<para><emphasis role="annotation">[<acronym>skip</acronym>]</emphasis></para><refsect3 id="g-signal-connect-object.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>instance</para></entry>
+<entry role="parameter_description"><para>the instance to connect to. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>type</acronym> GObject.TypeInstance]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>detailed_signal</para></entry>
+<entry role="parameter_description"><para>a string of the form "signal-name::detail".</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>c_handler</para></entry>
+<entry role="parameter_description"><para>the <link linkend="GCallback"><type>GCallback</type></link> to connect.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>gobject</para></entry>
+<entry role="parameter_description"><para>the object to pass as data
+to <parameter>c_handler</parameter>
+. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>type</acronym> GObject.Object][<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>connect_flags</para></entry>
+<entry role="parameter_description"><para>a combination of <link linkend="GConnectFlags"><type>GConnectFlags</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-signal-connect-object.returns" role="returns">
+<title>Returns</title>
+<para> the handler id.</para>
+</refsect3></refsect2>
+<refsect2 id="g-signal-connect-data" role="function">
+<title>g_signal_connect_data&#160;()</title>
+<indexterm zone="g-signal-connect-data"><primary sortas="signal_connect_data">g_signal_connect_data</primary></indexterm>
+<programlisting language="C"><link linkend="gulong"><returnvalue>gulong</returnvalue></link>
+g_signal_connect_data (<parameter><link linkend="gpointer"><type>gpointer</type></link> instance</parameter>,
+                       <parameter>const <link linkend="gchar"><type>gchar</type></link> *detailed_signal</parameter>,
+                       <parameter><link linkend="GCallback"><type>GCallback</type></link> c_handler</parameter>,
+                       <parameter><link linkend="gpointer"><type>gpointer</type></link> data</parameter>,
+                       <parameter><link linkend="GClosureNotify"><type>GClosureNotify</type></link> destroy_data</parameter>,
+                       <parameter><link linkend="GConnectFlags"><type>GConnectFlags</type></link> connect_flags</parameter>);</programlisting>
+<para>Connects a <link linkend="GCallback"><type>GCallback</type></link> function to a signal for a particular object. Similar
+to <link linkend="g-signal-connect"><function>g_signal_connect()</function></link>, but allows to provide a <link linkend="GClosureNotify"><type>GClosureNotify</type></link> for the data
+which will be called when the signal handler is disconnected and no longer
+used. Specify <parameter>connect_flags</parameter>
+ if you need <literal>..._after()</literal> or
+<literal>..._swapped()</literal> variants of this function.</para>
+<refsect3 id="g-signal-connect-data.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>instance</para></entry>
+<entry role="parameter_description"><para>the instance to connect to. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>type</acronym> GObject.Object]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>detailed_signal</para></entry>
+<entry role="parameter_description"><para>a string of the form "signal-name::detail".</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>c_handler</para></entry>
+<entry role="parameter_description"><para>the <link linkend="GCallback"><type>GCallback</type></link> to connect.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>data</para></entry>
+<entry role="parameter_description"><para>data to pass to <parameter>c_handler</parameter>
+calls.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>destroy_data</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GClosureNotify"><type>GClosureNotify</type></link> for <parameter>data</parameter>
+.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>connect_flags</para></entry>
+<entry role="parameter_description"><para>a combination of <link linkend="GConnectFlags"><type>GConnectFlags</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-signal-connect-data.returns" role="returns">
+<title>Returns</title>
+<para> the handler ID (always greater than 0 for successful connections)</para>
+</refsect3></refsect2>
+<refsect2 id="g-signal-connect-closure" role="function">
+<title>g_signal_connect_closure&#160;()</title>
+<indexterm zone="g-signal-connect-closure"><primary sortas="signal_connect_closure">g_signal_connect_closure</primary></indexterm>
+<programlisting language="C"><link linkend="gulong"><returnvalue>gulong</returnvalue></link>
+g_signal_connect_closure (<parameter><link linkend="gpointer"><type>gpointer</type></link> instance</parameter>,
+                          <parameter>const <link linkend="gchar"><type>gchar</type></link> *detailed_signal</parameter>,
+                          <parameter><link linkend="GClosure"><type>GClosure</type></link> *closure</parameter>,
+                          <parameter><link linkend="gboolean"><type>gboolean</type></link> after</parameter>);</programlisting>
+<para>Connects a closure to a signal for a particular object.</para>
+<refsect3 id="g-signal-connect-closure.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>instance</para></entry>
+<entry role="parameter_description"><para>the instance to connect to. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>type</acronym> GObject.Object]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>detailed_signal</para></entry>
+<entry role="parameter_description"><para>a string of the form "signal-name::detail".</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>closure</para></entry>
+<entry role="parameter_description"><para>the closure to connect.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>after</para></entry>
+<entry role="parameter_description"><para>whether the handler should be called before or after the
+default handler of the signal.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-signal-connect-closure.returns" role="returns">
+<title>Returns</title>
+<para> the handler ID (always greater than 0 for successful connections)</para>
+</refsect3></refsect2>
+<refsect2 id="g-signal-connect-closure-by-id" role="function">
+<title>g_signal_connect_closure_by_id&#160;()</title>
+<indexterm zone="g-signal-connect-closure-by-id"><primary sortas="signal_connect_closure_by_id">g_signal_connect_closure_by_id</primary></indexterm>
+<programlisting language="C"><link linkend="gulong"><returnvalue>gulong</returnvalue></link>
+g_signal_connect_closure_by_id (<parameter><link linkend="gpointer"><type>gpointer</type></link> instance</parameter>,
+                                <parameter><link linkend="guint"><type>guint</type></link> signal_id</parameter>,
+                                <parameter><link linkend="GQuark"><type>GQuark</type></link> detail</parameter>,
+                                <parameter><link linkend="GClosure"><type>GClosure</type></link> *closure</parameter>,
+                                <parameter><link linkend="gboolean"><type>gboolean</type></link> after</parameter>);</programlisting>
+<para>Connects a closure to a signal for a particular object.</para>
+<refsect3 id="g-signal-connect-closure-by-id.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>instance</para></entry>
+<entry role="parameter_description"><para>the instance to connect to. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>type</acronym> GObject.Object]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>signal_id</para></entry>
+<entry role="parameter_description"><para>the id of the signal.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>detail</para></entry>
+<entry role="parameter_description"><para>the detail.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>closure</para></entry>
+<entry role="parameter_description"><para>the closure to connect.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>after</para></entry>
+<entry role="parameter_description"><para>whether the handler should be called before or after the
+default handler of the signal.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-signal-connect-closure-by-id.returns" role="returns">
+<title>Returns</title>
+<para> the handler ID (always greater than 0 for successful connections)</para>
+</refsect3></refsect2>
+<refsect2 id="g-signal-handler-block" role="function">
+<title>g_signal_handler_block&#160;()</title>
+<indexterm zone="g-signal-handler-block"><primary sortas="signal_handler_block">g_signal_handler_block</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_signal_handler_block (<parameter><link linkend="gpointer"><type>gpointer</type></link> instance</parameter>,
+                        <parameter><link linkend="gulong"><type>gulong</type></link> handler_id</parameter>);</programlisting>
+<para>Blocks a handler of an instance so it will not be called during any
+signal emissions unless it is unblocked again. Thus "blocking" a
+signal handler means to temporarily deactive it, a signal handler
+has to be unblocked exactly the same amount of times it has been
+blocked before to become active again.</para>
+<para>The <parameter>handler_id</parameter>
+ has to be a valid signal handler id, connected to a
+signal of <parameter>instance</parameter>
+.</para>
+<refsect3 id="g-signal-handler-block.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>instance</para></entry>
+<entry role="parameter_description"><para>The instance to block the signal handler of. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>type</acronym> GObject.Object]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>handler_id</para></entry>
+<entry role="parameter_description"><para>Handler id of the handler to be blocked.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-signal-handler-unblock" role="function">
+<title>g_signal_handler_unblock&#160;()</title>
+<indexterm zone="g-signal-handler-unblock"><primary sortas="signal_handler_unblock">g_signal_handler_unblock</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_signal_handler_unblock (<parameter><link linkend="gpointer"><type>gpointer</type></link> instance</parameter>,
+                          <parameter><link linkend="gulong"><type>gulong</type></link> handler_id</parameter>);</programlisting>
+<para>Undoes the effect of a previous <link linkend="g-signal-handler-block"><function>g_signal_handler_block()</function></link> call.  A
+blocked handler is skipped during signal emissions and will not be
+invoked, unblocking it (for exactly the amount of times it has been
+blocked before) reverts its "blocked" state, so the handler will be
+recognized by the signal system and is called upon future or
+currently ongoing signal emissions (since the order in which
+handlers are called during signal emissions is deterministic,
+whether the unblocked handler in question is called as part of a
+currently ongoing emission depends on how far that emission has
+proceeded yet).</para>
+<para>The <parameter>handler_id</parameter>
+ has to be a valid id of a signal handler that is
+connected to a signal of <parameter>instance</parameter>
+ and is currently blocked.</para>
+<refsect3 id="g-signal-handler-unblock.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>instance</para></entry>
+<entry role="parameter_description"><para>The instance to unblock the signal handler of. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>type</acronym> GObject.Object]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>handler_id</para></entry>
+<entry role="parameter_description"><para>Handler id of the handler to be unblocked.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-signal-handler-disconnect" role="function">
+<title>g_signal_handler_disconnect&#160;()</title>
+<indexterm zone="g-signal-handler-disconnect"><primary sortas="signal_handler_disconnect">g_signal_handler_disconnect</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_signal_handler_disconnect (<parameter><link linkend="gpointer"><type>gpointer</type></link> instance</parameter>,
+                             <parameter><link linkend="gulong"><type>gulong</type></link> handler_id</parameter>);</programlisting>
+<para>Disconnects a handler from an instance so it will not be called during
+any future or currently ongoing emissions of the signal it has been
+connected to. The <parameter>handler_id</parameter>
+ becomes invalid and may be reused.</para>
+<para>The <parameter>handler_id</parameter>
+ has to be a valid signal handler id, connected to a
+signal of <parameter>instance</parameter>
+.</para>
+<refsect3 id="g-signal-handler-disconnect.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>instance</para></entry>
+<entry role="parameter_description"><para>The instance to remove the signal handler from. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>type</acronym> GObject.Object]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>handler_id</para></entry>
+<entry role="parameter_description"><para>Handler id of the handler to be disconnected.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-signal-handler-find" role="function">
+<title>g_signal_handler_find&#160;()</title>
+<indexterm zone="g-signal-handler-find"><primary sortas="signal_handler_find">g_signal_handler_find</primary></indexterm>
+<programlisting language="C"><link linkend="gulong"><returnvalue>gulong</returnvalue></link>
+g_signal_handler_find (<parameter><link linkend="gpointer"><type>gpointer</type></link> instance</parameter>,
+                       <parameter><link linkend="GSignalMatchType"><type>GSignalMatchType</type></link> mask</parameter>,
+                       <parameter><link linkend="guint"><type>guint</type></link> signal_id</parameter>,
+                       <parameter><link linkend="GQuark"><type>GQuark</type></link> detail</parameter>,
+                       <parameter><link linkend="GClosure"><type>GClosure</type></link> *closure</parameter>,
+                       <parameter><link linkend="gpointer"><type>gpointer</type></link> func</parameter>,
+                       <parameter><link linkend="gpointer"><type>gpointer</type></link> data</parameter>);</programlisting>
+<para>Finds the first signal handler that matches certain selection criteria.
+The criteria mask is passed as an OR-ed combination of <link linkend="GSignalMatchType"><type>GSignalMatchType</type></link>
+flags, and the criteria values are passed as arguments.
+The match <parameter>mask</parameter>
+ has to be non-0 for successful matches.
+If no handler was found, 0 is returned.</para>
+<refsect3 id="g-signal-handler-find.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>instance</para></entry>
+<entry role="parameter_description"><para>The instance owning the signal handler to be found. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>type</acronym> GObject.Object]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>mask</para></entry>
+<entry role="parameter_description"><para>Mask indicating which of <parameter>signal_id</parameter>
+, <parameter>detail</parameter>
+, <parameter>closure</parameter>
+, <parameter>func</parameter>
+and/or <parameter>data</parameter>
+the handler has to match.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>signal_id</para></entry>
+<entry role="parameter_description"><para>Signal the handler has to be connected to.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>detail</para></entry>
+<entry role="parameter_description"><para>Signal detail the handler has to be connected to.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>closure</para></entry>
+<entry role="parameter_description"><para>The closure the handler will invoke. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>func</para></entry>
+<entry role="parameter_description"><para>The C closure callback of the handler (useless for non-C closures).</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>data</para></entry>
+<entry role="parameter_description"><para>The closure data of the handler's closure.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-signal-handler-find.returns" role="returns">
+<title>Returns</title>
+<para> A valid non-0 signal handler id for a successful match.</para>
+</refsect3></refsect2>
+<refsect2 id="g-signal-handlers-block-matched" role="function">
+<title>g_signal_handlers_block_matched&#160;()</title>
+<indexterm zone="g-signal-handlers-block-matched"><primary sortas="signal_handlers_block_matched">g_signal_handlers_block_matched</primary></indexterm>
+<programlisting language="C"><link linkend="guint"><returnvalue>guint</returnvalue></link>
+g_signal_handlers_block_matched (<parameter><link linkend="gpointer"><type>gpointer</type></link> instance</parameter>,
+                                 <parameter><link linkend="GSignalMatchType"><type>GSignalMatchType</type></link> mask</parameter>,
+                                 <parameter><link linkend="guint"><type>guint</type></link> signal_id</parameter>,
+                                 <parameter><link linkend="GQuark"><type>GQuark</type></link> detail</parameter>,
+                                 <parameter><link linkend="GClosure"><type>GClosure</type></link> *closure</parameter>,
+                                 <parameter><link linkend="gpointer"><type>gpointer</type></link> func</parameter>,
+                                 <parameter><link linkend="gpointer"><type>gpointer</type></link> data</parameter>);</programlisting>
+<para>Blocks all handlers on an instance that match a certain selection criteria.
+The criteria mask is passed as an OR-ed combination of <link linkend="GSignalMatchType"><type>GSignalMatchType</type></link>
+flags, and the criteria values are passed as arguments.
+Passing at least one of the <link linkend="G-SIGNAL-MATCH-CLOSURE:CAPS"><literal>G_SIGNAL_MATCH_CLOSURE</literal></link>, <link linkend="G-SIGNAL-MATCH-FUNC:CAPS"><literal>G_SIGNAL_MATCH_FUNC</literal></link>
+or <link linkend="G-SIGNAL-MATCH-DATA:CAPS"><literal>G_SIGNAL_MATCH_DATA</literal></link> match flags is required for successful matches.
+If no handlers were found, 0 is returned, the number of blocked handlers
+otherwise.</para>
+<refsect3 id="g-signal-handlers-block-matched.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>instance</para></entry>
+<entry role="parameter_description"><para>The instance to block handlers from. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>type</acronym> GObject.Object]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>mask</para></entry>
+<entry role="parameter_description"><para>Mask indicating which of <parameter>signal_id</parameter>
+, <parameter>detail</parameter>
+, <parameter>closure</parameter>
+, <parameter>func</parameter>
+and/or <parameter>data</parameter>
+the handlers have to match.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>signal_id</para></entry>
+<entry role="parameter_description"><para>Signal the handlers have to be connected to.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>detail</para></entry>
+<entry role="parameter_description"><para>Signal detail the handlers have to be connected to.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>closure</para></entry>
+<entry role="parameter_description"><para>The closure the handlers will invoke. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>func</para></entry>
+<entry role="parameter_description"><para>The C closure callback of the handlers (useless for non-C closures).</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>data</para></entry>
+<entry role="parameter_description"><para>The closure data of the handlers' closures.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-signal-handlers-block-matched.returns" role="returns">
+<title>Returns</title>
+<para> The number of handlers that matched.</para>
+</refsect3></refsect2>
+<refsect2 id="g-signal-handlers-unblock-matched" role="function">
+<title>g_signal_handlers_unblock_matched&#160;()</title>
+<indexterm zone="g-signal-handlers-unblock-matched"><primary sortas="signal_handlers_unblock_matched">g_signal_handlers_unblock_matched</primary></indexterm>
+<programlisting language="C"><link linkend="guint"><returnvalue>guint</returnvalue></link>
+g_signal_handlers_unblock_matched (<parameter><link linkend="gpointer"><type>gpointer</type></link> instance</parameter>,
+                                   <parameter><link linkend="GSignalMatchType"><type>GSignalMatchType</type></link> mask</parameter>,
+                                   <parameter><link linkend="guint"><type>guint</type></link> signal_id</parameter>,
+                                   <parameter><link linkend="GQuark"><type>GQuark</type></link> detail</parameter>,
+                                   <parameter><link linkend="GClosure"><type>GClosure</type></link> *closure</parameter>,
+                                   <parameter><link linkend="gpointer"><type>gpointer</type></link> func</parameter>,
+                                   <parameter><link linkend="gpointer"><type>gpointer</type></link> data</parameter>);</programlisting>
+<para>Unblocks all handlers on an instance that match a certain selection
+criteria. The criteria mask is passed as an OR-ed combination of
+<link linkend="GSignalMatchType"><type>GSignalMatchType</type></link> flags, and the criteria values are passed as arguments.
+Passing at least one of the <link linkend="G-SIGNAL-MATCH-CLOSURE:CAPS"><literal>G_SIGNAL_MATCH_CLOSURE</literal></link>, <link linkend="G-SIGNAL-MATCH-FUNC:CAPS"><literal>G_SIGNAL_MATCH_FUNC</literal></link>
+or <link linkend="G-SIGNAL-MATCH-DATA:CAPS"><literal>G_SIGNAL_MATCH_DATA</literal></link> match flags is required for successful matches.
+If no handlers were found, 0 is returned, the number of unblocked handlers
+otherwise. The match criteria should not apply to any handlers that are
+not currently blocked.</para>
+<refsect3 id="g-signal-handlers-unblock-matched.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>instance</para></entry>
+<entry role="parameter_description"><para>The instance to unblock handlers from. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>type</acronym> GObject.Object]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>mask</para></entry>
+<entry role="parameter_description"><para>Mask indicating which of <parameter>signal_id</parameter>
+, <parameter>detail</parameter>
+, <parameter>closure</parameter>
+, <parameter>func</parameter>
+and/or <parameter>data</parameter>
+the handlers have to match.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>signal_id</para></entry>
+<entry role="parameter_description"><para>Signal the handlers have to be connected to.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>detail</para></entry>
+<entry role="parameter_description"><para>Signal detail the handlers have to be connected to.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>closure</para></entry>
+<entry role="parameter_description"><para>The closure the handlers will invoke. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>func</para></entry>
+<entry role="parameter_description"><para>The C closure callback of the handlers (useless for non-C closures).</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>data</para></entry>
+<entry role="parameter_description"><para>The closure data of the handlers' closures.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-signal-handlers-unblock-matched.returns" role="returns">
+<title>Returns</title>
+<para> The number of handlers that matched.</para>
+</refsect3></refsect2>
+<refsect2 id="g-signal-handlers-disconnect-matched" role="function">
+<title>g_signal_handlers_disconnect_matched&#160;()</title>
+<indexterm zone="g-signal-handlers-disconnect-matched"><primary sortas="signal_handlers_disconnect_matched">g_signal_handlers_disconnect_matched</primary></indexterm>
+<programlisting language="C"><link linkend="guint"><returnvalue>guint</returnvalue></link>
+g_signal_handlers_disconnect_matched (<parameter><link linkend="gpointer"><type>gpointer</type></link> instance</parameter>,
+                                      <parameter><link linkend="GSignalMatchType"><type>GSignalMatchType</type></link> mask</parameter>,
+                                      <parameter><link linkend="guint"><type>guint</type></link> signal_id</parameter>,
+                                      <parameter><link linkend="GQuark"><type>GQuark</type></link> detail</parameter>,
+                                      <parameter><link linkend="GClosure"><type>GClosure</type></link> *closure</parameter>,
+                                      <parameter><link linkend="gpointer"><type>gpointer</type></link> func</parameter>,
+                                      <parameter><link linkend="gpointer"><type>gpointer</type></link> data</parameter>);</programlisting>
+<para>Disconnects all handlers on an instance that match a certain
+selection criteria. The criteria mask is passed as an OR-ed
+combination of <link linkend="GSignalMatchType"><type>GSignalMatchType</type></link> flags, and the criteria values are
+passed as arguments.  Passing at least one of the
+<link linkend="G-SIGNAL-MATCH-CLOSURE:CAPS"><literal>G_SIGNAL_MATCH_CLOSURE</literal></link>, <link linkend="G-SIGNAL-MATCH-FUNC:CAPS"><literal>G_SIGNAL_MATCH_FUNC</literal></link> or
+<link linkend="G-SIGNAL-MATCH-DATA:CAPS"><literal>G_SIGNAL_MATCH_DATA</literal></link> match flags is required for successful
+matches.  If no handlers were found, 0 is returned, the number of
+disconnected handlers otherwise.</para>
+<refsect3 id="g-signal-handlers-disconnect-matched.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>instance</para></entry>
+<entry role="parameter_description"><para>The instance to remove handlers from. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>type</acronym> GObject.Object]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>mask</para></entry>
+<entry role="parameter_description"><para>Mask indicating which of <parameter>signal_id</parameter>
+, <parameter>detail</parameter>
+, <parameter>closure</parameter>
+, <parameter>func</parameter>
+and/or <parameter>data</parameter>
+the handlers have to match.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>signal_id</para></entry>
+<entry role="parameter_description"><para>Signal the handlers have to be connected to.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>detail</para></entry>
+<entry role="parameter_description"><para>Signal detail the handlers have to be connected to.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>closure</para></entry>
+<entry role="parameter_description"><para>The closure the handlers will invoke. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>func</para></entry>
+<entry role="parameter_description"><para>The C closure callback of the handlers (useless for non-C closures).</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>data</para></entry>
+<entry role="parameter_description"><para>The closure data of the handlers' closures.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-signal-handlers-disconnect-matched.returns" role="returns">
+<title>Returns</title>
+<para> The number of handlers that matched.</para>
+</refsect3></refsect2>
+<refsect2 id="g-signal-handler-is-connected" role="function">
+<title>g_signal_handler_is_connected&#160;()</title>
+<indexterm zone="g-signal-handler-is-connected"><primary sortas="signal_handler_is_connected">g_signal_handler_is_connected</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_signal_handler_is_connected (<parameter><link linkend="gpointer"><type>gpointer</type></link> instance</parameter>,
+                               <parameter><link linkend="gulong"><type>gulong</type></link> handler_id</parameter>);</programlisting>
+<para>Returns whether <parameter>handler_id</parameter>
+ is the ID of a handler connected to <parameter>instance</parameter>
+.</para>
+<refsect3 id="g-signal-handler-is-connected.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>instance</para></entry>
+<entry role="parameter_description"><para>The instance where a signal handler is sought. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>type</acronym> GObject.Object]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>handler_id</para></entry>
+<entry role="parameter_description"><para>the handler ID.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-signal-handler-is-connected.returns" role="returns">
+<title>Returns</title>
+<para> whether <parameter>handler_id</parameter>
+identifies a handler connected to <parameter>instance</parameter>
+.</para>
+</refsect3></refsect2>
+<refsect2 id="g-signal-handlers-block-by-func" role="macro">
+<title>g_signal_handlers_block_by_func()</title>
+<indexterm zone="g-signal-handlers-block-by-func"><primary sortas="signal_handlers_block_by_func">g_signal_handlers_block_by_func</primary></indexterm>
+<programlisting language="C">#define             g_signal_handlers_block_by_func(instance, func, data)</programlisting>
+<para>Blocks all handlers on an instance that match <parameter>func</parameter>
+ and <parameter>data</parameter>
+.</para>
+<refsect3 id="g-signal-handlers-block-by-func.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>instance</para></entry>
+<entry role="parameter_description"><para>The instance to block handlers from.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>func</para></entry>
+<entry role="parameter_description"><para>The C closure callback of the handlers (useless for non-C closures).</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>data</para></entry>
+<entry role="parameter_description"><para>The closure data of the handlers' closures.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-signal-handlers-block-by-func.returns" role="returns">
+<title>Returns</title>
+<para> The number of handlers that matched.</para>
+</refsect3></refsect2>
+<refsect2 id="g-signal-handlers-unblock-by-func" role="macro">
+<title>g_signal_handlers_unblock_by_func()</title>
+<indexterm zone="g-signal-handlers-unblock-by-func"><primary sortas="signal_handlers_unblock_by_func">g_signal_handlers_unblock_by_func</primary></indexterm>
+<programlisting language="C">#define             g_signal_handlers_unblock_by_func(instance, func, data)</programlisting>
+<para>Unblocks all handlers on an instance that match <parameter>func</parameter>
+ and <parameter>data</parameter>
+.</para>
+<refsect3 id="g-signal-handlers-unblock-by-func.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>instance</para></entry>
+<entry role="parameter_description"><para>The instance to unblock handlers from.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>func</para></entry>
+<entry role="parameter_description"><para>The C closure callback of the handlers (useless for non-C closures).</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>data</para></entry>
+<entry role="parameter_description"><para>The closure data of the handlers' closures.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-signal-handlers-unblock-by-func.returns" role="returns">
+<title>Returns</title>
+<para> The number of handlers that matched.</para>
+</refsect3></refsect2>
+<refsect2 id="g-signal-handlers-disconnect-by-func" role="macro">
+<title>g_signal_handlers_disconnect_by_func()</title>
+<indexterm zone="g-signal-handlers-disconnect-by-func"><primary sortas="signal_handlers_disconnect_by_func">g_signal_handlers_disconnect_by_func</primary></indexterm>
+<programlisting language="C">#define             g_signal_handlers_disconnect_by_func(instance, func, data)</programlisting>
+<para>Disconnects all handlers on an instance that match <parameter>func</parameter>
+ and <parameter>data</parameter>
+.</para>
+<refsect3 id="g-signal-handlers-disconnect-by-func.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>instance</para></entry>
+<entry role="parameter_description"><para>The instance to remove handlers from.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>func</para></entry>
+<entry role="parameter_description"><para>The C closure callback of the handlers (useless for non-C closures).</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>data</para></entry>
+<entry role="parameter_description"><para>The closure data of the handlers' closures.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-signal-handlers-disconnect-by-func.returns" role="returns">
+<title>Returns</title>
+<para> The number of handlers that matched.</para>
+</refsect3></refsect2>
+<refsect2 id="g-signal-handlers-disconnect-by-data" role="macro" condition="since:2.32">
+<title>g_signal_handlers_disconnect_by_data()</title>
+<indexterm zone="g-signal-handlers-disconnect-by-data" role="2.32"><primary sortas="signal_handlers_disconnect_by_data">g_signal_handlers_disconnect_by_data</primary></indexterm>
+<programlisting language="C">#define             g_signal_handlers_disconnect_by_data(instance, data)</programlisting>
+<para>Disconnects all handlers on an instance that match <parameter>data</parameter>
+.</para>
+<refsect3 id="g-signal-handlers-disconnect-by-data.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>instance</para></entry>
+<entry role="parameter_description"><para>The instance to remove handlers from</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>data</para></entry>
+<entry role="parameter_description"><para>the closure data of the handlers' closures</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-signal-handlers-disconnect-by-data.returns" role="returns">
+<title>Returns</title>
+<para> The number of handlers that matched.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.32">2.32</link></para></refsect2>
+<refsect2 id="g-signal-has-handler-pending" role="function">
+<title>g_signal_has_handler_pending&#160;()</title>
+<indexterm zone="g-signal-has-handler-pending"><primary sortas="signal_has_handler_pending">g_signal_has_handler_pending</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_signal_has_handler_pending (<parameter><link linkend="gpointer"><type>gpointer</type></link> instance</parameter>,
+                              <parameter><link linkend="guint"><type>guint</type></link> signal_id</parameter>,
+                              <parameter><link linkend="GQuark"><type>GQuark</type></link> detail</parameter>,
+                              <parameter><link linkend="gboolean"><type>gboolean</type></link> may_be_blocked</parameter>);</programlisting>
+<para>Returns whether there are any handlers connected to <parameter>instance</parameter>
+ for the
+given signal id and detail.</para>
+<para>If <parameter>detail</parameter>
+ is 0 then it will only match handlers that were connected
+without detail.  If <parameter>detail</parameter>
+ is non-zero then it will match handlers
+connected both without detail and with the given detail.  This is
+consistent with how a signal emitted with <parameter>detail</parameter>
+ would be delivered
+to those handlers.</para>
+<para>Since 2.46 this also checks for a non-default class closure being
+installed, as this is basically always what you want.</para>
+<para>One example of when you might use this is when the arguments to the
+signal are difficult to compute. A class implementor may opt to not
+emit the signal if no one is attached anyway, thus saving the cost
+of building the arguments.</para>
+<refsect3 id="g-signal-has-handler-pending.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>instance</para></entry>
+<entry role="parameter_description"><para>the object whose signal handlers are sought. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>type</acronym> GObject.Object]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>signal_id</para></entry>
+<entry role="parameter_description"><para>the signal id.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>detail</para></entry>
+<entry role="parameter_description"><para>the detail.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>may_be_blocked</para></entry>
+<entry role="parameter_description"><para>whether blocked handlers should count as match.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-signal-has-handler-pending.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if a handler is connected to the signal, <link linkend="FALSE:CAPS"><literal>FALSE</literal></link>
+otherwise.</para>
+</refsect3></refsect2>
+<refsect2 id="g-signal-stop-emission" role="function">
+<title>g_signal_stop_emission&#160;()</title>
+<indexterm zone="g-signal-stop-emission"><primary sortas="signal_stop_emission">g_signal_stop_emission</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_signal_stop_emission (<parameter><link linkend="gpointer"><type>gpointer</type></link> instance</parameter>,
+                        <parameter><link linkend="guint"><type>guint</type></link> signal_id</parameter>,
+                        <parameter><link linkend="GQuark"><type>GQuark</type></link> detail</parameter>);</programlisting>
+<para>Stops a signal's current emission.</para>
+<para>This will prevent the default method from running, if the signal was
+<link linkend="G-SIGNAL-RUN-LAST:CAPS"><literal>G_SIGNAL_RUN_LAST</literal></link> and you connected normally (i.e. without the "after"
+flag).</para>
+<para>Prints a warning if used on a signal which isn't being emitted.</para>
+<refsect3 id="g-signal-stop-emission.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>instance</para></entry>
+<entry role="parameter_description"><para>the object whose signal handlers you wish to stop. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>type</acronym> GObject.Object]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>signal_id</para></entry>
+<entry role="parameter_description"><para>the signal identifier, as returned by <link linkend="g-signal-lookup"><function>g_signal_lookup()</function></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>detail</para></entry>
+<entry role="parameter_description"><para>the detail which the signal was emitted with.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-signal-stop-emission-by-name" role="function">
+<title>g_signal_stop_emission_by_name&#160;()</title>
+<indexterm zone="g-signal-stop-emission-by-name"><primary sortas="signal_stop_emission_by_name">g_signal_stop_emission_by_name</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_signal_stop_emission_by_name (<parameter><link linkend="gpointer"><type>gpointer</type></link> instance</parameter>,
+                                <parameter>const <link linkend="gchar"><type>gchar</type></link> *detailed_signal</parameter>);</programlisting>
+<para>Stops a signal's current emission.</para>
+<para>This is just like <link linkend="g-signal-stop-emission"><function>g_signal_stop_emission()</function></link> except it will look up the
+signal id for you.</para>
+<refsect3 id="g-signal-stop-emission-by-name.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>instance</para></entry>
+<entry role="parameter_description"><para>the object whose signal handlers you wish to stop. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>type</acronym> GObject.Object]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>detailed_signal</para></entry>
+<entry role="parameter_description"><para>a string of the form "signal-name::detail".</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-signal-override-class-closure" role="function">
+<title>g_signal_override_class_closure&#160;()</title>
+<indexterm zone="g-signal-override-class-closure"><primary sortas="signal_override_class_closure">g_signal_override_class_closure</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_signal_override_class_closure (<parameter><link linkend="guint"><type>guint</type></link> signal_id</parameter>,
+                                 <parameter><link linkend="GType"><type>GType</type></link> instance_type</parameter>,
+                                 <parameter><link linkend="GClosure"><type>GClosure</type></link> *class_closure</parameter>);</programlisting>
+<para>Overrides the class closure (i.e. the default handler) for the given signal
+for emissions on instances of <parameter>instance_type</parameter>
+. <parameter>instance_type</parameter>
+ must be derived
+from the type to which the signal belongs.</para>
+<para>See <link linkend="g-signal-chain-from-overridden"><function>g_signal_chain_from_overridden()</function></link> and
+<link linkend="g-signal-chain-from-overridden-handler"><function>g_signal_chain_from_overridden_handler()</function></link> for how to chain up to the
+parent class closure from inside the overridden one.</para>
+<refsect3 id="g-signal-override-class-closure.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>signal_id</para></entry>
+<entry role="parameter_description"><para>the signal id</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>instance_type</para></entry>
+<entry role="parameter_description"><para>the instance type on which to override the class closure
+for the signal.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>class_closure</para></entry>
+<entry role="parameter_description"><para>the closure.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-signal-chain-from-overridden" role="function">
+<title>g_signal_chain_from_overridden&#160;()</title>
+<indexterm zone="g-signal-chain-from-overridden"><primary sortas="signal_chain_from_overridden">g_signal_chain_from_overridden</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_signal_chain_from_overridden (<parameter>const <link linkend="GValue"><type>GValue</type></link> *instance_and_params</parameter>,
+                                <parameter><link linkend="GValue"><type>GValue</type></link> *return_value</parameter>);</programlisting>
+<para>Calls the original class closure of a signal. This function should only
+be called from an overridden class closure; see
+<link linkend="g-signal-override-class-closure"><function>g_signal_override_class_closure()</function></link> and
+<link linkend="g-signal-override-class-handler"><function>g_signal_override_class_handler()</function></link>.</para>
+<refsect3 id="g-signal-chain-from-overridden.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>instance_and_params</para></entry>
+<entry role="parameter_description"><para>(array) the argument list of the signal emission.
+The first element in the array is a <link linkend="GValue"><type>GValue</type></link> for the instance the signal
+is being emitted on. The rest are any arguments to be passed to the signal.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>return_value</para></entry>
+<entry role="parameter_description"><para>Location for the return value.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-signal-new-class-handler" role="function" condition="since:2.18">
+<title>g_signal_new_class_handler&#160;()</title>
+<indexterm zone="g-signal-new-class-handler" role="2.18"><primary sortas="signal_new_class_handler">g_signal_new_class_handler</primary></indexterm>
+<programlisting language="C"><link linkend="guint"><returnvalue>guint</returnvalue></link>
+g_signal_new_class_handler (<parameter>const <link linkend="gchar"><type>gchar</type></link> *signal_name</parameter>,
+                            <parameter><link linkend="GType"><type>GType</type></link> itype</parameter>,
+                            <parameter><link linkend="GSignalFlags"><type>GSignalFlags</type></link> signal_flags</parameter>,
+                            <parameter><link linkend="GCallback"><type>GCallback</type></link> class_handler</parameter>,
+                            <parameter><link linkend="GSignalAccumulator"><type>GSignalAccumulator</type></link> accumulator</parameter>,
+                            <parameter><link linkend="gpointer"><type>gpointer</type></link> accu_data</parameter>,
+                            <parameter><link linkend="GSignalCMarshaller"><type>GSignalCMarshaller</type></link> c_marshaller</parameter>,
+                            <parameter><link linkend="GType"><type>GType</type></link> return_type</parameter>,
+                            <parameter><link linkend="guint"><type>guint</type></link> n_params</parameter>,
+                            <parameter>...</parameter>);</programlisting>
+<para>Creates a new signal. (This is usually done in the class initializer.)</para>
+<para>This is a variant of <link linkend="g-signal-new"><function>g_signal_new()</function></link> that takes a C callback instead
+of a class offset for the signal's class handler. This function
+doesn't need a function pointer exposed in the class structure of
+an object definition, instead the function pointer is passed
+directly and can be overriden by derived classes with
+<link linkend="g-signal-override-class-closure"><function>g_signal_override_class_closure()</function></link> or
+<link linkend="g-signal-override-class-handler"><function>g_signal_override_class_handler()</function></link>and chained to with
+<link linkend="g-signal-chain-from-overridden"><function>g_signal_chain_from_overridden()</function></link> or
+<link linkend="g-signal-chain-from-overridden-handler"><function>g_signal_chain_from_overridden_handler()</function></link>.</para>
+<para>See <link linkend="g-signal-new"><function>g_signal_new()</function></link> for information about signal names.</para>
+<para>If c_marshaller is <link linkend="NULL:CAPS"><literal>NULL</literal></link>, <link linkend="g-cclosure-marshal-generic"><function>g_cclosure_marshal_generic()</function></link> will be used as
+the marshaller for this signal.</para>
+<refsect3 id="g-signal-new-class-handler.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>signal_name</para></entry>
+<entry role="parameter_description"><para>the name for the signal</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>itype</para></entry>
+<entry role="parameter_description"><para>the type this signal pertains to. It will also pertain to
+types which are derived from this type.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>signal_flags</para></entry>
+<entry role="parameter_description"><para>a combination of <link linkend="GSignalFlags"><type>GSignalFlags</type></link> specifying detail of when
+the default handler is to be invoked. You should at least specify
+<link linkend="G-SIGNAL-RUN-FIRST:CAPS"><literal>G_SIGNAL_RUN_FIRST</literal></link> or <link linkend="G-SIGNAL-RUN-LAST:CAPS"><literal>G_SIGNAL_RUN_LAST</literal></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>class_handler</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GCallback"><type>GCallback</type></link> which acts as class implementation of
+this signal. Used to invoke a class method generically. Pass <link linkend="NULL:CAPS"><literal>NULL</literal></link> to
+not associate a class method with this signal.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>accumulator</para></entry>
+<entry role="parameter_description"><para>the accumulator for this signal; may be <link linkend="NULL:CAPS"><literal>NULL</literal></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>accu_data</para></entry>
+<entry role="parameter_description"><para>user data for the <parameter>accumulator</parameter>
+.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>c_marshaller</para></entry>
+<entry role="parameter_description"><para>the function to translate arrays of parameter
+values to signal emissions into C language callback invocations or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>return_type</para></entry>
+<entry role="parameter_description"><para>the type of return value, or <link linkend="G-TYPE-NONE:CAPS"><type>G_TYPE_NONE</type></link> for a signal
+without a return value.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>n_params</para></entry>
+<entry role="parameter_description"><para>the number of parameter types to follow.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>...</para></entry>
+<entry role="parameter_description"><para>a list of types, one for each parameter.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-signal-new-class-handler.returns" role="returns">
+<title>Returns</title>
+<para> the signal id</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.18">2.18</link></para></refsect2>
+<refsect2 id="g-signal-override-class-handler" role="function" condition="since:2.18">
+<title>g_signal_override_class_handler&#160;()</title>
+<indexterm zone="g-signal-override-class-handler" role="2.18"><primary sortas="signal_override_class_handler">g_signal_override_class_handler</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_signal_override_class_handler (<parameter>const <link linkend="gchar"><type>gchar</type></link> *signal_name</parameter>,
+                                 <parameter><link linkend="GType"><type>GType</type></link> instance_type</parameter>,
+                                 <parameter><link linkend="GCallback"><type>GCallback</type></link> class_handler</parameter>);</programlisting>
+<para>Overrides the class closure (i.e. the default handler) for the
+given signal for emissions on instances of <parameter>instance_type</parameter>
+ with
+callback <parameter>class_handler</parameter>
+. <parameter>instance_type</parameter>
+ must be derived from the
+type to which the signal belongs.</para>
+<para>See <link linkend="g-signal-chain-from-overridden"><function>g_signal_chain_from_overridden()</function></link> and
+<link linkend="g-signal-chain-from-overridden-handler"><function>g_signal_chain_from_overridden_handler()</function></link> for how to chain up to the
+parent class closure from inside the overridden one.</para>
+<refsect3 id="g-signal-override-class-handler.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>signal_name</para></entry>
+<entry role="parameter_description"><para>the name for the signal</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>instance_type</para></entry>
+<entry role="parameter_description"><para>the instance type on which to override the class handler
+for the signal.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>class_handler</para></entry>
+<entry role="parameter_description"><para>the handler.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.18">2.18</link></para></refsect2>
+<refsect2 id="g-signal-chain-from-overridden-handler" role="function" condition="since:2.18">
+<title>g_signal_chain_from_overridden_handler&#160;()</title>
+<indexterm zone="g-signal-chain-from-overridden-handler" role="2.18"><primary sortas="signal_chain_from_overridden_handler">g_signal_chain_from_overridden_handler</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_signal_chain_from_overridden_handler
+                               (<parameter><link linkend="gpointer"><type>gpointer</type></link> instance</parameter>,
+                                <parameter>...</parameter>);</programlisting>
+<para>Calls the original class closure of a signal. This function should
+only be called from an overridden class closure; see
+<link linkend="g-signal-override-class-closure"><function>g_signal_override_class_closure()</function></link> and
+<link linkend="g-signal-override-class-handler"><function>g_signal_override_class_handler()</function></link>.</para>
+
+<para><emphasis role="annotation">[<acronym>skip</acronym>]</emphasis></para><refsect3 id="g-signal-chain-from-overridden-handler.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>instance</para></entry>
+<entry role="parameter_description"><para>the instance the signal is being
+emitted on. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>type</acronym> GObject.TypeInstance]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>...</para></entry>
+<entry role="parameter_description"><para>parameters to be passed to the parent class closure, followed by a
+location for the return value. If the return type of the signal
+is <link linkend="G-TYPE-NONE:CAPS"><type>G_TYPE_NONE</type></link>, the return value location can be omitted.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.18">2.18</link></para></refsect2>
+<refsect2 id="g-signal-add-emission-hook" role="function">
+<title>g_signal_add_emission_hook&#160;()</title>
+<indexterm zone="g-signal-add-emission-hook"><primary sortas="signal_add_emission_hook">g_signal_add_emission_hook</primary></indexterm>
+<programlisting language="C"><link linkend="gulong"><returnvalue>gulong</returnvalue></link>
+g_signal_add_emission_hook (<parameter><link linkend="guint"><type>guint</type></link> signal_id</parameter>,
+                            <parameter><link linkend="GQuark"><type>GQuark</type></link> detail</parameter>,
+                            <parameter><link linkend="GSignalEmissionHook"><type>GSignalEmissionHook</type></link> hook_func</parameter>,
+                            <parameter><link linkend="gpointer"><type>gpointer</type></link> hook_data</parameter>,
+                            <parameter><link linkend="GDestroyNotify"><type>GDestroyNotify</type></link> data_destroy</parameter>);</programlisting>
+<para>Adds an emission hook for a signal, which will get called for any emission
+of that signal, independent of the instance. This is possible only
+for signals which don't have <link linkend="G-SIGNAL-NO-HOOKS:CAPS"><type>G_SIGNAL_NO_HOOKS</type></link> flag set.</para>
+<refsect3 id="g-signal-add-emission-hook.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>signal_id</para></entry>
+<entry role="parameter_description"><para>the signal identifier, as returned by <link linkend="g-signal-lookup"><function>g_signal_lookup()</function></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>detail</para></entry>
+<entry role="parameter_description"><para>the detail on which to call the hook.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>hook_func</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSignalEmissionHook"><type>GSignalEmissionHook</type></link> function.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>hook_data</para></entry>
+<entry role="parameter_description"><para>user data for <parameter>hook_func</parameter>
+.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>data_destroy</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GDestroyNotify"><type>GDestroyNotify</type></link> for <parameter>hook_data</parameter>
+.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-signal-add-emission-hook.returns" role="returns">
+<title>Returns</title>
+<para> the hook id, for later use with <link linkend="g-signal-remove-emission-hook"><function>g_signal_remove_emission_hook()</function></link>.</para>
+</refsect3></refsect2>
+<refsect2 id="g-signal-remove-emission-hook" role="function">
+<title>g_signal_remove_emission_hook&#160;()</title>
+<indexterm zone="g-signal-remove-emission-hook"><primary sortas="signal_remove_emission_hook">g_signal_remove_emission_hook</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_signal_remove_emission_hook (<parameter><link linkend="guint"><type>guint</type></link> signal_id</parameter>,
+                               <parameter><link linkend="gulong"><type>gulong</type></link> hook_id</parameter>);</programlisting>
+<para>Deletes an emission hook.</para>
+<refsect3 id="g-signal-remove-emission-hook.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>signal_id</para></entry>
+<entry role="parameter_description"><para>the id of the signal</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>hook_id</para></entry>
+<entry role="parameter_description"><para>the id of the emission hook, as returned by
+<link linkend="g-signal-add-emission-hook"><function>g_signal_add_emission_hook()</function></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-signal-parse-name" role="function">
+<title>g_signal_parse_name&#160;()</title>
+<indexterm zone="g-signal-parse-name"><primary sortas="signal_parse_name">g_signal_parse_name</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_signal_parse_name (<parameter>const <link linkend="gchar"><type>gchar</type></link> *detailed_signal</parameter>,
+                     <parameter><link linkend="GType"><type>GType</type></link> itype</parameter>,
+                     <parameter><link linkend="guint"><type>guint</type></link> *signal_id_p</parameter>,
+                     <parameter><link linkend="GQuark"><type>GQuark</type></link> *detail_p</parameter>,
+                     <parameter><link linkend="gboolean"><type>gboolean</type></link> force_detail_quark</parameter>);</programlisting>
+<para>Internal function to parse a signal name into its <parameter>signal_id</parameter>
+
+and <parameter>detail</parameter>
+ quark.</para>
+<refsect3 id="g-signal-parse-name.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>detailed_signal</para></entry>
+<entry role="parameter_description"><para>a string of the form "signal-name::detail".</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>itype</para></entry>
+<entry role="parameter_description"><para>The interface/instance type that introduced "signal-name".</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>signal_id_p</para></entry>
+<entry role="parameter_description"><para>Location to store the signal id. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>out</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>detail_p</para></entry>
+<entry role="parameter_description"><para>Location to store the detail quark. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>out</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>force_detail_quark</para></entry>
+<entry role="parameter_description"><para><link linkend="TRUE:CAPS"><literal>TRUE</literal></link> forces creation of a <link linkend="GQuark"><type>GQuark</type></link> for the detail.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-signal-parse-name.returns" role="returns">
+<title>Returns</title>
+<para> Whether the signal name could successfully be parsed and <parameter>signal_id_p</parameter>
+and <parameter>detail_p</parameter>
+contain valid return values.</para>
+</refsect3></refsect2>
+<refsect2 id="g-signal-get-invocation-hint" role="function">
+<title>g_signal_get_invocation_hint&#160;()</title>
+<indexterm zone="g-signal-get-invocation-hint"><primary sortas="signal_get_invocation_hint">g_signal_get_invocation_hint</primary></indexterm>
+<programlisting language="C"><link linkend="GSignalInvocationHint"><returnvalue>GSignalInvocationHint</returnvalue></link>&#160;*
+g_signal_get_invocation_hint (<parameter><link linkend="gpointer"><type>gpointer</type></link> instance</parameter>);</programlisting>
+<para>Returns the invocation hint of the innermost signal emission of instance.</para>
+<refsect3 id="g-signal-get-invocation-hint.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>instance</para></entry>
+<entry role="parameter_description"><para>the instance to query. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>type</acronym> GObject.Object]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-signal-get-invocation-hint.returns" role="returns">
+<title>Returns</title>
+<para>the invocation hint of the innermost signal  emission. </para>
+<para><emphasis role="annotation">[<acronym>transfer none</acronym>]</emphasis></para>
+</refsect3></refsect2>
+<refsect2 id="g-signal-type-cclosure-new" role="function">
+<title>g_signal_type_cclosure_new&#160;()</title>
+<indexterm zone="g-signal-type-cclosure-new"><primary sortas="signal_type_cclosure_new">g_signal_type_cclosure_new</primary></indexterm>
+<programlisting language="C"><link linkend="GClosure"><returnvalue>GClosure</returnvalue></link>&#160;*
+g_signal_type_cclosure_new (<parameter><link linkend="GType"><type>GType</type></link> itype</parameter>,
+                            <parameter><link linkend="guint"><type>guint</type></link> struct_offset</parameter>);</programlisting>
+<para>Creates a new closure which invokes the function found at the offset
+<parameter>struct_offset</parameter>
+ in the class structure of the interface or classed type
+identified by <parameter>itype</parameter>
+.</para>
+<refsect3 id="g-signal-type-cclosure-new.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>itype</para></entry>
+<entry role="parameter_description"><para>the <link linkend="GType"><type>GType</type></link> identifier of an interface or classed type</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>struct_offset</para></entry>
+<entry role="parameter_description"><para>the offset of the member function of <parameter>itype</parameter>
+'s class
+structure which is to be invoked by the new closure</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-signal-type-cclosure-new.returns" role="returns">
+<title>Returns</title>
+<para>a floating reference to a new <link linkend="GCClosure"><type>GCClosure</type></link>. </para>
+<para><emphasis role="annotation">[<acronym>transfer none</acronym>]</emphasis></para>
+</refsect3></refsect2>
+<refsect2 id="g-signal-accumulator-first-wins" role="function" condition="since:2.28">
+<title>g_signal_accumulator_first_wins&#160;()</title>
+<indexterm zone="g-signal-accumulator-first-wins" role="2.28"><primary sortas="signal_accumulator_first_wins">g_signal_accumulator_first_wins</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_signal_accumulator_first_wins (<parameter><link linkend="GSignalInvocationHint"><type>GSignalInvocationHint</type></link> *ihint</parameter>,
+                                 <parameter><link linkend="GValue"><type>GValue</type></link> *return_accu</parameter>,
+                                 <parameter>const <link linkend="GValue"><type>GValue</type></link> *handler_return</parameter>,
+                                 <parameter><link linkend="gpointer"><type>gpointer</type></link> dummy</parameter>);</programlisting>
+<para>A predefined <link linkend="GSignalAccumulator"><type>GSignalAccumulator</type></link> for signals intended to be used as a
+hook for application code to provide a particular value.  Usually
+only one such value is desired and multiple handlers for the same
+signal don't make much sense (except for the case of the default
+handler defined in the class structure, in which case you will
+usually want the signal connection to override the class handler).</para>
+<para>This accumulator will use the return value from the first signal
+handler that is run as the return value for the signal and not run
+any further handlers (ie: the first handler "wins").</para>
+<refsect3 id="g-signal-accumulator-first-wins.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>ihint</para></entry>
+<entry role="parameter_description"><para>standard <link linkend="GSignalAccumulator"><type>GSignalAccumulator</type></link> parameter</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>return_accu</para></entry>
+<entry role="parameter_description"><para>standard <link linkend="GSignalAccumulator"><type>GSignalAccumulator</type></link> parameter</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>handler_return</para></entry>
+<entry role="parameter_description"><para>standard <link linkend="GSignalAccumulator"><type>GSignalAccumulator</type></link> parameter</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>dummy</para></entry>
+<entry role="parameter_description"><para>standard <link linkend="GSignalAccumulator"><type>GSignalAccumulator</type></link> parameter</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-signal-accumulator-first-wins.returns" role="returns">
+<title>Returns</title>
+<para> standard <link linkend="GSignalAccumulator"><type>GSignalAccumulator</type></link> result</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.28">2.28</link></para></refsect2>
+<refsect2 id="g-signal-accumulator-true-handled" role="function" condition="since:2.4">
+<title>g_signal_accumulator_true_handled&#160;()</title>
+<indexterm zone="g-signal-accumulator-true-handled" role="2.4"><primary sortas="signal_accumulator_true_handled">g_signal_accumulator_true_handled</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_signal_accumulator_true_handled (<parameter><link linkend="GSignalInvocationHint"><type>GSignalInvocationHint</type></link> *ihint</parameter>,
+                                   <parameter><link linkend="GValue"><type>GValue</type></link> *return_accu</parameter>,
+                                   <parameter>const <link linkend="GValue"><type>GValue</type></link> *handler_return</parameter>,
+                                   <parameter><link linkend="gpointer"><type>gpointer</type></link> dummy</parameter>);</programlisting>
+<para>A predefined <link linkend="GSignalAccumulator"><type>GSignalAccumulator</type></link> for signals that return a
+boolean values. The behavior that this accumulator gives is
+that a return of <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> stops the signal emission: no further
+callbacks will be invoked, while a return of <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> allows
+the emission to continue. The idea here is that a <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> return
+indicates that the callback handled the signal, and no further
+handling is needed.</para>
+<refsect3 id="g-signal-accumulator-true-handled.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>ihint</para></entry>
+<entry role="parameter_description"><para>standard <link linkend="GSignalAccumulator"><type>GSignalAccumulator</type></link> parameter</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>return_accu</para></entry>
+<entry role="parameter_description"><para>standard <link linkend="GSignalAccumulator"><type>GSignalAccumulator</type></link> parameter</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>handler_return</para></entry>
+<entry role="parameter_description"><para>standard <link linkend="GSignalAccumulator"><type>GSignalAccumulator</type></link> parameter</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>dummy</para></entry>
+<entry role="parameter_description"><para>standard <link linkend="GSignalAccumulator"><type>GSignalAccumulator</type></link> parameter</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-signal-accumulator-true-handled.returns" role="returns">
+<title>Returns</title>
+<para> standard <link linkend="GSignalAccumulator"><type>GSignalAccumulator</type></link> result</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.4">2.4</link></para></refsect2>
+
+</refsect1>
+<refsect1 id="gobject-Signals.other_details" role="details">
+<title role="details.title">Types and Values</title>
+<refsect2 id="GSignalInvocationHint" role="struct">
+<title>struct GSignalInvocationHint</title>
+<indexterm zone="GSignalInvocationHint"><primary sortas="SignalInvocationHint">GSignalInvocationHint</primary></indexterm>
+<programlisting language="C">struct GSignalInvocationHint {
+  guint		signal_id;
+  GQuark&#160;detail;
+  GSignalFlags&#160;run_type;
+};
+</programlisting>
+<para>The <link linkend="GSignalInvocationHint"><type>GSignalInvocationHint</type></link> structure is used to pass on additional information
+to callbacks during a signal emission.</para>
+<refsect3 id="GSignalInvocationHint.members" role="struct_members">
+<title>Members</title>
+<informaltable role="struct_members_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="struct_members_name" colwidth="300px"/>
+<colspec colname="struct_members_description"/>
+<colspec colname="struct_members_annotations" colwidth="200px"/>
+<tbody>
+<row role="member"><entry role="struct_member_name"><para><link linkend="guint"><type>guint</type></link>&#160;<structfield id="GSignalInvocationHint.signal-id">signal_id</structfield>;</para></entry>
+<entry role="struct_member_description"><para>The signal id of the signal invoking the callback</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><link linkend="GQuark"><type>GQuark</type></link>&#160;<structfield id="GSignalInvocationHint.detail">detail</structfield>;</para></entry>
+<entry role="struct_member_description"><para>The detail passed on for this emission</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><link linkend="GSignalFlags"><type>GSignalFlags</type></link>&#160;<structfield id="GSignalInvocationHint.run-type">run_type</structfield>;</para></entry>
+<entry role="struct_member_description"><para>The stage the signal emission is currently in, this
+field will contain one of <link linkend="G-SIGNAL-RUN-FIRST:CAPS"><literal>G_SIGNAL_RUN_FIRST</literal></link>,
+<link linkend="G-SIGNAL-RUN-LAST:CAPS"><literal>G_SIGNAL_RUN_LAST</literal></link> or <link linkend="G-SIGNAL-RUN-CLEANUP:CAPS"><literal>G_SIGNAL_RUN_CLEANUP</literal></link>.</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+</tbody></tgroup></informaltable>
+</refsect3>
+</refsect2>
+<refsect2 id="GSignalCMarshaller" role="typedef">
+<title>GSignalCMarshaller</title>
+<indexterm zone="GSignalCMarshaller"><primary sortas="SignalCMarshaller">GSignalCMarshaller</primary></indexterm>
+<programlisting language="C">typedef GClosureMarshal			 GSignalCMarshaller;
+</programlisting>
+<para>This is the signature of marshaller functions, required to marshall
+arrays of parameter values to signal emissions into C language callback
+invocations. It is merely an alias to <link linkend="GClosureMarshal"><type>GClosureMarshal</type></link> since the <link linkend="GClosure"><type>GClosure</type></link>
+mechanism takes over responsibility of actual function invocation for the
+signal system.</para>
+</refsect2>
+<refsect2 id="GSignalCVaMarshaller" role="typedef">
+<title>GSignalCVaMarshaller</title>
+<indexterm zone="GSignalCVaMarshaller"><primary sortas="SignalCVaMarshaller">GSignalCVaMarshaller</primary></indexterm>
+<programlisting language="C">typedef GVaClosureMarshal		 GSignalCVaMarshaller;
+</programlisting>
+<para>This is the signature of va_list marshaller functions, an optional
+marshaller that can be used in some situations to avoid
+marshalling the signal argument into GValues.</para>
+</refsect2>
+<refsect2 id="GSignalFlags" role="enum">
+<title>enum GSignalFlags</title>
+<indexterm zone="GSignalFlags"><primary sortas="SignalFlags">GSignalFlags</primary></indexterm>
+<para>The signal flags are used to specify a signal's behaviour, the overall
+signal description outlines how especially the RUN flags control the
+stages of a signal emission.</para>
+<refsect3 id="GSignalFlags.members" role="enum_members">
+<title>Members</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="enum_members_name" colwidth="300px"/>
+<colspec colname="enum_members_description"/>
+<colspec colname="enum_members_annotations" colwidth="200px"/>
+<tbody>
+<row role="constant"><entry role="enum_member_name"><para id="G-SIGNAL-RUN-FIRST:CAPS">G_SIGNAL_RUN_FIRST</para></entry>
+<entry role="enum_member_description"><para>Invoke the object method handler in the first emission stage.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-SIGNAL-RUN-LAST:CAPS">G_SIGNAL_RUN_LAST</para></entry>
+<entry role="enum_member_description"><para>Invoke the object method handler in the third emission stage.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-SIGNAL-RUN-CLEANUP:CAPS">G_SIGNAL_RUN_CLEANUP</para></entry>
+<entry role="enum_member_description"><para>Invoke the object method handler in the last emission stage.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-SIGNAL-NO-RECURSE:CAPS">G_SIGNAL_NO_RECURSE</para></entry>
+<entry role="enum_member_description"><para>Signals being emitted for an object while currently being in
+ emission for this very object will not be emitted recursively,
+ but instead cause the first emission to be restarted.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-SIGNAL-DETAILED:CAPS">G_SIGNAL_DETAILED</para></entry>
+<entry role="enum_member_description"><para>This signal supports "::detail" appendices to the signal name
+ upon handler connections and emissions.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-SIGNAL-ACTION:CAPS">G_SIGNAL_ACTION</para></entry>
+<entry role="enum_member_description"><para>Action signals are signals that may freely be emitted on alive
+ objects from user code via <link linkend="g-signal-emit"><function>g_signal_emit()</function></link> and friends, without
+ the need of being embedded into extra code that performs pre or
+ post emission adjustments on the object. They can also be thought
+ of as object methods which can be called generically by 
+ third-party code.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-SIGNAL-NO-HOOKS:CAPS">G_SIGNAL_NO_HOOKS</para></entry>
+<entry role="enum_member_description"><para>No emissions hooks are supported for this signal.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-SIGNAL-MUST-COLLECT:CAPS">G_SIGNAL_MUST_COLLECT</para></entry>
+<entry role="enum_member_description"><para>Varargs signal emission will always collect the
+  arguments, even if there are no signal handlers connected.  Since 2.30.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-SIGNAL-DEPRECATED:CAPS">G_SIGNAL_DEPRECATED</para></entry>
+<entry role="enum_member_description"><para>The signal is deprecated and will be removed
+  in a future version. A warning will be generated if it is connected while
+  running with G_ENABLE_DIAGNOSTIC=1.  Since 2.32.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="GSignalMatchType" role="enum">
+<title>enum GSignalMatchType</title>
+<indexterm zone="GSignalMatchType"><primary sortas="SignalMatchType">GSignalMatchType</primary></indexterm>
+<para>The match types specify what <link linkend="g-signal-handlers-block-matched"><function>g_signal_handlers_block_matched()</function></link>,
+<link linkend="g-signal-handlers-unblock-matched"><function>g_signal_handlers_unblock_matched()</function></link> and <link linkend="g-signal-handlers-disconnect-matched"><function>g_signal_handlers_disconnect_matched()</function></link>
+match signals by.</para>
+<refsect3 id="GSignalMatchType.members" role="enum_members">
+<title>Members</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="enum_members_name" colwidth="300px"/>
+<colspec colname="enum_members_description"/>
+<colspec colname="enum_members_annotations" colwidth="200px"/>
+<tbody>
+<row role="constant"><entry role="enum_member_name"><para id="G-SIGNAL-MATCH-ID:CAPS">G_SIGNAL_MATCH_ID</para></entry>
+<entry role="enum_member_description"><para>The signal id must be equal.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-SIGNAL-MATCH-DETAIL:CAPS">G_SIGNAL_MATCH_DETAIL</para></entry>
+<entry role="enum_member_description"><para>The signal detail be equal.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-SIGNAL-MATCH-CLOSURE:CAPS">G_SIGNAL_MATCH_CLOSURE</para></entry>
+<entry role="enum_member_description"><para>The closure must be the same.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-SIGNAL-MATCH-FUNC:CAPS">G_SIGNAL_MATCH_FUNC</para></entry>
+<entry role="enum_member_description"><para>The C closure callback must be the same.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-SIGNAL-MATCH-DATA:CAPS">G_SIGNAL_MATCH_DATA</para></entry>
+<entry role="enum_member_description"><para>The closure data must be the same.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-SIGNAL-MATCH-UNBLOCKED:CAPS">G_SIGNAL_MATCH_UNBLOCKED</para></entry>
+<entry role="enum_member_description"><para>Only unblocked signals may matched.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="GSignalQuery" role="struct">
+<title>struct GSignalQuery</title>
+<indexterm zone="GSignalQuery"><primary sortas="SignalQuery">GSignalQuery</primary></indexterm>
+<programlisting language="C">struct GSignalQuery {
+  guint		signal_id;
+  const gchar  *signal_name;
+  GType		itype;
+  GSignalFlags&#160;signal_flags;
+  GType		return_type; /* mangled with G_SIGNAL_TYPE_STATIC_SCOPE flag */
+  guint		n_params;
+  const GType  *param_types; /* mangled with G_SIGNAL_TYPE_STATIC_SCOPE flag */
+};
+</programlisting>
+<para>A structure holding in-depth information for a specific signal. It is
+filled in by the <link linkend="g-signal-query"><function>g_signal_query()</function></link> function.</para>
+<refsect3 id="GSignalQuery.members" role="struct_members">
+<title>Members</title>
+<informaltable role="struct_members_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="struct_members_name" colwidth="300px"/>
+<colspec colname="struct_members_description"/>
+<colspec colname="struct_members_annotations" colwidth="200px"/>
+<tbody>
+<row role="member"><entry role="struct_member_name"><para><link linkend="guint"><type>guint</type></link>&#160;<structfield id="GSignalQuery.signal-id">signal_id</structfield>;</para></entry>
+<entry role="struct_member_description"><para>The signal id of the signal being queried, or 0 if the
+signal to be queried was unknown.</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para>const&#160;<link linkend="gchar"><type>gchar</type></link>&#160;*<structfield id="GSignalQuery.signal-name">signal_name</structfield>;</para></entry>
+<entry role="struct_member_description"><para>The signal name.</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><link linkend="GType"><type>GType</type></link>&#160;<structfield id="GSignalQuery.itype">itype</structfield>;</para></entry>
+<entry role="struct_member_description"><para>The interface/instance type that this signal can be emitted for.</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><link linkend="GSignalFlags"><type>GSignalFlags</type></link>&#160;<structfield id="GSignalQuery.signal-flags">signal_flags</structfield>;</para></entry>
+<entry role="struct_member_description"><para>The signal flags as passed in to <link linkend="g-signal-new"><function>g_signal_new()</function></link>.</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><link linkend="GType"><type>GType</type></link>&#160;<structfield id="GSignalQuery.return-type">return_type</structfield>;</para></entry>
+<entry role="struct_member_description"><para>The return type for user callbacks.</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><link linkend="guint"><type>guint</type></link>&#160;<structfield id="GSignalQuery.n-params">n_params</structfield>;</para></entry>
+<entry role="struct_member_description"><para>The number of parameters that user callbacks take.</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para>const&#160;<link linkend="GType"><type>GType</type></link>&#160;*<structfield id="GSignalQuery.param-types">param_types</structfield>;</para></entry>
+<entry role="struct_member_description"><para>The individual parameter types for
+user callbacks, note that the effective callback signature is:</para>
+<informalexample><programlisting role="example"><![CDATA[
+@return_type callback (#gpointer     data1,
+[param_types param_names,]
+gpointer     data2);
+]]></programlisting></informalexample>
+<para>. </para></entry>
+<entry role="struct_member_annotations"><emphasis role="annotation">[<acronym>array</acronym> length=n_params]</emphasis></entry>
+</row>
+</tbody></tgroup></informaltable>
+</refsect3>
+</refsect2>
+<refsect2 id="G-SIGNAL-TYPE-STATIC-SCOPE:CAPS" role="macro">
+<title>G_SIGNAL_TYPE_STATIC_SCOPE</title>
+<indexterm zone="G-SIGNAL-TYPE-STATIC-SCOPE:CAPS"><primary sortas="SIGNAL_TYPE_STATIC_SCOPE">G_SIGNAL_TYPE_STATIC_SCOPE</primary></indexterm>
+<programlisting language="C">#define&#160;G_SIGNAL_TYPE_STATIC_SCOPE (G_TYPE_FLAG_RESERVED_ID_BIT)
+</programlisting>
+<para>This macro flags signal argument types for which the signal system may 
+assume that instances thereof remain persistent across all signal emissions
+they are used in. This is only useful for non ref-counted, value-copy types.</para>
+<para>To flag a signal argument in this way, add <literal>| G_SIGNAL_TYPE_STATIC_SCOPE</literal>
+to the corresponding argument of <link linkend="g-signal-new"><function>g_signal_new()</function></link>.</para>
+<informalexample><programlisting role="example"><![CDATA[
+g_signal_new ("size_request",
+  G_TYPE_FROM_CLASS (gobject_class),
+	 G_SIGNAL_RUN_FIRST,
+	 G_STRUCT_OFFSET (GtkWidgetClass, size_request),
+	 NULL, NULL,
+	 _gtk_marshal_VOID__BOXED,
+	 G_TYPE_NONE, 1,
+	 GTK_TYPE_REQUISITION | G_SIGNAL_TYPE_STATIC_SCOPE);
+]]></programlisting></informalexample>
+<para></para>
+</refsect2>
+<refsect2 id="G-SIGNAL-MATCH-MASK:CAPS" role="macro">
+<title>G_SIGNAL_MATCH_MASK</title>
+<indexterm zone="G-SIGNAL-MATCH-MASK:CAPS"><primary sortas="SIGNAL_MATCH_MASK">G_SIGNAL_MATCH_MASK</primary></indexterm>
+<programlisting language="C">#define G_SIGNAL_MATCH_MASK  0x3f
+</programlisting>
+<para>A mask for all <link linkend="GSignalMatchType"><type>GSignalMatchType</type></link> bits.</para>
+</refsect2>
+<refsect2 id="G-SIGNAL-FLAGS-MASK:CAPS" role="macro">
+<title>G_SIGNAL_FLAGS_MASK</title>
+<indexterm zone="G-SIGNAL-FLAGS-MASK:CAPS"><primary sortas="SIGNAL_FLAGS_MASK">G_SIGNAL_FLAGS_MASK</primary></indexterm>
+<programlisting language="C">#define G_SIGNAL_FLAGS_MASK  0x1ff
+</programlisting>
+<para>A mask for all <link linkend="GSignalFlags"><type>GSignalFlags</type></link> bits.</para>
+</refsect2>
+<refsect2 id="GConnectFlags" role="enum">
+<title>enum GConnectFlags</title>
+<indexterm zone="GConnectFlags"><primary sortas="ConnectFlags">GConnectFlags</primary></indexterm>
+<para>The connection flags are used to specify the behaviour of a signal's 
+connection.</para>
+<refsect3 id="GConnectFlags.members" role="enum_members">
+<title>Members</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="enum_members_name" colwidth="300px"/>
+<colspec colname="enum_members_description"/>
+<colspec colname="enum_members_annotations" colwidth="200px"/>
+<tbody>
+<row role="constant"><entry role="enum_member_name"><para id="G-CONNECT-AFTER:CAPS">G_CONNECT_AFTER</para></entry>
+<entry role="enum_member_description"><para>whether the handler should be called before or after the 
+ default handler of the signal.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-CONNECT-SWAPPED:CAPS">G_CONNECT_SWAPPED</para></entry>
+<entry role="enum_member_description"><para>whether the instance and data should be swapped when
+ calling the handler; see <link linkend="g-signal-connect-swapped"><function>g_signal_connect_swapped()</function></link> for an example.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+
+</refsect1>
+
+</refentry>

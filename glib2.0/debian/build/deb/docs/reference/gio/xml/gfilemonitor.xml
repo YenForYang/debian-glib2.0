@@ -1,0 +1,396 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC '-//OASIS//DTD DocBook XML V4.5//EN'
+                      'http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd' [
+<!ENTITY % local.common.attrib "xmlns:xi  CDATA  #FIXED 'http://www.w3.org/2003/XInclude'">
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="GFileMonitor">
+<refmeta>
+<refentrytitle role="top_of_page" id="GFileMonitor.top_of_page">GFileMonitor</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>GIO Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>GFileMonitor</refname>
+<refpurpose>File Monitor</refpurpose>
+</refnamediv>
+
+<refsect1 id="GFileMonitor.functions" role="functions_proto">
+<title role="functions_proto.title">Functions</title>
+<informaltable pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="functions_return" colwidth="150px"/>
+<colspec colname="functions_name"/>
+<tbody>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-file-monitor-cancel">g_file_monitor_cancel</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-file-monitor-is-cancelled">g_file_monitor_is_cancelled</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-file-monitor-set-rate-limit">g_file_monitor_set_rate_limit</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-file-monitor-emit-event">g_file_monitor_emit_event</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GFileMonitor.properties" role="properties">
+<title role="properties.title">Properties</title>
+<informaltable frame="none">
+<tgroup cols="3">
+<colspec colname="properties_type" colwidth="150px"/>
+<colspec colname="properties_name" colwidth="300px"/>
+<colspec colname="properties_flags" colwidth="200px"/>
+<tbody>
+<row><entry role="property_type"><link linkend="gboolean"><type>gboolean</type></link></entry><entry role="property_name"><link linkend="GFileMonitor--cancelled">cancelled</link></entry><entry role="property_flags">Read</entry></row>
+<row><entry role="property_type"><link linkend="gint"><type>gint</type></link></entry><entry role="property_name"><link linkend="GFileMonitor--rate-limit">rate-limit</link></entry><entry role="property_flags">Read / Write</entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GFileMonitor.signals" role="signal_proto">
+<title role="signal_proto.title">Signals</title>
+<informaltable frame="none">
+<tgroup cols="3">
+<colspec colname="signals_return" colwidth="150px"/>
+<colspec colname="signals_name" colwidth="300px"/>
+<colspec colname="signals_flags" colwidth="200px"/>
+<tbody>
+<row><entry role="signal_type"><link linkend="void"><returnvalue>void</returnvalue></link></entry><entry role="signal_name"><link linkend="GFileMonitor-changed">changed</link></entry><entry role="signal_flags"><link linkend="G-SIGNAL-RUN-LAST:CAPS">Run Last</link></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GFileMonitor.other" role="other_proto">
+<title role="other_proto.title">Types and Values</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="name" colwidth="150px"/>
+<colspec colname="description"/>
+<tbody>
+<row><entry role="datatype_keyword">enum</entry><entry role="function_name"><link linkend="GFileMonitorEvent">GFileMonitorEvent</link></entry></row>
+<row><entry role="datatype_keyword"></entry><entry role="function_name"><link linkend="GFileMonitor-struct">GFileMonitor</link></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GFileMonitor.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<screen>    <link linkend="GEnum">GEnum</link>
+    <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> GFileMonitorEvent
+    <link linkend="GObject">GObject</link>
+    <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> GFileMonitor
+</screen>
+</refsect1>
+
+<refsect1 id="GFileMonitor.includes"><title>Includes</title><synopsis>#include &lt;gio/gio.h&gt;
+</synopsis></refsect1>
+
+<refsect1 id="GFileMonitor.description" role="desc">
+<title role="desc.title">Description</title>
+<para>Monitors a file or directory for changes.</para>
+<para>To obtain a <link linkend="GFileMonitor"><type>GFileMonitor</type></link> for a file or directory, use
+<link linkend="g-file-monitor"><function>g_file_monitor()</function></link>, <link linkend="g-file-monitor-file"><function>g_file_monitor_file()</function></link>, or
+<link linkend="g-file-monitor-directory"><function>g_file_monitor_directory()</function></link>.</para>
+<para>To get informed about changes to the file or directory you are
+monitoring, connect to the <link linkend="GFileMonitor-changed"><type>“changed”</type></link> signal. The
+signal will be emitted in the
+<link linkend="g-main-context-push-thread-default">thread-default main context</link>
+of the thread that the monitor was created in
+(though if the global default main context is blocked, this may
+cause notifications to be blocked even if the thread-default
+context is still running).</para>
+
+</refsect1>
+<refsect1 id="GFileMonitor.functions_details" role="details">
+<title role="details.title">Functions</title>
+<refsect2 id="g-file-monitor-cancel" role="function">
+<title>g_file_monitor_cancel&#160;()</title>
+<indexterm zone="g-file-monitor-cancel"><primary sortas="file_monitor_cancel">g_file_monitor_cancel</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_file_monitor_cancel (<parameter><link linkend="GFileMonitor"><type>GFileMonitor</type></link> *monitor</parameter>);</programlisting>
+<para>Cancels a file monitor.</para>
+<refsect3 id="g-file-monitor-cancel.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>monitor</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GFileMonitor"><type>GFileMonitor</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-file-monitor-cancel.returns" role="returns">
+<title>Returns</title>
+<para> always <link linkend="TRUE:CAPS"><literal>TRUE</literal></link></para>
+</refsect3></refsect2>
+<refsect2 id="g-file-monitor-is-cancelled" role="function">
+<title>g_file_monitor_is_cancelled&#160;()</title>
+<indexterm zone="g-file-monitor-is-cancelled"><primary sortas="file_monitor_is_cancelled">g_file_monitor_is_cancelled</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_file_monitor_is_cancelled (<parameter><link linkend="GFileMonitor"><type>GFileMonitor</type></link> *monitor</parameter>);</programlisting>
+<para>Returns whether the monitor is canceled.</para>
+<refsect3 id="g-file-monitor-is-cancelled.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>monitor</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GFileMonitor"><type>GFileMonitor</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-file-monitor-is-cancelled.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if monitor is canceled. <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> otherwise.</para>
+</refsect3></refsect2>
+<refsect2 id="g-file-monitor-set-rate-limit" role="function">
+<title>g_file_monitor_set_rate_limit&#160;()</title>
+<indexterm zone="g-file-monitor-set-rate-limit"><primary sortas="file_monitor_set_rate_limit">g_file_monitor_set_rate_limit</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_file_monitor_set_rate_limit (<parameter><link linkend="GFileMonitor"><type>GFileMonitor</type></link> *monitor</parameter>,
+                               <parameter><link linkend="gint"><type>gint</type></link> limit_msecs</parameter>);</programlisting>
+<para>Sets the rate limit to which the <parameter>monitor</parameter>
+ will report
+consecutive change events to the same file.</para>
+<refsect3 id="g-file-monitor-set-rate-limit.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>monitor</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GFileMonitor"><type>GFileMonitor</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>limit_msecs</para></entry>
+<entry role="parameter_description"><para>a non-negative integer with the limit in milliseconds
+to poll for changes</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-file-monitor-emit-event" role="function">
+<title>g_file_monitor_emit_event&#160;()</title>
+<indexterm zone="g-file-monitor-emit-event"><primary sortas="file_monitor_emit_event">g_file_monitor_emit_event</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_file_monitor_emit_event (<parameter><link linkend="GFileMonitor"><type>GFileMonitor</type></link> *monitor</parameter>,
+                           <parameter><link linkend="GFile"><type>GFile</type></link> *child</parameter>,
+                           <parameter><link linkend="GFile"><type>GFile</type></link> *other_file</parameter>,
+                           <parameter><link linkend="GFileMonitorEvent"><type>GFileMonitorEvent</type></link> event_type</parameter>);</programlisting>
+<para>Emits the <link linkend="GFileMonitor-changed"><type>“changed”</type></link> signal if a change
+has taken place. Should be called from file monitor
+implementations only.</para>
+<para>Implementations are responsible to call this method from the
+<link linkend="g-main-context-push-thread-default">thread-default main context</link> of the
+thread that the monitor was created in.</para>
+<refsect3 id="g-file-monitor-emit-event.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>monitor</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GFileMonitor"><type>GFileMonitor</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>child</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GFile"><type>GFile</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>other_file</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GFile"><type>GFile</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>event_type</para></entry>
+<entry role="parameter_description"><para>a set of <link linkend="GFileMonitorEvent"><type>GFileMonitorEvent</type></link> flags.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+
+</refsect1>
+<refsect1 id="GFileMonitor.other_details" role="details">
+<title role="details.title">Types and Values</title>
+<refsect2 id="GFileMonitorEvent" role="enum">
+<title>enum GFileMonitorEvent</title>
+<indexterm zone="GFileMonitorEvent"><primary sortas="FileMonitorEvent">GFileMonitorEvent</primary></indexterm>
+<para>Specifies what type of event a monitor event is.</para>
+<refsect3 id="GFileMonitorEvent.members" role="enum_members">
+<title>Members</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="enum_members_name" colwidth="300px"/>
+<colspec colname="enum_members_description"/>
+<colspec colname="enum_members_annotations" colwidth="200px"/>
+<tbody>
+<row role="constant"><entry role="enum_member_name"><para id="G-FILE-MONITOR-EVENT-CHANGED:CAPS">G_FILE_MONITOR_EVENT_CHANGED</para></entry>
+<entry role="enum_member_description"><para>a file changed.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-FILE-MONITOR-EVENT-CHANGES-DONE-HINT:CAPS">G_FILE_MONITOR_EVENT_CHANGES_DONE_HINT</para></entry>
+<entry role="enum_member_description"><para>a hint that this was probably the last change in a set of changes.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-FILE-MONITOR-EVENT-DELETED:CAPS">G_FILE_MONITOR_EVENT_DELETED</para></entry>
+<entry role="enum_member_description"><para>a file was deleted.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-FILE-MONITOR-EVENT-CREATED:CAPS">G_FILE_MONITOR_EVENT_CREATED</para></entry>
+<entry role="enum_member_description"><para>a file was created.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-FILE-MONITOR-EVENT-ATTRIBUTE-CHANGED:CAPS">G_FILE_MONITOR_EVENT_ATTRIBUTE_CHANGED</para></entry>
+<entry role="enum_member_description"><para>a file attribute was changed.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-FILE-MONITOR-EVENT-PRE-UNMOUNT:CAPS">G_FILE_MONITOR_EVENT_PRE_UNMOUNT</para></entry>
+<entry role="enum_member_description"><para>the file location will soon be unmounted.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-FILE-MONITOR-EVENT-UNMOUNTED:CAPS">G_FILE_MONITOR_EVENT_UNMOUNTED</para></entry>
+<entry role="enum_member_description"><para>the file location was unmounted.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-FILE-MONITOR-EVENT-MOVED:CAPS">G_FILE_MONITOR_EVENT_MOVED</para></entry>
+<entry role="enum_member_description"><para>the file was moved -- only sent if the
+  (deprecated) <link linkend="G-FILE-MONITOR-SEND-MOVED:CAPS"><literal>G_FILE_MONITOR_SEND_MOVED</literal></link> flag is set</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-FILE-MONITOR-EVENT-RENAMED:CAPS">G_FILE_MONITOR_EVENT_RENAMED</para></entry>
+<entry role="enum_member_description"><para>the file was renamed within the
+  current directory -- only sent if the <link linkend="G-FILE-MONITOR-WATCH-MOVES:CAPS"><literal>G_FILE_MONITOR_WATCH_MOVES</literal></link>
+  flag is set.  Since: 2.46.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-FILE-MONITOR-EVENT-MOVED-IN:CAPS">G_FILE_MONITOR_EVENT_MOVED_IN</para></entry>
+<entry role="enum_member_description"><para>the file was moved into the
+  monitored directory from another location -- only sent if the
+  <link linkend="G-FILE-MONITOR-WATCH-MOVES:CAPS"><literal>G_FILE_MONITOR_WATCH_MOVES</literal></link> flag is set.  Since: 2.46.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-FILE-MONITOR-EVENT-MOVED-OUT:CAPS">G_FILE_MONITOR_EVENT_MOVED_OUT</para></entry>
+<entry role="enum_member_description"><para>the file was moved out of the
+  monitored directory to another location -- only sent if the
+  <link linkend="G-FILE-MONITOR-WATCH-MOVES:CAPS"><literal>G_FILE_MONITOR_WATCH_MOVES</literal></link> flag is set.  Since: 2.46</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="GFileMonitor-struct" role="struct">
+<title>GFileMonitor</title>
+<indexterm zone="GFileMonitor-struct"><primary sortas="FileMonitor">GFileMonitor</primary></indexterm>
+<programlisting language="C">typedef struct _GFileMonitor GFileMonitor;</programlisting>
+<para>Watches for changes to a file.</para>
+</refsect2>
+
+</refsect1>
+<refsect1 id="GFileMonitor.property-details" role="property_details">
+<title role="property_details.title">Property Details</title>
+<refsect2 id="GFileMonitor--cancelled" role="property"><title>The <literal>“cancelled”</literal> property</title>
+<indexterm zone="GFileMonitor--cancelled"><primary sortas="FileMonitor:cancelled">GFileMonitor:cancelled</primary></indexterm>
+<programlisting>  “cancelled”                <link linkend="gboolean"><type>gboolean</type></link></programlisting>
+<para>Whether the monitor has been cancelled.</para><para>Flags: Read</para>
+<para>Default value: FALSE</para>
+</refsect2>
+<refsect2 id="GFileMonitor--rate-limit" role="property"><title>The <literal>“rate-limit”</literal> property</title>
+<indexterm zone="GFileMonitor--rate-limit"><primary sortas="FileMonitor:rate-limit">GFileMonitor:rate-limit</primary></indexterm>
+<programlisting>  “rate-limit”               <link linkend="gint"><type>gint</type></link></programlisting>
+<para>The limit of the monitor to watch for changes, in milliseconds.</para><para>Flags: Read / Write</para>
+<para>Allowed values: &gt;= 0</para>
+<para>Default value: 800</para>
+</refsect2>
+
+</refsect1>
+<refsect1 id="GFileMonitor.signal-details" role="signals">
+<title role="signals.title">Signal Details</title>
+<refsect2 id="GFileMonitor-changed" role="signal"><title>The <literal>“changed”</literal> signal</title>
+<indexterm zone="GFileMonitor-changed"><primary sortas="FileMonitor::changed">GFileMonitor::changed</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+user_function (<link linkend="GFileMonitor"><type>GFileMonitor</type></link>     *monitor,
+               <link linkend="GFile"><type>GFile</type></link>            *file,
+               <link linkend="GFile"><type>GFile</type></link>            *other_file,
+               <link linkend="GFileMonitorEvent"><type>GFileMonitorEvent</type></link> event_type,
+               <link linkend="gpointer"><type>gpointer</type></link>          user_data)</programlisting>
+<para>Emitted when <parameter>file</parameter>
+ has been changed.</para>
+<para>If using <link linkend="G-FILE-MONITOR-WATCH-MOVES:CAPS"><literal>G_FILE_MONITOR_WATCH_MOVES</literal></link> on a directory monitor, and
+the information is available (and if supported by the backend),
+<parameter>event_type</parameter>
+ may be <link linkend="G-FILE-MONITOR-EVENT-RENAMED:CAPS"><literal>G_FILE_MONITOR_EVENT_RENAMED</literal></link>,
+<link linkend="G-FILE-MONITOR-EVENT-MOVED-IN:CAPS"><literal>G_FILE_MONITOR_EVENT_MOVED_IN</literal></link> or <link linkend="G-FILE-MONITOR-EVENT-MOVED-OUT:CAPS"><literal>G_FILE_MONITOR_EVENT_MOVED_OUT</literal></link>.</para>
+<para>In all cases <parameter>file</parameter>
+ will be a child of the monitored directory.  For
+renames, <parameter>file</parameter>
+ will be the old name and <parameter>other_file</parameter>
+ is the new
+name.  For "moved in" events, <parameter>file</parameter>
+ is the name of the file that
+appeared and <parameter>other_file</parameter>
+ is the old name that it was moved from (in
+another directory).  For "moved out" events, <parameter>file</parameter>
+ is the name of
+the file that used to be in this directory and <parameter>other_file</parameter>
+ is the
+name of the file at its new location.</para>
+<para>It makes sense to treat <link linkend="G-FILE-MONITOR-EVENT-MOVED-IN:CAPS"><literal>G_FILE_MONITOR_EVENT_MOVED_IN</literal></link> as
+equivalent to <link linkend="G-FILE-MONITOR-EVENT-CREATED:CAPS"><literal>G_FILE_MONITOR_EVENT_CREATED</literal></link> and
+<link linkend="G-FILE-MONITOR-EVENT-MOVED-OUT:CAPS"><literal>G_FILE_MONITOR_EVENT_MOVED_OUT</literal></link> as equivalent to
+<link linkend="G-FILE-MONITOR-EVENT-DELETED:CAPS"><literal>G_FILE_MONITOR_EVENT_DELETED</literal></link>, with extra information.
+<link linkend="G-FILE-MONITOR-EVENT-RENAMED:CAPS"><literal>G_FILE_MONITOR_EVENT_RENAMED</literal></link> is equivalent to a delete/create
+pair.  This is exactly how the events will be reported in the case
+that the <link linkend="G-FILE-MONITOR-WATCH-MOVES:CAPS"><literal>G_FILE_MONITOR_WATCH_MOVES</literal></link> flag is not in use.</para>
+<para>If using the deprecated flag <link linkend="G-FILE-MONITOR-SEND-MOVED:CAPS"><literal>G_FILE_MONITOR_SEND_MOVED</literal></link> flag and <parameter>event_type</parameter>
+ is
+<link linkend="G-FILE-MONITOR-EVENT-MOVED:CAPS"><type>G_FILE_MONITOR_EVENT_MOVED</type></link>, <parameter>file</parameter>
+ will be set to a <link linkend="GFile"><type>GFile</type></link> containing the
+old path, and <parameter>other_file</parameter>
+ will be set to a <link linkend="GFile"><type>GFile</type></link> containing the new path.</para>
+<para>In all the other cases, <parameter>other_file</parameter>
+ will be set to <link linkend="NULL:CAPS"><type>NULL</type></link>.</para>
+<refsect3 id="GFileMonitor-changed.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>monitor</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GFileMonitor"><type>GFileMonitor</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>file</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GFile"><type>GFile</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>other_file</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GFile"><type>GFile</type></link> or <link linkend="NULL:CAPS"><type>NULL</type></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>event_type</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GFileMonitorEvent"><type>GFileMonitorEvent</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><simpara>user_data</simpara></entry>
+<entry role="parameter_description"><simpara>user data set when the signal handler was connected.</simpara></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para>Flags: <link linkend="G-SIGNAL-RUN-LAST:CAPS">Run Last</link></para>
+</refsect2>
+</refsect1>
+
+</refentry>

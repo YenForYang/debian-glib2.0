@@ -1,0 +1,165 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC '-//OASIS//DTD DocBook XML V4.5//EN'
+                      'http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd' [
+<!ENTITY % local.common.attrib "xmlns:xi  CDATA  #FIXED 'http://www.w3.org/2003/XInclude'">
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="GTlsFileDatabase">
+<refmeta>
+<refentrytitle role="top_of_page" id="GTlsFileDatabase.top_of_page">GTlsFileDatabase</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>GIO Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>GTlsFileDatabase</refname>
+<refpurpose>TLS file based database type</refpurpose>
+</refnamediv>
+
+<refsect1 id="GTlsFileDatabase.functions" role="functions_proto">
+<title role="functions_proto.title">Functions</title>
+<informaltable pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="functions_return" colwidth="150px"/>
+<colspec colname="functions_name"/>
+<tbody>
+<row><entry role="function_type"><link linkend="GTlsDatabase"><returnvalue>GTlsDatabase</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-tls-file-database-new">g_tls_file_database_new</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GTlsFileDatabase.properties" role="properties">
+<title role="properties.title">Properties</title>
+<informaltable frame="none">
+<tgroup cols="3">
+<colspec colname="properties_type" colwidth="150px"/>
+<colspec colname="properties_name" colwidth="300px"/>
+<colspec colname="properties_flags" colwidth="200px"/>
+<tbody>
+<row><entry role="property_type"><link linkend="gchar"><type>gchar</type></link>&#160;*</entry><entry role="property_name"><link linkend="GTlsFileDatabase--anchors">anchors</link></entry><entry role="property_flags">Read / Write / Construct</entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GTlsFileDatabase.other" role="other_proto">
+<title role="other_proto.title">Types and Values</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="name" colwidth="150px"/>
+<colspec colname="description"/>
+<tbody>
+<row><entry role="datatype_keyword"></entry><entry role="function_name"><link linkend="GTlsFileDatabase-struct">GTlsFileDatabase</link></entry></row>
+<row><entry role="datatype_keyword">struct</entry><entry role="function_name"><link linkend="GTlsFileDatabaseInterface">GTlsFileDatabaseInterface</link></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GTlsFileDatabase.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<screen>    <link linkend="GInterface">GInterface</link>
+    <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> GTlsFileDatabase
+</screen>
+</refsect1>
+<refsect1 id="GTlsFileDatabase.prerequisites" role="prerequisites">
+<title role="prerequisites.title">Prerequisites</title>
+<para>
+GTlsFileDatabase requires
+ <link linkend="GTlsDatabase">GTlsDatabase</link>.</para>
+
+</refsect1>
+
+<refsect1 id="GTlsFileDatabase.includes"><title>Includes</title><synopsis>#include &lt;gio/gio.h&gt;
+</synopsis></refsect1>
+
+<refsect1 id="GTlsFileDatabase.description" role="desc">
+<title role="desc.title">Description</title>
+<para><link linkend="GTlsFileDatabase"><type>GTlsFileDatabase</type></link> is implemented by <link linkend="GTlsDatabase"><type>GTlsDatabase</type></link> objects which load
+their certificate information from a file. It is an interface which
+TLS library specific subtypes implement.</para>
+
+</refsect1>
+<refsect1 id="GTlsFileDatabase.functions_details" role="details">
+<title role="details.title">Functions</title>
+<refsect2 id="g-tls-file-database-new" role="function" condition="since:2.30">
+<title>g_tls_file_database_new&#160;()</title>
+<indexterm zone="g-tls-file-database-new" role="2.30"><primary sortas="tls_file_database_new">g_tls_file_database_new</primary></indexterm>
+<programlisting language="C"><link linkend="GTlsDatabase"><returnvalue>GTlsDatabase</returnvalue></link>&#160;*
+g_tls_file_database_new (<parameter>const <link linkend="gchar"><type>gchar</type></link> *anchors</parameter>,
+                         <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para>Creates a new <link linkend="GTlsFileDatabase"><type>GTlsFileDatabase</type></link> which uses anchor certificate authorities
+in <parameter>anchors</parameter>
+ to verify certificate chains.</para>
+<para>The certificates in <parameter>anchors</parameter>
+ must be PEM encoded.</para>
+<refsect3 id="g-tls-file-database-new.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>anchors</para></entry>
+<entry role="parameter_description"><para>filename of anchor certificate authorities. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>type</acronym> filename]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para><link linkend="GError"><type>GError</type></link> for error reporting, or <link linkend="NULL:CAPS"><literal>NULL</literal></link> to ignore.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-tls-file-database-new.returns" role="returns">
+<title>Returns</title>
+<para>the new
+<link linkend="GTlsFileDatabase"><type>GTlsFileDatabase</type></link>, or <link linkend="NULL:CAPS"><literal>NULL</literal></link> on error. </para>
+<para><emphasis role="annotation">[<acronym>transfer full</acronym>][<acronym>type</acronym> GTlsFileDatabase]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.30">2.30</link></para></refsect2>
+
+</refsect1>
+<refsect1 id="GTlsFileDatabase.other_details" role="details">
+<title role="details.title">Types and Values</title>
+<refsect2 id="GTlsFileDatabase-struct" role="struct">
+<title>GTlsFileDatabase</title>
+<indexterm zone="GTlsFileDatabase-struct" role="2.30"><primary sortas="TlsFileDatabase">GTlsFileDatabase</primary></indexterm>
+<programlisting language="C">typedef struct _GTlsFileDatabase GTlsFileDatabase;</programlisting>
+<para>Implemented by a <link linkend="GTlsDatabase"><type>GTlsDatabase</type></link> which allows you to load certificates
+from a file.</para>
+<para role="since">Since: <link linkend="api-index-2.30">2.30</link></para></refsect2>
+<refsect2 id="GTlsFileDatabaseInterface" role="struct">
+<title>struct GTlsFileDatabaseInterface</title>
+<indexterm zone="GTlsFileDatabaseInterface"><primary sortas="TlsFileDatabaseInterface">GTlsFileDatabaseInterface</primary></indexterm>
+<programlisting language="C">struct GTlsFileDatabaseInterface {
+  GTypeInterface g_iface;
+};
+</programlisting>
+<para>Provides an interface for <link linkend="GTlsFileDatabase"><type>GTlsFileDatabase</type></link> implementations.</para>
+<refsect3 id="GTlsFileDatabaseInterface.members" role="struct_members">
+<title>Members</title>
+<informaltable role="struct_members_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="struct_members_name" colwidth="300px"/>
+<colspec colname="struct_members_description"/>
+<colspec colname="struct_members_annotations" colwidth="200px"/>
+<tbody>
+</tbody></tgroup></informaltable>
+</refsect3>
+</refsect2>
+
+</refsect1>
+<refsect1 id="GTlsFileDatabase.property-details" role="property_details">
+<title role="property_details.title">Property Details</title>
+<refsect2 id="GTlsFileDatabase--anchors" role="property"><title>The <literal>“anchors”</literal> property</title>
+<indexterm zone="GTlsFileDatabase--anchors" role="2.30"><primary sortas="TlsFileDatabase:anchors">GTlsFileDatabase:anchors</primary></indexterm>
+<programlisting>  “anchors”                  <link linkend="gchar"><type>gchar</type></link>&#160;*</programlisting>
+<para>The path to a file containing PEM encoded certificate authority
+root anchors. The certificates in this file will be treated as
+root authorities for the purpose of verifying other certificates
+via the <link linkend="g-tls-database-verify-chain"><function>g_tls_database_verify_chain()</function></link> operation.</para>
+<para>Flags: Read / Write / Construct</para>
+<para>Default value: NULL</para>
+<para role="since">Since: <link linkend="api-index-2.30">2.30</link></para></refsect2>
+
+</refsect1>
+
+</refentry>

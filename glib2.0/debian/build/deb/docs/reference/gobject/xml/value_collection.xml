@@ -1,0 +1,244 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC '-//OASIS//DTD DocBook XML V4.5//EN'
+                      'http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd' [
+
+<!ENTITY % local.common.attrib "xmlns:xi  CDATA  #FIXED 'http://www.w3.org/2003/XInclude'">
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="gobject-Varargs-Value-Collection">
+<refmeta>
+<refentrytitle role="top_of_page" id="gobject-Varargs-Value-Collection.top_of_page">Varargs Value Collection</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>GOBJECT Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>Varargs Value Collection</refname>
+<refpurpose>Converting varargs to generic values</refpurpose>
+</refnamediv>
+
+<refsect1 id="gobject-Varargs-Value-Collection.functions" role="functions_proto">
+<title role="functions_proto.title">Functions</title>
+<informaltable pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="functions_return" colwidth="150px"/>
+<colspec colname="functions_name"/>
+<tbody>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="G-VALUE-COLLECT-INIT:CAPS">G_VALUE_COLLECT_INIT</link><phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="G-VALUE-COLLECT:CAPS">G_VALUE_COLLECT</link><phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="G-VALUE-COLLECT-SKIP:CAPS">G_VALUE_COLLECT_SKIP</link><phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="G-VALUE-LCOPY:CAPS">G_VALUE_LCOPY</link><phrase role="c_punctuation">()</phrase></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="gobject-Varargs-Value-Collection.other" role="other_proto">
+<title role="other_proto.title">Types and Values</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="name" colwidth="150px"/>
+<colspec colname="description"/>
+<tbody>
+<row><entry role="datatype_keyword"></entry><entry role="function_name"><link linkend="GTypeCValue">GTypeCValue</link></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="G-VALUE-COLLECT-FORMAT-MAX-LENGTH:CAPS">G_VALUE_COLLECT_FORMAT_MAX_LENGTH</link></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+
+<refsect1 id="gobject-Varargs-Value-Collection.includes"><title>Includes</title><synopsis>#include &lt;glib-object.h&gt;
+#include &lt;gobject/gvaluecollector.h&gt;
+</synopsis></refsect1>
+
+<refsect1 id="gobject-Varargs-Value-Collection.description" role="desc">
+<title role="desc.title">Description</title>
+<para>The macros in this section provide the varargs parsing support needed
+in variadic GObject functions such as <link linkend="g-object-new"><function>g_object_new()</function></link> or <link linkend="g-object-set"><function>g_object_set()</function></link>.
+They currently support the collection of integral types, floating point 
+types and pointers.</para>
+
+</refsect1>
+<refsect1 id="gobject-Varargs-Value-Collection.functions_details" role="details">
+<title role="details.title">Functions</title>
+<refsect2 id="G-VALUE-COLLECT-INIT:CAPS" role="macro" condition="since:2.24">
+<title>G_VALUE_COLLECT_INIT()</title>
+<indexterm zone="G-VALUE-COLLECT-INIT:CAPS" role="2.24"><primary sortas="VALUE_COLLECT_INIT">G_VALUE_COLLECT_INIT</primary></indexterm>
+<programlisting language="C">#define             G_VALUE_COLLECT_INIT(value, _value_type, var_args, flags, __error)</programlisting>
+<para>Collects a variable argument value from a va_list. We have to
+implement the varargs collection as a macro, because on some systems
+va_list variables cannot be passed by reference.</para>
+<refsect3 id="G-VALUE-COLLECT-INIT.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>value</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GValue"><type>GValue</type></link> return location. <parameter>value</parameter>
+must contain only 0 bytes.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>_value_type</para></entry>
+<entry role="parameter_description"><para>the <link linkend="GType"><type>GType</type></link> to use for <parameter>value</parameter>
+.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>var_args</para></entry>
+<entry role="parameter_description"><para>the va_list variable; it may be evaluated multiple times</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>flags</para></entry>
+<entry role="parameter_description"><para>flags which are passed on to the <link linkend="collect-value"><function>collect_value()</function></link> function of
+the <link linkend="GTypeValueTable"><type>GTypeValueTable</type></link> of <parameter>value</parameter>
+.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>__error</para></entry>
+<entry role="parameter_description"><para>a <link linkend="gchar"><type>gchar</type></link>** variable that will be modified to hold a <link linkend="g-new"><function>g_new()</function></link>
+allocated error messages if something fails</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.24">2.24</link></para></refsect2>
+<refsect2 id="G-VALUE-COLLECT:CAPS" role="macro">
+<title>G_VALUE_COLLECT()</title>
+<indexterm zone="G-VALUE-COLLECT:CAPS"><primary sortas="VALUE_COLLECT">G_VALUE_COLLECT</primary></indexterm>
+<programlisting language="C">#define             G_VALUE_COLLECT(value, var_args, flags, __error)</programlisting>
+<para>Collects a variable argument value from a va_list. We have to
+implement the varargs collection as a macro, because on some systems
+va_list variables cannot be passed by reference.</para>
+<para>Note: If you are creating the <parameter>value</parameter>
+ argument just before calling this macro,
+you should use the <link linkend="G-VALUE-COLLECT-INIT:CAPS"><type>G_VALUE_COLLECT_INIT</type></link> variant and pass the unitialized
+<link linkend="GValue"><type>GValue</type></link>. That variant is faster than <link linkend="G-VALUE-COLLECT:CAPS"><type>G_VALUE_COLLECT</type></link>.</para>
+<refsect3 id="G-VALUE-COLLECT.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>value</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GValue"><type>GValue</type></link> return location. <parameter>value</parameter>
+is supposed to be initialized
+according to the value type to be collected</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>var_args</para></entry>
+<entry role="parameter_description"><para>the va_list variable; it may be evaluated multiple times</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>flags</para></entry>
+<entry role="parameter_description"><para>flags which are passed on to the <link linkend="collect-value"><function>collect_value()</function></link> function of
+the <link linkend="GTypeValueTable"><type>GTypeValueTable</type></link> of <parameter>value</parameter>
+.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>__error</para></entry>
+<entry role="parameter_description"><para>a <link linkend="gchar"><type>gchar</type></link>** variable that will be modified to hold a <link linkend="g-new"><function>g_new()</function></link>
+allocated error messages if something fails</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="G-VALUE-COLLECT-SKIP:CAPS" role="macro">
+<title>G_VALUE_COLLECT_SKIP()</title>
+<indexterm zone="G-VALUE-COLLECT-SKIP:CAPS"><primary sortas="VALUE_COLLECT_SKIP">G_VALUE_COLLECT_SKIP</primary></indexterm>
+<programlisting language="C">#define             G_VALUE_COLLECT_SKIP(_value_type, var_args)</programlisting>
+<para>Skip an argument of type <parameter>_value_type</parameter>
+ from <parameter>var_args</parameter>
+.</para>
+<refsect3 id="G-VALUE-COLLECT-SKIP.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>_value_type</para></entry>
+<entry role="parameter_description"><para>the <link linkend="GType"><type>GType</type></link> of the value to skip</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>var_args</para></entry>
+<entry role="parameter_description"><para>the va_list variable; it may be evaluated multiple times</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="G-VALUE-LCOPY:CAPS" role="macro">
+<title>G_VALUE_LCOPY()</title>
+<indexterm zone="G-VALUE-LCOPY:CAPS"><primary sortas="VALUE_LCOPY">G_VALUE_LCOPY</primary></indexterm>
+<programlisting language="C">#define             G_VALUE_LCOPY(value, var_args, flags, __error)</programlisting>
+<para>Stores a value’s value into one or more argument locations from a va_list.
+This is the inverse of <link linkend="G-VALUE-COLLECT:CAPS"><function>G_VALUE_COLLECT()</function></link>.</para>
+<refsect3 id="G-VALUE-LCOPY.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>value</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GValue"><type>GValue</type></link> to store into the <parameter>var_args</parameter>
+; this must be initialized
+and set</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>var_args</para></entry>
+<entry role="parameter_description"><para>the va_list variable; it may be evaluated multiple times</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>flags</para></entry>
+<entry role="parameter_description"><para>flags which are passed on to the <link linkend="lcopy-value"><function>lcopy_value()</function></link> function of
+the <link linkend="GTypeValueTable"><type>GTypeValueTable</type></link> of <parameter>value</parameter>
+.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>__error</para></entry>
+<entry role="parameter_description"><para>a <link linkend="gchar"><type>gchar</type></link>** variable that will be modified to hold a <link linkend="g-new"><function>g_new()</function></link>
+allocated error message if something fails</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+
+</refsect1>
+<refsect1 id="gobject-Varargs-Value-Collection.other_details" role="details">
+<title role="details.title">Types and Values</title>
+<refsect2 id="GTypeCValue" role="union">
+<title>GTypeCValue</title>
+<indexterm zone="GTypeCValue"><primary sortas="TypeCValue">GTypeCValue</primary></indexterm>
+<para>A union holding one collected value.</para>
+<refsect3 id="GTypeCValue.members" role="union_members">
+<title>Members</title>
+<informaltable role="union_members_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="union_members_name" colwidth="300px"/>
+<colspec colname="union_members_description"/>
+<colspec colname="union_members_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="union_member_name"><para><link linkend="gint"><type>gint</type></link>&#160;<structfield id="GTypeCValue.v-int">v_int</structfield>;</para></entry>
+<entry role="union_member_description"><para>the field for holding integer values</para></entry>
+<entry role="union_member_annotations"></entry>
+</row>
+<row><entry role="union_member_name"><para><link linkend="glong"><type>glong</type></link>&#160;<structfield id="GTypeCValue.v-long">v_long</structfield>;</para></entry>
+<entry role="union_member_description"><para>the field for holding long integer values</para></entry>
+<entry role="union_member_annotations"></entry>
+</row>
+<row><entry role="union_member_name"><para><link linkend="gint64"><type>gint64</type></link>&#160;<structfield id="GTypeCValue.v-int64">v_int64</structfield>;</para></entry>
+<entry role="union_member_description"><para>the field for holding 64 bit integer values</para></entry>
+<entry role="union_member_annotations"></entry>
+</row>
+<row><entry role="union_member_name"><para><link linkend="gdouble"><type>gdouble</type></link>&#160;<structfield id="GTypeCValue.v-double">v_double</structfield>;</para></entry>
+<entry role="union_member_description"><para>the field for holding floating point values</para></entry>
+<entry role="union_member_annotations"></entry>
+</row>
+<row><entry role="union_member_name"><para><link linkend="gpointer"><type>gpointer</type></link>&#160;<structfield id="GTypeCValue.v-pointer">v_pointer</structfield>;</para></entry>
+<entry role="union_member_description"><para>the field for holding pointers</para></entry>
+<entry role="union_member_annotations"></entry>
+</row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="G-VALUE-COLLECT-FORMAT-MAX-LENGTH:CAPS" role="macro">
+<title>G_VALUE_COLLECT_FORMAT_MAX_LENGTH</title>
+<indexterm zone="G-VALUE-COLLECT-FORMAT-MAX-LENGTH:CAPS"><primary sortas="VALUE_COLLECT_FORMAT_MAX_LENGTH">G_VALUE_COLLECT_FORMAT_MAX_LENGTH</primary></indexterm>
+<programlisting language="C">#define&#160;G_VALUE_COLLECT_FORMAT_MAX_LENGTH&#160;(8)
+</programlisting>
+<para>The maximal number of <link linkend="GTypeCValues"><type>GTypeCValues</type></link> which can be collected for a 
+single <link linkend="GValue"><type>GValue</type></link>.</para>
+</refsect2>
+
+</refsect1>
+
+</refentry>

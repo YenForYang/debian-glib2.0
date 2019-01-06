@@ -1,0 +1,390 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC '-//OASIS//DTD DocBook XML V4.5//EN'
+                      'http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd' [
+<!ENTITY % local.common.attrib "xmlns:xi  CDATA  #FIXED 'http://www.w3.org/2003/XInclude'">
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="glib-Caches">
+<refmeta>
+<refentrytitle role="top_of_page" id="glib-Caches.top_of_page">Caches</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>GLIB Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>Caches</refname>
+<refpurpose>caches allow sharing of complex data structures
+                    to save resources</refpurpose>
+</refnamediv>
+
+<refsect1 id="glib-Caches.functions" role="functions_proto">
+<title role="functions_proto.title">Functions</title>
+<informaltable pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="functions_return" colwidth="150px"/>
+<colspec colname="functions_name"/>
+<tbody>
+<row><entry role="function_type"><link linkend="GCache"><returnvalue>GCache</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-cache-new">g_cache_new</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gpointer"><returnvalue>gpointer</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-cache-insert">g_cache_insert</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-cache-remove">g_cache_remove</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-cache-destroy">g_cache_destroy</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-cache-key-foreach">g_cache_key_foreach</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-cache-value-foreach">g_cache_value_foreach</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><phrase role="c_punctuation">(</phrase><link linkend="GCacheDestroyFunc">*GCacheDestroyFunc</link><phrase role="c_punctuation">)</phrase>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gpointer"><returnvalue>gpointer</returnvalue></link>
+</entry><entry role="function_name"><phrase role="c_punctuation">(</phrase><link linkend="GCacheDupFunc">*GCacheDupFunc</link><phrase role="c_punctuation">)</phrase>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gpointer"><returnvalue>gpointer</returnvalue></link>
+</entry><entry role="function_name"><phrase role="c_punctuation">(</phrase><link linkend="GCacheNewFunc">*GCacheNewFunc</link><phrase role="c_punctuation">)</phrase>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="glib-Caches.other" role="other_proto">
+<title role="other_proto.title">Types and Values</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="name" colwidth="150px"/>
+<colspec colname="description"/>
+<tbody>
+<row><entry role="datatype_keyword"></entry><entry role="function_name"><link linkend="GCache">GCache</link></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+
+<refsect1 id="glib-Caches.includes"><title>Includes</title><synopsis>#include &lt;gmodule.h&gt;
+</synopsis></refsect1>
+
+<refsect1 id="glib-Caches.description" role="desc">
+<title role="desc.title">Description</title>
+<para>A <link linkend="GCache"><type>GCache</type></link> allows sharing of complex data structures, in order to
+save system resources.</para>
+<para>GCache uses keys and values. A GCache key describes the properties
+of a particular resource. A GCache value is the actual resource.</para>
+<para>GCache has been marked as deprecated, since this API is rarely
+used and not very actively maintained.</para>
+
+</refsect1>
+<refsect1 id="glib-Caches.functions_details" role="details">
+<title role="details.title">Functions</title>
+<refsect2 id="g-cache-new" role="function" condition="deprecated:2.32: Use a #GHashTable instead">
+<title>g_cache_new&#160;()</title>
+<indexterm zone="g-cache-new" role="deprecated"><primary sortas="cache_new">g_cache_new</primary></indexterm>
+<programlisting language="C"><link linkend="GCache"><returnvalue>GCache</returnvalue></link>&#160;*
+g_cache_new (<parameter><link linkend="GCacheNewFunc"><type>GCacheNewFunc</type></link> value_new_func</parameter>,
+             <parameter><link linkend="GCacheDestroyFunc"><type>GCacheDestroyFunc</type></link> value_destroy_func</parameter>,
+             <parameter><link linkend="GCacheDupFunc"><type>GCacheDupFunc</type></link> key_dup_func</parameter>,
+             <parameter><link linkend="GCacheDestroyFunc"><type>GCacheDestroyFunc</type></link> key_destroy_func</parameter>,
+             <parameter><link linkend="GHashFunc"><type>GHashFunc</type></link> hash_key_func</parameter>,
+             <parameter><link linkend="GHashFunc"><type>GHashFunc</type></link> hash_value_func</parameter>,
+             <parameter><link linkend="GEqualFunc"><type>GEqualFunc</type></link> key_equal_func</parameter>);</programlisting>
+<warning><para><literal>g_cache_new</literal> has been deprecated since version 2.32 and should not be used in newly-written code.</para> <para>Use a <link linkend="GHashTable"><type>GHashTable</type></link> instead</para>
+</warning>
+<para>Creates a new <link linkend="GCache"><type>GCache</type></link>.</para>
+<refsect3 id="g-cache-new.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>value_new_func</para></entry>
+<entry role="parameter_description"><para>a function to create a new object given a key.
+This is called by <link linkend="g-cache-insert"><function>g_cache_insert()</function></link> if an object
+with the given key does not already exist</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>value_destroy_func</para></entry>
+<entry role="parameter_description"><para>a function to destroy an object. It is called
+by <link linkend="g-cache-remove"><function>g_cache_remove()</function></link> when the object is no
+longer needed (i.e. its reference count drops
+to 0)</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>key_dup_func</para></entry>
+<entry role="parameter_description"><para>a function to copy a key. It is called by
+<link linkend="g-cache-insert"><function>g_cache_insert()</function></link> if the key does not already exist in
+the <link linkend="GCache"><type>GCache</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>key_destroy_func</para></entry>
+<entry role="parameter_description"><para>a function to destroy a key. It is called by
+<link linkend="g-cache-remove"><function>g_cache_remove()</function></link> when the object is no longer
+needed (i.e. its reference count drops to 0)</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>hash_key_func</para></entry>
+<entry role="parameter_description"><para>a function to create a hash value from a key</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>hash_value_func</para></entry>
+<entry role="parameter_description"><para>a function to create a hash value from a value</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>key_equal_func</para></entry>
+<entry role="parameter_description"><para>a function to compare two keys. It should return
+<link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if the two keys are equivalent</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-cache-new.returns" role="returns">
+<title>Returns</title>
+<para> a new <link linkend="GCache"><type>GCache</type></link></para>
+</refsect3></refsect2>
+<refsect2 id="g-cache-insert" role="function" condition="deprecated:2.32: Use a #GHashTable instead">
+<title>g_cache_insert&#160;()</title>
+<indexterm zone="g-cache-insert" role="deprecated"><primary sortas="cache_insert">g_cache_insert</primary></indexterm>
+<programlisting language="C"><link linkend="gpointer"><returnvalue>gpointer</returnvalue></link>
+g_cache_insert (<parameter><link linkend="GCache"><type>GCache</type></link> *cache</parameter>,
+                <parameter><link linkend="gpointer"><type>gpointer</type></link> key</parameter>);</programlisting>
+<warning><para><literal>g_cache_insert</literal> has been deprecated since version 2.32 and should not be used in newly-written code.</para> <para>Use a <link linkend="GHashTable"><type>GHashTable</type></link> instead</para>
+</warning>
+<para>Gets the value corresponding to the given key, creating it if
+necessary. It first checks if the value already exists in the
+<link linkend="GCache"><type>GCache</type></link>, by using the <parameter>key_equal_func</parameter>
+ function passed to
+<link linkend="g-cache-new"><function>g_cache_new()</function></link>. If it does already exist it is returned, and its
+reference count is increased by one. If the value does not currently
+exist, if is created by calling the <parameter>value_new_func</parameter>
+. The key is
+duplicated by calling <parameter>key_dup_func</parameter>
+ and the duplicated key and value
+are inserted into the <link linkend="GCache"><type>GCache</type></link>.</para>
+<refsect3 id="g-cache-insert.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>cache</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GCache"><type>GCache</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>key</para></entry>
+<entry role="parameter_description"><para>a key describing a <link linkend="GCache"><type>GCache</type></link> object</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-cache-insert.returns" role="returns">
+<title>Returns</title>
+<para> a pointer to a <link linkend="GCache"><type>GCache</type></link> value</para>
+</refsect3></refsect2>
+<refsect2 id="g-cache-remove" role="function" condition="deprecated:2.32: Use a #GHashTable instead">
+<title>g_cache_remove&#160;()</title>
+<indexterm zone="g-cache-remove" role="deprecated"><primary sortas="cache_remove">g_cache_remove</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_cache_remove (<parameter><link linkend="GCache"><type>GCache</type></link> *cache</parameter>,
+                <parameter><link linkend="gconstpointer"><type>gconstpointer</type></link> value</parameter>);</programlisting>
+<warning><para><literal>g_cache_remove</literal> has been deprecated since version 2.32 and should not be used in newly-written code.</para> <para>Use a <link linkend="GHashTable"><type>GHashTable</type></link> instead</para>
+</warning>
+<para>Decreases the reference count of the given value. If it drops to 0
+then the value and its corresponding key are destroyed, using the
+<parameter>value_destroy_func</parameter>
+ and <parameter>key_destroy_func</parameter>
+ passed to <link linkend="g-cache-new"><function>g_cache_new()</function></link>.</para>
+<refsect3 id="g-cache-remove.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>cache</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GCache"><type>GCache</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>value</para></entry>
+<entry role="parameter_description"><para>the value to remove</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-cache-destroy" role="function" condition="deprecated:2.32: Use a #GHashTable instead">
+<title>g_cache_destroy&#160;()</title>
+<indexterm zone="g-cache-destroy" role="deprecated"><primary sortas="cache_destroy">g_cache_destroy</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_cache_destroy (<parameter><link linkend="GCache"><type>GCache</type></link> *cache</parameter>);</programlisting>
+<warning><para><literal>g_cache_destroy</literal> has been deprecated since version 2.32 and should not be used in newly-written code.</para> <para>Use a <link linkend="GHashTable"><type>GHashTable</type></link> instead</para>
+</warning>
+<para>Frees the memory allocated for the <link linkend="GCache"><type>GCache</type></link>.</para>
+<para>Note that it does not destroy the keys and values which were
+contained in the <link linkend="GCache"><type>GCache</type></link>.</para>
+<refsect3 id="g-cache-destroy.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>cache</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GCache"><type>GCache</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-cache-key-foreach" role="function" condition="deprecated:2.32: Use a #GHashTable instead">
+<title>g_cache_key_foreach&#160;()</title>
+<indexterm zone="g-cache-key-foreach" role="deprecated"><primary sortas="cache_key_foreach">g_cache_key_foreach</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_cache_key_foreach (<parameter><link linkend="GCache"><type>GCache</type></link> *cache</parameter>,
+                     <parameter><link linkend="GHFunc"><type>GHFunc</type></link> func</parameter>,
+                     <parameter><link linkend="gpointer"><type>gpointer</type></link> user_data</parameter>);</programlisting>
+<warning><para><literal>g_cache_key_foreach</literal> has been deprecated since version 2.32 and should not be used in newly-written code.</para> <para>Use a <link linkend="GHashTable"><type>GHashTable</type></link> instead</para>
+</warning>
+<para>Calls the given function for each of the keys in the <link linkend="GCache"><type>GCache</type></link>.</para>
+<para>NOTE <parameter>func</parameter>
+ is passed three parameters, the value and key of a cache
+entry and the <parameter>user_data</parameter>
+. The order of value and key is different
+from the order in which <link linkend="g-hash-table-foreach"><function>g_hash_table_foreach()</function></link> passes key-value
+pairs to its callback function !</para>
+<refsect3 id="g-cache-key-foreach.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>cache</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GCache"><type>GCache</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>func</para></entry>
+<entry role="parameter_description"><para>the function to call with each <link linkend="GCache"><type>GCache</type></link> key</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>user_data</para></entry>
+<entry role="parameter_description"><para>user data to pass to the function</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-cache-value-foreach" role="function" condition="deprecated">
+<title>g_cache_value_foreach&#160;()</title>
+<indexterm zone="g-cache-value-foreach" role="deprecated"><primary sortas="cache_value_foreach">g_cache_value_foreach</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_cache_value_foreach (<parameter><link linkend="GCache"><type>GCache</type></link> *cache</parameter>,
+                       <parameter><link linkend="GHFunc"><type>GHFunc</type></link> func</parameter>,
+                       <parameter><link linkend="gpointer"><type>gpointer</type></link> user_data</parameter>);</programlisting>
+<warning><para><literal>g_cache_value_foreach</literal> has been deprecated since version 2.10 and should not be used in newly-written code.</para> <para>The reason is that it passes pointers to internal
+   data structures to <parameter>func</parameter>
+; use <link linkend="g-cache-key-foreach"><function>g_cache_key_foreach()</function></link> instead</para>
+</warning>
+<para>Calls the given function for each of the values in the <link linkend="GCache"><type>GCache</type></link>.</para>
+<refsect3 id="g-cache-value-foreach.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>cache</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GCache"><type>GCache</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>func</para></entry>
+<entry role="parameter_description"><para>the function to call with each <link linkend="GCache"><type>GCache</type></link> value</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>user_data</para></entry>
+<entry role="parameter_description"><para>user data to pass to the function</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="GCacheDestroyFunc" role="function" condition="deprecated:">
+<title>GCacheDestroyFunc&#160;()</title>
+<indexterm zone="GCacheDestroyFunc" role="deprecated"><primary sortas="CacheDestroyFunc">GCacheDestroyFunc</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+<phrase role="c_punctuation">(</phrase>*GCacheDestroyFunc<phrase role="c_punctuation">)</phrase> (<parameter><link linkend="gpointer"><type>gpointer</type></link> value</parameter>);</programlisting>
+<warning><para><literal>GCacheDestroyFunc</literal> is deprecated and should not be used in newly-written code.</para></warning>
+<para>Specifies the type of the <parameter>value_destroy_func</parameter>
+ and <parameter>key_destroy_func</parameter>
+
+functions passed to <link linkend="g-cache-new"><function>g_cache_new()</function></link>. The functions are passed a
+pointer to the <link linkend="GCache"><type>GCache</type></link> key or <link linkend="GCache"><type>GCache</type></link> value and should free any
+memory and other resources associated with it.</para>
+<refsect3 id="GCacheDestroyFunc.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>value</para></entry>
+<entry role="parameter_description"><para>the <link linkend="GCache"><type>GCache</type></link> value to destroy</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="GCacheDupFunc" role="function" condition="deprecated:">
+<title>GCacheDupFunc&#160;()</title>
+<indexterm zone="GCacheDupFunc" role="deprecated"><primary sortas="CacheDupFunc">GCacheDupFunc</primary></indexterm>
+<programlisting language="C"><link linkend="gpointer"><returnvalue>gpointer</returnvalue></link>
+<phrase role="c_punctuation">(</phrase>*GCacheDupFunc<phrase role="c_punctuation">)</phrase> (<parameter><link linkend="gpointer"><type>gpointer</type></link> value</parameter>);</programlisting>
+<warning><para><literal>GCacheDupFunc</literal> is deprecated and should not be used in newly-written code.</para></warning>
+<para>Specifies the type of the <parameter>key_dup_func</parameter>
+ function passed to
+<link linkend="g-cache-new"><function>g_cache_new()</function></link>. The function is passed a key
+(__not__ a value as the prototype implies) and
+should return a duplicate of the key.</para>
+<refsect3 id="GCacheDupFunc.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>value</para></entry>
+<entry role="parameter_description"><para>the <link linkend="GCache"><type>GCache</type></link> key to destroy (__not__ a
+<link linkend="GCache"><type>GCache</type></link> value as it seems)</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="GCacheDupFunc.returns" role="returns">
+<title>Returns</title>
+<para> a copy of the <link linkend="GCache"><type>GCache</type></link> key</para>
+</refsect3></refsect2>
+<refsect2 id="GCacheNewFunc" role="function" condition="deprecated:">
+<title>GCacheNewFunc&#160;()</title>
+<indexterm zone="GCacheNewFunc" role="deprecated"><primary sortas="CacheNewFunc">GCacheNewFunc</primary></indexterm>
+<programlisting language="C"><link linkend="gpointer"><returnvalue>gpointer</returnvalue></link>
+<phrase role="c_punctuation">(</phrase>*GCacheNewFunc<phrase role="c_punctuation">)</phrase> (<parameter><link linkend="gpointer"><type>gpointer</type></link> key</parameter>);</programlisting>
+<warning><para><literal>GCacheNewFunc</literal> is deprecated and should not be used in newly-written code.</para></warning>
+<para>Specifies the type of the <parameter>value_new_func</parameter>
+ function passed to
+<link linkend="g-cache-new"><function>g_cache_new()</function></link>. It is passed a <link linkend="GCache"><type>GCache</type></link> key and should create the
+value corresponding to the key.</para>
+<refsect3 id="GCacheNewFunc.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>key</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GCache"><type>GCache</type></link> key</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="GCacheNewFunc.returns" role="returns">
+<title>Returns</title>
+<para> a new <link linkend="GCache"><type>GCache</type></link> value corresponding to the key.</para>
+</refsect3></refsect2>
+
+</refsect1>
+<refsect1 id="glib-Caches.other_details" role="details">
+<title role="details.title">Types and Values</title>
+<refsect2 id="GCache" role="struct" condition="deprecated:2.32: Use a #GHashTable instead">
+<title>GCache</title>
+<indexterm zone="GCache" role="deprecated"><primary sortas="Cache">GCache</primary></indexterm>
+<programlisting language="C">typedef struct _GCache GCache;</programlisting>
+<warning><para><literal>GCache</literal> has been deprecated since version 2.32 and should not be used in newly-written code.</para> <para>Use a <link linkend="GHashTable"><type>GHashTable</type></link> instead</para>
+</warning>
+<para>The <link linkend="GCache"><type>GCache</type></link> struct is an opaque data structure containing
+information about a <link linkend="GCache"><type>GCache</type></link>. It should only be accessed via the
+following functions.</para>
+</refsect2>
+
+</refsect1>
+
+</refentry>

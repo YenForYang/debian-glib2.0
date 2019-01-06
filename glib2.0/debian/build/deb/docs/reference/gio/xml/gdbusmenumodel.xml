@@ -1,0 +1,126 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC '-//OASIS//DTD DocBook XML V4.5//EN'
+                      'http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd' [
+<!ENTITY % local.common.attrib "xmlns:xi  CDATA  #FIXED 'http://www.w3.org/2003/XInclude'">
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="GDBusMenuModel">
+<refmeta>
+<refentrytitle role="top_of_page" id="GDBusMenuModel.top_of_page">GDBusMenuModel</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>GIO Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>GDBusMenuModel</refname>
+<refpurpose>A D-Bus GMenuModel implementation</refpurpose>
+</refnamediv>
+
+<refsect1 id="GDBusMenuModel.functions" role="functions_proto">
+<title role="functions_proto.title">Functions</title>
+<informaltable pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="functions_return" colwidth="150px"/>
+<colspec colname="functions_name"/>
+<tbody>
+<row><entry role="function_type"><link linkend="GDBusMenuModel"><returnvalue>GDBusMenuModel</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-dbus-menu-model-get">g_dbus_menu_model_get</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GDBusMenuModel.other" role="other_proto">
+<title role="other_proto.title">Types and Values</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="name" colwidth="150px"/>
+<colspec colname="description"/>
+<tbody>
+<row><entry role="datatype_keyword"></entry><entry role="function_name"><link linkend="GDBusMenuModel-struct">GDBusMenuModel</link></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GDBusMenuModel.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<screen>    <link linkend="GObject">GObject</link>
+    <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> <link linkend="GMenuModel">GMenuModel</link>
+        <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> GDBusMenuModel
+</screen>
+</refsect1>
+
+<refsect1 id="GDBusMenuModel.includes"><title>Includes</title><synopsis>#include &lt;gio/gio.h&gt;
+</synopsis></refsect1>
+
+<refsect1 id="GDBusMenuModel.description" role="desc">
+<title role="desc.title">Description</title>
+<para><link linkend="GDBusMenuModel"><type>GDBusMenuModel</type></link> is an implementation of <link linkend="GMenuModel"><type>GMenuModel</type></link> that can be used
+as a proxy for a menu model that is exported over D-Bus with
+<link linkend="g-dbus-connection-export-menu-model"><function>g_dbus_connection_export_menu_model()</function></link>.</para>
+
+</refsect1>
+<refsect1 id="GDBusMenuModel.functions_details" role="details">
+<title role="details.title">Functions</title>
+<refsect2 id="g-dbus-menu-model-get" role="function" condition="since:2.32">
+<title>g_dbus_menu_model_get&#160;()</title>
+<indexterm zone="g-dbus-menu-model-get" role="2.32"><primary sortas="dbus_menu_model_get">g_dbus_menu_model_get</primary></indexterm>
+<programlisting language="C"><link linkend="GDBusMenuModel"><returnvalue>GDBusMenuModel</returnvalue></link>&#160;*
+g_dbus_menu_model_get (<parameter><link linkend="GDBusConnection"><type>GDBusConnection</type></link> *connection</parameter>,
+                       <parameter>const <link linkend="gchar"><type>gchar</type></link> *bus_name</parameter>,
+                       <parameter>const <link linkend="gchar"><type>gchar</type></link> *object_path</parameter>);</programlisting>
+<para>Obtains a <link linkend="GDBusMenuModel"><type>GDBusMenuModel</type></link> for the menu model which is exported
+at the given <parameter>bus_name</parameter>
+ and <parameter>object_path</parameter>
+.</para>
+<para>The thread default main context is taken at the time of this call.
+All signals on the menu model (and any linked models) are reported
+with respect to this context.  All calls on the returned menu model
+(and linked models) must also originate from this same context, with
+the thread default main context unchanged.</para>
+<refsect3 id="g-dbus-menu-model-get.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>connection</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GDBusConnection"><type>GDBusConnection</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>bus_name</para></entry>
+<entry role="parameter_description"><para>the bus name which exports the menu model
+or <link linkend="NULL:CAPS"><literal>NULL</literal></link> if <parameter>connection</parameter>
+is not a message bus connection. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>object_path</para></entry>
+<entry role="parameter_description"><para>the object path at which the menu model is exported</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-dbus-menu-model-get.returns" role="returns">
+<title>Returns</title>
+<para>a <link linkend="GDBusMenuModel"><type>GDBusMenuModel</type></link> object. Free with
+<link linkend="g-object-unref"><function>g_object_unref()</function></link>. </para>
+<para><emphasis role="annotation">[<acronym>transfer full</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.32">2.32</link></para></refsect2>
+
+</refsect1>
+<refsect1 id="GDBusMenuModel.other_details" role="details">
+<title role="details.title">Types and Values</title>
+<refsect2 id="GDBusMenuModel-struct" role="struct">
+<title>GDBusMenuModel</title>
+<indexterm zone="GDBusMenuModel-struct"><primary sortas="DBusMenuModel">GDBusMenuModel</primary></indexterm>
+<programlisting language="C">typedef struct _GDBusMenuModel GDBusMenuModel;</programlisting>
+<para><link linkend="GDBusMenuModel"><type>GDBusMenuModel</type></link> is an opaque data structure and can only be accessed
+using the following functions.</para>
+</refsect2>
+
+</refsect1>
+<refsect1 id="GDBusMenuModel.see-also">
+<title>See Also</title>
+<para><link linkend="gio-GMenuModel-exporter">GMenuModel Exporter</link></para>
+
+</refsect1>
+
+</refentry>

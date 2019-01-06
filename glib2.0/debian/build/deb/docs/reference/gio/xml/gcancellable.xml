@@ -1,0 +1,638 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC '-//OASIS//DTD DocBook XML V4.5//EN'
+                      'http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd' [
+<!ENTITY % local.common.attrib "xmlns:xi  CDATA  #FIXED 'http://www.w3.org/2003/XInclude'">
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="GCancellable">
+<refmeta>
+<refentrytitle role="top_of_page" id="GCancellable.top_of_page">GCancellable</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>GIO Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>GCancellable</refname>
+<refpurpose>Thread-safe Operation Cancellation Stack</refpurpose>
+</refnamediv>
+
+<refsect1 id="GCancellable.functions" role="functions_proto">
+<title role="functions_proto.title">Functions</title>
+<informaltable pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="functions_return" colwidth="150px"/>
+<colspec colname="functions_name"/>
+<tbody>
+<row><entry role="function_type"><link linkend="GCancellable"><returnvalue>GCancellable</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-cancellable-new">g_cancellable_new</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-cancellable-is-cancelled">g_cancellable_is_cancelled</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-cancellable-set-error-if-cancelled">g_cancellable_set_error_if_cancelled</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="int"><returnvalue>int</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-cancellable-get-fd">g_cancellable_get_fd</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-cancellable-make-pollfd">g_cancellable_make_pollfd</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-cancellable-release-fd">g_cancellable_release_fd</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GSource"><returnvalue>GSource</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-cancellable-source-new">g_cancellable_source_new</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><phrase role="c_punctuation">(</phrase><link linkend="GCancellableSourceFunc">*GCancellableSourceFunc</link><phrase role="c_punctuation">)</phrase>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GCancellable"><returnvalue>GCancellable</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-cancellable-get-current">g_cancellable_get_current</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-cancellable-pop-current">g_cancellable_pop_current</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-cancellable-push-current">g_cancellable_push_current</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-cancellable-reset">g_cancellable_reset</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gulong"><returnvalue>gulong</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-cancellable-connect">g_cancellable_connect</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-cancellable-disconnect">g_cancellable_disconnect</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-cancellable-cancel">g_cancellable_cancel</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GCancellable.signals" role="signal_proto">
+<title role="signal_proto.title">Signals</title>
+<informaltable frame="none">
+<tgroup cols="3">
+<colspec colname="signals_return" colwidth="150px"/>
+<colspec colname="signals_name" colwidth="300px"/>
+<colspec colname="signals_flags" colwidth="200px"/>
+<tbody>
+<row><entry role="signal_type"><link linkend="void"><returnvalue>void</returnvalue></link></entry><entry role="signal_name"><link linkend="GCancellable-cancelled">cancelled</link></entry><entry role="signal_flags"><link linkend="G-SIGNAL-RUN-LAST:CAPS">Run Last</link></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GCancellable.other" role="other_proto">
+<title role="other_proto.title">Types and Values</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="name" colwidth="150px"/>
+<colspec colname="description"/>
+<tbody>
+<row><entry role="datatype_keyword"></entry><entry role="function_name"><link linkend="GCancellable-struct">GCancellable</link></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GCancellable.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<screen>    <link linkend="GObject">GObject</link>
+    <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> GCancellable
+</screen>
+</refsect1>
+
+<refsect1 id="GCancellable.includes"><title>Includes</title><synopsis>#include &lt;gio/gio.h&gt;
+</synopsis></refsect1>
+
+<refsect1 id="GCancellable.description" role="desc">
+<title role="desc.title">Description</title>
+<para>GCancellable is a thread-safe operation cancellation stack used 
+throughout GIO to allow for cancellation of synchronous and
+asynchronous operations.</para>
+
+</refsect1>
+<refsect1 id="GCancellable.functions_details" role="details">
+<title role="details.title">Functions</title>
+<refsect2 id="g-cancellable-new" role="function">
+<title>g_cancellable_new&#160;()</title>
+<indexterm zone="g-cancellable-new"><primary sortas="cancellable_new">g_cancellable_new</primary></indexterm>
+<programlisting language="C"><link linkend="GCancellable"><returnvalue>GCancellable</returnvalue></link>&#160;*
+g_cancellable_new (<parameter><type>void</type></parameter>);</programlisting>
+<para>Creates a new <link linkend="GCancellable"><type>GCancellable</type></link> object.</para>
+<para>Applications that want to start one or more operations
+that should be cancellable should create a <link linkend="GCancellable"><type>GCancellable</type></link>
+and pass it to the operations.</para>
+<para>One <link linkend="GCancellable"><type>GCancellable</type></link> can be used in multiple consecutive
+operations or in multiple concurrent operations.</para>
+<refsect3 id="g-cancellable-new.returns" role="returns">
+<title>Returns</title>
+<para> a <link linkend="GCancellable"><type>GCancellable</type></link>.</para>
+</refsect3></refsect2>
+<refsect2 id="g-cancellable-is-cancelled" role="function">
+<title>g_cancellable_is_cancelled&#160;()</title>
+<indexterm zone="g-cancellable-is-cancelled"><primary sortas="cancellable_is_cancelled">g_cancellable_is_cancelled</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_cancellable_is_cancelled (<parameter><link linkend="GCancellable"><type>GCancellable</type></link> *cancellable</parameter>);</programlisting>
+<para>Checks if a cancellable job has been cancelled.</para>
+<refsect3 id="g-cancellable-is-cancelled.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>cancellable</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GCancellable"><type>GCancellable</type></link> or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-cancellable-is-cancelled.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if <parameter>cancellable</parameter>
+is cancelled,
+FALSE if called with <link linkend="NULL:CAPS"><literal>NULL</literal></link> or if item is not cancelled.</para>
+</refsect3></refsect2>
+<refsect2 id="g-cancellable-set-error-if-cancelled" role="function">
+<title>g_cancellable_set_error_if_cancelled&#160;()</title>
+<indexterm zone="g-cancellable-set-error-if-cancelled"><primary sortas="cancellable_set_error_if_cancelled">g_cancellable_set_error_if_cancelled</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_cancellable_set_error_if_cancelled (<parameter><link linkend="GCancellable"><type>GCancellable</type></link> *cancellable</parameter>,
+                                      <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para>If the <parameter>cancellable</parameter>
+ is cancelled, sets the error to notify
+that the operation was cancelled.</para>
+<refsect3 id="g-cancellable-set-error-if-cancelled.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>cancellable</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GCancellable"><type>GCancellable</type></link> or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para><link linkend="GError"><type>GError</type></link> to append error state to</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-cancellable-set-error-if-cancelled.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if <parameter>cancellable</parameter>
+was cancelled, <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> if it was not</para>
+</refsect3></refsect2>
+<refsect2 id="g-cancellable-get-fd" role="function">
+<title>g_cancellable_get_fd&#160;()</title>
+<indexterm zone="g-cancellable-get-fd"><primary sortas="cancellable_get_fd">g_cancellable_get_fd</primary></indexterm>
+<programlisting language="C"><link linkend="int"><returnvalue>int</returnvalue></link>
+g_cancellable_get_fd (<parameter><link linkend="GCancellable"><type>GCancellable</type></link> *cancellable</parameter>);</programlisting>
+<para>Gets the file descriptor for a cancellable job. This can be used to
+implement cancellable operations on Unix systems. The returned fd will
+turn readable when <parameter>cancellable</parameter>
+ is cancelled.</para>
+<para>You are not supposed to read from the fd yourself, just check for
+readable status. Reading to unset the readable status is done
+with <link linkend="g-cancellable-reset"><function>g_cancellable_reset()</function></link>.</para>
+<para>After a successful return from this function, you should use 
+<link linkend="g-cancellable-release-fd"><function>g_cancellable_release_fd()</function></link> to free up resources allocated for 
+the returned file descriptor.</para>
+<para>See also <link linkend="g-cancellable-make-pollfd"><function>g_cancellable_make_pollfd()</function></link>.</para>
+<refsect3 id="g-cancellable-get-fd.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>cancellable</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GCancellable"><type>GCancellable</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-cancellable-get-fd.returns" role="returns">
+<title>Returns</title>
+<para> A valid file descriptor. <link linkend="1"><literal>-1</literal></link> if the file descriptor
+is not supported, or on errors. </para>
+</refsect3></refsect2>
+<refsect2 id="g-cancellable-make-pollfd" role="function" condition="since:2.22">
+<title>g_cancellable_make_pollfd&#160;()</title>
+<indexterm zone="g-cancellable-make-pollfd" role="2.22"><primary sortas="cancellable_make_pollfd">g_cancellable_make_pollfd</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_cancellable_make_pollfd (<parameter><link linkend="GCancellable"><type>GCancellable</type></link> *cancellable</parameter>,
+                           <parameter><link linkend="GPollFD"><type>GPollFD</type></link> *pollfd</parameter>);</programlisting>
+<para>Creates a <link linkend="GPollFD"><type>GPollFD</type></link> corresponding to <parameter>cancellable</parameter>
+; this can be passed
+to <link linkend="g-poll"><function>g_poll()</function></link> and used to poll for cancellation. This is useful both
+for unix systems without a native poll and for portability to
+windows.</para>
+<para>When this function returns <link linkend="TRUE:CAPS"><literal>TRUE</literal></link>, you should use 
+<link linkend="g-cancellable-release-fd"><function>g_cancellable_release_fd()</function></link> to free up resources allocated for the 
+<parameter>pollfd</parameter>
+. After a <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> return, do not call <link linkend="g-cancellable-release-fd"><function>g_cancellable_release_fd()</function></link>.</para>
+<para>If this function returns <link linkend="FALSE:CAPS"><literal>FALSE</literal></link>, either no <parameter>cancellable</parameter>
+ was given or
+resource limits prevent this function from allocating the necessary 
+structures for polling. (On Linux, you will likely have reached 
+the maximum number of file descriptors.) The suggested way to handle
+these cases is to ignore the <parameter>cancellable</parameter>
+.</para>
+<para>You are not supposed to read from the fd yourself, just check for
+readable status. Reading to unset the readable status is done
+with <link linkend="g-cancellable-reset"><function>g_cancellable_reset()</function></link>.</para>
+<refsect3 id="g-cancellable-make-pollfd.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>cancellable</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GCancellable"><type>GCancellable</type></link> or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>pollfd</para></entry>
+<entry role="parameter_description"><para>a pointer to a <link linkend="GPollFD"><type>GPollFD</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-cancellable-make-pollfd.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if <parameter>pollfd</parameter>
+was successfully initialized, <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> on
+failure to prepare the cancellable.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.22">2.22</link></para></refsect2>
+<refsect2 id="g-cancellable-release-fd" role="function" condition="since:2.22">
+<title>g_cancellable_release_fd&#160;()</title>
+<indexterm zone="g-cancellable-release-fd" role="2.22"><primary sortas="cancellable_release_fd">g_cancellable_release_fd</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_cancellable_release_fd (<parameter><link linkend="GCancellable"><type>GCancellable</type></link> *cancellable</parameter>);</programlisting>
+<para>Releases a resources previously allocated by <link linkend="g-cancellable-get-fd"><function>g_cancellable_get_fd()</function></link>
+or <link linkend="g-cancellable-make-pollfd"><function>g_cancellable_make_pollfd()</function></link>.</para>
+<para>For compatibility reasons with older releases, calling this function 
+is not strictly required, the resources will be automatically freed
+when the <parameter>cancellable</parameter>
+ is finalized. However, the <parameter>cancellable</parameter>
+ will
+block scarce file descriptors until it is finalized if this function
+is not called. This can cause the application to run out of file 
+descriptors when many <link linkend="GCancellables"><type>GCancellables</type></link> are used at the same time.</para>
+<refsect3 id="g-cancellable-release-fd.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>cancellable</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GCancellable"><type>GCancellable</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.22">2.22</link></para></refsect2>
+<refsect2 id="g-cancellable-source-new" role="function" condition="since:2.28">
+<title>g_cancellable_source_new&#160;()</title>
+<indexterm zone="g-cancellable-source-new" role="2.28"><primary sortas="cancellable_source_new">g_cancellable_source_new</primary></indexterm>
+<programlisting language="C"><link linkend="GSource"><returnvalue>GSource</returnvalue></link>&#160;*
+g_cancellable_source_new (<parameter><link linkend="GCancellable"><type>GCancellable</type></link> *cancellable</parameter>);</programlisting>
+<para>Creates a source that triggers if <parameter>cancellable</parameter>
+ is cancelled and
+calls its callback of type <link linkend="GCancellableSourceFunc"><type>GCancellableSourceFunc</type></link>. This is
+primarily useful for attaching to another (non-cancellable) source
+with <link linkend="g-source-add-child-source"><function>g_source_add_child_source()</function></link> to add cancellability to it.</para>
+<para>For convenience, you can call this with a <link linkend="NULL:CAPS"><literal>NULL</literal></link> <link linkend="GCancellable"><type>GCancellable</type></link>,
+in which case the source will never trigger.</para>
+<para>The new <link linkend="GSource"><type>GSource</type></link> will hold a reference to the <link linkend="GCancellable"><type>GCancellable</type></link>.</para>
+
+<para><emphasis role="annotation">[<acronym>skip</acronym>]</emphasis></para><refsect3 id="g-cancellable-source-new.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>cancellable</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GCancellable"><type>GCancellable</type></link>, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-cancellable-source-new.returns" role="returns">
+<title>Returns</title>
+<para>the new <link linkend="GSource"><type>GSource</type></link>. </para>
+<para><emphasis role="annotation">[<acronym>transfer full</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.28">2.28</link></para></refsect2>
+<refsect2 id="GCancellableSourceFunc" role="function" condition="since:2.28">
+<title>GCancellableSourceFunc&#160;()</title>
+<indexterm zone="GCancellableSourceFunc" role="2.28"><primary sortas="CancellableSourceFunc">GCancellableSourceFunc</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+<phrase role="c_punctuation">(</phrase>*GCancellableSourceFunc<phrase role="c_punctuation">)</phrase> (<parameter><link linkend="GCancellable"><type>GCancellable</type></link> *cancellable</parameter>,
+                           <parameter><link linkend="gpointer"><type>gpointer</type></link> user_data</parameter>);</programlisting>
+<para>This is the function type of the callback used for the <link linkend="GSource"><type>GSource</type></link>
+returned by <link linkend="g-cancellable-source-new"><function>g_cancellable_source_new()</function></link>.</para>
+<refsect3 id="GCancellableSourceFunc.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>cancellable</para></entry>
+<entry role="parameter_description"><para>the <link linkend="GCancellable"><type>GCancellable</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>user_data</para></entry>
+<entry role="parameter_description"><para>data passed in by the user.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="GCancellableSourceFunc.returns" role="returns">
+<title>Returns</title>
+<para> it should return <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> if the source should be removed.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.28">2.28</link></para></refsect2>
+<refsect2 id="g-cancellable-get-current" role="function">
+<title>g_cancellable_get_current&#160;()</title>
+<indexterm zone="g-cancellable-get-current"><primary sortas="cancellable_get_current">g_cancellable_get_current</primary></indexterm>
+<programlisting language="C"><link linkend="GCancellable"><returnvalue>GCancellable</returnvalue></link>&#160;*
+g_cancellable_get_current (<parameter><type>void</type></parameter>);</programlisting>
+<para>Gets the top cancellable from the stack.</para>
+<refsect3 id="g-cancellable-get-current.returns" role="returns">
+<title>Returns</title>
+<para>a <link linkend="GCancellable"><type>GCancellable</type></link> from the top
+of the stack, or <link linkend="NULL:CAPS"><literal>NULL</literal></link> if the stack is empty. </para>
+<para><emphasis role="annotation">[<acronym>nullable</acronym>][<acronym>transfer none</acronym>]</emphasis></para>
+</refsect3></refsect2>
+<refsect2 id="g-cancellable-pop-current" role="function">
+<title>g_cancellable_pop_current&#160;()</title>
+<indexterm zone="g-cancellable-pop-current"><primary sortas="cancellable_pop_current">g_cancellable_pop_current</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_cancellable_pop_current (<parameter><link linkend="GCancellable"><type>GCancellable</type></link> *cancellable</parameter>);</programlisting>
+<para>Pops <parameter>cancellable</parameter>
+ off the cancellable stack (verifying that <parameter>cancellable</parameter>
+
+is on the top of the stack).</para>
+<refsect3 id="g-cancellable-pop-current.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>cancellable</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GCancellable"><type>GCancellable</type></link> object</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-cancellable-push-current" role="function">
+<title>g_cancellable_push_current&#160;()</title>
+<indexterm zone="g-cancellable-push-current"><primary sortas="cancellable_push_current">g_cancellable_push_current</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_cancellable_push_current (<parameter><link linkend="GCancellable"><type>GCancellable</type></link> *cancellable</parameter>);</programlisting>
+<para>Pushes <parameter>cancellable</parameter>
+ onto the cancellable stack. The current
+cancellable can then be received using <link linkend="g-cancellable-get-current"><function>g_cancellable_get_current()</function></link>.</para>
+<para>This is useful when implementing cancellable operations in
+code that does not allow you to pass down the cancellable object.</para>
+<para>This is typically called automatically by e.g. <link linkend="GFile"><type>GFile</type></link> operations,
+so you rarely have to call this yourself.</para>
+<refsect3 id="g-cancellable-push-current.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>cancellable</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GCancellable"><type>GCancellable</type></link> object</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-cancellable-reset" role="function">
+<title>g_cancellable_reset&#160;()</title>
+<indexterm zone="g-cancellable-reset"><primary sortas="cancellable_reset">g_cancellable_reset</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_cancellable_reset (<parameter><link linkend="GCancellable"><type>GCancellable</type></link> *cancellable</parameter>);</programlisting>
+<para>Resets <parameter>cancellable</parameter>
+ to its uncancelled state.</para>
+<para>If cancellable is currently in use by any cancellable operation
+then the behavior of this function is undefined.</para>
+<para>Note that it is generally not a good idea to reuse an existing
+cancellable for more operations after it has been cancelled once,
+as this function might tempt you to do. The recommended practice
+is to drop the reference to a cancellable after cancelling it,
+and let it die with the outstanding async operations. You should
+create a fresh cancellable for further async operations.</para>
+<refsect3 id="g-cancellable-reset.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>cancellable</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GCancellable"><type>GCancellable</type></link> object.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-cancellable-connect" role="function" condition="since:2.22">
+<title>g_cancellable_connect&#160;()</title>
+<indexterm zone="g-cancellable-connect" role="2.22"><primary sortas="cancellable_connect">g_cancellable_connect</primary></indexterm>
+<programlisting language="C"><link linkend="gulong"><returnvalue>gulong</returnvalue></link>
+g_cancellable_connect (<parameter><link linkend="GCancellable"><type>GCancellable</type></link> *cancellable</parameter>,
+                       <parameter><link linkend="GCallback"><type>GCallback</type></link> callback</parameter>,
+                       <parameter><link linkend="gpointer"><type>gpointer</type></link> data</parameter>,
+                       <parameter><link linkend="GDestroyNotify"><type>GDestroyNotify</type></link> data_destroy_func</parameter>);</programlisting>
+<para>Convenience function to connect to the <link linkend="GCancellable-cancelled"><type>“cancelled”</type></link>
+signal. Also handles the race condition that may happen
+if the cancellable is cancelled right before connecting.</para>
+<para><parameter>callback</parameter>
+ is called at most once, either directly at the
+time of the connect if <parameter>cancellable</parameter>
+ is already cancelled,
+or when <parameter>cancellable</parameter>
+ is cancelled in some thread.</para>
+<para><parameter>data_destroy_func</parameter>
+ will be called when the handler is
+disconnected, or immediately if the cancellable is already
+cancelled.</para>
+<para>See <link linkend="GCancellable-cancelled"><type>“cancelled”</type></link> for details on how to use this.</para>
+<para>Since GLib 2.40, the lock protecting <parameter>cancellable</parameter>
+ is not held when
+<parameter>callback</parameter>
+ is invoked.  This lifts a restriction in place for
+earlier GLib versions which now makes it easier to write cleanup
+code that unconditionally invokes e.g. <link linkend="g-cancellable-cancel"><function>g_cancellable_cancel()</function></link>.</para>
+<refsect3 id="g-cancellable-connect.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>cancellable</para></entry>
+<entry role="parameter_description"><para>A <link linkend="GCancellable"><type>GCancellable</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>callback</para></entry>
+<entry role="parameter_description"><para>The <link linkend="GCallback"><type>GCallback</type></link> to connect.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>data</para></entry>
+<entry role="parameter_description"><para>Data to pass to <parameter>callback</parameter>
+.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>data_destroy_func</para></entry>
+<entry role="parameter_description"><para>Free function for <parameter>data</parameter>
+or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-cancellable-connect.returns" role="returns">
+<title>Returns</title>
+<para> The id of the signal handler or 0 if <parameter>cancellable</parameter>
+has already
+been cancelled.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.22">2.22</link></para></refsect2>
+<refsect2 id="g-cancellable-disconnect" role="function" condition="since:2.22">
+<title>g_cancellable_disconnect&#160;()</title>
+<indexterm zone="g-cancellable-disconnect" role="2.22"><primary sortas="cancellable_disconnect">g_cancellable_disconnect</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_cancellable_disconnect (<parameter><link linkend="GCancellable"><type>GCancellable</type></link> *cancellable</parameter>,
+                          <parameter><link linkend="gulong"><type>gulong</type></link> handler_id</parameter>);</programlisting>
+<para>Disconnects a handler from a cancellable instance similar to
+<link linkend="g-signal-handler-disconnect"><function>g_signal_handler_disconnect()</function></link>.  Additionally, in the event that a
+signal handler is currently running, this call will block until the
+handler has finished.  Calling this function from a
+<link linkend="GCancellable-cancelled"><type>“cancelled”</type></link> signal handler will therefore result in a
+deadlock.</para>
+<para>This avoids a race condition where a thread cancels at the
+same time as the cancellable operation is finished and the
+signal handler is removed. See <link linkend="GCancellable-cancelled"><type>“cancelled”</type></link> for
+details on how to use this.</para>
+<para>If <parameter>cancellable</parameter>
+ is <link linkend="NULL:CAPS"><literal>NULL</literal></link> or <parameter>handler_id</parameter>
+ is <literal>0</literal> this function does
+nothing.</para>
+<refsect3 id="g-cancellable-disconnect.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>cancellable</para></entry>
+<entry role="parameter_description"><para>A <link linkend="GCancellable"><type>GCancellable</type></link> or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>handler_id</para></entry>
+<entry role="parameter_description"><para>Handler id of the handler to be disconnected, or <literal>0</literal>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.22">2.22</link></para></refsect2>
+<refsect2 id="g-cancellable-cancel" role="function">
+<title>g_cancellable_cancel&#160;()</title>
+<indexterm zone="g-cancellable-cancel"><primary sortas="cancellable_cancel">g_cancellable_cancel</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_cancellable_cancel (<parameter><link linkend="GCancellable"><type>GCancellable</type></link> *cancellable</parameter>);</programlisting>
+<para>Will set <parameter>cancellable</parameter>
+ to cancelled, and will emit the
+<link linkend="GCancellable-cancelled"><type>“cancelled”</type></link> signal. (However, see the warning about
+race conditions in the documentation for that signal if you are
+planning to connect to it.)</para>
+<para>This function is thread-safe. In other words, you can safely call
+it from a thread other than the one running the operation that was
+passed the <parameter>cancellable</parameter>
+.</para>
+<para>If <parameter>cancellable</parameter>
+ is <link linkend="NULL:CAPS"><literal>NULL</literal></link>, this function returns immediately for convenience.</para>
+<para>The convention within GIO is that cancelling an asynchronous
+operation causes it to complete asynchronously. That is, if you
+cancel the operation from the same thread in which it is running,
+then the operation's <link linkend="GAsyncReadyCallback"><type>GAsyncReadyCallback</type></link> will not be invoked until
+the application returns to the main loop.</para>
+<refsect3 id="g-cancellable-cancel.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>cancellable</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GCancellable"><type>GCancellable</type></link> object. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+
+</refsect1>
+<refsect1 id="GCancellable.other_details" role="details">
+<title role="details.title">Types and Values</title>
+<refsect2 id="GCancellable-struct" role="struct">
+<title>GCancellable</title>
+<indexterm zone="GCancellable-struct"><primary sortas="Cancellable">GCancellable</primary></indexterm>
+<programlisting language="C">typedef struct _GCancellable GCancellable;</programlisting>
+<para>Allows actions to be cancelled.</para>
+</refsect2>
+
+</refsect1>
+<refsect1 id="GCancellable.signal-details" role="signals">
+<title role="signals.title">Signal Details</title>
+<refsect2 id="GCancellable-cancelled" role="signal"><title>The <literal>“cancelled”</literal> signal</title>
+<indexterm zone="GCancellable-cancelled"><primary sortas="Cancellable::cancelled">GCancellable::cancelled</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+user_function (<link linkend="GCancellable"><type>GCancellable</type></link> *cancellable,
+               <link linkend="gpointer"><type>gpointer</type></link>      user_data)</programlisting>
+<para>Emitted when the operation has been cancelled.</para>
+<para>Can be used by implementations of cancellable operations. If the
+operation is cancelled from another thread, the signal will be
+emitted in the thread that cancelled the operation, not the
+thread that is running the operation.</para>
+<para>Note that disconnecting from this signal (or any signal) in a
+multi-threaded program is prone to race conditions. For instance
+it is possible that a signal handler may be invoked even after
+a call to <link linkend="g-signal-handler-disconnect"><function>g_signal_handler_disconnect()</function></link> for that handler has
+already returned.</para>
+<para>There is also a problem when cancellation happens right before
+connecting to the signal. If this happens the signal will
+unexpectedly not be emitted, and checking before connecting to
+the signal leaves a race condition where this is still happening.</para>
+<para>In order to make it safe and easy to connect handlers there
+are two helper functions: <link linkend="g-cancellable-connect"><function>g_cancellable_connect()</function></link> and
+<link linkend="g-cancellable-disconnect"><function>g_cancellable_disconnect()</function></link> which protect against problems
+like this.</para>
+<para>An example of how to us this:</para>
+<informalexample><programlisting role="example"><![CDATA[
+    // Make sure we don't do unnecessary work if already cancelled
+    if (g_cancellable_set_error_if_cancelled (cancellable, error))
+      return;
+
+    // Set up all the data needed to be able to handle cancellation
+    // of the operation
+    my_data = my_data_new (...);
+
+    id = 0;
+    if (cancellable)
+      id = g_cancellable_connect (cancellable,
+    			      G_CALLBACK (cancelled_handler)
+    			      data, NULL);
+
+    // cancellable operation here...
+
+    g_cancellable_disconnect (cancellable, id);
+
+    // cancelled_handler is never called after this, it is now safe
+    // to free the data
+    my_data_free (my_data);
+
+]]></programlisting></informalexample>
+<para></para>
+<para>Note that the cancelled signal is emitted in the thread that
+the user cancelled from, which may be the main thread. So, the
+cancellable signal should not do something that can block.</para>
+<refsect3 id="GCancellable-cancelled.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>cancellable</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GCancellable"><type>GCancellable</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><simpara>user_data</simpara></entry>
+<entry role="parameter_description"><simpara>user data set when the signal handler was connected.</simpara></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para>Flags: <link linkend="G-SIGNAL-RUN-LAST:CAPS">Run Last</link></para>
+</refsect2>
+</refsect1>
+
+</refentry>

@@ -1,0 +1,225 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC '-//OASIS//DTD DocBook XML V4.5//EN'
+                      'http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd' [
+<!ENTITY % local.common.attrib "xmlns:xi  CDATA  #FIXED 'http://www.w3.org/2003/XInclude'">
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="GRemoteActionGroup">
+<refmeta>
+<refentrytitle role="top_of_page" id="GRemoteActionGroup.top_of_page">GRemoteActionGroup</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>GIO Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>GRemoteActionGroup</refname>
+<refpurpose>A GActionGroup that interacts with other processes</refpurpose>
+</refnamediv>
+
+<refsect1 id="GRemoteActionGroup.functions" role="functions_proto">
+<title role="functions_proto.title">Functions</title>
+<informaltable pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="functions_return" colwidth="150px"/>
+<colspec colname="functions_name"/>
+<tbody>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-remote-action-group-activate-action-full">g_remote_action_group_activate_action_full</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-remote-action-group-change-action-state-full">g_remote_action_group_change_action_state_full</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GRemoteActionGroup.other" role="other_proto">
+<title role="other_proto.title">Types and Values</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="name" colwidth="150px"/>
+<colspec colname="description"/>
+<tbody>
+<row><entry role="datatype_keyword"></entry><entry role="function_name"><link linkend="GRemoteActionGroup-struct">GRemoteActionGroup</link></entry></row>
+<row><entry role="datatype_keyword">struct</entry><entry role="function_name"><link linkend="GRemoteActionGroupInterface">GRemoteActionGroupInterface</link></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GRemoteActionGroup.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<screen>    <link linkend="GInterface">GInterface</link>
+    <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> GRemoteActionGroup
+</screen>
+</refsect1>
+<refsect1 id="GRemoteActionGroup.prerequisites" role="prerequisites">
+<title role="prerequisites.title">Prerequisites</title>
+<para>
+GRemoteActionGroup requires
+ <link linkend="GActionGroup">GActionGroup</link> and  <link linkend="GObject">GObject</link>.</para>
+
+</refsect1>
+<refsect1 id="GRemoteActionGroup.implementations" role="implementations">
+<title role="implementations.title">Known Implementations</title>
+<para>
+GRemoteActionGroup is implemented by
+ <link linkend="GDBusActionGroup">GDBusActionGroup</link>.</para>
+
+</refsect1>
+
+<refsect1 id="GRemoteActionGroup.includes"><title>Includes</title><synopsis>#include &lt;gio/gio.h&gt;
+</synopsis></refsect1>
+
+<refsect1 id="GRemoteActionGroup.description" role="desc">
+<title role="desc.title">Description</title>
+<para>The GRemoteActionGroup interface is implemented by <link linkend="GActionGroup"><type>GActionGroup</type></link>
+instances that either transmit action invocations to other processes
+or receive action invocations in the local process from other
+processes.</para>
+<para>The interface has <literal>_full</literal> variants of the two
+methods on <link linkend="GActionGroup"><type>GActionGroup</type></link> used to activate actions:
+<link linkend="g-action-group-activate-action"><function>g_action_group_activate_action()</function></link> and
+<link linkend="g-action-group-change-action-state"><function>g_action_group_change_action_state()</function></link>. These variants allow a
+"platform data" <link linkend="GVariant"><type>GVariant</type></link> to be specified: a dictionary providing
+context for the action invocation (for example: timestamps, startup
+notification IDs, etc).</para>
+<para><link linkend="GDBusActionGroup"><type>GDBusActionGroup</type></link> implements <link linkend="GRemoteActionGroup"><type>GRemoteActionGroup</type></link>.  This provides a
+mechanism to send platform data for action invocations over D-Bus.</para>
+<para>Additionally, <link linkend="g-dbus-connection-export-action-group"><function>g_dbus_connection_export_action_group()</function></link> will check if
+the exported <link linkend="GActionGroup"><type>GActionGroup</type></link> implements <link linkend="GRemoteActionGroup"><type>GRemoteActionGroup</type></link> and use the
+<literal>_full</literal> variants of the calls if available.  This
+provides a mechanism by which to receive platform data for action
+invocations that arrive by way of D-Bus.</para>
+
+</refsect1>
+<refsect1 id="GRemoteActionGroup.functions_details" role="details">
+<title role="details.title">Functions</title>
+<refsect2 id="g-remote-action-group-activate-action-full" role="function" condition="since:2.32">
+<title>g_remote_action_group_activate_action_full&#160;()</title>
+<indexterm zone="g-remote-action-group-activate-action-full" role="2.32"><primary sortas="remote_action_group_activate_action_full">g_remote_action_group_activate_action_full</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_remote_action_group_activate_action_full
+                               (<parameter><link linkend="GRemoteActionGroup"><type>GRemoteActionGroup</type></link> *remote</parameter>,
+                                <parameter>const <link linkend="gchar"><type>gchar</type></link> *action_name</parameter>,
+                                <parameter><link linkend="GVariant"><type>GVariant</type></link> *parameter</parameter>,
+                                <parameter><link linkend="GVariant"><type>GVariant</type></link> *platform_data</parameter>);</programlisting>
+<para>Activates the remote action.</para>
+<para>This is the same as <link linkend="g-action-group-activate-action"><function>g_action_group_activate_action()</function></link> except that it
+allows for provision of "platform data" to be sent along with the
+activation request.  This typically contains details such as the user
+interaction timestamp or startup notification information.</para>
+<para><parameter>platform_data</parameter>
+ must be non-<link linkend="NULL:CAPS"><literal>NULL</literal></link> and must have the type
+<link linkend="G-VARIANT-TYPE-VARDICT:CAPS"><literal>G_VARIANT_TYPE_VARDICT</literal></link>.  If it is floating, it will be consumed.</para>
+<refsect3 id="g-remote-action-group-activate-action-full.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>remote</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GDBusActionGroup"><type>GDBusActionGroup</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>action_name</para></entry>
+<entry role="parameter_description"><para>the name of the action to activate</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>parameter</para></entry>
+<entry role="parameter_description"><para>the optional parameter to the activation. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>platform_data</para></entry>
+<entry role="parameter_description"><para>the platform data to send</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.32">2.32</link></para></refsect2>
+<refsect2 id="g-remote-action-group-change-action-state-full" role="function" condition="since:2.32">
+<title>g_remote_action_group_change_action_state_full&#160;()</title>
+<indexterm zone="g-remote-action-group-change-action-state-full" role="2.32"><primary sortas="remote_action_group_change_action_state_full">g_remote_action_group_change_action_state_full</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_remote_action_group_change_action_state_full
+                               (<parameter><link linkend="GRemoteActionGroup"><type>GRemoteActionGroup</type></link> *remote</parameter>,
+                                <parameter>const <link linkend="gchar"><type>gchar</type></link> *action_name</parameter>,
+                                <parameter><link linkend="GVariant"><type>GVariant</type></link> *value</parameter>,
+                                <parameter><link linkend="GVariant"><type>GVariant</type></link> *platform_data</parameter>);</programlisting>
+<para>Changes the state of a remote action.</para>
+<para>This is the same as <link linkend="g-action-group-change-action-state"><function>g_action_group_change_action_state()</function></link> except that
+it allows for provision of "platform data" to be sent along with the
+state change request.  This typically contains details such as the
+user interaction timestamp or startup notification information.</para>
+<para><parameter>platform_data</parameter>
+ must be non-<link linkend="NULL:CAPS"><literal>NULL</literal></link> and must have the type
+<link linkend="G-VARIANT-TYPE-VARDICT:CAPS"><literal>G_VARIANT_TYPE_VARDICT</literal></link>.  If it is floating, it will be consumed.</para>
+<refsect3 id="g-remote-action-group-change-action-state-full.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>remote</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GRemoteActionGroup"><type>GRemoteActionGroup</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>action_name</para></entry>
+<entry role="parameter_description"><para>the name of the action to change the state of</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>value</para></entry>
+<entry role="parameter_description"><para>the new requested value for the state</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>platform_data</para></entry>
+<entry role="parameter_description"><para>the platform data to send</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.32">2.32</link></para></refsect2>
+
+</refsect1>
+<refsect1 id="GRemoteActionGroup.other_details" role="details">
+<title role="details.title">Types and Values</title>
+<refsect2 id="GRemoteActionGroup-struct" role="struct">
+<title>GRemoteActionGroup</title>
+<indexterm zone="GRemoteActionGroup-struct"><primary sortas="RemoteActionGroup">GRemoteActionGroup</primary></indexterm>
+<programlisting language="C">typedef struct _GRemoteActionGroup GRemoteActionGroup;</programlisting>
+<para><link linkend="GRemoteActionGroup"><type>GRemoteActionGroup</type></link> is an opaque data structure and can only be accessed
+using the following functions.</para>
+</refsect2>
+<refsect2 id="GRemoteActionGroupInterface" role="struct" condition="since:2.32">
+<title>struct GRemoteActionGroupInterface</title>
+<indexterm zone="GRemoteActionGroupInterface" role="2.32"><primary sortas="RemoteActionGroupInterface">GRemoteActionGroupInterface</primary></indexterm>
+<programlisting language="C">struct GRemoteActionGroupInterface {
+  GTypeInterface g_iface;
+
+  void (* activate_action_full)     (GRemoteActionGroup *remote,
+                                     const gchar        *action_name,
+                                     GVariant           *parameter,
+                                     GVariant           *platform_data);
+
+  void (* change_action_state_full) (GRemoteActionGroup *remote,
+                                     const gchar        *action_name,
+                                     GVariant           *value,
+                                     GVariant           *platform_data);
+};
+</programlisting>
+<para>The virtual function table for <link linkend="GRemoteActionGroup"><type>GRemoteActionGroup</type></link>.</para>
+<refsect3 id="GRemoteActionGroupInterface.members" role="struct_members">
+<title>Members</title>
+<informaltable role="struct_members_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="struct_members_name" colwidth="300px"/>
+<colspec colname="struct_members_description"/>
+<colspec colname="struct_members_annotations" colwidth="200px"/>
+<tbody>
+<row role="member"><entry role="struct_member_name"><para><structfield id="GRemoteActionGroupInterface.activate-action-full">activate_action_full</structfield>&#160;()</para></entry>
+<entry role="struct_member_description"><para>the virtual function pointer for <link linkend="g-remote-action-group-activate-action-full"><function>g_remote_action_group_activate_action_full()</function></link></para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><structfield id="GRemoteActionGroupInterface.change-action-state-full">change_action_state_full</structfield>&#160;()</para></entry>
+<entry role="struct_member_description"><para>the virtual function pointer for <link linkend="g-remote-action-group-change-action-state-full"><function>g_remote_action_group_change_action_state_full()</function></link></para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+</tbody></tgroup></informaltable>
+</refsect3>
+<para role="since">Since: <link linkend="api-index-2.32">2.32</link></para></refsect2>
+
+</refsect1>
+
+</refentry>

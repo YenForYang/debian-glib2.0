@@ -1,0 +1,289 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC '-//OASIS//DTD DocBook XML V4.5//EN'
+                      'http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd' [
+<!ENTITY % local.common.attrib "xmlns:xi  CDATA  #FIXED 'http://www.w3.org/2003/XInclude'">
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="gio-D-Bus-Utilities">
+<refmeta>
+<refentrytitle role="top_of_page" id="gio-D-Bus-Utilities.top_of_page">D-Bus Utilities</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>GIO Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>D-Bus Utilities</refname>
+<refpurpose>Various utilities related to D-Bus</refpurpose>
+</refnamediv>
+
+<refsect1 id="gio-D-Bus-Utilities.functions" role="functions_proto">
+<title role="functions_proto.title">Functions</title>
+<informaltable pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="functions_return" colwidth="150px"/>
+<colspec colname="functions_name"/>
+<tbody>
+<row><entry role="function_type"><link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-dbus-generate-guid">g_dbus_generate_guid</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-dbus-is-guid">g_dbus_is_guid</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-dbus-is-name">g_dbus_is_name</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-dbus-is-unique-name">g_dbus_is_unique_name</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-dbus-is-member-name">g_dbus_is_member_name</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-dbus-is-interface-name">g_dbus_is_interface_name</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GVariant"><returnvalue>GVariant</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-dbus-gvalue-to-gvariant">g_dbus_gvalue_to_gvariant</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-dbus-gvariant-to-gvalue">g_dbus_gvariant_to_gvalue</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+
+<refsect1 id="gio-D-Bus-Utilities.includes"><title>Includes</title><synopsis>#include &lt;gio/gio.h&gt;
+</synopsis></refsect1>
+
+<refsect1 id="gio-D-Bus-Utilities.description" role="desc">
+<title role="desc.title">Description</title>
+<para>Various utility routines related to D-Bus.</para>
+
+</refsect1>
+<refsect1 id="gio-D-Bus-Utilities.functions_details" role="details">
+<title role="details.title">Functions</title>
+<refsect2 id="g-dbus-generate-guid" role="function" condition="since:2.26">
+<title>g_dbus_generate_guid&#160;()</title>
+<indexterm zone="g-dbus-generate-guid" role="2.26"><primary sortas="dbus_generate_guid">g_dbus_generate_guid</primary></indexterm>
+<programlisting language="C"><link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+g_dbus_generate_guid (<parameter><type>void</type></parameter>);</programlisting>
+<para>Generate a D-Bus GUID that can be used with
+e.g. <link linkend="g-dbus-connection-new"><function>g_dbus_connection_new()</function></link>.</para>
+<para>See the D-Bus specification regarding what strings are valid D-Bus
+GUID (for example, D-Bus GUIDs are not RFC-4122 compliant).</para>
+<refsect3 id="g-dbus-generate-guid.returns" role="returns">
+<title>Returns</title>
+<para> A valid D-Bus GUID. Free with <link linkend="g-free"><function>g_free()</function></link>.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.26">2.26</link></para></refsect2>
+<refsect2 id="g-dbus-is-guid" role="function" condition="since:2.26">
+<title>g_dbus_is_guid&#160;()</title>
+<indexterm zone="g-dbus-is-guid" role="2.26"><primary sortas="dbus_is_guid">g_dbus_is_guid</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_dbus_is_guid (<parameter>const <link linkend="gchar"><type>gchar</type></link> *string</parameter>);</programlisting>
+<para>Checks if <parameter>string</parameter>
+ is a D-Bus GUID.</para>
+<para>See the D-Bus specification regarding what strings are valid D-Bus
+GUID (for example, D-Bus GUIDs are not RFC-4122 compliant).</para>
+<refsect3 id="g-dbus-is-guid.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>string</para></entry>
+<entry role="parameter_description"><para>The string to check.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-dbus-is-guid.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if <parameter>string</parameter>
+is a guid, <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> otherwise.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.26">2.26</link></para></refsect2>
+<refsect2 id="g-dbus-is-name" role="function" condition="since:2.26">
+<title>g_dbus_is_name&#160;()</title>
+<indexterm zone="g-dbus-is-name" role="2.26"><primary sortas="dbus_is_name">g_dbus_is_name</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_dbus_is_name (<parameter>const <link linkend="gchar"><type>gchar</type></link> *string</parameter>);</programlisting>
+<para>Checks if <parameter>string</parameter>
+ is a valid D-Bus bus name (either unique or well-known).</para>
+<refsect3 id="g-dbus-is-name.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>string</para></entry>
+<entry role="parameter_description"><para>The string to check.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-dbus-is-name.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if valid, <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> otherwise.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.26">2.26</link></para></refsect2>
+<refsect2 id="g-dbus-is-unique-name" role="function" condition="since:2.26">
+<title>g_dbus_is_unique_name&#160;()</title>
+<indexterm zone="g-dbus-is-unique-name" role="2.26"><primary sortas="dbus_is_unique_name">g_dbus_is_unique_name</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_dbus_is_unique_name (<parameter>const <link linkend="gchar"><type>gchar</type></link> *string</parameter>);</programlisting>
+<para>Checks if <parameter>string</parameter>
+ is a valid D-Bus unique bus name.</para>
+<refsect3 id="g-dbus-is-unique-name.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>string</para></entry>
+<entry role="parameter_description"><para>The string to check.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-dbus-is-unique-name.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if valid, <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> otherwise.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.26">2.26</link></para></refsect2>
+<refsect2 id="g-dbus-is-member-name" role="function" condition="since:2.26">
+<title>g_dbus_is_member_name&#160;()</title>
+<indexterm zone="g-dbus-is-member-name" role="2.26"><primary sortas="dbus_is_member_name">g_dbus_is_member_name</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_dbus_is_member_name (<parameter>const <link linkend="gchar"><type>gchar</type></link> *string</parameter>);</programlisting>
+<para>Checks if <parameter>string</parameter>
+ is a valid D-Bus member (e.g. signal or method) name.</para>
+<refsect3 id="g-dbus-is-member-name.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>string</para></entry>
+<entry role="parameter_description"><para>The string to check.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-dbus-is-member-name.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if valid, <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> otherwise.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.26">2.26</link></para></refsect2>
+<refsect2 id="g-dbus-is-interface-name" role="function" condition="since:2.26">
+<title>g_dbus_is_interface_name&#160;()</title>
+<indexterm zone="g-dbus-is-interface-name" role="2.26"><primary sortas="dbus_is_interface_name">g_dbus_is_interface_name</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_dbus_is_interface_name (<parameter>const <link linkend="gchar"><type>gchar</type></link> *string</parameter>);</programlisting>
+<para>Checks if <parameter>string</parameter>
+ is a valid D-Bus interface name.</para>
+<refsect3 id="g-dbus-is-interface-name.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>string</para></entry>
+<entry role="parameter_description"><para>The string to check.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-dbus-is-interface-name.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if valid, <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> otherwise.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.26">2.26</link></para></refsect2>
+<refsect2 id="g-dbus-gvalue-to-gvariant" role="function" condition="since:2.30">
+<title>g_dbus_gvalue_to_gvariant&#160;()</title>
+<indexterm zone="g-dbus-gvalue-to-gvariant" role="2.30"><primary sortas="dbus_gvalue_to_gvariant">g_dbus_gvalue_to_gvariant</primary></indexterm>
+<programlisting language="C"><link linkend="GVariant"><returnvalue>GVariant</returnvalue></link>&#160;*
+g_dbus_gvalue_to_gvariant (<parameter>const <link linkend="GValue"><type>GValue</type></link> *gvalue</parameter>,
+                           <parameter>const <link linkend="GVariantType"><type>GVariantType</type></link> *type</parameter>);</programlisting>
+<para>Converts a <link linkend="GValue"><type>GValue</type></link> to a <link linkend="GVariant"><type>GVariant</type></link> of the type indicated by the <parameter>type</parameter>
+
+parameter.</para>
+<para>The conversion is using the following rules:</para>
+<itemizedlist>
+<listitem><para><link linkend="G-TYPE-STRING:CAPS"><type>G_TYPE_STRING</type></link>: 's', 'o', 'g' or 'ay'</para></listitem>
+<listitem><para><link linkend="G-TYPE-STRV:CAPS"><type>G_TYPE_STRV</type></link>: 'as', 'ao' or 'aay'</para></listitem>
+<listitem><para><link linkend="G-TYPE-BOOLEAN:CAPS"><type>G_TYPE_BOOLEAN</type></link>: 'b'</para></listitem>
+<listitem><para><link linkend="G-TYPE-UCHAR:CAPS"><type>G_TYPE_UCHAR</type></link>: 'y'</para></listitem>
+<listitem><para><link linkend="G-TYPE-INT:CAPS"><type>G_TYPE_INT</type></link>: 'i', 'n'</para></listitem>
+<listitem><para><link linkend="G-TYPE-UINT:CAPS"><type>G_TYPE_UINT</type></link>: 'u', 'q'</para></listitem>
+<listitem><para><link linkend="G-TYPE-INT64:CAPS"><type>G_TYPE_INT64</type></link> 'x'</para></listitem>
+<listitem><para><link linkend="G-TYPE-UINT64:CAPS"><type>G_TYPE_UINT64</type></link>: 't'</para></listitem>
+<listitem><para><link linkend="G-TYPE-DOUBLE:CAPS"><type>G_TYPE_DOUBLE</type></link>: 'd'</para></listitem>
+<listitem>
+<para><link linkend="G-TYPE-VARIANT:CAPS"><type>G_TYPE_VARIANT</type></link>: Any <link linkend="GVariantType"><type>GVariantType</type></link></para>
+</listitem>
+</itemizedlist>
+<para>This can fail if e.g. <parameter>gvalue</parameter>
+ is of type <link linkend="G-TYPE-STRING:CAPS"><type>G_TYPE_STRING</type></link> and <parameter>type</parameter>
+
+is <link linkend="G-VARIANT-TYPE-INT32:CAPS">'i'</link>. It will also fail for any <link linkend="GType"><type>GType</type></link>
+(including e.g. <link linkend="G-TYPE-OBJECT:CAPS"><type>G_TYPE_OBJECT</type></link> and <link linkend="G-TYPE-BOXED:CAPS"><type>G_TYPE_BOXED</type></link> derived-types) not
+in the table above.</para>
+<para>Note that if <parameter>gvalue</parameter>
+ is of type <link linkend="G-TYPE-VARIANT:CAPS"><type>G_TYPE_VARIANT</type></link> and its value is
+<link linkend="NULL:CAPS"><literal>NULL</literal></link>, the empty <link linkend="GVariant"><type>GVariant</type></link> instance (never <link linkend="NULL:CAPS"><literal>NULL</literal></link>) for <parameter>type</parameter>
+ is
+returned (e.g. 0 for scalar types, the empty string for string types,
+'/' for object path types, the empty array for any array type and so on).</para>
+<para>See the <link linkend="g-dbus-gvariant-to-gvalue"><function>g_dbus_gvariant_to_gvalue()</function></link> function for how to convert a
+<link linkend="GVariant"><type>GVariant</type></link> to a <link linkend="GValue"><type>GValue</type></link>.</para>
+<refsect3 id="g-dbus-gvalue-to-gvariant.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>gvalue</para></entry>
+<entry role="parameter_description"><para>A <link linkend="GValue"><type>GValue</type></link> to convert to a <link linkend="GVariant"><type>GVariant</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>type</para></entry>
+<entry role="parameter_description"><para>A <link linkend="GVariantType"><type>GVariantType</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-dbus-gvalue-to-gvariant.returns" role="returns">
+<title>Returns</title>
+<para> A <link linkend="GVariant"><type>GVariant</type></link> (never floating) of <link linkend="GVariantType"><type>GVariantType</type></link> <parameter>type</parameter>
+holding
+the data from <parameter>gvalue</parameter>
+or <link linkend="NULL:CAPS"><literal>NULL</literal></link> in case of failure. Free with
+<link linkend="g-variant-unref"><function>g_variant_unref()</function></link>.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.30">2.30</link></para></refsect2>
+<refsect2 id="g-dbus-gvariant-to-gvalue" role="function" condition="since:2.30">
+<title>g_dbus_gvariant_to_gvalue&#160;()</title>
+<indexterm zone="g-dbus-gvariant-to-gvalue" role="2.30"><primary sortas="dbus_gvariant_to_gvalue">g_dbus_gvariant_to_gvalue</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_dbus_gvariant_to_gvalue (<parameter><link linkend="GVariant"><type>GVariant</type></link> *value</parameter>,
+                           <parameter><link linkend="GValue"><type>GValue</type></link> *out_gvalue</parameter>);</programlisting>
+<para>Converts a <link linkend="GVariant"><type>GVariant</type></link> to a <link linkend="GValue"><type>GValue</type></link>. If <parameter>value</parameter>
+ is floating, it is consumed.</para>
+<para>The rules specified in the <link linkend="g-dbus-gvalue-to-gvariant"><function>g_dbus_gvalue_to_gvariant()</function></link> function are
+used - this function is essentially its reverse form. So, a <link linkend="GVariant"><type>GVariant</type></link>
+containing any basic or string array type will be converted to a <link linkend="GValue"><type>GValue</type></link>
+containing a basic value or string array. Any other <link linkend="GVariant"><type>GVariant</type></link> (handle,
+variant, tuple, dict entry) will be converted to a <link linkend="GValue"><type>GValue</type></link> containing that
+<link linkend="GVariant"><type>GVariant</type></link>.</para>
+<para>The conversion never fails - a valid <link linkend="GValue"><type>GValue</type></link> is always returned in
+<parameter>out_gvalue</parameter>
+.</para>
+<refsect3 id="g-dbus-gvariant-to-gvalue.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>value</para></entry>
+<entry role="parameter_description"><para>A <link linkend="GVariant"><type>GVariant</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>out_gvalue</para></entry>
+<entry role="parameter_description"><para>Return location pointing to a zero-filled (uninitialized) <link linkend="GValue"><type>GValue</type></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>out</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.30">2.30</link></para></refsect2>
+
+</refsect1>
+<refsect1 id="gio-D-Bus-Utilities.other_details" role="details">
+<title role="details.title">Types and Values</title>
+
+</refsect1>
+
+</refentry>

@@ -1,0 +1,708 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC '-//OASIS//DTD DocBook XML V4.5//EN'
+                      'http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd' [
+
+<!ENTITY % local.common.attrib "xmlns:xi  CDATA  #FIXED 'http://www.w3.org/2003/XInclude'">
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="GBinding">
+<refmeta>
+<refentrytitle role="top_of_page" id="GBinding.top_of_page">GBinding</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>GOBJECT Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>GBinding</refname>
+<refpurpose>Bind two object properties</refpurpose>
+</refnamediv>
+
+<refsect1 id="GBinding.functions" role="functions_proto">
+<title role="functions_proto.title">Functions</title>
+<informaltable pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="functions_return" colwidth="150px"/>
+<colspec colname="functions_name"/>
+<tbody>
+<row><entry role="function_type"><link linkend="GObject"><returnvalue>GObject</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-binding-get-source">g_binding_get_source</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type">const <link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-binding-get-source-property">g_binding_get_source_property</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GObject"><returnvalue>GObject</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-binding-get-target">g_binding_get_target</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type">const <link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-binding-get-target-property">g_binding_get_target_property</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GBindingFlags"><returnvalue>GBindingFlags</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-binding-get-flags">g_binding_get_flags</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-binding-unbind">g_binding_unbind</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+<row><entry role="function_type"><link linkend="GBinding"><returnvalue>GBinding</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-object-bind-property">g_object_bind_property</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><phrase role="c_punctuation">(</phrase><link linkend="GBindingTransformFunc">*GBindingTransformFunc</link><phrase role="c_punctuation">)</phrase>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GBinding"><returnvalue>GBinding</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-object-bind-property-full">g_object_bind_property_full</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GBinding"><returnvalue>GBinding</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-object-bind-property-with-closures">g_object_bind_property_with_closures</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GBinding.properties" role="properties">
+<title role="properties.title">Properties</title>
+<informaltable frame="none">
+<tgroup cols="3">
+<colspec colname="properties_type" colwidth="150px"/>
+<colspec colname="properties_name" colwidth="300px"/>
+<colspec colname="properties_flags" colwidth="200px"/>
+<tbody>
+<row><entry role="property_type"><link linkend="GBindingFlags"><type>GBindingFlags</type></link></entry><entry role="property_name"><link linkend="GBinding--flags">flags</link></entry><entry role="property_flags">Read / Write / Construct Only</entry></row>
+<row><entry role="property_type"><link linkend="GObject"><type>GObject</type></link>&#160;*</entry><entry role="property_name"><link linkend="GBinding--source">source</link></entry><entry role="property_flags">Read / Write / Construct Only</entry></row>
+<row><entry role="property_type"><link linkend="gchar"><type>gchar</type></link>&#160;*</entry><entry role="property_name"><link linkend="GBinding--source-property">source-property</link></entry><entry role="property_flags">Read / Write / Construct Only</entry></row>
+<row><entry role="property_type"><link linkend="GObject"><type>GObject</type></link>&#160;*</entry><entry role="property_name"><link linkend="GBinding--target">target</link></entry><entry role="property_flags">Read / Write / Construct Only</entry></row>
+<row><entry role="property_type"><link linkend="gchar"><type>gchar</type></link>&#160;*</entry><entry role="property_name"><link linkend="GBinding--target-property">target-property</link></entry><entry role="property_flags">Read / Write / Construct Only</entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GBinding.other" role="other_proto">
+<title role="other_proto.title">Types and Values</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="name" colwidth="150px"/>
+<colspec colname="description"/>
+<tbody>
+<row><entry role="datatype_keyword"></entry><entry role="function_name"><link linkend="GBinding-struct">GBinding</link></entry></row>
+<row><entry role="datatype_keyword">enum</entry><entry role="function_name"><link linkend="GBindingFlags">GBindingFlags</link></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GBinding.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<screen>    <link linkend="GFlags">GFlags</link>
+    <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> GBindingFlags
+    <link linkend="GObject">GObject</link>
+    <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> GBinding
+</screen>
+</refsect1>
+
+<refsect1 id="GBinding.includes"><title>Includes</title><synopsis>#include &lt;glib-object.h&gt;
+#include &lt;gobject/gvaluecollector.h&gt;
+</synopsis></refsect1>
+
+<refsect1 id="GBinding.description" role="desc">
+<title role="desc.title">Description</title>
+<para><link linkend="GBinding"><type>GBinding</type></link> is the representation of a binding between a property on a
+<link linkend="GObject"><type>GObject</type></link> instance (or source) and another property on another <link linkend="GObject"><type>GObject</type></link>
+instance (or target). Whenever the source property changes, the same
+value is applied to the target property; for instance, the following
+binding:</para>
+<informalexample><programlisting role="example"><![CDATA[
+  g_object_bind_property (object1, "property-a",
+                          object2, "property-b",
+                          G_BINDING_DEFAULT);
+]]></programlisting></informalexample>
+<para></para>
+<para>will cause the property named "property-b" of <parameter>object2</parameter>
+ to be updated
+every time <link linkend="g-object-set"><function>g_object_set()</function></link> or the specific accessor changes the value of
+the property "property-a" of <parameter>object1</parameter>
+.</para>
+<para>It is possible to create a bidirectional binding between two properties
+of two <link linkend="GObject"><type>GObject</type></link> instances, so that if either property changes, the
+other is updated as well, for instance:</para>
+<informalexample><programlisting role="example"><![CDATA[
+  g_object_bind_property (object1, "property-a",
+                          object2, "property-b",
+                          G_BINDING_BIDIRECTIONAL);
+]]></programlisting></informalexample>
+<para></para>
+<para>will keep the two properties in sync.</para>
+<para>It is also possible to set a custom transformation function (in both
+directions, in case of a bidirectional binding) to apply a custom
+transformation from the source value to the target value before
+applying it; for instance, the following binding:</para>
+<informalexample><programlisting role="example"><![CDATA[
+  g_object_bind_property_full (adjustment1, "value",
+                               adjustment2, "value",
+                               G_BINDING_BIDIRECTIONAL,
+                               celsius_to_fahrenheit,
+                               fahrenheit_to_celsius,
+                               NULL, NULL);
+]]></programlisting></informalexample>
+<para></para>
+<para>will keep the "value" property of the two adjustments in sync; the
+<parameter>celsius_to_fahrenheit</parameter>
+ function will be called whenever the "value"
+property of <parameter>adjustment1</parameter>
+ changes and will transform the current value
+of the property before applying it to the "value" property of <parameter>adjustment2</parameter>
+.</para>
+<para>Vice versa, the <parameter>fahrenheit_to_celsius</parameter>
+ function will be called whenever
+the "value" property of <parameter>adjustment2</parameter>
+ changes, and will transform the
+current value of the property before applying it to the "value" property
+of <parameter>adjustment1</parameter>
+.</para>
+<para>Note that <link linkend="GBinding"><type>GBinding</type></link> does not resolve cycles by itself; a cycle like</para>
+<informalexample><programlisting role="example"><![CDATA[
+  object1:propertyA -> object2:propertyB
+  object2:propertyB -> object3:propertyC
+  object3:propertyC -> object1:propertyA
+]]></programlisting></informalexample>
+<para></para>
+<para>might lead to an infinite loop. The loop, in this particular case,
+can be avoided if the objects emit the <link linkend="GObject-notify"><type>“notify”</type></link> signal only
+if the value has effectively been changed. A binding is implemented
+using the <link linkend="GObject-notify"><type>“notify”</type></link> signal, so it is susceptible to all the
+various ways of blocking a signal emission, like <link linkend="g-signal-stop-emission"><function>g_signal_stop_emission()</function></link>
+or <link linkend="g-signal-handler-block"><function>g_signal_handler_block()</function></link>.</para>
+<para>A binding will be severed, and the resources it allocates freed, whenever
+either one of the <link linkend="GObject"><type>GObject</type></link> instances it refers to are finalized, or when
+the <link linkend="GBinding"><type>GBinding</type></link> instance loses its last reference.</para>
+<para>Bindings for languages with garbage collection can use
+<link linkend="g-binding-unbind"><function>g_binding_unbind()</function></link> to explicitly release a binding between the source
+and target properties, instead of relying on the last reference on the
+binding, source, and target instances to drop.</para>
+<para><link linkend="GBinding"><type>GBinding</type></link> is available since GObject 2.26</para>
+
+</refsect1>
+<refsect1 id="GBinding.functions_details" role="details">
+<title role="details.title">Functions</title>
+<refsect2 id="g-binding-get-source" role="function" condition="since:2.26">
+<title>g_binding_get_source&#160;()</title>
+<indexterm zone="g-binding-get-source" role="2.26"><primary sortas="binding_get_source">g_binding_get_source</primary></indexterm>
+<programlisting language="C"><link linkend="GObject"><returnvalue>GObject</returnvalue></link>&#160;*
+g_binding_get_source (<parameter><link linkend="GBinding"><type>GBinding</type></link> *binding</parameter>);</programlisting>
+<para>Retrieves the <link linkend="GObject"><type>GObject</type></link> instance used as the source of the binding.</para>
+<refsect3 id="g-binding-get-source.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>binding</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GBinding"><type>GBinding</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-binding-get-source.returns" role="returns">
+<title>Returns</title>
+<para>the source <link linkend="GObject"><type>GObject</type></link>. </para>
+<para><emphasis role="annotation">[<acronym>transfer none</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.26">2.26</link></para></refsect2>
+<refsect2 id="g-binding-get-source-property" role="function" condition="since:2.26">
+<title>g_binding_get_source_property&#160;()</title>
+<indexterm zone="g-binding-get-source-property" role="2.26"><primary sortas="binding_get_source_property">g_binding_get_source_property</primary></indexterm>
+<programlisting language="C">const <link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+g_binding_get_source_property (<parameter><link linkend="GBinding"><type>GBinding</type></link> *binding</parameter>);</programlisting>
+<para>Retrieves the name of the property of <link linkend="GBinding--source"><type>“source”</type></link> used as the source
+of the binding.</para>
+<refsect3 id="g-binding-get-source-property.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>binding</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GBinding"><type>GBinding</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-binding-get-source-property.returns" role="returns">
+<title>Returns</title>
+<para> the name of the source property</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.26">2.26</link></para></refsect2>
+<refsect2 id="g-binding-get-target" role="function" condition="since:2.26">
+<title>g_binding_get_target&#160;()</title>
+<indexterm zone="g-binding-get-target" role="2.26"><primary sortas="binding_get_target">g_binding_get_target</primary></indexterm>
+<programlisting language="C"><link linkend="GObject"><returnvalue>GObject</returnvalue></link>&#160;*
+g_binding_get_target (<parameter><link linkend="GBinding"><type>GBinding</type></link> *binding</parameter>);</programlisting>
+<para>Retrieves the <link linkend="GObject"><type>GObject</type></link> instance used as the target of the binding.</para>
+<refsect3 id="g-binding-get-target.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>binding</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GBinding"><type>GBinding</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-binding-get-target.returns" role="returns">
+<title>Returns</title>
+<para>the target <link linkend="GObject"><type>GObject</type></link>. </para>
+<para><emphasis role="annotation">[<acronym>transfer none</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.26">2.26</link></para></refsect2>
+<refsect2 id="g-binding-get-target-property" role="function" condition="since:2.26">
+<title>g_binding_get_target_property&#160;()</title>
+<indexterm zone="g-binding-get-target-property" role="2.26"><primary sortas="binding_get_target_property">g_binding_get_target_property</primary></indexterm>
+<programlisting language="C">const <link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+g_binding_get_target_property (<parameter><link linkend="GBinding"><type>GBinding</type></link> *binding</parameter>);</programlisting>
+<para>Retrieves the name of the property of <link linkend="GBinding--target"><type>“target”</type></link> used as the target
+of the binding.</para>
+<refsect3 id="g-binding-get-target-property.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>binding</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GBinding"><type>GBinding</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-binding-get-target-property.returns" role="returns">
+<title>Returns</title>
+<para> the name of the target property</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.26">2.26</link></para></refsect2>
+<refsect2 id="g-binding-get-flags" role="function" condition="since:2.26">
+<title>g_binding_get_flags&#160;()</title>
+<indexterm zone="g-binding-get-flags" role="2.26"><primary sortas="binding_get_flags">g_binding_get_flags</primary></indexterm>
+<programlisting language="C"><link linkend="GBindingFlags"><returnvalue>GBindingFlags</returnvalue></link>
+g_binding_get_flags (<parameter><link linkend="GBinding"><type>GBinding</type></link> *binding</parameter>);</programlisting>
+<para>Retrieves the flags passed when constructing the <link linkend="GBinding"><type>GBinding</type></link>.</para>
+<refsect3 id="g-binding-get-flags.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>binding</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GBinding"><type>GBinding</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-binding-get-flags.returns" role="returns">
+<title>Returns</title>
+<para> the <link linkend="GBindingFlags"><type>GBindingFlags</type></link> used by the <link linkend="GBinding"><type>GBinding</type></link></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.26">2.26</link></para></refsect2>
+<refsect2 id="g-binding-unbind" role="function" condition="since:2.38">
+<title>g_binding_unbind&#160;()</title>
+<indexterm zone="g-binding-unbind" role="2.38"><primary sortas="binding_unbind">g_binding_unbind</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_binding_unbind (<parameter><link linkend="GBinding"><type>GBinding</type></link> *binding</parameter>);</programlisting>
+<para>Explicitly releases the binding between the source and the target
+property expressed by <parameter>binding</parameter>
+.</para>
+<para>This function will release the reference that is being held on
+the <parameter>binding</parameter>
+ instance; if you want to hold on to the <link linkend="GBinding"><type>GBinding</type></link> instance
+after calling <link linkend="g-binding-unbind"><function>g_binding_unbind()</function></link>, you will need to hold a reference
+to it.</para>
+<refsect3 id="g-binding-unbind.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>binding</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GBinding"><type>GBinding</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.38">2.38</link></para></refsect2>
+<refsect2 id="g-object-bind-property" role="function" condition="since:2.26">
+<title>g_object_bind_property&#160;()</title>
+<indexterm zone="g-object-bind-property" role="2.26"><primary sortas="object_bind_property">g_object_bind_property</primary></indexterm>
+<programlisting language="C"><link linkend="GBinding"><returnvalue>GBinding</returnvalue></link>&#160;*
+g_object_bind_property (<parameter><link linkend="gpointer"><type>gpointer</type></link> source</parameter>,
+                        <parameter>const <link linkend="gchar"><type>gchar</type></link> *source_property</parameter>,
+                        <parameter><link linkend="gpointer"><type>gpointer</type></link> target</parameter>,
+                        <parameter>const <link linkend="gchar"><type>gchar</type></link> *target_property</parameter>,
+                        <parameter><link linkend="GBindingFlags"><type>GBindingFlags</type></link> flags</parameter>);</programlisting>
+<para>Creates a binding between <parameter>source_property</parameter>
+ on <parameter>source</parameter>
+ and <parameter>target_property</parameter>
+
+on <parameter>target</parameter>
+. Whenever the <parameter>source_property</parameter>
+ is changed the <parameter>target_property</parameter>
+ is
+updated using the same value. For instance:</para>
+<informalexample><programlisting role="example"><![CDATA[
+  g_object_bind_property (action, "active", widget, "sensitive", 0);
+]]></programlisting></informalexample>
+<para></para>
+<para>Will result in the "sensitive" property of the widget <link linkend="GObject"><type>GObject</type></link> instance to be
+updated with the same value of the "active" property of the action <link linkend="GObject"><type>GObject</type></link>
+instance.</para>
+<para>If <parameter>flags</parameter>
+ contains <link linkend="G-BINDING-BIDIRECTIONAL:CAPS"><literal>G_BINDING_BIDIRECTIONAL</literal></link> then the binding will be mutual:
+if <parameter>target_property</parameter>
+ on <parameter>target</parameter>
+ changes then the <parameter>source_property</parameter>
+ on <parameter>source</parameter>
+
+will be updated as well.</para>
+<para>The binding will automatically be removed when either the <parameter>source</parameter>
+ or the
+<parameter>target</parameter>
+ instances are finalized. To remove the binding without affecting the
+<parameter>source</parameter>
+ and the <parameter>target</parameter>
+ you can just call <link linkend="g-object-unref"><function>g_object_unref()</function></link> on the returned
+<link linkend="GBinding"><type>GBinding</type></link> instance.</para>
+<para>A <link linkend="GObject"><type>GObject</type></link> can have multiple bindings.</para>
+<refsect3 id="g-object-bind-property.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>source</para></entry>
+<entry role="parameter_description"><para>the source <link linkend="GObject"><type>GObject</type></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>type</acronym> GObject.Object]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>source_property</para></entry>
+<entry role="parameter_description"><para>the property on <parameter>source</parameter>
+to bind</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>target</para></entry>
+<entry role="parameter_description"><para>the target <link linkend="GObject"><type>GObject</type></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>type</acronym> GObject.Object]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>target_property</para></entry>
+<entry role="parameter_description"><para>the property on <parameter>target</parameter>
+to bind</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>flags</para></entry>
+<entry role="parameter_description"><para>flags to pass to <link linkend="GBinding"><type>GBinding</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-object-bind-property.returns" role="returns">
+<title>Returns</title>
+<para>the <link linkend="GBinding"><type>GBinding</type></link> instance representing the
+binding between the two <link linkend="GObject"><type>GObject</type></link> instances. The binding is released
+whenever the <link linkend="GBinding"><type>GBinding</type></link> reference count reaches zero. </para>
+<para><emphasis role="annotation">[<acronym>transfer none</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.26">2.26</link></para></refsect2>
+<refsect2 id="GBindingTransformFunc" role="function" condition="since:2.26">
+<title>GBindingTransformFunc&#160;()</title>
+<indexterm zone="GBindingTransformFunc" role="2.26"><primary sortas="BindingTransformFunc">GBindingTransformFunc</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+<phrase role="c_punctuation">(</phrase>*GBindingTransformFunc<phrase role="c_punctuation">)</phrase> (<parameter><link linkend="GBinding"><type>GBinding</type></link> *binding</parameter>,
+                          <parameter>const <link linkend="GValue"><type>GValue</type></link> *from_value</parameter>,
+                          <parameter><link linkend="GValue"><type>GValue</type></link> *to_value</parameter>,
+                          <parameter><link linkend="gpointer"><type>gpointer</type></link> user_data</parameter>);</programlisting>
+<para>A function to be called to transform <parameter>from_value</parameter>
+ to <parameter>to_value</parameter>
+. If
+this is the <parameter>transform_to</parameter>
+ function of a binding, then <parameter>from_value</parameter>
+
+is the <parameter>source_property</parameter>
+ on the <parameter>source</parameter>
+ object, and <parameter>to_value</parameter>
+ is the
+<parameter>target_property</parameter>
+ on the <parameter>target</parameter>
+ object. If this is the
+<parameter>transform_from</parameter>
+ function of a <link linkend="G-BINDING-BIDIRECTIONAL:CAPS"><literal>G_BINDING_BIDIRECTIONAL</literal></link> binding,
+then those roles are reversed.</para>
+<refsect3 id="GBindingTransformFunc.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>binding</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GBinding"><type>GBinding</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>from_value</para></entry>
+<entry role="parameter_description"><para>the <link linkend="GValue"><type>GValue</type></link> containing the value to transform</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>to_value</para></entry>
+<entry role="parameter_description"><para>the <link linkend="GValue"><type>GValue</type></link> in which to store the transformed value</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>user_data</para></entry>
+<entry role="parameter_description"><para>data passed to the transform function</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="GBindingTransformFunc.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if the transformation was successful, and <link linkend="FALSE:CAPS"><literal>FALSE</literal></link>
+otherwise</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.26">2.26</link></para></refsect2>
+<refsect2 id="g-object-bind-property-full" role="function" condition="since:2.26">
+<title>g_object_bind_property_full&#160;()</title>
+<indexterm zone="g-object-bind-property-full" role="2.26"><primary sortas="object_bind_property_full">g_object_bind_property_full</primary></indexterm>
+<programlisting language="C"><link linkend="GBinding"><returnvalue>GBinding</returnvalue></link>&#160;*
+g_object_bind_property_full (<parameter><link linkend="gpointer"><type>gpointer</type></link> source</parameter>,
+                             <parameter>const <link linkend="gchar"><type>gchar</type></link> *source_property</parameter>,
+                             <parameter><link linkend="gpointer"><type>gpointer</type></link> target</parameter>,
+                             <parameter>const <link linkend="gchar"><type>gchar</type></link> *target_property</parameter>,
+                             <parameter><link linkend="GBindingFlags"><type>GBindingFlags</type></link> flags</parameter>,
+                             <parameter><link linkend="GBindingTransformFunc"><type>GBindingTransformFunc</type></link> transform_to</parameter>,
+                             <parameter><link linkend="GBindingTransformFunc"><type>GBindingTransformFunc</type></link> transform_from</parameter>,
+                             <parameter><link linkend="gpointer"><type>gpointer</type></link> user_data</parameter>,
+                             <parameter><link linkend="GDestroyNotify"><type>GDestroyNotify</type></link> notify</parameter>);</programlisting>
+<para>Complete version of <link linkend="g-object-bind-property"><function>g_object_bind_property()</function></link>.</para>
+<para>Creates a binding between <parameter>source_property</parameter>
+ on <parameter>source</parameter>
+ and <parameter>target_property</parameter>
+
+on <parameter>target</parameter>
+, allowing you to set the transformation functions to be used by
+the binding.</para>
+<para>If <parameter>flags</parameter>
+ contains <link linkend="G-BINDING-BIDIRECTIONAL:CAPS"><literal>G_BINDING_BIDIRECTIONAL</literal></link> then the binding will be mutual:
+if <parameter>target_property</parameter>
+ on <parameter>target</parameter>
+ changes then the <parameter>source_property</parameter>
+ on <parameter>source</parameter>
+
+will be updated as well. The <parameter>transform_from</parameter>
+ function is only used in case
+of bidirectional bindings, otherwise it will be ignored</para>
+<para>The binding will automatically be removed when either the <parameter>source</parameter>
+ or the
+<parameter>target</parameter>
+ instances are finalized. To remove the binding without affecting the
+<parameter>source</parameter>
+ and the <parameter>target</parameter>
+ you can just call <link linkend="g-object-unref"><function>g_object_unref()</function></link> on the returned
+<link linkend="GBinding"><type>GBinding</type></link> instance.</para>
+<para>A <link linkend="GObject"><type>GObject</type></link> can have multiple bindings.</para>
+<para>The same <parameter>user_data</parameter>
+ parameter will be used for both <parameter>transform_to</parameter>
+
+and <parameter>transform_from</parameter>
+ transformation functions; the <parameter>notify</parameter>
+ function will
+be called once, when the binding is removed. If you need different data
+for each transformation function, please use
+<link linkend="g-object-bind-property-with-closures"><function>g_object_bind_property_with_closures()</function></link> instead.</para>
+<refsect3 id="g-object-bind-property-full.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>source</para></entry>
+<entry role="parameter_description"><para>the source <link linkend="GObject"><type>GObject</type></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>type</acronym> GObject.Object]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>source_property</para></entry>
+<entry role="parameter_description"><para>the property on <parameter>source</parameter>
+to bind</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>target</para></entry>
+<entry role="parameter_description"><para>the target <link linkend="GObject"><type>GObject</type></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>type</acronym> GObject.Object]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>target_property</para></entry>
+<entry role="parameter_description"><para>the property on <parameter>target</parameter>
+to bind</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>flags</para></entry>
+<entry role="parameter_description"><para>flags to pass to <link linkend="GBinding"><type>GBinding</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>transform_to</para></entry>
+<entry role="parameter_description"><para>the transformation function
+from the <parameter>source</parameter>
+to the <parameter>target</parameter>
+, or <link linkend="NULL:CAPS"><literal>NULL</literal></link> to use the default. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>scope notified</acronym>][<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>transform_from</para></entry>
+<entry role="parameter_description"><para>the transformation function
+from the <parameter>target</parameter>
+to the <parameter>source</parameter>
+, or <link linkend="NULL:CAPS"><literal>NULL</literal></link> to use the default. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>scope notified</acronym>][<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>user_data</para></entry>
+<entry role="parameter_description"><para>custom data to be passed to the transformation functions,
+or <link linkend="NULL:CAPS"><literal>NULL</literal></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>notify</para></entry>
+<entry role="parameter_description"><para>a function to call when disposing the binding, to free
+resources used by the transformation functions, or <link linkend="NULL:CAPS"><literal>NULL</literal></link> if not required. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-object-bind-property-full.returns" role="returns">
+<title>Returns</title>
+<para>the <link linkend="GBinding"><type>GBinding</type></link> instance representing the
+binding between the two <link linkend="GObject"><type>GObject</type></link> instances. The binding is released
+whenever the <link linkend="GBinding"><type>GBinding</type></link> reference count reaches zero. </para>
+<para><emphasis role="annotation">[<acronym>transfer none</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.26">2.26</link></para></refsect2>
+<refsect2 id="g-object-bind-property-with-closures" role="function" condition="since:2.26">
+<title>g_object_bind_property_with_closures&#160;()</title>
+<indexterm zone="g-object-bind-property-with-closures" role="2.26"><primary sortas="object_bind_property_with_closures">g_object_bind_property_with_closures</primary></indexterm>
+<programlisting language="C"><link linkend="GBinding"><returnvalue>GBinding</returnvalue></link>&#160;*
+g_object_bind_property_with_closures (<parameter><link linkend="gpointer"><type>gpointer</type></link> source</parameter>,
+                                      <parameter>const <link linkend="gchar"><type>gchar</type></link> *source_property</parameter>,
+                                      <parameter><link linkend="gpointer"><type>gpointer</type></link> target</parameter>,
+                                      <parameter>const <link linkend="gchar"><type>gchar</type></link> *target_property</parameter>,
+                                      <parameter><link linkend="GBindingFlags"><type>GBindingFlags</type></link> flags</parameter>,
+                                      <parameter><link linkend="GClosure"><type>GClosure</type></link> *transform_to</parameter>,
+                                      <parameter><link linkend="GClosure"><type>GClosure</type></link> *transform_from</parameter>);</programlisting>
+<para>Creates a binding between <parameter>source_property</parameter>
+ on <parameter>source</parameter>
+ and <parameter>target_property</parameter>
+
+on <parameter>target</parameter>
+, allowing you to set the transformation functions to be used by
+the binding.</para>
+<para>This function is the language bindings friendly version of
+<link linkend="g-object-bind-property-full"><function>g_object_bind_property_full()</function></link>, using <link linkend="GClosures"><type>GClosures</type></link> instead of
+function pointers.</para>
+
+<para><emphasis role="annotation">[<acronym>rename-to</acronym> g_object_bind_property_full]</emphasis></para><refsect3 id="g-object-bind-property-with-closures.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>source</para></entry>
+<entry role="parameter_description"><para>the source <link linkend="GObject"><type>GObject</type></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>type</acronym> GObject.Object]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>source_property</para></entry>
+<entry role="parameter_description"><para>the property on <parameter>source</parameter>
+to bind</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>target</para></entry>
+<entry role="parameter_description"><para>the target <link linkend="GObject"><type>GObject</type></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>type</acronym> GObject.Object]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>target_property</para></entry>
+<entry role="parameter_description"><para>the property on <parameter>target</parameter>
+to bind</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>flags</para></entry>
+<entry role="parameter_description"><para>flags to pass to <link linkend="GBinding"><type>GBinding</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>transform_to</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GClosure"><type>GClosure</type></link> wrapping the transformation function
+from the <parameter>source</parameter>
+to the <parameter>target</parameter>
+, or <link linkend="NULL:CAPS"><literal>NULL</literal></link> to use the default</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>transform_from</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GClosure"><type>GClosure</type></link> wrapping the transformation function
+from the <parameter>target</parameter>
+to the <parameter>source</parameter>
+, or <link linkend="NULL:CAPS"><literal>NULL</literal></link> to use the default</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-object-bind-property-with-closures.returns" role="returns">
+<title>Returns</title>
+<para>the <link linkend="GBinding"><type>GBinding</type></link> instance representing the
+binding between the two <link linkend="GObject"><type>GObject</type></link> instances. The binding is released
+whenever the <link linkend="GBinding"><type>GBinding</type></link> reference count reaches zero. </para>
+<para><emphasis role="annotation">[<acronym>transfer none</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.26">2.26</link></para></refsect2>
+
+</refsect1>
+<refsect1 id="GBinding.other_details" role="details">
+<title role="details.title">Types and Values</title>
+<refsect2 id="GBinding-struct" role="struct">
+<title>GBinding</title>
+<indexterm zone="GBinding-struct" role="2.26"><primary sortas="Binding">GBinding</primary></indexterm>
+<programlisting language="C">typedef struct _GBinding GBinding;</programlisting>
+<para>GBinding is an opaque structure whose members
+cannot be accessed directly.</para>
+<para role="since">Since: <link linkend="api-index-2.26">2.26</link></para></refsect2>
+<refsect2 id="GBindingFlags" role="enum" condition="since:2.26">
+<title>enum GBindingFlags</title>
+<indexterm zone="GBindingFlags" role="2.26"><primary sortas="BindingFlags">GBindingFlags</primary></indexterm>
+<para>Flags to be passed to <link linkend="g-object-bind-property"><function>g_object_bind_property()</function></link> or
+<link linkend="g-object-bind-property-full"><function>g_object_bind_property_full()</function></link>.</para>
+<para>This enumeration can be extended at later date.</para>
+<refsect3 id="GBindingFlags.members" role="enum_members">
+<title>Members</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="enum_members_name" colwidth="300px"/>
+<colspec colname="enum_members_description"/>
+<colspec colname="enum_members_annotations" colwidth="200px"/>
+<tbody>
+<row role="constant"><entry role="enum_member_name"><para id="G-BINDING-DEFAULT:CAPS">G_BINDING_DEFAULT</para></entry>
+<entry role="enum_member_description"><para>The default binding; if the source property
+  changes, the target property is updated with its value.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-BINDING-BIDIRECTIONAL:CAPS">G_BINDING_BIDIRECTIONAL</para></entry>
+<entry role="enum_member_description"><para>Bidirectional binding; if either the
+  property of the source or the property of the target changes,
+  the other is updated.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-BINDING-SYNC-CREATE:CAPS">G_BINDING_SYNC_CREATE</para></entry>
+<entry role="enum_member_description"><para>Synchronize the values of the source and
+  target properties when creating the binding; the direction of
+  the synchronization is always from the source to the target.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-BINDING-INVERT-BOOLEAN:CAPS">G_BINDING_INVERT_BOOLEAN</para></entry>
+<entry role="enum_member_description"><para>If the two properties being bound are
+  booleans, setting one to <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> will result in the other being
+  set to <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> and vice versa. This flag will only work for
+  boolean properties, and cannot be used when passing custom
+  transformation functions to <link linkend="g-object-bind-property-full"><function>g_object_bind_property_full()</function></link>.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.26">2.26</link></para></refsect2>
+
+</refsect1>
+<refsect1 id="GBinding.property-details" role="property_details">
+<title role="property_details.title">Property Details</title>
+<refsect2 id="GBinding--flags" role="property"><title>The <literal>“flags”</literal> property</title>
+<indexterm zone="GBinding--flags" role="2.26"><primary sortas="Binding:flags">GBinding:flags</primary></indexterm>
+<programlisting>  “flags”                    <link linkend="GBindingFlags"><type>GBindingFlags</type></link></programlisting>
+<para>Flags to be used to control the <link linkend="GBinding"><type>GBinding</type></link></para>
+<para>Flags: Read / Write / Construct Only</para>
+<para role="since">Since: <link linkend="api-index-2.26">2.26</link></para></refsect2>
+<refsect2 id="GBinding--source" role="property"><title>The <literal>“source”</literal> property</title>
+<indexterm zone="GBinding--source" role="2.26"><primary sortas="Binding:source">GBinding:source</primary></indexterm>
+<programlisting>  “source”                   <link linkend="GObject"><type>GObject</type></link>&#160;*</programlisting>
+<para>The <link linkend="GObject"><type>GObject</type></link> that should be used as the source of the binding</para>
+<para>Flags: Read / Write / Construct Only</para>
+<para role="since">Since: <link linkend="api-index-2.26">2.26</link></para></refsect2>
+<refsect2 id="GBinding--source-property" role="property"><title>The <literal>“source-property”</literal> property</title>
+<indexterm zone="GBinding--source-property" role="2.26"><primary sortas="Binding:source-property">GBinding:source-property</primary></indexterm>
+<programlisting>  “source-property”          <link linkend="gchar"><type>gchar</type></link>&#160;*</programlisting>
+<para>The name of the property of <link linkend="GBinding--source"><type>“source”</type></link> that should be used
+as the source of the binding</para>
+<para>Flags: Read / Write / Construct Only</para>
+<para>Default value: NULL</para>
+<para role="since">Since: <link linkend="api-index-2.26">2.26</link></para></refsect2>
+<refsect2 id="GBinding--target" role="property"><title>The <literal>“target”</literal> property</title>
+<indexterm zone="GBinding--target" role="2.26"><primary sortas="Binding:target">GBinding:target</primary></indexterm>
+<programlisting>  “target”                   <link linkend="GObject"><type>GObject</type></link>&#160;*</programlisting>
+<para>The <link linkend="GObject"><type>GObject</type></link> that should be used as the target of the binding</para>
+<para>Flags: Read / Write / Construct Only</para>
+<para role="since">Since: <link linkend="api-index-2.26">2.26</link></para></refsect2>
+<refsect2 id="GBinding--target-property" role="property"><title>The <literal>“target-property”</literal> property</title>
+<indexterm zone="GBinding--target-property" role="2.26"><primary sortas="Binding:target-property">GBinding:target-property</primary></indexterm>
+<programlisting>  “target-property”          <link linkend="gchar"><type>gchar</type></link>&#160;*</programlisting>
+<para>The name of the property of <link linkend="GBinding--target"><type>“target”</type></link> that should be used
+as the target of the binding</para>
+<para>Flags: Read / Write / Construct Only</para>
+<para>Default value: NULL</para>
+<para role="since">Since: <link linkend="api-index-2.26">2.26</link></para></refsect2>
+
+</refsect1>
+
+</refentry>

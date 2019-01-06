@@ -1,0 +1,188 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC '-//OASIS//DTD DocBook XML V4.5//EN'
+                      'http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd' [
+<!ENTITY % local.common.attrib "xmlns:xi  CDATA  #FIXED 'http://www.w3.org/2003/XInclude'">
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="GFilterInputStream">
+<refmeta>
+<refentrytitle role="top_of_page" id="GFilterInputStream.top_of_page">GFilterInputStream</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>GIO Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>GFilterInputStream</refname>
+<refpurpose>Filter Input Stream</refpurpose>
+</refnamediv>
+
+<refsect1 id="GFilterInputStream.functions" role="functions_proto">
+<title role="functions_proto.title">Functions</title>
+<informaltable pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="functions_return" colwidth="150px"/>
+<colspec colname="functions_name"/>
+<tbody>
+<row><entry role="function_type"><link linkend="GInputStream"><returnvalue>GInputStream</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-filter-input-stream-get-base-stream">g_filter_input_stream_get_base_stream</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-filter-input-stream-get-close-base-stream">g_filter_input_stream_get_close_base_stream</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-filter-input-stream-set-close-base-stream">g_filter_input_stream_set_close_base_stream</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GFilterInputStream.properties" role="properties">
+<title role="properties.title">Properties</title>
+<informaltable frame="none">
+<tgroup cols="3">
+<colspec colname="properties_type" colwidth="150px"/>
+<colspec colname="properties_name" colwidth="300px"/>
+<colspec colname="properties_flags" colwidth="200px"/>
+<tbody>
+<row><entry role="property_type"><link linkend="GInputStream"><type>GInputStream</type></link>&#160;*</entry><entry role="property_name"><link linkend="GFilterInputStream--base-stream">base-stream</link></entry><entry role="property_flags">Read / Write / Construct Only</entry></row>
+<row><entry role="property_type"><link linkend="gboolean"><type>gboolean</type></link></entry><entry role="property_name"><link linkend="GFilterInputStream--close-base-stream">close-base-stream</link></entry><entry role="property_flags">Read / Write / Construct</entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GFilterInputStream.other" role="other_proto">
+<title role="other_proto.title">Types and Values</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="name" colwidth="150px"/>
+<colspec colname="description"/>
+<tbody>
+<row><entry role="datatype_keyword"></entry><entry role="function_name"><link linkend="GFilterInputStream-struct">GFilterInputStream</link></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GFilterInputStream.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<screen>    <link linkend="GObject">GObject</link>
+    <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> <link linkend="GInputStream">GInputStream</link>
+        <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> GFilterInputStream
+            <phrase role="lineart">&#9500;&#9472;&#9472;</phrase> <link linkend="GBufferedInputStream">GBufferedInputStream</link>
+            <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> <link linkend="GConverterInputStream">GConverterInputStream</link>
+</screen>
+</refsect1>
+
+<refsect1 id="GFilterInputStream.includes"><title>Includes</title><synopsis>#include &lt;gio/gio.h&gt;
+</synopsis></refsect1>
+
+<refsect1 id="GFilterInputStream.description" role="desc">
+<title role="desc.title">Description</title>
+<para>Base class for input stream implementations that perform some
+kind of filtering operation on a base stream. Typical examples
+of filtering operations are character set conversion, compression
+and byte order flipping.</para>
+
+</refsect1>
+<refsect1 id="GFilterInputStream.functions_details" role="details">
+<title role="details.title">Functions</title>
+<refsect2 id="g-filter-input-stream-get-base-stream" role="function">
+<title>g_filter_input_stream_get_base_stream&#160;()</title>
+<indexterm zone="g-filter-input-stream-get-base-stream"><primary sortas="filter_input_stream_get_base_stream">g_filter_input_stream_get_base_stream</primary></indexterm>
+<programlisting language="C"><link linkend="GInputStream"><returnvalue>GInputStream</returnvalue></link>&#160;*
+g_filter_input_stream_get_base_stream (<parameter><link linkend="GFilterInputStream"><type>GFilterInputStream</type></link> *stream</parameter>);</programlisting>
+<para>Gets the base stream for the filter stream.</para>
+<refsect3 id="g-filter-input-stream-get-base-stream.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>stream</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GFilterInputStream"><type>GFilterInputStream</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-filter-input-stream-get-base-stream.returns" role="returns">
+<title>Returns</title>
+<para>a <link linkend="GInputStream"><type>GInputStream</type></link>. </para>
+<para><emphasis role="annotation">[<acronym>transfer none</acronym>]</emphasis></para>
+</refsect3></refsect2>
+<refsect2 id="g-filter-input-stream-get-close-base-stream" role="function">
+<title>g_filter_input_stream_get_close_base_stream&#160;()</title>
+<indexterm zone="g-filter-input-stream-get-close-base-stream"><primary sortas="filter_input_stream_get_close_base_stream">g_filter_input_stream_get_close_base_stream</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_filter_input_stream_get_close_base_stream
+                               (<parameter><link linkend="GFilterInputStream"><type>GFilterInputStream</type></link> *stream</parameter>);</programlisting>
+<para>Returns whether the base stream will be closed when <parameter>stream</parameter>
+ is
+closed.</para>
+<refsect3 id="g-filter-input-stream-get-close-base-stream.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>stream</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GFilterInputStream"><type>GFilterInputStream</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-filter-input-stream-get-close-base-stream.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if the base stream will be closed.</para>
+</refsect3></refsect2>
+<refsect2 id="g-filter-input-stream-set-close-base-stream" role="function">
+<title>g_filter_input_stream_set_close_base_stream&#160;()</title>
+<indexterm zone="g-filter-input-stream-set-close-base-stream"><primary sortas="filter_input_stream_set_close_base_stream">g_filter_input_stream_set_close_base_stream</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_filter_input_stream_set_close_base_stream
+                               (<parameter><link linkend="GFilterInputStream"><type>GFilterInputStream</type></link> *stream</parameter>,
+                                <parameter><link linkend="gboolean"><type>gboolean</type></link> close_base</parameter>);</programlisting>
+<para>Sets whether the base stream will be closed when <parameter>stream</parameter>
+ is closed.</para>
+<refsect3 id="g-filter-input-stream-set-close-base-stream.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>stream</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GFilterInputStream"><type>GFilterInputStream</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>close_base</para></entry>
+<entry role="parameter_description"><para><link linkend="TRUE:CAPS"><literal>TRUE</literal></link> to close the base stream.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+
+</refsect1>
+<refsect1 id="GFilterInputStream.other_details" role="details">
+<title role="details.title">Types and Values</title>
+<refsect2 id="GFilterInputStream-struct" role="struct">
+<title>GFilterInputStream</title>
+<indexterm zone="GFilterInputStream-struct"><primary sortas="FilterInputStream">GFilterInputStream</primary></indexterm>
+<programlisting language="C">typedef struct _GFilterInputStream GFilterInputStream;</programlisting>
+<para>A base class for all input streams that work on an underlying stream.</para>
+</refsect2>
+
+</refsect1>
+<refsect1 id="GFilterInputStream.property-details" role="property_details">
+<title role="property_details.title">Property Details</title>
+<refsect2 id="GFilterInputStream--base-stream" role="property"><title>The <literal>“base-stream”</literal> property</title>
+<indexterm zone="GFilterInputStream--base-stream"><primary sortas="FilterInputStream:base-stream">GFilterInputStream:base-stream</primary></indexterm>
+<programlisting>  “base-stream”              <link linkend="GInputStream"><type>GInputStream</type></link>&#160;*</programlisting>
+<para>The underlying base stream on which the io ops will be done.</para><para>Flags: Read / Write / Construct Only</para>
+</refsect2>
+<refsect2 id="GFilterInputStream--close-base-stream" role="property"><title>The <literal>“close-base-stream”</literal> property</title>
+<indexterm zone="GFilterInputStream--close-base-stream"><primary sortas="FilterInputStream:close-base-stream">GFilterInputStream:close-base-stream</primary></indexterm>
+<programlisting>  “close-base-stream”        <link linkend="gboolean"><type>gboolean</type></link></programlisting>
+<para>If the base stream should be closed when the filter stream is closed.</para><para>Flags: Read / Write / Construct</para>
+<para>Default value: TRUE</para>
+</refsect2>
+
+</refsect1>
+
+</refentry>

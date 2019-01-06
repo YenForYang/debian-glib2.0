@@ -1,0 +1,683 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC '-//OASIS//DTD DocBook XML V4.5//EN'
+                      'http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd' [
+<!ENTITY % local.common.attrib "xmlns:xi  CDATA  #FIXED 'http://www.w3.org/2003/XInclude'">
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="glib-Balanced-Binary-Trees">
+<refmeta>
+<refentrytitle role="top_of_page" id="glib-Balanced-Binary-Trees.top_of_page">Balanced Binary Trees</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>GLIB Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>Balanced Binary Trees</refname>
+<refpurpose>a sorted collection of key/value pairs optimized
+                    for searching and traversing in order</refpurpose>
+</refnamediv>
+
+<refsect1 id="glib-Balanced-Binary-Trees.functions" role="functions_proto">
+<title role="functions_proto.title">Functions</title>
+<informaltable pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="functions_return" colwidth="150px"/>
+<colspec colname="functions_name"/>
+<tbody>
+<row><entry role="function_type"><link linkend="GTree"><returnvalue>GTree</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-tree-new">g_tree_new</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GTree"><returnvalue>GTree</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-tree-ref">g_tree_ref</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-tree-unref">g_tree_unref</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GTree"><returnvalue>GTree</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-tree-new-with-data">g_tree_new_with_data</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GTree"><returnvalue>GTree</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-tree-new-full">g_tree_new_full</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-tree-insert">g_tree_insert</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-tree-replace">g_tree_replace</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gint"><returnvalue>gint</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-tree-nnodes">g_tree_nnodes</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gint"><returnvalue>gint</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-tree-height">g_tree_height</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gpointer"><returnvalue>gpointer</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-tree-lookup">g_tree_lookup</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-tree-lookup-extended">g_tree_lookup_extended</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-tree-foreach">g_tree_foreach</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-tree-traverse">g_tree_traverse</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><phrase role="c_punctuation">(</phrase><link linkend="GTraverseFunc">*GTraverseFunc</link><phrase role="c_punctuation">)</phrase>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gpointer"><returnvalue>gpointer</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-tree-search">g_tree_search</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-tree-remove">g_tree_remove</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-tree-steal">g_tree_steal</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-tree-destroy">g_tree_destroy</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="glib-Balanced-Binary-Trees.other" role="other_proto">
+<title role="other_proto.title">Types and Values</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="name" colwidth="150px"/>
+<colspec colname="description"/>
+<tbody>
+<row><entry role="datatype_keyword"></entry><entry role="function_name"><link linkend="GTree">GTree</link></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+
+<refsect1 id="glib-Balanced-Binary-Trees.includes"><title>Includes</title><synopsis>#include &lt;gmodule.h&gt;
+</synopsis></refsect1>
+
+<refsect1 id="glib-Balanced-Binary-Trees.description" role="desc">
+<title role="desc.title">Description</title>
+<para>The <link linkend="GTree"><type>GTree</type></link> structure and its associated functions provide a sorted
+collection of key/value pairs optimized for searching and traversing
+in order.</para>
+<para>To create a new <link linkend="GTree"><type>GTree</type></link> use <link linkend="g-tree-new"><function>g_tree_new()</function></link>.</para>
+<para>To insert a key/value pair into a <link linkend="GTree"><type>GTree</type></link> use <link linkend="g-tree-insert"><function>g_tree_insert()</function></link>.</para>
+<para>To lookup the value corresponding to a given key, use
+<link linkend="g-tree-lookup"><function>g_tree_lookup()</function></link> and <link linkend="g-tree-lookup-extended"><function>g_tree_lookup_extended()</function></link>.</para>
+<para>To find out the number of nodes in a <link linkend="GTree"><type>GTree</type></link>, use <link linkend="g-tree-nnodes"><function>g_tree_nnodes()</function></link>. To
+get the height of a <link linkend="GTree"><type>GTree</type></link>, use <link linkend="g-tree-height"><function>g_tree_height()</function></link>.</para>
+<para>To traverse a <link linkend="GTree"><type>GTree</type></link>, calling a function for each node visited in
+the traversal, use <link linkend="g-tree-foreach"><function>g_tree_foreach()</function></link>.</para>
+<para>To remove a key/value pair use <link linkend="g-tree-remove"><function>g_tree_remove()</function></link>.</para>
+<para>To destroy a <link linkend="GTree"><type>GTree</type></link>, use <link linkend="g-tree-destroy"><function>g_tree_destroy()</function></link>.</para>
+
+</refsect1>
+<refsect1 id="glib-Balanced-Binary-Trees.functions_details" role="details">
+<title role="details.title">Functions</title>
+<refsect2 id="g-tree-new" role="function">
+<title>g_tree_new&#160;()</title>
+<indexterm zone="g-tree-new"><primary sortas="tree_new">g_tree_new</primary></indexterm>
+<programlisting language="C"><link linkend="GTree"><returnvalue>GTree</returnvalue></link>&#160;*
+g_tree_new (<parameter><link linkend="GCompareFunc"><type>GCompareFunc</type></link> key_compare_func</parameter>);</programlisting>
+<para>Creates a new <link linkend="GTree"><type>GTree</type></link>.</para>
+<refsect3 id="g-tree-new.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>key_compare_func</para></entry>
+<entry role="parameter_description"><para>the function used to order the nodes in the <link linkend="GTree"><type>GTree</type></link>.
+It should return values similar to the standard <link linkend="strcmp"><function>strcmp()</function></link> function -
+0 if the two arguments are equal, a negative value if the first argument
+comes before the second, or a positive value if the first argument comes
+after the second.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-tree-new.returns" role="returns">
+<title>Returns</title>
+<para> a newly allocated <link linkend="GTree"><type>GTree</type></link></para>
+</refsect3></refsect2>
+<refsect2 id="g-tree-ref" role="function" condition="since:2.22">
+<title>g_tree_ref&#160;()</title>
+<indexterm zone="g-tree-ref" role="2.22"><primary sortas="tree_ref">g_tree_ref</primary></indexterm>
+<programlisting language="C"><link linkend="GTree"><returnvalue>GTree</returnvalue></link>&#160;*
+g_tree_ref (<parameter><link linkend="GTree"><type>GTree</type></link> *tree</parameter>);</programlisting>
+<para>Increments the reference count of <parameter>tree</parameter>
+ by one.</para>
+<para>It is safe to call this function from any thread.</para>
+<refsect3 id="g-tree-ref.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>tree</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GTree"><type>GTree</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-tree-ref.returns" role="returns">
+<title>Returns</title>
+<para> the passed in <link linkend="GTree"><type>GTree</type></link></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.22">2.22</link></para></refsect2>
+<refsect2 id="g-tree-unref" role="function" condition="since:2.22">
+<title>g_tree_unref&#160;()</title>
+<indexterm zone="g-tree-unref" role="2.22"><primary sortas="tree_unref">g_tree_unref</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_tree_unref (<parameter><link linkend="GTree"><type>GTree</type></link> *tree</parameter>);</programlisting>
+<para>Decrements the reference count of <parameter>tree</parameter>
+ by one.
+If the reference count drops to 0, all keys and values will
+be destroyed (if destroy functions were specified) and all
+memory allocated by <parameter>tree</parameter>
+ will be released.</para>
+<para>It is safe to call this function from any thread.</para>
+<refsect3 id="g-tree-unref.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>tree</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GTree"><type>GTree</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.22">2.22</link></para></refsect2>
+<refsect2 id="g-tree-new-with-data" role="function">
+<title>g_tree_new_with_data&#160;()</title>
+<indexterm zone="g-tree-new-with-data"><primary sortas="tree_new_with_data">g_tree_new_with_data</primary></indexterm>
+<programlisting language="C"><link linkend="GTree"><returnvalue>GTree</returnvalue></link>&#160;*
+g_tree_new_with_data (<parameter><link linkend="GCompareDataFunc"><type>GCompareDataFunc</type></link> key_compare_func</parameter>,
+                      <parameter><link linkend="gpointer"><type>gpointer</type></link> key_compare_data</parameter>);</programlisting>
+<para>Creates a new <link linkend="GTree"><type>GTree</type></link> with a comparison function that accepts user data.
+See <link linkend="g-tree-new"><function>g_tree_new()</function></link> for more details.</para>
+<refsect3 id="g-tree-new-with-data.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>key_compare_func</para></entry>
+<entry role="parameter_description"><para>qsort()-style comparison function</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>key_compare_data</para></entry>
+<entry role="parameter_description"><para>data to pass to comparison function</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-tree-new-with-data.returns" role="returns">
+<title>Returns</title>
+<para> a newly allocated <link linkend="GTree"><type>GTree</type></link></para>
+</refsect3></refsect2>
+<refsect2 id="g-tree-new-full" role="function">
+<title>g_tree_new_full&#160;()</title>
+<indexterm zone="g-tree-new-full"><primary sortas="tree_new_full">g_tree_new_full</primary></indexterm>
+<programlisting language="C"><link linkend="GTree"><returnvalue>GTree</returnvalue></link>&#160;*
+g_tree_new_full (<parameter><link linkend="GCompareDataFunc"><type>GCompareDataFunc</type></link> key_compare_func</parameter>,
+                 <parameter><link linkend="gpointer"><type>gpointer</type></link> key_compare_data</parameter>,
+                 <parameter><link linkend="GDestroyNotify"><type>GDestroyNotify</type></link> key_destroy_func</parameter>,
+                 <parameter><link linkend="GDestroyNotify"><type>GDestroyNotify</type></link> value_destroy_func</parameter>);</programlisting>
+<para>Creates a new <link linkend="GTree"><type>GTree</type></link> like <link linkend="g-tree-new"><function>g_tree_new()</function></link> and allows to specify functions 
+to free the memory allocated for the key and value that get called when 
+removing the entry from the <link linkend="GTree"><type>GTree</type></link>.</para>
+<refsect3 id="g-tree-new-full.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>key_compare_func</para></entry>
+<entry role="parameter_description"><para>qsort()-style comparison function</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>key_compare_data</para></entry>
+<entry role="parameter_description"><para>data to pass to comparison function</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>key_destroy_func</para></entry>
+<entry role="parameter_description"><para>a function to free the memory allocated for the key
+used when removing the entry from the <link linkend="GTree"><type>GTree</type></link> or <link linkend="NULL:CAPS"><literal>NULL</literal></link> if you don't
+want to supply such a function</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>value_destroy_func</para></entry>
+<entry role="parameter_description"><para>a function to free the memory allocated for the
+value used when removing the entry from the <link linkend="GTree"><type>GTree</type></link> or <link linkend="NULL:CAPS"><literal>NULL</literal></link> if you
+don't want to supply such a function</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-tree-new-full.returns" role="returns">
+<title>Returns</title>
+<para> a newly allocated <link linkend="GTree"><type>GTree</type></link></para>
+</refsect3></refsect2>
+<refsect2 id="g-tree-insert" role="function">
+<title>g_tree_insert&#160;()</title>
+<indexterm zone="g-tree-insert"><primary sortas="tree_insert">g_tree_insert</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_tree_insert (<parameter><link linkend="GTree"><type>GTree</type></link> *tree</parameter>,
+               <parameter><link linkend="gpointer"><type>gpointer</type></link> key</parameter>,
+               <parameter><link linkend="gpointer"><type>gpointer</type></link> value</parameter>);</programlisting>
+<para>Inserts a key/value pair into a <link linkend="GTree"><type>GTree</type></link>.</para>
+<para>If the given key already exists in the <link linkend="GTree"><type>GTree</type></link> its corresponding value
+is set to the new value. If you supplied a <parameter>value_destroy_func</parameter>
+ when
+creating the <link linkend="GTree"><type>GTree</type></link>, the old value is freed using that function. If
+you supplied a <parameter>key_destroy_func</parameter>
+ when creating the <link linkend="GTree"><type>GTree</type></link>, the passed
+key is freed using that function.</para>
+<para>The tree is automatically 'balanced' as new key/value pairs are added,
+so that the distance from the root to every leaf is as small as possible.</para>
+<refsect3 id="g-tree-insert.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>tree</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GTree"><type>GTree</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>key</para></entry>
+<entry role="parameter_description"><para>the key to insert</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>value</para></entry>
+<entry role="parameter_description"><para>the value corresponding to the key</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-tree-replace" role="function">
+<title>g_tree_replace&#160;()</title>
+<indexterm zone="g-tree-replace"><primary sortas="tree_replace">g_tree_replace</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_tree_replace (<parameter><link linkend="GTree"><type>GTree</type></link> *tree</parameter>,
+                <parameter><link linkend="gpointer"><type>gpointer</type></link> key</parameter>,
+                <parameter><link linkend="gpointer"><type>gpointer</type></link> value</parameter>);</programlisting>
+<para>Inserts a new key and value into a <link linkend="GTree"><type>GTree</type></link> similar to <link linkend="g-tree-insert"><function>g_tree_insert()</function></link>.
+The difference is that if the key already exists in the <link linkend="GTree"><type>GTree</type></link>, it gets 
+replaced by the new key. If you supplied a <parameter>value_destroy_func</parameter>
+ when 
+creating the <link linkend="GTree"><type>GTree</type></link>, the old value is freed using that function. If you 
+supplied a <parameter>key_destroy_func</parameter>
+ when creating the <link linkend="GTree"><type>GTree</type></link>, the old key is 
+freed using that function. </para>
+<para>The tree is automatically 'balanced' as new key/value pairs are added,
+so that the distance from the root to every leaf is as small as possible.</para>
+<refsect3 id="g-tree-replace.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>tree</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GTree"><type>GTree</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>key</para></entry>
+<entry role="parameter_description"><para>the key to insert</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>value</para></entry>
+<entry role="parameter_description"><para>the value corresponding to the key</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-tree-nnodes" role="function">
+<title>g_tree_nnodes&#160;()</title>
+<indexterm zone="g-tree-nnodes"><primary sortas="tree_nnodes">g_tree_nnodes</primary></indexterm>
+<programlisting language="C"><link linkend="gint"><returnvalue>gint</returnvalue></link>
+g_tree_nnodes (<parameter><link linkend="GTree"><type>GTree</type></link> *tree</parameter>);</programlisting>
+<para>Gets the number of nodes in a <link linkend="GTree"><type>GTree</type></link>.</para>
+<refsect3 id="g-tree-nnodes.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>tree</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GTree"><type>GTree</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-tree-nnodes.returns" role="returns">
+<title>Returns</title>
+<para> the number of nodes in <parameter>tree</parameter>
+</para>
+</refsect3></refsect2>
+<refsect2 id="g-tree-height" role="function">
+<title>g_tree_height&#160;()</title>
+<indexterm zone="g-tree-height"><primary sortas="tree_height">g_tree_height</primary></indexterm>
+<programlisting language="C"><link linkend="gint"><returnvalue>gint</returnvalue></link>
+g_tree_height (<parameter><link linkend="GTree"><type>GTree</type></link> *tree</parameter>);</programlisting>
+<para>Gets the height of a <link linkend="GTree"><type>GTree</type></link>.</para>
+<para>If the <link linkend="GTree"><type>GTree</type></link> contains no nodes, the height is 0.
+If the <link linkend="GTree"><type>GTree</type></link> contains only one root node the height is 1.
+If the root node has children the height is 2, etc.</para>
+<refsect3 id="g-tree-height.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>tree</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GTree"><type>GTree</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-tree-height.returns" role="returns">
+<title>Returns</title>
+<para> the height of <parameter>tree</parameter>
+</para>
+</refsect3></refsect2>
+<refsect2 id="g-tree-lookup" role="function">
+<title>g_tree_lookup&#160;()</title>
+<indexterm zone="g-tree-lookup"><primary sortas="tree_lookup">g_tree_lookup</primary></indexterm>
+<programlisting language="C"><link linkend="gpointer"><returnvalue>gpointer</returnvalue></link>
+g_tree_lookup (<parameter><link linkend="GTree"><type>GTree</type></link> *tree</parameter>,
+               <parameter><link linkend="gconstpointer"><type>gconstpointer</type></link> key</parameter>);</programlisting>
+<para>Gets the value corresponding to the given key. Since a <link linkend="GTree"><type>GTree</type></link> is 
+automatically balanced as key/value pairs are added, key lookup
+is O(log n) (where n is the number of key/value pairs in the tree).</para>
+<refsect3 id="g-tree-lookup.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>tree</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GTree"><type>GTree</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>key</para></entry>
+<entry role="parameter_description"><para>the key to look up</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-tree-lookup.returns" role="returns">
+<title>Returns</title>
+<para> the value corresponding to the key, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>
+if the key was not found</para>
+</refsect3></refsect2>
+<refsect2 id="g-tree-lookup-extended" role="function">
+<title>g_tree_lookup_extended&#160;()</title>
+<indexterm zone="g-tree-lookup-extended"><primary sortas="tree_lookup_extended">g_tree_lookup_extended</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_tree_lookup_extended (<parameter><link linkend="GTree"><type>GTree</type></link> *tree</parameter>,
+                        <parameter><link linkend="gconstpointer"><type>gconstpointer</type></link> lookup_key</parameter>,
+                        <parameter><link linkend="gpointer"><type>gpointer</type></link> *orig_key</parameter>,
+                        <parameter><link linkend="gpointer"><type>gpointer</type></link> *value</parameter>);</programlisting>
+<para>Looks up a key in the <link linkend="GTree"><type>GTree</type></link>, returning the original key and the
+associated value. This is useful if you need to free the memory
+allocated for the original key, for example before calling
+<link linkend="g-tree-remove"><function>g_tree_remove()</function></link>.</para>
+<refsect3 id="g-tree-lookup-extended.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>tree</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GTree"><type>GTree</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>lookup_key</para></entry>
+<entry role="parameter_description"><para>the key to look up</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>orig_key</para></entry>
+<entry role="parameter_description"><para>returns the original key. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>optional</acronym>][<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>value</para></entry>
+<entry role="parameter_description"><para>returns the value associated with the key. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>optional</acronym>][<acronym>nullable</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-tree-lookup-extended.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if the key was found in the <link linkend="GTree"><type>GTree</type></link></para>
+</refsect3></refsect2>
+<refsect2 id="g-tree-foreach" role="function">
+<title>g_tree_foreach&#160;()</title>
+<indexterm zone="g-tree-foreach"><primary sortas="tree_foreach">g_tree_foreach</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_tree_foreach (<parameter><link linkend="GTree"><type>GTree</type></link> *tree</parameter>,
+                <parameter><link linkend="GTraverseFunc"><type>GTraverseFunc</type></link> func</parameter>,
+                <parameter><link linkend="gpointer"><type>gpointer</type></link> user_data</parameter>);</programlisting>
+<para>Calls the given function for each of the key/value pairs in the <link linkend="GTree"><type>GTree</type></link>.
+The function is passed the key and value of each pair, and the given
+<parameter>data</parameter>
+ parameter. The tree is traversed in sorted order.</para>
+<para>The tree may not be modified while iterating over it (you can't 
+add/remove items). To remove all items matching a predicate, you need 
+to add each item to a list in your <link linkend="GTraverseFunc"><type>GTraverseFunc</type></link> as you walk over 
+the tree, then walk the list and remove each item.</para>
+<refsect3 id="g-tree-foreach.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>tree</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GTree"><type>GTree</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>func</para></entry>
+<entry role="parameter_description"><para>the function to call for each node visited.
+If this function returns <link linkend="TRUE:CAPS"><literal>TRUE</literal></link>, the traversal is stopped.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>user_data</para></entry>
+<entry role="parameter_description"><para>user data to pass to the function</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-tree-traverse" role="function" condition="deprecated">
+<title>g_tree_traverse&#160;()</title>
+<indexterm zone="g-tree-traverse" role="deprecated"><primary sortas="tree_traverse">g_tree_traverse</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_tree_traverse (<parameter><link linkend="GTree"><type>GTree</type></link> *tree</parameter>,
+                 <parameter><link linkend="GTraverseFunc"><type>GTraverseFunc</type></link> traverse_func</parameter>,
+                 <parameter><link linkend="GTraverseType"><type>GTraverseType</type></link> traverse_type</parameter>,
+                 <parameter><link linkend="gpointer"><type>gpointer</type></link> user_data</parameter>);</programlisting>
+<warning><para><literal>g_tree_traverse</literal> has been deprecated since version 2.2 and should not be used in newly-written code.</para> <para>The order of a balanced tree is somewhat arbitrary.
+    If you just want to visit all nodes in sorted order, use
+    <link linkend="g-tree-foreach"><function>g_tree_foreach()</function></link> instead. If you really need to visit nodes in
+    a different order, consider using an <link linkend="glib-N-ary-Trees">n-ary tree</link>.</para>
+</warning>
+<para>Calls the given function for each node in the <link linkend="GTree"><type>GTree</type></link>.</para>
+<refsect3 id="g-tree-traverse.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>tree</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GTree"><type>GTree</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>traverse_func</para></entry>
+<entry role="parameter_description"><para>the function to call for each node visited. If this
+function returns <link linkend="TRUE:CAPS"><literal>TRUE</literal></link>, the traversal is stopped.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>traverse_type</para></entry>
+<entry role="parameter_description"><para>the order in which nodes are visited, one of <link linkend="G-IN-ORDER:CAPS"><literal>G_IN_ORDER</literal></link>,
+<link linkend="G-PRE-ORDER:CAPS"><literal>G_PRE_ORDER</literal></link> and <link linkend="G-POST-ORDER:CAPS"><literal>G_POST_ORDER</literal></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>user_data</para></entry>
+<entry role="parameter_description"><para>user data to pass to the function</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="GTraverseFunc" role="function">
+<title>GTraverseFunc&#160;()</title>
+<indexterm zone="GTraverseFunc"><primary sortas="TraverseFunc">GTraverseFunc</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+<phrase role="c_punctuation">(</phrase>*GTraverseFunc<phrase role="c_punctuation">)</phrase> (<parameter><link linkend="gpointer"><type>gpointer</type></link> key</parameter>,
+                  <parameter><link linkend="gpointer"><type>gpointer</type></link> value</parameter>,
+                  <parameter><link linkend="gpointer"><type>gpointer</type></link> data</parameter>);</programlisting>
+<para>Specifies the type of function passed to <link linkend="g-tree-traverse"><function>g_tree_traverse()</function></link>. It is
+passed the key and value of each node, together with the <parameter>user_data</parameter>
+
+parameter passed to <link linkend="g-tree-traverse"><function>g_tree_traverse()</function></link>. If the function returns
+<link linkend="TRUE:CAPS"><literal>TRUE</literal></link>, the traversal is stopped.</para>
+<refsect3 id="GTraverseFunc.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>key</para></entry>
+<entry role="parameter_description"><para>a key of a <link linkend="GTree"><type>GTree</type></link> node</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>value</para></entry>
+<entry role="parameter_description"><para>the value corresponding to the key</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>data</para></entry>
+<entry role="parameter_description"><para>user data passed to <link linkend="g-tree-traverse"><function>g_tree_traverse()</function></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="GTraverseFunc.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> to stop the traversal</para>
+</refsect3></refsect2>
+<refsect2 id="g-tree-search" role="function">
+<title>g_tree_search&#160;()</title>
+<indexterm zone="g-tree-search"><primary sortas="tree_search">g_tree_search</primary></indexterm>
+<programlisting language="C"><link linkend="gpointer"><returnvalue>gpointer</returnvalue></link>
+g_tree_search (<parameter><link linkend="GTree"><type>GTree</type></link> *tree</parameter>,
+               <parameter><link linkend="GCompareFunc"><type>GCompareFunc</type></link> search_func</parameter>,
+               <parameter><link linkend="gconstpointer"><type>gconstpointer</type></link> user_data</parameter>);</programlisting>
+<para>Searches a <link linkend="GTree"><type>GTree</type></link> using <parameter>search_func</parameter>
+.</para>
+<para>The <parameter>search_func</parameter>
+ is called with a pointer to the key of a key/value
+pair in the tree, and the passed in <parameter>user_data</parameter>
+. If <parameter>search_func</parameter>
+ returns
+0 for a key/value pair, then the corresponding value is returned as
+the result of <link linkend="g-tree-search"><function>g_tree_search()</function></link>. If <parameter>search_func</parameter>
+ returns -1, searching
+will proceed among the key/value pairs that have a smaller key; if
+<parameter>search_func</parameter>
+ returns 1, searching will proceed among the key/value
+pairs that have a larger key.</para>
+<refsect3 id="g-tree-search.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>tree</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GTree"><type>GTree</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>search_func</para></entry>
+<entry role="parameter_description"><para>a function used to search the <link linkend="GTree"><type>GTree</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>user_data</para></entry>
+<entry role="parameter_description"><para>the data passed as the second argument to <parameter>search_func</parameter>
+</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-tree-search.returns" role="returns">
+<title>Returns</title>
+<para> the value corresponding to the found key, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>
+if the key was not found</para>
+</refsect3></refsect2>
+<refsect2 id="g-tree-remove" role="function">
+<title>g_tree_remove&#160;()</title>
+<indexterm zone="g-tree-remove"><primary sortas="tree_remove">g_tree_remove</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_tree_remove (<parameter><link linkend="GTree"><type>GTree</type></link> *tree</parameter>,
+               <parameter><link linkend="gconstpointer"><type>gconstpointer</type></link> key</parameter>);</programlisting>
+<para>Removes a key/value pair from a <link linkend="GTree"><type>GTree</type></link>.</para>
+<para>If the <link linkend="GTree"><type>GTree</type></link> was created using <link linkend="g-tree-new-full"><function>g_tree_new_full()</function></link>, the key and value 
+are freed using the supplied destroy functions, otherwise you have to 
+make sure that any dynamically allocated values are freed yourself.
+If the key does not exist in the <link linkend="GTree"><type>GTree</type></link>, the function does nothing.</para>
+<refsect3 id="g-tree-remove.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>tree</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GTree"><type>GTree</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>key</para></entry>
+<entry role="parameter_description"><para>the key to remove</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-tree-remove.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if the key was found (prior to 2.8, this function
+returned nothing)</para>
+</refsect3></refsect2>
+<refsect2 id="g-tree-steal" role="function">
+<title>g_tree_steal&#160;()</title>
+<indexterm zone="g-tree-steal"><primary sortas="tree_steal">g_tree_steal</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_tree_steal (<parameter><link linkend="GTree"><type>GTree</type></link> *tree</parameter>,
+              <parameter><link linkend="gconstpointer"><type>gconstpointer</type></link> key</parameter>);</programlisting>
+<para>Removes a key and its associated value from a <link linkend="GTree"><type>GTree</type></link> without calling 
+the key and value destroy functions.</para>
+<para>If the key does not exist in the <link linkend="GTree"><type>GTree</type></link>, the function does nothing.</para>
+<refsect3 id="g-tree-steal.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>tree</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GTree"><type>GTree</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>key</para></entry>
+<entry role="parameter_description"><para>the key to remove</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-tree-steal.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if the key was found (prior to 2.8, this function
+returned nothing)</para>
+</refsect3></refsect2>
+<refsect2 id="g-tree-destroy" role="function">
+<title>g_tree_destroy&#160;()</title>
+<indexterm zone="g-tree-destroy"><primary sortas="tree_destroy">g_tree_destroy</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_tree_destroy (<parameter><link linkend="GTree"><type>GTree</type></link> *tree</parameter>);</programlisting>
+<para>Removes all keys and values from the <link linkend="GTree"><type>GTree</type></link> and decreases its
+reference count by one. If keys and/or values are dynamically
+allocated, you should either free them first or create the <link linkend="GTree"><type>GTree</type></link>
+using <link linkend="g-tree-new-full"><function>g_tree_new_full()</function></link>. In the latter case the destroy functions
+you supplied will be called on all keys and values before destroying
+the <link linkend="GTree"><type>GTree</type></link>.</para>
+<refsect3 id="g-tree-destroy.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>tree</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GTree"><type>GTree</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+
+</refsect1>
+<refsect1 id="glib-Balanced-Binary-Trees.other_details" role="details">
+<title role="details.title">Types and Values</title>
+<refsect2 id="GTree" role="struct">
+<title>GTree</title>
+<indexterm zone="GTree"><primary sortas="Tree">GTree</primary></indexterm>
+<programlisting language="C">typedef struct _GTree GTree;</programlisting>
+<para>The GTree struct is an opaque data structure representing a
+<link linkend="glib-Balanced-Binary-Trees">balanced binary tree</link>. It should be
+accessed only by using the following functions.</para>
+</refsect2>
+
+</refsect1>
+
+</refentry>

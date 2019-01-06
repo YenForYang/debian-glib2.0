@@ -1,0 +1,1439 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC '-//OASIS//DTD DocBook XML V4.5//EN'
+                      'http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd' [
+<!ENTITY % local.common.attrib "xmlns:xi  CDATA  #FIXED 'http://www.w3.org/2003/XInclude'">
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="glib-GVariantType">
+<refmeta>
+<refentrytitle role="top_of_page" id="glib-GVariantType.top_of_page">GVariantType</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>GLIB Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>GVariantType</refname>
+<refpurpose>introduction to the GVariant type system</refpurpose>
+</refnamediv>
+
+<refsect1 id="glib-GVariantType.functions" role="functions_proto">
+<title role="functions_proto.title">Functions</title>
+<informaltable pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="functions_return" colwidth="150px"/>
+<colspec colname="functions_name"/>
+<tbody>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="G-VARIANT-TYPE:CAPS">G_VARIANT_TYPE</link><phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-variant-type-free">g_variant_type_free</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GVariantType"><returnvalue>GVariantType</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-variant-type-copy">g_variant_type_copy</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GVariantType"><returnvalue>GVariantType</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-variant-type-new">g_variant_type_new</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-variant-type-string-is-valid">g_variant_type_string_is_valid</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-variant-type-string-scan">g_variant_type_string_scan</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gsize"><returnvalue>gsize</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-variant-type-get-string-length">g_variant_type_get_string_length</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type">const <link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-variant-type-peek-string">g_variant_type_peek_string</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-variant-type-dup-string">g_variant_type_dup_string</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-variant-type-is-definite">g_variant_type_is_definite</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-variant-type-is-container">g_variant_type_is_container</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-variant-type-is-basic">g_variant_type_is_basic</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-variant-type-is-maybe">g_variant_type_is_maybe</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-variant-type-is-array">g_variant_type_is_array</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-variant-type-is-tuple">g_variant_type_is_tuple</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-variant-type-is-dict-entry">g_variant_type_is_dict_entry</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-variant-type-is-variant">g_variant_type_is_variant</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+<row><entry role="function_type"><link linkend="guint"><returnvalue>guint</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-variant-type-hash">g_variant_type_hash</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-variant-type-equal">g_variant_type_equal</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-variant-type-is-subtype-of">g_variant_type_is_subtype_of</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+<row><entry role="function_type"><link linkend="GVariantType"><returnvalue>GVariantType</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-variant-type-new-maybe">g_variant_type_new_maybe</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GVariantType"><returnvalue>GVariantType</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-variant-type-new-array">g_variant_type_new_array</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GVariantType"><returnvalue>GVariantType</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-variant-type-new-tuple">g_variant_type_new_tuple</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GVariantType"><returnvalue>GVariantType</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-variant-type-new-dict-entry">g_variant_type_new_dict_entry</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+<row><entry role="function_type">const <link linkend="GVariantType"><returnvalue>GVariantType</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-variant-type-element">g_variant_type_element</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gsize"><returnvalue>gsize</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-variant-type-n-items">g_variant_type_n_items</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type">const <link linkend="GVariantType"><returnvalue>GVariantType</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-variant-type-first">g_variant_type_first</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type">const <link linkend="GVariantType"><returnvalue>GVariantType</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-variant-type-next">g_variant_type_next</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type">const <link linkend="GVariantType"><returnvalue>GVariantType</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-variant-type-key">g_variant_type_key</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type">const <link linkend="GVariantType"><returnvalue>GVariantType</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-variant-type-value">g_variant_type_value</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="glib-GVariantType.other" role="other_proto">
+<title role="other_proto.title">Types and Values</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="name" colwidth="150px"/>
+<colspec colname="description"/>
+<tbody>
+<row><entry role="datatype_keyword"></entry><entry role="function_name"><link linkend="GVariantType">GVariantType</link></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="G-VARIANT-TYPE-BOOLEAN:CAPS">G_VARIANT_TYPE_BOOLEAN</link></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="G-VARIANT-TYPE-BYTE:CAPS">G_VARIANT_TYPE_BYTE</link></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="G-VARIANT-TYPE-INT16:CAPS">G_VARIANT_TYPE_INT16</link></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="G-VARIANT-TYPE-UINT16:CAPS">G_VARIANT_TYPE_UINT16</link></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="G-VARIANT-TYPE-INT32:CAPS">G_VARIANT_TYPE_INT32</link></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="G-VARIANT-TYPE-UINT32:CAPS">G_VARIANT_TYPE_UINT32</link></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="G-VARIANT-TYPE-INT64:CAPS">G_VARIANT_TYPE_INT64</link></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="G-VARIANT-TYPE-UINT64:CAPS">G_VARIANT_TYPE_UINT64</link></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="G-VARIANT-TYPE-HANDLE:CAPS">G_VARIANT_TYPE_HANDLE</link></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="G-VARIANT-TYPE-DOUBLE:CAPS">G_VARIANT_TYPE_DOUBLE</link></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="G-VARIANT-TYPE-STRING:CAPS">G_VARIANT_TYPE_STRING</link></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="G-VARIANT-TYPE-OBJECT-PATH:CAPS">G_VARIANT_TYPE_OBJECT_PATH</link></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="G-VARIANT-TYPE-SIGNATURE:CAPS">G_VARIANT_TYPE_SIGNATURE</link></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="G-VARIANT-TYPE-VARIANT:CAPS">G_VARIANT_TYPE_VARIANT</link></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="G-VARIANT-TYPE-ANY:CAPS">G_VARIANT_TYPE_ANY</link></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="G-VARIANT-TYPE-BASIC:CAPS">G_VARIANT_TYPE_BASIC</link></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="G-VARIANT-TYPE-MAYBE:CAPS">G_VARIANT_TYPE_MAYBE</link></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="G-VARIANT-TYPE-ARRAY:CAPS">G_VARIANT_TYPE_ARRAY</link></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="G-VARIANT-TYPE-TUPLE:CAPS">G_VARIANT_TYPE_TUPLE</link></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="G-VARIANT-TYPE-UNIT:CAPS">G_VARIANT_TYPE_UNIT</link></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="G-VARIANT-TYPE-DICT-ENTRY:CAPS">G_VARIANT_TYPE_DICT_ENTRY</link></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="G-VARIANT-TYPE-DICTIONARY:CAPS">G_VARIANT_TYPE_DICTIONARY</link></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="G-VARIANT-TYPE-STRING-ARRAY:CAPS">G_VARIANT_TYPE_STRING_ARRAY</link></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="G-VARIANT-TYPE-OBJECT-PATH-ARRAY:CAPS">G_VARIANT_TYPE_OBJECT_PATH_ARRAY</link></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="G-VARIANT-TYPE-BYTESTRING:CAPS">G_VARIANT_TYPE_BYTESTRING</link></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="G-VARIANT-TYPE-BYTESTRING-ARRAY:CAPS">G_VARIANT_TYPE_BYTESTRING_ARRAY</link></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="G-VARIANT-TYPE-VARDICT:CAPS">G_VARIANT_TYPE_VARDICT</link></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+
+<refsect1 id="glib-GVariantType.includes"><title>Includes</title><synopsis>#include &lt;glib.h&gt;
+#include &lt;glib/gi18n.h&gt;
+</synopsis></refsect1>
+
+<refsect1 id="glib-GVariantType.description" role="desc">
+<title role="desc.title">Description</title>
+<para>This section introduces the GVariant type system. It is based, in
+large part, on the D-Bus type system, with two major changes and
+some minor lifting of restrictions. The
+<ulink url="http://dbus.freedesktop.org/doc/dbus-specification.html">D-Bus specification</ulink>,
+therefore, provides a significant amount of
+information that is useful when working with GVariant.</para>
+<para>The first major change with respect to the D-Bus type system is the
+introduction of maybe (or "nullable") types.  Any type in GVariant can be
+converted to a maybe type, in which case, "nothing" (or "null") becomes a
+valid value.  Maybe types have been added by introducing the
+character "m" to type strings.</para>
+<para>The second major change is that the GVariant type system supports the
+concept of "indefinite types" -- types that are less specific than
+the normal types found in D-Bus.  For example, it is possible to speak
+of "an array of any type" in GVariant, where the D-Bus type system
+would require you to speak of "an array of integers" or "an array of
+strings".  Indefinite types have been added by introducing the
+characters "*", "?" and "r" to type strings.</para>
+<para>Finally, all arbitrary restrictions relating to the complexity of
+types are lifted along with the restriction that dictionary entries
+may only appear nested inside of arrays.</para>
+<para>Just as in D-Bus, GVariant types are described with strings ("type
+strings").  Subject to the differences mentioned above, these strings
+are of the same form as those found in DBus.  Note, however: D-Bus
+always works in terms of messages and therefore individual type
+strings appear nowhere in its interface.  Instead, "signatures"
+are a concatenation of the strings of the type of each argument in a
+message.  GVariant deals with single values directly so GVariant type
+strings always describe the type of exactly one value.  This means
+that a D-Bus signature string is generally not a valid GVariant type
+string -- except in the case that it is the signature of a message
+containing exactly one argument.</para>
+<para>An indefinite type is similar in spirit to what may be called an
+abstract type in other type systems.  No value can exist that has an
+indefinite type as its type, but values can exist that have types
+that are subtypes of indefinite types.  That is to say,
+<link linkend="g-variant-get-type"><function>g_variant_get_type()</function></link> will never return an indefinite type, but
+calling <link linkend="g-variant-is-of-type"><function>g_variant_is_of_type()</function></link> with an indefinite type may return
+<link linkend="TRUE:CAPS"><literal>TRUE</literal></link>.  For example, you cannot have a value that represents "an
+array of no particular type", but you can have an "array of integers"
+which certainly matches the type of "an array of no particular type",
+since "array of integers" is a subtype of "array of no particular
+type".</para>
+<para>This is similar to how instances of abstract classes may not
+directly exist in other type systems, but instances of their
+non-abstract subtypes may.  For example, in GTK, no object that has
+the type of <link linkend="GtkBin"><type>GtkBin</type></link> can exist (since <link linkend="GtkBin"><type>GtkBin</type></link> is an abstract class),
+but a <link linkend="GtkWindow"><type>GtkWindow</type></link> can certainly be instantiated, and you would say
+that the <link linkend="GtkWindow"><type>GtkWindow</type></link> is a <link linkend="GtkBin"><type>GtkBin</type></link> (since <link linkend="GtkWindow"><type>GtkWindow</type></link> is a subclass of
+<link linkend="GtkBin"><type>GtkBin</type></link>).</para>
+<refsect3><title>GVariant Type Strings</title><para>A GVariant type string can be any of the following:</para>
+<itemizedlist>
+<listitem>
+<para>any basic type string (listed below)</para>
+</listitem>
+<listitem>
+<para>"v", "r" or "*"</para>
+</listitem>
+<listitem>
+<para>one of the characters 'a' or 'm', followed by another type string</para>
+</listitem>
+<listitem>
+<para>the character '(', followed by a concatenation of zero or more other
+type strings, followed by the character ')'</para>
+</listitem>
+<listitem>
+<para>the character '{', followed by a basic type string (see below),
+followed by another type string, followed by the character '}'</para>
+</listitem>
+</itemizedlist>
+<para>A basic type string describes a basic type (as per
+<link linkend="g-variant-type-is-basic"><function>g_variant_type_is_basic()</function></link>) and is always a single character in length.
+The valid basic type strings are "b", "y", "n", "q", "i", "u", "x", "t",
+"h", "d", "s", "o", "g" and "?".</para>
+<para>The above definition is recursive to arbitrary depth. "aaaaai" and
+"(ui(nq((y)))s)" are both valid type strings, as is
+"a(aa(ui)(qna{ya(yd)}))". In order to not hit memory limits, <link linkend="GVariant"><type>GVariant</type></link>
+imposes a limit on recursion depth of 65 nested containers. This is the
+limit in the D-Bus specification (64) plus one to allow a <link linkend="GDBusMessage"><type>GDBusMessage</type></link> to
+be nested in a top-level tuple.</para>
+<para>The meaning of each of the characters is as follows:</para>
+<itemizedlist>
+<listitem><para><literal>b</literal>: the type string of <link linkend="G-VARIANT-TYPE-BOOLEAN:CAPS"><literal>G_VARIANT_TYPE_BOOLEAN</literal></link>; a boolean value.</para></listitem>
+<listitem><para><literal>y</literal>: the type string of <link linkend="G-VARIANT-TYPE-BYTE:CAPS"><literal>G_VARIANT_TYPE_BYTE</literal></link>; a byte.</para></listitem>
+<listitem><para><literal>n</literal>: the type string of <link linkend="G-VARIANT-TYPE-INT16:CAPS"><literal>G_VARIANT_TYPE_INT16</literal></link>; a signed 16 bit integer.</para></listitem>
+<listitem><para><literal>q</literal>: the type string of <link linkend="G-VARIANT-TYPE-UINT16:CAPS"><literal>G_VARIANT_TYPE_UINT16</literal></link>; an unsigned 16 bit integer.</para></listitem>
+<listitem><para><literal>i</literal>: the type string of <link linkend="G-VARIANT-TYPE-INT32:CAPS"><literal>G_VARIANT_TYPE_INT32</literal></link>; a signed 32 bit integer.</para></listitem>
+<listitem><para><literal>u</literal>: the type string of <link linkend="G-VARIANT-TYPE-UINT32:CAPS"><literal>G_VARIANT_TYPE_UINT32</literal></link>; an unsigned 32 bit integer.</para></listitem>
+<listitem><para><literal>x</literal>: the type string of <link linkend="G-VARIANT-TYPE-INT64:CAPS"><literal>G_VARIANT_TYPE_INT64</literal></link>; a signed 64 bit integer.</para></listitem>
+<listitem><para><literal>t</literal>: the type string of <link linkend="G-VARIANT-TYPE-UINT64:CAPS"><literal>G_VARIANT_TYPE_UINT64</literal></link>; an unsigned 64 bit integer.</para></listitem>
+<listitem><para><literal>h</literal>: the type string of <link linkend="G-VARIANT-TYPE-HANDLE:CAPS"><literal>G_VARIANT_TYPE_HANDLE</literal></link>; a signed 32 bit value
+that, by convention, is used as an index into an array of file
+descriptors that are sent alongside a D-Bus message.</para></listitem>
+<listitem><para><literal>d</literal>: the type string of <link linkend="G-VARIANT-TYPE-DOUBLE:CAPS"><literal>G_VARIANT_TYPE_DOUBLE</literal></link>; a double precision
+floating point value.</para></listitem>
+<listitem><para><literal>s</literal>: the type string of <link linkend="G-VARIANT-TYPE-STRING:CAPS"><literal>G_VARIANT_TYPE_STRING</literal></link>; a string.</para></listitem>
+<listitem><para><literal>o</literal>: the type string of <link linkend="G-VARIANT-TYPE-OBJECT-PATH:CAPS"><literal>G_VARIANT_TYPE_OBJECT_PATH</literal></link>; a string in the form
+of a D-Bus object path.</para></listitem>
+<listitem><para><literal>g</literal>: the type string of <link linkend="G-VARIANT-TYPE-SIGNATURE:CAPS"><literal>G_VARIANT_TYPE_SIGNATURE</literal></link>; a string in the form of
+a D-Bus type signature.</para></listitem>
+<listitem><para><literal>?</literal>: the type string of <link linkend="G-VARIANT-TYPE-BASIC:CAPS"><literal>G_VARIANT_TYPE_BASIC</literal></link>; an indefinite type that
+is a supertype of any of the basic types.</para></listitem>
+<listitem><para><literal>v</literal>: the type string of <link linkend="G-VARIANT-TYPE-VARIANT:CAPS"><literal>G_VARIANT_TYPE_VARIANT</literal></link>; a container type that
+contain any other type of value.</para></listitem>
+<listitem><para><literal>a</literal>: used as a prefix on another type string to mean an array of that
+type; the type string "ai", for example, is the type of an array of
+signed 32-bit integers.</para></listitem>
+<listitem><para><literal>m</literal>: used as a prefix on another type string to mean a "maybe", or
+"nullable", version of that type; the type string "ms", for example,
+is the type of a value that maybe contains a string, or maybe contains
+nothing.</para></listitem>
+<listitem><para><literal>()</literal>: used to enclose zero or more other concatenated type strings to
+create a tuple type; the type string "(is)", for example, is the type of
+a pair of an integer and a string.</para></listitem>
+<listitem><para><literal>r</literal>: the type string of <link linkend="G-VARIANT-TYPE-TUPLE:CAPS"><literal>G_VARIANT_TYPE_TUPLE</literal></link>; an indefinite type that is
+a supertype of any tuple type, regardless of the number of items.</para></listitem>
+<listitem>
+<para><literal>{}</literal>: used to enclose a basic type string concatenated with another type
+string to create a dictionary entry type, which usually appears inside of
+an array to form a dictionary; the type string "a{sd}", for example, is
+the type of a dictionary that maps strings to double precision floating
+point values.</para>
+<para>The first type (the basic type) is the key type and the second type is
+the value type. The reason that the first type is restricted to being a
+basic type is so that it can easily be hashed.</para>
+</listitem>
+<listitem>
+<para><literal>*</literal>: the type string of <link linkend="G-VARIANT-TYPE-ANY:CAPS"><literal>G_VARIANT_TYPE_ANY</literal></link>; the indefinite type that is
+a supertype of all types.  Note that, as with all type strings, this
+character represents exactly one type. It cannot be used inside of tuples
+to mean "any number of items".</para>
+</listitem>
+</itemizedlist>
+<para>Any type string of a container that contains an indefinite type is,
+itself, an indefinite type. For example, the type string "a*"
+(corresponding to <link linkend="G-VARIANT-TYPE-ARRAY:CAPS"><literal>G_VARIANT_TYPE_ARRAY</literal></link>) is an indefinite type
+that is a supertype of every array type. "(*s)" is a supertype
+of all tuples that contain exactly two items where the second
+item is a string.</para>
+<para>"a{?*}" is an indefinite type that is a supertype of all arrays
+containing dictionary entries where the key is any basic type and
+the value is any type at all.  This is, by definition, a dictionary,
+so this type string corresponds to <link linkend="G-VARIANT-TYPE-DICTIONARY:CAPS"><literal>G_VARIANT_TYPE_DICTIONARY</literal></link>. Note
+that, due to the restriction that the key of a dictionary entry must
+be a basic type, "{**}" is not a valid type string.</para>
+</refsect3>
+
+</refsect1>
+<refsect1 id="glib-GVariantType.functions_details" role="details">
+<title role="details.title">Functions</title>
+<refsect2 id="G-VARIANT-TYPE:CAPS" role="macro">
+<title>G_VARIANT_TYPE()</title>
+<indexterm zone="G-VARIANT-TYPE:CAPS"><primary sortas="VARIANT_TYPE">G_VARIANT_TYPE</primary></indexterm>
+<programlisting language="C"># define G_VARIANT_TYPE(type_string)            (g_variant_type_checked_ ((type_string)))
+</programlisting>
+<para>Converts a string to a const <link linkend="GVariantType"><type>GVariantType</type></link>.  Depending on the
+current debugging level, this function may perform a runtime check
+to ensure that <parameter>string</parameter>
+ is a valid GVariant type string.</para>
+<para>It is always a programmer error to use this macro with an invalid
+type string. If in doubt, use <link linkend="g-variant-type-string-is-valid"><function>g_variant_type_string_is_valid()</function></link> to
+check if the string is valid.</para>
+<para>Since 2.24</para>
+<refsect3 id="G-VARIANT-TYPE.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>type_string</para></entry>
+<entry role="parameter_description"><para>a well-formed <link linkend="GVariantType"><type>GVariantType</type></link> type string</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-variant-type-free" role="function">
+<title>g_variant_type_free&#160;()</title>
+<indexterm zone="g-variant-type-free"><primary sortas="variant_type_free">g_variant_type_free</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_variant_type_free (<parameter><link linkend="GVariantType"><type>GVariantType</type></link> *type</parameter>);</programlisting>
+<para>Frees a <link linkend="GVariantType"><type>GVariantType</type></link> that was allocated with
+<link linkend="g-variant-type-copy"><function>g_variant_type_copy()</function></link>, <link linkend="g-variant-type-new"><function>g_variant_type_new()</function></link> or one of the container
+type constructor functions.</para>
+<para>In the case that <parameter>type</parameter>
+ is <link linkend="NULL:CAPS"><literal>NULL</literal></link>, this function does nothing.</para>
+<para>Since 2.24</para>
+<refsect3 id="g-variant-type-free.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>type</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GVariantType"><type>GVariantType</type></link>, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-variant-type-copy" role="function">
+<title>g_variant_type_copy&#160;()</title>
+<indexterm zone="g-variant-type-copy"><primary sortas="variant_type_copy">g_variant_type_copy</primary></indexterm>
+<programlisting language="C"><link linkend="GVariantType"><returnvalue>GVariantType</returnvalue></link>&#160;*
+g_variant_type_copy (<parameter>const <link linkend="GVariantType"><type>GVariantType</type></link> *type</parameter>);</programlisting>
+<para>Makes a copy of a <link linkend="GVariantType"><type>GVariantType</type></link>.  It is appropriate to call
+<link linkend="g-variant-type-free"><function>g_variant_type_free()</function></link> on the return value.  <parameter>type</parameter>
+ may not be <link linkend="NULL:CAPS"><literal>NULL</literal></link>.</para>
+<refsect3 id="g-variant-type-copy.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>type</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GVariantType"><type>GVariantType</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-variant-type-copy.returns" role="returns">
+<title>Returns</title>
+<para>a new <link linkend="GVariantType"><type>GVariantType</type></link></para>
+<para>Since 2.24. </para>
+<para><emphasis role="annotation">[<acronym>transfer full</acronym>]</emphasis></para>
+</refsect3></refsect2>
+<refsect2 id="g-variant-type-new" role="function" condition="since:2.24">
+<title>g_variant_type_new&#160;()</title>
+<indexterm zone="g-variant-type-new" role="2.24"><primary sortas="variant_type_new">g_variant_type_new</primary></indexterm>
+<programlisting language="C"><link linkend="GVariantType"><returnvalue>GVariantType</returnvalue></link>&#160;*
+g_variant_type_new (<parameter>const <link linkend="gchar"><type>gchar</type></link> *type_string</parameter>);</programlisting>
+<para>Creates a new <link linkend="GVariantType"><type>GVariantType</type></link> corresponding to the type string given
+by <parameter>type_string</parameter>
+.  It is appropriate to call <link linkend="g-variant-type-free"><function>g_variant_type_free()</function></link> on
+the return value.</para>
+<para>It is a programmer error to call this function with an invalid type
+string.  Use <link linkend="g-variant-type-string-is-valid"><function>g_variant_type_string_is_valid()</function></link> if you are unsure.</para>
+<refsect3 id="g-variant-type-new.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>type_string</para></entry>
+<entry role="parameter_description"><para>a valid GVariant type string</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-variant-type-new.returns" role="returns">
+<title>Returns</title>
+<para>a new <link linkend="GVariantType"><type>GVariantType</type></link>. </para>
+<para><emphasis role="annotation">[<acronym>transfer full</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.24">2.24</link></para></refsect2>
+<refsect2 id="g-variant-type-string-is-valid" role="function">
+<title>g_variant_type_string_is_valid&#160;()</title>
+<indexterm zone="g-variant-type-string-is-valid"><primary sortas="variant_type_string_is_valid">g_variant_type_string_is_valid</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_variant_type_string_is_valid (<parameter>const <link linkend="gchar"><type>gchar</type></link> *type_string</parameter>);</programlisting>
+<para>Checks if <parameter>type_string</parameter>
+ is a valid GVariant type string.  This call is
+equivalent to calling <link linkend="g-variant-type-string-scan"><function>g_variant_type_string_scan()</function></link> and confirming
+that the following character is a nul terminator.</para>
+<refsect3 id="g-variant-type-string-is-valid.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>type_string</para></entry>
+<entry role="parameter_description"><para>a pointer to any string</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-variant-type-string-is-valid.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if <parameter>type_string</parameter>
+is exactly one valid type string</para>
+<para>Since 2.24</para>
+</refsect3></refsect2>
+<refsect2 id="g-variant-type-string-scan" role="function" condition="since:2.24">
+<title>g_variant_type_string_scan&#160;()</title>
+<indexterm zone="g-variant-type-string-scan" role="2.24"><primary sortas="variant_type_string_scan">g_variant_type_string_scan</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_variant_type_string_scan (<parameter>const <link linkend="gchar"><type>gchar</type></link> *string</parameter>,
+                            <parameter>const <link linkend="gchar"><type>gchar</type></link> *limit</parameter>,
+                            <parameter>const <link linkend="gchar"><type>gchar</type></link> **endptr</parameter>);</programlisting>
+<para>Scan for a single complete and valid GVariant type string in <parameter>string</parameter>
+.
+The memory pointed to by <parameter>limit</parameter>
+ (or bytes beyond it) is never
+accessed.</para>
+<para>If a valid type string is found, <parameter>endptr</parameter>
+ is updated to point to the
+first character past the end of the string that was found and <link linkend="TRUE:CAPS"><literal>TRUE</literal></link>
+is returned.</para>
+<para>If there is no valid type string starting at <parameter>string</parameter>
+, or if the type
+string does not end before <parameter>limit</parameter>
+ then <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> is returned.</para>
+<para>For the simple case of checking if a string is a valid type string,
+see <link linkend="g-variant-type-string-is-valid"><function>g_variant_type_string_is_valid()</function></link>.</para>
+<refsect3 id="g-variant-type-string-scan.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>string</para></entry>
+<entry role="parameter_description"><para>a pointer to any string</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>limit</para></entry>
+<entry role="parameter_description"><para>the end of <parameter>string</parameter>
+, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>endptr</para></entry>
+<entry role="parameter_description"><para>location to store the end pointer, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>out</acronym>][<acronym>optional</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-variant-type-string-scan.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if a valid type string was found</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.24">2.24</link></para></refsect2>
+<refsect2 id="g-variant-type-get-string-length" role="function">
+<title>g_variant_type_get_string_length&#160;()</title>
+<indexterm zone="g-variant-type-get-string-length"><primary sortas="variant_type_get_string_length">g_variant_type_get_string_length</primary></indexterm>
+<programlisting language="C"><link linkend="gsize"><returnvalue>gsize</returnvalue></link>
+g_variant_type_get_string_length (<parameter>const <link linkend="GVariantType"><type>GVariantType</type></link> *type</parameter>);</programlisting>
+<para>Returns the length of the type string corresponding to the given
+<parameter>type</parameter>
+.  This function must be used to determine the valid extent of
+the memory region returned by <link linkend="g-variant-type-peek-string"><function>g_variant_type_peek_string()</function></link>.</para>
+<refsect3 id="g-variant-type-get-string-length.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>type</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GVariantType"><type>GVariantType</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-variant-type-get-string-length.returns" role="returns">
+<title>Returns</title>
+<para> the length of the corresponding type string</para>
+<para>Since 2.24</para>
+</refsect3></refsect2>
+<refsect2 id="g-variant-type-peek-string" role="function">
+<title>g_variant_type_peek_string&#160;()</title>
+<indexterm zone="g-variant-type-peek-string"><primary sortas="variant_type_peek_string">g_variant_type_peek_string</primary></indexterm>
+<programlisting language="C">const <link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+g_variant_type_peek_string (<parameter>const <link linkend="GVariantType"><type>GVariantType</type></link> *type</parameter>);</programlisting>
+<para>Returns the type string corresponding to the given <parameter>type</parameter>
+.  The
+result is not nul-terminated; in order to determine its length you
+must call <link linkend="g-variant-type-get-string-length"><function>g_variant_type_get_string_length()</function></link>.</para>
+<para>To get a nul-terminated string, see <link linkend="g-variant-type-dup-string"><function>g_variant_type_dup_string()</function></link>.</para>
+
+<para><emphasis role="annotation">[<acronym>skip</acronym>]</emphasis></para><refsect3 id="g-variant-type-peek-string.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>type</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GVariantType"><type>GVariantType</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-variant-type-peek-string.returns" role="returns">
+<title>Returns</title>
+<para> the corresponding type string (not nul-terminated)</para>
+<para>Since 2.24</para>
+</refsect3></refsect2>
+<refsect2 id="g-variant-type-dup-string" role="function">
+<title>g_variant_type_dup_string&#160;()</title>
+<indexterm zone="g-variant-type-dup-string"><primary sortas="variant_type_dup_string">g_variant_type_dup_string</primary></indexterm>
+<programlisting language="C"><link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+g_variant_type_dup_string (<parameter>const <link linkend="GVariantType"><type>GVariantType</type></link> *type</parameter>);</programlisting>
+<para>Returns a newly-allocated copy of the type string corresponding to
+<parameter>type</parameter>
+.  The returned string is nul-terminated.  It is appropriate to
+call <link linkend="g-free"><function>g_free()</function></link> on the return value.</para>
+<refsect3 id="g-variant-type-dup-string.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>type</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GVariantType"><type>GVariantType</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-variant-type-dup-string.returns" role="returns">
+<title>Returns</title>
+<para>the corresponding type string</para>
+<para>Since 2.24. </para>
+<para><emphasis role="annotation">[<acronym>transfer full</acronym>]</emphasis></para>
+</refsect3></refsect2>
+<refsect2 id="g-variant-type-is-definite" role="function">
+<title>g_variant_type_is_definite&#160;()</title>
+<indexterm zone="g-variant-type-is-definite"><primary sortas="variant_type_is_definite">g_variant_type_is_definite</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_variant_type_is_definite (<parameter>const <link linkend="GVariantType"><type>GVariantType</type></link> *type</parameter>);</programlisting>
+<para>Determines if the given <parameter>type</parameter>
+ is definite (ie: not indefinite).</para>
+<para>A type is definite if its type string does not contain any indefinite
+type characters ('*', '?', or 'r').</para>
+<para>A <link linkend="GVariant"><type>GVariant</type></link> instance may not have an indefinite type, so calling
+this function on the result of <link linkend="g-variant-get-type"><function>g_variant_get_type()</function></link> will always
+result in <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> being returned.  Calling this function on an
+indefinite type like <link linkend="G-VARIANT-TYPE-ARRAY:CAPS"><literal>G_VARIANT_TYPE_ARRAY</literal></link>, however, will result in
+<link linkend="FALSE:CAPS"><literal>FALSE</literal></link> being returned.</para>
+<refsect3 id="g-variant-type-is-definite.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>type</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GVariantType"><type>GVariantType</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-variant-type-is-definite.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if <parameter>type</parameter>
+is definite</para>
+<para>Since 2.24</para>
+</refsect3></refsect2>
+<refsect2 id="g-variant-type-is-container" role="function">
+<title>g_variant_type_is_container&#160;()</title>
+<indexterm zone="g-variant-type-is-container"><primary sortas="variant_type_is_container">g_variant_type_is_container</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_variant_type_is_container (<parameter>const <link linkend="GVariantType"><type>GVariantType</type></link> *type</parameter>);</programlisting>
+<para>Determines if the given <parameter>type</parameter>
+ is a container type.</para>
+<para>Container types are any array, maybe, tuple, or dictionary
+entry types plus the variant type.</para>
+<para>This function returns <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> for any indefinite type for which every
+definite subtype is a container -- <link linkend="G-VARIANT-TYPE-ARRAY:CAPS"><literal>G_VARIANT_TYPE_ARRAY</literal></link>, for
+example.</para>
+<refsect3 id="g-variant-type-is-container.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>type</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GVariantType"><type>GVariantType</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-variant-type-is-container.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if <parameter>type</parameter>
+is a container type</para>
+<para>Since 2.24</para>
+</refsect3></refsect2>
+<refsect2 id="g-variant-type-is-basic" role="function">
+<title>g_variant_type_is_basic&#160;()</title>
+<indexterm zone="g-variant-type-is-basic"><primary sortas="variant_type_is_basic">g_variant_type_is_basic</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_variant_type_is_basic (<parameter>const <link linkend="GVariantType"><type>GVariantType</type></link> *type</parameter>);</programlisting>
+<para>Determines if the given <parameter>type</parameter>
+ is a basic type.</para>
+<para>Basic types are booleans, bytes, integers, doubles, strings, object
+paths and signatures.</para>
+<para>Only a basic type may be used as the key of a dictionary entry.</para>
+<para>This function returns <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> for all indefinite types except
+<link linkend="G-VARIANT-TYPE-BASIC:CAPS"><literal>G_VARIANT_TYPE_BASIC</literal></link>.</para>
+<refsect3 id="g-variant-type-is-basic.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>type</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GVariantType"><type>GVariantType</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-variant-type-is-basic.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if <parameter>type</parameter>
+is a basic type</para>
+<para>Since 2.24</para>
+</refsect3></refsect2>
+<refsect2 id="g-variant-type-is-maybe" role="function">
+<title>g_variant_type_is_maybe&#160;()</title>
+<indexterm zone="g-variant-type-is-maybe"><primary sortas="variant_type_is_maybe">g_variant_type_is_maybe</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_variant_type_is_maybe (<parameter>const <link linkend="GVariantType"><type>GVariantType</type></link> *type</parameter>);</programlisting>
+<para>Determines if the given <parameter>type</parameter>
+ is a maybe type.  This is true if the
+type string for <parameter>type</parameter>
+ starts with an 'm'.</para>
+<para>This function returns <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> for any indefinite type for which every
+definite subtype is a maybe type -- <link linkend="G-VARIANT-TYPE-MAYBE:CAPS"><literal>G_VARIANT_TYPE_MAYBE</literal></link>, for
+example.</para>
+<refsect3 id="g-variant-type-is-maybe.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>type</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GVariantType"><type>GVariantType</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-variant-type-is-maybe.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if <parameter>type</parameter>
+is a maybe type</para>
+<para>Since 2.24</para>
+</refsect3></refsect2>
+<refsect2 id="g-variant-type-is-array" role="function">
+<title>g_variant_type_is_array&#160;()</title>
+<indexterm zone="g-variant-type-is-array"><primary sortas="variant_type_is_array">g_variant_type_is_array</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_variant_type_is_array (<parameter>const <link linkend="GVariantType"><type>GVariantType</type></link> *type</parameter>);</programlisting>
+<para>Determines if the given <parameter>type</parameter>
+ is an array type.  This is true if the
+type string for <parameter>type</parameter>
+ starts with an 'a'.</para>
+<para>This function returns <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> for any indefinite type for which every
+definite subtype is an array type -- <link linkend="G-VARIANT-TYPE-ARRAY:CAPS"><literal>G_VARIANT_TYPE_ARRAY</literal></link>, for
+example.</para>
+<refsect3 id="g-variant-type-is-array.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>type</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GVariantType"><type>GVariantType</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-variant-type-is-array.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if <parameter>type</parameter>
+is an array type</para>
+<para>Since 2.24</para>
+</refsect3></refsect2>
+<refsect2 id="g-variant-type-is-tuple" role="function">
+<title>g_variant_type_is_tuple&#160;()</title>
+<indexterm zone="g-variant-type-is-tuple"><primary sortas="variant_type_is_tuple">g_variant_type_is_tuple</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_variant_type_is_tuple (<parameter>const <link linkend="GVariantType"><type>GVariantType</type></link> *type</parameter>);</programlisting>
+<para>Determines if the given <parameter>type</parameter>
+ is a tuple type.  This is true if the
+type string for <parameter>type</parameter>
+ starts with a '(' or if <parameter>type</parameter>
+ is
+<link linkend="G-VARIANT-TYPE-TUPLE:CAPS"><literal>G_VARIANT_TYPE_TUPLE</literal></link>.</para>
+<para>This function returns <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> for any indefinite type for which every
+definite subtype is a tuple type -- <link linkend="G-VARIANT-TYPE-TUPLE:CAPS"><literal>G_VARIANT_TYPE_TUPLE</literal></link>, for
+example.</para>
+<refsect3 id="g-variant-type-is-tuple.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>type</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GVariantType"><type>GVariantType</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-variant-type-is-tuple.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if <parameter>type</parameter>
+is a tuple type</para>
+<para>Since 2.24</para>
+</refsect3></refsect2>
+<refsect2 id="g-variant-type-is-dict-entry" role="function">
+<title>g_variant_type_is_dict_entry&#160;()</title>
+<indexterm zone="g-variant-type-is-dict-entry"><primary sortas="variant_type_is_dict_entry">g_variant_type_is_dict_entry</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_variant_type_is_dict_entry (<parameter>const <link linkend="GVariantType"><type>GVariantType</type></link> *type</parameter>);</programlisting>
+<para>Determines if the given <parameter>type</parameter>
+ is a dictionary entry type.  This is
+true if the type string for <parameter>type</parameter>
+ starts with a '{'.</para>
+<para>This function returns <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> for any indefinite type for which every
+definite subtype is a dictionary entry type --
+<link linkend="G-VARIANT-TYPE-DICT-ENTRY:CAPS"><literal>G_VARIANT_TYPE_DICT_ENTRY</literal></link>, for example.</para>
+<refsect3 id="g-variant-type-is-dict-entry.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>type</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GVariantType"><type>GVariantType</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-variant-type-is-dict-entry.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if <parameter>type</parameter>
+is a dictionary entry type</para>
+<para>Since 2.24</para>
+</refsect3></refsect2>
+<refsect2 id="g-variant-type-is-variant" role="function">
+<title>g_variant_type_is_variant&#160;()</title>
+<indexterm zone="g-variant-type-is-variant"><primary sortas="variant_type_is_variant">g_variant_type_is_variant</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_variant_type_is_variant (<parameter>const <link linkend="GVariantType"><type>GVariantType</type></link> *type</parameter>);</programlisting>
+<para>Determines if the given <parameter>type</parameter>
+ is the variant type.</para>
+<refsect3 id="g-variant-type-is-variant.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>type</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GVariantType"><type>GVariantType</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-variant-type-is-variant.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if <parameter>type</parameter>
+is the variant type</para>
+<para>Since 2.24</para>
+</refsect3></refsect2>
+<refsect2 id="g-variant-type-hash" role="function">
+<title>g_variant_type_hash&#160;()</title>
+<indexterm zone="g-variant-type-hash"><primary sortas="variant_type_hash">g_variant_type_hash</primary></indexterm>
+<programlisting language="C"><link linkend="guint"><returnvalue>guint</returnvalue></link>
+g_variant_type_hash (<parameter><link linkend="gconstpointer"><type>gconstpointer</type></link> type</parameter>);</programlisting>
+<para>Hashes <parameter>type</parameter>
+.</para>
+<para>The argument type of <parameter>type</parameter>
+ is only <link linkend="gconstpointer"><type>gconstpointer</type></link> to allow use with
+<link linkend="GHashTable"><type>GHashTable</type></link> without function pointer casting.  A valid
+<link linkend="GVariantType"><type>GVariantType</type></link> must be provided.</para>
+<refsect3 id="g-variant-type-hash.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>type</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GVariantType"><type>GVariantType</type></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>type</acronym> GVariantType]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-variant-type-hash.returns" role="returns">
+<title>Returns</title>
+<para> the hash value</para>
+<para>Since 2.24</para>
+</refsect3></refsect2>
+<refsect2 id="g-variant-type-equal" role="function">
+<title>g_variant_type_equal&#160;()</title>
+<indexterm zone="g-variant-type-equal"><primary sortas="variant_type_equal">g_variant_type_equal</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_variant_type_equal (<parameter><link linkend="gconstpointer"><type>gconstpointer</type></link> type1</parameter>,
+                      <parameter><link linkend="gconstpointer"><type>gconstpointer</type></link> type2</parameter>);</programlisting>
+<para>Compares <parameter>type1</parameter>
+ and <parameter>type2</parameter>
+ for equality.</para>
+<para>Only returns <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if the types are exactly equal.  Even if one type
+is an indefinite type and the other is a subtype of it, <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> will
+be returned if they are not exactly equal.  If you want to check for
+subtypes, use <link linkend="g-variant-type-is-subtype-of"><function>g_variant_type_is_subtype_of()</function></link>.</para>
+<para>The argument types of <parameter>type1</parameter>
+ and <parameter>type2</parameter>
+ are only <link linkend="gconstpointer"><type>gconstpointer</type></link> to
+allow use with <link linkend="GHashTable"><type>GHashTable</type></link> without function pointer casting.  For
+both arguments, a valid <link linkend="GVariantType"><type>GVariantType</type></link> must be provided.</para>
+<refsect3 id="g-variant-type-equal.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>type1</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GVariantType"><type>GVariantType</type></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>type</acronym> GVariantType]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>type2</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GVariantType"><type>GVariantType</type></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>type</acronym> GVariantType]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-variant-type-equal.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if <parameter>type1</parameter>
+and <parameter>type2</parameter>
+are exactly equal</para>
+<para>Since 2.24</para>
+</refsect3></refsect2>
+<refsect2 id="g-variant-type-is-subtype-of" role="function">
+<title>g_variant_type_is_subtype_of&#160;()</title>
+<indexterm zone="g-variant-type-is-subtype-of"><primary sortas="variant_type_is_subtype_of">g_variant_type_is_subtype_of</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_variant_type_is_subtype_of (<parameter>const <link linkend="GVariantType"><type>GVariantType</type></link> *type</parameter>,
+                              <parameter>const <link linkend="GVariantType"><type>GVariantType</type></link> *supertype</parameter>);</programlisting>
+<para>Checks if <parameter>type</parameter>
+ is a subtype of <parameter>supertype</parameter>
+.</para>
+<para>This function returns <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if <parameter>type</parameter>
+ is a subtype of <parameter>supertype</parameter>
+.  All
+types are considered to be subtypes of themselves.  Aside from that,
+only indefinite types can have subtypes.</para>
+<refsect3 id="g-variant-type-is-subtype-of.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>type</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GVariantType"><type>GVariantType</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>supertype</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GVariantType"><type>GVariantType</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-variant-type-is-subtype-of.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if <parameter>type</parameter>
+is a subtype of <parameter>supertype</parameter>
+</para>
+<para>Since 2.24</para>
+</refsect3></refsect2>
+<refsect2 id="g-variant-type-new-maybe" role="function">
+<title>g_variant_type_new_maybe&#160;()</title>
+<indexterm zone="g-variant-type-new-maybe"><primary sortas="variant_type_new_maybe">g_variant_type_new_maybe</primary></indexterm>
+<programlisting language="C"><link linkend="GVariantType"><returnvalue>GVariantType</returnvalue></link>&#160;*
+g_variant_type_new_maybe (<parameter>const <link linkend="GVariantType"><type>GVariantType</type></link> *element</parameter>);</programlisting>
+<para>Constructs the type corresponding to a maybe instance containing
+type <parameter>type</parameter>
+ or Nothing.</para>
+<para>It is appropriate to call <link linkend="g-variant-type-free"><function>g_variant_type_free()</function></link> on the return value.</para>
+
+<para><emphasis role="annotation">[<acronym>constructor</acronym>]</emphasis></para><refsect3 id="g-variant-type-new-maybe.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>element</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GVariantType"><type>GVariantType</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-variant-type-new-maybe.returns" role="returns">
+<title>Returns</title>
+<para>a new maybe <link linkend="GVariantType"><type>GVariantType</type></link></para>
+<para>Since 2.24. </para>
+<para><emphasis role="annotation">[<acronym>transfer full</acronym>]</emphasis></para>
+</refsect3></refsect2>
+<refsect2 id="g-variant-type-new-array" role="function">
+<title>g_variant_type_new_array&#160;()</title>
+<indexterm zone="g-variant-type-new-array"><primary sortas="variant_type_new_array">g_variant_type_new_array</primary></indexterm>
+<programlisting language="C"><link linkend="GVariantType"><returnvalue>GVariantType</returnvalue></link>&#160;*
+g_variant_type_new_array (<parameter>const <link linkend="GVariantType"><type>GVariantType</type></link> *element</parameter>);</programlisting>
+<para>Constructs the type corresponding to an array of elements of the
+type <parameter>type</parameter>
+.</para>
+<para>It is appropriate to call <link linkend="g-variant-type-free"><function>g_variant_type_free()</function></link> on the return value.</para>
+
+<para><emphasis role="annotation">[<acronym>constructor</acronym>]</emphasis></para><refsect3 id="g-variant-type-new-array.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>element</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GVariantType"><type>GVariantType</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-variant-type-new-array.returns" role="returns">
+<title>Returns</title>
+<para>a new array <link linkend="GVariantType"><type>GVariantType</type></link></para>
+<para>Since 2.24. </para>
+<para><emphasis role="annotation">[<acronym>transfer full</acronym>]</emphasis></para>
+</refsect3></refsect2>
+<refsect2 id="g-variant-type-new-tuple" role="function">
+<title>g_variant_type_new_tuple&#160;()</title>
+<indexterm zone="g-variant-type-new-tuple"><primary sortas="variant_type_new_tuple">g_variant_type_new_tuple</primary></indexterm>
+<programlisting language="C"><link linkend="GVariantType"><returnvalue>GVariantType</returnvalue></link>&#160;*
+g_variant_type_new_tuple (<parameter>const <link linkend="GVariantType"><type>GVariantType</type></link> * const *items</parameter>,
+                          <parameter><link linkend="gint"><type>gint</type></link> length</parameter>);</programlisting>
+<para>Constructs a new tuple type, from <parameter>items</parameter>
+.</para>
+<para><parameter>length</parameter>
+ is the number of items in <parameter>items</parameter>
+, or -1 to indicate that
+<parameter>items</parameter>
+ is <link linkend="NULL:CAPS"><literal>NULL</literal></link>-terminated.</para>
+<para>It is appropriate to call <link linkend="g-variant-type-free"><function>g_variant_type_free()</function></link> on the return value.</para>
+<refsect3 id="g-variant-type-new-tuple.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>items</para></entry>
+<entry role="parameter_description"><para>an array of <link linkend="GVariantTypes"><type>GVariantTypes</type></link>, one for each item. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>array</acronym> length=length]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>length</para></entry>
+<entry role="parameter_description"><para>the length of <parameter>items</parameter>
+, or -1</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-variant-type-new-tuple.returns" role="returns">
+<title>Returns</title>
+<para>a new tuple <link linkend="GVariantType"><type>GVariantType</type></link></para>
+<para>Since 2.24. </para>
+<para><emphasis role="annotation">[<acronym>transfer full</acronym>]</emphasis></para>
+</refsect3></refsect2>
+<refsect2 id="g-variant-type-new-dict-entry" role="function">
+<title>g_variant_type_new_dict_entry&#160;()</title>
+<indexterm zone="g-variant-type-new-dict-entry"><primary sortas="variant_type_new_dict_entry">g_variant_type_new_dict_entry</primary></indexterm>
+<programlisting language="C"><link linkend="GVariantType"><returnvalue>GVariantType</returnvalue></link>&#160;*
+g_variant_type_new_dict_entry (<parameter>const <link linkend="GVariantType"><type>GVariantType</type></link> *key</parameter>,
+                               <parameter>const <link linkend="GVariantType"><type>GVariantType</type></link> *value</parameter>);</programlisting>
+<para>Constructs the type corresponding to a dictionary entry with a key
+of type <parameter>key</parameter>
+ and a value of type <parameter>value</parameter>
+.</para>
+<para>It is appropriate to call <link linkend="g-variant-type-free"><function>g_variant_type_free()</function></link> on the return value.</para>
+
+<para><emphasis role="annotation">[<acronym>constructor</acronym>]</emphasis></para><refsect3 id="g-variant-type-new-dict-entry.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>key</para></entry>
+<entry role="parameter_description"><para>a basic <link linkend="GVariantType"><type>GVariantType</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>value</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GVariantType"><type>GVariantType</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-variant-type-new-dict-entry.returns" role="returns">
+<title>Returns</title>
+<para>a new dictionary entry <link linkend="GVariantType"><type>GVariantType</type></link></para>
+<para>Since 2.24. </para>
+<para><emphasis role="annotation">[<acronym>transfer full</acronym>]</emphasis></para>
+</refsect3></refsect2>
+<refsect2 id="g-variant-type-element" role="function">
+<title>g_variant_type_element&#160;()</title>
+<indexterm zone="g-variant-type-element"><primary sortas="variant_type_element">g_variant_type_element</primary></indexterm>
+<programlisting language="C">const <link linkend="GVariantType"><returnvalue>GVariantType</returnvalue></link>&#160;*
+g_variant_type_element (<parameter>const <link linkend="GVariantType"><type>GVariantType</type></link> *type</parameter>);</programlisting>
+<para>Determines the element type of an array or maybe type.</para>
+<para>This function may only be used with array or maybe types.</para>
+<refsect3 id="g-variant-type-element.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>type</para></entry>
+<entry role="parameter_description"><para>an array or maybe <link linkend="GVariantType"><type>GVariantType</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-variant-type-element.returns" role="returns">
+<title>Returns</title>
+<para>the element type of <parameter>type</parameter>
+</para>
+<para>Since 2.24. </para>
+<para><emphasis role="annotation">[<acronym>transfer none</acronym>]</emphasis></para>
+</refsect3></refsect2>
+<refsect2 id="g-variant-type-n-items" role="function">
+<title>g_variant_type_n_items&#160;()</title>
+<indexterm zone="g-variant-type-n-items"><primary sortas="variant_type_n_items">g_variant_type_n_items</primary></indexterm>
+<programlisting language="C"><link linkend="gsize"><returnvalue>gsize</returnvalue></link>
+g_variant_type_n_items (<parameter>const <link linkend="GVariantType"><type>GVariantType</type></link> *type</parameter>);</programlisting>
+<para>Determines the number of items contained in a tuple or
+dictionary entry type.</para>
+<para>This function may only be used with tuple or dictionary entry types,
+but must not be used with the generic tuple type
+<link linkend="G-VARIANT-TYPE-TUPLE:CAPS"><literal>G_VARIANT_TYPE_TUPLE</literal></link>.</para>
+<para>In the case of a dictionary entry type, this function will always
+return 2.</para>
+<refsect3 id="g-variant-type-n-items.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>type</para></entry>
+<entry role="parameter_description"><para>a tuple or dictionary entry <link linkend="GVariantType"><type>GVariantType</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-variant-type-n-items.returns" role="returns">
+<title>Returns</title>
+<para> the number of items in <parameter>type</parameter>
+</para>
+<para>Since 2.24</para>
+</refsect3></refsect2>
+<refsect2 id="g-variant-type-first" role="function">
+<title>g_variant_type_first&#160;()</title>
+<indexterm zone="g-variant-type-first"><primary sortas="variant_type_first">g_variant_type_first</primary></indexterm>
+<programlisting language="C">const <link linkend="GVariantType"><returnvalue>GVariantType</returnvalue></link>&#160;*
+g_variant_type_first (<parameter>const <link linkend="GVariantType"><type>GVariantType</type></link> *type</parameter>);</programlisting>
+<para>Determines the first item type of a tuple or dictionary entry
+type.</para>
+<para>This function may only be used with tuple or dictionary entry types,
+but must not be used with the generic tuple type
+<link linkend="G-VARIANT-TYPE-TUPLE:CAPS"><literal>G_VARIANT_TYPE_TUPLE</literal></link>.</para>
+<para>In the case of a dictionary entry type, this returns the type of
+the key.</para>
+<para><link linkend="NULL:CAPS"><literal>NULL</literal></link> is returned in case of <parameter>type</parameter>
+ being <link linkend="G-VARIANT-TYPE-UNIT:CAPS"><literal>G_VARIANT_TYPE_UNIT</literal></link>.</para>
+<para>This call, together with <link linkend="g-variant-type-next"><function>g_variant_type_next()</function></link> provides an iterator
+interface over tuple and dictionary entry types.</para>
+<refsect3 id="g-variant-type-first.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>type</para></entry>
+<entry role="parameter_description"><para>a tuple or dictionary entry <link linkend="GVariantType"><type>GVariantType</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-variant-type-first.returns" role="returns">
+<title>Returns</title>
+<para>the first item type of <parameter>type</parameter>
+, or <link linkend="NULL:CAPS"><literal>NULL</literal></link></para>
+<para>Since 2.24. </para>
+<para><emphasis role="annotation">[<acronym>transfer none</acronym>]</emphasis></para>
+</refsect3></refsect2>
+<refsect2 id="g-variant-type-next" role="function">
+<title>g_variant_type_next&#160;()</title>
+<indexterm zone="g-variant-type-next"><primary sortas="variant_type_next">g_variant_type_next</primary></indexterm>
+<programlisting language="C">const <link linkend="GVariantType"><returnvalue>GVariantType</returnvalue></link>&#160;*
+g_variant_type_next (<parameter>const <link linkend="GVariantType"><type>GVariantType</type></link> *type</parameter>);</programlisting>
+<para>Determines the next item type of a tuple or dictionary entry
+type.</para>
+<para><parameter>type</parameter>
+ must be the result of a previous call to
+<link linkend="g-variant-type-first"><function>g_variant_type_first()</function></link> or <link linkend="g-variant-type-next"><function>g_variant_type_next()</function></link>.</para>
+<para>If called on the key type of a dictionary entry then this call
+returns the value type.  If called on the value type of a dictionary
+entry then this call returns <link linkend="NULL:CAPS"><literal>NULL</literal></link>.</para>
+<para>For tuples, <link linkend="NULL:CAPS"><literal>NULL</literal></link> is returned when <parameter>type</parameter>
+ is the last item in a tuple.</para>
+<refsect3 id="g-variant-type-next.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>type</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GVariantType"><type>GVariantType</type></link> from a previous call</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-variant-type-next.returns" role="returns">
+<title>Returns</title>
+<para>the next <link linkend="GVariantType"><type>GVariantType</type></link> after <parameter>type</parameter>
+, or <link linkend="NULL:CAPS"><literal>NULL</literal></link></para>
+<para>Since 2.24. </para>
+<para><emphasis role="annotation">[<acronym>transfer none</acronym>]</emphasis></para>
+</refsect3></refsect2>
+<refsect2 id="g-variant-type-key" role="function">
+<title>g_variant_type_key&#160;()</title>
+<indexterm zone="g-variant-type-key"><primary sortas="variant_type_key">g_variant_type_key</primary></indexterm>
+<programlisting language="C">const <link linkend="GVariantType"><returnvalue>GVariantType</returnvalue></link>&#160;*
+g_variant_type_key (<parameter>const <link linkend="GVariantType"><type>GVariantType</type></link> *type</parameter>);</programlisting>
+<para>Determines the key type of a dictionary entry type.</para>
+<para>This function may only be used with a dictionary entry type.  Other
+than the additional restriction, this call is equivalent to
+<link linkend="g-variant-type-first"><function>g_variant_type_first()</function></link>.</para>
+<refsect3 id="g-variant-type-key.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>type</para></entry>
+<entry role="parameter_description"><para>a dictionary entry <link linkend="GVariantType"><type>GVariantType</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-variant-type-key.returns" role="returns">
+<title>Returns</title>
+<para>the key type of the dictionary entry</para>
+<para>Since 2.24. </para>
+<para><emphasis role="annotation">[<acronym>transfer none</acronym>]</emphasis></para>
+</refsect3></refsect2>
+<refsect2 id="g-variant-type-value" role="function">
+<title>g_variant_type_value&#160;()</title>
+<indexterm zone="g-variant-type-value"><primary sortas="variant_type_value">g_variant_type_value</primary></indexterm>
+<programlisting language="C">const <link linkend="GVariantType"><returnvalue>GVariantType</returnvalue></link>&#160;*
+g_variant_type_value (<parameter>const <link linkend="GVariantType"><type>GVariantType</type></link> *type</parameter>);</programlisting>
+<para>Determines the value type of a dictionary entry type.</para>
+<para>This function may only be used with a dictionary entry type.</para>
+<refsect3 id="g-variant-type-value.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>type</para></entry>
+<entry role="parameter_description"><para>a dictionary entry <link linkend="GVariantType"><type>GVariantType</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-variant-type-value.returns" role="returns">
+<title>Returns</title>
+<para>the value type of the dictionary entry</para>
+<para>Since 2.24. </para>
+<para><emphasis role="annotation">[<acronym>transfer none</acronym>]</emphasis></para>
+</refsect3></refsect2>
+
+</refsect1>
+<refsect1 id="glib-GVariantType.other_details" role="details">
+<title role="details.title">Types and Values</title>
+<refsect2 id="GVariantType" role="struct">
+<title>GVariantType</title>
+<indexterm zone="GVariantType"><primary sortas="VariantType">GVariantType</primary></indexterm>
+<programlisting language="C">typedef struct _GVariantType GVariantType;</programlisting>
+<para>A type in the GVariant type system.</para>
+<para>Two types may not be compared by value; use <link linkend="g-variant-type-equal"><function>g_variant_type_equal()</function></link> or
+<link linkend="g-variant-type-is-subtype-of"><function>g_variant_type_is_subtype_of()</function></link>.  May be copied using
+<link linkend="g-variant-type-copy"><function>g_variant_type_copy()</function></link> and freed using <link linkend="g-variant-type-free"><function>g_variant_type_free()</function></link>.</para>
+</refsect2>
+<refsect2 id="G-VARIANT-TYPE-BOOLEAN:CAPS" role="macro">
+<title>G_VARIANT_TYPE_BOOLEAN</title>
+<indexterm zone="G-VARIANT-TYPE-BOOLEAN:CAPS"><primary sortas="VARIANT_TYPE_BOOLEAN">G_VARIANT_TYPE_BOOLEAN</primary></indexterm>
+<programlisting language="C">#define G_VARIANT_TYPE_BOOLEAN              ((const GVariantType *) "b")
+</programlisting>
+<para>The type of a value that can be either <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> or <link linkend="FALSE:CAPS"><literal>FALSE</literal></link>.</para>
+</refsect2>
+<refsect2 id="G-VARIANT-TYPE-BYTE:CAPS" role="macro">
+<title>G_VARIANT_TYPE_BYTE</title>
+<indexterm zone="G-VARIANT-TYPE-BYTE:CAPS"><primary sortas="VARIANT_TYPE_BYTE">G_VARIANT_TYPE_BYTE</primary></indexterm>
+<programlisting language="C">#define G_VARIANT_TYPE_BYTE                 ((const GVariantType *) "y")
+</programlisting>
+<para>The type of an integer value that can range from 0 to 255.</para>
+</refsect2>
+<refsect2 id="G-VARIANT-TYPE-INT16:CAPS" role="macro">
+<title>G_VARIANT_TYPE_INT16</title>
+<indexterm zone="G-VARIANT-TYPE-INT16:CAPS"><primary sortas="VARIANT_TYPE_INT16">G_VARIANT_TYPE_INT16</primary></indexterm>
+<programlisting language="C">#define G_VARIANT_TYPE_INT16                ((const GVariantType *) "n")
+</programlisting>
+<para>The type of an integer value that can range from -32768 to 32767.</para>
+</refsect2>
+<refsect2 id="G-VARIANT-TYPE-UINT16:CAPS" role="macro">
+<title>G_VARIANT_TYPE_UINT16</title>
+<indexterm zone="G-VARIANT-TYPE-UINT16:CAPS"><primary sortas="VARIANT_TYPE_UINT16">G_VARIANT_TYPE_UINT16</primary></indexterm>
+<programlisting language="C">#define G_VARIANT_TYPE_UINT16               ((const GVariantType *) "q")
+</programlisting>
+<para>The type of an integer value that can range from 0 to 65535.
+There were about this many people living in Toronto in the 1870s.</para>
+</refsect2>
+<refsect2 id="G-VARIANT-TYPE-INT32:CAPS" role="macro">
+<title>G_VARIANT_TYPE_INT32</title>
+<indexterm zone="G-VARIANT-TYPE-INT32:CAPS"><primary sortas="VARIANT_TYPE_INT32">G_VARIANT_TYPE_INT32</primary></indexterm>
+<programlisting language="C">#define G_VARIANT_TYPE_INT32                ((const GVariantType *) "i")
+</programlisting>
+<para>The type of an integer value that can range from -2147483648 to
+2147483647.</para>
+</refsect2>
+<refsect2 id="G-VARIANT-TYPE-UINT32:CAPS" role="macro">
+<title>G_VARIANT_TYPE_UINT32</title>
+<indexterm zone="G-VARIANT-TYPE-UINT32:CAPS"><primary sortas="VARIANT_TYPE_UINT32">G_VARIANT_TYPE_UINT32</primary></indexterm>
+<programlisting language="C">#define G_VARIANT_TYPE_UINT32               ((const GVariantType *) "u")
+</programlisting>
+<para>The type of an integer value that can range from 0 to 4294967295.
+That's one number for everyone who was around in the late 1970s.</para>
+</refsect2>
+<refsect2 id="G-VARIANT-TYPE-INT64:CAPS" role="macro">
+<title>G_VARIANT_TYPE_INT64</title>
+<indexterm zone="G-VARIANT-TYPE-INT64:CAPS"><primary sortas="VARIANT_TYPE_INT64">G_VARIANT_TYPE_INT64</primary></indexterm>
+<programlisting language="C">#define G_VARIANT_TYPE_INT64                ((const GVariantType *) "x")
+</programlisting>
+<para>The type of an integer value that can range from
+-9223372036854775808 to 9223372036854775807.</para>
+</refsect2>
+<refsect2 id="G-VARIANT-TYPE-UINT64:CAPS" role="macro">
+<title>G_VARIANT_TYPE_UINT64</title>
+<indexterm zone="G-VARIANT-TYPE-UINT64:CAPS"><primary sortas="VARIANT_TYPE_UINT64">G_VARIANT_TYPE_UINT64</primary></indexterm>
+<programlisting language="C">#define G_VARIANT_TYPE_UINT64               ((const GVariantType *) "t")
+</programlisting>
+<para>The type of an integer value that can range from 0
+to 18446744073709551615 (inclusive).  That's a really big number,
+but a Rubik's cube can have a bit more than twice as many possible
+positions.</para>
+</refsect2>
+<refsect2 id="G-VARIANT-TYPE-HANDLE:CAPS" role="macro">
+<title>G_VARIANT_TYPE_HANDLE</title>
+<indexterm zone="G-VARIANT-TYPE-HANDLE:CAPS"><primary sortas="VARIANT_TYPE_HANDLE">G_VARIANT_TYPE_HANDLE</primary></indexterm>
+<programlisting language="C">#define G_VARIANT_TYPE_HANDLE               ((const GVariantType *) "h")
+</programlisting>
+<para>The type of a 32bit signed integer value, that by convention, is used
+as an index into an array of file descriptors that are sent alongside
+a D-Bus message.</para>
+<para>If you are not interacting with D-Bus, then there is no reason to make
+use of this type.</para>
+</refsect2>
+<refsect2 id="G-VARIANT-TYPE-DOUBLE:CAPS" role="macro">
+<title>G_VARIANT_TYPE_DOUBLE</title>
+<indexterm zone="G-VARIANT-TYPE-DOUBLE:CAPS"><primary sortas="VARIANT_TYPE_DOUBLE">G_VARIANT_TYPE_DOUBLE</primary></indexterm>
+<programlisting language="C">#define G_VARIANT_TYPE_DOUBLE               ((const GVariantType *) "d")
+</programlisting>
+<para>The type of a double precision IEEE754 floating point number.
+These guys go up to about 1.80e308 (plus and minus) but miss out on
+some numbers in between.  In any case, that's far greater than the
+estimated number of fundamental particles in the observable
+universe.</para>
+</refsect2>
+<refsect2 id="G-VARIANT-TYPE-STRING:CAPS" role="macro">
+<title>G_VARIANT_TYPE_STRING</title>
+<indexterm zone="G-VARIANT-TYPE-STRING:CAPS"><primary sortas="VARIANT_TYPE_STRING">G_VARIANT_TYPE_STRING</primary></indexterm>
+<programlisting language="C">#define G_VARIANT_TYPE_STRING               ((const GVariantType *) "s")
+</programlisting>
+<para>The type of a string.  "" is a string.  <link linkend="NULL:CAPS"><literal>NULL</literal></link> is not a string.</para>
+</refsect2>
+<refsect2 id="G-VARIANT-TYPE-OBJECT-PATH:CAPS" role="macro">
+<title>G_VARIANT_TYPE_OBJECT_PATH</title>
+<indexterm zone="G-VARIANT-TYPE-OBJECT-PATH:CAPS"><primary sortas="VARIANT_TYPE_OBJECT_PATH">G_VARIANT_TYPE_OBJECT_PATH</primary></indexterm>
+<programlisting language="C">#define G_VARIANT_TYPE_OBJECT_PATH          ((const GVariantType *) "o")
+</programlisting>
+<para>The type of a D-Bus object reference.  These are strings of a
+specific format used to identify objects at a given destination on
+the bus.</para>
+<para>If you are not interacting with D-Bus, then there is no reason to make
+use of this type.  If you are, then the D-Bus specification contains a
+precise description of valid object paths.</para>
+</refsect2>
+<refsect2 id="G-VARIANT-TYPE-SIGNATURE:CAPS" role="macro">
+<title>G_VARIANT_TYPE_SIGNATURE</title>
+<indexterm zone="G-VARIANT-TYPE-SIGNATURE:CAPS"><primary sortas="VARIANT_TYPE_SIGNATURE">G_VARIANT_TYPE_SIGNATURE</primary></indexterm>
+<programlisting language="C">#define G_VARIANT_TYPE_SIGNATURE            ((const GVariantType *) "g")
+</programlisting>
+<para>The type of a D-Bus type signature.  These are strings of a specific
+format used as type signatures for D-Bus methods and messages.</para>
+<para>If you are not interacting with D-Bus, then there is no reason to make
+use of this type.  If you are, then the D-Bus specification contains a
+precise description of valid signature strings.</para>
+</refsect2>
+<refsect2 id="G-VARIANT-TYPE-VARIANT:CAPS" role="macro">
+<title>G_VARIANT_TYPE_VARIANT</title>
+<indexterm zone="G-VARIANT-TYPE-VARIANT:CAPS"><primary sortas="VARIANT_TYPE_VARIANT">G_VARIANT_TYPE_VARIANT</primary></indexterm>
+<programlisting language="C">#define G_VARIANT_TYPE_VARIANT              ((const GVariantType *) "v")
+</programlisting>
+<para>The type of a box that contains any other value (including another
+variant).</para>
+</refsect2>
+<refsect2 id="G-VARIANT-TYPE-ANY:CAPS" role="macro">
+<title>G_VARIANT_TYPE_ANY</title>
+<indexterm zone="G-VARIANT-TYPE-ANY:CAPS"><primary sortas="VARIANT_TYPE_ANY">G_VARIANT_TYPE_ANY</primary></indexterm>
+<programlisting language="C">#define G_VARIANT_TYPE_ANY                  ((const GVariantType *) "*")
+</programlisting>
+<para>An indefinite type that is a supertype of every type (including
+itself).</para>
+</refsect2>
+<refsect2 id="G-VARIANT-TYPE-BASIC:CAPS" role="macro">
+<title>G_VARIANT_TYPE_BASIC</title>
+<indexterm zone="G-VARIANT-TYPE-BASIC:CAPS"><primary sortas="VARIANT_TYPE_BASIC">G_VARIANT_TYPE_BASIC</primary></indexterm>
+<programlisting language="C">#define G_VARIANT_TYPE_BASIC                ((const GVariantType *) "?")
+</programlisting>
+<para>An indefinite type that is a supertype of every basic (ie:
+non-container) type.</para>
+</refsect2>
+<refsect2 id="G-VARIANT-TYPE-MAYBE:CAPS" role="macro">
+<title>G_VARIANT_TYPE_MAYBE</title>
+<indexterm zone="G-VARIANT-TYPE-MAYBE:CAPS"><primary sortas="VARIANT_TYPE_MAYBE">G_VARIANT_TYPE_MAYBE</primary></indexterm>
+<programlisting language="C">#define G_VARIANT_TYPE_MAYBE                ((const GVariantType *) "m*")
+</programlisting>
+<para>An indefinite type that is a supertype of every maybe type.</para>
+</refsect2>
+<refsect2 id="G-VARIANT-TYPE-ARRAY:CAPS" role="macro">
+<title>G_VARIANT_TYPE_ARRAY</title>
+<indexterm zone="G-VARIANT-TYPE-ARRAY:CAPS"><primary sortas="VARIANT_TYPE_ARRAY">G_VARIANT_TYPE_ARRAY</primary></indexterm>
+<programlisting language="C">#define G_VARIANT_TYPE_ARRAY                ((const GVariantType *) "a*")
+</programlisting>
+<para>An indefinite type that is a supertype of every array type.</para>
+</refsect2>
+<refsect2 id="G-VARIANT-TYPE-TUPLE:CAPS" role="macro">
+<title>G_VARIANT_TYPE_TUPLE</title>
+<indexterm zone="G-VARIANT-TYPE-TUPLE:CAPS"><primary sortas="VARIANT_TYPE_TUPLE">G_VARIANT_TYPE_TUPLE</primary></indexterm>
+<programlisting language="C">#define G_VARIANT_TYPE_TUPLE                ((const GVariantType *) "r")
+</programlisting>
+<para>An indefinite type that is a supertype of every tuple type,
+regardless of the number of items in the tuple.</para>
+</refsect2>
+<refsect2 id="G-VARIANT-TYPE-UNIT:CAPS" role="macro">
+<title>G_VARIANT_TYPE_UNIT</title>
+<indexterm zone="G-VARIANT-TYPE-UNIT:CAPS"><primary sortas="VARIANT_TYPE_UNIT">G_VARIANT_TYPE_UNIT</primary></indexterm>
+<programlisting language="C">#define G_VARIANT_TYPE_UNIT                 ((const GVariantType *) "()")
+</programlisting>
+<para>The empty tuple type.  Has only one instance.  Known also as "triv"
+or "void".</para>
+</refsect2>
+<refsect2 id="G-VARIANT-TYPE-DICT-ENTRY:CAPS" role="macro">
+<title>G_VARIANT_TYPE_DICT_ENTRY</title>
+<indexterm zone="G-VARIANT-TYPE-DICT-ENTRY:CAPS"><primary sortas="VARIANT_TYPE_DICT_ENTRY">G_VARIANT_TYPE_DICT_ENTRY</primary></indexterm>
+<programlisting language="C">#define G_VARIANT_TYPE_DICT_ENTRY           ((const GVariantType *) "{?*}")
+</programlisting>
+<para>An indefinite type that is a supertype of every dictionary entry
+type.</para>
+</refsect2>
+<refsect2 id="G-VARIANT-TYPE-DICTIONARY:CAPS" role="macro">
+<title>G_VARIANT_TYPE_DICTIONARY</title>
+<indexterm zone="G-VARIANT-TYPE-DICTIONARY:CAPS"><primary sortas="VARIANT_TYPE_DICTIONARY">G_VARIANT_TYPE_DICTIONARY</primary></indexterm>
+<programlisting language="C">#define G_VARIANT_TYPE_DICTIONARY           ((const GVariantType *) "a{?*}")
+</programlisting>
+<para>An indefinite type that is a supertype of every dictionary type --
+that is, any array type that has an element type equal to any
+dictionary entry type.</para>
+</refsect2>
+<refsect2 id="G-VARIANT-TYPE-STRING-ARRAY:CAPS" role="macro">
+<title>G_VARIANT_TYPE_STRING_ARRAY</title>
+<indexterm zone="G-VARIANT-TYPE-STRING-ARRAY:CAPS"><primary sortas="VARIANT_TYPE_STRING_ARRAY">G_VARIANT_TYPE_STRING_ARRAY</primary></indexterm>
+<programlisting language="C">#define G_VARIANT_TYPE_STRING_ARRAY         ((const GVariantType *) "as")
+</programlisting>
+<para>The type of an array of strings.</para>
+</refsect2>
+<refsect2 id="G-VARIANT-TYPE-OBJECT-PATH-ARRAY:CAPS" role="macro">
+<title>G_VARIANT_TYPE_OBJECT_PATH_ARRAY</title>
+<indexterm zone="G-VARIANT-TYPE-OBJECT-PATH-ARRAY:CAPS"><primary sortas="VARIANT_TYPE_OBJECT_PATH_ARRAY">G_VARIANT_TYPE_OBJECT_PATH_ARRAY</primary></indexterm>
+<programlisting language="C">#define G_VARIANT_TYPE_OBJECT_PATH_ARRAY    ((const GVariantType *) "ao")
+</programlisting>
+<para>The type of an array of object paths.</para>
+</refsect2>
+<refsect2 id="G-VARIANT-TYPE-BYTESTRING:CAPS" role="macro">
+<title>G_VARIANT_TYPE_BYTESTRING</title>
+<indexterm zone="G-VARIANT-TYPE-BYTESTRING:CAPS"><primary sortas="VARIANT_TYPE_BYTESTRING">G_VARIANT_TYPE_BYTESTRING</primary></indexterm>
+<programlisting language="C">#define G_VARIANT_TYPE_BYTESTRING           ((const GVariantType *) "ay")
+</programlisting>
+<para>The type of an array of bytes.  This type is commonly used to pass
+around strings that may not be valid utf8.  In that case, the
+convention is that the nul terminator character should be included as
+the last character in the array.</para>
+</refsect2>
+<refsect2 id="G-VARIANT-TYPE-BYTESTRING-ARRAY:CAPS" role="macro">
+<title>G_VARIANT_TYPE_BYTESTRING_ARRAY</title>
+<indexterm zone="G-VARIANT-TYPE-BYTESTRING-ARRAY:CAPS"><primary sortas="VARIANT_TYPE_BYTESTRING_ARRAY">G_VARIANT_TYPE_BYTESTRING_ARRAY</primary></indexterm>
+<programlisting language="C">#define G_VARIANT_TYPE_BYTESTRING_ARRAY     ((const GVariantType *) "aay")
+</programlisting>
+<para>The type of an array of byte strings (an array of arrays of bytes).</para>
+</refsect2>
+<refsect2 id="G-VARIANT-TYPE-VARDICT:CAPS" role="macro" condition="since:2.30">
+<title>G_VARIANT_TYPE_VARDICT</title>
+<indexterm zone="G-VARIANT-TYPE-VARDICT:CAPS" role="2.30"><primary sortas="VARIANT_TYPE_VARDICT">G_VARIANT_TYPE_VARDICT</primary></indexterm>
+<programlisting language="C">#define G_VARIANT_TYPE_VARDICT              ((const GVariantType *) "a{sv}")
+</programlisting>
+<para>The type of a dictionary mapping strings to variants (the ubiquitous
+"a{sv}" type).</para>
+<para role="since">Since: <link linkend="api-index-2.30">2.30</link></para></refsect2>
+
+</refsect1>
+<refsect1 id="glib-GVariantType.see-also">
+<title>See Also</title>
+<para><link linkend="GVariantType"><type>GVariantType</type></link>, <link linkend="GVariant"><type>GVariant</type></link></para>
+
+</refsect1>
+
+</refentry>

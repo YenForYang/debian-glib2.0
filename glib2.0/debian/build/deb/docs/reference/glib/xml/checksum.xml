@@ -1,0 +1,469 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC '-//OASIS//DTD DocBook XML V4.5//EN'
+                      'http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd' [
+<!ENTITY % local.common.attrib "xmlns:xi  CDATA  #FIXED 'http://www.w3.org/2003/XInclude'">
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="glib-Data-Checksums">
+<refmeta>
+<refentrytitle role="top_of_page" id="glib-Data-Checksums.top_of_page">Data Checksums</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>GLIB Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>Data Checksums</refname>
+<refpurpose>computes the checksum for data</refpurpose>
+</refnamediv>
+
+<refsect1 id="glib-Data-Checksums.functions" role="functions_proto">
+<title role="functions_proto.title">Functions</title>
+<informaltable pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="functions_return" colwidth="150px"/>
+<colspec colname="functions_name"/>
+<tbody>
+<row><entry role="function_type"><link linkend="gssize"><returnvalue>gssize</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-checksum-type-get-length">g_checksum_type_get_length</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GChecksum"><returnvalue>GChecksum</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-checksum-new">g_checksum_new</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GChecksum"><returnvalue>GChecksum</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-checksum-copy">g_checksum_copy</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-checksum-free">g_checksum_free</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-checksum-reset">g_checksum_reset</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-checksum-update">g_checksum_update</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type">const <link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-checksum-get-string">g_checksum_get_string</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-checksum-get-digest">g_checksum_get_digest</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+<row><entry role="function_type"><link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-compute-checksum-for-data">g_compute_checksum_for_data</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-compute-checksum-for-string">g_compute_checksum_for_string</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-compute-checksum-for-bytes">g_compute_checksum_for_bytes</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="glib-Data-Checksums.other" role="other_proto">
+<title role="other_proto.title">Types and Values</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="name" colwidth="150px"/>
+<colspec colname="description"/>
+<tbody>
+<row><entry role="datatype_keyword">enum</entry><entry role="function_name"><link linkend="GChecksumType">GChecksumType</link></entry></row>
+<row><entry role="datatype_keyword"></entry><entry role="function_name"><link linkend="GChecksum">GChecksum</link></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+
+<refsect1 id="glib-Data-Checksums.includes"><title>Includes</title><synopsis>#include &lt;glib.h&gt;
+#include &lt;glib/gi18n.h&gt;
+</synopsis></refsect1>
+
+<refsect1 id="glib-Data-Checksums.description" role="desc">
+<title role="desc.title">Description</title>
+<para>GLib provides a generic API for computing checksums (or "digests")
+for a sequence of arbitrary bytes, using various hashing algorithms
+like MD5, SHA-1 and SHA-256. Checksums are commonly used in various
+environments and specifications.</para>
+<para>GLib supports incremental checksums using the GChecksum data
+structure, by calling <link linkend="g-checksum-update"><function>g_checksum_update()</function></link> as long as there's data
+available and then using <link linkend="g-checksum-get-string"><function>g_checksum_get_string()</function></link> or
+<link linkend="g-checksum-get-digest"><function>g_checksum_get_digest()</function></link> to compute the checksum and return it either
+as a string in hexadecimal form, or as a raw sequence of bytes. To
+compute the checksum for binary blobs and NUL-terminated strings in
+one go, use the convenience functions <link linkend="g-compute-checksum-for-data"><function>g_compute_checksum_for_data()</function></link>
+and <link linkend="g-compute-checksum-for-string"><function>g_compute_checksum_for_string()</function></link>, respectively.</para>
+<para>Support for checksums has been added in GLib 2.16</para>
+
+</refsect1>
+<refsect1 id="glib-Data-Checksums.functions_details" role="details">
+<title role="details.title">Functions</title>
+<refsect2 id="g-checksum-type-get-length" role="function" condition="since:2.16">
+<title>g_checksum_type_get_length&#160;()</title>
+<indexterm zone="g-checksum-type-get-length" role="2.16"><primary sortas="checksum_type_get_length">g_checksum_type_get_length</primary></indexterm>
+<programlisting language="C"><link linkend="gssize"><returnvalue>gssize</returnvalue></link>
+g_checksum_type_get_length (<parameter><link linkend="GChecksumType"><type>GChecksumType</type></link> checksum_type</parameter>);</programlisting>
+<para>Gets the length in bytes of digests of type <parameter>checksum_type</parameter>
+</para>
+<refsect3 id="g-checksum-type-get-length.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>checksum_type</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GChecksumType"><type>GChecksumType</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-checksum-type-get-length.returns" role="returns">
+<title>Returns</title>
+<para> the checksum length, or -1 if <parameter>checksum_type</parameter>
+is
+not supported.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.16">2.16</link></para></refsect2>
+<refsect2 id="g-checksum-new" role="function" condition="since:2.16">
+<title>g_checksum_new&#160;()</title>
+<indexterm zone="g-checksum-new" role="2.16"><primary sortas="checksum_new">g_checksum_new</primary></indexterm>
+<programlisting language="C"><link linkend="GChecksum"><returnvalue>GChecksum</returnvalue></link>&#160;*
+g_checksum_new (<parameter><link linkend="GChecksumType"><type>GChecksumType</type></link> checksum_type</parameter>);</programlisting>
+<para>Creates a new <link linkend="GChecksum"><type>GChecksum</type></link>, using the checksum algorithm <parameter>checksum_type</parameter>
+.
+If the <parameter>checksum_type</parameter>
+ is not known, <link linkend="NULL:CAPS"><literal>NULL</literal></link> is returned.
+A <link linkend="GChecksum"><type>GChecksum</type></link> can be used to compute the checksum, or digest, of an
+arbitrary binary blob, using different hashing algorithms.</para>
+<para>A <link linkend="GChecksum"><type>GChecksum</type></link> works by feeding a binary blob through <link linkend="g-checksum-update"><function>g_checksum_update()</function></link>
+until there is data to be checked; the digest can then be extracted
+using <link linkend="g-checksum-get-string"><function>g_checksum_get_string()</function></link>, which will return the checksum as a
+hexadecimal string; or <link linkend="g-checksum-get-digest"><function>g_checksum_get_digest()</function></link>, which will return a
+vector of raw bytes. Once either <link linkend="g-checksum-get-string"><function>g_checksum_get_string()</function></link> or
+<link linkend="g-checksum-get-digest"><function>g_checksum_get_digest()</function></link> have been called on a <link linkend="GChecksum"><type>GChecksum</type></link>, the checksum
+will be closed and it won't be possible to call <link linkend="g-checksum-update"><function>g_checksum_update()</function></link>
+on it anymore.</para>
+<refsect3 id="g-checksum-new.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>checksum_type</para></entry>
+<entry role="parameter_description"><para>the desired type of checksum</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-checksum-new.returns" role="returns">
+<title>Returns</title>
+<para>the newly created <link linkend="GChecksum"><type>GChecksum</type></link>, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>.
+Use <link linkend="g-checksum-free"><function>g_checksum_free()</function></link> to free the memory allocated by it. </para>
+<para><emphasis role="annotation">[<acronym>transfer full</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.16">2.16</link></para></refsect2>
+<refsect2 id="g-checksum-copy" role="function" condition="since:2.16">
+<title>g_checksum_copy&#160;()</title>
+<indexterm zone="g-checksum-copy" role="2.16"><primary sortas="checksum_copy">g_checksum_copy</primary></indexterm>
+<programlisting language="C"><link linkend="GChecksum"><returnvalue>GChecksum</returnvalue></link>&#160;*
+g_checksum_copy (<parameter>const <link linkend="GChecksum"><type>GChecksum</type></link> *checksum</parameter>);</programlisting>
+<para>Copies a <link linkend="GChecksum"><type>GChecksum</type></link>. If <parameter>checksum</parameter>
+ has been closed, by calling
+<link linkend="g-checksum-get-string"><function>g_checksum_get_string()</function></link> or <link linkend="g-checksum-get-digest"><function>g_checksum_get_digest()</function></link>, the copied
+checksum will be closed as well.</para>
+<refsect3 id="g-checksum-copy.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>checksum</para></entry>
+<entry role="parameter_description"><para>the <link linkend="GChecksum"><type>GChecksum</type></link> to copy</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-checksum-copy.returns" role="returns">
+<title>Returns</title>
+<para> the copy of the passed <link linkend="GChecksum"><type>GChecksum</type></link>. Use <link linkend="g-checksum-free"><function>g_checksum_free()</function></link>
+when finished using it.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.16">2.16</link></para></refsect2>
+<refsect2 id="g-checksum-free" role="function" condition="since:2.16">
+<title>g_checksum_free&#160;()</title>
+<indexterm zone="g-checksum-free" role="2.16"><primary sortas="checksum_free">g_checksum_free</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_checksum_free (<parameter><link linkend="GChecksum"><type>GChecksum</type></link> *checksum</parameter>);</programlisting>
+<para>Frees the memory allocated for <parameter>checksum</parameter>
+.</para>
+<refsect3 id="g-checksum-free.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>checksum</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GChecksum"><type>GChecksum</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.16">2.16</link></para></refsect2>
+<refsect2 id="g-checksum-reset" role="function" condition="since:2.18">
+<title>g_checksum_reset&#160;()</title>
+<indexterm zone="g-checksum-reset" role="2.18"><primary sortas="checksum_reset">g_checksum_reset</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_checksum_reset (<parameter><link linkend="GChecksum"><type>GChecksum</type></link> *checksum</parameter>);</programlisting>
+<para>Resets the state of the <parameter>checksum</parameter>
+ back to its initial state.</para>
+<refsect3 id="g-checksum-reset.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>checksum</para></entry>
+<entry role="parameter_description"><para>the <link linkend="GChecksum"><type>GChecksum</type></link> to reset</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.18">2.18</link></para></refsect2>
+<refsect2 id="g-checksum-update" role="function" condition="since:2.16">
+<title>g_checksum_update&#160;()</title>
+<indexterm zone="g-checksum-update" role="2.16"><primary sortas="checksum_update">g_checksum_update</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_checksum_update (<parameter><link linkend="GChecksum"><type>GChecksum</type></link> *checksum</parameter>,
+                   <parameter>const <link linkend="guchar"><type>guchar</type></link> *data</parameter>,
+                   <parameter><link linkend="gssize"><type>gssize</type></link> length</parameter>);</programlisting>
+<para>Feeds <parameter>data</parameter>
+ into an existing <link linkend="GChecksum"><type>GChecksum</type></link>. The checksum must still be
+open, that is <link linkend="g-checksum-get-string"><function>g_checksum_get_string()</function></link> or <link linkend="g-checksum-get-digest"><function>g_checksum_get_digest()</function></link> must
+not have been called on <parameter>checksum</parameter>
+.</para>
+<refsect3 id="g-checksum-update.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>checksum</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GChecksum"><type>GChecksum</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>data</para></entry>
+<entry role="parameter_description"><para>buffer used to compute the checksum. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>array</acronym> length=length][<acronym>element-type</acronym> guint8]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>length</para></entry>
+<entry role="parameter_description"><para>size of the buffer, or -1 if it is a null-terminated string.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.16">2.16</link></para></refsect2>
+<refsect2 id="g-checksum-get-string" role="function" condition="since:2.16">
+<title>g_checksum_get_string&#160;()</title>
+<indexterm zone="g-checksum-get-string" role="2.16"><primary sortas="checksum_get_string">g_checksum_get_string</primary></indexterm>
+<programlisting language="C">const <link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+g_checksum_get_string (<parameter><link linkend="GChecksum"><type>GChecksum</type></link> *checksum</parameter>);</programlisting>
+<para>Gets the digest as an hexadecimal string.</para>
+<para>Once this function has been called the <link linkend="GChecksum"><type>GChecksum</type></link> can no longer be
+updated with <link linkend="g-checksum-update"><function>g_checksum_update()</function></link>.</para>
+<para>The hexadecimal characters will be lower case.</para>
+<refsect3 id="g-checksum-get-string.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>checksum</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GChecksum"><type>GChecksum</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-checksum-get-string.returns" role="returns">
+<title>Returns</title>
+<para> the hexadecimal representation of the checksum. The
+returned string is owned by the checksum and should not be modified
+or freed.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.16">2.16</link></para></refsect2>
+<refsect2 id="g-checksum-get-digest" role="function" condition="since:2.16">
+<title>g_checksum_get_digest&#160;()</title>
+<indexterm zone="g-checksum-get-digest" role="2.16"><primary sortas="checksum_get_digest">g_checksum_get_digest</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_checksum_get_digest (<parameter><link linkend="GChecksum"><type>GChecksum</type></link> *checksum</parameter>,
+                       <parameter><link linkend="guint8"><type>guint8</type></link> *buffer</parameter>,
+                       <parameter><link linkend="gsize"><type>gsize</type></link> *digest_len</parameter>);</programlisting>
+<para>Gets the digest from <parameter>checksum</parameter>
+ as a raw binary vector and places it
+into <parameter>buffer</parameter>
+. The size of the digest depends on the type of checksum.</para>
+<para>Once this function has been called, the <link linkend="GChecksum"><type>GChecksum</type></link> is closed and can
+no longer be updated with <link linkend="g-checksum-update"><function>g_checksum_update()</function></link>.</para>
+
+<para><emphasis role="annotation">[<acronym>skip</acronym>]</emphasis></para><refsect3 id="g-checksum-get-digest.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>checksum</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GChecksum"><type>GChecksum</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>buffer</para></entry>
+<entry role="parameter_description"><para>output buffer. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>array</acronym> length=digest_len]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>digest_len</para></entry>
+<entry role="parameter_description"><para>an inout parameter. The caller initializes it to the size of <parameter>buffer</parameter>
+.
+After the call it contains the length of the digest. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>inout</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.16">2.16</link></para></refsect2>
+<refsect2 id="g-compute-checksum-for-data" role="function" condition="since:2.16">
+<title>g_compute_checksum_for_data&#160;()</title>
+<indexterm zone="g-compute-checksum-for-data" role="2.16"><primary sortas="compute_checksum_for_data">g_compute_checksum_for_data</primary></indexterm>
+<programlisting language="C"><link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+g_compute_checksum_for_data (<parameter><link linkend="GChecksumType"><type>GChecksumType</type></link> checksum_type</parameter>,
+                             <parameter>const <link linkend="guchar"><type>guchar</type></link> *data</parameter>,
+                             <parameter><link linkend="gsize"><type>gsize</type></link> length</parameter>);</programlisting>
+<para>Computes the checksum for a binary <parameter>data</parameter>
+ of <parameter>length</parameter>
+. This is a
+convenience wrapper for <link linkend="g-checksum-new"><function>g_checksum_new()</function></link>, <link linkend="g-checksum-get-string"><function>g_checksum_get_string()</function></link>
+and <link linkend="g-checksum-free"><function>g_checksum_free()</function></link>.</para>
+<para>The hexadecimal string returned will be in lower case.</para>
+<refsect3 id="g-compute-checksum-for-data.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>checksum_type</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GChecksumType"><type>GChecksumType</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>data</para></entry>
+<entry role="parameter_description"><para>binary blob to compute the digest of. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>array</acronym> length=length][<acronym>element-type</acronym> guint8]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>length</para></entry>
+<entry role="parameter_description"><para>length of <parameter>data</parameter>
+</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-compute-checksum-for-data.returns" role="returns">
+<title>Returns</title>
+<para> the digest of the binary data as a string in hexadecimal.
+The returned string should be freed with <link linkend="g-free"><function>g_free()</function></link> when done using it.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.16">2.16</link></para></refsect2>
+<refsect2 id="g-compute-checksum-for-string" role="function" condition="since:2.16">
+<title>g_compute_checksum_for_string&#160;()</title>
+<indexterm zone="g-compute-checksum-for-string" role="2.16"><primary sortas="compute_checksum_for_string">g_compute_checksum_for_string</primary></indexterm>
+<programlisting language="C"><link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+g_compute_checksum_for_string (<parameter><link linkend="GChecksumType"><type>GChecksumType</type></link> checksum_type</parameter>,
+                               <parameter>const <link linkend="gchar"><type>gchar</type></link> *str</parameter>,
+                               <parameter><link linkend="gssize"><type>gssize</type></link> length</parameter>);</programlisting>
+<para>Computes the checksum of a string.</para>
+<para>The hexadecimal string returned will be in lower case.</para>
+<refsect3 id="g-compute-checksum-for-string.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>checksum_type</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GChecksumType"><type>GChecksumType</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>str</para></entry>
+<entry role="parameter_description"><para>the string to compute the checksum of</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>length</para></entry>
+<entry role="parameter_description"><para>the length of the string, or -1 if the string is null-terminated.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-compute-checksum-for-string.returns" role="returns">
+<title>Returns</title>
+<para> the checksum as a hexadecimal string. The returned string
+should be freed with <link linkend="g-free"><function>g_free()</function></link> when done using it.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.16">2.16</link></para></refsect2>
+<refsect2 id="g-compute-checksum-for-bytes" role="function" condition="since:2.34">
+<title>g_compute_checksum_for_bytes&#160;()</title>
+<indexterm zone="g-compute-checksum-for-bytes" role="2.34"><primary sortas="compute_checksum_for_bytes">g_compute_checksum_for_bytes</primary></indexterm>
+<programlisting language="C"><link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+g_compute_checksum_for_bytes (<parameter><link linkend="GChecksumType"><type>GChecksumType</type></link> checksum_type</parameter>,
+                              <parameter><link linkend="GBytes"><type>GBytes</type></link> *data</parameter>);</programlisting>
+<para>Computes the checksum for a binary <parameter>data</parameter>
+. This is a
+convenience wrapper for <link linkend="g-checksum-new"><function>g_checksum_new()</function></link>, <link linkend="g-checksum-get-string"><function>g_checksum_get_string()</function></link>
+and <link linkend="g-checksum-free"><function>g_checksum_free()</function></link>.</para>
+<para>The hexadecimal string returned will be in lower case.</para>
+<refsect3 id="g-compute-checksum-for-bytes.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>checksum_type</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GChecksumType"><type>GChecksumType</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>data</para></entry>
+<entry role="parameter_description"><para>binary blob to compute the digest of</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-compute-checksum-for-bytes.returns" role="returns">
+<title>Returns</title>
+<para> the digest of the binary data as a string in hexadecimal.
+The returned string should be freed with <link linkend="g-free"><function>g_free()</function></link> when done using it.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.34">2.34</link></para></refsect2>
+
+</refsect1>
+<refsect1 id="glib-Data-Checksums.other_details" role="details">
+<title role="details.title">Types and Values</title>
+<refsect2 id="GChecksumType" role="enum" condition="since:2.16">
+<title>enum GChecksumType</title>
+<indexterm zone="GChecksumType" role="2.16"><primary sortas="ChecksumType">GChecksumType</primary></indexterm>
+<para>The hashing algorithm to be used by <link linkend="GChecksum"><type>GChecksum</type></link> when performing the
+digest of some data.</para>
+<para>Note that the <link linkend="GChecksumType"><type>GChecksumType</type></link> enumeration may be extended at a later
+date to include new hashing algorithm types.</para>
+<refsect3 id="GChecksumType.members" role="enum_members">
+<title>Members</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="enum_members_name" colwidth="300px"/>
+<colspec colname="enum_members_description"/>
+<colspec colname="enum_members_annotations" colwidth="200px"/>
+<tbody>
+<row role="constant"><entry role="enum_member_name"><para id="G-CHECKSUM-MD5:CAPS">G_CHECKSUM_MD5</para></entry>
+<entry role="enum_member_description"><para>Use the MD5 hashing algorithm</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-CHECKSUM-SHA1:CAPS">G_CHECKSUM_SHA1</para></entry>
+<entry role="enum_member_description"><para>Use the SHA-1 hashing algorithm</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-CHECKSUM-SHA256:CAPS">G_CHECKSUM_SHA256</para></entry>
+<entry role="enum_member_description"><para>Use the SHA-256 hashing algorithm</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-CHECKSUM-SHA512:CAPS">G_CHECKSUM_SHA512</para></entry>
+<entry role="enum_member_description"><para>Use the SHA-512 hashing algorithm (Since: 2.36)</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-CHECKSUM-SHA384:CAPS">G_CHECKSUM_SHA384</para></entry>
+<entry role="enum_member_description"><para>Use the SHA-384 hashing algorithm (Since: 2.51)</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.16">2.16</link></para></refsect2>
+<refsect2 id="GChecksum" role="struct" condition="since:2.16">
+<title>GChecksum</title>
+<indexterm zone="GChecksum" role="2.16"><primary sortas="Checksum">GChecksum</primary></indexterm>
+<programlisting language="C">typedef struct _GChecksum GChecksum;</programlisting>
+<para>An opaque structure representing a checksumming operation.
+To create a new GChecksum, use <link linkend="g-checksum-new"><function>g_checksum_new()</function></link>. To free
+a GChecksum, use <link linkend="g-checksum-free"><function>g_checksum_free()</function></link>.</para>
+<para role="since">Since: <link linkend="api-index-2.16">2.16</link></para></refsect2>
+
+</refsect1>
+
+</refentry>

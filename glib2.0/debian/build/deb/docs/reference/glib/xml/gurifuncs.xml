@@ -1,0 +1,364 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC '-//OASIS//DTD DocBook XML V4.5//EN'
+                      'http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd' [
+<!ENTITY % local.common.attrib "xmlns:xi  CDATA  #FIXED 'http://www.w3.org/2003/XInclude'">
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="glib-URI-Functions">
+<refmeta>
+<refentrytitle role="top_of_page" id="glib-URI-Functions.top_of_page">URI Functions</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>GLIB Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>URI Functions</refname>
+<refpurpose>manipulating URIs</refpurpose>
+</refnamediv>
+
+<refsect1 id="glib-URI-Functions.functions" role="functions_proto">
+<title role="functions_proto.title">Functions</title>
+<informaltable pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="functions_return" colwidth="150px"/>
+<colspec colname="functions_name"/>
+<tbody>
+<row><entry role="function_type"><link linkend="char"><returnvalue>char</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-uri-parse-scheme">g_uri_parse_scheme</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="char"><returnvalue>char</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-uri-escape-string">g_uri_escape_string</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="char"><returnvalue>char</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-uri-unescape-string">g_uri_unescape_string</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="char"><returnvalue>char</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-uri-unescape-segment">g_uri_unescape_segment</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;**
+</entry><entry role="function_name"><link linkend="g-uri-list-extract-uris">g_uri_list_extract_uris</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-filename-from-uri">g_filename_from_uri</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-filename-to-uri">g_filename_to_uri</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="glib-URI-Functions.other" role="other_proto">
+<title role="other_proto.title">Types and Values</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="name" colwidth="150px"/>
+<colspec colname="description"/>
+<tbody>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="G-URI-RESERVED-CHARS-ALLOWED-IN-PATH:CAPS">G_URI_RESERVED_CHARS_ALLOWED_IN_PATH</link></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="G-URI-RESERVED-CHARS-ALLOWED-IN-PATH-ELEMENT:CAPS">G_URI_RESERVED_CHARS_ALLOWED_IN_PATH_ELEMENT</link></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="G-URI-RESERVED-CHARS-ALLOWED-IN-USERINFO:CAPS">G_URI_RESERVED_CHARS_ALLOWED_IN_USERINFO</link></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="G-URI-RESERVED-CHARS-GENERIC-DELIMITERS:CAPS">G_URI_RESERVED_CHARS_GENERIC_DELIMITERS</link></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="G-URI-RESERVED-CHARS-SUBCOMPONENT-DELIMITERS:CAPS">G_URI_RESERVED_CHARS_SUBCOMPONENT_DELIMITERS</link></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+
+<refsect1 id="glib-URI-Functions.includes"><title>Includes</title><synopsis>#include &lt;glib.h&gt;
+#include &lt;glib/gi18n.h&gt;
+</synopsis></refsect1>
+
+<refsect1 id="glib-URI-Functions.description" role="desc">
+<title role="desc.title">Description</title>
+<para>Functions for manipulating Universal Resource Identifiers (URIs) as
+defined by
+<ulink url="http://www.ietf.org/rfc/rfc3986.txt">RFC 3986</ulink>.
+It is highly recommended that you have read and
+understand RFC 3986 for understanding this API.</para>
+
+</refsect1>
+<refsect1 id="glib-URI-Functions.functions_details" role="details">
+<title role="details.title">Functions</title>
+<refsect2 id="g-uri-parse-scheme" role="function" condition="since:2.16">
+<title>g_uri_parse_scheme&#160;()</title>
+<indexterm zone="g-uri-parse-scheme" role="2.16"><primary sortas="uri_parse_scheme">g_uri_parse_scheme</primary></indexterm>
+<programlisting language="C"><link linkend="char"><returnvalue>char</returnvalue></link>&#160;*
+g_uri_parse_scheme (<parameter>const <link linkend="char"><type>char</type></link> *uri</parameter>);</programlisting>
+<para>Gets the scheme portion of a URI string. RFC 3986 decodes the scheme as:</para>
+<informalexample><programlisting role="example"><![CDATA[
+URI = scheme ":" hier-part [ "?" query ] [ "#" fragment ] 
+]]></programlisting></informalexample>
+<para>
+Common schemes include "file", "http", "svn+ssh", etc.</para>
+<refsect3 id="g-uri-parse-scheme.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>uri</para></entry>
+<entry role="parameter_description"><para>a valid URI.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-uri-parse-scheme.returns" role="returns">
+<title>Returns</title>
+<para> The "Scheme" component of the URI, or <link linkend="NULL:CAPS"><literal>NULL</literal></link> on error.
+The returned string should be freed when no longer needed.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.16">2.16</link></para></refsect2>
+<refsect2 id="g-uri-escape-string" role="function" condition="since:2.16">
+<title>g_uri_escape_string&#160;()</title>
+<indexterm zone="g-uri-escape-string" role="2.16"><primary sortas="uri_escape_string">g_uri_escape_string</primary></indexterm>
+<programlisting language="C"><link linkend="char"><returnvalue>char</returnvalue></link>&#160;*
+g_uri_escape_string (<parameter>const <link linkend="char"><type>char</type></link> *unescaped</parameter>,
+                     <parameter>const <link linkend="char"><type>char</type></link> *reserved_chars_allowed</parameter>,
+                     <parameter><link linkend="gboolean"><type>gboolean</type></link> allow_utf8</parameter>);</programlisting>
+<para>Escapes a string for use in a URI.</para>
+<para>Normally all characters that are not "unreserved" (i.e. ASCII alphanumerical
+characters plus dash, dot, underscore and tilde) are escaped.
+But if you specify characters in <parameter>reserved_chars_allowed</parameter>
+ they are not
+escaped. This is useful for the "reserved" characters in the URI
+specification, since those are allowed unescaped in some portions of
+a URI.</para>
+<refsect3 id="g-uri-escape-string.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>unescaped</para></entry>
+<entry role="parameter_description"><para>the unescaped input string.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>reserved_chars_allowed</para></entry>
+<entry role="parameter_description"><para>a string of reserved characters that
+are allowed to be used, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>allow_utf8</para></entry>
+<entry role="parameter_description"><para><link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if the result can include UTF-8 characters.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-uri-escape-string.returns" role="returns">
+<title>Returns</title>
+<para> an escaped version of <parameter>unescaped</parameter>
+. The returned string should be
+freed when no longer needed.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.16">2.16</link></para></refsect2>
+<refsect2 id="g-uri-unescape-string" role="function" condition="since:2.16">
+<title>g_uri_unescape_string&#160;()</title>
+<indexterm zone="g-uri-unescape-string" role="2.16"><primary sortas="uri_unescape_string">g_uri_unescape_string</primary></indexterm>
+<programlisting language="C"><link linkend="char"><returnvalue>char</returnvalue></link>&#160;*
+g_uri_unescape_string (<parameter>const <link linkend="char"><type>char</type></link> *escaped_string</parameter>,
+                       <parameter>const <link linkend="char"><type>char</type></link> *illegal_characters</parameter>);</programlisting>
+<para>Unescapes a whole escaped string.</para>
+<para>If any of the characters in <parameter>illegal_characters</parameter>
+ or the character zero appears
+as an escaped character in <parameter>escaped_string</parameter>
+ then that is an error and <link linkend="NULL:CAPS"><literal>NULL</literal></link>
+will be returned. This is useful it you want to avoid for instance having a
+slash being expanded in an escaped path element, which might confuse pathname
+handling.</para>
+<refsect3 id="g-uri-unescape-string.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>escaped_string</para></entry>
+<entry role="parameter_description"><para>an escaped string to be unescaped.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>illegal_characters</para></entry>
+<entry role="parameter_description"><para>a string of illegal characters not to be
+allowed, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-uri-unescape-string.returns" role="returns">
+<title>Returns</title>
+<para> an unescaped version of <parameter>escaped_string</parameter>
+. The returned string
+should be freed when no longer needed.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.16">2.16</link></para></refsect2>
+<refsect2 id="g-uri-unescape-segment" role="function" condition="since:2.16">
+<title>g_uri_unescape_segment&#160;()</title>
+<indexterm zone="g-uri-unescape-segment" role="2.16"><primary sortas="uri_unescape_segment">g_uri_unescape_segment</primary></indexterm>
+<programlisting language="C"><link linkend="char"><returnvalue>char</returnvalue></link>&#160;*
+g_uri_unescape_segment (<parameter>const <link linkend="char"><type>char</type></link> *escaped_string</parameter>,
+                        <parameter>const <link linkend="char"><type>char</type></link> *escaped_string_end</parameter>,
+                        <parameter>const <link linkend="char"><type>char</type></link> *illegal_characters</parameter>);</programlisting>
+<para>Unescapes a segment of an escaped string.</para>
+<para>If any of the characters in <parameter>illegal_characters</parameter>
+ or the character zero appears
+as an escaped character in <parameter>escaped_string</parameter>
+ then that is an error and <link linkend="NULL:CAPS"><literal>NULL</literal></link>
+will be returned. This is useful it you want to avoid for instance having a
+slash being expanded in an escaped path element, which might confuse pathname
+handling.</para>
+<refsect3 id="g-uri-unescape-segment.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>escaped_string</para></entry>
+<entry role="parameter_description"><para>A string, may be <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>escaped_string_end</para></entry>
+<entry role="parameter_description"><para>Pointer to end of <parameter>escaped_string</parameter>
+, may be <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>illegal_characters</para></entry>
+<entry role="parameter_description"><para>An optional string of illegal characters not to be allowed, may be <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-uri-unescape-segment.returns" role="returns">
+<title>Returns</title>
+<para> an unescaped version of <parameter>escaped_string</parameter>
+or <link linkend="NULL:CAPS"><literal>NULL</literal></link> on error.
+The returned string should be freed when no longer needed.  As a
+special case if <link linkend="NULL:CAPS"><literal>NULL</literal></link> is given for <parameter>escaped_string</parameter>
+, this function
+will return <link linkend="NULL:CAPS"><literal>NULL</literal></link>.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.16">2.16</link></para></refsect2>
+<refsect2 id="g-uri-list-extract-uris" role="function" condition="since:2.6">
+<title>g_uri_list_extract_uris&#160;()</title>
+<indexterm zone="g-uri-list-extract-uris" role="2.6"><primary sortas="uri_list_extract_uris">g_uri_list_extract_uris</primary></indexterm>
+<programlisting language="C"><link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;**
+g_uri_list_extract_uris (<parameter>const <link linkend="gchar"><type>gchar</type></link> *uri_list</parameter>);</programlisting>
+<para>Splits an URI list conforming to the text/uri-list
+mime type defined in RFC 2483 into individual URIs,
+discarding any comments. The URIs are not validated.</para>
+<refsect3 id="g-uri-list-extract-uris.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>uri_list</para></entry>
+<entry role="parameter_description"><para>an URI list </para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-uri-list-extract-uris.returns" role="returns">
+<title>Returns</title>
+<para>a newly allocated <link linkend="NULL:CAPS"><literal>NULL</literal></link>-terminated list
+of strings holding the individual URIs. The array should be freed
+with <link linkend="g-strfreev"><function>g_strfreev()</function></link>. </para>
+<para><emphasis role="annotation">[<acronym>transfer full</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.6">2.6</link></para></refsect2>
+<refsect2 id="g-filename-from-uri" role="function">
+<title>g_filename_from_uri&#160;()</title>
+<indexterm zone="g-filename-from-uri"><primary sortas="filename_from_uri">g_filename_from_uri</primary></indexterm>
+<programlisting language="C"><link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+g_filename_from_uri (<parameter>const <link linkend="gchar"><type>gchar</type></link> *uri</parameter>,
+                     <parameter><link linkend="gchar"><type>gchar</type></link> **hostname</parameter>,
+                     <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para>Converts an escaped ASCII-encoded URI to a local filename in the
+encoding used for filenames.</para>
+<refsect3 id="g-filename-from-uri.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>uri</para></entry>
+<entry role="parameter_description"><para>a uri describing a filename (escaped, encoded in ASCII).</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>hostname</para></entry>
+<entry role="parameter_description"><para>Location to store hostname for the URI.
+If there is no hostname in the URI, <link linkend="NULL:CAPS"><literal>NULL</literal></link> will be
+stored in this location. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>out</acronym>][<acronym>optional</acronym>][<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para>location to store the error occurring, or <link linkend="NULL:CAPS"><literal>NULL</literal></link> to ignore
+errors. Any of the errors in <link linkend="GConvertError"><type>GConvertError</type></link> may occur.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-filename-from-uri.returns" role="returns">
+<title>Returns</title>
+<para>a newly-allocated string holding
+the resulting filename, or <link linkend="NULL:CAPS"><literal>NULL</literal></link> on an error. </para>
+<para><emphasis role="annotation">[<acronym>type</acronym> filename]</emphasis></para>
+</refsect3></refsect2>
+<refsect2 id="g-filename-to-uri" role="function">
+<title>g_filename_to_uri&#160;()</title>
+<indexterm zone="g-filename-to-uri"><primary sortas="filename_to_uri">g_filename_to_uri</primary></indexterm>
+<programlisting language="C"><link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+g_filename_to_uri (<parameter>const <link linkend="gchar"><type>gchar</type></link> *filename</parameter>,
+                   <parameter>const <link linkend="gchar"><type>gchar</type></link> *hostname</parameter>,
+                   <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para>Converts an absolute filename to an escaped ASCII-encoded URI, with the path
+component following Section 3.3. of RFC 2396.</para>
+<refsect3 id="g-filename-to-uri.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>filename</para></entry>
+<entry role="parameter_description"><para>an absolute filename specified in the GLib file
+name encoding, which is the on-disk file name bytes on Unix, and UTF-8
+on Windows. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>type</acronym> filename]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>hostname</para></entry>
+<entry role="parameter_description"><para>A UTF-8 encoded hostname, or <link linkend="NULL:CAPS"><literal>NULL</literal></link> for none. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para>location to store the error occurring, or <link linkend="NULL:CAPS"><literal>NULL</literal></link> to ignore
+errors. Any of the errors in <link linkend="GConvertError"><type>GConvertError</type></link> may occur.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-filename-to-uri.returns" role="returns">
+<title>Returns</title>
+<para> a newly-allocated string holding the resulting
+URI, or <link linkend="NULL:CAPS"><literal>NULL</literal></link> on an error.</para>
+</refsect3></refsect2>
+
+</refsect1>
+<refsect1 id="glib-URI-Functions.other_details" role="details">
+<title role="details.title">Types and Values</title>
+<refsect2 id="G-URI-RESERVED-CHARS-ALLOWED-IN-PATH:CAPS" role="macro">
+<title>G_URI_RESERVED_CHARS_ALLOWED_IN_PATH</title>
+<indexterm zone="G-URI-RESERVED-CHARS-ALLOWED-IN-PATH:CAPS"><primary sortas="URI_RESERVED_CHARS_ALLOWED_IN_PATH">G_URI_RESERVED_CHARS_ALLOWED_IN_PATH</primary></indexterm>
+<programlisting language="C">#define G_URI_RESERVED_CHARS_ALLOWED_IN_PATH G_URI_RESERVED_CHARS_ALLOWED_IN_PATH_ELEMENT "/"
+</programlisting>
+<para>Allowed characters in a path. Includes "!$&amp;'()*+,;=:@/".</para>
+</refsect2>
+<refsect2 id="G-URI-RESERVED-CHARS-ALLOWED-IN-PATH-ELEMENT:CAPS" role="macro">
+<title>G_URI_RESERVED_CHARS_ALLOWED_IN_PATH_ELEMENT</title>
+<indexterm zone="G-URI-RESERVED-CHARS-ALLOWED-IN-PATH-ELEMENT:CAPS"><primary sortas="URI_RESERVED_CHARS_ALLOWED_IN_PATH_ELEMENT">G_URI_RESERVED_CHARS_ALLOWED_IN_PATH_ELEMENT</primary></indexterm>
+<programlisting language="C">#define G_URI_RESERVED_CHARS_ALLOWED_IN_PATH_ELEMENT G_URI_RESERVED_CHARS_SUBCOMPONENT_DELIMITERS ":@"
+</programlisting>
+<para>Allowed characters in path elements. Includes "!$&amp;'()*+,;=:@".</para>
+</refsect2>
+<refsect2 id="G-URI-RESERVED-CHARS-ALLOWED-IN-USERINFO:CAPS" role="macro">
+<title>G_URI_RESERVED_CHARS_ALLOWED_IN_USERINFO</title>
+<indexterm zone="G-URI-RESERVED-CHARS-ALLOWED-IN-USERINFO:CAPS"><primary sortas="URI_RESERVED_CHARS_ALLOWED_IN_USERINFO">G_URI_RESERVED_CHARS_ALLOWED_IN_USERINFO</primary></indexterm>
+<programlisting language="C">#define G_URI_RESERVED_CHARS_ALLOWED_IN_USERINFO G_URI_RESERVED_CHARS_SUBCOMPONENT_DELIMITERS ":"
+</programlisting>
+<para>Allowed characters in userinfo as defined in RFC 3986. Includes "!$&amp;'()*+,;=:".</para>
+</refsect2>
+<refsect2 id="G-URI-RESERVED-CHARS-GENERIC-DELIMITERS:CAPS" role="macro">
+<title>G_URI_RESERVED_CHARS_GENERIC_DELIMITERS</title>
+<indexterm zone="G-URI-RESERVED-CHARS-GENERIC-DELIMITERS:CAPS"><primary sortas="URI_RESERVED_CHARS_GENERIC_DELIMITERS">G_URI_RESERVED_CHARS_GENERIC_DELIMITERS</primary></indexterm>
+<programlisting language="C">#define G_URI_RESERVED_CHARS_GENERIC_DELIMITERS ":/?#[]@"
+</programlisting>
+<para>Generic delimiters characters as defined in RFC 3986. Includes ":/?#[]@".</para>
+</refsect2>
+<refsect2 id="G-URI-RESERVED-CHARS-SUBCOMPONENT-DELIMITERS:CAPS" role="macro">
+<title>G_URI_RESERVED_CHARS_SUBCOMPONENT_DELIMITERS</title>
+<indexterm zone="G-URI-RESERVED-CHARS-SUBCOMPONENT-DELIMITERS:CAPS"><primary sortas="URI_RESERVED_CHARS_SUBCOMPONENT_DELIMITERS">G_URI_RESERVED_CHARS_SUBCOMPONENT_DELIMITERS</primary></indexterm>
+<programlisting language="C">#define G_URI_RESERVED_CHARS_SUBCOMPONENT_DELIMITERS "!$&amp;'()*+,;="
+</programlisting>
+<para>Subcomponent delimiter characters as defined in RFC 3986. Includes "!$&amp;'()*+,;=".</para>
+</refsect2>
+
+</refsect1>
+
+</refentry>

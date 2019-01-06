@@ -1,0 +1,343 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC '-//OASIS//DTD DocBook XML V4.5//EN'
+                      'http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd' [
+<!ENTITY % local.common.attrib "xmlns:xi  CDATA  #FIXED 'http://www.w3.org/2003/XInclude'">
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="GSeekable">
+<refmeta>
+<refentrytitle role="top_of_page" id="GSeekable.top_of_page">GSeekable</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>GIO Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>GSeekable</refname>
+<refpurpose>Stream seeking interface</refpurpose>
+</refnamediv>
+
+<refsect1 id="GSeekable.functions" role="functions_proto">
+<title role="functions_proto.title">Functions</title>
+<informaltable pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="functions_return" colwidth="150px"/>
+<colspec colname="functions_name"/>
+<tbody>
+<row><entry role="function_type"><link linkend="goffset"><returnvalue>goffset</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-seekable-tell">g_seekable_tell</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-seekable-can-seek">g_seekable_can_seek</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-seekable-seek">g_seekable_seek</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-seekable-can-truncate">g_seekable_can_truncate</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-seekable-truncate">g_seekable_truncate</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GSeekable.other" role="other_proto">
+<title role="other_proto.title">Types and Values</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="name" colwidth="150px"/>
+<colspec colname="description"/>
+<tbody>
+<row><entry role="datatype_keyword"></entry><entry role="function_name"><link linkend="GSeekable-struct">GSeekable</link></entry></row>
+<row><entry role="datatype_keyword">struct</entry><entry role="function_name"><link linkend="GSeekableIface">GSeekableIface</link></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GSeekable.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<screen>    <link linkend="GInterface">GInterface</link>
+    <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> GSeekable
+</screen>
+</refsect1>
+<refsect1 id="GSeekable.prerequisites" role="prerequisites">
+<title role="prerequisites.title">Prerequisites</title>
+<para>
+GSeekable requires
+ <link linkend="GObject">GObject</link>.</para>
+
+</refsect1>
+<refsect1 id="GSeekable.implementations" role="implementations">
+<title role="implementations.title">Known Implementations</title>
+<para>
+GSeekable is implemented by
+ <link linkend="GBufferedInputStream">GBufferedInputStream</link>,  <link linkend="GBufferedOutputStream">GBufferedOutputStream</link>,  <link linkend="GDataInputStream">GDataInputStream</link>,  <link linkend="GDataOutputStream">GDataOutputStream</link>,  <link linkend="GFileIOStream">GFileIOStream</link>,  <link linkend="GFileInputStream">GFileInputStream</link>,  <link linkend="GFileOutputStream">GFileOutputStream</link>,  <link linkend="GMemoryInputStream">GMemoryInputStream</link> and  <link linkend="GMemoryOutputStream">GMemoryOutputStream</link>.</para>
+
+</refsect1>
+
+<refsect1 id="GSeekable.includes"><title>Includes</title><synopsis>#include &lt;gio/gio.h&gt;
+</synopsis></refsect1>
+
+<refsect1 id="GSeekable.description" role="desc">
+<title role="desc.title">Description</title>
+<para><link linkend="GSeekable"><type>GSeekable</type></link> is implemented by streams (implementations of
+<link linkend="GInputStream"><type>GInputStream</type></link> or <link linkend="GOutputStream"><type>GOutputStream</type></link>) that support seeking.</para>
+<para>Seekable streams largely fall into two categories: resizable and
+fixed-size.</para>
+<para><link linkend="GSeekable"><type>GSeekable</type></link> on fixed-sized streams is approximately the same as POSIX
+<link linkend="lseek"><function>lseek()</function></link> on a block device (for example: attmepting to seek past the
+end of the device is an error).  Fixed streams typically cannot be
+truncated.</para>
+<para><link linkend="GSeekable"><type>GSeekable</type></link> on resizable streams is approximately the same as POSIX
+<link linkend="lseek"><function>lseek()</function></link> on a normal file.  Seeking past the end and writing data will
+usually cause the stream to resize by introducing zero bytes.</para>
+
+</refsect1>
+<refsect1 id="GSeekable.functions_details" role="details">
+<title role="details.title">Functions</title>
+<refsect2 id="g-seekable-tell" role="function">
+<title>g_seekable_tell&#160;()</title>
+<indexterm zone="g-seekable-tell"><primary sortas="seekable_tell">g_seekable_tell</primary></indexterm>
+<programlisting language="C"><link linkend="goffset"><returnvalue>goffset</returnvalue></link>
+g_seekable_tell (<parameter><link linkend="GSeekable"><type>GSeekable</type></link> *seekable</parameter>);</programlisting>
+<para>Tells the current position within the stream.</para>
+<refsect3 id="g-seekable-tell.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>seekable</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSeekable"><type>GSeekable</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-seekable-tell.returns" role="returns">
+<title>Returns</title>
+<para> the offset from the beginning of the buffer.</para>
+</refsect3></refsect2>
+<refsect2 id="g-seekable-can-seek" role="function">
+<title>g_seekable_can_seek&#160;()</title>
+<indexterm zone="g-seekable-can-seek"><primary sortas="seekable_can_seek">g_seekable_can_seek</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_seekable_can_seek (<parameter><link linkend="GSeekable"><type>GSeekable</type></link> *seekable</parameter>);</programlisting>
+<para>Tests if the stream supports the <link linkend="GSeekableIface"><type>GSeekableIface</type></link>.</para>
+<refsect3 id="g-seekable-can-seek.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>seekable</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSeekable"><type>GSeekable</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-seekable-can-seek.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if <parameter>seekable</parameter>
+can be seeked. <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> otherwise.</para>
+</refsect3></refsect2>
+<refsect2 id="g-seekable-seek" role="function">
+<title>g_seekable_seek&#160;()</title>
+<indexterm zone="g-seekable-seek"><primary sortas="seekable_seek">g_seekable_seek</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_seekable_seek (<parameter><link linkend="GSeekable"><type>GSeekable</type></link> *seekable</parameter>,
+                 <parameter><link linkend="goffset"><type>goffset</type></link> offset</parameter>,
+                 <parameter><link linkend="GSeekType"><type>GSeekType</type></link> type</parameter>,
+                 <parameter><link linkend="GCancellable"><type>GCancellable</type></link> *cancellable</parameter>,
+                 <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para>Seeks in the stream by the given <parameter>offset</parameter>
+, modified by <parameter>type</parameter>
+.</para>
+<para>Attempting to seek past the end of the stream will have different
+results depending on if the stream is fixed-sized or resizable.  If
+the stream is resizable then seeking past the end and then writing
+will result in zeros filling the empty space.  Seeking past the end
+of a resizable stream and reading will result in EOF.  Seeking past
+the end of a fixed-sized stream will fail.</para>
+<para>Any operation that would result in a negative offset will fail.</para>
+<para>If <parameter>cancellable</parameter>
+ is not <link linkend="NULL:CAPS"><literal>NULL</literal></link>, then the operation can be cancelled by
+triggering the cancellable object from another thread. If the operation
+was cancelled, the error <link linkend="G-IO-ERROR-CANCELLED:CAPS"><literal>G_IO_ERROR_CANCELLED</literal></link> will be returned.</para>
+<refsect3 id="g-seekable-seek.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>seekable</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSeekable"><type>GSeekable</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>offset</para></entry>
+<entry role="parameter_description"><para>a <link linkend="goffset"><type>goffset</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>type</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSeekType"><type>GSeekType</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>cancellable</para></entry>
+<entry role="parameter_description"><para>optional <link linkend="GCancellable"><type>GCancellable</type></link> object, <link linkend="NULL:CAPS"><literal>NULL</literal></link> to ignore. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GError"><type>GError</type></link> location to store the error occurring, or <link linkend="NULL:CAPS"><literal>NULL</literal></link> to
+ignore.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-seekable-seek.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if successful. If an error
+has occurred, this function will return <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> and set <parameter>error</parameter>
+appropriately if present.</para>
+</refsect3></refsect2>
+<refsect2 id="g-seekable-can-truncate" role="function">
+<title>g_seekable_can_truncate&#160;()</title>
+<indexterm zone="g-seekable-can-truncate"><primary sortas="seekable_can_truncate">g_seekable_can_truncate</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_seekable_can_truncate (<parameter><link linkend="GSeekable"><type>GSeekable</type></link> *seekable</parameter>);</programlisting>
+<para>Tests if the length of the stream can be adjusted with
+<link linkend="g-seekable-truncate"><function>g_seekable_truncate()</function></link>.</para>
+<refsect3 id="g-seekable-can-truncate.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>seekable</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSeekable"><type>GSeekable</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-seekable-can-truncate.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if the stream can be truncated, <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> otherwise.</para>
+</refsect3></refsect2>
+<refsect2 id="g-seekable-truncate" role="function">
+<title>g_seekable_truncate&#160;()</title>
+<indexterm zone="g-seekable-truncate"><primary sortas="seekable_truncate">g_seekable_truncate</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_seekable_truncate (<parameter><link linkend="GSeekable"><type>GSeekable</type></link> *seekable</parameter>,
+                     <parameter><link linkend="goffset"><type>goffset</type></link> offset</parameter>,
+                     <parameter><link linkend="GCancellable"><type>GCancellable</type></link> *cancellable</parameter>,
+                     <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para>Sets the length of the stream to <parameter>offset</parameter>
+. If the stream was previously
+larger than <parameter>offset</parameter>
+, the extra data is discarded. If the stream was
+previouly shorter than <parameter>offset</parameter>
+, it is extended with NUL ('\0') bytes.</para>
+<para>If <parameter>cancellable</parameter>
+ is not <link linkend="NULL:CAPS"><literal>NULL</literal></link>, then the operation can be cancelled by
+triggering the cancellable object from another thread. If the operation
+was cancelled, the error <link linkend="G-IO-ERROR-CANCELLED:CAPS"><literal>G_IO_ERROR_CANCELLED</literal></link> will be returned. If an
+operation was partially finished when the operation was cancelled the
+partial result will be returned, without an error.</para>
+
+<para><emphasis role="annotation">[<acronym>virtual</acronym> truncate_fn]</emphasis></para><refsect3 id="g-seekable-truncate.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>seekable</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSeekable"><type>GSeekable</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>offset</para></entry>
+<entry role="parameter_description"><para>new length for <parameter>seekable</parameter>
+, in bytes.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>cancellable</para></entry>
+<entry role="parameter_description"><para>optional <link linkend="GCancellable"><type>GCancellable</type></link> object, <link linkend="NULL:CAPS"><literal>NULL</literal></link> to ignore. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GError"><type>GError</type></link> location to store the error occurring, or <link linkend="NULL:CAPS"><literal>NULL</literal></link> to
+ignore.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-seekable-truncate.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if successful. If an error
+has occurred, this function will return <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> and set <parameter>error</parameter>
+appropriately if present. </para>
+</refsect3></refsect2>
+
+</refsect1>
+<refsect1 id="GSeekable.other_details" role="details">
+<title role="details.title">Types and Values</title>
+<refsect2 id="GSeekable-struct" role="struct">
+<title>GSeekable</title>
+<indexterm zone="GSeekable-struct"><primary sortas="Seekable">GSeekable</primary></indexterm>
+<programlisting language="C">typedef struct _GSeekable GSeekable;</programlisting>
+<para>Seek object for streaming operations.</para>
+</refsect2>
+<refsect2 id="GSeekableIface" role="struct">
+<title>struct GSeekableIface</title>
+<indexterm zone="GSeekableIface"><primary sortas="SeekableIface">GSeekableIface</primary></indexterm>
+<programlisting language="C">struct GSeekableIface {
+  GTypeInterface g_iface;
+
+  /* Virtual Table */
+
+  goffset     (* tell)	         (GSeekable    *seekable);
+
+  gboolean    (* can_seek)       (GSeekable    *seekable);
+  gboolean    (* seek)	         (GSeekable    *seekable,
+				  goffset       offset,
+				  GSeekType     type,
+				  GCancellable *cancellable,
+				  GError      **error);
+
+  gboolean    (* can_truncate)   (GSeekable    *seekable);
+  gboolean    (* truncate_fn)    (GSeekable    *seekable,
+				  goffset       offset,
+				  GCancellable *cancellable,
+				  GError       **error);
+
+  /* TODO: Async seek/truncate */
+};
+</programlisting>
+<para>Provides an interface for implementing seekable functionality on I/O Streams.</para>
+<refsect3 id="GSeekableIface.members" role="struct_members">
+<title>Members</title>
+<informaltable role="struct_members_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="struct_members_name" colwidth="300px"/>
+<colspec colname="struct_members_description"/>
+<colspec colname="struct_members_annotations" colwidth="200px"/>
+<tbody>
+<row role="member"><entry role="struct_member_name"><para><structfield id="GSeekableIface.tell">tell</structfield>&#160;()</para></entry>
+<entry role="struct_member_description"><para>Tells the current location within a stream.</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><structfield id="GSeekableIface.can-seek">can_seek</structfield>&#160;()</para></entry>
+<entry role="struct_member_description"><para>Checks if seeking is supported by the stream.</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><structfield id="GSeekableIface.seek">seek</structfield>&#160;()</para></entry>
+<entry role="struct_member_description"><para>Seeks to a location within a stream.</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><structfield id="GSeekableIface.can-truncate">can_truncate</structfield>&#160;()</para></entry>
+<entry role="struct_member_description"><para>Checks if truncation is supported by the stream.</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><structfield id="GSeekableIface.truncate-fn">truncate_fn</structfield>&#160;()</para></entry>
+<entry role="struct_member_description"><para>Truncates a stream.</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+</tbody></tgroup></informaltable>
+</refsect3>
+</refsect2>
+
+</refsect1>
+<refsect1 id="GSeekable.see-also">
+<title>See Also</title>
+<para><link linkend="GInputStream"><type>GInputStream</type></link>, <link linkend="GOutputStream"><type>GOutputStream</type></link></para>
+
+</refsect1>
+
+</refentry>

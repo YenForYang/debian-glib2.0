@@ -1,0 +1,246 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC '-//OASIS//DTD DocBook XML V4.5//EN'
+                      'http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd' [
+<!ENTITY % local.common.attrib "xmlns:xi  CDATA  #FIXED 'http://www.w3.org/2003/XInclude'">
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="GSocketControlMessage">
+<refmeta>
+<refentrytitle role="top_of_page" id="GSocketControlMessage.top_of_page">GSocketControlMessage</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>GIO Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>GSocketControlMessage</refname>
+<refpurpose>A GSocket control message</refpurpose>
+</refnamediv>
+
+<refsect1 id="GSocketControlMessage.functions" role="functions_proto">
+<title role="functions_proto.title">Functions</title>
+<informaltable pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="functions_return" colwidth="150px"/>
+<colspec colname="functions_name"/>
+<tbody>
+<row><entry role="function_type"><link linkend="GSocketControlMessage"><returnvalue>GSocketControlMessage</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-socket-control-message-deserialize">g_socket_control_message_deserialize</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="int"><returnvalue>int</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-socket-control-message-get-level">g_socket_control_message_get_level</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="int"><returnvalue>int</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-socket-control-message-get-msg-type">g_socket_control_message_get_msg_type</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gsize"><returnvalue>gsize</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-socket-control-message-get-size">g_socket_control_message_get_size</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-socket-control-message-serialize">g_socket_control_message_serialize</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GSocketControlMessage.other" role="other_proto">
+<title role="other_proto.title">Types and Values</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="name" colwidth="150px"/>
+<colspec colname="description"/>
+<tbody>
+<row><entry role="datatype_keyword"></entry><entry role="function_name"><link linkend="GSocketControlMessage-struct">GSocketControlMessage</link></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GSocketControlMessage.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<screen>    <link linkend="GObject">GObject</link>
+    <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> GSocketControlMessage
+        <phrase role="lineart">&#9500;&#9472;&#9472;</phrase> <link linkend="GUnixCredentialsMessage">GUnixCredentialsMessage</link>
+        <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> <link linkend="GUnixFDMessage">GUnixFDMessage</link>
+</screen>
+</refsect1>
+
+<refsect1 id="GSocketControlMessage.includes"><title>Includes</title><synopsis>#include &lt;gio/gio.h&gt;
+</synopsis></refsect1>
+
+<refsect1 id="GSocketControlMessage.description" role="desc">
+<title role="desc.title">Description</title>
+<para>A <link linkend="GSocketControlMessage"><type>GSocketControlMessage</type></link> is a special-purpose utility message that
+can be sent to or received from a <link linkend="GSocket"><type>GSocket</type></link>. These types of
+messages are often called "ancillary data".</para>
+<para>The message can represent some sort of special instruction to or
+information from the socket or can represent a special kind of
+transfer to the peer (for example, sending a file descriptor over
+a UNIX socket).</para>
+<para>These messages are sent with <link linkend="g-socket-send-message"><function>g_socket_send_message()</function></link> and received
+with <link linkend="g-socket-receive-message"><function>g_socket_receive_message()</function></link>.</para>
+<para>To extend the set of control message that can be sent, subclass this
+class and override the get_size, get_level, get_type and serialize
+methods.</para>
+<para>To extend the set of control messages that can be received, subclass
+this class and implement the deserialize method. Also, make sure your
+class is registered with the GType typesystem before calling
+<link linkend="g-socket-receive-message"><function>g_socket_receive_message()</function></link> to read such a message.</para>
+
+</refsect1>
+<refsect1 id="GSocketControlMessage.functions_details" role="details">
+<title role="details.title">Functions</title>
+<refsect2 id="g-socket-control-message-deserialize" role="function" condition="since:2.22">
+<title>g_socket_control_message_deserialize&#160;()</title>
+<indexterm zone="g-socket-control-message-deserialize" role="2.22"><primary sortas="socket_control_message_deserialize">g_socket_control_message_deserialize</primary></indexterm>
+<programlisting language="C"><link linkend="GSocketControlMessage"><returnvalue>GSocketControlMessage</returnvalue></link>&#160;*
+g_socket_control_message_deserialize (<parameter><link linkend="int"><type>int</type></link> level</parameter>,
+                                      <parameter><link linkend="int"><type>int</type></link> type</parameter>,
+                                      <parameter><link linkend="gsize"><type>gsize</type></link> size</parameter>,
+                                      <parameter><link linkend="gpointer"><type>gpointer</type></link> data</parameter>);</programlisting>
+<para>Tries to deserialize a socket control message of a given
+<parameter>level</parameter>
+ and <parameter>type</parameter>
+. This will ask all known (to GType) subclasses
+of <link linkend="GSocketControlMessage"><type>GSocketControlMessage</type></link> if they can understand this kind
+of message and if so deserialize it into a <link linkend="GSocketControlMessage"><type>GSocketControlMessage</type></link>.</para>
+<para>If there is no implementation for this kind of control message, <link linkend="NULL:CAPS"><literal>NULL</literal></link>
+will be returned.</para>
+<refsect3 id="g-socket-control-message-deserialize.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>level</para></entry>
+<entry role="parameter_description"><para>a socket level</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>type</para></entry>
+<entry role="parameter_description"><para>a socket control message type for the given <parameter>level</parameter>
+</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>size</para></entry>
+<entry role="parameter_description"><para>the size of the data in bytes</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>data</para></entry>
+<entry role="parameter_description"><para>pointer to the message data. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>array</acronym> length=size][<acronym>element-type</acronym> guint8]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-socket-control-message-deserialize.returns" role="returns">
+<title>Returns</title>
+<para>the deserialized message or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para>
+<para><emphasis role="annotation">[<acronym>transfer full</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.22">2.22</link></para></refsect2>
+<refsect2 id="g-socket-control-message-get-level" role="function" condition="since:2.22">
+<title>g_socket_control_message_get_level&#160;()</title>
+<indexterm zone="g-socket-control-message-get-level" role="2.22"><primary sortas="socket_control_message_get_level">g_socket_control_message_get_level</primary></indexterm>
+<programlisting language="C"><link linkend="int"><returnvalue>int</returnvalue></link>
+g_socket_control_message_get_level (<parameter><link linkend="GSocketControlMessage"><type>GSocketControlMessage</type></link> *message</parameter>);</programlisting>
+<para>Returns the "level" (i.e. the originating protocol) of the control message.
+This is often SOL_SOCKET.</para>
+<refsect3 id="g-socket-control-message-get-level.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>message</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSocketControlMessage"><type>GSocketControlMessage</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-socket-control-message-get-level.returns" role="returns">
+<title>Returns</title>
+<para> an integer describing the level</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.22">2.22</link></para></refsect2>
+<refsect2 id="g-socket-control-message-get-msg-type" role="function" condition="since:2.22">
+<title>g_socket_control_message_get_msg_type&#160;()</title>
+<indexterm zone="g-socket-control-message-get-msg-type" role="2.22"><primary sortas="socket_control_message_get_msg_type">g_socket_control_message_get_msg_type</primary></indexterm>
+<programlisting language="C"><link linkend="int"><returnvalue>int</returnvalue></link>
+g_socket_control_message_get_msg_type (<parameter><link linkend="GSocketControlMessage"><type>GSocketControlMessage</type></link> *message</parameter>);</programlisting>
+<para>Returns the protocol specific type of the control message.
+For instance, for UNIX fd passing this would be SCM_RIGHTS.</para>
+<refsect3 id="g-socket-control-message-get-msg-type.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>message</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSocketControlMessage"><type>GSocketControlMessage</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-socket-control-message-get-msg-type.returns" role="returns">
+<title>Returns</title>
+<para> an integer describing the type of control message</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.22">2.22</link></para></refsect2>
+<refsect2 id="g-socket-control-message-get-size" role="function" condition="since:2.22">
+<title>g_socket_control_message_get_size&#160;()</title>
+<indexterm zone="g-socket-control-message-get-size" role="2.22"><primary sortas="socket_control_message_get_size">g_socket_control_message_get_size</primary></indexterm>
+<programlisting language="C"><link linkend="gsize"><returnvalue>gsize</returnvalue></link>
+g_socket_control_message_get_size (<parameter><link linkend="GSocketControlMessage"><type>GSocketControlMessage</type></link> *message</parameter>);</programlisting>
+<para>Returns the space required for the control message, not including
+headers or alignment.</para>
+<refsect3 id="g-socket-control-message-get-size.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>message</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSocketControlMessage"><type>GSocketControlMessage</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-socket-control-message-get-size.returns" role="returns">
+<title>Returns</title>
+<para> The number of bytes required.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.22">2.22</link></para></refsect2>
+<refsect2 id="g-socket-control-message-serialize" role="function" condition="since:2.22">
+<title>g_socket_control_message_serialize&#160;()</title>
+<indexterm zone="g-socket-control-message-serialize" role="2.22"><primary sortas="socket_control_message_serialize">g_socket_control_message_serialize</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_socket_control_message_serialize (<parameter><link linkend="GSocketControlMessage"><type>GSocketControlMessage</type></link> *message</parameter>,
+                                    <parameter><link linkend="gpointer"><type>gpointer</type></link> data</parameter>);</programlisting>
+<para>Converts the data in the message to bytes placed in the
+message.</para>
+<para><parameter>data</parameter>
+ is guaranteed to have enough space to fit the size
+returned by <link linkend="g-socket-control-message-get-size"><function>g_socket_control_message_get_size()</function></link> on this
+object.</para>
+<refsect3 id="g-socket-control-message-serialize.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>message</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSocketControlMessage"><type>GSocketControlMessage</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>data</para></entry>
+<entry role="parameter_description"><para>A buffer to write data to. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>not nullable</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.22">2.22</link></para></refsect2>
+
+</refsect1>
+<refsect1 id="GSocketControlMessage.other_details" role="details">
+<title role="details.title">Types and Values</title>
+<refsect2 id="GSocketControlMessage-struct" role="struct">
+<title>GSocketControlMessage</title>
+<indexterm zone="GSocketControlMessage-struct"><primary sortas="SocketControlMessage">GSocketControlMessage</primary></indexterm>
+<programlisting language="C">typedef struct _GSocketControlMessage GSocketControlMessage;</programlisting>
+<para>Base class for socket-type specific control messages that can be sent and
+received over <link linkend="GSocket"><type>GSocket</type></link>.</para>
+</refsect2>
+
+</refsect1>
+<refsect1 id="GSocketControlMessage.see-also">
+<title>See Also</title>
+<para><link linkend="GSocket"><type>GSocket</type></link>.</para>
+
+</refsect1>
+
+</refentry>

@@ -1,0 +1,143 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC '-//OASIS//DTD DocBook XML V4.5//EN'
+                      'http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd' [
+<!ENTITY % local.common.attrib "xmlns:xi  CDATA  #FIXED 'http://www.w3.org/2003/XInclude'">
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="gio-GActionGroup-exporter">
+<refmeta>
+<refentrytitle role="top_of_page" id="gio-GActionGroup-exporter.top_of_page">GActionGroup exporter</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>GIO Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>GActionGroup exporter</refname>
+<refpurpose>Export GActionGroups on D-Bus</refpurpose>
+</refnamediv>
+
+<refsect1 id="gio-GActionGroup-exporter.functions" role="functions_proto">
+<title role="functions_proto.title">Functions</title>
+<informaltable pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="functions_return" colwidth="150px"/>
+<colspec colname="functions_name"/>
+<tbody>
+<row><entry role="function_type"><link linkend="guint"><returnvalue>guint</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-dbus-connection-export-action-group">g_dbus_connection_export_action_group</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-dbus-connection-unexport-action-group">g_dbus_connection_unexport_action_group</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+
+<refsect1 id="gio-GActionGroup-exporter.includes"><title>Includes</title><synopsis>#include &lt;gio/gio.h&gt;
+</synopsis></refsect1>
+
+<refsect1 id="gio-GActionGroup-exporter.description" role="desc">
+<title role="desc.title">Description</title>
+<para>These functions support exporting a <link linkend="GActionGroup"><type>GActionGroup</type></link> on D-Bus.
+The D-Bus interface that is used is a private implementation
+detail.</para>
+<para>To access an exported <link linkend="GActionGroup"><type>GActionGroup</type></link> remotely, use
+<link linkend="g-dbus-action-group-get"><function>g_dbus_action_group_get()</function></link> to obtain a <link linkend="GDBusActionGroup"><type>GDBusActionGroup</type></link>.</para>
+
+</refsect1>
+<refsect1 id="gio-GActionGroup-exporter.functions_details" role="details">
+<title role="details.title">Functions</title>
+<refsect2 id="g-dbus-connection-export-action-group" role="function" condition="since:2.32">
+<title>g_dbus_connection_export_action_group&#160;()</title>
+<indexterm zone="g-dbus-connection-export-action-group" role="2.32"><primary sortas="dbus_connection_export_action_group">g_dbus_connection_export_action_group</primary></indexterm>
+<programlisting language="C"><link linkend="guint"><returnvalue>guint</returnvalue></link>
+g_dbus_connection_export_action_group (<parameter><link linkend="GDBusConnection"><type>GDBusConnection</type></link> *connection</parameter>,
+                                       <parameter>const <link linkend="gchar"><type>gchar</type></link> *object_path</parameter>,
+                                       <parameter><link linkend="GActionGroup"><type>GActionGroup</type></link> *action_group</parameter>,
+                                       <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para>Exports <parameter>action_group</parameter>
+ on <parameter>connection</parameter>
+ at <parameter>object_path</parameter>
+.</para>
+<para>The implemented D-Bus API should be considered private.  It is
+subject to change in the future.</para>
+<para>A given object path can only have one action group exported on it.
+If this constraint is violated, the export will fail and 0 will be
+returned (with <parameter>error</parameter>
+ set accordingly).</para>
+<para>You can unexport the action group using
+<link linkend="g-dbus-connection-unexport-action-group"><function>g_dbus_connection_unexport_action_group()</function></link> with the return value of
+this function.</para>
+<para>The thread default main context is taken at the time of this call.
+All incoming action activations and state change requests are
+reported from this context.  Any changes on the action group that
+cause it to emit signals must also come from this same context.
+Since incoming action activations and state change requests are
+rather likely to cause changes on the action group, this effectively
+limits a given action group to being exported from only one main
+context.</para>
+<refsect3 id="g-dbus-connection-export-action-group.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>connection</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GDBusConnection"><type>GDBusConnection</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>object_path</para></entry>
+<entry role="parameter_description"><para>a D-Bus object path</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>action_group</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GActionGroup"><type>GActionGroup</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para>a pointer to a <link linkend="NULL:CAPS"><literal>NULL</literal></link> <link linkend="GError"><type>GError</type></link>, or <link linkend="NULL:CAPS"><literal>NULL</literal></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-dbus-connection-export-action-group.returns" role="returns">
+<title>Returns</title>
+<para> the ID of the export (never zero), or 0 in case of failure</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.32">2.32</link></para></refsect2>
+<refsect2 id="g-dbus-connection-unexport-action-group" role="function" condition="since:2.32">
+<title>g_dbus_connection_unexport_action_group&#160;()</title>
+<indexterm zone="g-dbus-connection-unexport-action-group" role="2.32"><primary sortas="dbus_connection_unexport_action_group">g_dbus_connection_unexport_action_group</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_dbus_connection_unexport_action_group
+                               (<parameter><link linkend="GDBusConnection"><type>GDBusConnection</type></link> *connection</parameter>,
+                                <parameter><link linkend="guint"><type>guint</type></link> export_id</parameter>);</programlisting>
+<para>Reverses the effect of a previous call to
+<link linkend="g-dbus-connection-export-action-group"><function>g_dbus_connection_export_action_group()</function></link>.</para>
+<para>It is an error to call this function with an ID that wasn't returned
+from <link linkend="g-dbus-connection-export-action-group"><function>g_dbus_connection_export_action_group()</function></link> or to call it with the
+same ID more than once.</para>
+<refsect3 id="g-dbus-connection-unexport-action-group.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>connection</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GDBusConnection"><type>GDBusConnection</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>export_id</para></entry>
+<entry role="parameter_description"><para>the ID from <link linkend="g-dbus-connection-export-action-group"><function>g_dbus_connection_export_action_group()</function></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.32">2.32</link></para></refsect2>
+
+</refsect1>
+<refsect1 id="gio-GActionGroup-exporter.other_details" role="details">
+<title role="details.title">Types and Values</title>
+
+</refsect1>
+<refsect1 id="gio-GActionGroup-exporter.see-also">
+<title>See Also</title>
+<para><link linkend="GActionGroup"><type>GActionGroup</type></link>, <link linkend="GDBusActionGroup"><type>GDBusActionGroup</type></link></para>
+
+</refsect1>
+
+</refentry>

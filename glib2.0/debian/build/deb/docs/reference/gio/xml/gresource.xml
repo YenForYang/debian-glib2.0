@@ -1,0 +1,888 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC '-//OASIS//DTD DocBook XML V4.5//EN'
+                      'http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd' [
+<!ENTITY % local.common.attrib "xmlns:xi  CDATA  #FIXED 'http://www.w3.org/2003/XInclude'">
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="GResource">
+<refmeta>
+<refentrytitle role="top_of_page" id="GResource.top_of_page">GResource</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>GIO Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>GResource</refname>
+<refpurpose>Resource framework</refpurpose>
+</refnamediv>
+
+<refsect1 id="GResource.functions" role="functions_proto">
+<title role="functions_proto.title">Functions</title>
+<informaltable pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="functions_return" colwidth="150px"/>
+<colspec colname="functions_name"/>
+<tbody>
+<row><entry role="function_type"><link linkend="GResource"><returnvalue>GResource</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-resource-load">g_resource_load</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GResource"><returnvalue>GResource</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-resource-new-from-data">g_resource_new_from_data</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GResource"><returnvalue>GResource</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-resource-ref">g_resource_ref</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-resource-unref">g_resource_unref</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GBytes"><returnvalue>GBytes</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-resource-lookup-data">g_resource_lookup_data</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GInputStream"><returnvalue>GInputStream</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-resource-open-stream">g_resource_open_stream</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="char"><returnvalue>char</returnvalue></link>&#160;**
+</entry><entry role="function_name"><link linkend="g-resource-enumerate-children">g_resource_enumerate_children</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-resource-get-info">g_resource_get_info</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-static-resource-init">g_static_resource_init</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-static-resource-fini">g_static_resource_fini</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GResource"><returnvalue>GResource</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-static-resource-get-resource">g_static_resource_get_resource</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-resources-register">g_resources_register</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-resources-unregister">g_resources_unregister</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GBytes"><returnvalue>GBytes</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-resources-lookup-data">g_resources_lookup_data</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GInputStream"><returnvalue>GInputStream</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-resources-open-stream">g_resources_open_stream</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="char"><returnvalue>char</returnvalue></link>&#160;**
+</entry><entry role="function_name"><link linkend="g-resources-enumerate-children">g_resources_enumerate_children</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-resources-get-info">g_resources_get_info</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GResource.other" role="other_proto">
+<title role="other_proto.title">Types and Values</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="name" colwidth="150px"/>
+<colspec colname="description"/>
+<tbody>
+<row><entry role="datatype_keyword"></entry><entry role="function_name"><link linkend="GResource-struct">GResource</link></entry></row>
+<row><entry role="datatype_keyword">enum</entry><entry role="function_name"><link linkend="GResourceFlags">GResourceFlags</link></entry></row>
+<row><entry role="datatype_keyword">enum</entry><entry role="function_name"><link linkend="GResourceLookupFlags">GResourceLookupFlags</link></entry></row>
+
+<row><entry role="datatype_keyword">struct</entry><entry role="function_name"><link linkend="GStaticResource">GStaticResource</link></entry></row>
+
+
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="G-RESOURCE-ERROR:CAPS">G_RESOURCE_ERROR</link></entry></row>
+<row><entry role="datatype_keyword">enum</entry><entry role="function_name"><link linkend="GResourceError">GResourceError</link></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GResource.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<screen>    <link linkend="GBoxed">GBoxed</link>
+    <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> GResource
+    <link linkend="GEnum">GEnum</link>
+    <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> GResourceError
+    <link linkend="GFlags">GFlags</link>
+    <phrase role="lineart">&#9500;&#9472;&#9472;</phrase> GResourceFlags
+    <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> GResourceLookupFlags
+</screen>
+</refsect1>
+
+<refsect1 id="GResource.includes"><title>Includes</title><synopsis>#include &lt;gio/gio.h&gt;
+</synopsis></refsect1>
+
+<refsect1 id="GResource.description" role="desc">
+<title role="desc.title">Description</title>
+<para>Applications and libraries often contain binary or textual data that is
+really part of the application, rather than user data. For instance
+<link linkend="GtkBuilder"><type>GtkBuilder</type></link> .ui files, splashscreen images, GMenu markup XML, CSS files,
+icons, etc. These are often shipped as files in <literal>$datadir/appname</literal>, or
+manually included as literal strings in the code.</para>
+<para>The <link linkend="GResource"><type>GResource</type></link> API and the <link linkend="glib-compile-resources">glib-compile-resources</link> program
+provide a convenient and efficient alternative to this which has some nice properties. You
+maintain the files as normal files, so its easy to edit them, but during the build the files
+are combined into a binary bundle that is linked into the executable. This means that loading
+the resource files are efficient (as they are already in memory, shared with other instances) and
+simple (no need to check for things like I/O errors or locate the files in the filesystem). It
+also makes it easier to create relocatable applications.</para>
+<para>Resource files can also be marked as compressed. Such files will be included in the resource bundle
+in a compressed form, but will be automatically uncompressed when the resource is used. This
+is very useful e.g. for larger text files that are parsed once (or rarely) and then thrown away.</para>
+<para>Resource files can also be marked to be preprocessed, by setting the value of the
+<literal>preprocess</literal> attribute to a comma-separated list of preprocessing options.
+The only options currently supported are:</para>
+<para><literal>xml-stripblanks</literal> which will use the xmllint command
+to strip ignorable whitespace from the XML file. For this to work,
+the <literal>XMLLINT</literal> environment variable must be set to the full path to
+the xmllint executable, or xmllint must be in the <literal>PATH</literal>; otherwise
+the preprocessing step is skipped.</para>
+<para><literal>to-pixdata</literal> which will use the gdk-pixbuf-pixdata command to convert
+images to the GdkPixdata format, which allows you to create pixbufs directly using the data inside
+the resource file, rather than an (uncompressed) copy if it. For this, the gdk-pixbuf-pixdata
+program must be in the PATH, or the <literal>GDK_PIXBUF_PIXDATA</literal> environment variable must be
+set to the full path to the gdk-pixbuf-pixdata executable; otherwise the resource compiler will
+abort.</para>
+<para>Resource files will be exported in the GResource namespace using the
+combination of the given <literal>prefix</literal> and the filename from the <literal>file</literal> element.
+The <literal>alias</literal> attribute can be used to alter the filename to expose them at a
+different location in the resource namespace. Typically, this is used to
+include files from a different source directory without exposing the source
+directory in the resource namespace, as in the example below.</para>
+<para>Resource bundles are created by the <link linkend="glib-compile-resources">glib-compile-resources</link> program
+which takes an XML file that describes the bundle, and a set of files that the XML references. These
+are combined into a binary resource bundle.</para>
+<para>An example resource description:</para>
+<informalexample><programlisting role="example"><![CDATA[
+<?xml version="1.0" encoding="UTF-8"?>
+<gresources>
+  <gresource prefix="/org/gtk/Example">
+    <file>data/splashscreen.png</file>
+    <file compressed="true">dialog.ui</file>
+    <file preprocess="xml-stripblanks">menumarkup.xml</file>
+    <file alias="example.css">data/example.css</file>
+  </gresource>
+</gresources>
+]]></programlisting></informalexample>
+<para></para>
+<para>This will create a resource bundle with the following files:</para>
+<informalexample><programlisting role="example"><![CDATA[
+/org/gtk/Example/data/splashscreen.png
+/org/gtk/Example/dialog.ui
+/org/gtk/Example/menumarkup.xml
+/org/gtk/Example/example.css
+]]></programlisting></informalexample>
+<para></para>
+<para>Note that all resources in the process share the same namespace, so use Java-style
+path prefixes (like in the above example) to avoid conflicts.</para>
+<para>You can then use <link linkend="glib-compile-resources">glib-compile-resources</link> to compile the XML to a
+binary bundle that you can load with <link linkend="g-resource-load"><function>g_resource_load()</function></link>. However, its more common to use the --generate-source and
+--generate-header arguments to create a source file and header to link directly into your application.
+This will generate <literal><link linkend="get-resource"><function>get_resource()</function></link></literal>, <literal><link linkend="register-resource"><function>register_resource()</function></link></literal> and
+<literal><link linkend="unregister-resource"><function>unregister_resource()</function></link></literal> functions, prefixed by the <literal>--c-name</literal> argument passed
+to <link linkend="glib-compile-resources">glib-compile-resources</link>. <literal><link linkend="get-resource"><function>get_resource()</function></link></literal> returns
+the generated <link linkend="GResource"><type>GResource</type></link> object. The register and unregister functions
+register the resource so its files can be accessed using
+<link linkend="g-resources-lookup-data"><function>g_resources_lookup_data()</function></link>.</para>
+<para>Once a <link linkend="GResource"><type>GResource</type></link> has been created and registered all the data in it can be accessed globally in the process by
+using API calls like <link linkend="g-resources-open-stream"><function>g_resources_open_stream()</function></link> to stream the data or <link linkend="g-resources-lookup-data"><function>g_resources_lookup_data()</function></link> to get a direct pointer
+to the data. You can also use URIs like "resource:///org/gtk/Example/data/splashscreen.png" with <link linkend="GFile"><type>GFile</type></link> to access
+the resource data.</para>
+<para>Some higher-level APIs, such as <link linkend="GtkApplication"><type>GtkApplication</type></link>, will automatically load
+resources from certain well-known paths in the resource namespace as a
+convenience. See the documentation for those APIs for details.</para>
+<para>There are two forms of the generated source, the default version uses the compiler support for constructor
+and destructor functions (where available) to automatically create and register the <link linkend="GResource"><type>GResource</type></link> on startup
+or library load time. If you pass <literal>--manual-register</literal>, two functions to register/unregister the resource are created
+instead. This requires an explicit initialization call in your application/library, but it works on all platforms,
+even on the minor ones where constructors are not supported. (Constructor support is available for at least Win32, Mac OS and Linux.)</para>
+<para>Note that resource data can point directly into the data segment of e.g. a library, so if you are unloading libraries
+during runtime you need to be very careful with keeping around pointers to data from a resource, as this goes away
+when the library is unloaded. However, in practice this is not generally a problem, since most resource accesses
+are for your own resources, and resource data is often used once, during parsing, and then released.</para>
+<para>When debugging a program or testing a change to an installed version, it is often useful to be able to
+replace resources in the program or library, without recompiling, for debugging or quick hacking and testing
+purposes. Since GLib 2.50, it is possible to use the <literal>G_RESOURCE_OVERLAYS</literal> environment variable to selectively overlay
+resources with replacements from the filesystem.  It is a colon-separated list of substitutions to perform
+during resource lookups.</para>
+<para>A substitution has the form</para>
+<informalexample><programlisting role="example"><![CDATA[
+   /org/gtk/libgtk=/home/desrt/gtk-overlay
+]]></programlisting></informalexample>
+<para></para>
+<para>The part before the <literal>=</literal> is the resource subpath for which the overlay applies.  The part after is a
+filesystem path which contains files and subdirectories as you would like to be loaded as resources with the
+equivalent names.</para>
+<para>In the example above, if an application tried to load a resource with the resource path
+<literal>/org/gtk/libgtk/ui/gtkdialog.ui</literal> then GResource would check the filesystem path
+<literal>/home/desrt/gtk-overlay/ui/gtkdialog.ui</literal>.  If a file was found there, it would be used instead.  This is an
+overlay, not an outright replacement, which means that if a file is not found at that path, the built-in
+version will be used instead.  Whiteouts are not currently supported.</para>
+<para>Substitutions must start with a slash, and must not contain a trailing slash before the '='.  The path after
+the slash should ideally be absolute, but this is not strictly required.  It is possible to overlay the
+location of a single resource with an individual file.</para>
+
+</refsect1>
+<refsect1 id="GResource.functions_details" role="details">
+<title role="details.title">Functions</title>
+<refsect2 id="g-resource-load" role="function" condition="since:2.32">
+<title>g_resource_load&#160;()</title>
+<indexterm zone="g-resource-load" role="2.32"><primary sortas="resource_load">g_resource_load</primary></indexterm>
+<programlisting language="C"><link linkend="GResource"><returnvalue>GResource</returnvalue></link>&#160;*
+g_resource_load (<parameter>const <link linkend="gchar"><type>gchar</type></link> *filename</parameter>,
+                 <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para>Loads a binary resource bundle and creates a <link linkend="GResource"><type>GResource</type></link> representation of it, allowing
+you to query it for data.</para>
+<para>If you want to use this resource in the global resource namespace you need
+to register it with <link linkend="g-resources-register"><function>g_resources_register()</function></link>.</para>
+<para>If <parameter>filename</parameter>
+ is empty or the data in it is corrupt,
+<link linkend="G-RESOURCE-ERROR-INTERNAL:CAPS"><literal>G_RESOURCE_ERROR_INTERNAL</literal></link> will be returned. If <parameter>filename</parameter>
+ doesn’t exist, or
+there is an error in reading it, an error from <link linkend="g-mapped-file-new"><function>g_mapped_file_new()</function></link> will be
+returned.</para>
+<refsect3 id="g-resource-load.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>filename</para></entry>
+<entry role="parameter_description"><para>the path of a filename to load, in the GLib filename encoding. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>type</acronym> filename]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para>return location for a <link linkend="GError"><type>GError</type></link>, or <link linkend="NULL:CAPS"><literal>NULL</literal></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-resource-load.returns" role="returns">
+<title>Returns</title>
+<para>a new <link linkend="GResource"><type>GResource</type></link>, or <link linkend="NULL:CAPS"><literal>NULL</literal></link> on error. </para>
+<para><emphasis role="annotation">[<acronym>transfer full</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.32">2.32</link></para></refsect2>
+<refsect2 id="g-resource-new-from-data" role="function" condition="since:2.32">
+<title>g_resource_new_from_data&#160;()</title>
+<indexterm zone="g-resource-new-from-data" role="2.32"><primary sortas="resource_new_from_data">g_resource_new_from_data</primary></indexterm>
+<programlisting language="C"><link linkend="GResource"><returnvalue>GResource</returnvalue></link>&#160;*
+g_resource_new_from_data (<parameter><link linkend="GBytes"><type>GBytes</type></link> *data</parameter>,
+                          <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para>Creates a GResource from a reference to the binary resource bundle.
+This will keep a reference to <parameter>data</parameter>
+ while the resource lives, so
+the data should not be modified or freed.</para>
+<para>If you want to use this resource in the global resource namespace you need
+to register it with <link linkend="g-resources-register"><function>g_resources_register()</function></link>.</para>
+<para>Note: <parameter>data</parameter>
+ must be backed by memory that is at least pointer aligned.
+Otherwise this function will internally create a copy of the memory since
+GLib 2.56, or in older versions fail and exit the process.</para>
+<para>If <parameter>data</parameter>
+ is empty or corrupt, <link linkend="G-RESOURCE-ERROR-INTERNAL:CAPS"><literal>G_RESOURCE_ERROR_INTERNAL</literal></link> will be returned.</para>
+<refsect3 id="g-resource-new-from-data.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>data</para></entry>
+<entry role="parameter_description"><para>A <link linkend="GBytes"><type>GBytes</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para>return location for a <link linkend="GError"><type>GError</type></link>, or <link linkend="NULL:CAPS"><literal>NULL</literal></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-resource-new-from-data.returns" role="returns">
+<title>Returns</title>
+<para>a new <link linkend="GResource"><type>GResource</type></link>, or <link linkend="NULL:CAPS"><literal>NULL</literal></link> on error. </para>
+<para><emphasis role="annotation">[<acronym>transfer full</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.32">2.32</link></para></refsect2>
+<refsect2 id="g-resource-ref" role="function" condition="since:2.32">
+<title>g_resource_ref&#160;()</title>
+<indexterm zone="g-resource-ref" role="2.32"><primary sortas="resource_ref">g_resource_ref</primary></indexterm>
+<programlisting language="C"><link linkend="GResource"><returnvalue>GResource</returnvalue></link>&#160;*
+g_resource_ref (<parameter><link linkend="GResource"><type>GResource</type></link> *resource</parameter>);</programlisting>
+<para>Atomically increments the reference count of <parameter>resource</parameter>
+ by one. This
+function is MT-safe and may be called from any thread.</para>
+<refsect3 id="g-resource-ref.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>resource</para></entry>
+<entry role="parameter_description"><para>A <link linkend="GResource"><type>GResource</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-resource-ref.returns" role="returns">
+<title>Returns</title>
+<para> The passed in <link linkend="GResource"><type>GResource</type></link></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.32">2.32</link></para></refsect2>
+<refsect2 id="g-resource-unref" role="function" condition="since:2.32">
+<title>g_resource_unref&#160;()</title>
+<indexterm zone="g-resource-unref" role="2.32"><primary sortas="resource_unref">g_resource_unref</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_resource_unref (<parameter><link linkend="GResource"><type>GResource</type></link> *resource</parameter>);</programlisting>
+<para>Atomically decrements the reference count of <parameter>resource</parameter>
+ by one. If the
+reference count drops to 0, all memory allocated by the resource is
+released. This function is MT-safe and may be called from any
+thread.</para>
+<refsect3 id="g-resource-unref.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>resource</para></entry>
+<entry role="parameter_description"><para>A <link linkend="GResource"><type>GResource</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.32">2.32</link></para></refsect2>
+<refsect2 id="g-resource-lookup-data" role="function" condition="since:2.32">
+<title>g_resource_lookup_data&#160;()</title>
+<indexterm zone="g-resource-lookup-data" role="2.32"><primary sortas="resource_lookup_data">g_resource_lookup_data</primary></indexterm>
+<programlisting language="C"><link linkend="GBytes"><returnvalue>GBytes</returnvalue></link>&#160;*
+g_resource_lookup_data (<parameter><link linkend="GResource"><type>GResource</type></link> *resource</parameter>,
+                        <parameter>const <link linkend="char"><type>char</type></link> *path</parameter>,
+                        <parameter><link linkend="GResourceLookupFlags"><type>GResourceLookupFlags</type></link> lookup_flags</parameter>,
+                        <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para>Looks for a file at the specified <parameter>path</parameter>
+ in the resource and
+returns a <link linkend="GBytes"><type>GBytes</type></link> that lets you directly access the data in
+memory.</para>
+<para>The data is always followed by a zero byte, so you
+can safely use the data as a C string. However, that byte
+is not included in the size of the GBytes.</para>
+<para>For uncompressed resource files this is a pointer directly into
+the resource bundle, which is typically in some readonly data section
+in the program binary. For compressed files we allocate memory on
+the heap and automatically uncompress the data.</para>
+<para><parameter>lookup_flags</parameter>
+ controls the behaviour of the lookup.</para>
+<refsect3 id="g-resource-lookup-data.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>resource</para></entry>
+<entry role="parameter_description"><para>A <link linkend="GResource"><type>GResource</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>path</para></entry>
+<entry role="parameter_description"><para>A pathname inside the resource</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>lookup_flags</para></entry>
+<entry role="parameter_description"><para>A <link linkend="GResourceLookupFlags"><type>GResourceLookupFlags</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para>return location for a <link linkend="GError"><type>GError</type></link>, or <link linkend="NULL:CAPS"><literal>NULL</literal></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-resource-lookup-data.returns" role="returns">
+<title>Returns</title>
+<para><link linkend="GBytes"><type>GBytes</type></link> or <link linkend="NULL:CAPS"><literal>NULL</literal></link> on error.
+Free the returned object with <link linkend="g-bytes-unref"><function>g_bytes_unref()</function></link>. </para>
+<para><emphasis role="annotation">[<acronym>transfer full</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.32">2.32</link></para></refsect2>
+<refsect2 id="g-resource-open-stream" role="function" condition="since:2.32">
+<title>g_resource_open_stream&#160;()</title>
+<indexterm zone="g-resource-open-stream" role="2.32"><primary sortas="resource_open_stream">g_resource_open_stream</primary></indexterm>
+<programlisting language="C"><link linkend="GInputStream"><returnvalue>GInputStream</returnvalue></link>&#160;*
+g_resource_open_stream (<parameter><link linkend="GResource"><type>GResource</type></link> *resource</parameter>,
+                        <parameter>const <link linkend="char"><type>char</type></link> *path</parameter>,
+                        <parameter><link linkend="GResourceLookupFlags"><type>GResourceLookupFlags</type></link> lookup_flags</parameter>,
+                        <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para>Looks for a file at the specified <parameter>path</parameter>
+ in the resource and
+returns a <link linkend="GInputStream"><type>GInputStream</type></link> that lets you read the data.</para>
+<para><parameter>lookup_flags</parameter>
+ controls the behaviour of the lookup.</para>
+<refsect3 id="g-resource-open-stream.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>resource</para></entry>
+<entry role="parameter_description"><para>A <link linkend="GResource"><type>GResource</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>path</para></entry>
+<entry role="parameter_description"><para>A pathname inside the resource</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>lookup_flags</para></entry>
+<entry role="parameter_description"><para>A <link linkend="GResourceLookupFlags"><type>GResourceLookupFlags</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para>return location for a <link linkend="GError"><type>GError</type></link>, or <link linkend="NULL:CAPS"><literal>NULL</literal></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-resource-open-stream.returns" role="returns">
+<title>Returns</title>
+<para><link linkend="GInputStream"><type>GInputStream</type></link> or <link linkend="NULL:CAPS"><literal>NULL</literal></link> on error.
+Free the returned object with <link linkend="g-object-unref"><function>g_object_unref()</function></link>. </para>
+<para><emphasis role="annotation">[<acronym>transfer full</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.32">2.32</link></para></refsect2>
+<refsect2 id="g-resource-enumerate-children" role="function" condition="since:2.32">
+<title>g_resource_enumerate_children&#160;()</title>
+<indexterm zone="g-resource-enumerate-children" role="2.32"><primary sortas="resource_enumerate_children">g_resource_enumerate_children</primary></indexterm>
+<programlisting language="C"><link linkend="char"><returnvalue>char</returnvalue></link>&#160;**
+g_resource_enumerate_children (<parameter><link linkend="GResource"><type>GResource</type></link> *resource</parameter>,
+                               <parameter>const <link linkend="char"><type>char</type></link> *path</parameter>,
+                               <parameter><link linkend="GResourceLookupFlags"><type>GResourceLookupFlags</type></link> lookup_flags</parameter>,
+                               <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para>Returns all the names of children at the specified <parameter>path</parameter>
+ in the resource.
+The return result is a <link linkend="NULL:CAPS"><literal>NULL</literal></link> terminated list of strings which should
+be released with <link linkend="g-strfreev"><function>g_strfreev()</function></link>.</para>
+<para>If <parameter>path</parameter>
+ is invalid or does not exist in the <link linkend="GResource"><type>GResource</type></link>,
+<link linkend="G-RESOURCE-ERROR-NOT-FOUND:CAPS"><literal>G_RESOURCE_ERROR_NOT_FOUND</literal></link> will be returned.</para>
+<para><parameter>lookup_flags</parameter>
+ controls the behaviour of the lookup.</para>
+<refsect3 id="g-resource-enumerate-children.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>resource</para></entry>
+<entry role="parameter_description"><para>A <link linkend="GResource"><type>GResource</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>path</para></entry>
+<entry role="parameter_description"><para>A pathname inside the resource</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>lookup_flags</para></entry>
+<entry role="parameter_description"><para>A <link linkend="GResourceLookupFlags"><type>GResourceLookupFlags</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para>return location for a <link linkend="GError"><type>GError</type></link>, or <link linkend="NULL:CAPS"><literal>NULL</literal></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-resource-enumerate-children.returns" role="returns">
+<title>Returns</title>
+<para>an array of constant strings. </para>
+<para><emphasis role="annotation">[<acronym>array</acronym> zero-terminated=1][<acronym>transfer full</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.32">2.32</link></para></refsect2>
+<refsect2 id="g-resource-get-info" role="function" condition="since:2.32">
+<title>g_resource_get_info&#160;()</title>
+<indexterm zone="g-resource-get-info" role="2.32"><primary sortas="resource_get_info">g_resource_get_info</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_resource_get_info (<parameter><link linkend="GResource"><type>GResource</type></link> *resource</parameter>,
+                     <parameter>const <link linkend="char"><type>char</type></link> *path</parameter>,
+                     <parameter><link linkend="GResourceLookupFlags"><type>GResourceLookupFlags</type></link> lookup_flags</parameter>,
+                     <parameter><link linkend="gsize"><type>gsize</type></link> *size</parameter>,
+                     <parameter><link linkend="guint32"><type>guint32</type></link> *flags</parameter>,
+                     <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para>Looks for a file at the specified <parameter>path</parameter>
+ in the resource and
+if found returns information about it.</para>
+<para><parameter>lookup_flags</parameter>
+ controls the behaviour of the lookup.</para>
+<refsect3 id="g-resource-get-info.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>resource</para></entry>
+<entry role="parameter_description"><para>A <link linkend="GResource"><type>GResource</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>path</para></entry>
+<entry role="parameter_description"><para>A pathname inside the resource</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>lookup_flags</para></entry>
+<entry role="parameter_description"><para>A <link linkend="GResourceLookupFlags"><type>GResourceLookupFlags</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>size</para></entry>
+<entry role="parameter_description"><para>a location to place the length of the contents of the file,
+or <link linkend="NULL:CAPS"><literal>NULL</literal></link> if the length is not needed. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>out</acronym>][<acronym>optional</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>flags</para></entry>
+<entry role="parameter_description"><para>a location to place the flags about the file,
+or <link linkend="NULL:CAPS"><literal>NULL</literal></link> if the length is not needed. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>out</acronym>][<acronym>optional</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para>return location for a <link linkend="GError"><type>GError</type></link>, or <link linkend="NULL:CAPS"><literal>NULL</literal></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-resource-get-info.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if the file was found. <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> if there were errors</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.32">2.32</link></para></refsect2>
+<refsect2 id="g-static-resource-init" role="function" condition="since:2.32">
+<title>g_static_resource_init&#160;()</title>
+<indexterm zone="g-static-resource-init" role="2.32"><primary sortas="static_resource_init">g_static_resource_init</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_static_resource_init (<parameter><link linkend="GStaticResource"><type>GStaticResource</type></link> *static_resource</parameter>);</programlisting>
+<para>Initializes a GResource from static data using a
+GStaticResource.</para>
+<para>This is normally used by code generated by
+<link linkend="glib-compile-resources">glib-compile-resources</link>
+and is not typically used by other code.</para>
+<refsect3 id="g-static-resource-init.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>static_resource</para></entry>
+<entry role="parameter_description"><para>pointer to a static <link linkend="GStaticResource"><type>GStaticResource</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.32">2.32</link></para></refsect2>
+<refsect2 id="g-static-resource-fini" role="function" condition="since:2.32">
+<title>g_static_resource_fini&#160;()</title>
+<indexterm zone="g-static-resource-fini" role="2.32"><primary sortas="static_resource_fini">g_static_resource_fini</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_static_resource_fini (<parameter><link linkend="GStaticResource"><type>GStaticResource</type></link> *static_resource</parameter>);</programlisting>
+<para>Finalized a GResource initialized by <link linkend="g-static-resource-init"><function>g_static_resource_init()</function></link>.</para>
+<para>This is normally used by code generated by
+<link linkend="glib-compile-resources">glib-compile-resources</link>
+and is not typically used by other code.</para>
+<refsect3 id="g-static-resource-fini.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>static_resource</para></entry>
+<entry role="parameter_description"><para>pointer to a static <link linkend="GStaticResource"><type>GStaticResource</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.32">2.32</link></para></refsect2>
+<refsect2 id="g-static-resource-get-resource" role="function" condition="since:2.32">
+<title>g_static_resource_get_resource&#160;()</title>
+<indexterm zone="g-static-resource-get-resource" role="2.32"><primary sortas="static_resource_get_resource">g_static_resource_get_resource</primary></indexterm>
+<programlisting language="C"><link linkend="GResource"><returnvalue>GResource</returnvalue></link>&#160;*
+g_static_resource_get_resource (<parameter><link linkend="GStaticResource"><type>GStaticResource</type></link> *static_resource</parameter>);</programlisting>
+<para>Gets the GResource that was registered by a call to <link linkend="g-static-resource-init"><function>g_static_resource_init()</function></link>.</para>
+<para>This is normally used by code generated by
+<link linkend="glib-compile-resources">glib-compile-resources</link>
+and is not typically used by other code.</para>
+<refsect3 id="g-static-resource-get-resource.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>static_resource</para></entry>
+<entry role="parameter_description"><para>pointer to a static <link linkend="GStaticResource"><type>GStaticResource</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-static-resource-get-resource.returns" role="returns">
+<title>Returns</title>
+<para>a <link linkend="GResource"><type>GResource</type></link>. </para>
+<para><emphasis role="annotation">[<acronym>transfer none</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.32">2.32</link></para></refsect2>
+<refsect2 id="g-resources-register" role="function" condition="since:2.32">
+<title>g_resources_register&#160;()</title>
+<indexterm zone="g-resources-register" role="2.32"><primary sortas="resources_register">g_resources_register</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_resources_register (<parameter><link linkend="GResource"><type>GResource</type></link> *resource</parameter>);</programlisting>
+<para>Registers the resource with the process-global set of resources.
+Once a resource is registered the files in it can be accessed
+with the global resource lookup functions like <link linkend="g-resources-lookup-data"><function>g_resources_lookup_data()</function></link>.</para>
+<refsect3 id="g-resources-register.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>resource</para></entry>
+<entry role="parameter_description"><para>A <link linkend="GResource"><type>GResource</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.32">2.32</link></para></refsect2>
+<refsect2 id="g-resources-unregister" role="function" condition="since:2.32">
+<title>g_resources_unregister&#160;()</title>
+<indexterm zone="g-resources-unregister" role="2.32"><primary sortas="resources_unregister">g_resources_unregister</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_resources_unregister (<parameter><link linkend="GResource"><type>GResource</type></link> *resource</parameter>);</programlisting>
+<para>Unregisters the resource from the process-global set of resources.</para>
+<refsect3 id="g-resources-unregister.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>resource</para></entry>
+<entry role="parameter_description"><para>A <link linkend="GResource"><type>GResource</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.32">2.32</link></para></refsect2>
+<refsect2 id="g-resources-lookup-data" role="function" condition="since:2.32">
+<title>g_resources_lookup_data&#160;()</title>
+<indexterm zone="g-resources-lookup-data" role="2.32"><primary sortas="resources_lookup_data">g_resources_lookup_data</primary></indexterm>
+<programlisting language="C"><link linkend="GBytes"><returnvalue>GBytes</returnvalue></link>&#160;*
+g_resources_lookup_data (<parameter>const <link linkend="char"><type>char</type></link> *path</parameter>,
+                         <parameter><link linkend="GResourceLookupFlags"><type>GResourceLookupFlags</type></link> lookup_flags</parameter>,
+                         <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para>Looks for a file at the specified <parameter>path</parameter>
+ in the set of
+globally registered resources and returns a <link linkend="GBytes"><type>GBytes</type></link> that
+lets you directly access the data in memory.</para>
+<para>The data is always followed by a zero byte, so you
+can safely use the data as a C string. However, that byte
+is not included in the size of the GBytes.</para>
+<para>For uncompressed resource files this is a pointer directly into
+the resource bundle, which is typically in some readonly data section
+in the program binary. For compressed files we allocate memory on
+the heap and automatically uncompress the data.</para>
+<para><parameter>lookup_flags</parameter>
+ controls the behaviour of the lookup.</para>
+<refsect3 id="g-resources-lookup-data.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>path</para></entry>
+<entry role="parameter_description"><para>A pathname inside the resource</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>lookup_flags</para></entry>
+<entry role="parameter_description"><para>A <link linkend="GResourceLookupFlags"><type>GResourceLookupFlags</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para>return location for a <link linkend="GError"><type>GError</type></link>, or <link linkend="NULL:CAPS"><literal>NULL</literal></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-resources-lookup-data.returns" role="returns">
+<title>Returns</title>
+<para><link linkend="GBytes"><type>GBytes</type></link> or <link linkend="NULL:CAPS"><literal>NULL</literal></link> on error.
+Free the returned object with <link linkend="g-bytes-unref"><function>g_bytes_unref()</function></link>. </para>
+<para><emphasis role="annotation">[<acronym>transfer full</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.32">2.32</link></para></refsect2>
+<refsect2 id="g-resources-open-stream" role="function" condition="since:2.32">
+<title>g_resources_open_stream&#160;()</title>
+<indexterm zone="g-resources-open-stream" role="2.32"><primary sortas="resources_open_stream">g_resources_open_stream</primary></indexterm>
+<programlisting language="C"><link linkend="GInputStream"><returnvalue>GInputStream</returnvalue></link>&#160;*
+g_resources_open_stream (<parameter>const <link linkend="char"><type>char</type></link> *path</parameter>,
+                         <parameter><link linkend="GResourceLookupFlags"><type>GResourceLookupFlags</type></link> lookup_flags</parameter>,
+                         <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para>Looks for a file at the specified <parameter>path</parameter>
+ in the set of
+globally registered resources and returns a <link linkend="GInputStream"><type>GInputStream</type></link>
+that lets you read the data.</para>
+<para><parameter>lookup_flags</parameter>
+ controls the behaviour of the lookup.</para>
+<refsect3 id="g-resources-open-stream.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>path</para></entry>
+<entry role="parameter_description"><para>A pathname inside the resource</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>lookup_flags</para></entry>
+<entry role="parameter_description"><para>A <link linkend="GResourceLookupFlags"><type>GResourceLookupFlags</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para>return location for a <link linkend="GError"><type>GError</type></link>, or <link linkend="NULL:CAPS"><literal>NULL</literal></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-resources-open-stream.returns" role="returns">
+<title>Returns</title>
+<para><link linkend="GInputStream"><type>GInputStream</type></link> or <link linkend="NULL:CAPS"><literal>NULL</literal></link> on error.
+Free the returned object with <link linkend="g-object-unref"><function>g_object_unref()</function></link>. </para>
+<para><emphasis role="annotation">[<acronym>transfer full</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.32">2.32</link></para></refsect2>
+<refsect2 id="g-resources-enumerate-children" role="function" condition="since:2.32">
+<title>g_resources_enumerate_children&#160;()</title>
+<indexterm zone="g-resources-enumerate-children" role="2.32"><primary sortas="resources_enumerate_children">g_resources_enumerate_children</primary></indexterm>
+<programlisting language="C"><link linkend="char"><returnvalue>char</returnvalue></link>&#160;**
+g_resources_enumerate_children (<parameter>const <link linkend="char"><type>char</type></link> *path</parameter>,
+                                <parameter><link linkend="GResourceLookupFlags"><type>GResourceLookupFlags</type></link> lookup_flags</parameter>,
+                                <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para>Returns all the names of children at the specified <parameter>path</parameter>
+ in the set of
+globally registered resources.
+The return result is a <link linkend="NULL:CAPS"><literal>NULL</literal></link> terminated list of strings which should
+be released with <link linkend="g-strfreev"><function>g_strfreev()</function></link>.</para>
+<para><parameter>lookup_flags</parameter>
+ controls the behaviour of the lookup.</para>
+<refsect3 id="g-resources-enumerate-children.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>path</para></entry>
+<entry role="parameter_description"><para>A pathname inside the resource</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>lookup_flags</para></entry>
+<entry role="parameter_description"><para>A <link linkend="GResourceLookupFlags"><type>GResourceLookupFlags</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para>return location for a <link linkend="GError"><type>GError</type></link>, or <link linkend="NULL:CAPS"><literal>NULL</literal></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-resources-enumerate-children.returns" role="returns">
+<title>Returns</title>
+<para>an array of constant strings. </para>
+<para><emphasis role="annotation">[<acronym>array</acronym> zero-terminated=1][<acronym>transfer full</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.32">2.32</link></para></refsect2>
+<refsect2 id="g-resources-get-info" role="function" condition="since:2.32">
+<title>g_resources_get_info&#160;()</title>
+<indexterm zone="g-resources-get-info" role="2.32"><primary sortas="resources_get_info">g_resources_get_info</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_resources_get_info (<parameter>const <link linkend="char"><type>char</type></link> *path</parameter>,
+                      <parameter><link linkend="GResourceLookupFlags"><type>GResourceLookupFlags</type></link> lookup_flags</parameter>,
+                      <parameter><link linkend="gsize"><type>gsize</type></link> *size</parameter>,
+                      <parameter><link linkend="guint32"><type>guint32</type></link> *flags</parameter>,
+                      <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para>Looks for a file at the specified <parameter>path</parameter>
+ in the set of
+globally registered resources and if found returns information about it.</para>
+<para><parameter>lookup_flags</parameter>
+ controls the behaviour of the lookup.</para>
+<refsect3 id="g-resources-get-info.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>path</para></entry>
+<entry role="parameter_description"><para>A pathname inside the resource</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>lookup_flags</para></entry>
+<entry role="parameter_description"><para>A <link linkend="GResourceLookupFlags"><type>GResourceLookupFlags</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>size</para></entry>
+<entry role="parameter_description"><para>a location to place the length of the contents of the file,
+or <link linkend="NULL:CAPS"><literal>NULL</literal></link> if the length is not needed. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>out</acronym>][<acronym>optional</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>flags</para></entry>
+<entry role="parameter_description"><para>a location to place the <link linkend="GResourceFlags"><type>GResourceFlags</type></link> about the file,
+or <link linkend="NULL:CAPS"><literal>NULL</literal></link> if the flags are not needed. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>out</acronym>][<acronym>optional</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para>return location for a <link linkend="GError"><type>GError</type></link>, or <link linkend="NULL:CAPS"><literal>NULL</literal></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-resources-get-info.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if the file was found. <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> if there were errors</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.32">2.32</link></para></refsect2>
+
+</refsect1>
+<refsect1 id="GResource.other_details" role="details">
+<title role="details.title">Types and Values</title>
+<refsect2 id="GResource-struct" role="struct">
+<title>GResource</title>
+<indexterm zone="GResource-struct" role="2.32"><primary sortas="Resource">GResource</primary></indexterm>
+<programlisting language="C">typedef struct _GResource GResource;</programlisting>
+<para>A resource bundle.</para>
+<para role="since">Since: <link linkend="api-index-2.32">2.32</link></para></refsect2>
+<refsect2 id="GResourceFlags" role="enum" condition="since:2.32">
+<title>enum GResourceFlags</title>
+<indexterm zone="GResourceFlags" role="2.32"><primary sortas="ResourceFlags">GResourceFlags</primary></indexterm>
+<para>GResourceFlags give information about a particular file inside a resource
+bundle.</para>
+<refsect3 id="GResourceFlags.members" role="enum_members">
+<title>Members</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="enum_members_name" colwidth="300px"/>
+<colspec colname="enum_members_description"/>
+<colspec colname="enum_members_annotations" colwidth="200px"/>
+<tbody>
+<row role="constant"><entry role="enum_member_name"><para id="G-RESOURCE-FLAGS-NONE:CAPS">G_RESOURCE_FLAGS_NONE</para></entry>
+<entry role="enum_member_description"><para>No flags set.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-RESOURCE-FLAGS-COMPRESSED:CAPS">G_RESOURCE_FLAGS_COMPRESSED</para></entry>
+<entry role="enum_member_description"><para>The file is compressed.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.32">2.32</link></para></refsect2>
+<refsect2 id="GResourceLookupFlags" role="enum" condition="since:2.32">
+<title>enum GResourceLookupFlags</title>
+<indexterm zone="GResourceLookupFlags" role="2.32"><primary sortas="ResourceLookupFlags">GResourceLookupFlags</primary></indexterm>
+<para>GResourceLookupFlags determine how resource path lookups are handled.</para>
+<refsect3 id="GResourceLookupFlags.members" role="enum_members">
+<title>Members</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="enum_members_name" colwidth="300px"/>
+<colspec colname="enum_members_description"/>
+<colspec colname="enum_members_annotations" colwidth="200px"/>
+<tbody>
+<row role="constant"><entry role="enum_member_name"><para id="G-RESOURCE-LOOKUP-FLAGS-NONE:CAPS">G_RESOURCE_LOOKUP_FLAGS_NONE</para></entry>
+<entry role="enum_member_description"><para>No flags set.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.32">2.32</link></para></refsect2>
+<refsect2 id="GStaticResource" role="struct">
+<title>struct GStaticResource</title>
+<indexterm zone="GStaticResource"><primary sortas="StaticResource">GStaticResource</primary></indexterm>
+<programlisting language="C">struct GStaticResource {
+};
+</programlisting>
+<para><link linkend="GStaticResource"><type>GStaticResource</type></link> is an opaque data structure and can only be accessed
+using the following functions.</para>
+</refsect2>
+<refsect2 id="G-RESOURCE-ERROR:CAPS" role="macro">
+<title>G_RESOURCE_ERROR</title>
+<indexterm zone="G-RESOURCE-ERROR:CAPS"><primary sortas="RESOURCE_ERROR">G_RESOURCE_ERROR</primary></indexterm>
+<programlisting language="C">#define G_RESOURCE_ERROR (g_resource_error_quark ())
+</programlisting>
+<para>Error domain for <link linkend="GResource"><type>GResource</type></link>. Errors in this domain will be from the
+<link linkend="GResourceError"><type>GResourceError</type></link> enumeration. See <link linkend="GError"><type>GError</type></link> for more information on
+error domains.</para>
+</refsect2>
+<refsect2 id="GResourceError" role="enum" condition="since:2.32">
+<title>enum GResourceError</title>
+<indexterm zone="GResourceError" role="2.32"><primary sortas="ResourceError">GResourceError</primary></indexterm>
+<para>An error code used with <link linkend="G-RESOURCE-ERROR:CAPS"><literal>G_RESOURCE_ERROR</literal></link> in a <link linkend="GError"><type>GError</type></link> returned
+from a <link linkend="GResource"><type>GResource</type></link> routine.</para>
+<refsect3 id="GResourceError.members" role="enum_members">
+<title>Members</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="enum_members_name" colwidth="300px"/>
+<colspec colname="enum_members_description"/>
+<colspec colname="enum_members_annotations" colwidth="200px"/>
+<tbody>
+<row role="constant"><entry role="enum_member_name"><para id="G-RESOURCE-ERROR-NOT-FOUND:CAPS">G_RESOURCE_ERROR_NOT_FOUND</para></entry>
+<entry role="enum_member_description"><para>no file was found at the requested path</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-RESOURCE-ERROR-INTERNAL:CAPS">G_RESOURCE_ERROR_INTERNAL</para></entry>
+<entry role="enum_member_description"><para>unknown error</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.32">2.32</link></para></refsect2>
+
+</refsect1>
+
+</refentry>

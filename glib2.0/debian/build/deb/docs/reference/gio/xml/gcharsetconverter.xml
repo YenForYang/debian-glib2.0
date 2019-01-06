@@ -1,0 +1,227 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC '-//OASIS//DTD DocBook XML V4.5//EN'
+                      'http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd' [
+<!ENTITY % local.common.attrib "xmlns:xi  CDATA  #FIXED 'http://www.w3.org/2003/XInclude'">
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="GCharsetConverter">
+<refmeta>
+<refentrytitle role="top_of_page" id="GCharsetConverter.top_of_page">GCharsetConverter</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>GIO Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>GCharsetConverter</refname>
+<refpurpose>Convert between charsets</refpurpose>
+</refnamediv>
+
+<refsect1 id="GCharsetConverter.functions" role="functions_proto">
+<title role="functions_proto.title">Functions</title>
+<informaltable pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="functions_return" colwidth="150px"/>
+<colspec colname="functions_name"/>
+<tbody>
+<row><entry role="function_type"><link linkend="GCharsetConverter"><returnvalue>GCharsetConverter</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-charset-converter-new">g_charset_converter_new</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-charset-converter-set-use-fallback">g_charset_converter_set_use_fallback</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-charset-converter-get-use-fallback">g_charset_converter_get_use_fallback</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="guint"><returnvalue>guint</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-charset-converter-get-num-fallbacks">g_charset_converter_get_num_fallbacks</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GCharsetConverter.properties" role="properties">
+<title role="properties.title">Properties</title>
+<informaltable frame="none">
+<tgroup cols="3">
+<colspec colname="properties_type" colwidth="150px"/>
+<colspec colname="properties_name" colwidth="300px"/>
+<colspec colname="properties_flags" colwidth="200px"/>
+<tbody>
+<row><entry role="property_type"><link linkend="gchar"><type>gchar</type></link>&#160;*</entry><entry role="property_name"><link linkend="GCharsetConverter--from-charset">from-charset</link></entry><entry role="property_flags">Read / Write / Construct Only</entry></row>
+<row><entry role="property_type"><link linkend="gchar"><type>gchar</type></link>&#160;*</entry><entry role="property_name"><link linkend="GCharsetConverter--to-charset">to-charset</link></entry><entry role="property_flags">Read / Write / Construct Only</entry></row>
+<row><entry role="property_type"><link linkend="gboolean"><type>gboolean</type></link></entry><entry role="property_name"><link linkend="GCharsetConverter--use-fallback">use-fallback</link></entry><entry role="property_flags">Read / Write / Construct</entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GCharsetConverter.other" role="other_proto">
+<title role="other_proto.title">Types and Values</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="name" colwidth="150px"/>
+<colspec colname="description"/>
+<tbody>
+<row><entry role="datatype_keyword"></entry><entry role="function_name"><link linkend="GCharsetConverter-struct">GCharsetConverter</link></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GCharsetConverter.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<screen>    <link linkend="GObject">GObject</link>
+    <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> GCharsetConverter
+</screen>
+</refsect1>
+<refsect1 id="GCharsetConverter.implemented-interfaces" role="impl_interfaces">
+<title role="impl_interfaces.title">Implemented Interfaces</title>
+<para>
+GCharsetConverter implements
+ <link linkend="GConverter">GConverter</link> and  <link linkend="GInitable">GInitable</link>.</para>
+
+</refsect1>
+
+<refsect1 id="GCharsetConverter.includes"><title>Includes</title><synopsis>#include &lt;gio/gio.h&gt;
+</synopsis></refsect1>
+
+<refsect1 id="GCharsetConverter.description" role="desc">
+<title role="desc.title">Description</title>
+<para><link linkend="GCharsetConverter"><type>GCharsetConverter</type></link> is an implementation of <link linkend="GConverter"><type>GConverter</type></link> based on
+GIConv.</para>
+
+</refsect1>
+<refsect1 id="GCharsetConverter.functions_details" role="details">
+<title role="details.title">Functions</title>
+<refsect2 id="g-charset-converter-new" role="function" condition="since:2.24">
+<title>g_charset_converter_new&#160;()</title>
+<indexterm zone="g-charset-converter-new" role="2.24"><primary sortas="charset_converter_new">g_charset_converter_new</primary></indexterm>
+<programlisting language="C"><link linkend="GCharsetConverter"><returnvalue>GCharsetConverter</returnvalue></link>&#160;*
+g_charset_converter_new (<parameter>const <link linkend="gchar"><type>gchar</type></link> *to_charset</parameter>,
+                         <parameter>const <link linkend="gchar"><type>gchar</type></link> *from_charset</parameter>,
+                         <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para>Creates a new <link linkend="GCharsetConverter"><type>GCharsetConverter</type></link>.</para>
+<refsect3 id="g-charset-converter-new.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>to_charset</para></entry>
+<entry role="parameter_description"><para>destination charset</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>from_charset</para></entry>
+<entry role="parameter_description"><para>source charset</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para><link linkend="GError"><type>GError</type></link> for error reporting, or <link linkend="NULL:CAPS"><literal>NULL</literal></link> to ignore.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-charset-converter-new.returns" role="returns">
+<title>Returns</title>
+<para> a new <link linkend="GCharsetConverter"><type>GCharsetConverter</type></link> or <link linkend="NULL:CAPS"><literal>NULL</literal></link> on error.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.24">2.24</link></para></refsect2>
+<refsect2 id="g-charset-converter-set-use-fallback" role="function" condition="since:2.24">
+<title>g_charset_converter_set_use_fallback&#160;()</title>
+<indexterm zone="g-charset-converter-set-use-fallback" role="2.24"><primary sortas="charset_converter_set_use_fallback">g_charset_converter_set_use_fallback</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_charset_converter_set_use_fallback (<parameter><link linkend="GCharsetConverter"><type>GCharsetConverter</type></link> *converter</parameter>,
+                                      <parameter><link linkend="gboolean"><type>gboolean</type></link> use_fallback</parameter>);</programlisting>
+<para>Sets the <link linkend="GCharsetConverter--use-fallback"><type>“use-fallback”</type></link> property.</para>
+<refsect3 id="g-charset-converter-set-use-fallback.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>converter</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GCharsetConverter"><type>GCharsetConverter</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>use_fallback</para></entry>
+<entry role="parameter_description"><para><link linkend="TRUE:CAPS"><literal>TRUE</literal></link> to use fallbacks</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.24">2.24</link></para></refsect2>
+<refsect2 id="g-charset-converter-get-use-fallback" role="function" condition="since:2.24">
+<title>g_charset_converter_get_use_fallback&#160;()</title>
+<indexterm zone="g-charset-converter-get-use-fallback" role="2.24"><primary sortas="charset_converter_get_use_fallback">g_charset_converter_get_use_fallback</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_charset_converter_get_use_fallback (<parameter><link linkend="GCharsetConverter"><type>GCharsetConverter</type></link> *converter</parameter>);</programlisting>
+<para>Gets the <link linkend="GCharsetConverter--use-fallback"><type>“use-fallback”</type></link> property.</para>
+<refsect3 id="g-charset-converter-get-use-fallback.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>converter</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GCharsetConverter"><type>GCharsetConverter</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-charset-converter-get-use-fallback.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if fallbacks are used by <parameter>converter</parameter>
+</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.24">2.24</link></para></refsect2>
+<refsect2 id="g-charset-converter-get-num-fallbacks" role="function" condition="since:2.24">
+<title>g_charset_converter_get_num_fallbacks&#160;()</title>
+<indexterm zone="g-charset-converter-get-num-fallbacks" role="2.24"><primary sortas="charset_converter_get_num_fallbacks">g_charset_converter_get_num_fallbacks</primary></indexterm>
+<programlisting language="C"><link linkend="guint"><returnvalue>guint</returnvalue></link>
+g_charset_converter_get_num_fallbacks (<parameter><link linkend="GCharsetConverter"><type>GCharsetConverter</type></link> *converter</parameter>);</programlisting>
+<para>Gets the number of fallbacks that <parameter>converter</parameter>
+ has applied so far.</para>
+<refsect3 id="g-charset-converter-get-num-fallbacks.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>converter</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GCharsetConverter"><type>GCharsetConverter</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-charset-converter-get-num-fallbacks.returns" role="returns">
+<title>Returns</title>
+<para> the number of fallbacks that <parameter>converter</parameter>
+has applied</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.24">2.24</link></para></refsect2>
+
+</refsect1>
+<refsect1 id="GCharsetConverter.other_details" role="details">
+<title role="details.title">Types and Values</title>
+<refsect2 id="GCharsetConverter-struct" role="struct">
+<title>GCharsetConverter</title>
+<indexterm zone="GCharsetConverter-struct"><primary sortas="CharsetConverter">GCharsetConverter</primary></indexterm>
+<programlisting language="C">typedef struct _GCharsetConverter GCharsetConverter;</programlisting>
+<para>Conversions between character sets.</para>
+</refsect2>
+
+</refsect1>
+<refsect1 id="GCharsetConverter.property-details" role="property_details">
+<title role="property_details.title">Property Details</title>
+<refsect2 id="GCharsetConverter--from-charset" role="property"><title>The <literal>“from-charset”</literal> property</title>
+<indexterm zone="GCharsetConverter--from-charset"><primary sortas="CharsetConverter:from-charset">GCharsetConverter:from-charset</primary></indexterm>
+<programlisting>  “from-charset”             <link linkend="gchar"><type>gchar</type></link>&#160;*</programlisting>
+<para>The character encoding to convert from.</para><para>Flags: Read / Write / Construct Only</para>
+<para>Default value: NULL</para>
+</refsect2>
+<refsect2 id="GCharsetConverter--to-charset" role="property"><title>The <literal>“to-charset”</literal> property</title>
+<indexterm zone="GCharsetConverter--to-charset"><primary sortas="CharsetConverter:to-charset">GCharsetConverter:to-charset</primary></indexterm>
+<programlisting>  “to-charset”               <link linkend="gchar"><type>gchar</type></link>&#160;*</programlisting>
+<para>The character encoding to convert to.</para><para>Flags: Read / Write / Construct Only</para>
+<para>Default value: NULL</para>
+</refsect2>
+<refsect2 id="GCharsetConverter--use-fallback" role="property"><title>The <literal>“use-fallback”</literal> property</title>
+<indexterm zone="GCharsetConverter--use-fallback"><primary sortas="CharsetConverter:use-fallback">GCharsetConverter:use-fallback</primary></indexterm>
+<programlisting>  “use-fallback”             <link linkend="gboolean"><type>gboolean</type></link></programlisting>
+<para>Use fallback (of form \&lt;hexval&gt;) for invalid bytes.</para><para>Flags: Read / Write / Construct</para>
+<para>Default value: FALSE</para>
+</refsect2>
+
+</refsect1>
+
+</refentry>

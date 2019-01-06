@@ -1,0 +1,437 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC '-//OASIS//DTD DocBook XML V4.5//EN'
+                      'http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd' [
+<!ENTITY % local.common.attrib "xmlns:xi  CDATA  #FIXED 'http://www.w3.org/2003/XInclude'">
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="glib-Warnings-and-Assertions">
+<refmeta>
+<refentrytitle role="top_of_page" id="glib-Warnings-and-Assertions.top_of_page">Warnings and Assertions</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>GLIB Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>Warnings and Assertions</refname>
+<refpurpose></refpurpose>
+</refnamediv>
+
+<refsect1 id="glib-Warnings-and-Assertions.functions" role="functions_proto">
+<title role="functions_proto.title">Functions</title>
+<informaltable pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="functions_return" colwidth="150px"/>
+<colspec colname="functions_name"/>
+<tbody>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-print">g_print</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GPrintFunc"><returnvalue>GPrintFunc</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-set-print-handler">g_set_print_handler</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><phrase role="c_punctuation">(</phrase><link linkend="GPrintFunc">*GPrintFunc</link><phrase role="c_punctuation">)</phrase>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-printerr">g_printerr</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GPrintFunc"><returnvalue>GPrintFunc</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-set-printerr-handler">g_set_printerr_handler</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="g-return-if-fail">g_return_if_fail</link><phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="g-return-val-if-fail">g_return_val_if_fail</link><phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="g-return-if-reached">g_return_if_reached</link></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="g-return-val-if-reached">g_return_val_if_reached</link><phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="g-warn-if-fail">g_warn_if_fail</link><phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="g-warn-if-reached">g_warn_if_reached</link></entry></row>
+
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-on-error-query">g_on_error_query</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-on-error-stack-trace">g_on_error_stack_trace</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="G-BREAKPOINT:CAPS">G_BREAKPOINT</link></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+
+<refsect1 id="glib-Warnings-and-Assertions.includes"><title>Includes</title><synopsis>#include &lt;glib.h&gt;
+</synopsis></refsect1>
+
+<refsect1 id="glib-Warnings-and-Assertions.description" role="desc">
+<title role="desc.title">Description</title>
+
+</refsect1>
+<refsect1 id="glib-Warnings-and-Assertions.functions_details" role="details">
+<title role="details.title">Functions</title>
+<refsect2 id="g-print" role="function">
+<title>g_print&#160;()</title>
+<indexterm zone="g-print"><primary sortas="print">g_print</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_print (<parameter>const <link linkend="gchar"><type>gchar</type></link> *format</parameter>,
+         <parameter>...</parameter>);</programlisting>
+<para>Outputs a formatted message via the print handler.
+The default print handler simply outputs the message to stdout, without
+appending a trailing new-line character. Typically, <parameter>format</parameter>
+ should end with
+its own new-line character.</para>
+<para>g_print() should not be used from within libraries for debugging
+messages, since it may be redirected by applications to special
+purpose message windows or even files. Instead, libraries should
+use <link linkend="g-log"><function>g_log()</function></link>, <link linkend="g-log-structured"><function>g_log_structured()</function></link>, or the convenience macros <link linkend="g-message"><function>g_message()</function></link>,
+<link linkend="g-warning"><function>g_warning()</function></link> and <link linkend="g-error"><function>g_error()</function></link>.</para>
+<refsect3 id="g-print.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>format</para></entry>
+<entry role="parameter_description"><para>the message format. See the <link linkend="printf"><function>printf()</function></link> documentation</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>...</para></entry>
+<entry role="parameter_description"><para>the parameters to insert into the format string</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-set-print-handler" role="function">
+<title>g_set_print_handler&#160;()</title>
+<indexterm zone="g-set-print-handler"><primary sortas="set_print_handler">g_set_print_handler</primary></indexterm>
+<programlisting language="C"><link linkend="GPrintFunc"><returnvalue>GPrintFunc</returnvalue></link>
+g_set_print_handler (<parameter><link linkend="GPrintFunc"><type>GPrintFunc</type></link> func</parameter>);</programlisting>
+<para>Sets the print handler.</para>
+<para>Any messages passed to <link linkend="g-print"><function>g_print()</function></link> will be output via
+the new handler. The default handler simply outputs
+the message to stdout. By providing your own handler
+you can redirect the output, to a GTK+ widget or a
+log file for example.</para>
+<refsect3 id="g-set-print-handler.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>func</para></entry>
+<entry role="parameter_description"><para>the new print handler</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-set-print-handler.returns" role="returns">
+<title>Returns</title>
+<para> the old print handler</para>
+</refsect3></refsect2>
+<refsect2 id="GPrintFunc" role="function">
+<title>GPrintFunc&#160;()</title>
+<indexterm zone="GPrintFunc"><primary sortas="PrintFunc">GPrintFunc</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+<phrase role="c_punctuation">(</phrase>*GPrintFunc<phrase role="c_punctuation">)</phrase> (<parameter>const <link linkend="gchar"><type>gchar</type></link> *string</parameter>);</programlisting>
+<para>Specifies the type of the print handler functions.
+These are called with the complete formatted string to output.</para>
+<refsect3 id="GPrintFunc.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>string</para></entry>
+<entry role="parameter_description"><para>the message to output</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-printerr" role="function">
+<title>g_printerr&#160;()</title>
+<indexterm zone="g-printerr"><primary sortas="printerr">g_printerr</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_printerr (<parameter>const <link linkend="gchar"><type>gchar</type></link> *format</parameter>,
+            <parameter>...</parameter>);</programlisting>
+<para>Outputs a formatted message via the error message handler.
+The default handler simply outputs the message to stderr, without appending
+a trailing new-line character. Typically, <parameter>format</parameter>
+ should end with its own
+new-line character.</para>
+<para>g_printerr() should not be used from within libraries.
+Instead <link linkend="g-log"><function>g_log()</function></link> or <link linkend="g-log-structured"><function>g_log_structured()</function></link> should be used, or the convenience
+macros <link linkend="g-message"><function>g_message()</function></link>, <link linkend="g-warning"><function>g_warning()</function></link> and <link linkend="g-error"><function>g_error()</function></link>.</para>
+<refsect3 id="g-printerr.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>format</para></entry>
+<entry role="parameter_description"><para>the message format. See the <link linkend="printf"><function>printf()</function></link> documentation</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>...</para></entry>
+<entry role="parameter_description"><para>the parameters to insert into the format string</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-set-printerr-handler" role="function">
+<title>g_set_printerr_handler&#160;()</title>
+<indexterm zone="g-set-printerr-handler"><primary sortas="set_printerr_handler">g_set_printerr_handler</primary></indexterm>
+<programlisting language="C"><link linkend="GPrintFunc"><returnvalue>GPrintFunc</returnvalue></link>
+g_set_printerr_handler (<parameter><link linkend="GPrintFunc"><type>GPrintFunc</type></link> func</parameter>);</programlisting>
+<para>Sets the handler for printing error messages.</para>
+<para>Any messages passed to <link linkend="g-printerr"><function>g_printerr()</function></link> will be output via
+the new handler. The default handler simply outputs the
+message to stderr. By providing your own handler you can
+redirect the output, to a GTK+ widget or a log file for
+example.</para>
+<refsect3 id="g-set-printerr-handler.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>func</para></entry>
+<entry role="parameter_description"><para>the new error message handler</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-set-printerr-handler.returns" role="returns">
+<title>Returns</title>
+<para> the old error message handler</para>
+</refsect3></refsect2>
+<refsect2 id="g-return-if-fail" role="macro">
+<title>g_return_if_fail()</title>
+<indexterm zone="g-return-if-fail"><primary sortas="return_if_fail">g_return_if_fail</primary></indexterm>
+<programlisting language="C">#define             g_return_if_fail(expr)</programlisting>
+<para>Verifies that the expression <parameter>expr</parameter>
+, usually representing a precondition,
+evaluates to <link linkend="TRUE:CAPS"><literal>TRUE</literal></link>. If the function returns a value, use
+<link linkend="g-return-val-if-fail"><function>g_return_val_if_fail()</function></link> instead.</para>
+<para>If <parameter>expr</parameter>
+ evaluates to <link linkend="FALSE:CAPS"><literal>FALSE</literal></link>, the current function should be considered to
+have undefined behaviour (a programmer error). The only correct solution
+to such an error is to change the module that is calling the current
+function, so that it avoids this incorrect call.</para>
+<para>To make this undefined behaviour visible, if <parameter>expr</parameter>
+ evaluates to <link linkend="FALSE:CAPS"><literal>FALSE</literal></link>,
+the result is usually that a critical message is logged and the current
+function returns.</para>
+<para>If <literal>G_DISABLE_CHECKS</literal> is defined then the check is not performed.  You
+should therefore not depend on any side effects of <parameter>expr</parameter>
+.</para>
+<para>To debug failure of a <link linkend="g-return-if-fail"><function>g_return_if_fail()</function></link> check, run the code under a debugger
+with <literal>G_DEBUG=fatal-criticals</literal> or <literal>G_DEBUG=fatal-warnings</literal> defined in the
+environment (see <ulink url="glib-running.html">Running GLib Applications</ulink>):</para>
+<informalexample><programlisting role="example"><![CDATA[
+  G_DEBUG=fatal-warnings gdb ./my-program
+]]></programlisting></informalexample>
+<para></para>
+<para>Any unrelated failures can be skipped over in
+<ulink url="https://www.gnu.org/software/gdb/">gdb</ulink> using the <literal>continue</literal> command.</para>
+<refsect3 id="g-return-if-fail.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>expr</para></entry>
+<entry role="parameter_description"><para>the expression to check</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-return-val-if-fail" role="macro">
+<title>g_return_val_if_fail()</title>
+<indexterm zone="g-return-val-if-fail"><primary sortas="return_val_if_fail">g_return_val_if_fail</primary></indexterm>
+<programlisting language="C">#define             g_return_val_if_fail(expr,val)</programlisting>
+<para>Verifies that the expression <parameter>expr</parameter>
+, usually representing a precondition,
+evaluates to <link linkend="TRUE:CAPS"><literal>TRUE</literal></link>. If the function does not return a value, use
+<link linkend="g-return-if-fail"><function>g_return_if_fail()</function></link> instead.</para>
+<para>If <parameter>expr</parameter>
+ evaluates to <link linkend="FALSE:CAPS"><literal>FALSE</literal></link>, the current function should be considered to
+have undefined behaviour (a programmer error). The only correct solution
+to such an error is to change the module that is calling the current
+function, so that it avoids this incorrect call.</para>
+<para>To make this undefined behaviour visible, if <parameter>expr</parameter>
+ evaluates to <link linkend="FALSE:CAPS"><literal>FALSE</literal></link>,
+the result is usually that a critical message is logged and <parameter>val</parameter>
+ is
+returned from the current function.</para>
+<para>If <literal>G_DISABLE_CHECKS</literal> is defined then the check is not performed.  You
+should therefore not depend on any side effects of <parameter>expr</parameter>
+.</para>
+<para>See <link linkend="g-return-if-fail"><function>g_return_if_fail()</function></link> for guidance on how to debug failure of this check.</para>
+<refsect3 id="g-return-val-if-fail.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>expr</para></entry>
+<entry role="parameter_description"><para>the expression to check</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>val</para></entry>
+<entry role="parameter_description"><para>the value to return from the current function
+if the expression is not true</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-return-if-reached" role="macro">
+<title>g_return_if_reached</title>
+<indexterm zone="g-return-if-reached"><primary sortas="return_if_reached">g_return_if_reached</primary></indexterm>
+<programlisting language="C">#define             g_return_if_reached()</programlisting>
+<para>Logs a critical message and returns from the current function.
+This can only be used in functions which do not return a value.</para>
+<para>See <link linkend="g-return-if-fail"><function>g_return_if_fail()</function></link> for guidance on how to debug failure of this check.</para>
+</refsect2>
+<refsect2 id="g-return-val-if-reached" role="macro">
+<title>g_return_val_if_reached()</title>
+<indexterm zone="g-return-val-if-reached"><primary sortas="return_val_if_reached">g_return_val_if_reached</primary></indexterm>
+<programlisting language="C">#define             g_return_val_if_reached(val)</programlisting>
+<para>Logs a critical message and returns <parameter>val</parameter>
+.</para>
+<para>See <link linkend="g-return-if-fail"><function>g_return_if_fail()</function></link> for guidance on how to debug failure of this check.</para>
+<refsect3 id="g-return-val-if-reached.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>val</para></entry>
+<entry role="parameter_description"><para>the value to return from the current function</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-warn-if-fail" role="macro" condition="since:2.16">
+<title>g_warn_if_fail()</title>
+<indexterm zone="g-warn-if-fail" role="2.16"><primary sortas="warn_if_fail">g_warn_if_fail</primary></indexterm>
+<programlisting language="C">#define             g_warn_if_fail(expr)</programlisting>
+<para>Logs a warning if the expression is not true.</para>
+<refsect3 id="g-warn-if-fail.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>expr</para></entry>
+<entry role="parameter_description"><para>the expression to check</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.16">2.16</link></para></refsect2>
+<refsect2 id="g-warn-if-reached" role="macro" condition="since:2.16">
+<title>g_warn_if_reached</title>
+<indexterm zone="g-warn-if-reached" role="2.16"><primary sortas="warn_if_reached">g_warn_if_reached</primary></indexterm>
+<programlisting language="C">#define             g_warn_if_reached()</programlisting>
+<para>Logs a warning.</para>
+<para role="since">Since: <link linkend="api-index-2.16">2.16</link></para></refsect2>
+<refsect2 id="g-on-error-query" role="function">
+<title>g_on_error_query&#160;()</title>
+<indexterm zone="g-on-error-query"><primary sortas="on_error_query">g_on_error_query</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_on_error_query (<parameter>const <link linkend="gchar"><type>gchar</type></link> *prg_name</parameter>);</programlisting>
+<para>Prompts the user with
+<literal>[E]xit, [H]alt, show [S]tack trace or [P]roceed</literal>.
+This function is intended to be used for debugging use only.
+The following example shows how it can be used together with
+the <link linkend="g-log"><function>g_log()</function></link> functions.</para>
+<informalexample><programlisting role="example"><![CDATA[
+#include <glib.h>
+
+static void
+log_handler (const gchar   *log_domain,
+             GLogLevelFlags log_level,
+             const gchar   *message,
+             gpointer       user_data)
+{
+  g_log_default_handler (log_domain, log_level, message, user_data);
+
+  g_on_error_query (MY_PROGRAM_NAME);
+}
+
+int
+main (int argc, char *argv[])
+{
+  g_log_set_handler (MY_LOG_DOMAIN,
+                     G_LOG_LEVEL_WARNING |
+                     G_LOG_LEVEL_ERROR |
+                     G_LOG_LEVEL_CRITICAL,
+                     log_handler,
+                     NULL);
+  ...
+]]></programlisting></informalexample>
+<para></para>
+<para>If "[E]xit" is selected, the application terminates with a call
+to _exit(0).</para>
+<para>If "[S]tack" trace is selected, <link linkend="g-on-error-stack-trace"><function>g_on_error_stack_trace()</function></link> is called.
+This invokes gdb, which attaches to the current process and shows
+a stack trace. The prompt is then shown again.</para>
+<para>If "[P]roceed" is selected, the function returns.</para>
+<para>This function may cause different actions on non-UNIX platforms.</para>
+<refsect3 id="g-on-error-query.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>prg_name</para></entry>
+<entry role="parameter_description"><para>the program name, needed by gdb for the "[S]tack trace"
+option. If <parameter>prg_name</parameter>
+is <link linkend="NULL:CAPS"><literal>NULL</literal></link>, <link linkend="g-get-prgname"><function>g_get_prgname()</function></link> is called to get
+the program name (which will work correctly if <link linkend="gdk-init"><function>gdk_init()</function></link> or
+<link linkend="gtk-init"><function>gtk_init()</function></link> has been called)</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-on-error-stack-trace" role="function">
+<title>g_on_error_stack_trace&#160;()</title>
+<indexterm zone="g-on-error-stack-trace"><primary sortas="on_error_stack_trace">g_on_error_stack_trace</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_on_error_stack_trace (<parameter>const <link linkend="gchar"><type>gchar</type></link> *prg_name</parameter>);</programlisting>
+<para>Invokes gdb, which attaches to the current process and shows a
+stack trace. Called by <link linkend="g-on-error-query"><function>g_on_error_query()</function></link> when the "[S]tack trace"
+option is selected. You can get the current process's program name
+with <link linkend="g-get-prgname"><function>g_get_prgname()</function></link>, assuming that you have called <link linkend="gtk-init"><function>gtk_init()</function></link> or
+<link linkend="gdk-init"><function>gdk_init()</function></link>.</para>
+<para>This function may cause different actions on non-UNIX platforms.</para>
+<refsect3 id="g-on-error-stack-trace.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>prg_name</para></entry>
+<entry role="parameter_description"><para>the program name, needed by gdb for the "[S]tack trace"
+option</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="G-BREAKPOINT:CAPS" role="macro">
+<title>G_BREAKPOINT</title>
+<indexterm zone="G-BREAKPOINT:CAPS"><primary sortas="BREAKPOINT">G_BREAKPOINT</primary></indexterm>
+<programlisting language="C">#  define G_BREAKPOINT()        G_STMT_START{ __asm__ __volatile__ ("int $03"); }G_STMT_END
+</programlisting>
+<para>Inserts a breakpoint instruction into the code.</para>
+<para>On architectures which support it, this is implemented as a soft interrupt
+and on other architectures it raises a <literal>SIGTRAP</literal> signal.</para>
+<para><literal>SIGTRAP</literal> is used rather than <link linkend="abort"><function>abort()</function></link> to allow breakpoints to be skipped past
+in a debugger if they are not the desired target of debugging.</para>
+</refsect2>
+
+</refsect1>
+<refsect1 id="glib-Warnings-and-Assertions.other_details" role="details">
+<title role="details.title">Types and Values</title>
+
+</refsect1>
+
+</refentry>

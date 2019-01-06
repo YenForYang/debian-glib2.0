@@ -1,0 +1,268 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC '-//OASIS//DTD DocBook XML V4.5//EN'
+                      'http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd' [
+<!ENTITY % local.common.attrib "xmlns:xi  CDATA  #FIXED 'http://www.w3.org/2003/XInclude'">
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="GUnixFDMessage">
+<refmeta>
+<refentrytitle role="top_of_page" id="GUnixFDMessage.top_of_page">GUnixFDMessage</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>GIO Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>GUnixFDMessage</refname>
+<refpurpose>A GSocketControlMessage containing a GUnixFDList</refpurpose>
+</refnamediv>
+
+<refsect1 id="GUnixFDMessage.functions" role="functions_proto">
+<title role="functions_proto.title">Functions</title>
+<informaltable pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="functions_return" colwidth="150px"/>
+<colspec colname="functions_name"/>
+<tbody>
+<row><entry role="function_type"><link linkend="GSocketControlMessage"><returnvalue>GSocketControlMessage</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-unix-fd-message-new-with-fd-list">g_unix_fd_message_new_with_fd_list</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GSocketControlMessage"><returnvalue>GSocketControlMessage</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-unix-fd-message-new">g_unix_fd_message_new</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GUnixFDList"><returnvalue>GUnixFDList</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-unix-fd-message-get-fd-list">g_unix_fd_message_get_fd_list</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-unix-fd-message-append-fd">g_unix_fd_message_append_fd</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gint"><returnvalue>gint</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-unix-fd-message-steal-fds">g_unix_fd_message_steal_fds</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GUnixFDMessage.properties" role="properties">
+<title role="properties.title">Properties</title>
+<informaltable frame="none">
+<tgroup cols="3">
+<colspec colname="properties_type" colwidth="150px"/>
+<colspec colname="properties_name" colwidth="300px"/>
+<colspec colname="properties_flags" colwidth="200px"/>
+<tbody>
+<row><entry role="property_type"><link linkend="GUnixFDList"><type>GUnixFDList</type></link>&#160;*</entry><entry role="property_name"><link linkend="GUnixFDMessage--fd-list">fd-list</link></entry><entry role="property_flags">Read / Write / Construct Only</entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GUnixFDMessage.other" role="other_proto">
+<title role="other_proto.title">Types and Values</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="name" colwidth="150px"/>
+<colspec colname="description"/>
+<tbody>
+<row><entry role="datatype_keyword">struct</entry><entry role="function_name"><link linkend="GUnixFDMessage-struct">GUnixFDMessage</link></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GUnixFDMessage.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<screen>    <link linkend="GObject">GObject</link>
+    <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> <link linkend="GSocketControlMessage">GSocketControlMessage</link>
+        <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> GUnixFDMessage
+</screen>
+</refsect1>
+
+<refsect1 id="GUnixFDMessage.includes"><title>Includes</title><synopsis>#include &lt;gio/gunixfdmessage.h&gt;
+</synopsis></refsect1>
+
+<refsect1 id="GUnixFDMessage.description" role="desc">
+<title role="desc.title">Description</title>
+<para>This <link linkend="GSocketControlMessage"><type>GSocketControlMessage</type></link> contains a <link linkend="GUnixFDList"><type>GUnixFDList</type></link>.
+It may be sent using <link linkend="g-socket-send-message"><function>g_socket_send_message()</function></link> and received using
+<link linkend="g-socket-receive-message"><function>g_socket_receive_message()</function></link> over UNIX sockets (ie: sockets in the
+<link linkend="G-SOCKET-ADDRESS-UNIX:CAPS"><literal>G_SOCKET_ADDRESS_UNIX</literal></link> family). The file descriptors are copied
+between processes by the kernel.</para>
+<para>For an easier way to send and receive file descriptors over
+stream-oriented UNIX sockets, see <link linkend="g-unix-connection-send-fd"><function>g_unix_connection_send_fd()</function></link> and
+<link linkend="g-unix-connection-receive-fd"><function>g_unix_connection_receive_fd()</function></link>.</para>
+<para>Note that <literal>&amp;lt;gio/gunixfdmessage.h&gt;</literal> belongs to the UNIX-specific GIO
+interfaces, thus you have to use the <literal>gio-unix-2.0.pc</literal> pkg-config
+file when using it.</para>
+
+</refsect1>
+<refsect1 id="GUnixFDMessage.functions_details" role="details">
+<title role="details.title">Functions</title>
+<refsect2 id="g-unix-fd-message-new-with-fd-list" role="function" condition="since:2.24">
+<title>g_unix_fd_message_new_with_fd_list&#160;()</title>
+<indexterm zone="g-unix-fd-message-new-with-fd-list" role="2.24"><primary sortas="unix_fd_message_new_with_fd_list">g_unix_fd_message_new_with_fd_list</primary></indexterm>
+<programlisting language="C"><link linkend="GSocketControlMessage"><returnvalue>GSocketControlMessage</returnvalue></link>&#160;*
+g_unix_fd_message_new_with_fd_list (<parameter><link linkend="GUnixFDList"><type>GUnixFDList</type></link> *fd_list</parameter>);</programlisting>
+<para>Creates a new <link linkend="GUnixFDMessage"><type>GUnixFDMessage</type></link> containing <parameter>list</parameter>
+.</para>
+<refsect3 id="g-unix-fd-message-new-with-fd-list.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>fd_list</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GUnixFDList"><type>GUnixFDList</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-unix-fd-message-new-with-fd-list.returns" role="returns">
+<title>Returns</title>
+<para> a new <link linkend="GUnixFDMessage"><type>GUnixFDMessage</type></link></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.24">2.24</link></para></refsect2>
+<refsect2 id="g-unix-fd-message-new" role="function" condition="since:2.22">
+<title>g_unix_fd_message_new&#160;()</title>
+<indexterm zone="g-unix-fd-message-new" role="2.22"><primary sortas="unix_fd_message_new">g_unix_fd_message_new</primary></indexterm>
+<programlisting language="C"><link linkend="GSocketControlMessage"><returnvalue>GSocketControlMessage</returnvalue></link>&#160;*
+g_unix_fd_message_new (<parameter><type>void</type></parameter>);</programlisting>
+<para>Creates a new <link linkend="GUnixFDMessage"><type>GUnixFDMessage</type></link> containing an empty file descriptor
+list.</para>
+<refsect3 id="g-unix-fd-message-new.returns" role="returns">
+<title>Returns</title>
+<para> a new <link linkend="GUnixFDMessage"><type>GUnixFDMessage</type></link></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.22">2.22</link></para></refsect2>
+<refsect2 id="g-unix-fd-message-get-fd-list" role="function" condition="since:2.24">
+<title>g_unix_fd_message_get_fd_list&#160;()</title>
+<indexterm zone="g-unix-fd-message-get-fd-list" role="2.24"><primary sortas="unix_fd_message_get_fd_list">g_unix_fd_message_get_fd_list</primary></indexterm>
+<programlisting language="C"><link linkend="GUnixFDList"><returnvalue>GUnixFDList</returnvalue></link>&#160;*
+g_unix_fd_message_get_fd_list (<parameter><link linkend="GUnixFDMessage"><type>GUnixFDMessage</type></link> *message</parameter>);</programlisting>
+<para>Gets the <link linkend="GUnixFDList"><type>GUnixFDList</type></link> contained in <parameter>message</parameter>
+.  This function does not
+return a reference to the caller, but the returned list is valid for
+the lifetime of <parameter>message</parameter>
+.</para>
+<refsect3 id="g-unix-fd-message-get-fd-list.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>message</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GUnixFDMessage"><type>GUnixFDMessage</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-unix-fd-message-get-fd-list.returns" role="returns">
+<title>Returns</title>
+<para>the <link linkend="GUnixFDList"><type>GUnixFDList</type></link> from <parameter>message</parameter>
+. </para>
+<para><emphasis role="annotation">[<acronym>transfer none</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.24">2.24</link></para></refsect2>
+<refsect2 id="g-unix-fd-message-append-fd" role="function" condition="since:2.22">
+<title>g_unix_fd_message_append_fd&#160;()</title>
+<indexterm zone="g-unix-fd-message-append-fd" role="2.22"><primary sortas="unix_fd_message_append_fd">g_unix_fd_message_append_fd</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_unix_fd_message_append_fd (<parameter><link linkend="GUnixFDMessage"><type>GUnixFDMessage</type></link> *message</parameter>,
+                             <parameter><link linkend="gint"><type>gint</type></link> fd</parameter>,
+                             <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para>Adds a file descriptor to <parameter>message</parameter>
+.</para>
+<para>The file descriptor is duplicated using <link linkend="dup"><function>dup()</function></link>. You keep your copy
+of the descriptor and the copy contained in <parameter>message</parameter>
+ will be closed
+when <parameter>message</parameter>
+ is finalized.</para>
+<para>A possible cause of failure is exceeding the per-process or
+system-wide file descriptor limit.</para>
+<refsect3 id="g-unix-fd-message-append-fd.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>message</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GUnixFDMessage"><type>GUnixFDMessage</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>fd</para></entry>
+<entry role="parameter_description"><para>a valid open file descriptor</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GError"><type>GError</type></link> pointer</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-unix-fd-message-append-fd.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> in case of success, else <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> (and <parameter>error</parameter>
+is set)</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.22">2.22</link></para></refsect2>
+<refsect2 id="g-unix-fd-message-steal-fds" role="function" condition="since:2.22">
+<title>g_unix_fd_message_steal_fds&#160;()</title>
+<indexterm zone="g-unix-fd-message-steal-fds" role="2.22"><primary sortas="unix_fd_message_steal_fds">g_unix_fd_message_steal_fds</primary></indexterm>
+<programlisting language="C"><link linkend="gint"><returnvalue>gint</returnvalue></link>&#160;*
+g_unix_fd_message_steal_fds (<parameter><link linkend="GUnixFDMessage"><type>GUnixFDMessage</type></link> *message</parameter>,
+                             <parameter><link linkend="gint"><type>gint</type></link> *length</parameter>);</programlisting>
+<para>Returns the array of file descriptors that is contained in this
+object.</para>
+<para>After this call, the descriptors are no longer contained in
+<parameter>message</parameter>
+. Further calls will return an empty list (unless more
+descriptors have been added).</para>
+<para>The return result of this function must be freed with <link linkend="g-free"><function>g_free()</function></link>.
+The caller is also responsible for closing all of the file
+descriptors.</para>
+<para>If <parameter>length</parameter>
+ is non-<link linkend="NULL:CAPS"><literal>NULL</literal></link> then it is set to the number of file
+descriptors in the returned array. The returned array is also
+terminated with -1.</para>
+<para>This function never returns <link linkend="NULL:CAPS"><literal>NULL</literal></link>. In case there are no file
+descriptors contained in <parameter>message</parameter>
+, an empty array is returned.</para>
+<refsect3 id="g-unix-fd-message-steal-fds.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>message</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GUnixFDMessage"><type>GUnixFDMessage</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>length</para></entry>
+<entry role="parameter_description"><para>pointer to the length of the returned
+array, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>out</acronym>][<acronym>optional</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-unix-fd-message-steal-fds.returns" role="returns">
+<title>Returns</title>
+<para>an array of file
+descriptors. </para>
+<para><emphasis role="annotation">[<acronym>array</acronym> length=length][<acronym>transfer full</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.22">2.22</link></para></refsect2>
+
+</refsect1>
+<refsect1 id="GUnixFDMessage.other_details" role="details">
+<title role="details.title">Types and Values</title>
+<refsect2 id="GUnixFDMessage-struct" role="struct">
+<title>struct GUnixFDMessage</title>
+<indexterm zone="GUnixFDMessage-struct"><primary sortas="UnixFDMessage">GUnixFDMessage</primary></indexterm>
+<programlisting language="C">struct GUnixFDMessage;</programlisting>
+<para><link linkend="GUnixFDMessage"><type>GUnixFDMessage</type></link> is an opaque data structure and can only be accessed
+using the following functions.</para>
+</refsect2>
+
+</refsect1>
+<refsect1 id="GUnixFDMessage.property-details" role="property_details">
+<title role="property_details.title">Property Details</title>
+<refsect2 id="GUnixFDMessage--fd-list" role="property"><title>The <literal>“fd-list”</literal> property</title>
+<indexterm zone="GUnixFDMessage--fd-list"><primary sortas="UnixFDMessage:fd-list">GUnixFDMessage:fd-list</primary></indexterm>
+<programlisting>  “fd-list”                  <link linkend="GUnixFDList"><type>GUnixFDList</type></link>&#160;*</programlisting>
+<para>The GUnixFDList object to send with the message.</para><para>Flags: Read / Write / Construct Only</para>
+</refsect2>
+
+</refsect1>
+<refsect1 id="GUnixFDMessage.see-also">
+<title>See Also</title>
+<para><link linkend="GUnixConnection"><type>GUnixConnection</type></link>, <link linkend="GUnixFDList"><type>GUnixFDList</type></link>, <link linkend="GSocketControlMessage"><type>GSocketControlMessage</type></link></para>
+
+</refsect1>
+
+</refentry>

@@ -1,0 +1,225 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC '-//OASIS//DTD DocBook XML V4.5//EN'
+                      'http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd' [
+<!ENTITY % local.common.attrib "xmlns:xi  CDATA  #FIXED 'http://www.w3.org/2003/XInclude'">
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="GMemoryInputStream">
+<refmeta>
+<refentrytitle role="top_of_page" id="GMemoryInputStream.top_of_page">GMemoryInputStream</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>GIO Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>GMemoryInputStream</refname>
+<refpurpose>Streaming input operations on memory chunks</refpurpose>
+</refnamediv>
+
+<refsect1 id="GMemoryInputStream.functions" role="functions_proto">
+<title role="functions_proto.title">Functions</title>
+<informaltable pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="functions_return" colwidth="150px"/>
+<colspec colname="functions_name"/>
+<tbody>
+<row><entry role="function_type"><link linkend="GInputStream"><returnvalue>GInputStream</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-memory-input-stream-new">g_memory_input_stream_new</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GInputStream"><returnvalue>GInputStream</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-memory-input-stream-new-from-data">g_memory_input_stream_new_from_data</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GInputStream"><returnvalue>GInputStream</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-memory-input-stream-new-from-bytes">g_memory_input_stream_new_from_bytes</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-memory-input-stream-add-data">g_memory_input_stream_add_data</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-memory-input-stream-add-bytes">g_memory_input_stream_add_bytes</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GMemoryInputStream.other" role="other_proto">
+<title role="other_proto.title">Types and Values</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="name" colwidth="150px"/>
+<colspec colname="description"/>
+<tbody>
+<row><entry role="datatype_keyword"></entry><entry role="function_name"><link linkend="GMemoryInputStream-struct">GMemoryInputStream</link></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GMemoryInputStream.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<screen>    <link linkend="GObject">GObject</link>
+    <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> <link linkend="GInputStream">GInputStream</link>
+        <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> GMemoryInputStream
+</screen>
+</refsect1>
+<refsect1 id="GMemoryInputStream.implemented-interfaces" role="impl_interfaces">
+<title role="impl_interfaces.title">Implemented Interfaces</title>
+<para>
+GMemoryInputStream implements
+ <link linkend="GSeekable">GSeekable</link> and  <link linkend="GPollableInputStream">GPollableInputStream</link>.</para>
+
+</refsect1>
+
+<refsect1 id="GMemoryInputStream.includes"><title>Includes</title><synopsis>#include &lt;gio/gio.h&gt;
+</synopsis></refsect1>
+
+<refsect1 id="GMemoryInputStream.description" role="desc">
+<title role="desc.title">Description</title>
+<para><link linkend="GMemoryInputStream"><type>GMemoryInputStream</type></link> is a class for using arbitrary
+memory chunks as input for GIO streaming input operations.</para>
+<para>As of GLib 2.34, <link linkend="GMemoryInputStream"><type>GMemoryInputStream</type></link> implements
+<link linkend="GPollableInputStream"><type>GPollableInputStream</type></link>.</para>
+
+</refsect1>
+<refsect1 id="GMemoryInputStream.functions_details" role="details">
+<title role="details.title">Functions</title>
+<refsect2 id="g-memory-input-stream-new" role="function">
+<title>g_memory_input_stream_new&#160;()</title>
+<indexterm zone="g-memory-input-stream-new"><primary sortas="memory_input_stream_new">g_memory_input_stream_new</primary></indexterm>
+<programlisting language="C"><link linkend="GInputStream"><returnvalue>GInputStream</returnvalue></link>&#160;*
+g_memory_input_stream_new (<parameter><type>void</type></parameter>);</programlisting>
+<para>Creates a new empty <link linkend="GMemoryInputStream"><type>GMemoryInputStream</type></link>.</para>
+<refsect3 id="g-memory-input-stream-new.returns" role="returns">
+<title>Returns</title>
+<para> a new <link linkend="GInputStream"><type>GInputStream</type></link></para>
+</refsect3></refsect2>
+<refsect2 id="g-memory-input-stream-new-from-data" role="function">
+<title>g_memory_input_stream_new_from_data&#160;()</title>
+<indexterm zone="g-memory-input-stream-new-from-data"><primary sortas="memory_input_stream_new_from_data">g_memory_input_stream_new_from_data</primary></indexterm>
+<programlisting language="C"><link linkend="GInputStream"><returnvalue>GInputStream</returnvalue></link>&#160;*
+g_memory_input_stream_new_from_data (<parameter>const <link linkend="void"><type>void</type></link> *data</parameter>,
+                                     <parameter><link linkend="gssize"><type>gssize</type></link> len</parameter>,
+                                     <parameter><link linkend="GDestroyNotify"><type>GDestroyNotify</type></link> destroy</parameter>);</programlisting>
+<para>Creates a new <link linkend="GMemoryInputStream"><type>GMemoryInputStream</type></link> with data in memory of a given size.</para>
+<refsect3 id="g-memory-input-stream-new-from-data.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>data</para></entry>
+<entry role="parameter_description"><para>input data. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>array</acronym> length=len][<acronym>element-type</acronym> guint8][<acronym>transfer full</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>len</para></entry>
+<entry role="parameter_description"><para>length of the data, may be -1 if <parameter>data</parameter>
+is a nul-terminated string</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>destroy</para></entry>
+<entry role="parameter_description"><para>function that is called to free <parameter>data</parameter>
+, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-memory-input-stream-new-from-data.returns" role="returns">
+<title>Returns</title>
+<para> new <link linkend="GInputStream"><type>GInputStream</type></link> read from <parameter>data</parameter>
+of <parameter>len</parameter>
+bytes.</para>
+</refsect3></refsect2>
+<refsect2 id="g-memory-input-stream-new-from-bytes" role="function" condition="since:2.34">
+<title>g_memory_input_stream_new_from_bytes&#160;()</title>
+<indexterm zone="g-memory-input-stream-new-from-bytes" role="2.34"><primary sortas="memory_input_stream_new_from_bytes">g_memory_input_stream_new_from_bytes</primary></indexterm>
+<programlisting language="C"><link linkend="GInputStream"><returnvalue>GInputStream</returnvalue></link>&#160;*
+g_memory_input_stream_new_from_bytes (<parameter><link linkend="GBytes"><type>GBytes</type></link> *bytes</parameter>);</programlisting>
+<para>Creates a new <link linkend="GMemoryInputStream"><type>GMemoryInputStream</type></link> with data from the given <parameter>bytes</parameter>
+.</para>
+<refsect3 id="g-memory-input-stream-new-from-bytes.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>bytes</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GBytes"><type>GBytes</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-memory-input-stream-new-from-bytes.returns" role="returns">
+<title>Returns</title>
+<para> new <link linkend="GInputStream"><type>GInputStream</type></link> read from <parameter>bytes</parameter>
+</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.34">2.34</link></para></refsect2>
+<refsect2 id="g-memory-input-stream-add-data" role="function">
+<title>g_memory_input_stream_add_data&#160;()</title>
+<indexterm zone="g-memory-input-stream-add-data"><primary sortas="memory_input_stream_add_data">g_memory_input_stream_add_data</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_memory_input_stream_add_data (<parameter><link linkend="GMemoryInputStream"><type>GMemoryInputStream</type></link> *stream</parameter>,
+                                <parameter>const <link linkend="void"><type>void</type></link> *data</parameter>,
+                                <parameter><link linkend="gssize"><type>gssize</type></link> len</parameter>,
+                                <parameter><link linkend="GDestroyNotify"><type>GDestroyNotify</type></link> destroy</parameter>);</programlisting>
+<para>Appends <parameter>data</parameter>
+ to data that can be read from the input stream</para>
+<refsect3 id="g-memory-input-stream-add-data.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>stream</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GMemoryInputStream"><type>GMemoryInputStream</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>data</para></entry>
+<entry role="parameter_description"><para>input data. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>array</acronym> length=len][<acronym>element-type</acronym> guint8][<acronym>transfer full</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>len</para></entry>
+<entry role="parameter_description"><para>length of the data, may be -1 if <parameter>data</parameter>
+is a nul-terminated string</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>destroy</para></entry>
+<entry role="parameter_description"><para>function that is called to free <parameter>data</parameter>
+, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-memory-input-stream-add-bytes" role="function" condition="since:2.34">
+<title>g_memory_input_stream_add_bytes&#160;()</title>
+<indexterm zone="g-memory-input-stream-add-bytes" role="2.34"><primary sortas="memory_input_stream_add_bytes">g_memory_input_stream_add_bytes</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_memory_input_stream_add_bytes (<parameter><link linkend="GMemoryInputStream"><type>GMemoryInputStream</type></link> *stream</parameter>,
+                                 <parameter><link linkend="GBytes"><type>GBytes</type></link> *bytes</parameter>);</programlisting>
+<para>Appends <parameter>bytes</parameter>
+ to data that can be read from the input stream.</para>
+<refsect3 id="g-memory-input-stream-add-bytes.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>stream</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GMemoryInputStream"><type>GMemoryInputStream</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>bytes</para></entry>
+<entry role="parameter_description"><para>input data</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.34">2.34</link></para></refsect2>
+
+</refsect1>
+<refsect1 id="GMemoryInputStream.other_details" role="details">
+<title role="details.title">Types and Values</title>
+<refsect2 id="GMemoryInputStream-struct" role="struct">
+<title>GMemoryInputStream</title>
+<indexterm zone="GMemoryInputStream-struct"><primary sortas="MemoryInputStream">GMemoryInputStream</primary></indexterm>
+<programlisting language="C">typedef struct _GMemoryInputStream GMemoryInputStream;</programlisting>
+<para>Implements <link linkend="GInputStream"><type>GInputStream</type></link> for arbitrary memory chunks.</para>
+</refsect2>
+
+</refsect1>
+<refsect1 id="GMemoryInputStream.see-also">
+<title>See Also</title>
+<para><link linkend="GMemoryOutputStream"><type>GMemoryOutputStream</type></link></para>
+
+</refsect1>
+
+</refentry>

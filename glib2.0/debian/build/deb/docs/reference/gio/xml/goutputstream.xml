@@ -1,0 +1,1234 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC '-//OASIS//DTD DocBook XML V4.5//EN'
+                      'http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd' [
+<!ENTITY % local.common.attrib "xmlns:xi  CDATA  #FIXED 'http://www.w3.org/2003/XInclude'">
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="GOutputStream">
+<refmeta>
+<refentrytitle role="top_of_page" id="GOutputStream.top_of_page">GOutputStream</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>GIO Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>GOutputStream</refname>
+<refpurpose>Base class for implementing streaming output</refpurpose>
+</refnamediv>
+
+<refsect1 id="GOutputStream.functions" role="functions_proto">
+<title role="functions_proto.title">Functions</title>
+<informaltable pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="functions_return" colwidth="150px"/>
+<colspec colname="functions_name"/>
+<tbody>
+<row><entry role="function_type"><link linkend="gssize"><returnvalue>gssize</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-output-stream-write">g_output_stream_write</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-output-stream-write-all">g_output_stream_write_all</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-output-stream-write-all-async">g_output_stream_write_all_async</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-output-stream-write-all-finish">g_output_stream_write_all_finish</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gssize"><returnvalue>gssize</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-output-stream-splice">g_output_stream_splice</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-output-stream-flush">g_output_stream_flush</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-output-stream-close">g_output_stream_close</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-output-stream-write-async">g_output_stream_write_async</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gssize"><returnvalue>gssize</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-output-stream-write-finish">g_output_stream_write_finish</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-output-stream-splice-async">g_output_stream_splice_async</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gssize"><returnvalue>gssize</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-output-stream-splice-finish">g_output_stream_splice_finish</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-output-stream-flush-async">g_output_stream_flush_async</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-output-stream-flush-finish">g_output_stream_flush_finish</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-output-stream-close-async">g_output_stream_close_async</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-output-stream-close-finish">g_output_stream_close_finish</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-output-stream-is-closing">g_output_stream_is_closing</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-output-stream-is-closed">g_output_stream_is_closed</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-output-stream-has-pending">g_output_stream_has_pending</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-output-stream-set-pending">g_output_stream_set_pending</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-output-stream-clear-pending">g_output_stream_clear_pending</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gssize"><returnvalue>gssize</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-output-stream-write-bytes">g_output_stream_write_bytes</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-output-stream-write-bytes-async">g_output_stream_write_bytes_async</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gssize"><returnvalue>gssize</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-output-stream-write-bytes-finish">g_output_stream_write_bytes_finish</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-output-stream-printf">g_output_stream_printf</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-output-stream-vprintf">g_output_stream_vprintf</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GOutputStream.other" role="other_proto">
+<title role="other_proto.title">Types and Values</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="name" colwidth="150px"/>
+<colspec colname="description"/>
+<tbody>
+<row><entry role="datatype_keyword">enum</entry><entry role="function_name"><link linkend="GOutputStreamSpliceFlags">GOutputStreamSpliceFlags</link></entry></row>
+<row><entry role="datatype_keyword"></entry><entry role="function_name"><link linkend="GOutputStream-struct">GOutputStream</link></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GOutputStream.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<screen>    <link linkend="GFlags">GFlags</link>
+    <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> GOutputStreamSpliceFlags
+    <link linkend="GObject">GObject</link>
+    <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> GOutputStream
+        <phrase role="lineart">&#9500;&#9472;&#9472;</phrase> <link linkend="GFilterOutputStream">GFilterOutputStream</link>
+        <phrase role="lineart">&#9500;&#9472;&#9472;</phrase> <link linkend="GFileOutputStream">GFileOutputStream</link>
+        <phrase role="lineart">&#9500;&#9472;&#9472;</phrase> <link linkend="GMemoryOutputStream">GMemoryOutputStream</link>
+        <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> <link linkend="GUnixOutputStream">GUnixOutputStream</link>
+</screen>
+</refsect1>
+<refsect1 id="GOutputStream.derived-interfaces" role="derived_interfaces">
+<title role="derived_interfaces.title">Known Derived Interfaces</title>
+<para>
+GOutputStream is required by
+ <link linkend="GPollableOutputStream">GPollableOutputStream</link>.</para>
+
+</refsect1>
+
+<refsect1 id="GOutputStream.includes"><title>Includes</title><synopsis>#include &lt;gio/gio.h&gt;
+</synopsis></refsect1>
+
+<refsect1 id="GOutputStream.description" role="desc">
+<title role="desc.title">Description</title>
+<para><link linkend="GOutputStream"><type>GOutputStream</type></link> has functions to write to a stream (<link linkend="g-output-stream-write"><function>g_output_stream_write()</function></link>),
+to close a stream (<link linkend="g-output-stream-close"><function>g_output_stream_close()</function></link>) and to flush pending writes
+(<link linkend="g-output-stream-flush"><function>g_output_stream_flush()</function></link>). </para>
+<para>To copy the content of an input stream to an output stream without 
+manually handling the reads and writes, use <link linkend="g-output-stream-splice"><function>g_output_stream_splice()</function></link>.</para>
+<para>See the documentation for <link linkend="GIOStream"><type>GIOStream</type></link> for details of thread safety of
+streaming APIs.</para>
+<para>All of these functions have async variants too.</para>
+
+</refsect1>
+<refsect1 id="GOutputStream.functions_details" role="details">
+<title role="details.title">Functions</title>
+<refsect2 id="g-output-stream-write" role="function">
+<title>g_output_stream_write&#160;()</title>
+<indexterm zone="g-output-stream-write"><primary sortas="output_stream_write">g_output_stream_write</primary></indexterm>
+<programlisting language="C"><link linkend="gssize"><returnvalue>gssize</returnvalue></link>
+g_output_stream_write (<parameter><link linkend="GOutputStream"><type>GOutputStream</type></link> *stream</parameter>,
+                       <parameter>const <link linkend="void"><type>void</type></link> *buffer</parameter>,
+                       <parameter><link linkend="gsize"><type>gsize</type></link> count</parameter>,
+                       <parameter><link linkend="GCancellable"><type>GCancellable</type></link> *cancellable</parameter>,
+                       <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para>Tries to write <parameter>count</parameter>
+ bytes from <parameter>buffer</parameter>
+ into the stream. Will block
+during the operation.</para>
+<para>If count is 0, returns 0 and does nothing. A value of <parameter>count</parameter>
+
+larger than <link linkend="G-MAXSSIZE:CAPS"><literal>G_MAXSSIZE</literal></link> will cause a <link linkend="G-IO-ERROR-INVALID-ARGUMENT:CAPS"><literal>G_IO_ERROR_INVALID_ARGUMENT</literal></link> error.</para>
+<para>On success, the number of bytes written to the stream is returned.
+It is not an error if this is not the same as the requested size, as it
+can happen e.g. on a partial I/O error, or if there is not enough
+storage in the stream. All writes block until at least one byte
+is written or an error occurs; 0 is never returned (unless
+<parameter>count</parameter>
+ is 0).</para>
+<para>If <parameter>cancellable</parameter>
+ is not <link linkend="NULL:CAPS"><literal>NULL</literal></link>, then the operation can be cancelled by
+triggering the cancellable object from another thread. If the operation
+was cancelled, the error <link linkend="G-IO-ERROR-CANCELLED:CAPS"><literal>G_IO_ERROR_CANCELLED</literal></link> will be returned. If an
+operation was partially finished when the operation was cancelled the
+partial result will be returned, without an error.</para>
+<para>On error -1 is returned and <parameter>error</parameter>
+ is set accordingly.</para>
+<para>Virtual: write_fn</para>
+<refsect3 id="g-output-stream-write.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>stream</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GOutputStream"><type>GOutputStream</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>buffer</para></entry>
+<entry role="parameter_description"><para>the buffer containing the data to write. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>array</acronym> length=count][<acronym>element-type</acronym> guint8]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>count</para></entry>
+<entry role="parameter_description"><para>the number of bytes to write</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>cancellable</para></entry>
+<entry role="parameter_description"><para>optional cancellable object. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para>location to store the error occurring, or <link linkend="NULL:CAPS"><literal>NULL</literal></link> to ignore</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-output-stream-write.returns" role="returns">
+<title>Returns</title>
+<para> Number of bytes written, or -1 on error</para>
+</refsect3></refsect2>
+<refsect2 id="g-output-stream-write-all" role="function">
+<title>g_output_stream_write_all&#160;()</title>
+<indexterm zone="g-output-stream-write-all"><primary sortas="output_stream_write_all">g_output_stream_write_all</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_output_stream_write_all (<parameter><link linkend="GOutputStream"><type>GOutputStream</type></link> *stream</parameter>,
+                           <parameter>const <link linkend="void"><type>void</type></link> *buffer</parameter>,
+                           <parameter><link linkend="gsize"><type>gsize</type></link> count</parameter>,
+                           <parameter><link linkend="gsize"><type>gsize</type></link> *bytes_written</parameter>,
+                           <parameter><link linkend="GCancellable"><type>GCancellable</type></link> *cancellable</parameter>,
+                           <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para>Tries to write <parameter>count</parameter>
+ bytes from <parameter>buffer</parameter>
+ into the stream. Will block
+during the operation.</para>
+<para>This function is similar to <link linkend="g-output-stream-write"><function>g_output_stream_write()</function></link>, except it tries to
+write as many bytes as requested, only stopping on an error.</para>
+<para>On a successful write of <parameter>count</parameter>
+ bytes, <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> is returned, and <parameter>bytes_written</parameter>
+
+is set to <parameter>count</parameter>
+.</para>
+<para>If there is an error during the operation <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> is returned and <parameter>error</parameter>
+
+is set to indicate the error status.</para>
+<para>As a special exception to the normal conventions for functions that
+use <link linkend="GError"><type>GError</type></link>, if this function returns <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> (and sets <parameter>error</parameter>
+) then
+<parameter>bytes_written</parameter>
+ will be set to the number of bytes that were
+successfully written before the error was encountered.  This
+functionality is only available from C.  If you need it from another
+language then you must write your own loop around
+<link linkend="g-output-stream-write"><function>g_output_stream_write()</function></link>.</para>
+<refsect3 id="g-output-stream-write-all.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>stream</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GOutputStream"><type>GOutputStream</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>buffer</para></entry>
+<entry role="parameter_description"><para>the buffer containing the data to write. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>array</acronym> length=count][<acronym>element-type</acronym> guint8]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>count</para></entry>
+<entry role="parameter_description"><para>the number of bytes to write</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>bytes_written</para></entry>
+<entry role="parameter_description"><para>location to store the number of bytes that was
+written to the stream. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>out</acronym>][<acronym>optional</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>cancellable</para></entry>
+<entry role="parameter_description"><para>optional <link linkend="GCancellable"><type>GCancellable</type></link> object, <link linkend="NULL:CAPS"><literal>NULL</literal></link> to ignore. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para>location to store the error occurring, or <link linkend="NULL:CAPS"><literal>NULL</literal></link> to ignore</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-output-stream-write-all.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> on success, <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> if there was an error</para>
+</refsect3></refsect2>
+<refsect2 id="g-output-stream-write-all-async" role="function" condition="since:2.44">
+<title>g_output_stream_write_all_async&#160;()</title>
+<indexterm zone="g-output-stream-write-all-async" role="2.44"><primary sortas="output_stream_write_all_async">g_output_stream_write_all_async</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_output_stream_write_all_async (<parameter><link linkend="GOutputStream"><type>GOutputStream</type></link> *stream</parameter>,
+                                 <parameter>const <link linkend="void"><type>void</type></link> *buffer</parameter>,
+                                 <parameter><link linkend="gsize"><type>gsize</type></link> count</parameter>,
+                                 <parameter><link linkend="int"><type>int</type></link> io_priority</parameter>,
+                                 <parameter><link linkend="GCancellable"><type>GCancellable</type></link> *cancellable</parameter>,
+                                 <parameter><link linkend="GAsyncReadyCallback"><type>GAsyncReadyCallback</type></link> callback</parameter>,
+                                 <parameter><link linkend="gpointer"><type>gpointer</type></link> user_data</parameter>);</programlisting>
+<para>Request an asynchronous write of <parameter>count</parameter>
+ bytes from <parameter>buffer</parameter>
+ into
+the stream. When the operation is finished <parameter>callback</parameter>
+ will be called.
+You can then call <link linkend="g-output-stream-write-all-finish"><function>g_output_stream_write_all_finish()</function></link> to get the result of the
+operation.</para>
+<para>This is the asynchronous version of <link linkend="g-output-stream-write-all"><function>g_output_stream_write_all()</function></link>.</para>
+<para>Call <link linkend="g-output-stream-write-all-finish"><function>g_output_stream_write_all_finish()</function></link> to collect the result.</para>
+<para>Any outstanding I/O request with higher priority (lower numerical
+value) will be executed before an outstanding request with lower
+priority. Default priority is <link linkend="G-PRIORITY-DEFAULT:CAPS"><literal>G_PRIORITY_DEFAULT</literal></link>.</para>
+<para>Note that no copy of <parameter>buffer</parameter>
+ will be made, so it must stay valid
+until <parameter>callback</parameter>
+ is called.</para>
+<refsect3 id="g-output-stream-write-all-async.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>stream</para></entry>
+<entry role="parameter_description"><para>A <link linkend="GOutputStream"><type>GOutputStream</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>buffer</para></entry>
+<entry role="parameter_description"><para>the buffer containing the data to write. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>array</acronym> length=count][<acronym>element-type</acronym> guint8]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>count</para></entry>
+<entry role="parameter_description"><para>the number of bytes to write</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>io_priority</para></entry>
+<entry role="parameter_description"><para>the io priority of the request</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>cancellable</para></entry>
+<entry role="parameter_description"><para>optional <link linkend="GCancellable"><type>GCancellable</type></link> object, <link linkend="NULL:CAPS"><literal>NULL</literal></link> to ignore. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>callback</para></entry>
+<entry role="parameter_description"><para>callback to call when the request is satisfied. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>scope async</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>user_data</para></entry>
+<entry role="parameter_description"><para>the data to pass to callback function. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>closure</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.44">2.44</link></para></refsect2>
+<refsect2 id="g-output-stream-write-all-finish" role="function" condition="since:2.44">
+<title>g_output_stream_write_all_finish&#160;()</title>
+<indexterm zone="g-output-stream-write-all-finish" role="2.44"><primary sortas="output_stream_write_all_finish">g_output_stream_write_all_finish</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_output_stream_write_all_finish (<parameter><link linkend="GOutputStream"><type>GOutputStream</type></link> *stream</parameter>,
+                                  <parameter><link linkend="GAsyncResult"><type>GAsyncResult</type></link> *result</parameter>,
+                                  <parameter><link linkend="gsize"><type>gsize</type></link> *bytes_written</parameter>,
+                                  <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para>Finishes an asynchronous stream write operation started with
+<link linkend="g-output-stream-write-all-async"><function>g_output_stream_write_all_async()</function></link>.</para>
+<para>As a special exception to the normal conventions for functions that
+use <link linkend="GError"><type>GError</type></link>, if this function returns <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> (and sets <parameter>error</parameter>
+) then
+<parameter>bytes_written</parameter>
+ will be set to the number of bytes that were
+successfully written before the error was encountered.  This
+functionality is only available from C.  If you need it from another
+language then you must write your own loop around
+<link linkend="g-output-stream-write-async"><function>g_output_stream_write_async()</function></link>.</para>
+<refsect3 id="g-output-stream-write-all-finish.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>stream</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GOutputStream"><type>GOutputStream</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>result</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GAsyncResult"><type>GAsyncResult</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>bytes_written</para></entry>
+<entry role="parameter_description"><para>location to store the number of bytes that was written to the stream. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>out</acronym>][<acronym>optional</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GError"><type>GError</type></link> location to store the error occurring, or <link linkend="NULL:CAPS"><literal>NULL</literal></link> to ignore.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-output-stream-write-all-finish.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> on success, <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> if there was an error</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.44">2.44</link></para></refsect2>
+<refsect2 id="g-output-stream-splice" role="function">
+<title>g_output_stream_splice&#160;()</title>
+<indexterm zone="g-output-stream-splice"><primary sortas="output_stream_splice">g_output_stream_splice</primary></indexterm>
+<programlisting language="C"><link linkend="gssize"><returnvalue>gssize</returnvalue></link>
+g_output_stream_splice (<parameter><link linkend="GOutputStream"><type>GOutputStream</type></link> *stream</parameter>,
+                        <parameter><link linkend="GInputStream"><type>GInputStream</type></link> *source</parameter>,
+                        <parameter><link linkend="GOutputStreamSpliceFlags"><type>GOutputStreamSpliceFlags</type></link> flags</parameter>,
+                        <parameter><link linkend="GCancellable"><type>GCancellable</type></link> *cancellable</parameter>,
+                        <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para>Splices an input stream into an output stream.</para>
+<refsect3 id="g-output-stream-splice.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>stream</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GOutputStream"><type>GOutputStream</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>source</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GInputStream"><type>GInputStream</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>flags</para></entry>
+<entry role="parameter_description"><para>a set of <link linkend="GOutputStreamSpliceFlags"><type>GOutputStreamSpliceFlags</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>cancellable</para></entry>
+<entry role="parameter_description"><para>optional <link linkend="GCancellable"><type>GCancellable</type></link> object, <link linkend="NULL:CAPS"><literal>NULL</literal></link> to ignore. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GError"><type>GError</type></link> location to store the error occurring, or <link linkend="NULL:CAPS"><literal>NULL</literal></link> to
+ignore.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-output-stream-splice.returns" role="returns">
+<title>Returns</title>
+<para> a <link linkend="gssize"><type>gssize</type></link> containing the size of the data spliced, or
+-1 if an error occurred. Note that if the number of bytes
+spliced is greater than <link linkend="G-MAXSSIZE:CAPS"><literal>G_MAXSSIZE</literal></link>, then that will be
+returned, and there is no way to determine the actual number
+of bytes spliced.</para>
+</refsect3></refsect2>
+<refsect2 id="g-output-stream-flush" role="function">
+<title>g_output_stream_flush&#160;()</title>
+<indexterm zone="g-output-stream-flush"><primary sortas="output_stream_flush">g_output_stream_flush</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_output_stream_flush (<parameter><link linkend="GOutputStream"><type>GOutputStream</type></link> *stream</parameter>,
+                       <parameter><link linkend="GCancellable"><type>GCancellable</type></link> *cancellable</parameter>,
+                       <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para>Forces a write of all user-space buffered data for the given
+<parameter>stream</parameter>
+. Will block during the operation. Closing the stream will
+implicitly cause a flush.</para>
+<para>This function is optional for inherited classes.</para>
+<para>If <parameter>cancellable</parameter>
+ is not <link linkend="NULL:CAPS"><literal>NULL</literal></link>, then the operation can be cancelled by
+triggering the cancellable object from another thread. If the operation
+was cancelled, the error <link linkend="G-IO-ERROR-CANCELLED:CAPS"><literal>G_IO_ERROR_CANCELLED</literal></link> will be returned.</para>
+<refsect3 id="g-output-stream-flush.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>stream</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GOutputStream"><type>GOutputStream</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>cancellable</para></entry>
+<entry role="parameter_description"><para>optional cancellable object. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para>location to store the error occurring, or <link linkend="NULL:CAPS"><literal>NULL</literal></link> to ignore</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-output-stream-flush.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> on success, <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> on error</para>
+</refsect3></refsect2>
+<refsect2 id="g-output-stream-close" role="function">
+<title>g_output_stream_close&#160;()</title>
+<indexterm zone="g-output-stream-close"><primary sortas="output_stream_close">g_output_stream_close</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_output_stream_close (<parameter><link linkend="GOutputStream"><type>GOutputStream</type></link> *stream</parameter>,
+                       <parameter><link linkend="GCancellable"><type>GCancellable</type></link> *cancellable</parameter>,
+                       <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para>Closes the stream, releasing resources related to it.</para>
+<para>Once the stream is closed, all other operations will return <link linkend="G-IO-ERROR-CLOSED:CAPS"><literal>G_IO_ERROR_CLOSED</literal></link>.
+Closing a stream multiple times will not return an error.</para>
+<para>Closing a stream will automatically flush any outstanding buffers in the
+stream.</para>
+<para>Streams will be automatically closed when the last reference
+is dropped, but you might want to call this function to make sure 
+resources are released as early as possible.</para>
+<para>Some streams might keep the backing store of the stream (e.g. a file descriptor)
+open after the stream is closed. See the documentation for the individual
+stream for details.</para>
+<para>On failure the first error that happened will be reported, but the close
+operation will finish as much as possible. A stream that failed to
+close will still return <link linkend="G-IO-ERROR-CLOSED:CAPS"><literal>G_IO_ERROR_CLOSED</literal></link> for all operations. Still, it
+is important to check and report the error to the user, otherwise
+there might be a loss of data as all data might not be written.</para>
+<para>If <parameter>cancellable</parameter>
+ is not <link linkend="NULL:CAPS"><literal>NULL</literal></link>, then the operation can be cancelled by
+triggering the cancellable object from another thread. If the operation
+was cancelled, the error <link linkend="G-IO-ERROR-CANCELLED:CAPS"><literal>G_IO_ERROR_CANCELLED</literal></link> will be returned.
+Cancelling a close will still leave the stream closed, but there some streams
+can use a faster close that doesn't block to e.g. check errors. On
+cancellation (as with any error) there is no guarantee that all written
+data will reach the target.</para>
+<refsect3 id="g-output-stream-close.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>stream</para></entry>
+<entry role="parameter_description"><para>A <link linkend="GOutputStream"><type>GOutputStream</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>cancellable</para></entry>
+<entry role="parameter_description"><para>optional cancellable object. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para>location to store the error occurring, or <link linkend="NULL:CAPS"><literal>NULL</literal></link> to ignore</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-output-stream-close.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> on success, <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> on failure</para>
+</refsect3></refsect2>
+<refsect2 id="g-output-stream-write-async" role="function">
+<title>g_output_stream_write_async&#160;()</title>
+<indexterm zone="g-output-stream-write-async"><primary sortas="output_stream_write_async">g_output_stream_write_async</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_output_stream_write_async (<parameter><link linkend="GOutputStream"><type>GOutputStream</type></link> *stream</parameter>,
+                             <parameter>const <link linkend="void"><type>void</type></link> *buffer</parameter>,
+                             <parameter><link linkend="gsize"><type>gsize</type></link> count</parameter>,
+                             <parameter><link linkend="int"><type>int</type></link> io_priority</parameter>,
+                             <parameter><link linkend="GCancellable"><type>GCancellable</type></link> *cancellable</parameter>,
+                             <parameter><link linkend="GAsyncReadyCallback"><type>GAsyncReadyCallback</type></link> callback</parameter>,
+                             <parameter><link linkend="gpointer"><type>gpointer</type></link> user_data</parameter>);</programlisting>
+<para>Request an asynchronous write of <parameter>count</parameter>
+ bytes from <parameter>buffer</parameter>
+ into 
+the stream. When the operation is finished <parameter>callback</parameter>
+ will be called.
+You can then call <link linkend="g-output-stream-write-finish"><function>g_output_stream_write_finish()</function></link> to get the result of the 
+operation.</para>
+<para>During an async request no other sync and async calls are allowed, 
+and will result in <link linkend="G-IO-ERROR-PENDING:CAPS"><literal>G_IO_ERROR_PENDING</literal></link> errors. </para>
+<para>A value of <parameter>count</parameter>
+ larger than <link linkend="G-MAXSSIZE:CAPS"><literal>G_MAXSSIZE</literal></link> will cause a 
+<link linkend="G-IO-ERROR-INVALID-ARGUMENT:CAPS"><literal>G_IO_ERROR_INVALID_ARGUMENT</literal></link> error.</para>
+<para>On success, the number of bytes written will be passed to the
+<parameter>callback</parameter>
+. It is not an error if this is not the same as the 
+requested size, as it can happen e.g. on a partial I/O error, 
+but generally we try to write as many bytes as requested. </para>
+<para>You are guaranteed that this method will never fail with
+<link linkend="G-IO-ERROR-WOULD-BLOCK:CAPS"><literal>G_IO_ERROR_WOULD_BLOCK</literal></link> - if <parameter>stream</parameter>
+ can't accept more data, the
+method will just wait until this changes.</para>
+<para>Any outstanding I/O request with higher priority (lower numerical 
+value) will be executed before an outstanding request with lower 
+priority. Default priority is <link linkend="G-PRIORITY-DEFAULT:CAPS"><literal>G_PRIORITY_DEFAULT</literal></link>.</para>
+<para>The asynchronous methods have a default fallback that uses threads
+to implement asynchronicity, so they are optional for inheriting 
+classes. However, if you override one you must override all.</para>
+<para>For the synchronous, blocking version of this function, see 
+<link linkend="g-output-stream-write"><function>g_output_stream_write()</function></link>.</para>
+<para>Note that no copy of <parameter>buffer</parameter>
+ will be made, so it must stay valid
+until <parameter>callback</parameter>
+ is called. See <link linkend="g-output-stream-write-bytes-async"><function>g_output_stream_write_bytes_async()</function></link>
+for a <link linkend="GBytes"><type>GBytes</type></link> version that will automatically hold a reference to
+the contents (without copying) for the duration of the call.</para>
+<refsect3 id="g-output-stream-write-async.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>stream</para></entry>
+<entry role="parameter_description"><para>A <link linkend="GOutputStream"><type>GOutputStream</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>buffer</para></entry>
+<entry role="parameter_description"><para>the buffer containing the data to write. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>array</acronym> length=count][<acronym>element-type</acronym> guint8]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>count</para></entry>
+<entry role="parameter_description"><para>the number of bytes to write</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>io_priority</para></entry>
+<entry role="parameter_description"><para>the io priority of the request.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>cancellable</para></entry>
+<entry role="parameter_description"><para>optional <link linkend="GCancellable"><type>GCancellable</type></link> object, <link linkend="NULL:CAPS"><literal>NULL</literal></link> to ignore. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>callback</para></entry>
+<entry role="parameter_description"><para>callback to call when the request is satisfied. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>scope async</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>user_data</para></entry>
+<entry role="parameter_description"><para>the data to pass to callback function. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>closure</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-output-stream-write-finish" role="function">
+<title>g_output_stream_write_finish&#160;()</title>
+<indexterm zone="g-output-stream-write-finish"><primary sortas="output_stream_write_finish">g_output_stream_write_finish</primary></indexterm>
+<programlisting language="C"><link linkend="gssize"><returnvalue>gssize</returnvalue></link>
+g_output_stream_write_finish (<parameter><link linkend="GOutputStream"><type>GOutputStream</type></link> *stream</parameter>,
+                              <parameter><link linkend="GAsyncResult"><type>GAsyncResult</type></link> *result</parameter>,
+                              <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para>Finishes a stream write operation.</para>
+<refsect3 id="g-output-stream-write-finish.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>stream</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GOutputStream"><type>GOutputStream</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>result</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GAsyncResult"><type>GAsyncResult</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GError"><type>GError</type></link> location to store the error occurring, or <link linkend="NULL:CAPS"><literal>NULL</literal></link> to
+ignore.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-output-stream-write-finish.returns" role="returns">
+<title>Returns</title>
+<para> a <link linkend="gssize"><type>gssize</type></link> containing the number of bytes written to the stream.</para>
+</refsect3></refsect2>
+<refsect2 id="g-output-stream-splice-async" role="function">
+<title>g_output_stream_splice_async&#160;()</title>
+<indexterm zone="g-output-stream-splice-async"><primary sortas="output_stream_splice_async">g_output_stream_splice_async</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_output_stream_splice_async (<parameter><link linkend="GOutputStream"><type>GOutputStream</type></link> *stream</parameter>,
+                              <parameter><link linkend="GInputStream"><type>GInputStream</type></link> *source</parameter>,
+                              <parameter><link linkend="GOutputStreamSpliceFlags"><type>GOutputStreamSpliceFlags</type></link> flags</parameter>,
+                              <parameter><link linkend="int"><type>int</type></link> io_priority</parameter>,
+                              <parameter><link linkend="GCancellable"><type>GCancellable</type></link> *cancellable</parameter>,
+                              <parameter><link linkend="GAsyncReadyCallback"><type>GAsyncReadyCallback</type></link> callback</parameter>,
+                              <parameter><link linkend="gpointer"><type>gpointer</type></link> user_data</parameter>);</programlisting>
+<para>Splices a stream asynchronously.
+When the operation is finished <parameter>callback</parameter>
+ will be called.
+You can then call <link linkend="g-output-stream-splice-finish"><function>g_output_stream_splice_finish()</function></link> to get the 
+result of the operation.</para>
+<para>For the synchronous, blocking version of this function, see 
+<link linkend="g-output-stream-splice"><function>g_output_stream_splice()</function></link>.</para>
+<refsect3 id="g-output-stream-splice-async.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>stream</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GOutputStream"><type>GOutputStream</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>source</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GInputStream"><type>GInputStream</type></link>. </para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>flags</para></entry>
+<entry role="parameter_description"><para>a set of <link linkend="GOutputStreamSpliceFlags"><type>GOutputStreamSpliceFlags</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>io_priority</para></entry>
+<entry role="parameter_description"><para>the io priority of the request.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>cancellable</para></entry>
+<entry role="parameter_description"><para>optional <link linkend="GCancellable"><type>GCancellable</type></link> object, <link linkend="NULL:CAPS"><literal>NULL</literal></link> to ignore. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>callback</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GAsyncReadyCallback"><type>GAsyncReadyCallback</type></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>scope async</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>user_data</para></entry>
+<entry role="parameter_description"><para>user data passed to <parameter>callback</parameter>
+. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>closure</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-output-stream-splice-finish" role="function">
+<title>g_output_stream_splice_finish&#160;()</title>
+<indexterm zone="g-output-stream-splice-finish"><primary sortas="output_stream_splice_finish">g_output_stream_splice_finish</primary></indexterm>
+<programlisting language="C"><link linkend="gssize"><returnvalue>gssize</returnvalue></link>
+g_output_stream_splice_finish (<parameter><link linkend="GOutputStream"><type>GOutputStream</type></link> *stream</parameter>,
+                               <parameter><link linkend="GAsyncResult"><type>GAsyncResult</type></link> *result</parameter>,
+                               <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para>Finishes an asynchronous stream splice operation.</para>
+<refsect3 id="g-output-stream-splice-finish.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>stream</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GOutputStream"><type>GOutputStream</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>result</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GAsyncResult"><type>GAsyncResult</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GError"><type>GError</type></link> location to store the error occurring, or <link linkend="NULL:CAPS"><literal>NULL</literal></link> to
+ignore.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-output-stream-splice-finish.returns" role="returns">
+<title>Returns</title>
+<para> a <link linkend="gssize"><type>gssize</type></link> of the number of bytes spliced. Note that if the
+number of bytes spliced is greater than <link linkend="G-MAXSSIZE:CAPS"><literal>G_MAXSSIZE</literal></link>, then that
+will be returned, and there is no way to determine the actual
+number of bytes spliced.</para>
+</refsect3></refsect2>
+<refsect2 id="g-output-stream-flush-async" role="function">
+<title>g_output_stream_flush_async&#160;()</title>
+<indexterm zone="g-output-stream-flush-async"><primary sortas="output_stream_flush_async">g_output_stream_flush_async</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_output_stream_flush_async (<parameter><link linkend="GOutputStream"><type>GOutputStream</type></link> *stream</parameter>,
+                             <parameter><link linkend="int"><type>int</type></link> io_priority</parameter>,
+                             <parameter><link linkend="GCancellable"><type>GCancellable</type></link> *cancellable</parameter>,
+                             <parameter><link linkend="GAsyncReadyCallback"><type>GAsyncReadyCallback</type></link> callback</parameter>,
+                             <parameter><link linkend="gpointer"><type>gpointer</type></link> user_data</parameter>);</programlisting>
+<para>Forces an asynchronous write of all user-space buffered data for
+the given <parameter>stream</parameter>
+.
+For behaviour details see <link linkend="g-output-stream-flush"><function>g_output_stream_flush()</function></link>.</para>
+<para>When the operation is finished <parameter>callback</parameter>
+ will be 
+called. You can then call <link linkend="g-output-stream-flush-finish"><function>g_output_stream_flush_finish()</function></link> to get the 
+result of the operation.</para>
+<refsect3 id="g-output-stream-flush-async.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>stream</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GOutputStream"><type>GOutputStream</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>io_priority</para></entry>
+<entry role="parameter_description"><para>the io priority of the request.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>cancellable</para></entry>
+<entry role="parameter_description"><para>optional <link linkend="GCancellable"><type>GCancellable</type></link> object, <link linkend="NULL:CAPS"><literal>NULL</literal></link> to ignore. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>callback</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GAsyncReadyCallback"><type>GAsyncReadyCallback</type></link> to call when the request is satisfied. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>scope async</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>user_data</para></entry>
+<entry role="parameter_description"><para>the data to pass to callback function. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>closure</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-output-stream-flush-finish" role="function">
+<title>g_output_stream_flush_finish&#160;()</title>
+<indexterm zone="g-output-stream-flush-finish"><primary sortas="output_stream_flush_finish">g_output_stream_flush_finish</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_output_stream_flush_finish (<parameter><link linkend="GOutputStream"><type>GOutputStream</type></link> *stream</parameter>,
+                              <parameter><link linkend="GAsyncResult"><type>GAsyncResult</type></link> *result</parameter>,
+                              <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para>Finishes flushing an output stream.</para>
+<refsect3 id="g-output-stream-flush-finish.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>stream</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GOutputStream"><type>GOutputStream</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>result</para></entry>
+<entry role="parameter_description"><para>a GAsyncResult.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GError"><type>GError</type></link> location to store the error occurring, or <link linkend="NULL:CAPS"><literal>NULL</literal></link> to
+ignore.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-output-stream-flush-finish.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if flush operation succeeded, <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> otherwise.</para>
+</refsect3></refsect2>
+<refsect2 id="g-output-stream-close-async" role="function">
+<title>g_output_stream_close_async&#160;()</title>
+<indexterm zone="g-output-stream-close-async"><primary sortas="output_stream_close_async">g_output_stream_close_async</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_output_stream_close_async (<parameter><link linkend="GOutputStream"><type>GOutputStream</type></link> *stream</parameter>,
+                             <parameter><link linkend="int"><type>int</type></link> io_priority</parameter>,
+                             <parameter><link linkend="GCancellable"><type>GCancellable</type></link> *cancellable</parameter>,
+                             <parameter><link linkend="GAsyncReadyCallback"><type>GAsyncReadyCallback</type></link> callback</parameter>,
+                             <parameter><link linkend="gpointer"><type>gpointer</type></link> user_data</parameter>);</programlisting>
+<para>Requests an asynchronous close of the stream, releasing resources 
+related to it. When the operation is finished <parameter>callback</parameter>
+ will be 
+called. You can then call <link linkend="g-output-stream-close-finish"><function>g_output_stream_close_finish()</function></link> to get 
+the result of the operation.</para>
+<para>For behaviour details see <link linkend="g-output-stream-close"><function>g_output_stream_close()</function></link>.</para>
+<para>The asynchronous methods have a default fallback that uses threads
+to implement asynchronicity, so they are optional for inheriting 
+classes. However, if you override one you must override all.</para>
+<refsect3 id="g-output-stream-close-async.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>stream</para></entry>
+<entry role="parameter_description"><para>A <link linkend="GOutputStream"><type>GOutputStream</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>io_priority</para></entry>
+<entry role="parameter_description"><para>the io priority of the request.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>cancellable</para></entry>
+<entry role="parameter_description"><para>optional cancellable object. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>callback</para></entry>
+<entry role="parameter_description"><para>callback to call when the request is satisfied. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>scope async</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>user_data</para></entry>
+<entry role="parameter_description"><para>the data to pass to callback function. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>closure</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-output-stream-close-finish" role="function">
+<title>g_output_stream_close_finish&#160;()</title>
+<indexterm zone="g-output-stream-close-finish"><primary sortas="output_stream_close_finish">g_output_stream_close_finish</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_output_stream_close_finish (<parameter><link linkend="GOutputStream"><type>GOutputStream</type></link> *stream</parameter>,
+                              <parameter><link linkend="GAsyncResult"><type>GAsyncResult</type></link> *result</parameter>,
+                              <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para>Closes an output stream.</para>
+<refsect3 id="g-output-stream-close-finish.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>stream</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GOutputStream"><type>GOutputStream</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>result</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GAsyncResult"><type>GAsyncResult</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GError"><type>GError</type></link> location to store the error occurring, or <link linkend="NULL:CAPS"><literal>NULL</literal></link> to
+ignore.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-output-stream-close-finish.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if stream was successfully closed, <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> otherwise.</para>
+</refsect3></refsect2>
+<refsect2 id="g-output-stream-is-closing" role="function" condition="since:2.24">
+<title>g_output_stream_is_closing&#160;()</title>
+<indexterm zone="g-output-stream-is-closing" role="2.24"><primary sortas="output_stream_is_closing">g_output_stream_is_closing</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_output_stream_is_closing (<parameter><link linkend="GOutputStream"><type>GOutputStream</type></link> *stream</parameter>);</programlisting>
+<para>Checks if an output stream is being closed. This can be
+used inside e.g. a flush implementation to see if the
+flush (or other i/o operation) is called from within
+the closing operation.</para>
+<refsect3 id="g-output-stream-is-closing.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>stream</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GOutputStream"><type>GOutputStream</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-output-stream-is-closing.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if <parameter>stream</parameter>
+is being closed. <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> otherwise.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.24">2.24</link></para></refsect2>
+<refsect2 id="g-output-stream-is-closed" role="function">
+<title>g_output_stream_is_closed&#160;()</title>
+<indexterm zone="g-output-stream-is-closed"><primary sortas="output_stream_is_closed">g_output_stream_is_closed</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_output_stream_is_closed (<parameter><link linkend="GOutputStream"><type>GOutputStream</type></link> *stream</parameter>);</programlisting>
+<para>Checks if an output stream has already been closed.</para>
+<refsect3 id="g-output-stream-is-closed.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>stream</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GOutputStream"><type>GOutputStream</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-output-stream-is-closed.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if <parameter>stream</parameter>
+is closed. <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> otherwise. </para>
+</refsect3></refsect2>
+<refsect2 id="g-output-stream-has-pending" role="function">
+<title>g_output_stream_has_pending&#160;()</title>
+<indexterm zone="g-output-stream-has-pending"><primary sortas="output_stream_has_pending">g_output_stream_has_pending</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_output_stream_has_pending (<parameter><link linkend="GOutputStream"><type>GOutputStream</type></link> *stream</parameter>);</programlisting>
+<para>Checks if an output stream has pending actions.</para>
+<refsect3 id="g-output-stream-has-pending.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>stream</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GOutputStream"><type>GOutputStream</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-output-stream-has-pending.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if <parameter>stream</parameter>
+has pending actions. </para>
+</refsect3></refsect2>
+<refsect2 id="g-output-stream-set-pending" role="function">
+<title>g_output_stream_set_pending&#160;()</title>
+<indexterm zone="g-output-stream-set-pending"><primary sortas="output_stream_set_pending">g_output_stream_set_pending</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_output_stream_set_pending (<parameter><link linkend="GOutputStream"><type>GOutputStream</type></link> *stream</parameter>,
+                             <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para>Sets <parameter>stream</parameter>
+ to have actions pending. If the pending flag is
+already set or <parameter>stream</parameter>
+ is closed, it will return <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> and set
+<parameter>error</parameter>
+.</para>
+<refsect3 id="g-output-stream-set-pending.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>stream</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GOutputStream"><type>GOutputStream</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GError"><type>GError</type></link> location to store the error occurring, or <link linkend="NULL:CAPS"><literal>NULL</literal></link> to
+ignore.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-output-stream-set-pending.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if pending was previously unset and is now set.</para>
+</refsect3></refsect2>
+<refsect2 id="g-output-stream-clear-pending" role="function">
+<title>g_output_stream_clear_pending&#160;()</title>
+<indexterm zone="g-output-stream-clear-pending"><primary sortas="output_stream_clear_pending">g_output_stream_clear_pending</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_output_stream_clear_pending (<parameter><link linkend="GOutputStream"><type>GOutputStream</type></link> *stream</parameter>);</programlisting>
+<para>Clears the pending flag on <parameter>stream</parameter>
+.</para>
+<refsect3 id="g-output-stream-clear-pending.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>stream</para></entry>
+<entry role="parameter_description"><para>output stream</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-output-stream-write-bytes" role="function">
+<title>g_output_stream_write_bytes&#160;()</title>
+<indexterm zone="g-output-stream-write-bytes"><primary sortas="output_stream_write_bytes">g_output_stream_write_bytes</primary></indexterm>
+<programlisting language="C"><link linkend="gssize"><returnvalue>gssize</returnvalue></link>
+g_output_stream_write_bytes (<parameter><link linkend="GOutputStream"><type>GOutputStream</type></link> *stream</parameter>,
+                             <parameter><link linkend="GBytes"><type>GBytes</type></link> *bytes</parameter>,
+                             <parameter><link linkend="GCancellable"><type>GCancellable</type></link> *cancellable</parameter>,
+                             <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para>A wrapper function for <link linkend="g-output-stream-write"><function>g_output_stream_write()</function></link> which takes a
+<link linkend="GBytes"><type>GBytes</type></link> as input.  This can be more convenient for use by language
+bindings or in other cases where the refcounted nature of <link linkend="GBytes"><type>GBytes</type></link>
+is helpful over a bare pointer interface.</para>
+<para>However, note that this function may still perform partial writes,
+just like <link linkend="g-output-stream-write"><function>g_output_stream_write()</function></link>.  If that occurs, to continue
+writing, you will need to create a new <link linkend="GBytes"><type>GBytes</type></link> containing just the
+remaining bytes, using <link linkend="g-bytes-new-from-bytes"><function>g_bytes_new_from_bytes()</function></link>. Passing the same
+<link linkend="GBytes"><type>GBytes</type></link> instance multiple times potentially can result in duplicated
+data in the output stream.</para>
+<refsect3 id="g-output-stream-write-bytes.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>stream</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GOutputStream"><type>GOutputStream</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>bytes</para></entry>
+<entry role="parameter_description"><para>the <link linkend="GBytes"><type>GBytes</type></link> to write</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>cancellable</para></entry>
+<entry role="parameter_description"><para>optional cancellable object. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para>location to store the error occurring, or <link linkend="NULL:CAPS"><literal>NULL</literal></link> to ignore</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-output-stream-write-bytes.returns" role="returns">
+<title>Returns</title>
+<para> Number of bytes written, or -1 on error</para>
+</refsect3></refsect2>
+<refsect2 id="g-output-stream-write-bytes-async" role="function">
+<title>g_output_stream_write_bytes_async&#160;()</title>
+<indexterm zone="g-output-stream-write-bytes-async"><primary sortas="output_stream_write_bytes_async">g_output_stream_write_bytes_async</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_output_stream_write_bytes_async (<parameter><link linkend="GOutputStream"><type>GOutputStream</type></link> *stream</parameter>,
+                                   <parameter><link linkend="GBytes"><type>GBytes</type></link> *bytes</parameter>,
+                                   <parameter><link linkend="int"><type>int</type></link> io_priority</parameter>,
+                                   <parameter><link linkend="GCancellable"><type>GCancellable</type></link> *cancellable</parameter>,
+                                   <parameter><link linkend="GAsyncReadyCallback"><type>GAsyncReadyCallback</type></link> callback</parameter>,
+                                   <parameter><link linkend="gpointer"><type>gpointer</type></link> user_data</parameter>);</programlisting>
+<para>This function is similar to <link linkend="g-output-stream-write-async"><function>g_output_stream_write_async()</function></link>, but
+takes a <link linkend="GBytes"><type>GBytes</type></link> as input.  Due to the refcounted nature of <link linkend="GBytes"><type>GBytes</type></link>,
+this allows the stream to avoid taking a copy of the data.</para>
+<para>However, note that this function may still perform partial writes,
+just like <link linkend="g-output-stream-write-async"><function>g_output_stream_write_async()</function></link>. If that occurs, to continue
+writing, you will need to create a new <link linkend="GBytes"><type>GBytes</type></link> containing just the
+remaining bytes, using <link linkend="g-bytes-new-from-bytes"><function>g_bytes_new_from_bytes()</function></link>. Passing the same
+<link linkend="GBytes"><type>GBytes</type></link> instance multiple times potentially can result in duplicated
+data in the output stream.</para>
+<para>For the synchronous, blocking version of this function, see
+<link linkend="g-output-stream-write-bytes"><function>g_output_stream_write_bytes()</function></link>.</para>
+<refsect3 id="g-output-stream-write-bytes-async.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>stream</para></entry>
+<entry role="parameter_description"><para>A <link linkend="GOutputStream"><type>GOutputStream</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>bytes</para></entry>
+<entry role="parameter_description"><para>The bytes to write</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>io_priority</para></entry>
+<entry role="parameter_description"><para>the io priority of the request.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>cancellable</para></entry>
+<entry role="parameter_description"><para>optional <link linkend="GCancellable"><type>GCancellable</type></link> object, <link linkend="NULL:CAPS"><literal>NULL</literal></link> to ignore. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>callback</para></entry>
+<entry role="parameter_description"><para>callback to call when the request is satisfied. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>scope async</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>user_data</para></entry>
+<entry role="parameter_description"><para>the data to pass to callback function. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>closure</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-output-stream-write-bytes-finish" role="function">
+<title>g_output_stream_write_bytes_finish&#160;()</title>
+<indexterm zone="g-output-stream-write-bytes-finish"><primary sortas="output_stream_write_bytes_finish">g_output_stream_write_bytes_finish</primary></indexterm>
+<programlisting language="C"><link linkend="gssize"><returnvalue>gssize</returnvalue></link>
+g_output_stream_write_bytes_finish (<parameter><link linkend="GOutputStream"><type>GOutputStream</type></link> *stream</parameter>,
+                                    <parameter><link linkend="GAsyncResult"><type>GAsyncResult</type></link> *result</parameter>,
+                                    <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para>Finishes a stream write-from-<link linkend="GBytes"><type>GBytes</type></link> operation.</para>
+<refsect3 id="g-output-stream-write-bytes-finish.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>stream</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GOutputStream"><type>GOutputStream</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>result</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GAsyncResult"><type>GAsyncResult</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GError"><type>GError</type></link> location to store the error occurring, or <link linkend="NULL:CAPS"><literal>NULL</literal></link> to
+ignore.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-output-stream-write-bytes-finish.returns" role="returns">
+<title>Returns</title>
+<para> a <link linkend="gssize"><type>gssize</type></link> containing the number of bytes written to the stream.</para>
+</refsect3></refsect2>
+<refsect2 id="g-output-stream-printf" role="function" condition="since:2.40">
+<title>g_output_stream_printf&#160;()</title>
+<indexterm zone="g-output-stream-printf" role="2.40"><primary sortas="output_stream_printf">g_output_stream_printf</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_output_stream_printf (<parameter><link linkend="GOutputStream"><type>GOutputStream</type></link> *stream</parameter>,
+                        <parameter><link linkend="gsize"><type>gsize</type></link> *bytes_written</parameter>,
+                        <parameter><link linkend="GCancellable"><type>GCancellable</type></link> *cancellable</parameter>,
+                        <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>,
+                        <parameter>const <link linkend="gchar"><type>gchar</type></link> *format</parameter>,
+                        <parameter>...</parameter>);</programlisting>
+<para>This is a utility function around <link linkend="g-output-stream-write-all"><function>g_output_stream_write_all()</function></link>. It
+uses <link linkend="g-strdup-vprintf"><function>g_strdup_vprintf()</function></link> to turn <parameter>format</parameter>
+ and @... into a string that
+is then written to <parameter>stream</parameter>
+.</para>
+<para>See the documentation of <link linkend="g-output-stream-write-all"><function>g_output_stream_write_all()</function></link> about the
+behavior of the actual write operation.</para>
+<para>Note that partial writes cannot be properly checked with this
+function due to the variable length of the written string, if you
+need precise control over partial write failures, you need to
+create you own <link linkend="printf"><function>printf()</function></link>-like wrapper around <link linkend="g-output-stream-write"><function>g_output_stream_write()</function></link>
+or <link linkend="g-output-stream-write-all"><function>g_output_stream_write_all()</function></link>.</para>
+<refsect3 id="g-output-stream-printf.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>stream</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GOutputStream"><type>GOutputStream</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>bytes_written</para></entry>
+<entry role="parameter_description"><para>location to store the number of bytes that was
+written to the stream. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>out</acronym>][<acronym>optional</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>cancellable</para></entry>
+<entry role="parameter_description"><para>optional <link linkend="GCancellable"><type>GCancellable</type></link> object, <link linkend="NULL:CAPS"><literal>NULL</literal></link> to ignore. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para>location to store the error occurring, or <link linkend="NULL:CAPS"><literal>NULL</literal></link> to ignore</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>format</para></entry>
+<entry role="parameter_description"><para>the format string. See the <link linkend="printf"><function>printf()</function></link> documentation</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>...</para></entry>
+<entry role="parameter_description"><para>the parameters to insert into the format string</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-output-stream-printf.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> on success, <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> if there was an error</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.40">2.40</link></para></refsect2>
+<refsect2 id="g-output-stream-vprintf" role="function" condition="since:2.40">
+<title>g_output_stream_vprintf&#160;()</title>
+<indexterm zone="g-output-stream-vprintf" role="2.40"><primary sortas="output_stream_vprintf">g_output_stream_vprintf</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_output_stream_vprintf (<parameter><link linkend="GOutputStream"><type>GOutputStream</type></link> *stream</parameter>,
+                         <parameter><link linkend="gsize"><type>gsize</type></link> *bytes_written</parameter>,
+                         <parameter><link linkend="GCancellable"><type>GCancellable</type></link> *cancellable</parameter>,
+                         <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>,
+                         <parameter>const <link linkend="gchar"><type>gchar</type></link> *format</parameter>,
+                         <parameter><link linkend="va-list"><type>va_list</type></link> args</parameter>);</programlisting>
+<para>This is a utility function around <link linkend="g-output-stream-write-all"><function>g_output_stream_write_all()</function></link>. It
+uses <link linkend="g-strdup-vprintf"><function>g_strdup_vprintf()</function></link> to turn <parameter>format</parameter>
+ and <parameter>args</parameter>
+ into a string that
+is then written to <parameter>stream</parameter>
+.</para>
+<para>See the documentation of <link linkend="g-output-stream-write-all"><function>g_output_stream_write_all()</function></link> about the
+behavior of the actual write operation.</para>
+<para>Note that partial writes cannot be properly checked with this
+function due to the variable length of the written string, if you
+need precise control over partial write failures, you need to
+create you own <link linkend="printf"><function>printf()</function></link>-like wrapper around <link linkend="g-output-stream-write"><function>g_output_stream_write()</function></link>
+or <link linkend="g-output-stream-write-all"><function>g_output_stream_write_all()</function></link>.</para>
+<refsect3 id="g-output-stream-vprintf.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>stream</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GOutputStream"><type>GOutputStream</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>bytes_written</para></entry>
+<entry role="parameter_description"><para>location to store the number of bytes that was
+written to the stream. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>out</acronym>][<acronym>optional</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>cancellable</para></entry>
+<entry role="parameter_description"><para>optional <link linkend="GCancellable"><type>GCancellable</type></link> object, <link linkend="NULL:CAPS"><literal>NULL</literal></link> to ignore. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para>location to store the error occurring, or <link linkend="NULL:CAPS"><literal>NULL</literal></link> to ignore</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>format</para></entry>
+<entry role="parameter_description"><para>the format string. See the <link linkend="printf"><function>printf()</function></link> documentation</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>args</para></entry>
+<entry role="parameter_description"><para>the parameters to insert into the format string</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-output-stream-vprintf.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> on success, <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> if there was an error</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.40">2.40</link></para></refsect2>
+
+</refsect1>
+<refsect1 id="GOutputStream.other_details" role="details">
+<title role="details.title">Types and Values</title>
+<refsect2 id="GOutputStreamSpliceFlags" role="enum">
+<title>enum GOutputStreamSpliceFlags</title>
+<indexterm zone="GOutputStreamSpliceFlags"><primary sortas="OutputStreamSpliceFlags">GOutputStreamSpliceFlags</primary></indexterm>
+<para>GOutputStreamSpliceFlags determine how streams should be spliced.</para>
+<refsect3 id="GOutputStreamSpliceFlags.members" role="enum_members">
+<title>Members</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="enum_members_name" colwidth="300px"/>
+<colspec colname="enum_members_description"/>
+<colspec colname="enum_members_annotations" colwidth="200px"/>
+<tbody>
+<row role="constant"><entry role="enum_member_name"><para id="G-OUTPUT-STREAM-SPLICE-NONE:CAPS">G_OUTPUT_STREAM_SPLICE_NONE</para></entry>
+<entry role="enum_member_description"><para>Do not close either stream.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-OUTPUT-STREAM-SPLICE-CLOSE-SOURCE:CAPS">G_OUTPUT_STREAM_SPLICE_CLOSE_SOURCE</para></entry>
+<entry role="enum_member_description"><para>Close the source stream after
+    the splice.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-OUTPUT-STREAM-SPLICE-CLOSE-TARGET:CAPS">G_OUTPUT_STREAM_SPLICE_CLOSE_TARGET</para></entry>
+<entry role="enum_member_description"><para>Close the target stream after
+    the splice.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="GOutputStream-struct" role="struct">
+<title>GOutputStream</title>
+<indexterm zone="GOutputStream-struct"><primary sortas="OutputStream">GOutputStream</primary></indexterm>
+<programlisting language="C">typedef struct _GOutputStream GOutputStream;</programlisting>
+<para>Base class for writing output.</para>
+<para>All classes derived from GOutputStream should implement synchronous
+writing, splicing, flushing and closing streams, but may implement
+asynchronous versions.</para>
+</refsect2>
+
+</refsect1>
+
+</refentry>

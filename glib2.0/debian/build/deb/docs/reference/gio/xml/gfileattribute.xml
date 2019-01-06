@@ -1,0 +1,511 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC '-//OASIS//DTD DocBook XML V4.5//EN'
+                      'http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd' [
+<!ENTITY % local.common.attrib "xmlns:xi  CDATA  #FIXED 'http://www.w3.org/2003/XInclude'">
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="gio-GFileAttribute">
+<refmeta>
+<refentrytitle role="top_of_page" id="gio-GFileAttribute.top_of_page">GFileAttribute</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>GIO Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>GFileAttribute</refname>
+<refpurpose>Key-Value Paired File Attributes</refpurpose>
+</refnamediv>
+
+<refsect1 id="gio-GFileAttribute.functions" role="functions_proto">
+<title role="functions_proto.title">Functions</title>
+<informaltable pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="functions_return" colwidth="150px"/>
+<colspec colname="functions_name"/>
+<tbody>
+<row><entry role="function_type"><link linkend="GFileAttributeInfoList"><returnvalue>GFileAttributeInfoList</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-file-attribute-info-list-new">g_file_attribute_info_list_new</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GFileAttributeInfoList"><returnvalue>GFileAttributeInfoList</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-file-attribute-info-list-ref">g_file_attribute_info_list_ref</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-file-attribute-info-list-unref">g_file_attribute_info_list_unref</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GFileAttributeInfoList"><returnvalue>GFileAttributeInfoList</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-file-attribute-info-list-dup">g_file_attribute_info_list_dup</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type">const <link linkend="GFileAttributeInfo"><returnvalue>GFileAttributeInfo</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-file-attribute-info-list-lookup">g_file_attribute_info_list_lookup</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-file-attribute-info-list-add">g_file_attribute_info_list_add</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<anchor id="GFileAttributeInfoList"/><refsect1 id="gio-GFileAttribute.other" role="other_proto">
+<title role="other_proto.title">Types and Values</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="name" colwidth="150px"/>
+<colspec colname="description"/>
+<tbody>
+<row><entry role="datatype_keyword">enum</entry><entry role="function_name"><link linkend="GFileAttributeType">GFileAttributeType</link></entry></row>
+<row><entry role="datatype_keyword">enum</entry><entry role="function_name"><link linkend="GFileAttributeInfoFlags">GFileAttributeInfoFlags</link></entry></row>
+<row><entry role="datatype_keyword">enum</entry><entry role="function_name"><link linkend="GFileAttributeStatus">GFileAttributeStatus</link></entry></row>
+<row><entry role="datatype_keyword"></entry><entry role="function_name"><link linkend="GFileAttributeInfo">GFileAttributeInfo</link></entry></row>
+<row><entry role="datatype_keyword"></entry><entry role="function_name"><link linkend="GFileAttributeInfoList-struct">GFileAttributeInfoList</link></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="gio-GFileAttribute.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<screen>    <link linkend="GBoxed">GBoxed</link>
+    <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> GFileAttributeInfoList
+    <link linkend="GEnum">GEnum</link>
+    <phrase role="lineart">&#9500;&#9472;&#9472;</phrase> GFileAttributeStatus
+    <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> GFileAttributeType
+    <link linkend="GFlags">GFlags</link>
+    <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> GFileAttributeInfoFlags
+</screen>
+</refsect1>
+
+<refsect1 id="gio-GFileAttribute.includes"><title>Includes</title><synopsis>#include &lt;gio/gio.h&gt;
+</synopsis></refsect1>
+
+<refsect1 id="gio-GFileAttribute.description" role="desc">
+<title role="desc.title">Description</title>
+<para>File attributes in GIO consist of a list of key-value pairs.</para>
+<para>Keys are strings that contain a key namespace and a key name, separated
+by a colon, e.g. "namespace::keyname". Namespaces are included to sort
+key-value pairs by namespaces for relevance. Keys can be retrived
+using wildcards, e.g. "standard::*" will return all of the keys in the
+"standard" namespace.</para>
+<para>The list of possible attributes for a filesystem (pointed to by a <link linkend="GFile"><type>GFile</type></link>) is
+available as a <link linkend="GFileAttributeInfoList"><type>GFileAttributeInfoList</type></link>. This list is queryable by key names
+as indicated earlier.</para>
+<para>Information is stored within the list in <link linkend="GFileAttributeInfo"><type>GFileAttributeInfo</type></link> structures.
+The info structure can store different types, listed in the enum
+<link linkend="GFileAttributeType"><type>GFileAttributeType</type></link>. Upon creation of a <link linkend="GFileAttributeInfo"><type>GFileAttributeInfo</type></link>, the type will
+be set to <link linkend="G-FILE-ATTRIBUTE-TYPE-INVALID:CAPS"><literal>G_FILE_ATTRIBUTE_TYPE_INVALID</literal></link>.</para>
+<para>Classes that implement <link linkend="GFileIface"><type>GFileIface</type></link> will create a <link linkend="GFileAttributeInfoList"><type>GFileAttributeInfoList</type></link> and
+install default keys and values for their given file system, architecture,
+and other possible implementation details (e.g., on a UNIX system, a file
+attribute key will be registered for the user id for a given file).</para>
+<refsect3><title>Default Namespaces</title><itemizedlist>
+<listitem><para><literal>"standard"</literal>: The "Standard" namespace. General file information that
+any application may need should be put in this namespace. Examples
+include the file's name, type, and size.</para></listitem>
+<listitem><para><literal>"etag</literal>: The <link linkend="gfile-etag">Entity Tag</link> namespace. Currently, the only key
+in this namespace is "value", which contains the value of the current
+entity tag.</para></listitem>
+<listitem><para><literal>"id"</literal>: The "Identification" namespace. This namespace is used by file
+managers and applications that list directories to check for loops and
+to uniquely identify files.</para></listitem>
+<listitem><para><literal>"access"</literal>: The "Access" namespace. Used to check if a user has the
+proper privileges to access files and perform file operations. Keys in
+this namespace are made to be generic and easily understood, e.g. the
+"can_read" key is <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if the current user has permission to read the
+file. UNIX permissions and NTFS ACLs in Windows should be mapped to
+these values.</para></listitem>
+<listitem><para><literal>"mountable"</literal>: The "Mountable" namespace. Includes simple boolean keys
+for checking if a file or path supports mount operations, e.g. mount,
+unmount, eject. These are used for files of type <link linkend="G-FILE-TYPE-MOUNTABLE:CAPS"><literal>G_FILE_TYPE_MOUNTABLE</literal></link>.</para></listitem>
+<listitem><para><literal>"time"</literal>: The "Time" namespace. Includes file access, changed, created
+times.</para></listitem>
+<listitem><para><literal>"unix"</literal>: The "Unix" namespace. Includes UNIX-specific information and
+may not be available for all files. Examples include the UNIX "UID",
+"GID", etc.</para></listitem>
+<listitem><para><literal>"dos"</literal>: The "DOS" namespace. Includes DOS-specific information and may
+not be available for all files. Examples include "is_system" for checking
+if a file is marked as a system file, and "is_archive" for checking if a
+file is marked as an archive file.</para></listitem>
+<listitem><para><literal>"owner"</literal>: The "Owner" namespace. Includes information about who owns a
+file. May not be available for all file systems. Examples include "user"
+for getting the user name of the file owner. This information is often
+mapped from some backend specific data such as a UNIX UID.</para></listitem>
+<listitem><para><literal>"thumbnail"</literal>: The "Thumbnail" namespace. Includes information about file
+thumbnails and their location within the file system. Examples of keys in
+this namespace include "path" to get the location of a thumbnail, "failed"
+to check if thumbnailing of the file failed, and "is-valid" to check if
+the thumbnail is outdated.</para></listitem>
+<listitem><para><literal>"filesystem"</literal>: The "Filesystem" namespace. Gets information about the
+file system where a file is located, such as its type, how much space is
+left available, and the overall size of the file system.</para></listitem>
+<listitem><para><literal>"gvfs"</literal>: The "GVFS" namespace. Keys in this namespace contain information
+about the current GVFS backend in use.</para></listitem>
+<listitem><para><literal>"xattr"</literal>: The "xattr" namespace. Gets information about extended
+user attributes. See attr(5). The "user." prefix of the extended user
+attribute name is stripped away when constructing keys in this namespace,
+e.g. "xattr::mime_type" for the extended attribute with the name
+"user.mime_type". Note that this information is only available if
+GLib has been built with extended attribute support.</para></listitem>
+<listitem><para><literal>"xattr-sys"</literal>: The "xattr-sys" namespace. Gets information about
+extended attributes which are not user-specific. See attr(5). Note
+that this information is only available if GLib has been built with
+extended attribute support.</para></listitem>
+<listitem>
+<para><literal>"selinux"</literal>: The "SELinux" namespace. Includes information about the
+SELinux context of files. Note that this information is only available
+if GLib has been built with SELinux support.</para>
+</listitem>
+</itemizedlist>
+<para>Please note that these are not all of the possible namespaces.
+More namespaces can be added from GIO modules or by individual applications.
+For more information about writing GIO modules, see <link linkend="GIOModule"><type>GIOModule</type></link>.</para>
+<para>&lt;!-- TODO: Implementation note about using extended attributes on supported
+file systems --></para>
+</refsect3>
+<refsect3><title>Default Keys</title><para>For a list of the built-in keys and their types, see the
+<link linkend="GFileInfo">GFileInfo</link> documentation.</para>
+<para>Note that there are no predefined keys in the "xattr" and "xattr-sys"
+namespaces. Keys for the "xattr" namespace are constructed by stripping
+away the "user." prefix from the extended user attribute, and prepending
+"xattr::". Keys for the "xattr-sys" namespace are constructed by
+concatenating "xattr-sys::" with the extended attribute name. All extended
+attribute values are returned as hex-encoded strings in which bytes outside
+the ASCII range are encoded as escape sequences of the form \x<literal>nn</literal>
+where <literal>nn</literal> is a 2-digit hexadecimal number.</para>
+</refsect3>
+
+</refsect1>
+<refsect1 id="gio-GFileAttribute.functions_details" role="details">
+<title role="details.title">Functions</title>
+<refsect2 id="g-file-attribute-info-list-new" role="function">
+<title>g_file_attribute_info_list_new&#160;()</title>
+<indexterm zone="g-file-attribute-info-list-new"><primary sortas="file_attribute_info_list_new">g_file_attribute_info_list_new</primary></indexterm>
+<programlisting language="C"><link linkend="GFileAttributeInfoList"><returnvalue>GFileAttributeInfoList</returnvalue></link>&#160;*
+g_file_attribute_info_list_new (<parameter><type>void</type></parameter>);</programlisting>
+<para>Creates a new file attribute info list.</para>
+<refsect3 id="g-file-attribute-info-list-new.returns" role="returns">
+<title>Returns</title>
+<para> a <link linkend="GFileAttributeInfoList"><type>GFileAttributeInfoList</type></link>.</para>
+</refsect3></refsect2>
+<refsect2 id="g-file-attribute-info-list-ref" role="function">
+<title>g_file_attribute_info_list_ref&#160;()</title>
+<indexterm zone="g-file-attribute-info-list-ref"><primary sortas="file_attribute_info_list_ref">g_file_attribute_info_list_ref</primary></indexterm>
+<programlisting language="C"><link linkend="GFileAttributeInfoList"><returnvalue>GFileAttributeInfoList</returnvalue></link>&#160;*
+g_file_attribute_info_list_ref (<parameter><link linkend="GFileAttributeInfoList"><type>GFileAttributeInfoList</type></link> *list</parameter>);</programlisting>
+<para>References a file attribute info list.</para>
+<refsect3 id="g-file-attribute-info-list-ref.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>list</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GFileAttributeInfoList"><type>GFileAttributeInfoList</type></link> to reference.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-file-attribute-info-list-ref.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="GFileAttributeInfoList"><type>GFileAttributeInfoList</type></link> or <link linkend="NULL:CAPS"><literal>NULL</literal></link> on error.</para>
+</refsect3></refsect2>
+<refsect2 id="g-file-attribute-info-list-unref" role="function">
+<title>g_file_attribute_info_list_unref&#160;()</title>
+<indexterm zone="g-file-attribute-info-list-unref"><primary sortas="file_attribute_info_list_unref">g_file_attribute_info_list_unref</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_file_attribute_info_list_unref (<parameter><link linkend="GFileAttributeInfoList"><type>GFileAttributeInfoList</type></link> *list</parameter>);</programlisting>
+<para>Removes a reference from the given <parameter>list</parameter>
+. If the reference count
+falls to zero, the <parameter>list</parameter>
+ is deleted.</para>
+<refsect3 id="g-file-attribute-info-list-unref.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>list</para></entry>
+<entry role="parameter_description"><para>The <link linkend="GFileAttributeInfoList"><type>GFileAttributeInfoList</type></link> to unreference.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-file-attribute-info-list-dup" role="function">
+<title>g_file_attribute_info_list_dup&#160;()</title>
+<indexterm zone="g-file-attribute-info-list-dup"><primary sortas="file_attribute_info_list_dup">g_file_attribute_info_list_dup</primary></indexterm>
+<programlisting language="C"><link linkend="GFileAttributeInfoList"><returnvalue>GFileAttributeInfoList</returnvalue></link>&#160;*
+g_file_attribute_info_list_dup (<parameter><link linkend="GFileAttributeInfoList"><type>GFileAttributeInfoList</type></link> *list</parameter>);</programlisting>
+<para>Makes a duplicate of a file attribute info list.</para>
+<refsect3 id="g-file-attribute-info-list-dup.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>list</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GFileAttributeInfoList"><type>GFileAttributeInfoList</type></link> to duplicate.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-file-attribute-info-list-dup.returns" role="returns">
+<title>Returns</title>
+<para> a copy of the given <parameter>list</parameter>
+.</para>
+</refsect3></refsect2>
+<refsect2 id="g-file-attribute-info-list-lookup" role="function">
+<title>g_file_attribute_info_list_lookup&#160;()</title>
+<indexterm zone="g-file-attribute-info-list-lookup"><primary sortas="file_attribute_info_list_lookup">g_file_attribute_info_list_lookup</primary></indexterm>
+<programlisting language="C">const <link linkend="GFileAttributeInfo"><returnvalue>GFileAttributeInfo</returnvalue></link>&#160;*
+g_file_attribute_info_list_lookup (<parameter><link linkend="GFileAttributeInfoList"><type>GFileAttributeInfoList</type></link> *list</parameter>,
+                                   <parameter>const <link linkend="char"><type>char</type></link> *name</parameter>);</programlisting>
+<para>Gets the file attribute with the name <parameter>name</parameter>
+ from <parameter>list</parameter>
+.</para>
+<refsect3 id="g-file-attribute-info-list-lookup.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>list</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GFileAttributeInfoList"><type>GFileAttributeInfoList</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>name</para></entry>
+<entry role="parameter_description"><para>the name of the attribute to lookup.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-file-attribute-info-list-lookup.returns" role="returns">
+<title>Returns</title>
+<para> a <link linkend="GFileAttributeInfo"><type>GFileAttributeInfo</type></link> for the <parameter>name</parameter>
+, or <link linkend="NULL:CAPS"><literal>NULL</literal></link> if an
+attribute isn't found.</para>
+</refsect3></refsect2>
+<refsect2 id="g-file-attribute-info-list-add" role="function">
+<title>g_file_attribute_info_list_add&#160;()</title>
+<indexterm zone="g-file-attribute-info-list-add"><primary sortas="file_attribute_info_list_add">g_file_attribute_info_list_add</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_file_attribute_info_list_add (<parameter><link linkend="GFileAttributeInfoList"><type>GFileAttributeInfoList</type></link> *list</parameter>,
+                                <parameter>const <link linkend="char"><type>char</type></link> *name</parameter>,
+                                <parameter><link linkend="GFileAttributeType"><type>GFileAttributeType</type></link> type</parameter>,
+                                <parameter><link linkend="GFileAttributeInfoFlags"><type>GFileAttributeInfoFlags</type></link> flags</parameter>);</programlisting>
+<para>Adds a new attribute with <parameter>name</parameter>
+ to the <parameter>list</parameter>
+, setting
+its <parameter>type</parameter>
+ and <parameter>flags</parameter>
+.</para>
+<refsect3 id="g-file-attribute-info-list-add.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>list</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GFileAttributeInfoList"><type>GFileAttributeInfoList</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>name</para></entry>
+<entry role="parameter_description"><para>the name of the attribute to add.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>type</para></entry>
+<entry role="parameter_description"><para>the <link linkend="GFileAttributeType"><type>GFileAttributeType</type></link> for the attribute.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>flags</para></entry>
+<entry role="parameter_description"><para><link linkend="GFileAttributeInfoFlags"><type>GFileAttributeInfoFlags</type></link> for the attribute.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+
+</refsect1>
+<refsect1 id="gio-GFileAttribute.other_details" role="details">
+<title role="details.title">Types and Values</title>
+<refsect2 id="GFileAttributeType" role="enum">
+<title>enum GFileAttributeType</title>
+<indexterm zone="GFileAttributeType"><primary sortas="FileAttributeType">GFileAttributeType</primary></indexterm>
+<para>The data types for file attributes.</para>
+<refsect3 id="GFileAttributeType.members" role="enum_members">
+<title>Members</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="enum_members_name" colwidth="300px"/>
+<colspec colname="enum_members_description"/>
+<colspec colname="enum_members_annotations" colwidth="200px"/>
+<tbody>
+<row role="constant"><entry role="enum_member_name"><para id="G-FILE-ATTRIBUTE-TYPE-INVALID:CAPS">G_FILE_ATTRIBUTE_TYPE_INVALID</para></entry>
+<entry role="enum_member_description"><para>indicates an invalid or uninitalized type.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-FILE-ATTRIBUTE-TYPE-STRING:CAPS">G_FILE_ATTRIBUTE_TYPE_STRING</para></entry>
+<entry role="enum_member_description"><para>a null terminated UTF8 string.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-FILE-ATTRIBUTE-TYPE-BYTE-STRING:CAPS">G_FILE_ATTRIBUTE_TYPE_BYTE_STRING</para></entry>
+<entry role="enum_member_description"><para>a zero terminated string of non-zero bytes.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-FILE-ATTRIBUTE-TYPE-BOOLEAN:CAPS">G_FILE_ATTRIBUTE_TYPE_BOOLEAN</para></entry>
+<entry role="enum_member_description"><para>a boolean value.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-FILE-ATTRIBUTE-TYPE-UINT32:CAPS">G_FILE_ATTRIBUTE_TYPE_UINT32</para></entry>
+<entry role="enum_member_description"><para>an unsigned 4-byte/32-bit integer.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-FILE-ATTRIBUTE-TYPE-INT32:CAPS">G_FILE_ATTRIBUTE_TYPE_INT32</para></entry>
+<entry role="enum_member_description"><para>a signed 4-byte/32-bit integer.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-FILE-ATTRIBUTE-TYPE-UINT64:CAPS">G_FILE_ATTRIBUTE_TYPE_UINT64</para></entry>
+<entry role="enum_member_description"><para>an unsigned 8-byte/64-bit integer.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-FILE-ATTRIBUTE-TYPE-INT64:CAPS">G_FILE_ATTRIBUTE_TYPE_INT64</para></entry>
+<entry role="enum_member_description"><para>a signed 8-byte/64-bit integer.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-FILE-ATTRIBUTE-TYPE-OBJECT:CAPS">G_FILE_ATTRIBUTE_TYPE_OBJECT</para></entry>
+<entry role="enum_member_description"><para>a <link linkend="GObject"><type>GObject</type></link>.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-FILE-ATTRIBUTE-TYPE-STRINGV:CAPS">G_FILE_ATTRIBUTE_TYPE_STRINGV</para></entry>
+<entry role="enum_member_description"><para>a <link linkend="NULL:CAPS"><literal>NULL</literal></link> terminated char **. Since 2.22</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="GFileAttributeInfoFlags" role="enum">
+<title>enum GFileAttributeInfoFlags</title>
+<indexterm zone="GFileAttributeInfoFlags"><primary sortas="FileAttributeInfoFlags">GFileAttributeInfoFlags</primary></indexterm>
+<para>Flags specifying the behaviour of an attribute.</para>
+<refsect3 id="GFileAttributeInfoFlags.members" role="enum_members">
+<title>Members</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="enum_members_name" colwidth="300px"/>
+<colspec colname="enum_members_description"/>
+<colspec colname="enum_members_annotations" colwidth="200px"/>
+<tbody>
+<row role="constant"><entry role="enum_member_name"><para id="G-FILE-ATTRIBUTE-INFO-NONE:CAPS">G_FILE_ATTRIBUTE_INFO_NONE</para></entry>
+<entry role="enum_member_description"><para>no flags set.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-FILE-ATTRIBUTE-INFO-COPY-WITH-FILE:CAPS">G_FILE_ATTRIBUTE_INFO_COPY_WITH_FILE</para></entry>
+<entry role="enum_member_description"><para>copy the attribute values when the file is copied.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-FILE-ATTRIBUTE-INFO-COPY-WHEN-MOVED:CAPS">G_FILE_ATTRIBUTE_INFO_COPY_WHEN_MOVED</para></entry>
+<entry role="enum_member_description"><para>copy the attribute values when the file is moved.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="GFileAttributeStatus" role="enum">
+<title>enum GFileAttributeStatus</title>
+<indexterm zone="GFileAttributeStatus"><primary sortas="FileAttributeStatus">GFileAttributeStatus</primary></indexterm>
+<para>Used by <link linkend="g-file-set-attributes-from-info"><function>g_file_set_attributes_from_info()</function></link> when setting file attributes.</para>
+<refsect3 id="GFileAttributeStatus.members" role="enum_members">
+<title>Members</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="enum_members_name" colwidth="300px"/>
+<colspec colname="enum_members_description"/>
+<colspec colname="enum_members_annotations" colwidth="200px"/>
+<tbody>
+<row role="constant"><entry role="enum_member_name"><para id="G-FILE-ATTRIBUTE-STATUS-UNSET:CAPS">G_FILE_ATTRIBUTE_STATUS_UNSET</para></entry>
+<entry role="enum_member_description"><para>Attribute value is unset (empty).</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-FILE-ATTRIBUTE-STATUS-SET:CAPS">G_FILE_ATTRIBUTE_STATUS_SET</para></entry>
+<entry role="enum_member_description"><para>Attribute value is set.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-FILE-ATTRIBUTE-STATUS-ERROR-SETTING:CAPS">G_FILE_ATTRIBUTE_STATUS_ERROR_SETTING</para></entry>
+<entry role="enum_member_description"><para>Indicates an error in setting the value.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="GFileAttributeInfo" role="struct">
+<title>GFileAttributeInfo</title>
+<indexterm zone="GFileAttributeInfo"><primary sortas="FileAttributeInfo">GFileAttributeInfo</primary></indexterm>
+<programlisting language="C">typedef struct {
+  char                    *name;
+  GFileAttributeType       type;
+  GFileAttributeInfoFlags  flags;
+} GFileAttributeInfo;
+</programlisting>
+<para>Information about a specific attribute.</para>
+<refsect3 id="GFileAttributeInfo.members" role="struct_members">
+<title>Members</title>
+<informaltable role="struct_members_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="struct_members_name" colwidth="300px"/>
+<colspec colname="struct_members_description"/>
+<colspec colname="struct_members_annotations" colwidth="200px"/>
+<tbody>
+<row role="member"><entry role="struct_member_name"><para><link linkend="char"><type>char</type></link>&#160;*<structfield id="GFileAttributeInfo.name">name</structfield>;</para></entry>
+<entry role="struct_member_description"><para>the name of the attribute.</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><link linkend="GFileAttributeType"><type>GFileAttributeType</type></link>&#160;<structfield id="GFileAttributeInfo.type">type</structfield>;</para></entry>
+<entry role="struct_member_description"><para>the <link linkend="GFileAttributeType"><type>GFileAttributeType</type></link> type of the attribute.</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><link linkend="GFileAttributeInfoFlags"><type>GFileAttributeInfoFlags</type></link>&#160;<structfield id="GFileAttributeInfo.flags">flags</structfield>;</para></entry>
+<entry role="struct_member_description"><para>a set of <link linkend="GFileAttributeInfoFlags"><type>GFileAttributeInfoFlags</type></link>.</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+</tbody></tgroup></informaltable>
+</refsect3>
+</refsect2>
+<refsect2 id="GFileAttributeInfoList-struct" role="struct">
+<title>GFileAttributeInfoList</title>
+<indexterm zone="GFileAttributeInfoList-struct"><primary sortas="FileAttributeInfoList">GFileAttributeInfoList</primary></indexterm>
+<programlisting language="C">typedef struct {
+  GFileAttributeInfo *infos;
+  int                 n_infos;
+} GFileAttributeInfoList;
+</programlisting>
+<para>Acts as a lightweight registry for possible valid file attributes.
+The registry stores Key-Value pair formats as <link linkend="GFileAttributeInfos"><type>GFileAttributeInfos</type></link>.</para>
+<refsect3 id="GFileAttributeInfoList.members" role="struct_members">
+<title>Members</title>
+<informaltable role="struct_members_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="struct_members_name" colwidth="300px"/>
+<colspec colname="struct_members_description"/>
+<colspec colname="struct_members_annotations" colwidth="200px"/>
+<tbody>
+<row role="member"><entry role="struct_member_name"><para><link linkend="GFileAttributeInfo"><type>GFileAttributeInfo</type></link>&#160;*<structfield id="GFileAttributeInfoList-struct.infos">infos</structfield>;</para></entry>
+<entry role="struct_member_description"><para>an array of <link linkend="GFileAttributeInfos"><type>GFileAttributeInfos</type></link>.</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><link linkend="int"><type>int</type></link>&#160;<structfield id="GFileAttributeInfoList-struct.n-infos">n_infos</structfield>;</para></entry>
+<entry role="struct_member_description"><para>the number of values in the array.</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+</tbody></tgroup></informaltable>
+</refsect3>
+</refsect2>
+
+</refsect1>
+<refsect1 id="gio-GFileAttribute.see-also">
+<title>See Also</title>
+<para><link linkend="GFile"><type>GFile</type></link>, <link linkend="GFileInfo"><type>GFileInfo</type></link></para>
+
+</refsect1>
+
+</refentry>

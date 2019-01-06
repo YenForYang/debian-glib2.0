@@ -1,0 +1,134 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC '-//OASIS//DTD DocBook XML V4.5//EN'
+                      'http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd' [
+<!ENTITY % local.common.attrib "xmlns:xi  CDATA  #FIXED 'http://www.w3.org/2003/XInclude'">
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="gio-GMenuModel-exporter">
+<refmeta>
+<refentrytitle role="top_of_page" id="gio-GMenuModel-exporter.top_of_page">GMenuModel exporter</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>GIO Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>GMenuModel exporter</refname>
+<refpurpose>Export GMenuModels on D-Bus</refpurpose>
+</refnamediv>
+
+<refsect1 id="gio-GMenuModel-exporter.functions" role="functions_proto">
+<title role="functions_proto.title">Functions</title>
+<informaltable pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="functions_return" colwidth="150px"/>
+<colspec colname="functions_name"/>
+<tbody>
+<row><entry role="function_type"><link linkend="guint"><returnvalue>guint</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-dbus-connection-export-menu-model">g_dbus_connection_export_menu_model</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-dbus-connection-unexport-menu-model">g_dbus_connection_unexport_menu_model</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+
+<refsect1 id="gio-GMenuModel-exporter.includes"><title>Includes</title><synopsis>#include &lt;gio/gio.h&gt;
+</synopsis></refsect1>
+
+<refsect1 id="gio-GMenuModel-exporter.description" role="desc">
+<title role="desc.title">Description</title>
+<para>These functions support exporting a <link linkend="GMenuModel"><type>GMenuModel</type></link> on D-Bus.
+The D-Bus interface that is used is a private implementation
+detail.</para>
+<para>To access an exported <link linkend="GMenuModel"><type>GMenuModel</type></link> remotely, use
+<link linkend="g-dbus-menu-model-get"><function>g_dbus_menu_model_get()</function></link> to obtain a <link linkend="GDBusMenuModel"><type>GDBusMenuModel</type></link>.</para>
+
+</refsect1>
+<refsect1 id="gio-GMenuModel-exporter.functions_details" role="details">
+<title role="details.title">Functions</title>
+<refsect2 id="g-dbus-connection-export-menu-model" role="function" condition="since:2.32">
+<title>g_dbus_connection_export_menu_model&#160;()</title>
+<indexterm zone="g-dbus-connection-export-menu-model" role="2.32"><primary sortas="dbus_connection_export_menu_model">g_dbus_connection_export_menu_model</primary></indexterm>
+<programlisting language="C"><link linkend="guint"><returnvalue>guint</returnvalue></link>
+g_dbus_connection_export_menu_model (<parameter><link linkend="GDBusConnection"><type>GDBusConnection</type></link> *connection</parameter>,
+                                     <parameter>const <link linkend="gchar"><type>gchar</type></link> *object_path</parameter>,
+                                     <parameter><link linkend="GMenuModel"><type>GMenuModel</type></link> *menu</parameter>,
+                                     <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para>Exports <parameter>menu</parameter>
+ on <parameter>connection</parameter>
+ at <parameter>object_path</parameter>
+.</para>
+<para>The implemented D-Bus API should be considered private.
+It is subject to change in the future.</para>
+<para>An object path can only have one menu model exported on it. If this
+constraint is violated, the export will fail and 0 will be
+returned (with <parameter>error</parameter>
+ set accordingly).</para>
+<para>You can unexport the menu model using
+<link linkend="g-dbus-connection-unexport-menu-model"><function>g_dbus_connection_unexport_menu_model()</function></link> with the return value of
+this function.</para>
+<refsect3 id="g-dbus-connection-export-menu-model.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>connection</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GDBusConnection"><type>GDBusConnection</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>object_path</para></entry>
+<entry role="parameter_description"><para>a D-Bus object path</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>menu</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GMenuModel"><type>GMenuModel</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para>return location for an error, or <link linkend="NULL:CAPS"><literal>NULL</literal></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-dbus-connection-export-menu-model.returns" role="returns">
+<title>Returns</title>
+<para> the ID of the export (never zero), or 0 in case of failure</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.32">2.32</link></para></refsect2>
+<refsect2 id="g-dbus-connection-unexport-menu-model" role="function" condition="since:2.32">
+<title>g_dbus_connection_unexport_menu_model&#160;()</title>
+<indexterm zone="g-dbus-connection-unexport-menu-model" role="2.32"><primary sortas="dbus_connection_unexport_menu_model">g_dbus_connection_unexport_menu_model</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_dbus_connection_unexport_menu_model (<parameter><link linkend="GDBusConnection"><type>GDBusConnection</type></link> *connection</parameter>,
+                                       <parameter><link linkend="guint"><type>guint</type></link> export_id</parameter>);</programlisting>
+<para>Reverses the effect of a previous call to
+<link linkend="g-dbus-connection-export-menu-model"><function>g_dbus_connection_export_menu_model()</function></link>.</para>
+<para>It is an error to call this function with an ID that wasn't returned
+from <link linkend="g-dbus-connection-export-menu-model"><function>g_dbus_connection_export_menu_model()</function></link> or to call it with the
+same ID more than once.</para>
+<refsect3 id="g-dbus-connection-unexport-menu-model.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>connection</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GDBusConnection"><type>GDBusConnection</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>export_id</para></entry>
+<entry role="parameter_description"><para>the ID from <link linkend="g-dbus-connection-export-menu-model"><function>g_dbus_connection_export_menu_model()</function></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.32">2.32</link></para></refsect2>
+
+</refsect1>
+<refsect1 id="gio-GMenuModel-exporter.other_details" role="details">
+<title role="details.title">Types and Values</title>
+
+</refsect1>
+<refsect1 id="gio-GMenuModel-exporter.see-also">
+<title>See Also</title>
+<para><link linkend="GMenuModel"><type>GMenuModel</type></link>, <link linkend="GDBusMenuModel"><type>GDBusMenuModel</type></link></para>
+
+</refsect1>
+
+</refentry>

@@ -1,0 +1,170 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC '-//OASIS//DTD DocBook XML V4.5//EN'
+                      'http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd' [
+<!ENTITY % local.common.attrib "xmlns:xi  CDATA  #FIXED 'http://www.w3.org/2003/XInclude'">
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="gio-GConverterInputstream">
+<refmeta>
+<refentrytitle role="top_of_page" id="gio-GConverterInputstream.top_of_page">GConverterInputstream</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>GIO Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>GConverterInputstream</refname>
+<refpurpose>Converter Input Stream</refpurpose>
+</refnamediv>
+
+<refsect1 id="gio-GConverterInputstream.functions" role="functions_proto">
+<title role="functions_proto.title">Functions</title>
+<informaltable pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="functions_return" colwidth="150px"/>
+<colspec colname="functions_name"/>
+<tbody>
+<row><entry role="function_type"><link linkend="GInputStream"><returnvalue>GInputStream</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-converter-input-stream-new">g_converter_input_stream_new</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GConverter"><returnvalue>GConverter</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-converter-input-stream-get-converter">g_converter_input_stream_get_converter</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="gio-GConverterInputstream.properties" role="properties">
+<title role="properties.title">Properties</title>
+<informaltable frame="none">
+<tgroup cols="3">
+<colspec colname="properties_type" colwidth="150px"/>
+<colspec colname="properties_name" colwidth="300px"/>
+<colspec colname="properties_flags" colwidth="200px"/>
+<tbody>
+<row><entry role="property_type"><link linkend="GConverter"><type>GConverter</type></link>&#160;*</entry><entry role="property_name"><link linkend="GConverterInputStream--converter">converter</link></entry><entry role="property_flags">Read / Write / Construct Only</entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<anchor id="GConverterInputStream"/><refsect1 id="gio-GConverterInputstream.other" role="other_proto">
+<title role="other_proto.title">Types and Values</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="name" colwidth="150px"/>
+<colspec colname="description"/>
+<tbody>
+<row><entry role="datatype_keyword"></entry><entry role="function_name"><link linkend="GConverterInputStream-struct">GConverterInputStream</link></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="gio-GConverterInputstream.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<screen>    <link linkend="GObject">GObject</link>
+    <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> <link linkend="GInputStream">GInputStream</link>
+        <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> <link linkend="GFilterInputStream">GFilterInputStream</link>
+            <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> GConverterInputStream
+</screen>
+</refsect1>
+<refsect1 id="gio-GConverterInputstream.implemented-interfaces" role="impl_interfaces">
+<title role="impl_interfaces.title">Implemented Interfaces</title>
+<para>
+GConverterInputStream implements
+ <link linkend="GPollableInputStream">GPollableInputStream</link>.</para>
+
+</refsect1>
+
+<refsect1 id="gio-GConverterInputstream.includes"><title>Includes</title><synopsis>#include &lt;gio/gio.h&gt;
+</synopsis></refsect1>
+
+<refsect1 id="gio-GConverterInputstream.description" role="desc">
+<title role="desc.title">Description</title>
+<para>Converter input stream implements <link linkend="GInputStream"><type>GInputStream</type></link> and allows
+conversion of data of various types during reading.</para>
+<para>As of GLib 2.34, <link linkend="GConverterInputStream"><type>GConverterInputStream</type></link> implements
+<link linkend="GPollableInputStream"><type>GPollableInputStream</type></link>.</para>
+
+</refsect1>
+<refsect1 id="gio-GConverterInputstream.functions_details" role="details">
+<title role="details.title">Functions</title>
+<refsect2 id="g-converter-input-stream-new" role="function">
+<title>g_converter_input_stream_new&#160;()</title>
+<indexterm zone="g-converter-input-stream-new"><primary sortas="converter_input_stream_new">g_converter_input_stream_new</primary></indexterm>
+<programlisting language="C"><link linkend="GInputStream"><returnvalue>GInputStream</returnvalue></link>&#160;*
+g_converter_input_stream_new (<parameter><link linkend="GInputStream"><type>GInputStream</type></link> *base_stream</parameter>,
+                              <parameter><link linkend="GConverter"><type>GConverter</type></link> *converter</parameter>);</programlisting>
+<para>Creates a new converter input stream for the <parameter>base_stream</parameter>
+.</para>
+<refsect3 id="g-converter-input-stream-new.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>base_stream</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GInputStream"><type>GInputStream</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>converter</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GConverter"><type>GConverter</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-converter-input-stream-new.returns" role="returns">
+<title>Returns</title>
+<para> a new <link linkend="GInputStream"><type>GInputStream</type></link>.</para>
+</refsect3></refsect2>
+<refsect2 id="g-converter-input-stream-get-converter" role="function" condition="since:2.24">
+<title>g_converter_input_stream_get_converter&#160;()</title>
+<indexterm zone="g-converter-input-stream-get-converter" role="2.24"><primary sortas="converter_input_stream_get_converter">g_converter_input_stream_get_converter</primary></indexterm>
+<programlisting language="C"><link linkend="GConverter"><returnvalue>GConverter</returnvalue></link>&#160;*
+g_converter_input_stream_get_converter
+                               (<parameter><link linkend="GConverterInputStream"><type>GConverterInputStream</type></link> *converter_stream</parameter>);</programlisting>
+<para>Gets the <link linkend="GConverter"><type>GConverter</type></link> that is used by <parameter>converter_stream</parameter>
+.</para>
+<refsect3 id="g-converter-input-stream-get-converter.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>converter_stream</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GConverterInputStream"><type>GConverterInputStream</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-converter-input-stream-get-converter.returns" role="returns">
+<title>Returns</title>
+<para>the converter of the converter input stream. </para>
+<para><emphasis role="annotation">[<acronym>transfer none</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.24">2.24</link></para></refsect2>
+
+</refsect1>
+<refsect1 id="gio-GConverterInputstream.other_details" role="details">
+<title role="details.title">Types and Values</title>
+<refsect2 id="GConverterInputStream-struct" role="struct">
+<title>GConverterInputStream</title>
+<indexterm zone="GConverterInputStream-struct"><primary sortas="ConverterInputStream">GConverterInputStream</primary></indexterm>
+<programlisting language="C">typedef struct _GConverterInputStream GConverterInputStream;</programlisting>
+<para>An implementation of <link linkend="GFilterInputStream"><type>GFilterInputStream</type></link> that allows data
+conversion.</para>
+</refsect2>
+
+</refsect1>
+<refsect1 id="gio-GConverterInputstream.property-details" role="property_details">
+<title role="property_details.title">Property Details</title>
+<refsect2 id="GConverterInputStream--converter" role="property"><title>The <literal>“converter”</literal> property</title>
+<indexterm zone="GConverterInputStream--converter"><primary sortas="ConverterInputStream:converter">GConverterInputStream:converter</primary></indexterm>
+<programlisting>  “converter”                <link linkend="GConverter"><type>GConverter</type></link>&#160;*</programlisting>
+<para>The converter object.</para><para>Flags: Read / Write / Construct Only</para>
+</refsect2>
+
+</refsect1>
+<refsect1 id="gio-GConverterInputstream.see-also">
+<title>See Also</title>
+<para><link linkend="GInputStream"><type>GInputStream</type></link>, <link linkend="GConverter"><type>GConverter</type></link></para>
+
+</refsect1>
+
+</refentry>

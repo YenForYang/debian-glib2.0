@@ -1,0 +1,198 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC '-//OASIS//DTD DocBook XML V4.5//EN'
+                      'http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd' [
+<!ENTITY % local.common.attrib "xmlns:xi  CDATA  #FIXED 'http://www.w3.org/2003/XInclude'">
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="GThreadedSocketService">
+<refmeta>
+<refentrytitle role="top_of_page" id="GThreadedSocketService.top_of_page">GThreadedSocketService</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>GIO Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>GThreadedSocketService</refname>
+<refpurpose>A threaded GSocketService</refpurpose>
+</refnamediv>
+
+<refsect1 id="GThreadedSocketService.functions" role="functions_proto">
+<title role="functions_proto.title">Functions</title>
+<informaltable pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="functions_return" colwidth="150px"/>
+<colspec colname="functions_name"/>
+<tbody>
+<row><entry role="function_type"><link linkend="GSocketService"><returnvalue>GSocketService</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-threaded-socket-service-new">g_threaded_socket_service_new</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GThreadedSocketService.properties" role="properties">
+<title role="properties.title">Properties</title>
+<informaltable frame="none">
+<tgroup cols="3">
+<colspec colname="properties_type" colwidth="150px"/>
+<colspec colname="properties_name" colwidth="300px"/>
+<colspec colname="properties_flags" colwidth="200px"/>
+<tbody>
+<row><entry role="property_type"><link linkend="gint"><type>gint</type></link></entry><entry role="property_name"><link linkend="GThreadedSocketService--max-threads">max-threads</link></entry><entry role="property_flags">Read / Write / Construct Only</entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GThreadedSocketService.signals" role="signal_proto">
+<title role="signal_proto.title">Signals</title>
+<informaltable frame="none">
+<tgroup cols="3">
+<colspec colname="signals_return" colwidth="150px"/>
+<colspec colname="signals_name" colwidth="300px"/>
+<colspec colname="signals_flags" colwidth="200px"/>
+<tbody>
+<row><entry role="signal_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link></entry><entry role="signal_name"><link linkend="GThreadedSocketService-run">run</link></entry><entry role="signal_flags"><link linkend="G-SIGNAL-RUN-LAST:CAPS">Run Last</link></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GThreadedSocketService.other" role="other_proto">
+<title role="other_proto.title">Types and Values</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="name" colwidth="150px"/>
+<colspec colname="description"/>
+<tbody>
+<row><entry role="datatype_keyword"></entry><entry role="function_name"><link linkend="GThreadedSocketService-struct">GThreadedSocketService</link></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GThreadedSocketService.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<screen>    <link linkend="GObject">GObject</link>
+    <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> <link linkend="GSocketListener">GSocketListener</link>
+        <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> <link linkend="GSocketService">GSocketService</link>
+            <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> GThreadedSocketService
+</screen>
+</refsect1>
+
+<refsect1 id="GThreadedSocketService.includes"><title>Includes</title><synopsis>#include &lt;gio/gio.h&gt;
+</synopsis></refsect1>
+
+<refsect1 id="GThreadedSocketService.description" role="desc">
+<title role="desc.title">Description</title>
+<para>A <link linkend="GThreadedSocketService"><type>GThreadedSocketService</type></link> is a simple subclass of <link linkend="GSocketService"><type>GSocketService</type></link>
+that handles incoming connections by creating a worker thread and
+dispatching the connection to it by emitting the
+<link linkend="GThreadedSocketService-run"><type>“run”</type></link> signal in the new thread.</para>
+<para>The signal handler may perform blocking IO and need not return
+until the connection is closed.</para>
+<para>The service is implemented using a thread pool, so there is a
+limited amount of threads available to serve incoming requests.
+The service automatically stops the <link linkend="GSocketService"><type>GSocketService</type></link> from accepting
+new connections when all threads are busy.</para>
+<para>As with <link linkend="GSocketService"><type>GSocketService</type></link>, you may connect to <link linkend="GThreadedSocketService-run"><type>“run”</type></link>,
+or subclass and override the default handler.</para>
+
+</refsect1>
+<refsect1 id="GThreadedSocketService.functions_details" role="details">
+<title role="details.title">Functions</title>
+<refsect2 id="g-threaded-socket-service-new" role="function" condition="since:2.22">
+<title>g_threaded_socket_service_new&#160;()</title>
+<indexterm zone="g-threaded-socket-service-new" role="2.22"><primary sortas="threaded_socket_service_new">g_threaded_socket_service_new</primary></indexterm>
+<programlisting language="C"><link linkend="GSocketService"><returnvalue>GSocketService</returnvalue></link>&#160;*
+g_threaded_socket_service_new (<parameter><link linkend="int"><type>int</type></link> max_threads</parameter>);</programlisting>
+<para>Creates a new <link linkend="GThreadedSocketService"><type>GThreadedSocketService</type></link> with no listeners. Listeners
+must be added with one of the <link linkend="GSocketListener"><type>GSocketListener</type></link> "add" methods.</para>
+<refsect3 id="g-threaded-socket-service-new.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>max_threads</para></entry>
+<entry role="parameter_description"><para>the maximal number of threads to execute concurrently
+handling incoming clients, -1 means no limit</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-threaded-socket-service-new.returns" role="returns">
+<title>Returns</title>
+<para> a new <link linkend="GSocketService"><type>GSocketService</type></link>.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.22">2.22</link></para></refsect2>
+
+</refsect1>
+<refsect1 id="GThreadedSocketService.other_details" role="details">
+<title role="details.title">Types and Values</title>
+<refsect2 id="GThreadedSocketService-struct" role="struct">
+<title>GThreadedSocketService</title>
+<indexterm zone="GThreadedSocketService-struct" role="2.22"><primary sortas="ThreadedSocketService">GThreadedSocketService</primary></indexterm>
+<programlisting language="C">typedef struct _GThreadedSocketService GThreadedSocketService;</programlisting>
+<para>A helper class for handling accepting incoming connections in the
+glib mainloop and handling them in a thread.</para>
+<para role="since">Since: <link linkend="api-index-2.22">2.22</link></para></refsect2>
+
+</refsect1>
+<refsect1 id="GThreadedSocketService.property-details" role="property_details">
+<title role="property_details.title">Property Details</title>
+<refsect2 id="GThreadedSocketService--max-threads" role="property"><title>The <literal>“max-threads”</literal> property</title>
+<indexterm zone="GThreadedSocketService--max-threads"><primary sortas="ThreadedSocketService:max-threads">GThreadedSocketService:max-threads</primary></indexterm>
+<programlisting>  “max-threads”              <link linkend="gint"><type>gint</type></link></programlisting>
+<para>The max number of threads handling clients for this service.</para><para>Flags: Read / Write / Construct Only</para>
+<para>Allowed values: &gt;= -1</para>
+<para>Default value: 10</para>
+</refsect2>
+
+</refsect1>
+<refsect1 id="GThreadedSocketService.signal-details" role="signals">
+<title role="signals.title">Signal Details</title>
+<refsect2 id="GThreadedSocketService-run" role="signal"><title>The <literal>“run”</literal> signal</title>
+<indexterm zone="GThreadedSocketService-run"><primary sortas="ThreadedSocketService::run">GThreadedSocketService::run</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+user_function (<link linkend="GThreadedSocketService"><type>GThreadedSocketService</type></link> *service,
+               <link linkend="GSocketConnection"><type>GSocketConnection</type></link>      *connection,
+               <link linkend="GObject"><type>GObject</type></link>                *source_object,
+               <link linkend="gpointer"><type>gpointer</type></link>                user_data)</programlisting>
+<para>The ::run signal is emitted in a worker thread in response to an
+incoming connection. This thread is dedicated to handling
+<parameter>connection</parameter>
+ and may perform blocking IO. The signal handler need
+not return until the connection is closed.</para>
+<refsect3 id="GThreadedSocketService-run.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>service</para></entry>
+<entry role="parameter_description"><para>the <link linkend="GThreadedSocketService"><type>GThreadedSocketService</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>connection</para></entry>
+<entry role="parameter_description"><para>a new <link linkend="GSocketConnection"><type>GSocketConnection</type></link> object.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>source_object</para></entry>
+<entry role="parameter_description"><para>the source_object passed to <link linkend="g-socket-listener-add-address"><function>g_socket_listener_add_address()</function></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><simpara>user_data</simpara></entry>
+<entry role="parameter_description"><simpara>user data set when the signal handler was connected.</simpara></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="GThreadedSocketService-run.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> to stop further signal handlers from being called</para>
+</refsect3><para>Flags: <link linkend="G-SIGNAL-RUN-LAST:CAPS">Run Last</link></para>
+</refsect2>
+</refsect1>
+<refsect1 id="GThreadedSocketService.see-also">
+<title>See Also</title>
+<para><link linkend="GSocketService"><type>GSocketService</type></link>.</para>
+
+</refsect1>
+
+</refentry>

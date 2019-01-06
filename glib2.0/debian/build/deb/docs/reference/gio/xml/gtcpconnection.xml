@@ -1,0 +1,165 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC '-//OASIS//DTD DocBook XML V4.5//EN'
+                      'http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd' [
+<!ENTITY % local.common.attrib "xmlns:xi  CDATA  #FIXED 'http://www.w3.org/2003/XInclude'">
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="GTcpConnection">
+<refmeta>
+<refentrytitle role="top_of_page" id="GTcpConnection.top_of_page">GTcpConnection</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>GIO Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>GTcpConnection</refname>
+<refpurpose>A TCP GSocketConnection</refpurpose>
+</refnamediv>
+
+<refsect1 id="GTcpConnection.functions" role="functions_proto">
+<title role="functions_proto.title">Functions</title>
+<informaltable pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="functions_return" colwidth="150px"/>
+<colspec colname="functions_name"/>
+<tbody>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-tcp-connection-set-graceful-disconnect">g_tcp_connection_set_graceful_disconnect</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-tcp-connection-get-graceful-disconnect">g_tcp_connection_get_graceful_disconnect</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GTcpConnection.properties" role="properties">
+<title role="properties.title">Properties</title>
+<informaltable frame="none">
+<tgroup cols="3">
+<colspec colname="properties_type" colwidth="150px"/>
+<colspec colname="properties_name" colwidth="300px"/>
+<colspec colname="properties_flags" colwidth="200px"/>
+<tbody>
+<row><entry role="property_type"><link linkend="gboolean"><type>gboolean</type></link></entry><entry role="property_name"><link linkend="GTcpConnection--graceful-disconnect">graceful-disconnect</link></entry><entry role="property_flags">Read / Write</entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GTcpConnection.other" role="other_proto">
+<title role="other_proto.title">Types and Values</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="name" colwidth="150px"/>
+<colspec colname="description"/>
+<tbody>
+<row><entry role="datatype_keyword"></entry><entry role="function_name"><link linkend="GTcpConnection-struct">GTcpConnection</link></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GTcpConnection.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<screen>    <link linkend="GObject">GObject</link>
+    <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> <link linkend="GIOStream">GIOStream</link>
+        <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> <link linkend="GSocketConnection">GSocketConnection</link>
+            <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> GTcpConnection
+                <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> <link linkend="GTcpWrapperConnection">GTcpWrapperConnection</link>
+</screen>
+</refsect1>
+
+<refsect1 id="GTcpConnection.includes"><title>Includes</title><synopsis>#include &lt;gio/gio.h&gt;
+</synopsis></refsect1>
+
+<refsect1 id="GTcpConnection.description" role="desc">
+<title role="desc.title">Description</title>
+<para>This is the subclass of <link linkend="GSocketConnection"><type>GSocketConnection</type></link> that is created
+for TCP/IP sockets.</para>
+
+</refsect1>
+<refsect1 id="GTcpConnection.functions_details" role="details">
+<title role="details.title">Functions</title>
+<refsect2 id="g-tcp-connection-set-graceful-disconnect" role="function" condition="since:2.22">
+<title>g_tcp_connection_set_graceful_disconnect&#160;()</title>
+<indexterm zone="g-tcp-connection-set-graceful-disconnect" role="2.22"><primary sortas="tcp_connection_set_graceful_disconnect">g_tcp_connection_set_graceful_disconnect</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_tcp_connection_set_graceful_disconnect
+                               (<parameter><link linkend="GTcpConnection"><type>GTcpConnection</type></link> *connection</parameter>,
+                                <parameter><link linkend="gboolean"><type>gboolean</type></link> graceful_disconnect</parameter>);</programlisting>
+<para>This enables graceful disconnects on close. A graceful disconnect
+means that we signal the receiving end that the connection is terminated
+and wait for it to close the connection before closing the connection.</para>
+<para>A graceful disconnect means that we can be sure that we successfully sent
+all the outstanding data to the other end, or get an error reported.
+However, it also means we have to wait for all the data to reach the
+other side and for it to acknowledge this by closing the socket, which may
+take a while. For this reason it is disabled by default.</para>
+<refsect3 id="g-tcp-connection-set-graceful-disconnect.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>connection</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GTcpConnection"><type>GTcpConnection</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>graceful_disconnect</para></entry>
+<entry role="parameter_description"><para>Whether to do graceful disconnects or not</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.22">2.22</link></para></refsect2>
+<refsect2 id="g-tcp-connection-get-graceful-disconnect" role="function" condition="since:2.22">
+<title>g_tcp_connection_get_graceful_disconnect&#160;()</title>
+<indexterm zone="g-tcp-connection-get-graceful-disconnect" role="2.22"><primary sortas="tcp_connection_get_graceful_disconnect">g_tcp_connection_get_graceful_disconnect</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_tcp_connection_get_graceful_disconnect
+                               (<parameter><link linkend="GTcpConnection"><type>GTcpConnection</type></link> *connection</parameter>);</programlisting>
+<para>Checks if graceful disconnects are used. See
+<link linkend="g-tcp-connection-set-graceful-disconnect"><function>g_tcp_connection_set_graceful_disconnect()</function></link>.</para>
+<refsect3 id="g-tcp-connection-get-graceful-disconnect.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>connection</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GTcpConnection"><type>GTcpConnection</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-tcp-connection-get-graceful-disconnect.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if graceful disconnect is used on close, <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> otherwise</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.22">2.22</link></para></refsect2>
+
+</refsect1>
+<refsect1 id="GTcpConnection.other_details" role="details">
+<title role="details.title">Types and Values</title>
+<refsect2 id="GTcpConnection-struct" role="struct">
+<title>GTcpConnection</title>
+<indexterm zone="GTcpConnection-struct" role="2.22"><primary sortas="TcpConnection">GTcpConnection</primary></indexterm>
+<programlisting language="C">typedef struct _GTcpConnection GTcpConnection;</programlisting>
+<para>A <link linkend="GSocketConnection"><type>GSocketConnection</type></link> for TCP/IP connections.</para>
+<para role="since">Since: <link linkend="api-index-2.22">2.22</link></para></refsect2>
+
+</refsect1>
+<refsect1 id="GTcpConnection.property-details" role="property_details">
+<title role="property_details.title">Property Details</title>
+<refsect2 id="GTcpConnection--graceful-disconnect" role="property"><title>The <literal>“graceful-disconnect”</literal> property</title>
+<indexterm zone="GTcpConnection--graceful-disconnect"><primary sortas="TcpConnection:graceful-disconnect">GTcpConnection:graceful-disconnect</primary></indexterm>
+<programlisting>  “graceful-disconnect”      <link linkend="gboolean"><type>gboolean</type></link></programlisting>
+<para>Whether or not close does a graceful disconnect.</para><para>Flags: Read / Write</para>
+<para>Default value: FALSE</para>
+</refsect2>
+
+</refsect1>
+<refsect1 id="GTcpConnection.see-also">
+<title>See Also</title>
+<para><link linkend="GSocketConnection"><type>GSocketConnection</type></link>.</para>
+
+</refsect1>
+
+</refentry>

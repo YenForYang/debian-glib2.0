@@ -1,0 +1,789 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC '-//OASIS//DTD DocBook XML V4.5//EN'
+                      'http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd' [
+<!ENTITY % local.common.attrib "xmlns:xi  CDATA  #FIXED 'http://www.w3.org/2003/XInclude'">
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="gio-GDBusError">
+<refmeta>
+<refentrytitle role="top_of_page" id="gio-GDBusError.top_of_page">GDBusError</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>GIO Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>GDBusError</refname>
+<refpurpose>Mapping D-Bus errors to and from GError</refpurpose>
+</refnamediv>
+
+<refsect1 id="gio-GDBusError.functions" role="functions_proto">
+<title role="functions_proto.title">Functions</title>
+<informaltable pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="functions_return" colwidth="150px"/>
+<colspec colname="functions_name"/>
+<tbody>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-dbus-error-is-remote-error">g_dbus_error_is_remote_error</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-dbus-error-get-remote-error">g_dbus_error_get_remote_error</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-dbus-error-strip-remote-error">g_dbus_error_strip_remote_error</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-dbus-error-register-error-domain">g_dbus_error_register_error_domain</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-dbus-error-register-error">g_dbus_error_register_error</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-dbus-error-unregister-error">g_dbus_error_unregister_error</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GError"><returnvalue>GError</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-dbus-error-new-for-dbus-error">g_dbus_error_new_for_dbus_error</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-dbus-error-set-dbus-error">g_dbus_error_set_dbus_error</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-dbus-error-set-dbus-error-valist">g_dbus_error_set_dbus_error_valist</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-dbus-error-encode-gerror">g_dbus_error_encode_gerror</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="gio-GDBusError.other" role="other_proto">
+<title role="other_proto.title">Types and Values</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="name" colwidth="150px"/>
+<colspec colname="description"/>
+<tbody>
+<row><entry role="datatype_keyword">enum</entry><entry role="function_name"><link linkend="GDBusError">GDBusError</link></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="G-DBUS-ERROR:CAPS">G_DBUS_ERROR</link></entry></row>
+<row><entry role="datatype_keyword"></entry><entry role="function_name"><link linkend="GDBusErrorEntry">GDBusErrorEntry</link></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="gio-GDBusError.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<screen>    <link linkend="GEnum">GEnum</link>
+    <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> GDBusError
+</screen>
+</refsect1>
+
+<refsect1 id="gio-GDBusError.includes"><title>Includes</title><synopsis>#include &lt;gio/gio.h&gt;
+</synopsis></refsect1>
+
+<refsect1 id="gio-GDBusError.description" role="desc">
+<title role="desc.title">Description</title>
+<para>All facilities that return errors from remote methods (such as
+<link linkend="g-dbus-connection-call-sync"><function>g_dbus_connection_call_sync()</function></link>) use <link linkend="GError"><type>GError</type></link> to represent both D-Bus
+errors (e.g. errors returned from the other peer) and locally
+in-process generated errors.</para>
+<para>To check if a returned <link linkend="GError"><type>GError</type></link> is an error from a remote peer, use
+<link linkend="g-dbus-error-is-remote-error"><function>g_dbus_error_is_remote_error()</function></link>. To get the actual D-Bus error name,
+use <link linkend="g-dbus-error-get-remote-error"><function>g_dbus_error_get_remote_error()</function></link>. Before presenting an error,
+always use <link linkend="g-dbus-error-strip-remote-error"><function>g_dbus_error_strip_remote_error()</function></link>.</para>
+<para>In addition, facilities used to return errors to a remote peer also
+use <link linkend="GError"><type>GError</type></link>. See <link linkend="g-dbus-method-invocation-return-error"><function>g_dbus_method_invocation_return_error()</function></link> for
+discussion about how the D-Bus error name is set.</para>
+<para>Applications can associate a <link linkend="GError"><type>GError</type></link> error domain with a set of D-Bus errors in order to
+automatically map from D-Bus errors to <link linkend="GError"><type>GError</type></link> and back. This
+is typically done in the function returning the <link linkend="GQuark"><type>GQuark</type></link> for the
+error domain:</para>
+<informalexample><programlisting role="example"><![CDATA[
+// foo-bar-error.h:
+
+#define FOO_BAR_ERROR (foo_bar_error_quark ())
+GQuark foo_bar_error_quark (void);
+
+typedef enum
+{
+  FOO_BAR_ERROR_FAILED,
+  FOO_BAR_ERROR_ANOTHER_ERROR,
+  FOO_BAR_ERROR_SOME_THIRD_ERROR,
+  FOO_BAR_N_ERRORS / *< skip >* /
+} FooBarError;
+
+// foo-bar-error.c:
+
+static const GDBusErrorEntry foo_bar_error_entries[] =
+{
+  {FOO_BAR_ERROR_FAILED,           "org.project.Foo.Bar.Error.Failed"},
+  {FOO_BAR_ERROR_ANOTHER_ERROR,    "org.project.Foo.Bar.Error.AnotherError"},
+  {FOO_BAR_ERROR_SOME_THIRD_ERROR, "org.project.Foo.Bar.Error.SomeThirdError"},
+};
+
+// Ensure that every error code has an associated D-Bus error name
+G_STATIC_ASSERT (G_N_ELEMENTS (foo_bar_error_entries) == FOO_BAR_N_ERRORS);
+
+GQuark
+foo_bar_error_quark (void)
+{
+  static volatile gsize quark_volatile = 0;
+  g_dbus_error_register_error_domain ("foo-bar-error-quark",
+                                      &quark_volatile,
+                                      foo_bar_error_entries,
+                                      G_N_ELEMENTS (foo_bar_error_entries));
+  return (GQuark) quark_volatile;
+}
+]]></programlisting></informalexample>
+<para>
+With this setup, a D-Bus peer can transparently pass e.g. <link linkend="FOO-BAR-ERROR-ANOTHER-ERROR:CAPS"><literal>FOO_BAR_ERROR_ANOTHER_ERROR</literal></link> and
+other peers will see the D-Bus error name org.project.Foo.Bar.Error.AnotherError.</para>
+<para>If the other peer is using GDBus, and has registered the association with
+<link linkend="g-dbus-error-register-error-domain"><function>g_dbus_error_register_error_domain()</function></link> in advance (e.g. by invoking the <link linkend="FOO-BAR-ERROR:CAPS"><literal>FOO_BAR_ERROR</literal></link> quark
+generation itself in the previous example) the peer will see also <link linkend="FOO-BAR-ERROR-ANOTHER-ERROR:CAPS"><literal>FOO_BAR_ERROR_ANOTHER_ERROR</literal></link> instead
+of <link linkend="G-IO-ERROR-DBUS-ERROR:CAPS"><literal>G_IO_ERROR_DBUS_ERROR</literal></link>. Note that GDBus clients can still recover
+org.project.Foo.Bar.Error.AnotherError using <link linkend="g-dbus-error-get-remote-error"><function>g_dbus_error_get_remote_error()</function></link>.</para>
+<para>Note that the <link linkend="G-DBUS-ERROR:CAPS"><literal>G_DBUS_ERROR</literal></link> error domain is intended only
+for returning errors from a remote message bus process. Errors
+generated locally in-process by e.g. <link linkend="GDBusConnection"><type>GDBusConnection</type></link> should use the
+<link linkend="G-IO-ERROR:CAPS"><literal>G_IO_ERROR</literal></link> domain.</para>
+
+</refsect1>
+<refsect1 id="gio-GDBusError.functions_details" role="details">
+<title role="details.title">Functions</title>
+<refsect2 id="g-dbus-error-is-remote-error" role="function" condition="since:2.26">
+<title>g_dbus_error_is_remote_error&#160;()</title>
+<indexterm zone="g-dbus-error-is-remote-error" role="2.26"><primary sortas="dbus_error_is_remote_error">g_dbus_error_is_remote_error</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_dbus_error_is_remote_error (<parameter>const <link linkend="GError"><type>GError</type></link> *error</parameter>);</programlisting>
+<para>Checks if <parameter>error</parameter>
+ represents an error received via D-Bus from a remote peer. If so,
+use <link linkend="g-dbus-error-get-remote-error"><function>g_dbus_error_get_remote_error()</function></link> to get the name of the error.</para>
+<refsect3 id="g-dbus-error-is-remote-error.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para>A <link linkend="GError"><type>GError</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-dbus-error-is-remote-error.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if <parameter>error</parameter>
+represents an error from a remote peer,
+<link linkend="FALSE:CAPS"><literal>FALSE</literal></link> otherwise.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.26">2.26</link></para></refsect2>
+<refsect2 id="g-dbus-error-get-remote-error" role="function" condition="since:2.26">
+<title>g_dbus_error_get_remote_error&#160;()</title>
+<indexterm zone="g-dbus-error-get-remote-error" role="2.26"><primary sortas="dbus_error_get_remote_error">g_dbus_error_get_remote_error</primary></indexterm>
+<programlisting language="C"><link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+g_dbus_error_get_remote_error (<parameter>const <link linkend="GError"><type>GError</type></link> *error</parameter>);</programlisting>
+<para>Gets the D-Bus error name used for <parameter>error</parameter>
+, if any.</para>
+<para>This function is guaranteed to return a D-Bus error name for all
+<link linkend="GErrors"><type>GErrors</type></link> returned from functions handling remote method calls
+(e.g. <link linkend="g-dbus-connection-call-finish"><function>g_dbus_connection_call_finish()</function></link>) unless
+<link linkend="g-dbus-error-strip-remote-error"><function>g_dbus_error_strip_remote_error()</function></link> has been used on <parameter>error</parameter>
+.</para>
+<refsect3 id="g-dbus-error-get-remote-error.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GError"><type>GError</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-dbus-error-get-remote-error.returns" role="returns">
+<title>Returns</title>
+<para> an allocated string or <link linkend="NULL:CAPS"><literal>NULL</literal></link> if the D-Bus error name
+could not be found. Free with <link linkend="g-free"><function>g_free()</function></link>.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.26">2.26</link></para></refsect2>
+<refsect2 id="g-dbus-error-strip-remote-error" role="function" condition="since:2.26">
+<title>g_dbus_error_strip_remote_error&#160;()</title>
+<indexterm zone="g-dbus-error-strip-remote-error" role="2.26"><primary sortas="dbus_error_strip_remote_error">g_dbus_error_strip_remote_error</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_dbus_error_strip_remote_error (<parameter><link linkend="GError"><type>GError</type></link> *error</parameter>);</programlisting>
+<para>Looks for extra information in the error message used to recover
+the D-Bus error name and strips it if found. If stripped, the
+message field in <parameter>error</parameter>
+ will correspond exactly to what was
+received on the wire.</para>
+<para>This is typically used when presenting errors to the end user.</para>
+<refsect3 id="g-dbus-error-strip-remote-error.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para>A <link linkend="GError"><type>GError</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-dbus-error-strip-remote-error.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if information was stripped, <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> otherwise.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.26">2.26</link></para></refsect2>
+<refsect2 id="g-dbus-error-register-error-domain" role="function" condition="since:2.26">
+<title>g_dbus_error_register_error_domain&#160;()</title>
+<indexterm zone="g-dbus-error-register-error-domain" role="2.26"><primary sortas="dbus_error_register_error_domain">g_dbus_error_register_error_domain</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_dbus_error_register_error_domain (<parameter>const <link linkend="gchar"><type>gchar</type></link> *error_domain_quark_name</parameter>,
+                                    <parameter>volatile <link linkend="gsize"><type>gsize</type></link> *quark_volatile</parameter>,
+                                    <parameter>const <link linkend="GDBusErrorEntry"><type>GDBusErrorEntry</type></link> *entries</parameter>,
+                                    <parameter><link linkend="guint"><type>guint</type></link> num_entries</parameter>);</programlisting>
+<para>Helper function for associating a <link linkend="GError"><type>GError</type></link> error domain with D-Bus error names.</para>
+<refsect3 id="g-dbus-error-register-error-domain.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>error_domain_quark_name</para></entry>
+<entry role="parameter_description"><para>The error domain name.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>quark_volatile</para></entry>
+<entry role="parameter_description"><para>A pointer where to store the <link linkend="GQuark"><type>GQuark</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>entries</para></entry>
+<entry role="parameter_description"><para>A pointer to <parameter>num_entries</parameter>
+<link linkend="GDBusErrorEntry"><type>GDBusErrorEntry</type></link> struct items. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>array</acronym> length=num_entries]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>num_entries</para></entry>
+<entry role="parameter_description"><para>Number of items to register.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.26">2.26</link></para></refsect2>
+<refsect2 id="g-dbus-error-register-error" role="function" condition="since:2.26">
+<title>g_dbus_error_register_error&#160;()</title>
+<indexterm zone="g-dbus-error-register-error" role="2.26"><primary sortas="dbus_error_register_error">g_dbus_error_register_error</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_dbus_error_register_error (<parameter><link linkend="GQuark"><type>GQuark</type></link> error_domain</parameter>,
+                             <parameter><link linkend="gint"><type>gint</type></link> error_code</parameter>,
+                             <parameter>const <link linkend="gchar"><type>gchar</type></link> *dbus_error_name</parameter>);</programlisting>
+<para>Creates an association to map between <parameter>dbus_error_name</parameter>
+ and
+<link linkend="GErrors"><type>GErrors</type></link> specified by <parameter>error_domain</parameter>
+ and <parameter>error_code</parameter>
+.</para>
+<para>This is typically done in the routine that returns the <link linkend="GQuark"><type>GQuark</type></link> for
+an error domain.</para>
+<refsect3 id="g-dbus-error-register-error.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>error_domain</para></entry>
+<entry role="parameter_description"><para>A <link linkend="GQuark"><type>GQuark</type></link> for a error domain.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>error_code</para></entry>
+<entry role="parameter_description"><para>An error code.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>dbus_error_name</para></entry>
+<entry role="parameter_description"><para>A D-Bus error name.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-dbus-error-register-error.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if the association was created, <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> if it already
+exists.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.26">2.26</link></para></refsect2>
+<refsect2 id="g-dbus-error-unregister-error" role="function" condition="since:2.26">
+<title>g_dbus_error_unregister_error&#160;()</title>
+<indexterm zone="g-dbus-error-unregister-error" role="2.26"><primary sortas="dbus_error_unregister_error">g_dbus_error_unregister_error</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_dbus_error_unregister_error (<parameter><link linkend="GQuark"><type>GQuark</type></link> error_domain</parameter>,
+                               <parameter><link linkend="gint"><type>gint</type></link> error_code</parameter>,
+                               <parameter>const <link linkend="gchar"><type>gchar</type></link> *dbus_error_name</parameter>);</programlisting>
+<para>Destroys an association previously set up with <link linkend="g-dbus-error-register-error"><function>g_dbus_error_register_error()</function></link>.</para>
+<refsect3 id="g-dbus-error-unregister-error.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>error_domain</para></entry>
+<entry role="parameter_description"><para>A <link linkend="GQuark"><type>GQuark</type></link> for a error domain.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>error_code</para></entry>
+<entry role="parameter_description"><para>An error code.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>dbus_error_name</para></entry>
+<entry role="parameter_description"><para>A D-Bus error name.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-dbus-error-unregister-error.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if the association was destroyed, <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> if it wasn't found.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.26">2.26</link></para></refsect2>
+<refsect2 id="g-dbus-error-new-for-dbus-error" role="function" condition="since:2.26">
+<title>g_dbus_error_new_for_dbus_error&#160;()</title>
+<indexterm zone="g-dbus-error-new-for-dbus-error" role="2.26"><primary sortas="dbus_error_new_for_dbus_error">g_dbus_error_new_for_dbus_error</primary></indexterm>
+<programlisting language="C"><link linkend="GError"><returnvalue>GError</returnvalue></link>&#160;*
+g_dbus_error_new_for_dbus_error (<parameter>const <link linkend="gchar"><type>gchar</type></link> *dbus_error_name</parameter>,
+                                 <parameter>const <link linkend="gchar"><type>gchar</type></link> *dbus_error_message</parameter>);</programlisting>
+<para>Creates a <link linkend="GError"><type>GError</type></link> based on the contents of <parameter>dbus_error_name</parameter>
+ and
+<parameter>dbus_error_message</parameter>
+.</para>
+<para>Errors registered with <link linkend="g-dbus-error-register-error"><function>g_dbus_error_register_error()</function></link> will be looked
+up using <parameter>dbus_error_name</parameter>
+ and if a match is found, the error domain
+and code is used. Applications can use <link linkend="g-dbus-error-get-remote-error"><function>g_dbus_error_get_remote_error()</function></link>
+to recover <parameter>dbus_error_name</parameter>
+.</para>
+<para>If a match against a registered error is not found and the D-Bus
+error name is in a form as returned by <link linkend="g-dbus-error-encode-gerror"><function>g_dbus_error_encode_gerror()</function></link>
+the error domain and code encoded in the name is used to
+create the <link linkend="GError"><type>GError</type></link>. Also, <parameter>dbus_error_name</parameter>
+ is added to the error message
+such that it can be recovered with <link linkend="g-dbus-error-get-remote-error"><function>g_dbus_error_get_remote_error()</function></link>.</para>
+<para>Otherwise, a <link linkend="GError"><type>GError</type></link> with the error code <link linkend="G-IO-ERROR-DBUS-ERROR:CAPS"><literal>G_IO_ERROR_DBUS_ERROR</literal></link>
+in the <link linkend="G-IO-ERROR:CAPS"><type>G_IO_ERROR</type></link> error domain is returned. Also, <parameter>dbus_error_name</parameter>
+ is
+added to the error message such that it can be recovered with
+<link linkend="g-dbus-error-get-remote-error"><function>g_dbus_error_get_remote_error()</function></link>.</para>
+<para>In all three cases, <parameter>dbus_error_name</parameter>
+ can always be recovered from the
+returned <link linkend="GError"><type>GError</type></link> using the <link linkend="g-dbus-error-get-remote-error"><function>g_dbus_error_get_remote_error()</function></link> function
+(unless <link linkend="g-dbus-error-strip-remote-error"><function>g_dbus_error_strip_remote_error()</function></link> hasn't been used on the returned error).</para>
+<para>This function is typically only used in object mappings to prepare
+<link linkend="GError"><type>GError</type></link> instances for applications. Regular applications should not use
+it.</para>
+<refsect3 id="g-dbus-error-new-for-dbus-error.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>dbus_error_name</para></entry>
+<entry role="parameter_description"><para>D-Bus error name.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>dbus_error_message</para></entry>
+<entry role="parameter_description"><para>D-Bus error message.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-dbus-error-new-for-dbus-error.returns" role="returns">
+<title>Returns</title>
+<para> An allocated <link linkend="GError"><type>GError</type></link>. Free with <link linkend="g-error-free"><function>g_error_free()</function></link>.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.26">2.26</link></para></refsect2>
+<refsect2 id="g-dbus-error-set-dbus-error" role="function" condition="since:2.26">
+<title>g_dbus_error_set_dbus_error&#160;()</title>
+<indexterm zone="g-dbus-error-set-dbus-error" role="2.26"><primary sortas="dbus_error_set_dbus_error">g_dbus_error_set_dbus_error</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_dbus_error_set_dbus_error (<parameter><link linkend="GError"><type>GError</type></link> **error</parameter>,
+                             <parameter>const <link linkend="gchar"><type>gchar</type></link> *dbus_error_name</parameter>,
+                             <parameter>const <link linkend="gchar"><type>gchar</type></link> *dbus_error_message</parameter>,
+                             <parameter>const <link linkend="gchar"><type>gchar</type></link> *format</parameter>,
+                             <parameter>...</parameter>);</programlisting>
+<para>Does nothing if <parameter>error</parameter>
+ is <link linkend="NULL:CAPS"><literal>NULL</literal></link>. Otherwise sets *<parameter>error</parameter>
+ to
+a new <link linkend="GError"><type>GError</type></link> created with <link linkend="g-dbus-error-new-for-dbus-error"><function>g_dbus_error_new_for_dbus_error()</function></link>
+with <parameter>dbus_error_message</parameter>
+ prepend with <parameter>format</parameter>
+ (unless <link linkend="NULL:CAPS"><literal>NULL</literal></link>).</para>
+<refsect3 id="g-dbus-error-set-dbus-error.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para>A pointer to a <link linkend="GError"><type>GError</type></link> or <link linkend="NULL:CAPS"><literal>NULL</literal></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>dbus_error_name</para></entry>
+<entry role="parameter_description"><para>D-Bus error name.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>dbus_error_message</para></entry>
+<entry role="parameter_description"><para>D-Bus error message.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>format</para></entry>
+<entry role="parameter_description"><para>printf()-style format to prepend to <parameter>dbus_error_message</parameter>
+or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>...</para></entry>
+<entry role="parameter_description"><para>Arguments for <parameter>format</parameter>
+.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.26">2.26</link></para></refsect2>
+<refsect2 id="g-dbus-error-set-dbus-error-valist" role="function" condition="since:2.26">
+<title>g_dbus_error_set_dbus_error_valist&#160;()</title>
+<indexterm zone="g-dbus-error-set-dbus-error-valist" role="2.26"><primary sortas="dbus_error_set_dbus_error_valist">g_dbus_error_set_dbus_error_valist</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_dbus_error_set_dbus_error_valist (<parameter><link linkend="GError"><type>GError</type></link> **error</parameter>,
+                                    <parameter>const <link linkend="gchar"><type>gchar</type></link> *dbus_error_name</parameter>,
+                                    <parameter>const <link linkend="gchar"><type>gchar</type></link> *dbus_error_message</parameter>,
+                                    <parameter>const <link linkend="gchar"><type>gchar</type></link> *format</parameter>,
+                                    <parameter><link linkend="va-list"><type>va_list</type></link> var_args</parameter>);</programlisting>
+<para>Like <link linkend="g-dbus-error-set-dbus-error"><function>g_dbus_error_set_dbus_error()</function></link> but intended for language bindings.</para>
+<refsect3 id="g-dbus-error-set-dbus-error-valist.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para>A pointer to a <link linkend="GError"><type>GError</type></link> or <link linkend="NULL:CAPS"><literal>NULL</literal></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>dbus_error_name</para></entry>
+<entry role="parameter_description"><para>D-Bus error name.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>dbus_error_message</para></entry>
+<entry role="parameter_description"><para>D-Bus error message.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>format</para></entry>
+<entry role="parameter_description"><para>printf()-style format to prepend to <parameter>dbus_error_message</parameter>
+or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>var_args</para></entry>
+<entry role="parameter_description"><para>Arguments for <parameter>format</parameter>
+.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.26">2.26</link></para></refsect2>
+<refsect2 id="g-dbus-error-encode-gerror" role="function" condition="since:2.26">
+<title>g_dbus_error_encode_gerror&#160;()</title>
+<indexterm zone="g-dbus-error-encode-gerror" role="2.26"><primary sortas="dbus_error_encode_gerror">g_dbus_error_encode_gerror</primary></indexterm>
+<programlisting language="C"><link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+g_dbus_error_encode_gerror (<parameter>const <link linkend="GError"><type>GError</type></link> *error</parameter>);</programlisting>
+<para>Creates a D-Bus error name to use for <parameter>error</parameter>
+. If <parameter>error</parameter>
+ matches
+a registered error (cf. <link linkend="g-dbus-error-register-error"><function>g_dbus_error_register_error()</function></link>), the corresponding
+D-Bus error name will be returned.</para>
+<para>Otherwise the a name of the form
+<literal>org.gtk.GDBus.UnmappedGError.Quark._ESCAPED_QUARK_NAME.Code_ERROR_CODE</literal>
+will be used. This allows other GDBus applications to map the error
+on the wire back to a <link linkend="GError"><type>GError</type></link> using <link linkend="g-dbus-error-new-for-dbus-error"><function>g_dbus_error_new_for_dbus_error()</function></link>.</para>
+<para>This function is typically only used in object mappings to put a
+<link linkend="GError"><type>GError</type></link> on the wire. Regular applications should not use it.</para>
+<refsect3 id="g-dbus-error-encode-gerror.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para>A <link linkend="GError"><type>GError</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-dbus-error-encode-gerror.returns" role="returns">
+<title>Returns</title>
+<para> A D-Bus error name (never <link linkend="NULL:CAPS"><literal>NULL</literal></link>). Free with <link linkend="g-free"><function>g_free()</function></link>.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.26">2.26</link></para></refsect2>
+
+</refsect1>
+<refsect1 id="gio-GDBusError.other_details" role="details">
+<title role="details.title">Types and Values</title>
+<refsect2 id="GDBusError" role="enum" condition="since:2.26">
+<title>enum GDBusError</title>
+<indexterm zone="GDBusError" role="2.26"><primary sortas="DBusError">GDBusError</primary></indexterm>
+<para>Error codes for the <link linkend="G-DBUS-ERROR:CAPS"><literal>G_DBUS_ERROR</literal></link> error domain.</para>
+<refsect3 id="GDBusError.members" role="enum_members">
+<title>Members</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="enum_members_name" colwidth="300px"/>
+<colspec colname="enum_members_description"/>
+<colspec colname="enum_members_annotations" colwidth="200px"/>
+<tbody>
+<row role="constant"><entry role="enum_member_name"><para id="G-DBUS-ERROR-FAILED:CAPS">G_DBUS_ERROR_FAILED</para></entry>
+<entry role="enum_member_description"><para>A generic error; "something went wrong" - see the error message for
+more.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-DBUS-ERROR-NO-MEMORY:CAPS">G_DBUS_ERROR_NO_MEMORY</para></entry>
+<entry role="enum_member_description"><para>There was not enough memory to complete an operation.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-DBUS-ERROR-SERVICE-UNKNOWN:CAPS">G_DBUS_ERROR_SERVICE_UNKNOWN</para></entry>
+<entry role="enum_member_description"><para>The bus doesn't know how to launch a service to supply the bus name
+you wanted.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-DBUS-ERROR-NAME-HAS-NO-OWNER:CAPS">G_DBUS_ERROR_NAME_HAS_NO_OWNER</para></entry>
+<entry role="enum_member_description"><para>The bus name you referenced doesn't exist (i.e. no application owns
+it).</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-DBUS-ERROR-NO-REPLY:CAPS">G_DBUS_ERROR_NO_REPLY</para></entry>
+<entry role="enum_member_description"><para>No reply to a message expecting one, usually means a timeout occurred.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-DBUS-ERROR-IO-ERROR:CAPS">G_DBUS_ERROR_IO_ERROR</para></entry>
+<entry role="enum_member_description"><para>Something went wrong reading or writing to a socket, for example.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-DBUS-ERROR-BAD-ADDRESS:CAPS">G_DBUS_ERROR_BAD_ADDRESS</para></entry>
+<entry role="enum_member_description"><para>A D-Bus bus address was malformed.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-DBUS-ERROR-NOT-SUPPORTED:CAPS">G_DBUS_ERROR_NOT_SUPPORTED</para></entry>
+<entry role="enum_member_description"><para>Requested operation isn't supported (like ENOSYS on UNIX).</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-DBUS-ERROR-LIMITS-EXCEEDED:CAPS">G_DBUS_ERROR_LIMITS_EXCEEDED</para></entry>
+<entry role="enum_member_description"><para>Some limited resource is exhausted.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-DBUS-ERROR-ACCESS-DENIED:CAPS">G_DBUS_ERROR_ACCESS_DENIED</para></entry>
+<entry role="enum_member_description"><para>Security restrictions don't allow doing what you're trying to do.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-DBUS-ERROR-AUTH-FAILED:CAPS">G_DBUS_ERROR_AUTH_FAILED</para></entry>
+<entry role="enum_member_description"><para>Authentication didn't work.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-DBUS-ERROR-NO-SERVER:CAPS">G_DBUS_ERROR_NO_SERVER</para></entry>
+<entry role="enum_member_description"><para>Unable to connect to server (probably caused by ECONNREFUSED on a
+socket).</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-DBUS-ERROR-TIMEOUT:CAPS">G_DBUS_ERROR_TIMEOUT</para></entry>
+<entry role="enum_member_description"><para>Certain timeout errors, possibly ETIMEDOUT on a socket.  Note that
+<link linkend="G-DBUS-ERROR-NO-REPLY:CAPS"><literal>G_DBUS_ERROR_NO_REPLY</literal></link> is used for message reply timeouts. Warning:
+this is confusingly-named given that <link linkend="G-DBUS-ERROR-TIMED-OUT:CAPS"><literal>G_DBUS_ERROR_TIMED_OUT</literal></link> also
+exists. We can't fix it for compatibility reasons so just be
+careful.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-DBUS-ERROR-NO-NETWORK:CAPS">G_DBUS_ERROR_NO_NETWORK</para></entry>
+<entry role="enum_member_description"><para>No network access (probably ENETUNREACH on a socket).</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-DBUS-ERROR-ADDRESS-IN-USE:CAPS">G_DBUS_ERROR_ADDRESS_IN_USE</para></entry>
+<entry role="enum_member_description"><para>Can't bind a socket since its address is in use (i.e. EADDRINUSE).</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-DBUS-ERROR-DISCONNECTED:CAPS">G_DBUS_ERROR_DISCONNECTED</para></entry>
+<entry role="enum_member_description"><para>The connection is disconnected and you're trying to use it.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-DBUS-ERROR-INVALID-ARGS:CAPS">G_DBUS_ERROR_INVALID_ARGS</para></entry>
+<entry role="enum_member_description"><para>Invalid arguments passed to a method call.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-DBUS-ERROR-FILE-NOT-FOUND:CAPS">G_DBUS_ERROR_FILE_NOT_FOUND</para></entry>
+<entry role="enum_member_description"><para>Missing file.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-DBUS-ERROR-FILE-EXISTS:CAPS">G_DBUS_ERROR_FILE_EXISTS</para></entry>
+<entry role="enum_member_description"><para>Existing file and the operation you're using does not silently overwrite.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-DBUS-ERROR-UNKNOWN-METHOD:CAPS">G_DBUS_ERROR_UNKNOWN_METHOD</para></entry>
+<entry role="enum_member_description"><para>Method name you invoked isn't known by the object you invoked it on.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-DBUS-ERROR-TIMED-OUT:CAPS">G_DBUS_ERROR_TIMED_OUT</para></entry>
+<entry role="enum_member_description"><para>Certain timeout errors, e.g. while starting a service. Warning: this is
+confusingly-named given that <link linkend="G-DBUS-ERROR-TIMEOUT:CAPS"><literal>G_DBUS_ERROR_TIMEOUT</literal></link> also exists. We
+can't fix it for compatibility reasons so just be careful.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-DBUS-ERROR-MATCH-RULE-NOT-FOUND:CAPS">G_DBUS_ERROR_MATCH_RULE_NOT_FOUND</para></entry>
+<entry role="enum_member_description"><para>Tried to remove or modify a match rule that didn't exist.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-DBUS-ERROR-MATCH-RULE-INVALID:CAPS">G_DBUS_ERROR_MATCH_RULE_INVALID</para></entry>
+<entry role="enum_member_description"><para>The match rule isn't syntactically valid.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-DBUS-ERROR-SPAWN-EXEC-FAILED:CAPS">G_DBUS_ERROR_SPAWN_EXEC_FAILED</para></entry>
+<entry role="enum_member_description"><para>While starting a new process, the <link linkend="exec"><function>exec()</function></link> call failed.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-DBUS-ERROR-SPAWN-FORK-FAILED:CAPS">G_DBUS_ERROR_SPAWN_FORK_FAILED</para></entry>
+<entry role="enum_member_description"><para>While starting a new process, the <link linkend="fork"><function>fork()</function></link> call failed.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-DBUS-ERROR-SPAWN-CHILD-EXITED:CAPS">G_DBUS_ERROR_SPAWN_CHILD_EXITED</para></entry>
+<entry role="enum_member_description"><para>While starting a new process, the child exited with a status code.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-DBUS-ERROR-SPAWN-CHILD-SIGNALED:CAPS">G_DBUS_ERROR_SPAWN_CHILD_SIGNALED</para></entry>
+<entry role="enum_member_description"><para>While starting a new process, the child exited on a signal.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-DBUS-ERROR-SPAWN-FAILED:CAPS">G_DBUS_ERROR_SPAWN_FAILED</para></entry>
+<entry role="enum_member_description"><para>While starting a new process, something went wrong.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-DBUS-ERROR-SPAWN-SETUP-FAILED:CAPS">G_DBUS_ERROR_SPAWN_SETUP_FAILED</para></entry>
+<entry role="enum_member_description"><para>We failed to setup the environment correctly.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-DBUS-ERROR-SPAWN-CONFIG-INVALID:CAPS">G_DBUS_ERROR_SPAWN_CONFIG_INVALID</para></entry>
+<entry role="enum_member_description"><para>We failed to setup the config parser correctly.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-DBUS-ERROR-SPAWN-SERVICE-INVALID:CAPS">G_DBUS_ERROR_SPAWN_SERVICE_INVALID</para></entry>
+<entry role="enum_member_description"><para>Bus name was not valid.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-DBUS-ERROR-SPAWN-SERVICE-NOT-FOUND:CAPS">G_DBUS_ERROR_SPAWN_SERVICE_NOT_FOUND</para></entry>
+<entry role="enum_member_description"><para>Service file not found in system-services directory.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-DBUS-ERROR-SPAWN-PERMISSIONS-INVALID:CAPS">G_DBUS_ERROR_SPAWN_PERMISSIONS_INVALID</para></entry>
+<entry role="enum_member_description"><para>Permissions are incorrect on the setuid helper.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-DBUS-ERROR-SPAWN-FILE-INVALID:CAPS">G_DBUS_ERROR_SPAWN_FILE_INVALID</para></entry>
+<entry role="enum_member_description"><para>Service file invalid (Name, User or Exec missing).</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-DBUS-ERROR-SPAWN-NO-MEMORY:CAPS">G_DBUS_ERROR_SPAWN_NO_MEMORY</para></entry>
+<entry role="enum_member_description"><para>Tried to get a UNIX process ID and it wasn't available.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-DBUS-ERROR-UNIX-PROCESS-ID-UNKNOWN:CAPS">G_DBUS_ERROR_UNIX_PROCESS_ID_UNKNOWN</para></entry>
+<entry role="enum_member_description"><para>Tried to get a UNIX process ID and it wasn't available.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-DBUS-ERROR-INVALID-SIGNATURE:CAPS">G_DBUS_ERROR_INVALID_SIGNATURE</para></entry>
+<entry role="enum_member_description"><para>A type signature is not valid.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-DBUS-ERROR-INVALID-FILE-CONTENT:CAPS">G_DBUS_ERROR_INVALID_FILE_CONTENT</para></entry>
+<entry role="enum_member_description"><para>A file contains invalid syntax or is otherwise broken.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-DBUS-ERROR-SELINUX-SECURITY-CONTEXT-UNKNOWN:CAPS">G_DBUS_ERROR_SELINUX_SECURITY_CONTEXT_UNKNOWN</para></entry>
+<entry role="enum_member_description"><para>Asked for SELinux security context and it wasn't available.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-DBUS-ERROR-ADT-AUDIT-DATA-UNKNOWN:CAPS">G_DBUS_ERROR_ADT_AUDIT_DATA_UNKNOWN</para></entry>
+<entry role="enum_member_description"><para>Asked for ADT audit data and it wasn't available.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-DBUS-ERROR-OBJECT-PATH-IN-USE:CAPS">G_DBUS_ERROR_OBJECT_PATH_IN_USE</para></entry>
+<entry role="enum_member_description"><para>There's already an object with the requested object path.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-DBUS-ERROR-UNKNOWN-OBJECT:CAPS">G_DBUS_ERROR_UNKNOWN_OBJECT</para></entry>
+<entry role="enum_member_description"><para>Object you invoked a method on isn't known. Since 2.42</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-DBUS-ERROR-UNKNOWN-INTERFACE:CAPS">G_DBUS_ERROR_UNKNOWN_INTERFACE</para></entry>
+<entry role="enum_member_description"><para>Interface you invoked a method on isn't known by the object. Since 2.42</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-DBUS-ERROR-UNKNOWN-PROPERTY:CAPS">G_DBUS_ERROR_UNKNOWN_PROPERTY</para></entry>
+<entry role="enum_member_description"><para>Property you tried to access isn't known by the object. Since 2.42</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-DBUS-ERROR-PROPERTY-READ-ONLY:CAPS">G_DBUS_ERROR_PROPERTY_READ_ONLY</para></entry>
+<entry role="enum_member_description"><para>Property you tried to set is read-only. Since 2.42</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.26">2.26</link></para></refsect2>
+<refsect2 id="G-DBUS-ERROR:CAPS" role="macro" condition="since:2.26">
+<title>G_DBUS_ERROR</title>
+<indexterm zone="G-DBUS-ERROR:CAPS" role="2.26"><primary sortas="DBUS_ERROR">G_DBUS_ERROR</primary></indexterm>
+<programlisting language="C">#define G_DBUS_ERROR g_dbus_error_quark()
+</programlisting>
+<para>Error domain for errors generated by a remote message bus. Errors
+in this domain will be from the <link linkend="GDBusError"><type>GDBusError</type></link> enumeration.  See
+<link linkend="GError"><type>GError</type></link> for more information on error domains.</para>
+<para>Note that this error domain is intended only for
+returning errors from a remote message bus process. Errors
+generated locally in-process by e.g. <link linkend="GDBusConnection"><type>GDBusConnection</type></link> should use the
+<link linkend="G-IO-ERROR:CAPS"><literal>G_IO_ERROR</literal></link> domain.</para>
+<para role="since">Since: <link linkend="api-index-2.26">2.26</link></para></refsect2>
+<refsect2 id="GDBusErrorEntry" role="struct" condition="since:2.26">
+<title>GDBusErrorEntry</title>
+<indexterm zone="GDBusErrorEntry" role="2.26"><primary sortas="DBusErrorEntry">GDBusErrorEntry</primary></indexterm>
+<programlisting language="C">typedef struct {
+  gint         error_code;
+  const gchar *dbus_error_name;
+} GDBusErrorEntry;
+</programlisting>
+<para>Struct used in <link linkend="g-dbus-error-register-error-domain"><function>g_dbus_error_register_error_domain()</function></link>.</para>
+<refsect3 id="GDBusErrorEntry.members" role="struct_members">
+<title>Members</title>
+<informaltable role="struct_members_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="struct_members_name" colwidth="300px"/>
+<colspec colname="struct_members_description"/>
+<colspec colname="struct_members_annotations" colwidth="200px"/>
+<tbody>
+<row role="member"><entry role="struct_member_name"><para><link linkend="gint"><type>gint</type></link>&#160;<structfield id="GDBusErrorEntry.error-code">error_code</structfield>;</para></entry>
+<entry role="struct_member_description"><para>An error code.</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para>const&#160;<link linkend="gchar"><type>gchar</type></link>&#160;*<structfield id="GDBusErrorEntry.dbus-error-name">dbus_error_name</structfield>;</para></entry>
+<entry role="struct_member_description"><para>The D-Bus error name to associate with <parameter>error_code</parameter>
+.</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+</tbody></tgroup></informaltable>
+</refsect3>
+<para role="since">Since: <link linkend="api-index-2.26">2.26</link></para></refsect2>
+
+</refsect1>
+
+</refentry>

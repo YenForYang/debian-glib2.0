@@ -1,0 +1,225 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC '-//OASIS//DTD DocBook XML V4.5//EN'
+                      'http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd' [
+<!ENTITY % local.common.attrib "xmlns:xi  CDATA  #FIXED 'http://www.w3.org/2003/XInclude'">
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="GSocketAddressEnumerator">
+<refmeta>
+<refentrytitle role="top_of_page" id="GSocketAddressEnumerator.top_of_page">GSocketAddressEnumerator</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>GIO Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>GSocketAddressEnumerator</refname>
+<refpurpose></refpurpose>
+</refnamediv>
+
+<refsect1 id="GSocketAddressEnumerator.functions" role="functions_proto">
+<title role="functions_proto.title">Functions</title>
+<informaltable pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="functions_return" colwidth="150px"/>
+<colspec colname="functions_name"/>
+<tbody>
+<row><entry role="function_type"><link linkend="GSocketAddress"><returnvalue>GSocketAddress</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-socket-address-enumerator-next">g_socket_address_enumerator_next</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-socket-address-enumerator-next-async">g_socket_address_enumerator_next_async</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GSocketAddress"><returnvalue>GSocketAddress</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-socket-address-enumerator-next-finish">g_socket_address_enumerator_next_finish</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GSocketAddressEnumerator.other" role="other_proto">
+<title role="other_proto.title">Types and Values</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="name" colwidth="150px"/>
+<colspec colname="description"/>
+<tbody>
+<row><entry role="datatype_keyword"></entry><entry role="function_name"><link linkend="GSocketAddressEnumerator-struct">GSocketAddressEnumerator</link></entry></row>
+<row><entry role="datatype_keyword">struct</entry><entry role="function_name"><link linkend="GSocketAddressEnumeratorClass">GSocketAddressEnumeratorClass</link></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GSocketAddressEnumerator.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<screen>    <link linkend="GObject">GObject</link>
+    <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> GSocketAddressEnumerator
+        <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> <link linkend="GProxyAddressEnumerator">GProxyAddressEnumerator</link>
+</screen>
+</refsect1>
+
+
+<refsect1 id="GSocketAddressEnumerator.description" role="desc">
+<title role="desc.title">Description</title>
+
+</refsect1>
+<refsect1 id="GSocketAddressEnumerator.functions_details" role="details">
+<title role="details.title">Functions</title>
+<refsect2 id="g-socket-address-enumerator-next" role="function">
+<title>g_socket_address_enumerator_next&#160;()</title>
+<indexterm zone="g-socket-address-enumerator-next"><primary sortas="socket_address_enumerator_next">g_socket_address_enumerator_next</primary></indexterm>
+<programlisting language="C"><link linkend="GSocketAddress"><returnvalue>GSocketAddress</returnvalue></link>&#160;*
+g_socket_address_enumerator_next (<parameter><link linkend="GSocketAddressEnumerator"><type>GSocketAddressEnumerator</type></link> *enumerator</parameter>,
+                                  <parameter><link linkend="GCancellable"><type>GCancellable</type></link> *cancellable</parameter>,
+                                  <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para>Retrieves the next <link linkend="GSocketAddress"><type>GSocketAddress</type></link> from <parameter>enumerator</parameter>
+. Note that this
+may block for some amount of time. (Eg, a <link linkend="GNetworkAddress"><type>GNetworkAddress</type></link> may need
+to do a DNS lookup before it can return an address.) Use
+<link linkend="g-socket-address-enumerator-next-async"><function>g_socket_address_enumerator_next_async()</function></link> if you need to avoid
+blocking.</para>
+<para>If <parameter>enumerator</parameter>
+ is expected to yield addresses, but for some reason
+is unable to (eg, because of a DNS error), then the first call to
+<link linkend="g-socket-address-enumerator-next"><function>g_socket_address_enumerator_next()</function></link> will return an appropriate error
+in *<parameter>error</parameter>
+. However, if the first call to
+<link linkend="g-socket-address-enumerator-next"><function>g_socket_address_enumerator_next()</function></link> succeeds, then any further
+internal errors (other than <parameter>cancellable</parameter>
+ being triggered) will be
+ignored.</para>
+<refsect3 id="g-socket-address-enumerator-next.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>enumerator</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSocketAddressEnumerator"><type>GSocketAddressEnumerator</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>cancellable</para></entry>
+<entry role="parameter_description"><para>optional <link linkend="GCancellable"><type>GCancellable</type></link> object, <link linkend="NULL:CAPS"><literal>NULL</literal></link> to ignore. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GError"><type>GError</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-socket-address-enumerator-next.returns" role="returns">
+<title>Returns</title>
+<para>a <link linkend="GSocketAddress"><type>GSocketAddress</type></link> (owned by the caller), or <link linkend="NULL:CAPS"><literal>NULL</literal></link> on
+error (in which case *<parameter>error</parameter>
+will be set) or if there are no
+more addresses. </para>
+<para><emphasis role="annotation">[<acronym>transfer full</acronym>]</emphasis></para>
+</refsect3></refsect2>
+<refsect2 id="g-socket-address-enumerator-next-async" role="function">
+<title>g_socket_address_enumerator_next_async&#160;()</title>
+<indexterm zone="g-socket-address-enumerator-next-async"><primary sortas="socket_address_enumerator_next_async">g_socket_address_enumerator_next_async</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_socket_address_enumerator_next_async
+                               (<parameter><link linkend="GSocketAddressEnumerator"><type>GSocketAddressEnumerator</type></link> *enumerator</parameter>,
+                                <parameter><link linkend="GCancellable"><type>GCancellable</type></link> *cancellable</parameter>,
+                                <parameter><link linkend="GAsyncReadyCallback"><type>GAsyncReadyCallback</type></link> callback</parameter>,
+                                <parameter><link linkend="gpointer"><type>gpointer</type></link> user_data</parameter>);</programlisting>
+<para>Asynchronously retrieves the next <link linkend="GSocketAddress"><type>GSocketAddress</type></link> from <parameter>enumerator</parameter>
+
+and then calls <parameter>callback</parameter>
+, which must call
+<link linkend="g-socket-address-enumerator-next-finish"><function>g_socket_address_enumerator_next_finish()</function></link> to get the result.</para>
+<refsect3 id="g-socket-address-enumerator-next-async.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>enumerator</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSocketAddressEnumerator"><type>GSocketAddressEnumerator</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>cancellable</para></entry>
+<entry role="parameter_description"><para>optional <link linkend="GCancellable"><type>GCancellable</type></link> object, <link linkend="NULL:CAPS"><literal>NULL</literal></link> to ignore. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>callback</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GAsyncReadyCallback"><type>GAsyncReadyCallback</type></link> to call when the request
+is satisfied. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>scope async</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>user_data</para></entry>
+<entry role="parameter_description"><para>the data to pass to callback function. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>closure</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-socket-address-enumerator-next-finish" role="function">
+<title>g_socket_address_enumerator_next_finish&#160;()</title>
+<indexterm zone="g-socket-address-enumerator-next-finish"><primary sortas="socket_address_enumerator_next_finish">g_socket_address_enumerator_next_finish</primary></indexterm>
+<programlisting language="C"><link linkend="GSocketAddress"><returnvalue>GSocketAddress</returnvalue></link>&#160;*
+g_socket_address_enumerator_next_finish
+                               (<parameter><link linkend="GSocketAddressEnumerator"><type>GSocketAddressEnumerator</type></link> *enumerator</parameter>,
+                                <parameter><link linkend="GAsyncResult"><type>GAsyncResult</type></link> *result</parameter>,
+                                <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para>Retrieves the result of a completed call to
+<link linkend="g-socket-address-enumerator-next-async"><function>g_socket_address_enumerator_next_async()</function></link>. See
+<link linkend="g-socket-address-enumerator-next"><function>g_socket_address_enumerator_next()</function></link> for more information about
+error handling.</para>
+<refsect3 id="g-socket-address-enumerator-next-finish.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>enumerator</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSocketAddressEnumerator"><type>GSocketAddressEnumerator</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>result</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GAsyncResult"><type>GAsyncResult</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GError"><type>GError</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-socket-address-enumerator-next-finish.returns" role="returns">
+<title>Returns</title>
+<para>a <link linkend="GSocketAddress"><type>GSocketAddress</type></link> (owned by the caller), or <link linkend="NULL:CAPS"><literal>NULL</literal></link> on
+error (in which case *<parameter>error</parameter>
+will be set) or if there are no
+more addresses. </para>
+<para><emphasis role="annotation">[<acronym>transfer full</acronym>]</emphasis></para>
+</refsect3></refsect2>
+
+</refsect1>
+<refsect1 id="GSocketAddressEnumerator.other_details" role="details">
+<title role="details.title">Types and Values</title>
+<refsect2 id="GSocketAddressEnumerator-struct" role="struct">
+<title>GSocketAddressEnumerator</title>
+<indexterm zone="GSocketAddressEnumerator-struct"><primary sortas="SocketAddressEnumerator">GSocketAddressEnumerator</primary></indexterm>
+<programlisting language="C">typedef struct _GSocketAddressEnumerator GSocketAddressEnumerator;</programlisting>
+<para>Enumerator type for objects that contain or generate
+<link linkend="GSocketAddress"><type>GSocketAddress</type></link> instances.</para>
+</refsect2>
+<refsect2 id="GSocketAddressEnumeratorClass" role="struct">
+<title>struct GSocketAddressEnumeratorClass</title>
+<indexterm zone="GSocketAddressEnumeratorClass"><primary sortas="SocketAddressEnumeratorClass">GSocketAddressEnumeratorClass</primary></indexterm>
+<programlisting language="C">struct GSocketAddressEnumeratorClass {
+  GObjectClass parent_class;
+
+  /* Virtual Table */
+
+  GSocketAddress * (* next)        (GSocketAddressEnumerator  *enumerator,
+				    GCancellable              *cancellable,
+				    GError                   **error);
+
+  void             (* next_async)  (GSocketAddressEnumerator  *enumerator,
+				    GCancellable              *cancellable,
+				    GAsyncReadyCallback        callback,
+				    gpointer                   user_data);
+  GSocketAddress * (* next_finish) (GSocketAddressEnumerator  *enumerator,
+				    GAsyncResult              *result,
+				    GError                   **error);
+};
+</programlisting>
+</refsect2>
+
+</refsect1>
+
+</refentry>

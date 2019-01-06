@@ -1,0 +1,470 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC '-//OASIS//DTD DocBook XML V4.5//EN'
+                      'http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd' [
+<!ENTITY % local.common.attrib "xmlns:xi  CDATA  #FIXED 'http://www.w3.org/2003/XInclude'">
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="glib-Relations-and-Tuples">
+<refmeta>
+<refentrytitle role="top_of_page" id="glib-Relations-and-Tuples.top_of_page">Relations and Tuples</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>GLIB Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>Relations and Tuples</refname>
+<refpurpose>tables of data which can be indexed on any
+                    number of fields</refpurpose>
+</refnamediv>
+
+<refsect1 id="glib-Relations-and-Tuples.functions" role="functions_proto">
+<title role="functions_proto.title">Functions</title>
+<informaltable pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="functions_return" colwidth="150px"/>
+<colspec colname="functions_name"/>
+<tbody>
+<row><entry role="function_type"><link linkend="GRelation"><returnvalue>GRelation</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-relation-new">g_relation_new</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-relation-index">g_relation_index</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-relation-insert">g_relation_insert</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-relation-exists">g_relation_exists</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gint"><returnvalue>gint</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-relation-count">g_relation_count</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GTuples"><returnvalue>GTuples</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-relation-select">g_relation_select</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gint"><returnvalue>gint</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-relation-delete">g_relation_delete</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-relation-destroy">g_relation_destroy</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-relation-print">g_relation_print</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-tuples-destroy">g_tuples_destroy</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gpointer"><returnvalue>gpointer</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-tuples-index">g_tuples_index</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="glib-Relations-and-Tuples.other" role="other_proto">
+<title role="other_proto.title">Types and Values</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="name" colwidth="150px"/>
+<colspec colname="description"/>
+<tbody>
+<row><entry role="datatype_keyword"></entry><entry role="function_name"><link linkend="GRelation">GRelation</link></entry></row>
+
+
+<row><entry role="datatype_keyword">struct</entry><entry role="function_name"><link linkend="GTuples">GTuples</link></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+
+<refsect1 id="glib-Relations-and-Tuples.includes"><title>Includes</title><synopsis>#include &lt;gmodule.h&gt;
+</synopsis></refsect1>
+
+<refsect1 id="glib-Relations-and-Tuples.description" role="desc">
+<title role="desc.title">Description</title>
+<para>A <link linkend="GRelation"><type>GRelation</type></link> is a table of data which can be indexed on any number
+of fields, rather like simple database tables. A <link linkend="GRelation"><type>GRelation</type></link> contains
+a number of records, called tuples. Each record contains a number of
+fields. Records are not ordered, so it is not possible to find the
+record at a particular index.</para>
+<para>Note that <link linkend="GRelation"><type>GRelation</type></link> tables are currently limited to 2 fields.</para>
+<para>To create a GRelation, use <link linkend="g-relation-new"><function>g_relation_new()</function></link>.</para>
+<para>To specify which fields should be indexed, use <link linkend="g-relation-index"><function>g_relation_index()</function></link>.
+Note that this must be called before any tuples are added to the
+<link linkend="GRelation"><type>GRelation</type></link>.</para>
+<para>To add records to a <link linkend="GRelation"><type>GRelation</type></link> use <link linkend="g-relation-insert"><function>g_relation_insert()</function></link>.</para>
+<para>To determine if a given record appears in a <link linkend="GRelation"><type>GRelation</type></link>, use
+<link linkend="g-relation-exists"><function>g_relation_exists()</function></link>. Note that fields are compared directly, so
+pointers must point to the exact same position (i.e. different
+copies of the same string will not match.)</para>
+<para>To count the number of records which have a particular value in a
+given field, use <link linkend="g-relation-count"><function>g_relation_count()</function></link>.</para>
+<para>To get all the records which have a particular value in a given
+field, use <link linkend="g-relation-select"><function>g_relation_select()</function></link>. To access fields of the resulting
+records, use <link linkend="g-tuples-index"><function>g_tuples_index()</function></link>. To free the resulting records use
+<link linkend="g-tuples-destroy"><function>g_tuples_destroy()</function></link>.</para>
+<para>To delete all records which have a particular value in a given
+field, use <link linkend="g-relation-delete"><function>g_relation_delete()</function></link>.</para>
+<para>To destroy the <link linkend="GRelation"><type>GRelation</type></link>, use <link linkend="g-relation-destroy"><function>g_relation_destroy()</function></link>.</para>
+<para>To help debug <link linkend="GRelation"><type>GRelation</type></link> objects, use <link linkend="g-relation-print"><function>g_relation_print()</function></link>.</para>
+<para>GRelation has been marked as deprecated, since this API has never
+been fully implemented, is not very actively maintained and rarely
+used.</para>
+
+</refsect1>
+<refsect1 id="glib-Relations-and-Tuples.functions_details" role="details">
+<title role="details.title">Functions</title>
+<refsect2 id="g-relation-new" role="function" condition="deprecated:2.26: Rarely used API">
+<title>g_relation_new&#160;()</title>
+<indexterm zone="g-relation-new" role="deprecated"><primary sortas="relation_new">g_relation_new</primary></indexterm>
+<programlisting language="C"><link linkend="GRelation"><returnvalue>GRelation</returnvalue></link>&#160;*
+g_relation_new (<parameter><link linkend="gint"><type>gint</type></link> fields</parameter>);</programlisting>
+<warning><para><literal>g_relation_new</literal> has been deprecated since version 2.26 and should not be used in newly-written code.</para> <para>Rarely used API</para>
+</warning>
+<para>Creates a new <link linkend="GRelation"><type>GRelation</type></link> with the given number of fields. Note that
+currently the number of fields must be 2.</para>
+<refsect3 id="g-relation-new.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>fields</para></entry>
+<entry role="parameter_description"><para>the number of fields.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-relation-new.returns" role="returns">
+<title>Returns</title>
+<para> a new <link linkend="GRelation"><type>GRelation</type></link>.</para>
+</refsect3></refsect2>
+<refsect2 id="g-relation-index" role="function" condition="deprecated:2.26: Rarely used API">
+<title>g_relation_index&#160;()</title>
+<indexterm zone="g-relation-index" role="deprecated"><primary sortas="relation_index">g_relation_index</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_relation_index (<parameter><link linkend="GRelation"><type>GRelation</type></link> *relation</parameter>,
+                  <parameter><link linkend="gint"><type>gint</type></link> field</parameter>,
+                  <parameter><link linkend="GHashFunc"><type>GHashFunc</type></link> hash_func</parameter>,
+                  <parameter><link linkend="GEqualFunc"><type>GEqualFunc</type></link> key_equal_func</parameter>);</programlisting>
+<warning><para><literal>g_relation_index</literal> has been deprecated since version 2.26 and should not be used in newly-written code.</para> <para>Rarely used API</para>
+</warning>
+<para>Creates an index on the given field. Note that this must be called
+before any records are added to the <link linkend="GRelation"><type>GRelation</type></link>.</para>
+<refsect3 id="g-relation-index.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>relation</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GRelation"><type>GRelation</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>field</para></entry>
+<entry role="parameter_description"><para>the field to index, counting from 0.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>hash_func</para></entry>
+<entry role="parameter_description"><para>a function to produce a hash value from the field data.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>key_equal_func</para></entry>
+<entry role="parameter_description"><para>a function to compare two values of the given field.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-relation-insert" role="function" condition="deprecated:2.26: Rarely used API">
+<title>g_relation_insert&#160;()</title>
+<indexterm zone="g-relation-insert" role="deprecated"><primary sortas="relation_insert">g_relation_insert</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_relation_insert (<parameter><link linkend="GRelation"><type>GRelation</type></link> *relation</parameter>,
+                   <parameter>...</parameter>);</programlisting>
+<warning><para><literal>g_relation_insert</literal> has been deprecated since version 2.26 and should not be used in newly-written code.</para> <para>Rarely used API</para>
+</warning>
+<para>Inserts a record into a <link linkend="GRelation"><type>GRelation</type></link>.</para>
+<refsect3 id="g-relation-insert.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>relation</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GRelation"><type>GRelation</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>...</para></entry>
+<entry role="parameter_description"><para>the fields of the record to add. These must match the
+number of fields in the <link linkend="GRelation"><type>GRelation</type></link>, and of type <link linkend="gpointer"><type>gpointer</type></link>
+or <link linkend="gconstpointer"><type>gconstpointer</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-relation-exists" role="function" condition="deprecated:2.26: Rarely used API">
+<title>g_relation_exists&#160;()</title>
+<indexterm zone="g-relation-exists" role="deprecated"><primary sortas="relation_exists">g_relation_exists</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_relation_exists (<parameter><link linkend="GRelation"><type>GRelation</type></link> *relation</parameter>,
+                   <parameter>...</parameter>);</programlisting>
+<warning><para><literal>g_relation_exists</literal> has been deprecated since version 2.26 and should not be used in newly-written code.</para> <para>Rarely used API</para>
+</warning>
+<para>Returns <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if a record with the given values exists in a
+<link linkend="GRelation"><type>GRelation</type></link>. Note that the values are compared directly, so that, for
+example, two copies of the same string will not match.</para>
+<refsect3 id="g-relation-exists.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>relation</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GRelation"><type>GRelation</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>...</para></entry>
+<entry role="parameter_description"><para>the fields of the record to compare. The number must match
+the number of fields in the <link linkend="GRelation"><type>GRelation</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-relation-exists.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if a record matches.</para>
+</refsect3></refsect2>
+<refsect2 id="g-relation-count" role="function" condition="deprecated:2.26: Rarely used API">
+<title>g_relation_count&#160;()</title>
+<indexterm zone="g-relation-count" role="deprecated"><primary sortas="relation_count">g_relation_count</primary></indexterm>
+<programlisting language="C"><link linkend="gint"><returnvalue>gint</returnvalue></link>
+g_relation_count (<parameter><link linkend="GRelation"><type>GRelation</type></link> *relation</parameter>,
+                  <parameter><link linkend="gconstpointer"><type>gconstpointer</type></link> key</parameter>,
+                  <parameter><link linkend="gint"><type>gint</type></link> field</parameter>);</programlisting>
+<warning><para><literal>g_relation_count</literal> has been deprecated since version 2.26 and should not be used in newly-written code.</para> <para>Rarely used API</para>
+</warning>
+<para>Returns the number of tuples in a <link linkend="GRelation"><type>GRelation</type></link> that have the given
+value in the given field.</para>
+<refsect3 id="g-relation-count.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>relation</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GRelation"><type>GRelation</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>key</para></entry>
+<entry role="parameter_description"><para>the value to compare with.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>field</para></entry>
+<entry role="parameter_description"><para>the field of each record to match.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-relation-count.returns" role="returns">
+<title>Returns</title>
+<para> the number of matches.</para>
+</refsect3></refsect2>
+<refsect2 id="g-relation-select" role="function" condition="deprecated:2.26: Rarely used API">
+<title>g_relation_select&#160;()</title>
+<indexterm zone="g-relation-select" role="deprecated"><primary sortas="relation_select">g_relation_select</primary></indexterm>
+<programlisting language="C"><link linkend="GTuples"><returnvalue>GTuples</returnvalue></link>&#160;*
+g_relation_select (<parameter><link linkend="GRelation"><type>GRelation</type></link> *relation</parameter>,
+                   <parameter><link linkend="gconstpointer"><type>gconstpointer</type></link> key</parameter>,
+                   <parameter><link linkend="gint"><type>gint</type></link> field</parameter>);</programlisting>
+<warning><para><literal>g_relation_select</literal> has been deprecated since version 2.26 and should not be used in newly-written code.</para> <para>Rarely used API</para>
+</warning>
+<para>Returns all of the tuples which have the given key in the given
+field. Use <link linkend="g-tuples-index"><function>g_tuples_index()</function></link> to access the returned records. The
+returned records should be freed with <link linkend="g-tuples-destroy"><function>g_tuples_destroy()</function></link>.</para>
+<refsect3 id="g-relation-select.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>relation</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GRelation"><type>GRelation</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>key</para></entry>
+<entry role="parameter_description"><para>the value to compare with.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>field</para></entry>
+<entry role="parameter_description"><para>the field of each record to match.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-relation-select.returns" role="returns">
+<title>Returns</title>
+<para> the records (tuples) that matched.</para>
+</refsect3></refsect2>
+<refsect2 id="g-relation-delete" role="function" condition="deprecated:2.26: Rarely used API">
+<title>g_relation_delete&#160;()</title>
+<indexterm zone="g-relation-delete" role="deprecated"><primary sortas="relation_delete">g_relation_delete</primary></indexterm>
+<programlisting language="C"><link linkend="gint"><returnvalue>gint</returnvalue></link>
+g_relation_delete (<parameter><link linkend="GRelation"><type>GRelation</type></link> *relation</parameter>,
+                   <parameter><link linkend="gconstpointer"><type>gconstpointer</type></link> key</parameter>,
+                   <parameter><link linkend="gint"><type>gint</type></link> field</parameter>);</programlisting>
+<warning><para><literal>g_relation_delete</literal> has been deprecated since version 2.26 and should not be used in newly-written code.</para> <para>Rarely used API</para>
+</warning>
+<para>Deletes any records from a <link linkend="GRelation"><type>GRelation</type></link> that have the given key value
+in the given field.</para>
+<refsect3 id="g-relation-delete.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>relation</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GRelation"><type>GRelation</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>key</para></entry>
+<entry role="parameter_description"><para>the value to compare with.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>field</para></entry>
+<entry role="parameter_description"><para>the field of each record to match.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-relation-delete.returns" role="returns">
+<title>Returns</title>
+<para> the number of records deleted.</para>
+</refsect3></refsect2>
+<refsect2 id="g-relation-destroy" role="function" condition="deprecated:2.26: Rarely used API">
+<title>g_relation_destroy&#160;()</title>
+<indexterm zone="g-relation-destroy" role="deprecated"><primary sortas="relation_destroy">g_relation_destroy</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_relation_destroy (<parameter><link linkend="GRelation"><type>GRelation</type></link> *relation</parameter>);</programlisting>
+<warning><para><literal>g_relation_destroy</literal> has been deprecated since version 2.26 and should not be used in newly-written code.</para> <para>Rarely used API</para>
+</warning>
+<para>Destroys the <link linkend="GRelation"><type>GRelation</type></link>, freeing all memory allocated. However, it
+does not free memory allocated for the tuple data, so you should
+free that first if appropriate.</para>
+<refsect3 id="g-relation-destroy.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>relation</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GRelation"><type>GRelation</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-relation-print" role="function" condition="deprecated:2.26: Rarely used API">
+<title>g_relation_print&#160;()</title>
+<indexterm zone="g-relation-print" role="deprecated"><primary sortas="relation_print">g_relation_print</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_relation_print (<parameter><link linkend="GRelation"><type>GRelation</type></link> *relation</parameter>);</programlisting>
+<warning><para><literal>g_relation_print</literal> has been deprecated since version 2.26 and should not be used in newly-written code.</para> <para>Rarely used API</para>
+</warning>
+<para>Outputs information about all records in a <link linkend="GRelation"><type>GRelation</type></link>, as well as
+the indexes. It is for debugging.</para>
+<refsect3 id="g-relation-print.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>relation</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GRelation"><type>GRelation</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-tuples-destroy" role="function" condition="deprecated:2.26: Rarely used API">
+<title>g_tuples_destroy&#160;()</title>
+<indexterm zone="g-tuples-destroy" role="deprecated"><primary sortas="tuples_destroy">g_tuples_destroy</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_tuples_destroy (<parameter><link linkend="GTuples"><type>GTuples</type></link> *tuples</parameter>);</programlisting>
+<warning><para><literal>g_tuples_destroy</literal> has been deprecated since version 2.26 and should not be used in newly-written code.</para> <para>Rarely used API</para>
+</warning>
+<para>Frees the records which were returned by <link linkend="g-relation-select"><function>g_relation_select()</function></link>. This
+should always be called after <link linkend="g-relation-select"><function>g_relation_select()</function></link> when you are
+finished with the records. The records are not removed from the
+<link linkend="GRelation"><type>GRelation</type></link>.</para>
+<refsect3 id="g-tuples-destroy.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>tuples</para></entry>
+<entry role="parameter_description"><para>the tuple data to free.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-tuples-index" role="function" condition="deprecated:2.26: Rarely used API">
+<title>g_tuples_index&#160;()</title>
+<indexterm zone="g-tuples-index" role="deprecated"><primary sortas="tuples_index">g_tuples_index</primary></indexterm>
+<programlisting language="C"><link linkend="gpointer"><returnvalue>gpointer</returnvalue></link>
+g_tuples_index (<parameter><link linkend="GTuples"><type>GTuples</type></link> *tuples</parameter>,
+                <parameter><link linkend="gint"><type>gint</type></link> index_</parameter>,
+                <parameter><link linkend="gint"><type>gint</type></link> field</parameter>);</programlisting>
+<warning><para><literal>g_tuples_index</literal> has been deprecated since version 2.26 and should not be used in newly-written code.</para> <para>Rarely used API</para>
+</warning>
+<para>Gets a field from the records returned by <link linkend="g-relation-select"><function>g_relation_select()</function></link>. It
+returns the given field of the record at the given index. The
+returned value should not be changed.</para>
+<refsect3 id="g-tuples-index.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>tuples</para></entry>
+<entry role="parameter_description"><para>the tuple data, returned by <link linkend="g-relation-select"><function>g_relation_select()</function></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>index_</para></entry>
+<entry role="parameter_description"><para>the index of the record.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>field</para></entry>
+<entry role="parameter_description"><para>the field to return.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-tuples-index.returns" role="returns">
+<title>Returns</title>
+<para> the field of the record.</para>
+</refsect3></refsect2>
+
+</refsect1>
+<refsect1 id="glib-Relations-and-Tuples.other_details" role="details">
+<title role="details.title">Types and Values</title>
+<refsect2 id="GRelation" role="struct">
+<title>GRelation</title>
+<indexterm zone="GRelation"><primary sortas="Relation">GRelation</primary></indexterm>
+<programlisting language="C">typedef struct _GRelation GRelation;</programlisting>
+<para>The <link linkend="GRelation"><type>GRelation</type></link> struct is an opaque data structure to represent a
+<link linkend="glib-Relations-and-Tuples">Relation</link>. It should
+only be accessed via the following functions.</para>
+</refsect2>
+<refsect2 id="GTuples" role="struct">
+<title>struct GTuples</title>
+<indexterm zone="GTuples"><primary sortas="Tuples">GTuples</primary></indexterm>
+<programlisting language="C">struct GTuples {
+  guint len;
+};
+</programlisting>
+<para>The <link linkend="GTuples"><type>GTuples</type></link> struct is used to return records (or tuples) from the
+<link linkend="GRelation"><type>GRelation</type></link> by <link linkend="g-relation-select"><function>g_relation_select()</function></link>. It only contains one public
+member - the number of records that matched. To access the matched
+records, you must use <link linkend="g-tuples-index"><function>g_tuples_index()</function></link>.</para>
+<refsect3 id="GTuples.members" role="struct_members">
+<title>Members</title>
+<informaltable role="struct_members_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="struct_members_name" colwidth="300px"/>
+<colspec colname="struct_members_description"/>
+<colspec colname="struct_members_annotations" colwidth="200px"/>
+<tbody>
+<row role="member"><entry role="struct_member_name"><para><link linkend="guint"><type>guint</type></link>&#160;<structfield id="GTuples.len">len</structfield>;</para></entry>
+<entry role="struct_member_description"><para>the number of records that matched.</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+</tbody></tgroup></informaltable>
+</refsect3>
+</refsect2>
+
+</refsect1>
+
+</refentry>

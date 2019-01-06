@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC '-//OASIS//DTD DocBook XML V4.5//EN'
+                      'http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd' [
+<!ENTITY % local.common.attrib "xmlns:xi  CDATA  #FIXED 'http://www.w3.org/2003/XInclude'">
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="gio-GWin32RegistryKey">
+<refmeta>
+<refentrytitle role="top_of_page" id="gio-GWin32RegistryKey.top_of_page">GWin32RegistryKey</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>GIO Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>GWin32RegistryKey</refname>
+<refpurpose>W32 registry access helper</refpurpose>
+</refnamediv>
+
+
+<refsect1 id="gio-GWin32RegistryKey.includes"><title>Includes</title><synopsis>#include &lt;gio/win32/gwin32registrykey.h&gt;
+</synopsis></refsect1>
+
+<refsect1 id="gio-GWin32RegistryKey.description" role="desc">
+<title role="desc.title">Description</title>
+<para><link linkend="GWin32RegistryKey"><type>GWin32RegistryKey</type></link> represents a single Windows Registry key.</para>
+<para><link linkend="GWin32RegistryKey"><type>GWin32RegistryKey</type></link> is used by a number of helper functions that read
+Windows Registry. All keys are opened with read-only access, and at
+the moment there is no API for writing into registry keys or creating
+new ones.</para>
+<para><link linkend="GWin32RegistryKey"><type>GWin32RegistryKey</type></link> implements the <link linkend="GInitable"><type>GInitable</type></link> interface, so if it is manually
+constructed by e.g. <link linkend="g-object-new"><function>g_object_new()</function></link> you must call <link linkend="g-initable-init"><function>g_initable_init()</function></link> and check
+the results before using the object. This is done automatically
+in <link linkend="g-win32-registry-key-new"><function>g_win32_registry_key_new()</function></link> and <link linkend="g-win32-registry-key-get-child"><function>g_win32_registry_key_get_child()</function></link>, so these
+functions can return <link linkend="NULL:CAPS"><literal>NULL</literal></link>.</para>
+<para>To increase efficiency, a UTF-16 variant is available for all functions
+that deal with key or value names in the registry. Use these to perform
+deep registry queries or other operations that require querying a name
+of a key or a value and then opening it (or querying its data). The use
+of UTF-16 functions avoids the overhead of converting names to UTF-8 and
+back.</para>
+<para>All functions operate in current user's context (it is not possible to
+access registry tree of a different user).</para>
+<para>Key paths must use '\' as a separator, '/' is not supported. Key names
+must not include '\', because it's used as a separator. Value names
+can include '\'.</para>
+<para>Key and value names are not case sensitive.</para>
+<para>Full key name (excluding the pre-defined ancestor's name) can't exceed
+255 UTF-16 characters, give or take. Value name can't exceed 16383 UTF-16
+characters. Tree depth is limited to 512 levels.</para>
+
+</refsect1>
+<refsect1 id="gio-GWin32RegistryKey.functions_details" role="details">
+<title role="details.title">Functions</title>
+<para />
+</refsect1>
+<refsect1 id="gio-GWin32RegistryKey.other_details" role="details">
+<title role="details.title">Types and Values</title>
+
+</refsect1>
+
+</refentry>

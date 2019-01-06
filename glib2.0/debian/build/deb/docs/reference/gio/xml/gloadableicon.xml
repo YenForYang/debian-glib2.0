@@ -1,0 +1,267 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC '-//OASIS//DTD DocBook XML V4.5//EN'
+                      'http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd' [
+<!ENTITY % local.common.attrib "xmlns:xi  CDATA  #FIXED 'http://www.w3.org/2003/XInclude'">
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="GLoadableIcon">
+<refmeta>
+<refentrytitle role="top_of_page" id="GLoadableIcon.top_of_page">GLoadableIcon</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>GIO Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>GLoadableIcon</refname>
+<refpurpose>Loadable Icons</refpurpose>
+</refnamediv>
+
+<refsect1 id="GLoadableIcon.functions" role="functions_proto">
+<title role="functions_proto.title">Functions</title>
+<informaltable pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="functions_return" colwidth="150px"/>
+<colspec colname="functions_name"/>
+<tbody>
+<row><entry role="function_type"><link linkend="GInputStream"><returnvalue>GInputStream</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-loadable-icon-load">g_loadable_icon_load</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-loadable-icon-load-async">g_loadable_icon_load_async</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GInputStream"><returnvalue>GInputStream</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-loadable-icon-load-finish">g_loadable_icon_load_finish</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GLoadableIcon.other" role="other_proto">
+<title role="other_proto.title">Types and Values</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="name" colwidth="150px"/>
+<colspec colname="description"/>
+<tbody>
+<row><entry role="datatype_keyword"></entry><entry role="function_name"><link linkend="GLoadableIcon-struct">GLoadableIcon</link></entry></row>
+<row><entry role="datatype_keyword">struct</entry><entry role="function_name"><link linkend="GLoadableIconIface">GLoadableIconIface</link></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GLoadableIcon.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<screen>    <link linkend="GInterface">GInterface</link>
+    <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> GLoadableIcon
+</screen>
+</refsect1>
+<refsect1 id="GLoadableIcon.prerequisites" role="prerequisites">
+<title role="prerequisites.title">Prerequisites</title>
+<para>
+GLoadableIcon requires
+ <link linkend="GIcon">GIcon</link> and  <link linkend="GObject">GObject</link>.</para>
+
+</refsect1>
+<refsect1 id="GLoadableIcon.implementations" role="implementations">
+<title role="implementations.title">Known Implementations</title>
+<para>
+GLoadableIcon is implemented by
+ <link linkend="GBytesIcon">GBytesIcon</link> and  <link linkend="GFileIcon">GFileIcon</link>.</para>
+
+</refsect1>
+
+<refsect1 id="GLoadableIcon.includes"><title>Includes</title><synopsis>#include &lt;gio/gio.h&gt;
+</synopsis></refsect1>
+
+<refsect1 id="GLoadableIcon.description" role="desc">
+<title role="desc.title">Description</title>
+<para>Extends the <link linkend="GIcon"><type>GIcon</type></link> interface and adds the ability to 
+load icons from streams.</para>
+
+</refsect1>
+<refsect1 id="GLoadableIcon.functions_details" role="details">
+<title role="details.title">Functions</title>
+<refsect2 id="g-loadable-icon-load" role="function">
+<title>g_loadable_icon_load&#160;()</title>
+<indexterm zone="g-loadable-icon-load"><primary sortas="loadable_icon_load">g_loadable_icon_load</primary></indexterm>
+<programlisting language="C"><link linkend="GInputStream"><returnvalue>GInputStream</returnvalue></link>&#160;*
+g_loadable_icon_load (<parameter><link linkend="GLoadableIcon"><type>GLoadableIcon</type></link> *icon</parameter>,
+                      <parameter><link linkend="int"><type>int</type></link> size</parameter>,
+                      <parameter><link linkend="char"><type>char</type></link> **type</parameter>,
+                      <parameter><link linkend="GCancellable"><type>GCancellable</type></link> *cancellable</parameter>,
+                      <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para>Loads a loadable icon. For the asynchronous version of this function, 
+see <link linkend="g-loadable-icon-load-async"><function>g_loadable_icon_load_async()</function></link>.</para>
+<refsect3 id="g-loadable-icon-load.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>icon</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GLoadableIcon"><type>GLoadableIcon</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>size</para></entry>
+<entry role="parameter_description"><para>an integer.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>type</para></entry>
+<entry role="parameter_description"><para>a location to store the type of the loaded
+icon, <link linkend="NULL:CAPS"><literal>NULL</literal></link> to ignore. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>out</acronym>][<acronym>optional</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>cancellable</para></entry>
+<entry role="parameter_description"><para>optional <link linkend="GCancellable"><type>GCancellable</type></link> object, <link linkend="NULL:CAPS"><literal>NULL</literal></link> to
+ignore. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GError"><type>GError</type></link> location to store the error occurring, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>
+to ignore.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-loadable-icon-load.returns" role="returns">
+<title>Returns</title>
+<para>a <link linkend="GInputStream"><type>GInputStream</type></link> to read the icon from. </para>
+<para><emphasis role="annotation">[<acronym>transfer full</acronym>]</emphasis></para>
+</refsect3></refsect2>
+<refsect2 id="g-loadable-icon-load-async" role="function">
+<title>g_loadable_icon_load_async&#160;()</title>
+<indexterm zone="g-loadable-icon-load-async"><primary sortas="loadable_icon_load_async">g_loadable_icon_load_async</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_loadable_icon_load_async (<parameter><link linkend="GLoadableIcon"><type>GLoadableIcon</type></link> *icon</parameter>,
+                            <parameter><link linkend="int"><type>int</type></link> size</parameter>,
+                            <parameter><link linkend="GCancellable"><type>GCancellable</type></link> *cancellable</parameter>,
+                            <parameter><link linkend="GAsyncReadyCallback"><type>GAsyncReadyCallback</type></link> callback</parameter>,
+                            <parameter><link linkend="gpointer"><type>gpointer</type></link> user_data</parameter>);</programlisting>
+<para>Loads an icon asynchronously. To finish this function, see 
+<link linkend="g-loadable-icon-load-finish"><function>g_loadable_icon_load_finish()</function></link>. For the synchronous, blocking 
+version of this function, see <link linkend="g-loadable-icon-load"><function>g_loadable_icon_load()</function></link>.</para>
+<refsect3 id="g-loadable-icon-load-async.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>icon</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GLoadableIcon"><type>GLoadableIcon</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>size</para></entry>
+<entry role="parameter_description"><para>an integer.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>cancellable</para></entry>
+<entry role="parameter_description"><para>optional <link linkend="GCancellable"><type>GCancellable</type></link> object, <link linkend="NULL:CAPS"><literal>NULL</literal></link> to ignore. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>callback</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GAsyncReadyCallback"><type>GAsyncReadyCallback</type></link> to call when the
+request is satisfied. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>scope async</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>user_data</para></entry>
+<entry role="parameter_description"><para>the data to pass to callback function. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>closure</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-loadable-icon-load-finish" role="function">
+<title>g_loadable_icon_load_finish&#160;()</title>
+<indexterm zone="g-loadable-icon-load-finish"><primary sortas="loadable_icon_load_finish">g_loadable_icon_load_finish</primary></indexterm>
+<programlisting language="C"><link linkend="GInputStream"><returnvalue>GInputStream</returnvalue></link>&#160;*
+g_loadable_icon_load_finish (<parameter><link linkend="GLoadableIcon"><type>GLoadableIcon</type></link> *icon</parameter>,
+                             <parameter><link linkend="GAsyncResult"><type>GAsyncResult</type></link> *res</parameter>,
+                             <parameter><link linkend="char"><type>char</type></link> **type</parameter>,
+                             <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para>Finishes an asynchronous icon load started in <link linkend="g-loadable-icon-load-async"><function>g_loadable_icon_load_async()</function></link>.</para>
+<refsect3 id="g-loadable-icon-load-finish.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>icon</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GLoadableIcon"><type>GLoadableIcon</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>res</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GAsyncResult"><type>GAsyncResult</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>type</para></entry>
+<entry role="parameter_description"><para>a location to store the type of the loaded
+icon, <link linkend="NULL:CAPS"><literal>NULL</literal></link> to ignore. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>out</acronym>][<acronym>optional</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GError"><type>GError</type></link> location to store the error occurring, or <link linkend="NULL:CAPS"><literal>NULL</literal></link> to
+ignore.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-loadable-icon-load-finish.returns" role="returns">
+<title>Returns</title>
+<para>a <link linkend="GInputStream"><type>GInputStream</type></link> to read the icon from. </para>
+<para><emphasis role="annotation">[<acronym>transfer full</acronym>]</emphasis></para>
+</refsect3></refsect2>
+
+</refsect1>
+<refsect1 id="GLoadableIcon.other_details" role="details">
+<title role="details.title">Types and Values</title>
+<refsect2 id="GLoadableIcon-struct" role="struct">
+<title>GLoadableIcon</title>
+<indexterm zone="GLoadableIcon-struct"><primary sortas="LoadableIcon">GLoadableIcon</primary></indexterm>
+<programlisting language="C">typedef struct _GLoadableIcon GLoadableIcon;</programlisting>
+<para>Generic type for all kinds of icons that can be loaded
+as a stream.</para>
+</refsect2>
+<refsect2 id="GLoadableIconIface" role="struct">
+<title>struct GLoadableIconIface</title>
+<indexterm zone="GLoadableIconIface"><primary sortas="LoadableIconIface">GLoadableIconIface</primary></indexterm>
+<programlisting language="C">struct GLoadableIconIface {
+  GTypeInterface g_iface;
+
+  /* Virtual Table */
+
+  GInputStream * (* load)        (GLoadableIcon       *icon,
+                                  int                  size,
+                                  char               **type,
+                                  GCancellable        *cancellable,
+                                  GError             **error);
+  void           (* load_async)  (GLoadableIcon       *icon,
+                                  int                  size,
+                                  GCancellable        *cancellable,
+                                  GAsyncReadyCallback  callback,
+                                  gpointer             user_data);
+  GInputStream * (* load_finish) (GLoadableIcon       *icon,
+                                  GAsyncResult        *res,
+                                  char               **type,
+                                  GError             **error);
+};
+</programlisting>
+<para>Interface for icons that can be loaded as a stream.</para>
+<refsect3 id="GLoadableIconIface.members" role="struct_members">
+<title>Members</title>
+<informaltable role="struct_members_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="struct_members_name" colwidth="300px"/>
+<colspec colname="struct_members_description"/>
+<colspec colname="struct_members_annotations" colwidth="200px"/>
+<tbody>
+<row role="member"><entry role="struct_member_name"><para><structfield id="GLoadableIconIface.load">load</structfield>&#160;()</para></entry>
+<entry role="struct_member_description"><para>Loads an icon.</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><structfield id="GLoadableIconIface.load-async">load_async</structfield>&#160;()</para></entry>
+<entry role="struct_member_description"><para>Loads an icon asynchronously.</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><structfield id="GLoadableIconIface.load-finish">load_finish</structfield>&#160;()</para></entry>
+<entry role="struct_member_description"><para>Finishes an asynchronous icon load.</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+</tbody></tgroup></informaltable>
+</refsect3>
+</refsect2>
+
+</refsect1>
+<refsect1 id="GLoadableIcon.see-also">
+<title>See Also</title>
+<para><link linkend="GIcon"><type>GIcon</type></link>, <link linkend="GThemedIcon"><type>GThemedIcon</type></link></para>
+
+</refsect1>
+
+</refentry>

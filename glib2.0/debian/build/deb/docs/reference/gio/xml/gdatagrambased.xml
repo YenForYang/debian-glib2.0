@@ -1,0 +1,614 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC '-//OASIS//DTD DocBook XML V4.5//EN'
+                      'http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd' [
+<!ENTITY % local.common.attrib "xmlns:xi  CDATA  #FIXED 'http://www.w3.org/2003/XInclude'">
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="GDatagramBased">
+<refmeta>
+<refentrytitle role="top_of_page" id="GDatagramBased.top_of_page">GDatagramBased</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>GIO Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>GDatagramBased</refname>
+<refpurpose>Low-level datagram communications interface</refpurpose>
+</refnamediv>
+
+<refsect1 id="GDatagramBased.functions" role="functions_proto">
+<title role="functions_proto.title">Functions</title>
+<informaltable pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="functions_return" colwidth="150px"/>
+<colspec colname="functions_name"/>
+<tbody>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><phrase role="c_punctuation">(</phrase><link linkend="GDatagramBasedSourceFunc">*GDatagramBasedSourceFunc</link><phrase role="c_punctuation">)</phrase>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gint"><returnvalue>gint</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-datagram-based-receive-messages">g_datagram_based_receive_messages</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gint"><returnvalue>gint</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-datagram-based-send-messages">g_datagram_based_send_messages</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GSource"><returnvalue>GSource</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-datagram-based-create-source">g_datagram_based_create_source</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GIOCondition"><returnvalue>GIOCondition</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-datagram-based-condition-check">g_datagram_based_condition_check</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-datagram-based-condition-wait">g_datagram_based_condition_wait</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GDatagramBased.other" role="other_proto">
+<title role="other_proto.title">Types and Values</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="name" colwidth="150px"/>
+<colspec colname="description"/>
+<tbody>
+<row><entry role="datatype_keyword"></entry><entry role="function_name"><link linkend="GDatagramBased-struct">GDatagramBased</link></entry></row>
+<row><entry role="datatype_keyword">struct</entry><entry role="function_name"><link linkend="GDatagramBasedInterface">GDatagramBasedInterface</link></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GDatagramBased.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<screen>    <link linkend="GInterface">GInterface</link>
+    <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> GDatagramBased
+</screen>
+</refsect1>
+<refsect1 id="GDatagramBased.prerequisites" role="prerequisites">
+<title role="prerequisites.title">Prerequisites</title>
+<para>
+GDatagramBased requires
+ <link linkend="GObject">GObject</link>.</para>
+
+</refsect1>
+<refsect1 id="GDatagramBased.derived-interfaces" role="derived_interfaces">
+<title role="derived_interfaces.title">Known Derived Interfaces</title>
+<para>
+GDatagramBased is required by
+ <link linkend="GDtlsClientConnection">GDtlsClientConnection</link>,  <link linkend="GDtlsConnection">GDtlsConnection</link> and  <link linkend="GDtlsServerConnection">GDtlsServerConnection</link>.</para>
+
+</refsect1>
+<refsect1 id="GDatagramBased.implementations" role="implementations">
+<title role="implementations.title">Known Implementations</title>
+<para>
+GDatagramBased is implemented by
+ <link linkend="GSocket">GSocket</link>.</para>
+
+</refsect1>
+
+<refsect1 id="GDatagramBased.includes"><title>Includes</title><synopsis>#include &lt;gio/gio.h&gt;
+</synopsis></refsect1>
+
+<refsect1 id="GDatagramBased.description" role="desc">
+<title role="desc.title">Description</title>
+<para>A <link linkend="GDatagramBased"><type>GDatagramBased</type></link> is a networking interface for representing datagram-based
+communications. It is a more or less direct mapping of the core parts of the
+BSD socket API in a portable GObject interface. It is implemented by
+<link linkend="GSocket"><type>GSocket</type></link>, which wraps the UNIX socket API on UNIX and winsock2 on Windows.</para>
+<para><link linkend="GDatagramBased"><type>GDatagramBased</type></link> is entirely platform independent, and is intended to be used
+alongside higher-level networking APIs such as <link linkend="GIOStream"><type>GIOStream</type></link>.</para>
+<para>It uses vectored scatter/gather I/O by default, allowing for many messages
+to be sent or received in a single call. Where possible, implementations of
+the interface should take advantage of vectored I/O to minimise processing
+or system calls. For example, <link linkend="GSocket"><type>GSocket</type></link> uses <link linkend="recvmmsg"><function>recvmmsg()</function></link> and <link linkend="sendmmsg"><function>sendmmsg()</function></link> where
+possible. Callers should take advantage of scatter/gather I/O (the use of
+multiple buffers per message) to avoid unnecessary copying of data to
+assemble or disassemble a message.</para>
+<para>Each <link linkend="GDatagramBased"><type>GDatagramBased</type></link> operation has a timeout parameter which may be negative
+for blocking behaviour, zero for non-blocking behaviour, or positive for
+timeout behaviour. A blocking operation blocks until finished or there is an
+error. A non-blocking operation will return immediately with a
+<link linkend="G-IO-ERROR-WOULD-BLOCK:CAPS"><literal>G_IO_ERROR_WOULD_BLOCK</literal></link> error if it cannot make progress. A timeout operation
+will block until the operation is complete or the timeout expires; if the
+timeout expires it will return what progress it made, or
+<link linkend="G-IO-ERROR-TIMED-OUT:CAPS"><literal>G_IO_ERROR_TIMED_OUT</literal></link> if no progress was made. To know when a call would
+successfully run you can call <link linkend="g-datagram-based-condition-check"><function>g_datagram_based_condition_check()</function></link> or
+<link linkend="g-datagram-based-condition-wait"><function>g_datagram_based_condition_wait()</function></link>. You can also use
+<link linkend="g-datagram-based-create-source"><function>g_datagram_based_create_source()</function></link> and attach it to a <link linkend="GMainContext"><type>GMainContext</type></link> to get
+callbacks when I/O is possible.</para>
+<para>When running a non-blocking operation applications should always be able to
+handle getting a <link linkend="G-IO-ERROR-WOULD-BLOCK:CAPS"><literal>G_IO_ERROR_WOULD_BLOCK</literal></link> error even when some other function
+said that I/O was possible. This can easily happen in case of a race
+condition in the application, but it can also happen for other reasons. For
+instance, on Windows a socket is always seen as writable until a write
+returns <link linkend="G-IO-ERROR-WOULD-BLOCK:CAPS"><literal>G_IO_ERROR_WOULD_BLOCK</literal></link>.</para>
+<para>As with <link linkend="GSocket"><type>GSocket</type></link>, <link linkend="GDatagramBaseds"><type>GDatagramBaseds</type></link> can be either connection oriented (for
+example, SCTP) or connectionless (for example, UDP). <link linkend="GDatagramBaseds"><type>GDatagramBaseds</type></link> must be
+datagram-based, not stream-based. The interface does not cover connection
+establishment — use methods on the underlying type to establish a connection
+before sending and receiving data through the <link linkend="GDatagramBased"><type>GDatagramBased</type></link> API. For
+connectionless socket types the target/source address is specified or
+received in each I/O operation.</para>
+<para>Like most other APIs in GLib, <link linkend="GDatagramBased"><type>GDatagramBased</type></link> is not inherently thread safe.
+To use a <link linkend="GDatagramBased"><type>GDatagramBased</type></link> concurrently from multiple threads, you must
+implement your own locking.</para>
+
+</refsect1>
+<refsect1 id="GDatagramBased.functions_details" role="details">
+<title role="details.title">Functions</title>
+<refsect2 id="GDatagramBasedSourceFunc" role="function" condition="since:2.48">
+<title>GDatagramBasedSourceFunc&#160;()</title>
+<indexterm zone="GDatagramBasedSourceFunc" role="2.48"><primary sortas="DatagramBasedSourceFunc">GDatagramBasedSourceFunc</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+<phrase role="c_punctuation">(</phrase>*GDatagramBasedSourceFunc<phrase role="c_punctuation">)</phrase> (<parameter><link linkend="GDatagramBased"><type>GDatagramBased</type></link> *datagram_based</parameter>,
+                             <parameter><link linkend="GIOCondition"><type>GIOCondition</type></link> condition</parameter>,
+                             <parameter><link linkend="gpointer"><type>gpointer</type></link> user_data</parameter>);</programlisting>
+<para>This is the function type of the callback used for the <link linkend="GSource"><type>GSource</type></link>
+returned by <link linkend="g-datagram-based-create-source"><function>g_datagram_based_create_source()</function></link>.</para>
+<refsect3 id="GDatagramBasedSourceFunc.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>datagram_based</para></entry>
+<entry role="parameter_description"><para>the <link linkend="GDatagramBased"><type>GDatagramBased</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>condition</para></entry>
+<entry role="parameter_description"><para>the current condition at the source fired</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>user_data</para></entry>
+<entry role="parameter_description"><para>data passed in by the user</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="GDatagramBasedSourceFunc.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="G-SOURCE-REMOVE:CAPS"><literal>G_SOURCE_REMOVE</literal></link> if the source should be removed,
+<link linkend="G-SOURCE-CONTINUE:CAPS"><literal>G_SOURCE_CONTINUE</literal></link> otherwise</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.48">2.48</link></para></refsect2>
+<refsect2 id="g-datagram-based-receive-messages" role="function" condition="since:2.48">
+<title>g_datagram_based_receive_messages&#160;()</title>
+<indexterm zone="g-datagram-based-receive-messages" role="2.48"><primary sortas="datagram_based_receive_messages">g_datagram_based_receive_messages</primary></indexterm>
+<programlisting language="C"><link linkend="gint"><returnvalue>gint</returnvalue></link>
+g_datagram_based_receive_messages (<parameter><link linkend="GDatagramBased"><type>GDatagramBased</type></link> *datagram_based</parameter>,
+                                   <parameter><link linkend="GInputMessage"><type>GInputMessage</type></link> *messages</parameter>,
+                                   <parameter><link linkend="guint"><type>guint</type></link> num_messages</parameter>,
+                                   <parameter><link linkend="gint"><type>gint</type></link> flags</parameter>,
+                                   <parameter><link linkend="gint64"><type>gint64</type></link> timeout</parameter>,
+                                   <parameter><link linkend="GCancellable"><type>GCancellable</type></link> *cancellable</parameter>,
+                                   <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para>Receive one or more data messages from <parameter>datagram_based</parameter>
+ in one go.</para>
+<para><parameter>messages</parameter>
+ must point to an array of <link linkend="GInputMessage"><type>GInputMessage</type></link> structs and
+<parameter>num_messages</parameter>
+ must be the length of this array. Each <link linkend="GInputMessage"><type>GInputMessage</type></link>
+contains a pointer to an array of <link linkend="GInputVector"><type>GInputVector</type></link> structs describing the
+buffers that the data received in each message will be written to.</para>
+<para><parameter>flags</parameter>
+ modify how all messages are received. The commonly available
+arguments for this are available in the <link linkend="GSocketMsgFlags"><type>GSocketMsgFlags</type></link> enum, but the
+values there are the same as the system values, and the flags
+are passed in as-is, so you can pass in system-specific flags too. These
+flags affect the overall receive operation. Flags affecting individual
+messages are returned in <link linkend="GInputMessage.flags"><type>GInputMessage.flags</type></link>.</para>
+<para>The other members of <link linkend="GInputMessage"><type>GInputMessage</type></link> are treated as described in its
+documentation.</para>
+<para>If <parameter>timeout</parameter>
+ is negative the call will block until <parameter>num_messages</parameter>
+ have been
+received, the connection is closed remotely (EOS), <parameter>cancellable</parameter>
+ is cancelled,
+or an error occurs.</para>
+<para>If <parameter>timeout</parameter>
+ is 0 the call will return up to <parameter>num_messages</parameter>
+ without blocking,
+or <link linkend="G-IO-ERROR-WOULD-BLOCK:CAPS"><literal>G_IO_ERROR_WOULD_BLOCK</literal></link> if no messages are queued in the operating system
+to be received.</para>
+<para>If <parameter>timeout</parameter>
+ is positive the call will block on the same conditions as if
+<parameter>timeout</parameter>
+ were negative. If the timeout is reached
+before any messages are received, <link linkend="G-IO-ERROR-TIMED-OUT:CAPS"><literal>G_IO_ERROR_TIMED_OUT</literal></link> is returned,
+otherwise it will return the number of messages received before timing out.
+(Note: This is effectively the behaviour of <literal>MSG_WAITFORONE</literal> with
+<link linkend="recvmmsg"><function>recvmmsg()</function></link>.)</para>
+<para>To be notified when messages are available, wait for the <link linkend="G-IO-IN:CAPS"><literal>G_IO_IN</literal></link> condition.
+Note though that you may still receive <link linkend="G-IO-ERROR-WOULD-BLOCK:CAPS"><literal>G_IO_ERROR_WOULD_BLOCK</literal></link> from
+<link linkend="g-datagram-based-receive-messages"><function>g_datagram_based_receive_messages()</function></link> even if you were previously notified of a
+<link linkend="G-IO-IN:CAPS"><literal>G_IO_IN</literal></link> condition.</para>
+<para>If the remote peer closes the connection, any messages queued in the
+underlying receive buffer will be returned, and subsequent calls to
+<link linkend="g-datagram-based-receive-messages"><function>g_datagram_based_receive_messages()</function></link> will return 0 (with no error set).</para>
+<para>If the connection is shut down or closed (by calling <link linkend="g-socket-close"><function>g_socket_close()</function></link> or
+<link linkend="g-socket-shutdown"><function>g_socket_shutdown()</function></link> with <parameter>shutdown_read</parameter>
+ set, if it’s a <link linkend="GSocket"><type>GSocket</type></link>, for
+example), all calls to this function will return <link linkend="G-IO-ERROR-CLOSED:CAPS"><literal>G_IO_ERROR_CLOSED</literal></link>.</para>
+<para>On error -1 is returned and <parameter>error</parameter>
+ is set accordingly. An error will only
+be returned if zero messages could be received; otherwise the number of
+messages successfully received before the error will be returned. If
+<parameter>cancellable</parameter>
+ is cancelled, <link linkend="G-IO-ERROR-CANCELLED:CAPS"><literal>G_IO_ERROR_CANCELLED</literal></link> is returned as with any
+other error.</para>
+<refsect3 id="g-datagram-based-receive-messages.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>datagram_based</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GDatagramBased"><type>GDatagramBased</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>messages</para></entry>
+<entry role="parameter_description"><para>an array of <link linkend="GInputMessage"><type>GInputMessage</type></link> structs. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>array</acronym> length=num_messages]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>num_messages</para></entry>
+<entry role="parameter_description"><para>the number of elements in <parameter>messages</parameter>
+</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>flags</para></entry>
+<entry role="parameter_description"><para>an int containing <link linkend="GSocketMsgFlags"><type>GSocketMsgFlags</type></link> flags for the overall operation</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>timeout</para></entry>
+<entry role="parameter_description"><para>the maximum time (in microseconds) to wait, 0 to not block, or -1
+to block indefinitely</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>cancellable</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GCancellable"><literal>GCancellable</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para>return location for a <link linkend="GError"><type>GError</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-datagram-based-receive-messages.returns" role="returns">
+<title>Returns</title>
+<para> number of messages received, or -1 on error. Note that the number
+of messages received may be smaller than <parameter>num_messages</parameter>
+if <parameter>timeout</parameter>
+is
+zero or positive, if the peer closed the connection, or if <parameter>num_messages</parameter>
+was larger than <literal>UIO_MAXIOV</literal> (1024), in which case the caller may re-try
+to receive the remaining messages.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.48">2.48</link></para></refsect2>
+<refsect2 id="g-datagram-based-send-messages" role="function" condition="since:2.48">
+<title>g_datagram_based_send_messages&#160;()</title>
+<indexterm zone="g-datagram-based-send-messages" role="2.48"><primary sortas="datagram_based_send_messages">g_datagram_based_send_messages</primary></indexterm>
+<programlisting language="C"><link linkend="gint"><returnvalue>gint</returnvalue></link>
+g_datagram_based_send_messages (<parameter><link linkend="GDatagramBased"><type>GDatagramBased</type></link> *datagram_based</parameter>,
+                                <parameter><link linkend="GOutputMessage"><type>GOutputMessage</type></link> *messages</parameter>,
+                                <parameter><link linkend="guint"><type>guint</type></link> num_messages</parameter>,
+                                <parameter><link linkend="gint"><type>gint</type></link> flags</parameter>,
+                                <parameter><link linkend="gint64"><type>gint64</type></link> timeout</parameter>,
+                                <parameter><link linkend="GCancellable"><type>GCancellable</type></link> *cancellable</parameter>,
+                                <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para>Send one or more data messages from <parameter>datagram_based</parameter>
+ in one go.</para>
+<para><parameter>messages</parameter>
+ must point to an array of <link linkend="GOutputMessage"><type>GOutputMessage</type></link> structs and
+<parameter>num_messages</parameter>
+ must be the length of this array. Each <link linkend="GOutputMessage"><type>GOutputMessage</type></link>
+contains an address to send the data to, and a pointer to an array of
+<link linkend="GOutputVector"><type>GOutputVector</type></link> structs to describe the buffers that the data to be sent
+for each message will be gathered from.</para>
+<para><parameter>flags</parameter>
+ modify how the message is sent. The commonly available arguments
+for this are available in the <link linkend="GSocketMsgFlags"><type>GSocketMsgFlags</type></link> enum, but the
+values there are the same as the system values, and the flags
+are passed in as-is, so you can pass in system-specific flags too.</para>
+<para>The other members of <link linkend="GOutputMessage"><type>GOutputMessage</type></link> are treated as described in its
+documentation.</para>
+<para>If <parameter>timeout</parameter>
+ is negative the call will block until <parameter>num_messages</parameter>
+ have been
+sent, <parameter>cancellable</parameter>
+ is cancelled, or an error occurs.</para>
+<para>If <parameter>timeout</parameter>
+ is 0 the call will send up to <parameter>num_messages</parameter>
+ without blocking,
+or will return <link linkend="G-IO-ERROR-WOULD-BLOCK:CAPS"><literal>G_IO_ERROR_WOULD_BLOCK</literal></link> if there is no space to send messages.</para>
+<para>If <parameter>timeout</parameter>
+ is positive the call will block on the same conditions as if
+<parameter>timeout</parameter>
+ were negative. If the timeout is reached before any messages are
+sent, <link linkend="G-IO-ERROR-TIMED-OUT:CAPS"><literal>G_IO_ERROR_TIMED_OUT</literal></link> is returned, otherwise it will return the number
+of messages sent before timing out.</para>
+<para>To be notified when messages can be sent, wait for the <link linkend="G-IO-OUT:CAPS"><literal>G_IO_OUT</literal></link> condition.
+Note though that you may still receive <link linkend="G-IO-ERROR-WOULD-BLOCK:CAPS"><literal>G_IO_ERROR_WOULD_BLOCK</literal></link> from
+<link linkend="g-datagram-based-send-messages"><function>g_datagram_based_send_messages()</function></link> even if you were previously notified of a
+<link linkend="G-IO-OUT:CAPS"><literal>G_IO_OUT</literal></link> condition. (On Windows in particular, this is very common due to
+the way the underlying APIs work.)</para>
+<para>If the connection is shut down or closed (by calling <link linkend="g-socket-close"><function>g_socket_close()</function></link> or
+<link linkend="g-socket-shutdown"><function>g_socket_shutdown()</function></link> with <parameter>shutdown_write</parameter>
+ set, if it’s a <link linkend="GSocket"><type>GSocket</type></link>, for
+example), all calls to this function will return <link linkend="G-IO-ERROR-CLOSED:CAPS"><literal>G_IO_ERROR_CLOSED</literal></link>.</para>
+<para>On error -1 is returned and <parameter>error</parameter>
+ is set accordingly. An error will only
+be returned if zero messages could be sent; otherwise the number of messages
+successfully sent before the error will be returned. If <parameter>cancellable</parameter>
+ is
+cancelled, <link linkend="G-IO-ERROR-CANCELLED:CAPS"><literal>G_IO_ERROR_CANCELLED</literal></link> is returned as with any other error.</para>
+<refsect3 id="g-datagram-based-send-messages.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>datagram_based</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GDatagramBased"><type>GDatagramBased</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>messages</para></entry>
+<entry role="parameter_description"><para>an array of <link linkend="GOutputMessage"><type>GOutputMessage</type></link> structs. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>array</acronym> length=num_messages]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>num_messages</para></entry>
+<entry role="parameter_description"><para>the number of elements in <parameter>messages</parameter>
+</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>flags</para></entry>
+<entry role="parameter_description"><para>an int containing <link linkend="GSocketMsgFlags"><type>GSocketMsgFlags</type></link> flags</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>timeout</para></entry>
+<entry role="parameter_description"><para>the maximum time (in microseconds) to wait, 0 to not block, or -1
+to block indefinitely</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>cancellable</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GCancellable"><literal>GCancellable</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para>return location for a <link linkend="GError"><type>GError</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-datagram-based-send-messages.returns" role="returns">
+<title>Returns</title>
+<para> number of messages sent, or -1 on error. Note that the number of
+messages sent may be smaller than <parameter>num_messages</parameter>
+if <parameter>timeout</parameter>
+is zero
+or positive, or if <parameter>num_messages</parameter>
+was larger than <literal>UIO_MAXIOV</literal> (1024), in
+which case the caller may re-try to send the remaining messages.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.48">2.48</link></para></refsect2>
+<refsect2 id="g-datagram-based-create-source" role="function" condition="since:2.48">
+<title>g_datagram_based_create_source&#160;()</title>
+<indexterm zone="g-datagram-based-create-source" role="2.48"><primary sortas="datagram_based_create_source">g_datagram_based_create_source</primary></indexterm>
+<programlisting language="C"><link linkend="GSource"><returnvalue>GSource</returnvalue></link>&#160;*
+g_datagram_based_create_source (<parameter><link linkend="GDatagramBased"><type>GDatagramBased</type></link> *datagram_based</parameter>,
+                                <parameter><link linkend="GIOCondition"><type>GIOCondition</type></link> condition</parameter>,
+                                <parameter><link linkend="GCancellable"><type>GCancellable</type></link> *cancellable</parameter>);</programlisting>
+<para>Creates a <link linkend="GSource"><type>GSource</type></link> that can be attached to a <link linkend="GMainContext"><type>GMainContext</type></link> to monitor for
+the availability of the specified <parameter>condition</parameter>
+ on the <link linkend="GDatagramBased"><type>GDatagramBased</type></link>. The
+<link linkend="GSource"><type>GSource</type></link> keeps a reference to the <parameter>datagram_based</parameter>
+.</para>
+<para>The callback on the source is of the <link linkend="GDatagramBasedSourceFunc"><type>GDatagramBasedSourceFunc</type></link> type.</para>
+<para>It is meaningless to specify <link linkend="G-IO-ERR:CAPS"><literal>G_IO_ERR</literal></link> or <link linkend="G-IO-HUP:CAPS"><literal>G_IO_HUP</literal></link> in <parameter>condition</parameter>
+; these
+conditions will always be reported in the callback if they are true.</para>
+<para>If non-<link linkend="NULL:CAPS"><literal>NULL</literal></link>, <parameter>cancellable</parameter>
+ can be used to cancel the source, which will
+cause the source to trigger, reporting the current condition (which is
+likely 0 unless cancellation happened at the same time as a condition
+change). You can check for this in the callback using
+<link linkend="g-cancellable-is-cancelled"><function>g_cancellable_is_cancelled()</function></link>.</para>
+<refsect3 id="g-datagram-based-create-source.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>datagram_based</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GDatagramBased"><type>GDatagramBased</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>condition</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GIOCondition"><type>GIOCondition</type></link> mask to monitor</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>cancellable</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GCancellable"><type>GCancellable</type></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-datagram-based-create-source.returns" role="returns">
+<title>Returns</title>
+<para>a newly allocated <link linkend="GSource"><type>GSource</type></link>. </para>
+<para><emphasis role="annotation">[<acronym>transfer full</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.48">2.48</link></para></refsect2>
+<refsect2 id="g-datagram-based-condition-check" role="function" condition="since:2.48">
+<title>g_datagram_based_condition_check&#160;()</title>
+<indexterm zone="g-datagram-based-condition-check" role="2.48"><primary sortas="datagram_based_condition_check">g_datagram_based_condition_check</primary></indexterm>
+<programlisting language="C"><link linkend="GIOCondition"><returnvalue>GIOCondition</returnvalue></link>
+g_datagram_based_condition_check (<parameter><link linkend="GDatagramBased"><type>GDatagramBased</type></link> *datagram_based</parameter>,
+                                  <parameter><link linkend="GIOCondition"><type>GIOCondition</type></link> condition</parameter>);</programlisting>
+<para>Checks on the readiness of <parameter>datagram_based</parameter>
+ to perform operations. The
+operations specified in <parameter>condition</parameter>
+ are checked for and masked against the
+currently-satisfied conditions on <parameter>datagram_based</parameter>
+. The result is returned.</para>
+<para><link linkend="G-IO-IN:CAPS"><literal>G_IO_IN</literal></link> will be set in the return value if data is available to read with
+<link linkend="g-datagram-based-receive-messages"><function>g_datagram_based_receive_messages()</function></link>, or if the connection is closed remotely
+(EOS); and if the datagram_based has not been closed locally using some
+implementation-specific method (such as <link linkend="g-socket-close"><function>g_socket_close()</function></link> or
+<link linkend="g-socket-shutdown"><function>g_socket_shutdown()</function></link> with <parameter>shutdown_read</parameter>
+ set, if it’s a <link linkend="GSocket"><type>GSocket</type></link>).</para>
+<para>If the connection is shut down or closed (by calling <link linkend="g-socket-close"><function>g_socket_close()</function></link> or
+<link linkend="g-socket-shutdown"><function>g_socket_shutdown()</function></link> with <parameter>shutdown_read</parameter>
+ set, if it’s a <link linkend="GSocket"><type>GSocket</type></link>, for
+example), all calls to this function will return <link linkend="G-IO-ERROR-CLOSED:CAPS"><literal>G_IO_ERROR_CLOSED</literal></link>.</para>
+<para><link linkend="G-IO-OUT:CAPS"><literal>G_IO_OUT</literal></link> will be set if it is expected that at least one byte can be sent
+using <link linkend="g-datagram-based-send-messages"><function>g_datagram_based_send_messages()</function></link> without blocking. It will not be set
+if the datagram_based has been closed locally.</para>
+<para><link linkend="G-IO-HUP:CAPS"><literal>G_IO_HUP</literal></link> will be set if the connection has been closed locally.</para>
+<para><link linkend="G-IO-ERR:CAPS"><literal>G_IO_ERR</literal></link> will be set if there was an asynchronous error in transmitting data
+previously enqueued using <link linkend="g-datagram-based-send-messages"><function>g_datagram_based_send_messages()</function></link>.</para>
+<para>Note that on Windows, it is possible for an operation to return
+<link linkend="G-IO-ERROR-WOULD-BLOCK:CAPS"><literal>G_IO_ERROR_WOULD_BLOCK</literal></link> even immediately after
+<link linkend="g-datagram-based-condition-check"><function>g_datagram_based_condition_check()</function></link> has claimed that the <link linkend="GDatagramBased"><type>GDatagramBased</type></link> is
+ready for writing. Rather than calling <link linkend="g-datagram-based-condition-check"><function>g_datagram_based_condition_check()</function></link> and
+then writing to the <link linkend="GDatagramBased"><type>GDatagramBased</type></link> if it succeeds, it is generally better to
+simply try writing right away, and try again later if the initial attempt
+returns <link linkend="G-IO-ERROR-WOULD-BLOCK:CAPS"><literal>G_IO_ERROR_WOULD_BLOCK</literal></link>.</para>
+<para>It is meaningless to specify <link linkend="G-IO-ERR:CAPS"><literal>G_IO_ERR</literal></link> or <link linkend="G-IO-HUP:CAPS"><literal>G_IO_HUP</literal></link> in <parameter>condition</parameter>
+; these
+conditions will always be set in the output if they are true. Apart from
+these flags, the output is guaranteed to be masked by <parameter>condition</parameter>
+.</para>
+<para>This call never blocks.</para>
+<refsect3 id="g-datagram-based-condition-check.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>datagram_based</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GDatagramBased"><type>GDatagramBased</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>condition</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GIOCondition"><type>GIOCondition</type></link> mask to check</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-datagram-based-condition-check.returns" role="returns">
+<title>Returns</title>
+<para> the <link linkend="GIOCondition"><type>GIOCondition</type></link> mask of the current state</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.48">2.48</link></para></refsect2>
+<refsect2 id="g-datagram-based-condition-wait" role="function" condition="since:2.48">
+<title>g_datagram_based_condition_wait&#160;()</title>
+<indexterm zone="g-datagram-based-condition-wait" role="2.48"><primary sortas="datagram_based_condition_wait">g_datagram_based_condition_wait</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_datagram_based_condition_wait (<parameter><link linkend="GDatagramBased"><type>GDatagramBased</type></link> *datagram_based</parameter>,
+                                 <parameter><link linkend="GIOCondition"><type>GIOCondition</type></link> condition</parameter>,
+                                 <parameter><link linkend="gint64"><type>gint64</type></link> timeout</parameter>,
+                                 <parameter><link linkend="GCancellable"><type>GCancellable</type></link> *cancellable</parameter>,
+                                 <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para>Waits for up to <parameter>timeout</parameter>
+ microseconds for condition to become true on
+<parameter>datagram_based</parameter>
+. If the condition is met, <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> is returned.</para>
+<para>If <parameter>cancellable</parameter>
+ is cancelled before the condition is met, or if <parameter>timeout</parameter>
+ is
+reached before the condition is met, then <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> is returned and <parameter>error</parameter>
+ is
+set appropriately (<link linkend="G-IO-ERROR-CANCELLED:CAPS"><literal>G_IO_ERROR_CANCELLED</literal></link> or <link linkend="G-IO-ERROR-TIMED-OUT:CAPS"><literal>G_IO_ERROR_TIMED_OUT</literal></link>).</para>
+<refsect3 id="g-datagram-based-condition-wait.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>datagram_based</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GDatagramBased"><type>GDatagramBased</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>condition</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GIOCondition"><type>GIOCondition</type></link> mask to wait for</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>timeout</para></entry>
+<entry role="parameter_description"><para>the maximum time (in microseconds) to wait, 0 to not block, or -1
+to block indefinitely</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>cancellable</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GCancellable"><type>GCancellable</type></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para>return location for a <link linkend="GError"><type>GError</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-datagram-based-condition-wait.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if the condition was met, <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> otherwise</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.48">2.48</link></para></refsect2>
+
+</refsect1>
+<refsect1 id="GDatagramBased.other_details" role="details">
+<title role="details.title">Types and Values</title>
+<refsect2 id="GDatagramBased-struct" role="struct">
+<title>GDatagramBased</title>
+<indexterm zone="GDatagramBased-struct" role="2.48"><primary sortas="DatagramBased">GDatagramBased</primary></indexterm>
+<programlisting language="C">typedef struct _GDatagramBased GDatagramBased;</programlisting>
+<para>Interface for socket-like objects with datagram semantics.</para>
+<para role="since">Since: <link linkend="api-index-2.48">2.48</link></para></refsect2>
+<refsect2 id="GDatagramBasedInterface" role="struct" condition="since:2.48">
+<title>struct GDatagramBasedInterface</title>
+<indexterm zone="GDatagramBasedInterface" role="2.48"><primary sortas="DatagramBasedInterface">GDatagramBasedInterface</primary></indexterm>
+<programlisting language="C">struct GDatagramBasedInterface {
+  GTypeInterface g_iface;
+
+  /* Virtual table */
+  gint          (*receive_messages)     (GDatagramBased       *datagram_based,
+                                         GInputMessage        *messages,
+                                         guint                 num_messages,
+                                         gint                  flags,
+                                         gint64                timeout,
+                                         GCancellable         *cancellable,
+                                         GError              **error);
+  gint          (*send_messages)        (GDatagramBased       *datagram_based,
+                                         GOutputMessage       *messages,
+                                         guint                 num_messages,
+                                         gint                  flags,
+                                         gint64                timeout,
+                                         GCancellable         *cancellable,
+                                         GError              **error);
+
+  GSource      *(*create_source)        (GDatagramBased       *datagram_based,
+                                         GIOCondition          condition,
+                                         GCancellable         *cancellable);
+  GIOCondition  (*condition_check)      (GDatagramBased       *datagram_based,
+                                         GIOCondition          condition);
+  gboolean      (*condition_wait)       (GDatagramBased       *datagram_based,
+                                         GIOCondition          condition,
+                                         gint64                timeout,
+                                         GCancellable         *cancellable,
+                                         GError              **error);
+};
+</programlisting>
+<para>Provides an interface for socket-like objects which have datagram semantics,
+following the Berkeley sockets API. The interface methods are thin wrappers
+around the corresponding virtual methods, and no pre-processing of inputs is
+implemented — so implementations of this API must handle all functionality
+documented in the interface methods.</para>
+<refsect3 id="GDatagramBasedInterface.members" role="struct_members">
+<title>Members</title>
+<informaltable role="struct_members_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="struct_members_name" colwidth="300px"/>
+<colspec colname="struct_members_description"/>
+<colspec colname="struct_members_annotations" colwidth="200px"/>
+<tbody>
+<row role="member"><entry role="struct_member_name"><para><structfield id="GDatagramBasedInterface.receive-messages">receive_messages</structfield>&#160;()</para></entry>
+<entry role="struct_member_description"><para>Virtual method for <link linkend="g-datagram-based-receive-messages"><function>g_datagram_based_receive_messages()</function></link>.</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><structfield id="GDatagramBasedInterface.send-messages">send_messages</structfield>&#160;()</para></entry>
+<entry role="struct_member_description"><para>Virtual method for <link linkend="g-datagram-based-send-messages"><function>g_datagram_based_send_messages()</function></link>.</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><structfield id="GDatagramBasedInterface.create-source">create_source</structfield>&#160;()</para></entry>
+<entry role="struct_member_description"><para>Virtual method for <link linkend="g-datagram-based-create-source"><function>g_datagram_based_create_source()</function></link>.</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><structfield id="GDatagramBasedInterface.condition-check">condition_check</structfield>&#160;()</para></entry>
+<entry role="struct_member_description"><para>Virtual method for <link linkend="g-datagram-based-condition-check"><function>g_datagram_based_condition_check()</function></link>.</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><structfield id="GDatagramBasedInterface.condition-wait">condition_wait</structfield>&#160;()</para></entry>
+<entry role="struct_member_description"><para>Virtual method for
+<link linkend="g-datagram-based-condition-wait"><function>g_datagram_based_condition_wait()</function></link>.</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+</tbody></tgroup></informaltable>
+</refsect3>
+<para role="since">Since: <link linkend="api-index-2.48">2.48</link></para></refsect2>
+
+</refsect1>
+<refsect1 id="GDatagramBased.see-also">
+<title>See Also</title>
+<para><link linkend="GSocket"><type>GSocket</type></link>, <link linkend="gio-gnetworking.h">&amp;lt;gnetworking.h&gt;</link></para>
+
+</refsect1>
+
+</refentry>

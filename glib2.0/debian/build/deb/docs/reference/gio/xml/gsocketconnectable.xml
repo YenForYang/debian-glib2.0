@@ -1,0 +1,273 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC '-//OASIS//DTD DocBook XML V4.5//EN'
+                      'http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd' [
+<!ENTITY % local.common.attrib "xmlns:xi  CDATA  #FIXED 'http://www.w3.org/2003/XInclude'">
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="GSocketConnectable">
+<refmeta>
+<refentrytitle role="top_of_page" id="GSocketConnectable.top_of_page">GSocketConnectable</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>GIO Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>GSocketConnectable</refname>
+<refpurpose>Interface for potential socket endpoints</refpurpose>
+</refnamediv>
+
+<refsect1 id="GSocketConnectable.functions" role="functions_proto">
+<title role="functions_proto.title">Functions</title>
+<informaltable pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="functions_return" colwidth="150px"/>
+<colspec colname="functions_name"/>
+<tbody>
+<row><entry role="function_type"><link linkend="GSocketAddressEnumerator"><returnvalue>GSocketAddressEnumerator</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-socket-connectable-enumerate">g_socket_connectable_enumerate</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GSocketAddressEnumerator"><returnvalue>GSocketAddressEnumerator</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-socket-connectable-proxy-enumerate">g_socket_connectable_proxy_enumerate</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-socket-connectable-to-string">g_socket_connectable_to_string</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GSocketConnectable.other" role="other_proto">
+<title role="other_proto.title">Types and Values</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="name" colwidth="150px"/>
+<colspec colname="description"/>
+<tbody>
+<row><entry role="datatype_keyword"></entry><entry role="function_name"><link linkend="GSocketConnectable-struct">GSocketConnectable</link></entry></row>
+<row><entry role="datatype_keyword">struct</entry><entry role="function_name"><link linkend="GSocketConnectableIface">GSocketConnectableIface</link></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GSocketConnectable.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<screen>    <link linkend="GInterface">GInterface</link>
+    <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> GSocketConnectable
+</screen>
+</refsect1>
+<refsect1 id="GSocketConnectable.prerequisites" role="prerequisites">
+<title role="prerequisites.title">Prerequisites</title>
+<para>
+GSocketConnectable requires
+ <link linkend="GObject">GObject</link>.</para>
+
+</refsect1>
+<refsect1 id="GSocketConnectable.implementations" role="implementations">
+<title role="implementations.title">Known Implementations</title>
+<para>
+GSocketConnectable is implemented by
+ <link linkend="GInetSocketAddress">GInetSocketAddress</link>,  <link linkend="GNativeSocketAddress">GNativeSocketAddress</link>,  <link linkend="GNetworkAddress">GNetworkAddress</link>,  <link linkend="GNetworkService">GNetworkService</link>,  <link linkend="GProxyAddress">GProxyAddress</link>,  <link linkend="GSocketAddress">GSocketAddress</link> and  <link linkend="GUnixSocketAddress">GUnixSocketAddress</link>.</para>
+
+</refsect1>
+
+<refsect1 id="GSocketConnectable.includes"><title>Includes</title><synopsis>#include &lt;gio/gio.h&gt;
+</synopsis></refsect1>
+
+<refsect1 id="GSocketConnectable.description" role="desc">
+<title role="desc.title">Description</title>
+<para>Objects that describe one or more potential socket endpoints
+implement <link linkend="GSocketConnectable"><type>GSocketConnectable</type></link>. Callers can then use
+<link linkend="g-socket-connectable-enumerate"><function>g_socket_connectable_enumerate()</function></link> to get a <link linkend="GSocketAddressEnumerator"><type>GSocketAddressEnumerator</type></link>
+to try out each socket address in turn until one succeeds, as shown
+in the sample code below.</para>
+<informalexample><programlisting role="example"><![CDATA[
+MyConnectionType *
+connect_to_host (const char    *hostname,
+                 guint16        port,
+                 GCancellable  *cancellable,
+                 GError       **error)
+{
+  MyConnection *conn = NULL;
+  GSocketConnectable *addr;
+  GSocketAddressEnumerator *enumerator;
+  GSocketAddress *sockaddr;
+  GError *conn_error = NULL;
+
+  addr = g_network_address_new (hostname, port);
+  enumerator = g_socket_connectable_enumerate (addr);
+  g_object_unref (addr);
+
+  // Try each sockaddr until we succeed. Record the first connection error,
+  // but not any further ones (since they'll probably be basically the same
+  // as the first).
+  while (!conn && (sockaddr = g_socket_address_enumerator_next (enumerator, cancellable, error))
+    {
+      conn = connect_to_sockaddr (sockaddr, conn_error ? NULL : &conn_error);
+      g_object_unref (sockaddr);
+    }
+  g_object_unref (enumerator);
+
+  if (conn)
+    {
+      if (conn_error)
+        {
+          // We couldn't connect to the first address, but we succeeded
+          // in connecting to a later address.
+          g_error_free (conn_error);
+        }
+      return conn;
+    }
+  else if (error)
+    {
+      /// Either initial lookup failed, or else the caller cancelled us.
+      if (conn_error)
+        g_error_free (conn_error);
+      return NULL;
+    }
+  else
+    {
+      g_error_propagate (error, conn_error);
+      return NULL;
+    }
+}
+]]></programlisting></informalexample>
+<para></para>
+
+</refsect1>
+<refsect1 id="GSocketConnectable.functions_details" role="details">
+<title role="details.title">Functions</title>
+<refsect2 id="g-socket-connectable-enumerate" role="function" condition="since:2.22">
+<title>g_socket_connectable_enumerate&#160;()</title>
+<indexterm zone="g-socket-connectable-enumerate" role="2.22"><primary sortas="socket_connectable_enumerate">g_socket_connectable_enumerate</primary></indexterm>
+<programlisting language="C"><link linkend="GSocketAddressEnumerator"><returnvalue>GSocketAddressEnumerator</returnvalue></link>&#160;*
+g_socket_connectable_enumerate (<parameter><link linkend="GSocketConnectable"><type>GSocketConnectable</type></link> *connectable</parameter>);</programlisting>
+<para>Creates a <link linkend="GSocketAddressEnumerator"><type>GSocketAddressEnumerator</type></link> for <parameter>connectable</parameter>
+.</para>
+<refsect3 id="g-socket-connectable-enumerate.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>connectable</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSocketConnectable"><type>GSocketConnectable</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-socket-connectable-enumerate.returns" role="returns">
+<title>Returns</title>
+<para>a new <link linkend="GSocketAddressEnumerator"><type>GSocketAddressEnumerator</type></link>. </para>
+<para><emphasis role="annotation">[<acronym>transfer full</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.22">2.22</link></para></refsect2>
+<refsect2 id="g-socket-connectable-proxy-enumerate" role="function" condition="since:2.26">
+<title>g_socket_connectable_proxy_enumerate&#160;()</title>
+<indexterm zone="g-socket-connectable-proxy-enumerate" role="2.26"><primary sortas="socket_connectable_proxy_enumerate">g_socket_connectable_proxy_enumerate</primary></indexterm>
+<programlisting language="C"><link linkend="GSocketAddressEnumerator"><returnvalue>GSocketAddressEnumerator</returnvalue></link>&#160;*
+g_socket_connectable_proxy_enumerate (<parameter><link linkend="GSocketConnectable"><type>GSocketConnectable</type></link> *connectable</parameter>);</programlisting>
+<para>Creates a <link linkend="GSocketAddressEnumerator"><type>GSocketAddressEnumerator</type></link> for <parameter>connectable</parameter>
+ that will
+return <link linkend="GProxyAddresses"><type>GProxyAddresses</type></link> for addresses that you must connect
+to via a proxy.</para>
+<para>If <parameter>connectable</parameter>
+ does not implement
+<link linkend="g-socket-connectable-proxy-enumerate"><function>g_socket_connectable_proxy_enumerate()</function></link>, this will fall back to
+calling <link linkend="g-socket-connectable-enumerate"><function>g_socket_connectable_enumerate()</function></link>.</para>
+<refsect3 id="g-socket-connectable-proxy-enumerate.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>connectable</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSocketConnectable"><type>GSocketConnectable</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-socket-connectable-proxy-enumerate.returns" role="returns">
+<title>Returns</title>
+<para>a new <link linkend="GSocketAddressEnumerator"><type>GSocketAddressEnumerator</type></link>. </para>
+<para><emphasis role="annotation">[<acronym>transfer full</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.26">2.26</link></para></refsect2>
+<refsect2 id="g-socket-connectable-to-string" role="function" condition="since:2.48">
+<title>g_socket_connectable_to_string&#160;()</title>
+<indexterm zone="g-socket-connectable-to-string" role="2.48"><primary sortas="socket_connectable_to_string">g_socket_connectable_to_string</primary></indexterm>
+<programlisting language="C"><link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+g_socket_connectable_to_string (<parameter><link linkend="GSocketConnectable"><type>GSocketConnectable</type></link> *connectable</parameter>);</programlisting>
+<para>Format a <link linkend="GSocketConnectable"><type>GSocketConnectable</type></link> as a string. This is a human-readable format for
+use in debugging output, and is not a stable serialization format. It is not
+suitable for use in user interfaces as it exposes too much information for a
+user.</para>
+<para>If the <link linkend="GSocketConnectable"><type>GSocketConnectable</type></link> implementation does not support string formatting,
+the implementation’s type name will be returned as a fallback.</para>
+<refsect3 id="g-socket-connectable-to-string.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>connectable</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSocketConnectable"><type>GSocketConnectable</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-socket-connectable-to-string.returns" role="returns">
+<title>Returns</title>
+<para>the formatted string. </para>
+<para><emphasis role="annotation">[<acronym>transfer full</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.48">2.48</link></para></refsect2>
+
+</refsect1>
+<refsect1 id="GSocketConnectable.other_details" role="details">
+<title role="details.title">Types and Values</title>
+<refsect2 id="GSocketConnectable-struct" role="struct">
+<title>GSocketConnectable</title>
+<indexterm zone="GSocketConnectable-struct"><primary sortas="SocketConnectable">GSocketConnectable</primary></indexterm>
+<programlisting language="C">typedef struct _GSocketConnectable GSocketConnectable;</programlisting>
+<para>Interface for objects that contain or generate <link linkend="GSocketAddresses"><type>GSocketAddresses</type></link>.</para>
+</refsect2>
+<refsect2 id="GSocketConnectableIface" role="struct">
+<title>struct GSocketConnectableIface</title>
+<indexterm zone="GSocketConnectableIface"><primary sortas="SocketConnectableIface">GSocketConnectableIface</primary></indexterm>
+<programlisting language="C">struct GSocketConnectableIface {
+  GTypeInterface g_iface;
+
+  /* Virtual Table */
+
+  GSocketAddressEnumerator * (* enumerate)       (GSocketConnectable *connectable);
+
+  GSocketAddressEnumerator * (* proxy_enumerate) (GSocketConnectable *connectable);
+
+  gchar                    * (* to_string)       (GSocketConnectable *connectable);
+};
+</programlisting>
+<para>Provides an interface for returning a <link linkend="GSocketAddressEnumerator"><type>GSocketAddressEnumerator</type></link>
+and <link linkend="GProxyAddressEnumerator"><type>GProxyAddressEnumerator</type></link></para>
+<refsect3 id="GSocketConnectableIface.members" role="struct_members">
+<title>Members</title>
+<informaltable role="struct_members_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="struct_members_name" colwidth="300px"/>
+<colspec colname="struct_members_description"/>
+<colspec colname="struct_members_annotations" colwidth="200px"/>
+<tbody>
+<row role="member"><entry role="struct_member_name"><para><structfield id="GSocketConnectableIface.enumerate">enumerate</structfield>&#160;()</para></entry>
+<entry role="struct_member_description"><para>Creates a <link linkend="GSocketAddressEnumerator"><type>GSocketAddressEnumerator</type></link></para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><structfield id="GSocketConnectableIface.proxy-enumerate">proxy_enumerate</structfield>&#160;()</para></entry>
+<entry role="struct_member_description"><para>Creates a <link linkend="GProxyAddressEnumerator"><type>GProxyAddressEnumerator</type></link></para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><structfield id="GSocketConnectableIface.to-string">to_string</structfield>&#160;()</para></entry>
+<entry role="struct_member_description"><para>Format the connectable’s address as a string for debugging.
+Implementing this is optional. (Since: 2.48)</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+</tbody></tgroup></informaltable>
+</refsect3>
+</refsect2>
+
+</refsect1>
+
+</refentry>

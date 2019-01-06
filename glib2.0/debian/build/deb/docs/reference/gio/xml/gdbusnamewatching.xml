@@ -1,0 +1,418 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC '-//OASIS//DTD DocBook XML V4.5//EN'
+                      'http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd' [
+<!ENTITY % local.common.attrib "xmlns:xi  CDATA  #FIXED 'http://www.w3.org/2003/XInclude'">
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="gio-Watching-Bus-Names">
+<refmeta>
+<refentrytitle role="top_of_page" id="gio-Watching-Bus-Names.top_of_page">Watching Bus Names</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>GIO Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>Watching Bus Names</refname>
+<refpurpose>Simple API for watching bus names</refpurpose>
+</refnamediv>
+
+<refsect1 id="gio-Watching-Bus-Names.functions" role="functions_proto">
+<title role="functions_proto.title">Functions</title>
+<informaltable pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="functions_return" colwidth="150px"/>
+<colspec colname="functions_name"/>
+<tbody>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><phrase role="c_punctuation">(</phrase><link linkend="GBusNameAppearedCallback">*GBusNameAppearedCallback</link><phrase role="c_punctuation">)</phrase>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><phrase role="c_punctuation">(</phrase><link linkend="GBusNameVanishedCallback">*GBusNameVanishedCallback</link><phrase role="c_punctuation">)</phrase>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="guint"><returnvalue>guint</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-bus-watch-name">g_bus_watch_name</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="guint"><returnvalue>guint</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-bus-watch-name-on-connection">g_bus_watch_name_on_connection</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-bus-unwatch-name">g_bus_unwatch_name</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="guint"><returnvalue>guint</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-bus-watch-name-with-closures">g_bus_watch_name_with_closures</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="guint"><returnvalue>guint</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-bus-watch-name-on-connection-with-closures">g_bus_watch_name_on_connection_with_closures</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="gio-Watching-Bus-Names.other" role="other_proto">
+<title role="other_proto.title">Types and Values</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="name" colwidth="150px"/>
+<colspec colname="description"/>
+<tbody>
+<row><entry role="datatype_keyword">enum</entry><entry role="function_name"><link linkend="GBusNameWatcherFlags">GBusNameWatcherFlags</link></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="gio-Watching-Bus-Names.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<screen>    <link linkend="GFlags">GFlags</link>
+    <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> GBusNameWatcherFlags
+</screen>
+</refsect1>
+
+<refsect1 id="gio-Watching-Bus-Names.includes"><title>Includes</title><synopsis>#include &lt;gio/gio.h&gt;
+</synopsis></refsect1>
+
+<refsect1 id="gio-Watching-Bus-Names.description" role="desc">
+<title role="desc.title">Description</title>
+<para>Convenience API for watching bus names.</para>
+<para>A simple example for watching a name can be found in
+<ulink url="https://git.gnome.org/browse/glib/tree/gio/tests/gdbus-example-watch-name.c">gdbus-example-watch-name.c</ulink></para>
+
+</refsect1>
+<refsect1 id="gio-Watching-Bus-Names.functions_details" role="details">
+<title role="details.title">Functions</title>
+<refsect2 id="GBusNameAppearedCallback" role="function" condition="since:2.26">
+<title>GBusNameAppearedCallback&#160;()</title>
+<indexterm zone="GBusNameAppearedCallback" role="2.26"><primary sortas="BusNameAppearedCallback">GBusNameAppearedCallback</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+<phrase role="c_punctuation">(</phrase>*GBusNameAppearedCallback<phrase role="c_punctuation">)</phrase> (<parameter><link linkend="GDBusConnection"><type>GDBusConnection</type></link> *connection</parameter>,
+                             <parameter>const <link linkend="gchar"><type>gchar</type></link> *name</parameter>,
+                             <parameter>const <link linkend="gchar"><type>gchar</type></link> *name_owner</parameter>,
+                             <parameter><link linkend="gpointer"><type>gpointer</type></link> user_data</parameter>);</programlisting>
+<para>Invoked when the name being watched is known to have to have a owner.</para>
+<refsect3 id="GBusNameAppearedCallback.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>connection</para></entry>
+<entry role="parameter_description"><para>The <link linkend="GDBusConnection"><type>GDBusConnection</type></link> the name is being watched on.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>name</para></entry>
+<entry role="parameter_description"><para>The name being watched.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>name_owner</para></entry>
+<entry role="parameter_description"><para>Unique name of the owner of the name being watched.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>user_data</para></entry>
+<entry role="parameter_description"><para>User data passed to <link linkend="g-bus-watch-name"><function>g_bus_watch_name()</function></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.26">2.26</link></para></refsect2>
+<refsect2 id="GBusNameVanishedCallback" role="function" condition="since:2.26">
+<title>GBusNameVanishedCallback&#160;()</title>
+<indexterm zone="GBusNameVanishedCallback" role="2.26"><primary sortas="BusNameVanishedCallback">GBusNameVanishedCallback</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+<phrase role="c_punctuation">(</phrase>*GBusNameVanishedCallback<phrase role="c_punctuation">)</phrase> (<parameter><link linkend="GDBusConnection"><type>GDBusConnection</type></link> *connection</parameter>,
+                             <parameter>const <link linkend="gchar"><type>gchar</type></link> *name</parameter>,
+                             <parameter><link linkend="gpointer"><type>gpointer</type></link> user_data</parameter>);</programlisting>
+<para>Invoked when the name being watched is known not to have to have a owner.</para>
+<para>This is also invoked when the <link linkend="GDBusConnection"><type>GDBusConnection</type></link> on which the watch was
+established has been closed.  In that case, <parameter>connection</parameter>
+ will be
+<link linkend="NULL:CAPS"><literal>NULL</literal></link>.</para>
+<refsect3 id="GBusNameVanishedCallback.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>connection</para></entry>
+<entry role="parameter_description"><para>The <link linkend="GDBusConnection"><type>GDBusConnection</type></link> the name is being watched on, or
+<link linkend="NULL:CAPS"><literal>NULL</literal></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>name</para></entry>
+<entry role="parameter_description"><para>The name being watched.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>user_data</para></entry>
+<entry role="parameter_description"><para>User data passed to <link linkend="g-bus-watch-name"><function>g_bus_watch_name()</function></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.26">2.26</link></para></refsect2>
+<refsect2 id="g-bus-watch-name" role="function" condition="since:2.26">
+<title>g_bus_watch_name&#160;()</title>
+<indexterm zone="g-bus-watch-name" role="2.26"><primary sortas="bus_watch_name">g_bus_watch_name</primary></indexterm>
+<programlisting language="C"><link linkend="guint"><returnvalue>guint</returnvalue></link>
+g_bus_watch_name (<parameter><link linkend="GBusType"><type>GBusType</type></link> bus_type</parameter>,
+                  <parameter>const <link linkend="gchar"><type>gchar</type></link> *name</parameter>,
+                  <parameter><link linkend="GBusNameWatcherFlags"><type>GBusNameWatcherFlags</type></link> flags</parameter>,
+                  <parameter><link linkend="GBusNameAppearedCallback"><type>GBusNameAppearedCallback</type></link> name_appeared_handler</parameter>,
+                  <parameter><link linkend="GBusNameVanishedCallback"><type>GBusNameVanishedCallback</type></link> name_vanished_handler</parameter>,
+                  <parameter><link linkend="gpointer"><type>gpointer</type></link> user_data</parameter>,
+                  <parameter><link linkend="GDestroyNotify"><type>GDestroyNotify</type></link> user_data_free_func</parameter>);</programlisting>
+<para>Starts watching <parameter>name</parameter>
+ on the bus specified by <parameter>bus_type</parameter>
+ and calls
+<parameter>name_appeared_handler</parameter>
+ and <parameter>name_vanished_handler</parameter>
+ when the name is
+known to have a owner respectively known to lose its
+owner. Callbacks will be invoked in the
+<link linkend="g-main-context-push-thread-default">thread-default main context</link>
+of the thread you are calling this function from.</para>
+<para>You are guaranteed that one of the handlers will be invoked after
+calling this function. When you are done watching the name, just
+call <link linkend="g-bus-unwatch-name"><function>g_bus_unwatch_name()</function></link> with the watcher id this function
+returns.</para>
+<para>If the name vanishes or appears (for example the application owning
+the name could restart), the handlers are also invoked. If the
+<link linkend="GDBusConnection"><type>GDBusConnection</type></link> that is used for watching the name disconnects, then
+<parameter>name_vanished_handler</parameter>
+ is invoked since it is no longer
+possible to access the name.</para>
+<para>Another guarantee is that invocations of <parameter>name_appeared_handler</parameter>
+
+and <parameter>name_vanished_handler</parameter>
+ are guaranteed to alternate; that
+is, if <parameter>name_appeared_handler</parameter>
+ is invoked then you are
+guaranteed that the next time one of the handlers is invoked, it
+will be <parameter>name_vanished_handler</parameter>
+. The reverse is also true.</para>
+<para>This behavior makes it very simple to write applications that want
+to take action when a certain <link linkend="gdbus-watching-names">name exists</link>.
+Basically, the application should create object proxies in
+<parameter>name_appeared_handler</parameter>
+ and destroy them again (if any) in
+<parameter>name_vanished_handler</parameter>
+.</para>
+<refsect3 id="g-bus-watch-name.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>bus_type</para></entry>
+<entry role="parameter_description"><para>The type of bus to watch a name on.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>name</para></entry>
+<entry role="parameter_description"><para>The name (well-known or unique) to watch.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>flags</para></entry>
+<entry role="parameter_description"><para>Flags from the <link linkend="GBusNameWatcherFlags"><type>GBusNameWatcherFlags</type></link> enumeration.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>name_appeared_handler</para></entry>
+<entry role="parameter_description"><para>Handler to invoke when <parameter>name</parameter>
+is known to exist or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>name_vanished_handler</para></entry>
+<entry role="parameter_description"><para>Handler to invoke when <parameter>name</parameter>
+is known to not exist or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>user_data</para></entry>
+<entry role="parameter_description"><para>User data to pass to handlers.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>user_data_free_func</para></entry>
+<entry role="parameter_description"><para>Function for freeing <parameter>user_data</parameter>
+or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-bus-watch-name.returns" role="returns">
+<title>Returns</title>
+<para> An identifier (never 0) that an be used with
+<link linkend="g-bus-unwatch-name"><function>g_bus_unwatch_name()</function></link> to stop watching the name.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.26">2.26</link></para></refsect2>
+<refsect2 id="g-bus-watch-name-on-connection" role="function" condition="since:2.26">
+<title>g_bus_watch_name_on_connection&#160;()</title>
+<indexterm zone="g-bus-watch-name-on-connection" role="2.26"><primary sortas="bus_watch_name_on_connection">g_bus_watch_name_on_connection</primary></indexterm>
+<programlisting language="C"><link linkend="guint"><returnvalue>guint</returnvalue></link>
+g_bus_watch_name_on_connection (<parameter><link linkend="GDBusConnection"><type>GDBusConnection</type></link> *connection</parameter>,
+                                <parameter>const <link linkend="gchar"><type>gchar</type></link> *name</parameter>,
+                                <parameter><link linkend="GBusNameWatcherFlags"><type>GBusNameWatcherFlags</type></link> flags</parameter>,
+                                <parameter><link linkend="GBusNameAppearedCallback"><type>GBusNameAppearedCallback</type></link> name_appeared_handler</parameter>,
+                                <parameter><link linkend="GBusNameVanishedCallback"><type>GBusNameVanishedCallback</type></link> name_vanished_handler</parameter>,
+                                <parameter><link linkend="gpointer"><type>gpointer</type></link> user_data</parameter>,
+                                <parameter><link linkend="GDestroyNotify"><type>GDestroyNotify</type></link> user_data_free_func</parameter>);</programlisting>
+<para>Like <link linkend="g-bus-watch-name"><function>g_bus_watch_name()</function></link> but takes a <link linkend="GDBusConnection"><type>GDBusConnection</type></link> instead of a
+<link linkend="GBusType"><type>GBusType</type></link>.</para>
+<refsect3 id="g-bus-watch-name-on-connection.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>connection</para></entry>
+<entry role="parameter_description"><para>A <link linkend="GDBusConnection"><type>GDBusConnection</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>name</para></entry>
+<entry role="parameter_description"><para>The name (well-known or unique) to watch.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>flags</para></entry>
+<entry role="parameter_description"><para>Flags from the <link linkend="GBusNameWatcherFlags"><type>GBusNameWatcherFlags</type></link> enumeration.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>name_appeared_handler</para></entry>
+<entry role="parameter_description"><para>Handler to invoke when <parameter>name</parameter>
+is known to exist or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>name_vanished_handler</para></entry>
+<entry role="parameter_description"><para>Handler to invoke when <parameter>name</parameter>
+is known to not exist or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>user_data</para></entry>
+<entry role="parameter_description"><para>User data to pass to handlers.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>user_data_free_func</para></entry>
+<entry role="parameter_description"><para>Function for freeing <parameter>user_data</parameter>
+or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-bus-watch-name-on-connection.returns" role="returns">
+<title>Returns</title>
+<para> An identifier (never 0) that an be used with
+<link linkend="g-bus-unwatch-name"><function>g_bus_unwatch_name()</function></link> to stop watching the name.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.26">2.26</link></para></refsect2>
+<refsect2 id="g-bus-unwatch-name" role="function" condition="since:2.26">
+<title>g_bus_unwatch_name&#160;()</title>
+<indexterm zone="g-bus-unwatch-name" role="2.26"><primary sortas="bus_unwatch_name">g_bus_unwatch_name</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_bus_unwatch_name (<parameter><link linkend="guint"><type>guint</type></link> watcher_id</parameter>);</programlisting>
+<para>Stops watching a name.</para>
+<refsect3 id="g-bus-unwatch-name.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>watcher_id</para></entry>
+<entry role="parameter_description"><para>An identifier obtained from <link linkend="g-bus-watch-name"><function>g_bus_watch_name()</function></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.26">2.26</link></para></refsect2>
+<refsect2 id="g-bus-watch-name-with-closures" role="function" condition="since:2.26">
+<title>g_bus_watch_name_with_closures&#160;()</title>
+<indexterm zone="g-bus-watch-name-with-closures" role="2.26"><primary sortas="bus_watch_name_with_closures">g_bus_watch_name_with_closures</primary></indexterm>
+<programlisting language="C"><link linkend="guint"><returnvalue>guint</returnvalue></link>
+g_bus_watch_name_with_closures (<parameter><link linkend="GBusType"><type>GBusType</type></link> bus_type</parameter>,
+                                <parameter>const <link linkend="gchar"><type>gchar</type></link> *name</parameter>,
+                                <parameter><link linkend="GBusNameWatcherFlags"><type>GBusNameWatcherFlags</type></link> flags</parameter>,
+                                <parameter><link linkend="GClosure"><type>GClosure</type></link> *name_appeared_closure</parameter>,
+                                <parameter><link linkend="GClosure"><type>GClosure</type></link> *name_vanished_closure</parameter>);</programlisting>
+<para>Version of <link linkend="g-bus-watch-name"><function>g_bus_watch_name()</function></link> using closures instead of callbacks for
+easier binding in other languages.</para>
+
+<para><emphasis role="annotation">[<acronym>rename-to</acronym> g_bus_watch_name]</emphasis></para><refsect3 id="g-bus-watch-name-with-closures.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>bus_type</para></entry>
+<entry role="parameter_description"><para>The type of bus to watch a name on.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>name</para></entry>
+<entry role="parameter_description"><para>The name (well-known or unique) to watch.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>flags</para></entry>
+<entry role="parameter_description"><para>Flags from the <link linkend="GBusNameWatcherFlags"><type>GBusNameWatcherFlags</type></link> enumeration.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>name_appeared_closure</para></entry>
+<entry role="parameter_description"><para><link linkend="GClosure"><type>GClosure</type></link> to invoke when <parameter>name</parameter>
+is known
+to exist or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>name_vanished_closure</para></entry>
+<entry role="parameter_description"><para><link linkend="GClosure"><type>GClosure</type></link> to invoke when <parameter>name</parameter>
+is known
+to not exist or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-bus-watch-name-with-closures.returns" role="returns">
+<title>Returns</title>
+<para> An identifier (never 0) that an be used with
+<link linkend="g-bus-unwatch-name"><function>g_bus_unwatch_name()</function></link> to stop watching the name.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.26">2.26</link></para></refsect2>
+<refsect2 id="g-bus-watch-name-on-connection-with-closures" role="function" condition="since:2.26">
+<title>g_bus_watch_name_on_connection_with_closures&#160;()</title>
+<indexterm zone="g-bus-watch-name-on-connection-with-closures" role="2.26"><primary sortas="bus_watch_name_on_connection_with_closures">g_bus_watch_name_on_connection_with_closures</primary></indexterm>
+<programlisting language="C"><link linkend="guint"><returnvalue>guint</returnvalue></link>
+g_bus_watch_name_on_connection_with_closures
+                               (<parameter><link linkend="GDBusConnection"><type>GDBusConnection</type></link> *connection</parameter>,
+                                <parameter>const <link linkend="gchar"><type>gchar</type></link> *name</parameter>,
+                                <parameter><link linkend="GBusNameWatcherFlags"><type>GBusNameWatcherFlags</type></link> flags</parameter>,
+                                <parameter><link linkend="GClosure"><type>GClosure</type></link> *name_appeared_closure</parameter>,
+                                <parameter><link linkend="GClosure"><type>GClosure</type></link> *name_vanished_closure</parameter>);</programlisting>
+<para>Version of <link linkend="g-bus-watch-name-on-connection"><function>g_bus_watch_name_on_connection()</function></link> using closures instead of callbacks for
+easier binding in other languages.</para>
+
+<para><emphasis role="annotation">[<acronym>rename-to</acronym> g_bus_watch_name_on_connection]</emphasis></para><refsect3 id="g-bus-watch-name-on-connection-with-closures.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>connection</para></entry>
+<entry role="parameter_description"><para>A <link linkend="GDBusConnection"><type>GDBusConnection</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>name</para></entry>
+<entry role="parameter_description"><para>The name (well-known or unique) to watch.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>flags</para></entry>
+<entry role="parameter_description"><para>Flags from the <link linkend="GBusNameWatcherFlags"><type>GBusNameWatcherFlags</type></link> enumeration.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>name_appeared_closure</para></entry>
+<entry role="parameter_description"><para><link linkend="GClosure"><type>GClosure</type></link> to invoke when <parameter>name</parameter>
+is known
+to exist or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>name_vanished_closure</para></entry>
+<entry role="parameter_description"><para><link linkend="GClosure"><type>GClosure</type></link> to invoke when <parameter>name</parameter>
+is known
+to not exist or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-bus-watch-name-on-connection-with-closures.returns" role="returns">
+<title>Returns</title>
+<para> An identifier (never 0) that an be used with
+<link linkend="g-bus-unwatch-name"><function>g_bus_unwatch_name()</function></link> to stop watching the name.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.26">2.26</link></para></refsect2>
+
+</refsect1>
+<refsect1 id="gio-Watching-Bus-Names.other_details" role="details">
+<title role="details.title">Types and Values</title>
+<refsect2 id="GBusNameWatcherFlags" role="enum" condition="since:2.26">
+<title>enum GBusNameWatcherFlags</title>
+<indexterm zone="GBusNameWatcherFlags" role="2.26"><primary sortas="BusNameWatcherFlags">GBusNameWatcherFlags</primary></indexterm>
+<para>Flags used in <link linkend="g-bus-watch-name"><function>g_bus_watch_name()</function></link>.</para>
+<refsect3 id="GBusNameWatcherFlags.members" role="enum_members">
+<title>Members</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="enum_members_name" colwidth="300px"/>
+<colspec colname="enum_members_description"/>
+<colspec colname="enum_members_annotations" colwidth="200px"/>
+<tbody>
+<row role="constant"><entry role="enum_member_name"><para id="G-BUS-NAME-WATCHER-FLAGS-NONE:CAPS">G_BUS_NAME_WATCHER_FLAGS_NONE</para></entry>
+<entry role="enum_member_description"><para>No flags set.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-BUS-NAME-WATCHER-FLAGS-AUTO-START:CAPS">G_BUS_NAME_WATCHER_FLAGS_AUTO_START</para></entry>
+<entry role="enum_member_description"><para>If no-one owns the name when
+beginning to watch the name, ask the bus to launch an owner for the
+name.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.26">2.26</link></para></refsect2>
+
+</refsect1>
+
+</refentry>

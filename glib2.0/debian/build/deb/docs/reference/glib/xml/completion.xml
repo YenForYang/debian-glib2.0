@@ -1,0 +1,449 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC '-//OASIS//DTD DocBook XML V4.5//EN'
+                      'http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd' [
+<!ENTITY % local.common.attrib "xmlns:xi  CDATA  #FIXED 'http://www.w3.org/2003/XInclude'">
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="glib-Automatic-String-Completion">
+<refmeta>
+<refentrytitle role="top_of_page" id="glib-Automatic-String-Completion.top_of_page">Automatic String Completion</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>GLIB Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>Automatic String Completion</refname>
+<refpurpose>support for automatic completion using a group
+                    of target strings</refpurpose>
+</refnamediv>
+
+<refsect1 id="glib-Automatic-String-Completion.functions" role="functions_proto">
+<title role="functions_proto.title">Functions</title>
+<informaltable pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="functions_return" colwidth="150px"/>
+<colspec colname="functions_name"/>
+<tbody>
+<row><entry role="function_type"><link linkend="GCompletion"><returnvalue>GCompletion</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-completion-new">g_completion_new</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+</entry><entry role="function_name"><phrase role="c_punctuation">(</phrase><link linkend="GCompletionFunc">*GCompletionFunc</link><phrase role="c_punctuation">)</phrase>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-completion-add-items">g_completion_add_items</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-completion-remove-items">g_completion_remove_items</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-completion-clear-items">g_completion_clear_items</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GList"><returnvalue>GList</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-completion-complete">g_completion_complete</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GList"><returnvalue>GList</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-completion-complete-utf8">g_completion_complete_utf8</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-completion-set-compare">g_completion_set_compare</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gint"><returnvalue>gint</returnvalue></link>
+</entry><entry role="function_name"><phrase role="c_punctuation">(</phrase><link linkend="GCompletionStrncmpFunc">*GCompletionStrncmpFunc</link><phrase role="c_punctuation">)</phrase>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-completion-free">g_completion_free</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="glib-Automatic-String-Completion.other" role="other_proto">
+<title role="other_proto.title">Types and Values</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="name" colwidth="150px"/>
+<colspec colname="description"/>
+<tbody>
+<row><entry role="datatype_keyword">struct</entry><entry role="function_name"><link linkend="GCompletion">GCompletion</link></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+
+<refsect1 id="glib-Automatic-String-Completion.includes"><title>Includes</title><synopsis>#include &lt;gmodule.h&gt;
+</synopsis></refsect1>
+
+<refsect1 id="glib-Automatic-String-Completion.description" role="desc">
+<title role="desc.title">Description</title>
+<para><link linkend="GCompletion"><type>GCompletion</type></link> provides support for automatic completion of a string
+using any group of target strings. It is typically used for file
+name completion as is common in many UNIX shells.</para>
+<para>A <link linkend="GCompletion"><type>GCompletion</type></link> is created using <link linkend="g-completion-new"><function>g_completion_new()</function></link>. Target items are
+added and removed with <link linkend="g-completion-add-items"><function>g_completion_add_items()</function></link>,
+<link linkend="g-completion-remove-items"><function>g_completion_remove_items()</function></link> and <link linkend="g-completion-clear-items"><function>g_completion_clear_items()</function></link>. A
+completion attempt is requested with <link linkend="g-completion-complete"><function>g_completion_complete()</function></link> or
+<link linkend="g-completion-complete-utf8"><function>g_completion_complete_utf8()</function></link>. When no longer needed, the
+<link linkend="GCompletion"><type>GCompletion</type></link> is freed with <link linkend="g-completion-free"><function>g_completion_free()</function></link>.</para>
+<para>Items in the completion can be simple strings (e.g. filenames), or
+pointers to arbitrary data structures. If data structures are used
+you must provide a <link linkend="GCompletionFunc"><type>GCompletionFunc</type></link> in <link linkend="g-completion-new"><function>g_completion_new()</function></link>, which
+retrieves the item's string from the data structure. You can change
+the way in which strings are compared by setting a different
+<link linkend="GCompletionStrncmpFunc"><type>GCompletionStrncmpFunc</type></link> in <link linkend="g-completion-set-compare"><function>g_completion_set_compare()</function></link>.</para>
+<para>GCompletion has been marked as deprecated, since this API is rarely
+used and not very actively maintained.</para>
+
+</refsect1>
+<refsect1 id="glib-Automatic-String-Completion.functions_details" role="details">
+<title role="details.title">Functions</title>
+<refsect2 id="g-completion-new" role="function" condition="deprecated:">
+<title>g_completion_new&#160;()</title>
+<indexterm zone="g-completion-new" role="deprecated"><primary sortas="completion_new">g_completion_new</primary></indexterm>
+<programlisting language="C"><link linkend="GCompletion"><returnvalue>GCompletion</returnvalue></link>&#160;*
+g_completion_new (<parameter><link linkend="GCompletionFunc"><type>GCompletionFunc</type></link> func</parameter>);</programlisting>
+<warning><para><literal>g_completion_new</literal> is deprecated and should not be used in newly-written code.</para></warning>
+<para>Creates a new <link linkend="GCompletion"><type>GCompletion</type></link>.</para>
+<refsect3 id="g-completion-new.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>func</para></entry>
+<entry role="parameter_description"><para>the function to be called to return the string representing
+an item in the <link linkend="GCompletion"><type>GCompletion</type></link>, or <link linkend="NULL:CAPS"><literal>NULL</literal></link> if strings are going to
+be used as the <link linkend="GCompletion"><type>GCompletion</type></link> items.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-completion-new.returns" role="returns">
+<title>Returns</title>
+<para> the new <link linkend="GCompletion"><type>GCompletion</type></link>.</para>
+</refsect3></refsect2>
+<refsect2 id="GCompletionFunc" role="function">
+<title>GCompletionFunc&#160;()</title>
+<indexterm zone="GCompletionFunc"><primary sortas="CompletionFunc">GCompletionFunc</primary></indexterm>
+<programlisting language="C"><link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+<phrase role="c_punctuation">(</phrase>*GCompletionFunc<phrase role="c_punctuation">)</phrase> (<parameter><link linkend="gpointer"><type>gpointer</type></link> Param1</parameter>);</programlisting>
+<para>Specifies the type of the function passed to <link linkend="g-completion-new"><function>g_completion_new()</function></link>. It
+should return the string corresponding to the given target item.
+This is used when you use data structures as <link linkend="GCompletion"><type>GCompletion</type></link> items.</para>
+<refsect3 id="GCompletionFunc.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>Param1</para></entry>
+<entry role="parameter_description"><para>the completion item.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="GCompletionFunc.returns" role="returns">
+<title>Returns</title>
+<para> the string corresponding to the item.</para>
+</refsect3></refsect2>
+<refsect2 id="g-completion-add-items" role="function" condition="deprecated:2.26: Rarely used API">
+<title>g_completion_add_items&#160;()</title>
+<indexterm zone="g-completion-add-items" role="deprecated"><primary sortas="completion_add_items">g_completion_add_items</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_completion_add_items (<parameter><link linkend="GCompletion"><type>GCompletion</type></link> *cmp</parameter>,
+                        <parameter><link linkend="GList"><type>GList</type></link> *items</parameter>);</programlisting>
+<warning><para><literal>g_completion_add_items</literal> has been deprecated since version 2.26 and should not be used in newly-written code.</para> <para>Rarely used API</para>
+</warning>
+<para>Adds items to the <link linkend="GCompletion"><type>GCompletion</type></link>.</para>
+<refsect3 id="g-completion-add-items.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>cmp</para></entry>
+<entry role="parameter_description"><para>the <link linkend="GCompletion"><type>GCompletion</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>items</para></entry>
+<entry role="parameter_description"><para>the list of items to add. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>transfer none</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-completion-remove-items" role="function" condition="deprecated:2.26: Rarely used API">
+<title>g_completion_remove_items&#160;()</title>
+<indexterm zone="g-completion-remove-items" role="deprecated"><primary sortas="completion_remove_items">g_completion_remove_items</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_completion_remove_items (<parameter><link linkend="GCompletion"><type>GCompletion</type></link> *cmp</parameter>,
+                           <parameter><link linkend="GList"><type>GList</type></link> *items</parameter>);</programlisting>
+<warning><para><literal>g_completion_remove_items</literal> has been deprecated since version 2.26 and should not be used in newly-written code.</para> <para>Rarely used API</para>
+</warning>
+<para>Removes items from a <link linkend="GCompletion"><type>GCompletion</type></link>. The items are not freed, so if the memory
+was dynamically allocated, free <parameter>items</parameter>
+ with <link linkend="g-list-free-full"><function>g_list_free_full()</function></link> after calling
+this function.</para>
+<refsect3 id="g-completion-remove-items.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>cmp</para></entry>
+<entry role="parameter_description"><para>the <link linkend="GCompletion"><type>GCompletion</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>items</para></entry>
+<entry role="parameter_description"><para>the items to remove. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>transfer none</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-completion-clear-items" role="function" condition="deprecated:2.26: Rarely used API">
+<title>g_completion_clear_items&#160;()</title>
+<indexterm zone="g-completion-clear-items" role="deprecated"><primary sortas="completion_clear_items">g_completion_clear_items</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_completion_clear_items (<parameter><link linkend="GCompletion"><type>GCompletion</type></link> *cmp</parameter>);</programlisting>
+<warning><para><literal>g_completion_clear_items</literal> has been deprecated since version 2.26 and should not be used in newly-written code.</para> <para>Rarely used API</para>
+</warning>
+<para>Removes all items from the <link linkend="GCompletion"><type>GCompletion</type></link>. The items are not freed, so if the
+memory was dynamically allocated, it should be freed after calling this
+function.</para>
+<refsect3 id="g-completion-clear-items.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>cmp</para></entry>
+<entry role="parameter_description"><para>the <link linkend="GCompletion"><type>GCompletion</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-completion-complete" role="function" condition="deprecated:2.26: Rarely used API">
+<title>g_completion_complete&#160;()</title>
+<indexterm zone="g-completion-complete" role="deprecated"><primary sortas="completion_complete">g_completion_complete</primary></indexterm>
+<programlisting language="C"><link linkend="GList"><returnvalue>GList</returnvalue></link>&#160;*
+g_completion_complete (<parameter><link linkend="GCompletion"><type>GCompletion</type></link> *cmp</parameter>,
+                       <parameter>const <link linkend="gchar"><type>gchar</type></link> *prefix</parameter>,
+                       <parameter><link linkend="gchar"><type>gchar</type></link> **new_prefix</parameter>);</programlisting>
+<warning><para><literal>g_completion_complete</literal> has been deprecated since version 2.26 and should not be used in newly-written code.</para> <para>Rarely used API</para>
+</warning>
+<para>Attempts to complete the string <parameter>prefix</parameter>
+ using the <link linkend="GCompletion"><type>GCompletion</type></link>
+target items.</para>
+<refsect3 id="g-completion-complete.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>cmp</para></entry>
+<entry role="parameter_description"><para>the <link linkend="GCompletion"><type>GCompletion</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>prefix</para></entry>
+<entry role="parameter_description"><para>the prefix string, typically typed by the user, which is
+compared with each of the items.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>new_prefix</para></entry>
+<entry role="parameter_description"><para>if non-<link linkend="NULL:CAPS"><literal>NULL</literal></link>, returns the longest prefix which is
+common to all items that matched <parameter>prefix</parameter>
+, or <link linkend="NULL:CAPS"><literal>NULL</literal></link> if
+no items matched <parameter>prefix</parameter>
+.  This string should be freed
+when no longer needed.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-completion-complete.returns" role="returns">
+<title>Returns</title>
+<para>the list of items whose strings begin with
+<parameter>prefix</parameter>
+. This should not be changed. </para>
+<para><emphasis role="annotation">[<acronym>transfer none</acronym>]</emphasis></para>
+</refsect3></refsect2>
+<refsect2 id="g-completion-complete-utf8" role="function" condition="deprecated:2.26: Rarely used API|since:2.4">
+<title>g_completion_complete_utf8&#160;()</title>
+<indexterm zone="g-completion-complete-utf8" role="deprecated"><primary sortas="completion_complete_utf8">g_completion_complete_utf8</primary></indexterm><indexterm zone="g-completion-complete-utf8" role="2.4"><primary sortas="completion_complete_utf8">g_completion_complete_utf8</primary></indexterm>
+<programlisting language="C"><link linkend="GList"><returnvalue>GList</returnvalue></link>&#160;*
+g_completion_complete_utf8 (<parameter><link linkend="GCompletion"><type>GCompletion</type></link> *cmp</parameter>,
+                            <parameter>const <link linkend="gchar"><type>gchar</type></link> *prefix</parameter>,
+                            <parameter><link linkend="gchar"><type>gchar</type></link> **new_prefix</parameter>);</programlisting>
+<warning><para><literal>g_completion_complete_utf8</literal> has been deprecated since version 2.26 and should not be used in newly-written code.</para> <para>Rarely used API</para>
+</warning>
+<para>Attempts to complete the string <parameter>prefix</parameter>
+ using the <link linkend="GCompletion"><type>GCompletion</type></link> target items.
+In contrast to <link linkend="g-completion-complete"><function>g_completion_complete()</function></link>, this function returns the largest common
+prefix that is a valid UTF-8 string, omitting a possible common partial 
+character.</para>
+<para>You should use this function instead of <link linkend="g-completion-complete"><function>g_completion_complete()</function></link> if your 
+items are UTF-8 strings.</para>
+<refsect3 id="g-completion-complete-utf8.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>cmp</para></entry>
+<entry role="parameter_description"><para>the <link linkend="GCompletion"><type>GCompletion</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>prefix</para></entry>
+<entry role="parameter_description"><para>the prefix string, typically used by the user, which is compared
+with each of the items</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>new_prefix</para></entry>
+<entry role="parameter_description"><para>if non-<link linkend="NULL:CAPS"><literal>NULL</literal></link>, returns the longest prefix which is common to all
+items that matched <parameter>prefix</parameter>
+, or <link linkend="NULL:CAPS"><literal>NULL</literal></link> if no items matched <parameter>prefix</parameter>
+.
+This string should be freed when no longer needed.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-completion-complete-utf8.returns" role="returns">
+<title>Returns</title>
+<para>the list of items whose strings begin with <parameter>prefix</parameter>
+. This should
+not be changed. </para>
+<para><emphasis role="annotation">[<acronym>element-type</acronym> utf8][<acronym>transfer none</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.4">2.4</link></para></refsect2>
+<refsect2 id="g-completion-set-compare" role="function" condition="deprecated:2.26: Rarely used API">
+<title>g_completion_set_compare&#160;()</title>
+<indexterm zone="g-completion-set-compare" role="deprecated"><primary sortas="completion_set_compare">g_completion_set_compare</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_completion_set_compare (<parameter><link linkend="GCompletion"><type>GCompletion</type></link> *cmp</parameter>,
+                          <parameter><link linkend="GCompletionStrncmpFunc"><type>GCompletionStrncmpFunc</type></link> strncmp_func</parameter>);</programlisting>
+<warning><para><literal>g_completion_set_compare</literal> has been deprecated since version 2.26 and should not be used in newly-written code.</para> <para>Rarely used API</para>
+</warning>
+<para>Sets the function to use for string comparisons. The default string
+comparison function is <link linkend="strncmp"><function>strncmp()</function></link>.</para>
+<refsect3 id="g-completion-set-compare.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>cmp</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GCompletion"><type>GCompletion</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>strncmp_func</para></entry>
+<entry role="parameter_description"><para>the string comparison function.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="GCompletionStrncmpFunc" role="function">
+<title>GCompletionStrncmpFunc&#160;()</title>
+<indexterm zone="GCompletionStrncmpFunc"><primary sortas="CompletionStrncmpFunc">GCompletionStrncmpFunc</primary></indexterm>
+<programlisting language="C"><link linkend="gint"><returnvalue>gint</returnvalue></link>
+<phrase role="c_punctuation">(</phrase>*GCompletionStrncmpFunc<phrase role="c_punctuation">)</phrase> (<parameter>const <link linkend="gchar"><type>gchar</type></link> *s1</parameter>,
+                           <parameter>const <link linkend="gchar"><type>gchar</type></link> *s2</parameter>,
+                           <parameter><link linkend="gsize"><type>gsize</type></link> n</parameter>);</programlisting>
+<para>Specifies the type of the function passed to
+<link linkend="g-completion-set-compare"><function>g_completion_set_compare()</function></link>. This is used when you use strings as
+<link linkend="GCompletion"><type>GCompletion</type></link> items.</para>
+<refsect3 id="GCompletionStrncmpFunc.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>s1</para></entry>
+<entry role="parameter_description"><para>string to compare with <parameter>s2</parameter>
+.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>s2</para></entry>
+<entry role="parameter_description"><para>string to compare with <parameter>s1</parameter>
+.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>n</para></entry>
+<entry role="parameter_description"><para>maximal number of bytes to compare.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="GCompletionStrncmpFunc.returns" role="returns">
+<title>Returns</title>
+<para> an integer less than, equal to, or greater than zero if
+the first <parameter>n</parameter>
+bytes of <parameter>s1</parameter>
+is found, respectively, to be
+less than, to match, or to be greater than the first <parameter>n</parameter>
+bytes of <parameter>s2</parameter>
+.</para>
+</refsect3></refsect2>
+<refsect2 id="g-completion-free" role="function" condition="deprecated:2.26: Rarely used API">
+<title>g_completion_free&#160;()</title>
+<indexterm zone="g-completion-free" role="deprecated"><primary sortas="completion_free">g_completion_free</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_completion_free (<parameter><link linkend="GCompletion"><type>GCompletion</type></link> *cmp</parameter>);</programlisting>
+<warning><para><literal>g_completion_free</literal> has been deprecated since version 2.26 and should not be used in newly-written code.</para> <para>Rarely used API</para>
+</warning>
+<para>Frees all memory used by the <link linkend="GCompletion"><type>GCompletion</type></link>. The items are not freed, so if
+the memory was dynamically allocated, it should be freed after calling this
+function.</para>
+<refsect3 id="g-completion-free.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>cmp</para></entry>
+<entry role="parameter_description"><para>the <link linkend="GCompletion"><type>GCompletion</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+
+</refsect1>
+<refsect1 id="glib-Automatic-String-Completion.other_details" role="details">
+<title role="details.title">Types and Values</title>
+<refsect2 id="GCompletion" role="struct">
+<title>struct GCompletion</title>
+<indexterm zone="GCompletion"><primary sortas="Completion">GCompletion</primary></indexterm>
+<programlisting language="C">struct GCompletion {
+  GList* items;
+  GCompletionFunc func;
+ 
+  gchar* prefix;
+  GList* cache;
+  GCompletionStrncmpFunc strncmp_func;
+};
+</programlisting>
+<para>The data structure used for automatic completion.</para>
+<refsect3 id="GCompletion.members" role="struct_members">
+<title>Members</title>
+<informaltable role="struct_members_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="struct_members_name" colwidth="300px"/>
+<colspec colname="struct_members_description"/>
+<colspec colname="struct_members_annotations" colwidth="200px"/>
+<tbody>
+<row role="member"><entry role="struct_member_name"><para><link linkend="GList"><type>GList</type></link>&#160;*<structfield id="GCompletion.items">items</structfield>;</para></entry>
+<entry role="struct_member_description"><para>list of target items (strings or data structures).</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><link linkend="GCompletionFunc"><type>GCompletionFunc</type></link>&#160;<structfield id="GCompletion.func">func</structfield>;</para></entry>
+<entry role="struct_member_description"><para>function which is called to get the string associated with a
+target item. It is <link linkend="NULL:CAPS"><literal>NULL</literal></link> if the target items are strings.</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><link linkend="gchar"><type>gchar</type></link>&#160;*<structfield id="GCompletion.prefix">prefix</structfield>;</para></entry>
+<entry role="struct_member_description"><para>the last prefix passed to <link linkend="g-completion-complete"><function>g_completion_complete()</function></link> or
+<link linkend="g-completion-complete-utf8"><function>g_completion_complete_utf8()</function></link>.</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><link linkend="GList"><type>GList</type></link>&#160;*<structfield id="GCompletion.cache">cache</structfield>;</para></entry>
+<entry role="struct_member_description"><para>the list of items which begin with <parameter>prefix</parameter>
+.</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><link linkend="GCompletionStrncmpFunc"><type>GCompletionStrncmpFunc</type></link>&#160;<structfield id="GCompletion.strncmp-func">strncmp_func</structfield>;</para></entry>
+<entry role="struct_member_description"><para>The function to use when comparing strings.  Use
+<link linkend="g-completion-set-compare"><function>g_completion_set_compare()</function></link> to modify this function.</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+</tbody></tgroup></informaltable>
+</refsect3>
+</refsect2>
+
+</refsect1>
+
+</refentry>

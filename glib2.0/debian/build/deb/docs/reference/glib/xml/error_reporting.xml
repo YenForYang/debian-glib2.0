@@ -1,0 +1,888 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC '-//OASIS//DTD DocBook XML V4.5//EN'
+                      'http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd' [
+<!ENTITY % local.common.attrib "xmlns:xi  CDATA  #FIXED 'http://www.w3.org/2003/XInclude'">
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="glib-Error-Reporting">
+<refmeta>
+<refentrytitle role="top_of_page" id="glib-Error-Reporting.top_of_page">Error Reporting</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>GLIB Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>Error Reporting</refname>
+<refpurpose>a system for reporting errors</refpurpose>
+</refnamediv>
+
+<refsect1 id="glib-Error-Reporting.functions" role="functions_proto">
+<title role="functions_proto.title">Functions</title>
+<informaltable pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="functions_return" colwidth="150px"/>
+<colspec colname="functions_name"/>
+<tbody>
+<row><entry role="function_type"><link linkend="GError"><returnvalue>GError</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-error-new">g_error_new</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GError"><returnvalue>GError</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-error-new-literal">g_error_new_literal</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GError"><returnvalue>GError</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-error-new-valist">g_error_new_valist</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-error-free">g_error_free</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GError"><returnvalue>GError</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-error-copy">g_error_copy</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-error-matches">g_error_matches</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-set-error">g_set_error</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-set-error-literal">g_set_error_literal</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-propagate-error">g_propagate_error</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-clear-error">g_clear_error</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-prefix-error">g_prefix_error</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-propagate-prefixed-error">g_propagate_prefixed_error</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="glib-Error-Reporting.other" role="other_proto">
+<title role="other_proto.title">Types and Values</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="name" colwidth="150px"/>
+<colspec colname="description"/>
+<tbody>
+<row><entry role="datatype_keyword">struct</entry><entry role="function_name"><link linkend="GError">GError</link></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+
+<refsect1 id="glib-Error-Reporting.includes"><title>Includes</title><synopsis>#include &lt;glib.h&gt;
+</synopsis></refsect1>
+
+<refsect1 id="glib-Error-Reporting.description" role="desc">
+<title role="desc.title">Description</title>
+<para>GLib provides a standard method of reporting errors from a called
+function to the calling code. (This is the same problem solved by
+exceptions in other languages.) It's important to understand that
+this method is both a data type (the <link linkend="GError"><type>GError</type></link> struct) and a <link linkend="gerror-rules">set of
+rules</link>. If you use <link linkend="GError"><type>GError</type></link> incorrectly, then your code will not
+properly interoperate with other code that uses <link linkend="GError"><type>GError</type></link>, and users
+of your API will probably get confused. In most cases, <link linkend="gerror-comparison">using <link linkend="GError"><type>GError</type></link> is
+preferred over numeric error codes</link>, but there are
+situations where numeric error codes are useful for performance.</para>
+<para>First and foremost: <link linkend="GError"><type>GError</type></link> should only be used to report recoverable
+runtime errors, never to report programming errors. If the programmer
+has screwed up, then you should use <link linkend="g-warning"><function>g_warning()</function></link>, <link linkend="g-return-if-fail"><function>g_return_if_fail()</function></link>,
+<link linkend="g-assert"><function>g_assert()</function></link>, <link linkend="g-error"><function>g_error()</function></link>, or some similar facility. (Incidentally,
+remember that the <link linkend="g-error"><function>g_error()</function></link> function should only be used for
+programming errors, it should not be used to print any error
+reportable via <link linkend="GError"><type>GError</type></link>.)</para>
+<para>Examples of recoverable runtime errors are "file not found" or
+"failed to parse input." Examples of programming errors are "NULL
+passed to <link linkend="strcmp"><function>strcmp()</function></link>" or "attempted to free the same pointer twice."
+These two kinds of errors are fundamentally different: runtime errors
+should be handled or reported to the user, programming errors should
+be eliminated by fixing the bug in the program. This is why most
+functions in GLib and GTK+ do not use the <link linkend="GError"><type>GError</type></link> facility.</para>
+<para>Functions that can fail take a return location for a <link linkend="GError"><type>GError</type></link> as their
+last argument. On error, a new <link linkend="GError"><type>GError</type></link> instance will be allocated and
+returned to the caller via this argument. For example:</para>
+<informalexample><programlisting role="example"><![CDATA[
+gboolean g_file_get_contents (const gchar  *filename,
+                              gchar       **contents,
+                              gsize        *length,
+                              GError      **error);
+]]></programlisting></informalexample>
+<para>
+If you pass a non-<link linkend="NULL:CAPS"><literal>NULL</literal></link> value for the <literal>error</literal> argument, it should
+point to a location where an error can be placed. For example:</para>
+<informalexample><programlisting role="example"><![CDATA[
+gchar *contents;
+GError *err = NULL;
+
+g_file_get_contents ("foo.txt", &contents, NULL, &err);
+g_assert ((contents == NULL && err != NULL) || (contents != NULL && err == NULL));
+if (err != NULL)
+  {
+    // Report error to user, and free error
+    g_assert (contents == NULL);
+    fprintf (stderr, "Unable to read file: %s\n", err->message);
+    g_error_free (err);
+  }
+else
+  {
+    // Use file contents
+    g_assert (contents != NULL);
+  }
+]]></programlisting></informalexample>
+<para>
+Note that <literal>err != NULL</literal> in this example is a reliable indicator
+of whether <link linkend="g-file-get-contents"><function>g_file_get_contents()</function></link> failed. Additionally,
+<link linkend="g-file-get-contents"><function>g_file_get_contents()</function></link> returns a boolean which
+indicates whether it was successful.</para>
+<para>Because <link linkend="g-file-get-contents"><function>g_file_get_contents()</function></link> returns <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> on failure, if you
+are only interested in whether it failed and don't need to display
+an error message, you can pass <link linkend="NULL:CAPS"><literal>NULL</literal></link> for the <parameter>error</parameter>
+ argument:</para>
+<informalexample><programlisting role="example"><![CDATA[
+if (g_file_get_contents ("foo.txt", &contents, NULL, NULL)) // ignore errors
+  // no error occurred 
+  ;
+else
+  // error
+  ;
+]]></programlisting></informalexample>
+<para></para>
+<para>The <link linkend="GError"><type>GError</type></link> object contains three fields: <parameter>domain</parameter>
+ indicates the module
+the error-reporting function is located in, <parameter>code</parameter>
+ indicates the specific
+error that occurred, and <parameter>message</parameter>
+ is a user-readable error message with
+as many details as possible. Several functions are provided to deal
+with an error received from a called function: <link linkend="g-error-matches"><function>g_error_matches()</function></link>
+returns <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if the error matches a given domain and code,
+<link linkend="g-propagate-error"><function>g_propagate_error()</function></link> copies an error into an error location (so the
+calling function will receive it), and <link linkend="g-clear-error"><function>g_clear_error()</function></link> clears an
+error location by freeing the error and resetting the location to
+<link linkend="NULL:CAPS"><literal>NULL</literal></link>. To display an error to the user, simply display the <parameter>message</parameter>
+,
+perhaps along with additional context known only to the calling
+function (the file being opened, or whatever - though in the
+<link linkend="g-file-get-contents"><function>g_file_get_contents()</function></link> case, the <parameter>message</parameter>
+ already contains a filename).</para>
+<para>When implementing a function that can report errors, the basic
+tool is <link linkend="g-set-error"><function>g_set_error()</function></link>. Typically, if a fatal error occurs you
+want to <link linkend="g-set-error"><function>g_set_error()</function></link>, then return immediately. <link linkend="g-set-error"><function>g_set_error()</function></link>
+does nothing if the error location passed to it is <link linkend="NULL:CAPS"><literal>NULL</literal></link>.
+Here's an example:</para>
+<informalexample><programlisting role="example"><![CDATA[
+gint
+foo_open_file (GError **error)
+{
+  gint fd;
+  int saved_errno;
+
+  fd = open ("file.txt", O_RDONLY);
+  saved_errno = errno;
+
+  if (fd < 0)
+    {
+      g_set_error (error,
+                   FOO_ERROR,                 // error domain
+                   FOO_ERROR_BLAH,            // error code
+                   "Failed to open file: %s", // error message format string
+                   g_strerror (saved_errno));
+      return -1;
+    }
+  else
+    return fd;
+}
+]]></programlisting></informalexample>
+<para></para>
+<para>Things are somewhat more complicated if you yourself call another
+function that can report a <link linkend="GError"><type>GError</type></link>. If the sub-function indicates
+fatal errors in some way other than reporting a <link linkend="GError"><type>GError</type></link>, such as
+by returning <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> on success, you can simply do the following:</para>
+<informalexample><programlisting role="example"><![CDATA[
+gboolean
+my_function_that_can_fail (GError **err)
+{
+  g_return_val_if_fail (err == NULL || *err == NULL, FALSE);
+
+  if (!sub_function_that_can_fail (err))
+    {
+      // assert that error was set by the sub-function
+      g_assert (err == NULL || *err != NULL);
+      return FALSE;
+    }
+
+  // otherwise continue, no error occurred
+  g_assert (err == NULL || *err == NULL);
+}
+]]></programlisting></informalexample>
+<para></para>
+<para>If the sub-function does not indicate errors other than by
+reporting a <link linkend="GError"><type>GError</type></link> (or if its return value does not reliably indicate
+errors) you need to create a temporary <link linkend="GError"><type>GError</type></link>
+since the passed-in one may be <link linkend="NULL:CAPS"><literal>NULL</literal></link>. <link linkend="g-propagate-error"><function>g_propagate_error()</function></link> is
+intended for use in this case.</para>
+<informalexample><programlisting role="example"><![CDATA[
+gboolean
+my_function_that_can_fail (GError **err)
+{
+  GError *tmp_error;
+
+  g_return_val_if_fail (err == NULL || *err == NULL, FALSE);
+
+  tmp_error = NULL;
+  sub_function_that_can_fail (&tmp_error);
+
+  if (tmp_error != NULL)
+    {
+      // store tmp_error in err, if err != NULL,
+      // otherwise call g_error_free() on tmp_error
+      g_propagate_error (err, tmp_error);
+      return FALSE;
+    }
+
+  // otherwise continue, no error occurred
+}
+]]></programlisting></informalexample>
+<para></para>
+<para>Error pileups are always a bug. For example, this code is incorrect:</para>
+<informalexample><programlisting role="example"><![CDATA[
+gboolean
+my_function_that_can_fail (GError **err)
+{
+  GError *tmp_error;
+
+  g_return_val_if_fail (err == NULL || *err == NULL, FALSE);
+
+  tmp_error = NULL;
+  sub_function_that_can_fail (&tmp_error);
+  other_function_that_can_fail (&tmp_error);
+
+  if (tmp_error != NULL)
+    {
+      g_propagate_error (err, tmp_error);
+      return FALSE;
+    }
+}
+]]></programlisting></informalexample>
+<para>
+<parameter>tmp_error</parameter>
+ should be checked immediately after <link linkend="sub-function-that-can-fail"><function>sub_function_that_can_fail()</function></link>,
+and either cleared or propagated upward. The rule is: after each error,
+you must either handle the error, or return it to the calling function.</para>
+<para>Note that passing <link linkend="NULL:CAPS"><literal>NULL</literal></link> for the error location is the equivalent
+of handling an error by always doing nothing about it. So the
+following code is fine, assuming errors in <link linkend="sub-function-that-can-fail"><function>sub_function_that_can_fail()</function></link>
+are not fatal to <link linkend="my-function-that-can-fail"><function>my_function_that_can_fail()</function></link>:</para>
+<informalexample><programlisting role="example"><![CDATA[
+gboolean
+my_function_that_can_fail (GError **err)
+{
+  GError *tmp_error;
+
+  g_return_val_if_fail (err == NULL || *err == NULL, FALSE);
+
+  sub_function_that_can_fail (NULL); // ignore errors
+
+  tmp_error = NULL;
+  other_function_that_can_fail (&tmp_error);
+
+  if (tmp_error != NULL)
+    {
+      g_propagate_error (err, tmp_error);
+      return FALSE;
+    }
+}
+]]></programlisting></informalexample>
+<para></para>
+<para>Note that passing <link linkend="NULL:CAPS"><literal>NULL</literal></link> for the error location ignores errors;
+it's equivalent to
+<literal>try { <link linkend="sub-function-that-can-fail"><function>sub_function_that_can_fail()</function></link>; } catch (...) {}</literal>
+in C++. It does not mean to leave errors unhandled; it means
+to handle them by doing nothing.</para>
+<para>Error domains and codes are conventionally named as follows:</para>
+<itemizedlist>
+<listitem>
+<para>The error domain is called &lt;NAMESPACE>_&lt;MODULE>_ERROR,
+for example <link linkend="G-SPAWN-ERROR:CAPS"><literal>G_SPAWN_ERROR</literal></link> or <link linkend="G-THREAD-ERROR:CAPS"><literal>G_THREAD_ERROR</literal></link>:</para>
+<informalexample><programlisting role="example"><![CDATA[
+#define G_SPAWN_ERROR g_spawn_error_quark ()
+
+GQuark
+g_spawn_error_quark (void)
+{
+  return g_quark_from_static_string ("g-spawn-error-quark");
+}
+]]></programlisting></informalexample>
+<para></para>
+</listitem>
+<listitem>
+<para>The quark function for the error domain is called
+&lt;namespace>_&lt;module>_error_quark,
+for example <link linkend="g-spawn-error-quark"><function>g_spawn_error_quark()</function></link> or <link linkend="g-thread-error-quark"><function>g_thread_error_quark()</function></link>.</para>
+</listitem>
+<listitem>
+<para>The error codes are in an enumeration called
+&lt;Namespace>&lt;Module>Error;
+for example, <link linkend="GThreadError"><type>GThreadError</type></link> or <link linkend="GSpawnError"><type>GSpawnError</type></link>.</para>
+</listitem>
+<listitem>
+<para>Members of the error code enumeration are called
+&lt;NAMESPACE>_&lt;MODULE>_ERROR_&lt;CODE>,
+for example <link linkend="G-SPAWN-ERROR-FORK:CAPS"><literal>G_SPAWN_ERROR_FORK</literal></link> or <link linkend="G-THREAD-ERROR-AGAIN:CAPS"><literal>G_THREAD_ERROR_AGAIN</literal></link>.</para>
+</listitem>
+<listitem>
+<para>If there's a "generic" or "unknown" error code for unrecoverable
+errors it doesn't make sense to distinguish with specific codes,
+it should be called &lt;NAMESPACE>_&lt;MODULE>_ERROR_FAILED,
+for example <link linkend="G-SPAWN-ERROR-FAILED:CAPS"><literal>G_SPAWN_ERROR_FAILED</literal></link>. In the case of error code
+enumerations that may be extended in future releases, you should
+generally not handle this error code explicitly, but should
+instead treat any unrecognized error code as equivalent to
+FAILED.</para>
+</listitem>
+</itemizedlist>
+<refsect3 id="gerror-comparison"><title>Comparison of <link linkend="GError"><type>GError</type></link> and traditional error handling</title><para><link linkend="GError"><type>GError</type></link> has several advantages over traditional numeric error codes:
+importantly, tools like
+<ulink url="https://developer.gnome.org/gi/stable/">gobject-introspection</ulink> understand
+<link linkend="GErrors"><type>GErrors</type></link> and convert them to exceptions in bindings; the message includes
+more information than just a code; and use of a domain helps prevent
+misinterpretation of error codes.</para>
+<para><link linkend="GError"><type>GError</type></link> has disadvantages though: it requires a memory allocation, and
+formatting the error message string has a performance overhead. This makes it
+unsuitable for use in retry loops where errors are a common case, rather than
+being unusual. For example, using <link linkend="G-IO-ERROR-WOULD-BLOCK:CAPS"><literal>G_IO_ERROR_WOULD_BLOCK</literal></link> means hitting these
+overheads in the normal control flow. String formatting overhead can be
+eliminated by using <link linkend="g-set-error-literal"><function>g_set_error_literal()</function></link> in some cases.</para>
+<para>These performance issues can be compounded if a function wraps the <link linkend="GErrors"><type>GErrors</type></link>
+returned by the functions it calls: this multiplies the number of allocations
+and string formatting operations. This can be partially mitigated by using
+<link linkend="g-prefix-error"><function>g_prefix_error()</function></link>.</para>
+</refsect3>
+<refsect3 id="gerror-rules"><title>Rules for use of <link linkend="GError"><type>GError</type></link></title><para>Summary of rules for use of <link linkend="GError"><type>GError</type></link>:</para>
+<itemizedlist>
+<listitem>
+<para>Do not report programming errors via <link linkend="GError"><type>GError</type></link>.</para>
+</listitem>
+<listitem>
+<para>The last argument of a function that returns an error should
+be a location where a <link linkend="GError"><type>GError</type></link> can be placed (i.e. "<link linkend="GError"><type>GError</type></link>** error").
+If <link linkend="GError"><type>GError</type></link> is used with varargs, the <link linkend="GError"><type>GError</type></link>** should be the last
+argument before the "...".</para>
+</listitem>
+<listitem>
+<para>The caller may pass <link linkend="NULL:CAPS"><literal>NULL</literal></link> for the <link linkend="GError"><type>GError</type></link>** if they are not interested
+in details of the exact error that occurred.</para>
+</listitem>
+<listitem>
+<para>If <link linkend="NULL:CAPS"><literal>NULL</literal></link> is passed for the <link linkend="GError"><type>GError</type></link>** argument, then errors should
+not be returned to the caller, but your function should still
+abort and return if an error occurs. That is, control flow should
+not be affected by whether the caller wants to get a <link linkend="GError"><type>GError</type></link>.</para>
+</listitem>
+<listitem>
+<para>If a <link linkend="GError"><type>GError</type></link> is reported, then your function by definition had a
+fatal failure and did not complete whatever it was supposed to do.
+If the failure was not fatal, then you handled it and you should not
+report it. If it was fatal, then you must report it and discontinue
+whatever you were doing immediately.</para>
+</listitem>
+<listitem>
+<para>If a <link linkend="GError"><type>GError</type></link> is reported, out parameters are not guaranteed to
+be set to any defined value.</para>
+</listitem>
+<listitem>
+<para>A <link linkend="GError"><type>GError</type></link>* must be initialized to <link linkend="NULL:CAPS"><literal>NULL</literal></link> before passing its address
+to a function that can report errors.</para>
+</listitem>
+<listitem>
+<para>"Piling up" errors is always a bug. That is, if you assign a
+new <link linkend="GError"><type>GError</type></link> to a <link linkend="GError"><type>GError</type></link>* that is non-<link linkend="NULL:CAPS"><literal>NULL</literal></link>, thus overwriting
+the previous error, it indicates that you should have aborted
+the operation instead of continuing. If you were able to continue,
+you should have cleared the previous error with <link linkend="g-clear-error"><function>g_clear_error()</function></link>.
+<link linkend="g-set-error"><function>g_set_error()</function></link> will complain if you pile up errors.</para>
+</listitem>
+<listitem>
+<para>By convention, if you return a boolean value indicating success
+then <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> means success and <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> means failure. Avoid creating
+functions which have a boolean return value and a GError parameter,
+but where the boolean does something other than signal whether the
+GError is set.  Among other problems, it requires C callers to allocate
+a temporary error.  Instead, provide a "gboolean *" out parameter.
+There are functions in GLib itself such as <link linkend="g-key-file-has-key"><function>g_key_file_has_key()</function></link> that
+are deprecated because of this. If <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> is returned, the error must
+be set to a non-<link linkend="NULL:CAPS"><literal>NULL</literal></link> value.  One exception to this is that in situations
+that are already considered to be undefined behaviour (such as when a
+<link linkend="g-return-val-if-fail"><function>g_return_val_if_fail()</function></link> check fails), the error need not be set.
+Instead of checking separately whether the error is set, callers
+should ensure that they do not provoke undefined behaviour, then
+assume that the error will be set on failure.</para>
+</listitem>
+<listitem>
+<para>A <link linkend="NULL:CAPS"><literal>NULL</literal></link> return value is also frequently used to mean that an error
+occurred. You should make clear in your documentation whether <link linkend="NULL:CAPS"><literal>NULL</literal></link>
+is a valid return value in non-error cases; if <link linkend="NULL:CAPS"><literal>NULL</literal></link> is a valid value,
+then users must check whether an error was returned to see if the
+function succeeded.</para>
+</listitem>
+<listitem><para>When implementing a function that can report errors, you may want
+to add a check at the top of your function that the error return
+location is either <link linkend="NULL:CAPS"><literal>NULL</literal></link> or contains a <link linkend="NULL:CAPS"><literal>NULL</literal></link> error (e.g.
+<literal>g_return_if_fail (error == NULL || *error == NULL);</literal>).</para></listitem>
+</itemizedlist>
+</refsect3>
+
+</refsect1>
+<refsect1 id="glib-Error-Reporting.functions_details" role="details">
+<title role="details.title">Functions</title>
+<refsect2 id="g-error-new" role="function">
+<title>g_error_new&#160;()</title>
+<indexterm zone="g-error-new"><primary sortas="error_new">g_error_new</primary></indexterm>
+<programlisting language="C"><link linkend="GError"><returnvalue>GError</returnvalue></link>&#160;*
+g_error_new (<parameter><link linkend="GQuark"><type>GQuark</type></link> domain</parameter>,
+             <parameter><link linkend="gint"><type>gint</type></link> code</parameter>,
+             <parameter>const <link linkend="gchar"><type>gchar</type></link> *format</parameter>,
+             <parameter>...</parameter>);</programlisting>
+<para>Creates a new <link linkend="GError"><type>GError</type></link> with the given <parameter>domain</parameter>
+ and <parameter>code</parameter>
+,
+and a message formatted with <parameter>format</parameter>
+.</para>
+<refsect3 id="g-error-new.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>domain</para></entry>
+<entry role="parameter_description"><para>error domain</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>code</para></entry>
+<entry role="parameter_description"><para>error code</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>format</para></entry>
+<entry role="parameter_description"><para>printf()-style format for error message</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>...</para></entry>
+<entry role="parameter_description"><para>parameters for message format</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-error-new.returns" role="returns">
+<title>Returns</title>
+<para> a new <link linkend="GError"><type>GError</type></link></para>
+</refsect3></refsect2>
+<refsect2 id="g-error-new-literal" role="function">
+<title>g_error_new_literal&#160;()</title>
+<indexterm zone="g-error-new-literal"><primary sortas="error_new_literal">g_error_new_literal</primary></indexterm>
+<programlisting language="C"><link linkend="GError"><returnvalue>GError</returnvalue></link>&#160;*
+g_error_new_literal (<parameter><link linkend="GQuark"><type>GQuark</type></link> domain</parameter>,
+                     <parameter><link linkend="gint"><type>gint</type></link> code</parameter>,
+                     <parameter>const <link linkend="gchar"><type>gchar</type></link> *message</parameter>);</programlisting>
+<para>Creates a new <link linkend="GError"><type>GError</type></link>; unlike <link linkend="g-error-new"><function>g_error_new()</function></link>, <parameter>message</parameter>
+ is
+not a <link linkend="printf"><function>printf()</function></link>-style format string. Use this function if
+<parameter>message</parameter>
+ contains text you don't have control over,
+that could include <link linkend="printf"><function>printf()</function></link> escape sequences.</para>
+<refsect3 id="g-error-new-literal.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>domain</para></entry>
+<entry role="parameter_description"><para>error domain</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>code</para></entry>
+<entry role="parameter_description"><para>error code</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>message</para></entry>
+<entry role="parameter_description"><para>error message</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-error-new-literal.returns" role="returns">
+<title>Returns</title>
+<para> a new <link linkend="GError"><type>GError</type></link></para>
+</refsect3></refsect2>
+<refsect2 id="g-error-new-valist" role="function" condition="since:2.22">
+<title>g_error_new_valist&#160;()</title>
+<indexterm zone="g-error-new-valist" role="2.22"><primary sortas="error_new_valist">g_error_new_valist</primary></indexterm>
+<programlisting language="C"><link linkend="GError"><returnvalue>GError</returnvalue></link>&#160;*
+g_error_new_valist (<parameter><link linkend="GQuark"><type>GQuark</type></link> domain</parameter>,
+                    <parameter><link linkend="gint"><type>gint</type></link> code</parameter>,
+                    <parameter>const <link linkend="gchar"><type>gchar</type></link> *format</parameter>,
+                    <parameter><link linkend="va-list"><type>va_list</type></link> args</parameter>);</programlisting>
+<para>Creates a new <link linkend="GError"><type>GError</type></link> with the given <parameter>domain</parameter>
+ and <parameter>code</parameter>
+,
+and a message formatted with <parameter>format</parameter>
+.</para>
+<refsect3 id="g-error-new-valist.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>domain</para></entry>
+<entry role="parameter_description"><para>error domain</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>code</para></entry>
+<entry role="parameter_description"><para>error code</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>format</para></entry>
+<entry role="parameter_description"><para>printf()-style format for error message</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>args</para></entry>
+<entry role="parameter_description"><para><link linkend="va-list"><type>va_list</type></link> of parameters for the message format</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-error-new-valist.returns" role="returns">
+<title>Returns</title>
+<para> a new <link linkend="GError"><type>GError</type></link></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.22">2.22</link></para></refsect2>
+<refsect2 id="g-error-free" role="function">
+<title>g_error_free&#160;()</title>
+<indexterm zone="g-error-free"><primary sortas="error_free">g_error_free</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_error_free (<parameter><link linkend="GError"><type>GError</type></link> *error</parameter>);</programlisting>
+<para>Frees a <link linkend="GError"><type>GError</type></link> and associated resources.</para>
+<refsect3 id="g-error-free.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GError"><type>GError</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-error-copy" role="function">
+<title>g_error_copy&#160;()</title>
+<indexterm zone="g-error-copy"><primary sortas="error_copy">g_error_copy</primary></indexterm>
+<programlisting language="C"><link linkend="GError"><returnvalue>GError</returnvalue></link>&#160;*
+g_error_copy (<parameter>const <link linkend="GError"><type>GError</type></link> *error</parameter>);</programlisting>
+<para>Makes a copy of <parameter>error</parameter>
+.</para>
+<refsect3 id="g-error-copy.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GError"><type>GError</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-error-copy.returns" role="returns">
+<title>Returns</title>
+<para> a new <link linkend="GError"><type>GError</type></link></para>
+</refsect3></refsect2>
+<refsect2 id="g-error-matches" role="function">
+<title>g_error_matches&#160;()</title>
+<indexterm zone="g-error-matches"><primary sortas="error_matches">g_error_matches</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_error_matches (<parameter>const <link linkend="GError"><type>GError</type></link> *error</parameter>,
+                 <parameter><link linkend="GQuark"><type>GQuark</type></link> domain</parameter>,
+                 <parameter><link linkend="gint"><type>gint</type></link> code</parameter>);</programlisting>
+<para>Returns <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if <parameter>error</parameter>
+ matches <parameter>domain</parameter>
+ and <parameter>code</parameter>
+, <link linkend="FALSE:CAPS"><literal>FALSE</literal></link>
+otherwise. In particular, when <parameter>error</parameter>
+ is <link linkend="NULL:CAPS"><literal>NULL</literal></link>, <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> will
+be returned.</para>
+<para>If <parameter>domain</parameter>
+ contains a <literal>FAILED</literal> (or otherwise generic) error code,
+you should generally not check for it explicitly, but should
+instead treat any not-explicitly-recognized error code as being
+equivalent to the <literal>FAILED</literal> code. This way, if the domain is
+extended in the future to provide a more specific error code for
+a certain case, your code will still work.</para>
+<refsect3 id="g-error-matches.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GError"><type>GError</type></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>domain</para></entry>
+<entry role="parameter_description"><para>an error domain</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>code</para></entry>
+<entry role="parameter_description"><para>an error code</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-error-matches.returns" role="returns">
+<title>Returns</title>
+<para> whether <parameter>error</parameter>
+has <parameter>domain</parameter>
+and <parameter>code</parameter>
+</para>
+</refsect3></refsect2>
+<refsect2 id="g-set-error" role="function">
+<title>g_set_error&#160;()</title>
+<indexterm zone="g-set-error"><primary sortas="set_error">g_set_error</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_set_error (<parameter><link linkend="GError"><type>GError</type></link> **err</parameter>,
+             <parameter><link linkend="GQuark"><type>GQuark</type></link> domain</parameter>,
+             <parameter><link linkend="gint"><type>gint</type></link> code</parameter>,
+             <parameter>const <link linkend="gchar"><type>gchar</type></link> *format</parameter>,
+             <parameter>...</parameter>);</programlisting>
+<para>Does nothing if <parameter>err</parameter>
+ is <link linkend="NULL:CAPS"><literal>NULL</literal></link>; if <parameter>err</parameter>
+ is non-<link linkend="NULL:CAPS"><literal>NULL</literal></link>, then *<parameter>err</parameter>
+
+must be <link linkend="NULL:CAPS"><literal>NULL</literal></link>. A new <link linkend="GError"><type>GError</type></link> is created and assigned to *<parameter>err</parameter>
+.</para>
+<refsect3 id="g-set-error.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>err</para></entry>
+<entry role="parameter_description"><para>a return location for a <link linkend="GError"><type>GError</type></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>out callee-allocates</acronym>][<acronym>optional</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>domain</para></entry>
+<entry role="parameter_description"><para>error domain</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>code</para></entry>
+<entry role="parameter_description"><para>error code</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>format</para></entry>
+<entry role="parameter_description"><para>printf()-style format</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>...</para></entry>
+<entry role="parameter_description"><para>args for <parameter>format</parameter>
+</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-set-error-literal" role="function" condition="since:2.18">
+<title>g_set_error_literal&#160;()</title>
+<indexterm zone="g-set-error-literal" role="2.18"><primary sortas="set_error_literal">g_set_error_literal</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_set_error_literal (<parameter><link linkend="GError"><type>GError</type></link> **err</parameter>,
+                     <parameter><link linkend="GQuark"><type>GQuark</type></link> domain</parameter>,
+                     <parameter><link linkend="gint"><type>gint</type></link> code</parameter>,
+                     <parameter>const <link linkend="gchar"><type>gchar</type></link> *message</parameter>);</programlisting>
+<para>Does nothing if <parameter>err</parameter>
+ is <link linkend="NULL:CAPS"><literal>NULL</literal></link>; if <parameter>err</parameter>
+ is non-<link linkend="NULL:CAPS"><literal>NULL</literal></link>, then *<parameter>err</parameter>
+
+must be <link linkend="NULL:CAPS"><literal>NULL</literal></link>. A new <link linkend="GError"><type>GError</type></link> is created and assigned to *<parameter>err</parameter>
+.
+Unlike <link linkend="g-set-error"><function>g_set_error()</function></link>, <parameter>message</parameter>
+ is not a <link linkend="printf"><function>printf()</function></link>-style format string.
+Use this function if <parameter>message</parameter>
+ contains text you don't have control over,
+that could include <link linkend="printf"><function>printf()</function></link> escape sequences.</para>
+<refsect3 id="g-set-error-literal.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>err</para></entry>
+<entry role="parameter_description"><para>a return location for a <link linkend="GError"><type>GError</type></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>out callee-allocates</acronym>][<acronym>optional</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>domain</para></entry>
+<entry role="parameter_description"><para>error domain</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>code</para></entry>
+<entry role="parameter_description"><para>error code</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>message</para></entry>
+<entry role="parameter_description"><para>error message</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.18">2.18</link></para></refsect2>
+<refsect2 id="g-propagate-error" role="function">
+<title>g_propagate_error&#160;()</title>
+<indexterm zone="g-propagate-error"><primary sortas="propagate_error">g_propagate_error</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_propagate_error (<parameter><link linkend="GError"><type>GError</type></link> **dest</parameter>,
+                   <parameter><link linkend="GError"><type>GError</type></link> *src</parameter>);</programlisting>
+<para>If <parameter>dest</parameter>
+ is <link linkend="NULL:CAPS"><literal>NULL</literal></link>, free <parameter>src</parameter>
+; otherwise, moves <parameter>src</parameter>
+ into *<parameter>dest</parameter>
+.
+The error variable <parameter>dest</parameter>
+ points to must be <link linkend="NULL:CAPS"><literal>NULL</literal></link>.</para>
+<para><parameter>src</parameter>
+ must be non-<link linkend="NULL:CAPS"><literal>NULL</literal></link>.</para>
+<para>Note that <parameter>src</parameter>
+ is no longer valid after this call. If you want
+to keep using the same GError*, you need to set it to <link linkend="NULL:CAPS"><literal>NULL</literal></link>
+after calling this function on it.</para>
+<refsect3 id="g-propagate-error.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>dest</para></entry>
+<entry role="parameter_description"><para>error return location. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>out callee-allocates</acronym>][<acronym>optional</acronym>][<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>src</para></entry>
+<entry role="parameter_description"><para>error to move into the return location. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>transfer full</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-clear-error" role="function">
+<title>g_clear_error&#160;()</title>
+<indexterm zone="g-clear-error"><primary sortas="clear_error">g_clear_error</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_clear_error (<parameter><link linkend="GError"><type>GError</type></link> **err</parameter>);</programlisting>
+<para>If <parameter>err</parameter>
+ or *<parameter>err</parameter>
+ is <link linkend="NULL:CAPS"><literal>NULL</literal></link>, does nothing. Otherwise,
+calls <link linkend="g-error-free"><function>g_error_free()</function></link> on *<parameter>err</parameter>
+ and sets *<parameter>err</parameter>
+ to <link linkend="NULL:CAPS"><literal>NULL</literal></link>.</para>
+<refsect3 id="g-clear-error.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>err</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GError"><type>GError</type></link> return location</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-prefix-error" role="function" condition="since:2.16">
+<title>g_prefix_error&#160;()</title>
+<indexterm zone="g-prefix-error" role="2.16"><primary sortas="prefix_error">g_prefix_error</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_prefix_error (<parameter><link linkend="GError"><type>GError</type></link> **err</parameter>,
+                <parameter>const <link linkend="gchar"><type>gchar</type></link> *format</parameter>,
+                <parameter>...</parameter>);</programlisting>
+<para>Formats a string according to <parameter>format</parameter>
+ and prefix it to an existing
+error message. If <parameter>err</parameter>
+ is <link linkend="NULL:CAPS"><literal>NULL</literal></link> (ie: no error variable) then do
+nothing.</para>
+<para>If *<parameter>err</parameter>
+ is <link linkend="NULL:CAPS"><literal>NULL</literal></link> (ie: an error variable is present but there is no
+error condition) then also do nothing.</para>
+<refsect3 id="g-prefix-error.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>err</para></entry>
+<entry role="parameter_description"><para>a return location for a <link linkend="GError"><type>GError</type></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>inout</acronym>][<acronym>optional</acronym>][<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>format</para></entry>
+<entry role="parameter_description"><para>printf()-style format string</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>...</para></entry>
+<entry role="parameter_description"><para>arguments to <parameter>format</parameter>
+</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.16">2.16</link></para></refsect2>
+<refsect2 id="g-propagate-prefixed-error" role="function" condition="since:2.16">
+<title>g_propagate_prefixed_error&#160;()</title>
+<indexterm zone="g-propagate-prefixed-error" role="2.16"><primary sortas="propagate_prefixed_error">g_propagate_prefixed_error</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_propagate_prefixed_error (<parameter><link linkend="GError"><type>GError</type></link> **dest</parameter>,
+                            <parameter><link linkend="GError"><type>GError</type></link> *src</parameter>,
+                            <parameter>const <link linkend="gchar"><type>gchar</type></link> *format</parameter>,
+                            <parameter>...</parameter>);</programlisting>
+<para>If <parameter>dest</parameter>
+ is <link linkend="NULL:CAPS"><literal>NULL</literal></link>, free <parameter>src</parameter>
+; otherwise, moves <parameter>src</parameter>
+ into *<parameter>dest</parameter>
+.
+*<parameter>dest</parameter>
+ must be <link linkend="NULL:CAPS"><literal>NULL</literal></link>. After the move, add a prefix as with
+<link linkend="g-prefix-error"><function>g_prefix_error()</function></link>.</para>
+<refsect3 id="g-propagate-prefixed-error.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>dest</para></entry>
+<entry role="parameter_description"><para>error return location</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>src</para></entry>
+<entry role="parameter_description"><para>error to move into the return location</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>format</para></entry>
+<entry role="parameter_description"><para>printf()-style format string</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>...</para></entry>
+<entry role="parameter_description"><para>arguments to <parameter>format</parameter>
+</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.16">2.16</link></para></refsect2>
+
+</refsect1>
+<refsect1 id="glib-Error-Reporting.other_details" role="details">
+<title role="details.title">Types and Values</title>
+<refsect2 id="GError" role="struct">
+<title>struct GError</title>
+<indexterm zone="GError"><primary sortas="Error">GError</primary></indexterm>
+<programlisting language="C">struct GError {
+  GQuark       domain;
+  gint         code;
+  gchar       *message;
+};
+</programlisting>
+<para>The <literal>GError</literal> structure contains information about
+an error that has occurred.</para>
+<refsect3 id="GError.members" role="struct_members">
+<title>Members</title>
+<informaltable role="struct_members_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="struct_members_name" colwidth="300px"/>
+<colspec colname="struct_members_description"/>
+<colspec colname="struct_members_annotations" colwidth="200px"/>
+<tbody>
+<row role="member"><entry role="struct_member_name"><para><link linkend="GQuark"><type>GQuark</type></link>&#160;<structfield id="GError.domain">domain</structfield>;</para></entry>
+<entry role="struct_member_description"><para>error domain, e.g. <link linkend="G-FILE-ERROR:CAPS"><type>G_FILE_ERROR</type></link></para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><link linkend="gint"><type>gint</type></link>&#160;<structfield id="GError.code">code</structfield>;</para></entry>
+<entry role="struct_member_description"><para>error code, e.g. <link linkend="G-FILE-ERROR-NOENT:CAPS"><literal>G_FILE_ERROR_NOENT</literal></link></para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><link linkend="gchar"><type>gchar</type></link>&#160;*<structfield id="GError.message">message</structfield>;</para></entry>
+<entry role="struct_member_description"><para>human-readable informative error message</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+</tbody></tgroup></informaltable>
+</refsect3>
+</refsect2>
+
+</refsect1>
+
+</refentry>

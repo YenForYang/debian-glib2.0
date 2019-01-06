@@ -1,0 +1,920 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC '-//OASIS//DTD DocBook XML V4.5//EN'
+                      'http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd' [
+<!ENTITY % local.common.attrib "xmlns:xi  CDATA  #FIXED 'http://www.w3.org/2003/XInclude'">
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="GResolver">
+<refmeta>
+<refentrytitle role="top_of_page" id="GResolver.top_of_page">GResolver</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>GIO Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>GResolver</refname>
+<refpurpose>Asynchronous and cancellable DNS resolver</refpurpose>
+</refnamediv>
+
+<refsect1 id="GResolver.functions" role="functions_proto">
+<title role="functions_proto.title">Functions</title>
+<informaltable pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="functions_return" colwidth="150px"/>
+<colspec colname="functions_name"/>
+<tbody>
+<row><entry role="function_type"><link linkend="GResolver"><returnvalue>GResolver</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-resolver-get-default">g_resolver_get_default</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-resolver-set-default">g_resolver_set_default</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GList"><returnvalue>GList</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-resolver-lookup-by-name">g_resolver_lookup_by_name</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-resolver-lookup-by-name-async">g_resolver_lookup_by_name_async</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GList"><returnvalue>GList</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-resolver-lookup-by-name-finish">g_resolver_lookup_by_name_finish</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-resolver-free-addresses">g_resolver_free_addresses</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-resolver-lookup-by-address">g_resolver_lookup_by_address</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-resolver-lookup-by-address-async">g_resolver_lookup_by_address_async</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-resolver-lookup-by-address-finish">g_resolver_lookup_by_address_finish</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GList"><returnvalue>GList</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-resolver-lookup-service">g_resolver_lookup_service</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-resolver-lookup-service-async">g_resolver_lookup_service_async</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GList"><returnvalue>GList</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-resolver-lookup-service-finish">g_resolver_lookup_service_finish</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-resolver-free-targets">g_resolver_free_targets</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+<row><entry role="function_type"><link linkend="GList"><returnvalue>GList</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-resolver-lookup-records">g_resolver_lookup_records</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-resolver-lookup-records-async">g_resolver_lookup_records_async</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GList"><returnvalue>GList</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-resolver-lookup-records-finish">g_resolver_lookup_records_finish</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GResolver.signals" role="signal_proto">
+<title role="signal_proto.title">Signals</title>
+<informaltable frame="none">
+<tgroup cols="3">
+<colspec colname="signals_return" colwidth="150px"/>
+<colspec colname="signals_name" colwidth="300px"/>
+<colspec colname="signals_flags" colwidth="200px"/>
+<tbody>
+<row><entry role="signal_type"><link linkend="void"><returnvalue>void</returnvalue></link></entry><entry role="signal_name"><link linkend="GResolver-reload">reload</link></entry><entry role="signal_flags"><link linkend="G-SIGNAL-RUN-LAST:CAPS">Run Last</link></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GResolver.other" role="other_proto">
+<title role="other_proto.title">Types and Values</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="name" colwidth="150px"/>
+<colspec colname="description"/>
+<tbody>
+<row><entry role="datatype_keyword"></entry><entry role="function_name"><link linkend="GResolver-struct">GResolver</link></entry></row>
+
+<row><entry role="datatype_keyword">enum</entry><entry role="function_name"><link linkend="GResolverRecordType">GResolverRecordType</link></entry></row>
+
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="G-RESOLVER-ERROR:CAPS">G_RESOLVER_ERROR</link></entry></row>
+<row><entry role="datatype_keyword">enum</entry><entry role="function_name"><link linkend="GResolverError">GResolverError</link></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GResolver.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<screen>    <link linkend="GEnum">GEnum</link>
+    <phrase role="lineart">&#9500;&#9472;&#9472;</phrase> GResolverError
+    <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> GResolverRecordType
+    <link linkend="GObject">GObject</link>
+    <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> GResolver
+</screen>
+</refsect1>
+
+<refsect1 id="GResolver.includes"><title>Includes</title><synopsis>#include &lt;gio/gio.h&gt;
+</synopsis></refsect1>
+
+<refsect1 id="GResolver.description" role="desc">
+<title role="desc.title">Description</title>
+<para><link linkend="GResolver"><type>GResolver</type></link> provides cancellable synchronous and asynchronous DNS
+resolution, for hostnames (<link linkend="g-resolver-lookup-by-address"><function>g_resolver_lookup_by_address()</function></link>,
+<link linkend="g-resolver-lookup-by-name"><function>g_resolver_lookup_by_name()</function></link> and their async variants) and SRV
+(service) records (<link linkend="g-resolver-lookup-service"><function>g_resolver_lookup_service()</function></link>).</para>
+<para><link linkend="GNetworkAddress"><type>GNetworkAddress</type></link> and <link linkend="GNetworkService"><type>GNetworkService</type></link> provide wrappers around
+<link linkend="GResolver"><type>GResolver</type></link> functionality that also implement <link linkend="GSocketConnectable"><type>GSocketConnectable</type></link>,
+making it easy to connect to a remote host/service.</para>
+
+</refsect1>
+<refsect1 id="GResolver.functions_details" role="details">
+<title role="details.title">Functions</title>
+<refsect2 id="g-resolver-get-default" role="function" condition="since:2.22">
+<title>g_resolver_get_default&#160;()</title>
+<indexterm zone="g-resolver-get-default" role="2.22"><primary sortas="resolver_get_default">g_resolver_get_default</primary></indexterm>
+<programlisting language="C"><link linkend="GResolver"><returnvalue>GResolver</returnvalue></link>&#160;*
+g_resolver_get_default (<parameter><type>void</type></parameter>);</programlisting>
+<para>Gets the default <link linkend="GResolver"><type>GResolver</type></link>. You should unref it when you are done
+with it. <link linkend="GResolver"><type>GResolver</type></link> may use its reference count as a hint about how
+many threads it should allocate for concurrent DNS resolutions.</para>
+<refsect3 id="g-resolver-get-default.returns" role="returns">
+<title>Returns</title>
+<para>the default <link linkend="GResolver"><type>GResolver</type></link>. </para>
+<para><emphasis role="annotation">[<acronym>transfer full</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.22">2.22</link></para></refsect2>
+<refsect2 id="g-resolver-set-default" role="function" condition="since:2.22">
+<title>g_resolver_set_default&#160;()</title>
+<indexterm zone="g-resolver-set-default" role="2.22"><primary sortas="resolver_set_default">g_resolver_set_default</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_resolver_set_default (<parameter><link linkend="GResolver"><type>GResolver</type></link> *resolver</parameter>);</programlisting>
+<para>Sets <parameter>resolver</parameter>
+ to be the application's default resolver (reffing
+<parameter>resolver</parameter>
+, and unreffing the previous default resolver, if any).
+Future calls to <link linkend="g-resolver-get-default"><function>g_resolver_get_default()</function></link> will return this resolver.</para>
+<para>This can be used if an application wants to perform any sort of DNS
+caching or "pinning"; it can implement its own <link linkend="GResolver"><type>GResolver</type></link> that
+calls the original default resolver for DNS operations, and
+implements its own cache policies on top of that, and then set
+itself as the default resolver for all later code to use.</para>
+<refsect3 id="g-resolver-set-default.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>resolver</para></entry>
+<entry role="parameter_description"><para>the new default <link linkend="GResolver"><type>GResolver</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.22">2.22</link></para></refsect2>
+<refsect2 id="g-resolver-lookup-by-name" role="function" condition="since:2.22">
+<title>g_resolver_lookup_by_name&#160;()</title>
+<indexterm zone="g-resolver-lookup-by-name" role="2.22"><primary sortas="resolver_lookup_by_name">g_resolver_lookup_by_name</primary></indexterm>
+<programlisting language="C"><link linkend="GList"><returnvalue>GList</returnvalue></link>&#160;*
+g_resolver_lookup_by_name (<parameter><link linkend="GResolver"><type>GResolver</type></link> *resolver</parameter>,
+                           <parameter>const <link linkend="gchar"><type>gchar</type></link> *hostname</parameter>,
+                           <parameter><link linkend="GCancellable"><type>GCancellable</type></link> *cancellable</parameter>,
+                           <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para>Synchronously resolves <parameter>hostname</parameter>
+ to determine its associated IP
+address(es). <parameter>hostname</parameter>
+ may be an ASCII-only or UTF-8 hostname, or
+the textual form of an IP address (in which case this just becomes
+a wrapper around <link linkend="g-inet-address-new-from-string"><function>g_inet_address_new_from_string()</function></link>).</para>
+<para>On success, <link linkend="g-resolver-lookup-by-name"><function>g_resolver_lookup_by_name()</function></link> will return a non-empty <link linkend="GList"><type>GList</type></link> of
+<link linkend="GInetAddress"><type>GInetAddress</type></link>, sorted in order of preference and guaranteed to not
+contain duplicates. That is, if using the result to connect to
+<parameter>hostname</parameter>
+, you should attempt to connect to the first address
+first, then the second if the first fails, etc. If you are using
+the result to listen on a socket, it is appropriate to add each
+result using e.g. <link linkend="g-socket-listener-add-address"><function>g_socket_listener_add_address()</function></link>.</para>
+<para>If the DNS resolution fails, <parameter>error</parameter>
+ (if non-<link linkend="NULL:CAPS"><literal>NULL</literal></link>) will be set to a
+value from <link linkend="GResolverError"><type>GResolverError</type></link> and <link linkend="NULL:CAPS"><literal>NULL</literal></link> will be returned.</para>
+<para>If <parameter>cancellable</parameter>
+ is non-<link linkend="NULL:CAPS"><literal>NULL</literal></link>, it can be used to cancel the
+operation, in which case <parameter>error</parameter>
+ (if non-<link linkend="NULL:CAPS"><literal>NULL</literal></link>) will be set to
+<link linkend="G-IO-ERROR-CANCELLED:CAPS"><literal>G_IO_ERROR_CANCELLED</literal></link>.</para>
+<para>If you are planning to connect to a socket on the resolved IP
+address, it may be easier to create a <link linkend="GNetworkAddress"><type>GNetworkAddress</type></link> and use its
+<link linkend="GSocketConnectable"><type>GSocketConnectable</type></link> interface.</para>
+<refsect3 id="g-resolver-lookup-by-name.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>resolver</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GResolver"><type>GResolver</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>hostname</para></entry>
+<entry role="parameter_description"><para>the hostname to look up</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>cancellable</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GCancellable"><type>GCancellable</type></link>, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para>return location for a <link linkend="GError"><type>GError</type></link>, or <link linkend="NULL:CAPS"><literal>NULL</literal></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-resolver-lookup-by-name.returns" role="returns">
+<title>Returns</title>
+<para>a non-empty <link linkend="GList"><type>GList</type></link>
+of <link linkend="GInetAddress"><type>GInetAddress</type></link>, or <link linkend="NULL:CAPS"><literal>NULL</literal></link> on error. You
+must unref each of the addresses and free the list when you are
+done with it. (You can use <link linkend="g-resolver-free-addresses"><function>g_resolver_free_addresses()</function></link> to do this.). </para>
+<para><emphasis role="annotation">[<acronym>element-type</acronym> GInetAddress][<acronym>transfer full</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.22">2.22</link></para></refsect2>
+<refsect2 id="g-resolver-lookup-by-name-async" role="function" condition="since:2.22">
+<title>g_resolver_lookup_by_name_async&#160;()</title>
+<indexterm zone="g-resolver-lookup-by-name-async" role="2.22"><primary sortas="resolver_lookup_by_name_async">g_resolver_lookup_by_name_async</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_resolver_lookup_by_name_async (<parameter><link linkend="GResolver"><type>GResolver</type></link> *resolver</parameter>,
+                                 <parameter>const <link linkend="gchar"><type>gchar</type></link> *hostname</parameter>,
+                                 <parameter><link linkend="GCancellable"><type>GCancellable</type></link> *cancellable</parameter>,
+                                 <parameter><link linkend="GAsyncReadyCallback"><type>GAsyncReadyCallback</type></link> callback</parameter>,
+                                 <parameter><link linkend="gpointer"><type>gpointer</type></link> user_data</parameter>);</programlisting>
+<para>Begins asynchronously resolving <parameter>hostname</parameter>
+ to determine its
+associated IP address(es), and eventually calls <parameter>callback</parameter>
+, which
+must call <link linkend="g-resolver-lookup-by-name-finish"><function>g_resolver_lookup_by_name_finish()</function></link> to get the result.
+See <link linkend="g-resolver-lookup-by-name"><function>g_resolver_lookup_by_name()</function></link> for more details.</para>
+<refsect3 id="g-resolver-lookup-by-name-async.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>resolver</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GResolver"><type>GResolver</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>hostname</para></entry>
+<entry role="parameter_description"><para>the hostname to look up the address of</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>cancellable</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GCancellable"><type>GCancellable</type></link>, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>callback</para></entry>
+<entry role="parameter_description"><para>callback to call after resolution completes. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>scope async</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>user_data</para></entry>
+<entry role="parameter_description"><para>data for <parameter>callback</parameter>
+. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>closure</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.22">2.22</link></para></refsect2>
+<refsect2 id="g-resolver-lookup-by-name-finish" role="function" condition="since:2.22">
+<title>g_resolver_lookup_by_name_finish&#160;()</title>
+<indexterm zone="g-resolver-lookup-by-name-finish" role="2.22"><primary sortas="resolver_lookup_by_name_finish">g_resolver_lookup_by_name_finish</primary></indexterm>
+<programlisting language="C"><link linkend="GList"><returnvalue>GList</returnvalue></link>&#160;*
+g_resolver_lookup_by_name_finish (<parameter><link linkend="GResolver"><type>GResolver</type></link> *resolver</parameter>,
+                                  <parameter><link linkend="GAsyncResult"><type>GAsyncResult</type></link> *result</parameter>,
+                                  <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para>Retrieves the result of a call to
+<link linkend="g-resolver-lookup-by-name-async"><function>g_resolver_lookup_by_name_async()</function></link>.</para>
+<para>If the DNS resolution failed, <parameter>error</parameter>
+ (if non-<link linkend="NULL:CAPS"><literal>NULL</literal></link>) will be set to
+a value from <link linkend="GResolverError"><type>GResolverError</type></link>. If the operation was cancelled,
+<parameter>error</parameter>
+ will be set to <link linkend="G-IO-ERROR-CANCELLED:CAPS"><literal>G_IO_ERROR_CANCELLED</literal></link>.</para>
+<refsect3 id="g-resolver-lookup-by-name-finish.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>resolver</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GResolver"><type>GResolver</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>result</para></entry>
+<entry role="parameter_description"><para>the result passed to your <link linkend="GAsyncReadyCallback"><type>GAsyncReadyCallback</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para>return location for a <link linkend="GError"><type>GError</type></link>, or <link linkend="NULL:CAPS"><literal>NULL</literal></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-resolver-lookup-by-name-finish.returns" role="returns">
+<title>Returns</title>
+<para>a <link linkend="GList"><type>GList</type></link>
+of <link linkend="GInetAddress"><type>GInetAddress</type></link>, or <link linkend="NULL:CAPS"><literal>NULL</literal></link> on error. See <link linkend="g-resolver-lookup-by-name"><function>g_resolver_lookup_by_name()</function></link>
+for more details. </para>
+<para><emphasis role="annotation">[<acronym>element-type</acronym> GInetAddress][<acronym>transfer full</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.22">2.22</link></para></refsect2>
+<refsect2 id="g-resolver-free-addresses" role="function" condition="since:2.22">
+<title>g_resolver_free_addresses&#160;()</title>
+<indexterm zone="g-resolver-free-addresses" role="2.22"><primary sortas="resolver_free_addresses">g_resolver_free_addresses</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_resolver_free_addresses (<parameter><link linkend="GList"><type>GList</type></link> *addresses</parameter>);</programlisting>
+<para>Frees <parameter>addresses</parameter>
+ (which should be the return value from
+<link linkend="g-resolver-lookup-by-name"><function>g_resolver_lookup_by_name()</function></link> or <link linkend="g-resolver-lookup-by-name-finish"><function>g_resolver_lookup_by_name_finish()</function></link>).
+(This is a convenience method; you can also simply free the results
+by hand.)</para>
+
+<para><emphasis role="annotation">[<acronym>skip</acronym>]</emphasis></para><refsect3 id="g-resolver-free-addresses.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>addresses</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GList"><type>GList</type></link> of <link linkend="GInetAddress"><type>GInetAddress</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.22">2.22</link></para></refsect2>
+<refsect2 id="g-resolver-lookup-by-address" role="function" condition="since:2.22">
+<title>g_resolver_lookup_by_address&#160;()</title>
+<indexterm zone="g-resolver-lookup-by-address" role="2.22"><primary sortas="resolver_lookup_by_address">g_resolver_lookup_by_address</primary></indexterm>
+<programlisting language="C"><link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+g_resolver_lookup_by_address (<parameter><link linkend="GResolver"><type>GResolver</type></link> *resolver</parameter>,
+                              <parameter><link linkend="GInetAddress"><type>GInetAddress</type></link> *address</parameter>,
+                              <parameter><link linkend="GCancellable"><type>GCancellable</type></link> *cancellable</parameter>,
+                              <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para>Synchronously reverse-resolves <parameter>address</parameter>
+ to determine its
+associated hostname.</para>
+<para>If the DNS resolution fails, <parameter>error</parameter>
+ (if non-<link linkend="NULL:CAPS"><literal>NULL</literal></link>) will be set to
+a value from <link linkend="GResolverError"><type>GResolverError</type></link>.</para>
+<para>If <parameter>cancellable</parameter>
+ is non-<link linkend="NULL:CAPS"><literal>NULL</literal></link>, it can be used to cancel the
+operation, in which case <parameter>error</parameter>
+ (if non-<link linkend="NULL:CAPS"><literal>NULL</literal></link>) will be set to
+<link linkend="G-IO-ERROR-CANCELLED:CAPS"><literal>G_IO_ERROR_CANCELLED</literal></link>.</para>
+<refsect3 id="g-resolver-lookup-by-address.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>resolver</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GResolver"><type>GResolver</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>address</para></entry>
+<entry role="parameter_description"><para>the address to reverse-resolve</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>cancellable</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GCancellable"><type>GCancellable</type></link>, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para>return location for a <link linkend="GError"><type>GError</type></link>, or <link linkend="NULL:CAPS"><literal>NULL</literal></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-resolver-lookup-by-address.returns" role="returns">
+<title>Returns</title>
+<para> a hostname (either ASCII-only, or in ASCII-encoded
+form), or <link linkend="NULL:CAPS"><literal>NULL</literal></link> on error.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.22">2.22</link></para></refsect2>
+<refsect2 id="g-resolver-lookup-by-address-async" role="function" condition="since:2.22">
+<title>g_resolver_lookup_by_address_async&#160;()</title>
+<indexterm zone="g-resolver-lookup-by-address-async" role="2.22"><primary sortas="resolver_lookup_by_address_async">g_resolver_lookup_by_address_async</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_resolver_lookup_by_address_async (<parameter><link linkend="GResolver"><type>GResolver</type></link> *resolver</parameter>,
+                                    <parameter><link linkend="GInetAddress"><type>GInetAddress</type></link> *address</parameter>,
+                                    <parameter><link linkend="GCancellable"><type>GCancellable</type></link> *cancellable</parameter>,
+                                    <parameter><link linkend="GAsyncReadyCallback"><type>GAsyncReadyCallback</type></link> callback</parameter>,
+                                    <parameter><link linkend="gpointer"><type>gpointer</type></link> user_data</parameter>);</programlisting>
+<para>Begins asynchronously reverse-resolving <parameter>address</parameter>
+ to determine its
+associated hostname, and eventually calls <parameter>callback</parameter>
+, which must
+call <link linkend="g-resolver-lookup-by-address-finish"><function>g_resolver_lookup_by_address_finish()</function></link> to get the final result.</para>
+<refsect3 id="g-resolver-lookup-by-address-async.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>resolver</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GResolver"><type>GResolver</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>address</para></entry>
+<entry role="parameter_description"><para>the address to reverse-resolve</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>cancellable</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GCancellable"><type>GCancellable</type></link>, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>callback</para></entry>
+<entry role="parameter_description"><para>callback to call after resolution completes. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>scope async</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>user_data</para></entry>
+<entry role="parameter_description"><para>data for <parameter>callback</parameter>
+. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>closure</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.22">2.22</link></para></refsect2>
+<refsect2 id="g-resolver-lookup-by-address-finish" role="function" condition="since:2.22">
+<title>g_resolver_lookup_by_address_finish&#160;()</title>
+<indexterm zone="g-resolver-lookup-by-address-finish" role="2.22"><primary sortas="resolver_lookup_by_address_finish">g_resolver_lookup_by_address_finish</primary></indexterm>
+<programlisting language="C"><link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+g_resolver_lookup_by_address_finish (<parameter><link linkend="GResolver"><type>GResolver</type></link> *resolver</parameter>,
+                                     <parameter><link linkend="GAsyncResult"><type>GAsyncResult</type></link> *result</parameter>,
+                                     <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para>Retrieves the result of a previous call to
+<link linkend="g-resolver-lookup-by-address-async"><function>g_resolver_lookup_by_address_async()</function></link>.</para>
+<para>If the DNS resolution failed, <parameter>error</parameter>
+ (if non-<link linkend="NULL:CAPS"><literal>NULL</literal></link>) will be set to
+a value from <link linkend="GResolverError"><type>GResolverError</type></link>. If the operation was cancelled,
+<parameter>error</parameter>
+ will be set to <link linkend="G-IO-ERROR-CANCELLED:CAPS"><literal>G_IO_ERROR_CANCELLED</literal></link>.</para>
+<refsect3 id="g-resolver-lookup-by-address-finish.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>resolver</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GResolver"><type>GResolver</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>result</para></entry>
+<entry role="parameter_description"><para>the result passed to your <link linkend="GAsyncReadyCallback"><type>GAsyncReadyCallback</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para>return location for a <link linkend="GError"><type>GError</type></link>, or <link linkend="NULL:CAPS"><literal>NULL</literal></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-resolver-lookup-by-address-finish.returns" role="returns">
+<title>Returns</title>
+<para> a hostname (either ASCII-only, or in ASCII-encoded
+form), or <link linkend="NULL:CAPS"><literal>NULL</literal></link> on error.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.22">2.22</link></para></refsect2>
+<refsect2 id="g-resolver-lookup-service" role="function" condition="since:2.22">
+<title>g_resolver_lookup_service&#160;()</title>
+<indexterm zone="g-resolver-lookup-service" role="2.22"><primary sortas="resolver_lookup_service">g_resolver_lookup_service</primary></indexterm>
+<programlisting language="C"><link linkend="GList"><returnvalue>GList</returnvalue></link>&#160;*
+g_resolver_lookup_service (<parameter><link linkend="GResolver"><type>GResolver</type></link> *resolver</parameter>,
+                           <parameter>const <link linkend="gchar"><type>gchar</type></link> *service</parameter>,
+                           <parameter>const <link linkend="gchar"><type>gchar</type></link> *protocol</parameter>,
+                           <parameter>const <link linkend="gchar"><type>gchar</type></link> *domain</parameter>,
+                           <parameter><link linkend="GCancellable"><type>GCancellable</type></link> *cancellable</parameter>,
+                           <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para>Synchronously performs a DNS SRV lookup for the given <parameter>service</parameter>
+ and
+<parameter>protocol</parameter>
+ in the given <parameter>domain</parameter>
+ and returns an array of <link linkend="GSrvTarget"><type>GSrvTarget</type></link>.
+<parameter>domain</parameter>
+ may be an ASCII-only or UTF-8 hostname. Note also that the
+<parameter>service</parameter>
+ and <parameter>protocol</parameter>
+ arguments do not include the leading underscore
+that appears in the actual DNS entry.</para>
+<para>On success, <link linkend="g-resolver-lookup-service"><function>g_resolver_lookup_service()</function></link> will return a non-empty <link linkend="GList"><type>GList</type></link> of
+<link linkend="GSrvTarget"><type>GSrvTarget</type></link>, sorted in order of preference. (That is, you should
+attempt to connect to the first target first, then the second if
+the first fails, etc.)</para>
+<para>If the DNS resolution fails, <parameter>error</parameter>
+ (if non-<link linkend="NULL:CAPS"><literal>NULL</literal></link>) will be set to
+a value from <link linkend="GResolverError"><type>GResolverError</type></link> and <link linkend="NULL:CAPS"><literal>NULL</literal></link> will be returned.</para>
+<para>If <parameter>cancellable</parameter>
+ is non-<link linkend="NULL:CAPS"><literal>NULL</literal></link>, it can be used to cancel the
+operation, in which case <parameter>error</parameter>
+ (if non-<link linkend="NULL:CAPS"><literal>NULL</literal></link>) will be set to
+<link linkend="G-IO-ERROR-CANCELLED:CAPS"><literal>G_IO_ERROR_CANCELLED</literal></link>.</para>
+<para>If you are planning to connect to the service, it is usually easier
+to create a <link linkend="GNetworkService"><type>GNetworkService</type></link> and use its <link linkend="GSocketConnectable"><type>GSocketConnectable</type></link>
+interface.</para>
+<refsect3 id="g-resolver-lookup-service.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>resolver</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GResolver"><type>GResolver</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>service</para></entry>
+<entry role="parameter_description"><para>the service type to look up (eg, "ldap")</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>protocol</para></entry>
+<entry role="parameter_description"><para>the networking protocol to use for <parameter>service</parameter>
+(eg, "tcp")</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>domain</para></entry>
+<entry role="parameter_description"><para>the DNS domain to look up the service in</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>cancellable</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GCancellable"><type>GCancellable</type></link>, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para>return location for a <link linkend="GError"><type>GError</type></link>, or <link linkend="NULL:CAPS"><literal>NULL</literal></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-resolver-lookup-service.returns" role="returns">
+<title>Returns</title>
+<para>a non-empty <link linkend="GList"><type>GList</type></link> of
+<link linkend="GSrvTarget"><type>GSrvTarget</type></link>, or <link linkend="NULL:CAPS"><literal>NULL</literal></link> on error. You must free each of the targets and the
+list when you are done with it. (You can use <link linkend="g-resolver-free-targets"><function>g_resolver_free_targets()</function></link> to do
+this.). </para>
+<para><emphasis role="annotation">[<acronym>element-type</acronym> GSrvTarget][<acronym>transfer full</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.22">2.22</link></para></refsect2>
+<refsect2 id="g-resolver-lookup-service-async" role="function" condition="since:2.22">
+<title>g_resolver_lookup_service_async&#160;()</title>
+<indexterm zone="g-resolver-lookup-service-async" role="2.22"><primary sortas="resolver_lookup_service_async">g_resolver_lookup_service_async</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_resolver_lookup_service_async (<parameter><link linkend="GResolver"><type>GResolver</type></link> *resolver</parameter>,
+                                 <parameter>const <link linkend="gchar"><type>gchar</type></link> *service</parameter>,
+                                 <parameter>const <link linkend="gchar"><type>gchar</type></link> *protocol</parameter>,
+                                 <parameter>const <link linkend="gchar"><type>gchar</type></link> *domain</parameter>,
+                                 <parameter><link linkend="GCancellable"><type>GCancellable</type></link> *cancellable</parameter>,
+                                 <parameter><link linkend="GAsyncReadyCallback"><type>GAsyncReadyCallback</type></link> callback</parameter>,
+                                 <parameter><link linkend="gpointer"><type>gpointer</type></link> user_data</parameter>);</programlisting>
+<para>Begins asynchronously performing a DNS SRV lookup for the given
+<parameter>service</parameter>
+ and <parameter>protocol</parameter>
+ in the given <parameter>domain</parameter>
+, and eventually calls
+<parameter>callback</parameter>
+, which must call <link linkend="g-resolver-lookup-service-finish"><function>g_resolver_lookup_service_finish()</function></link> to
+get the final result. See <link linkend="g-resolver-lookup-service"><function>g_resolver_lookup_service()</function></link> for more
+details.</para>
+<refsect3 id="g-resolver-lookup-service-async.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>resolver</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GResolver"><type>GResolver</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>service</para></entry>
+<entry role="parameter_description"><para>the service type to look up (eg, "ldap")</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>protocol</para></entry>
+<entry role="parameter_description"><para>the networking protocol to use for <parameter>service</parameter>
+(eg, "tcp")</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>domain</para></entry>
+<entry role="parameter_description"><para>the DNS domain to look up the service in</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>cancellable</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GCancellable"><type>GCancellable</type></link>, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>callback</para></entry>
+<entry role="parameter_description"><para>callback to call after resolution completes. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>scope async</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>user_data</para></entry>
+<entry role="parameter_description"><para>data for <parameter>callback</parameter>
+. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>closure</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.22">2.22</link></para></refsect2>
+<refsect2 id="g-resolver-lookup-service-finish" role="function" condition="since:2.22">
+<title>g_resolver_lookup_service_finish&#160;()</title>
+<indexterm zone="g-resolver-lookup-service-finish" role="2.22"><primary sortas="resolver_lookup_service_finish">g_resolver_lookup_service_finish</primary></indexterm>
+<programlisting language="C"><link linkend="GList"><returnvalue>GList</returnvalue></link>&#160;*
+g_resolver_lookup_service_finish (<parameter><link linkend="GResolver"><type>GResolver</type></link> *resolver</parameter>,
+                                  <parameter><link linkend="GAsyncResult"><type>GAsyncResult</type></link> *result</parameter>,
+                                  <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para>Retrieves the result of a previous call to
+<link linkend="g-resolver-lookup-service-async"><function>g_resolver_lookup_service_async()</function></link>.</para>
+<para>If the DNS resolution failed, <parameter>error</parameter>
+ (if non-<link linkend="NULL:CAPS"><literal>NULL</literal></link>) will be set to
+a value from <link linkend="GResolverError"><type>GResolverError</type></link>. If the operation was cancelled,
+<parameter>error</parameter>
+ will be set to <link linkend="G-IO-ERROR-CANCELLED:CAPS"><literal>G_IO_ERROR_CANCELLED</literal></link>.</para>
+<refsect3 id="g-resolver-lookup-service-finish.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>resolver</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GResolver"><type>GResolver</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>result</para></entry>
+<entry role="parameter_description"><para>the result passed to your <link linkend="GAsyncReadyCallback"><type>GAsyncReadyCallback</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para>return location for a <link linkend="GError"><type>GError</type></link>, or <link linkend="NULL:CAPS"><literal>NULL</literal></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-resolver-lookup-service-finish.returns" role="returns">
+<title>Returns</title>
+<para>a non-empty <link linkend="GList"><type>GList</type></link> of
+<link linkend="GSrvTarget"><type>GSrvTarget</type></link>, or <link linkend="NULL:CAPS"><literal>NULL</literal></link> on error. See <link linkend="g-resolver-lookup-service"><function>g_resolver_lookup_service()</function></link> for more
+details. </para>
+<para><emphasis role="annotation">[<acronym>element-type</acronym> GSrvTarget][<acronym>transfer full</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.22">2.22</link></para></refsect2>
+<refsect2 id="g-resolver-free-targets" role="function" condition="since:2.22">
+<title>g_resolver_free_targets&#160;()</title>
+<indexterm zone="g-resolver-free-targets" role="2.22"><primary sortas="resolver_free_targets">g_resolver_free_targets</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_resolver_free_targets (<parameter><link linkend="GList"><type>GList</type></link> *targets</parameter>);</programlisting>
+<para>Frees <parameter>targets</parameter>
+ (which should be the return value from
+<link linkend="g-resolver-lookup-service"><function>g_resolver_lookup_service()</function></link> or <link linkend="g-resolver-lookup-service-finish"><function>g_resolver_lookup_service_finish()</function></link>).
+(This is a convenience method; you can also simply free the
+results by hand.)</para>
+
+<para><emphasis role="annotation">[<acronym>skip</acronym>]</emphasis></para><refsect3 id="g-resolver-free-targets.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>targets</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GList"><type>GList</type></link> of <link linkend="GSrvTarget"><type>GSrvTarget</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.22">2.22</link></para></refsect2>
+<refsect2 id="g-resolver-lookup-records" role="function" condition="since:2.34">
+<title>g_resolver_lookup_records&#160;()</title>
+<indexterm zone="g-resolver-lookup-records" role="2.34"><primary sortas="resolver_lookup_records">g_resolver_lookup_records</primary></indexterm>
+<programlisting language="C"><link linkend="GList"><returnvalue>GList</returnvalue></link>&#160;*
+g_resolver_lookup_records (<parameter><link linkend="GResolver"><type>GResolver</type></link> *resolver</parameter>,
+                           <parameter>const <link linkend="gchar"><type>gchar</type></link> *rrname</parameter>,
+                           <parameter><link linkend="GResolverRecordType"><type>GResolverRecordType</type></link> record_type</parameter>,
+                           <parameter><link linkend="GCancellable"><type>GCancellable</type></link> *cancellable</parameter>,
+                           <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para>Synchronously performs a DNS record lookup for the given <parameter>rrname</parameter>
+ and returns
+a list of records as <link linkend="GVariant"><type>GVariant</type></link> tuples. See <link linkend="GResolverRecordType"><type>GResolverRecordType</type></link> for
+information on what the records contain for each <parameter>record_type</parameter>
+.</para>
+<para>If the DNS resolution fails, <parameter>error</parameter>
+ (if non-<link linkend="NULL:CAPS"><literal>NULL</literal></link>) will be set to
+a value from <link linkend="GResolverError"><type>GResolverError</type></link> and <link linkend="NULL:CAPS"><literal>NULL</literal></link> will be returned.</para>
+<para>If <parameter>cancellable</parameter>
+ is non-<link linkend="NULL:CAPS"><literal>NULL</literal></link>, it can be used to cancel the
+operation, in which case <parameter>error</parameter>
+ (if non-<link linkend="NULL:CAPS"><literal>NULL</literal></link>) will be set to
+<link linkend="G-IO-ERROR-CANCELLED:CAPS"><literal>G_IO_ERROR_CANCELLED</literal></link>.</para>
+<refsect3 id="g-resolver-lookup-records.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>resolver</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GResolver"><type>GResolver</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>rrname</para></entry>
+<entry role="parameter_description"><para>the DNS name to lookup the record for</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>record_type</para></entry>
+<entry role="parameter_description"><para>the type of DNS record to lookup</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>cancellable</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GCancellable"><type>GCancellable</type></link>, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para>return location for a <link linkend="GError"><type>GError</type></link>, or <link linkend="NULL:CAPS"><literal>NULL</literal></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-resolver-lookup-records.returns" role="returns">
+<title>Returns</title>
+<para>a non-empty <link linkend="GList"><type>GList</type></link> of
+<link linkend="GVariant"><type>GVariant</type></link>, or <link linkend="NULL:CAPS"><literal>NULL</literal></link> on error. You must free each of the records and the list
+when you are done with it. (You can use <link linkend="g-list-free-full"><function>g_list_free_full()</function></link> with
+<link linkend="g-variant-unref"><function>g_variant_unref()</function></link> to do this.). </para>
+<para><emphasis role="annotation">[<acronym>element-type</acronym> GVariant][<acronym>transfer full</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.34">2.34</link></para></refsect2>
+<refsect2 id="g-resolver-lookup-records-async" role="function" condition="since:2.34">
+<title>g_resolver_lookup_records_async&#160;()</title>
+<indexterm zone="g-resolver-lookup-records-async" role="2.34"><primary sortas="resolver_lookup_records_async">g_resolver_lookup_records_async</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_resolver_lookup_records_async (<parameter><link linkend="GResolver"><type>GResolver</type></link> *resolver</parameter>,
+                                 <parameter>const <link linkend="gchar"><type>gchar</type></link> *rrname</parameter>,
+                                 <parameter><link linkend="GResolverRecordType"><type>GResolverRecordType</type></link> record_type</parameter>,
+                                 <parameter><link linkend="GCancellable"><type>GCancellable</type></link> *cancellable</parameter>,
+                                 <parameter><link linkend="GAsyncReadyCallback"><type>GAsyncReadyCallback</type></link> callback</parameter>,
+                                 <parameter><link linkend="gpointer"><type>gpointer</type></link> user_data</parameter>);</programlisting>
+<para>Begins asynchronously performing a DNS lookup for the given
+<parameter>rrname</parameter>
+, and eventually calls <parameter>callback</parameter>
+, which must call
+<link linkend="g-resolver-lookup-records-finish"><function>g_resolver_lookup_records_finish()</function></link> to get the final result. See
+<link linkend="g-resolver-lookup-records"><function>g_resolver_lookup_records()</function></link> for more details.</para>
+<refsect3 id="g-resolver-lookup-records-async.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>resolver</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GResolver"><type>GResolver</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>rrname</para></entry>
+<entry role="parameter_description"><para>the DNS name to lookup the record for</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>record_type</para></entry>
+<entry role="parameter_description"><para>the type of DNS record to lookup</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>cancellable</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GCancellable"><type>GCancellable</type></link>, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>callback</para></entry>
+<entry role="parameter_description"><para>callback to call after resolution completes. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>scope async</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>user_data</para></entry>
+<entry role="parameter_description"><para>data for <parameter>callback</parameter>
+. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>closure</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.34">2.34</link></para></refsect2>
+<refsect2 id="g-resolver-lookup-records-finish" role="function" condition="since:2.34">
+<title>g_resolver_lookup_records_finish&#160;()</title>
+<indexterm zone="g-resolver-lookup-records-finish" role="2.34"><primary sortas="resolver_lookup_records_finish">g_resolver_lookup_records_finish</primary></indexterm>
+<programlisting language="C"><link linkend="GList"><returnvalue>GList</returnvalue></link>&#160;*
+g_resolver_lookup_records_finish (<parameter><link linkend="GResolver"><type>GResolver</type></link> *resolver</parameter>,
+                                  <parameter><link linkend="GAsyncResult"><type>GAsyncResult</type></link> *result</parameter>,
+                                  <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para>Retrieves the result of a previous call to
+<link linkend="g-resolver-lookup-records-async"><function>g_resolver_lookup_records_async()</function></link>. Returns a non-empty list of records as
+<link linkend="GVariant"><type>GVariant</type></link> tuples. See <link linkend="GResolverRecordType"><type>GResolverRecordType</type></link> for information on what the
+records contain.</para>
+<para>If the DNS resolution failed, <parameter>error</parameter>
+ (if non-<link linkend="NULL:CAPS"><literal>NULL</literal></link>) will be set to
+a value from <link linkend="GResolverError"><type>GResolverError</type></link>. If the operation was cancelled,
+<parameter>error</parameter>
+ will be set to <link linkend="G-IO-ERROR-CANCELLED:CAPS"><literal>G_IO_ERROR_CANCELLED</literal></link>.</para>
+<refsect3 id="g-resolver-lookup-records-finish.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>resolver</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GResolver"><type>GResolver</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>result</para></entry>
+<entry role="parameter_description"><para>the result passed to your <link linkend="GAsyncReadyCallback"><type>GAsyncReadyCallback</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para>return location for a <link linkend="GError"><type>GError</type></link>, or <link linkend="NULL:CAPS"><literal>NULL</literal></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-resolver-lookup-records-finish.returns" role="returns">
+<title>Returns</title>
+<para>a non-empty <link linkend="GList"><type>GList</type></link> of
+<link linkend="GVariant"><type>GVariant</type></link>, or <link linkend="NULL:CAPS"><literal>NULL</literal></link> on error. You must free each of the records and the list
+when you are done with it. (You can use <link linkend="g-list-free-full"><function>g_list_free_full()</function></link> with
+<link linkend="g-variant-unref"><function>g_variant_unref()</function></link> to do this.). </para>
+<para><emphasis role="annotation">[<acronym>element-type</acronym> GVariant][<acronym>transfer full</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.34">2.34</link></para></refsect2>
+
+</refsect1>
+<refsect1 id="GResolver.other_details" role="details">
+<title role="details.title">Types and Values</title>
+<refsect2 id="GResolver-struct" role="struct">
+<title>GResolver</title>
+<indexterm zone="GResolver-struct"><primary sortas="Resolver">GResolver</primary></indexterm>
+<programlisting language="C">typedef struct _GResolver GResolver;</programlisting>
+<para>The object that handles DNS resolution. Use <link linkend="g-resolver-get-default"><function>g_resolver_get_default()</function></link>
+to get the default resolver.</para>
+<para>This is an abstract type; subclasses of it implement different resolvers for
+different platforms and situations.</para>
+</refsect2>
+<refsect2 id="GResolverRecordType" role="enum" condition="since:2.34">
+<title>enum GResolverRecordType</title>
+<indexterm zone="GResolverRecordType" role="2.34"><primary sortas="ResolverRecordType">GResolverRecordType</primary></indexterm>
+<para>The type of record that <link linkend="g-resolver-lookup-records"><function>g_resolver_lookup_records()</function></link> or
+<link linkend="g-resolver-lookup-records-async"><function>g_resolver_lookup_records_async()</function></link> should retrieve. The records are returned
+as lists of <link linkend="GVariant"><type>GVariant</type></link> tuples. Each record type has different values in
+the variant tuples returned.</para>
+<para><link linkend="G-RESOLVER-RECORD-SRV:CAPS"><literal>G_RESOLVER_RECORD_SRV</literal></link> records are returned as variants with the signature
+'(qqqs)', containing a guint16 with the priority, a guint16 with the
+weight, a guint16 with the port, and a string of the hostname.</para>
+<para><link linkend="G-RESOLVER-RECORD-MX:CAPS"><literal>G_RESOLVER_RECORD_MX</literal></link> records are returned as variants with the signature
+'(qs)', representing a guint16 with the preference, and a string containing
+the mail exchanger hostname.</para>
+<para><link linkend="G-RESOLVER-RECORD-TXT:CAPS"><literal>G_RESOLVER_RECORD_TXT</literal></link> records are returned as variants with the signature
+'(as)', representing an array of the strings in the text record.</para>
+<para><link linkend="G-RESOLVER-RECORD-SOA:CAPS"><literal>G_RESOLVER_RECORD_SOA</literal></link> records are returned as variants with the signature
+'(ssuuuuu)', representing a string containing the primary name server, a
+string containing the administrator, the serial as a guint32, the refresh
+interval as guint32, the retry interval as a guint32, the expire timeout
+as a guint32, and the ttl as a guint32.</para>
+<para><link linkend="G-RESOLVER-RECORD-NS:CAPS"><literal>G_RESOLVER_RECORD_NS</literal></link> records are returned as variants with the signature
+'(s)', representing a string of the hostname of the name server.</para>
+<refsect3 id="GResolverRecordType.members" role="enum_members">
+<title>Members</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="enum_members_name" colwidth="300px"/>
+<colspec colname="enum_members_description"/>
+<colspec colname="enum_members_annotations" colwidth="200px"/>
+<tbody>
+<row role="constant"><entry role="enum_member_name"><para id="G-RESOLVER-RECORD-SRV:CAPS">G_RESOLVER_RECORD_SRV</para></entry>
+<entry role="enum_member_description"><para>lookup DNS SRV records for a domain</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-RESOLVER-RECORD-MX:CAPS">G_RESOLVER_RECORD_MX</para></entry>
+<entry role="enum_member_description"><para>lookup DNS MX records for a domain</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-RESOLVER-RECORD-TXT:CAPS">G_RESOLVER_RECORD_TXT</para></entry>
+<entry role="enum_member_description"><para>lookup DNS TXT records for a name</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-RESOLVER-RECORD-SOA:CAPS">G_RESOLVER_RECORD_SOA</para></entry>
+<entry role="enum_member_description"><para>lookup DNS SOA records for a zone</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-RESOLVER-RECORD-NS:CAPS">G_RESOLVER_RECORD_NS</para></entry>
+<entry role="enum_member_description"><para>lookup DNS NS records for a domain</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.34">2.34</link></para></refsect2>
+<refsect2 id="G-RESOLVER-ERROR:CAPS" role="macro">
+<title>G_RESOLVER_ERROR</title>
+<indexterm zone="G-RESOLVER-ERROR:CAPS"><primary sortas="RESOLVER_ERROR">G_RESOLVER_ERROR</primary></indexterm>
+<programlisting language="C">#define G_RESOLVER_ERROR (g_resolver_error_quark ())
+</programlisting>
+<para>Error domain for <link linkend="GResolver"><type>GResolver</type></link>. Errors in this domain will be from the
+<link linkend="GResolverError"><type>GResolverError</type></link> enumeration. See <link linkend="GError"><type>GError</type></link> for more information on
+error domains.</para>
+</refsect2>
+<refsect2 id="GResolverError" role="enum" condition="since:2.22">
+<title>enum GResolverError</title>
+<indexterm zone="GResolverError" role="2.22"><primary sortas="ResolverError">GResolverError</primary></indexterm>
+<para>An error code used with <link linkend="G-RESOLVER-ERROR:CAPS"><literal>G_RESOLVER_ERROR</literal></link> in a <link linkend="GError"><type>GError</type></link> returned
+from a <link linkend="GResolver"><type>GResolver</type></link> routine.</para>
+<refsect3 id="GResolverError.members" role="enum_members">
+<title>Members</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="enum_members_name" colwidth="300px"/>
+<colspec colname="enum_members_description"/>
+<colspec colname="enum_members_annotations" colwidth="200px"/>
+<tbody>
+<row role="constant"><entry role="enum_member_name"><para id="G-RESOLVER-ERROR-NOT-FOUND:CAPS">G_RESOLVER_ERROR_NOT_FOUND</para></entry>
+<entry role="enum_member_description"><para>the requested name/address/service was not
+    found</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-RESOLVER-ERROR-TEMPORARY-FAILURE:CAPS">G_RESOLVER_ERROR_TEMPORARY_FAILURE</para></entry>
+<entry role="enum_member_description"><para>the requested information could not
+    be looked up due to a network error or similar problem</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-RESOLVER-ERROR-INTERNAL:CAPS">G_RESOLVER_ERROR_INTERNAL</para></entry>
+<entry role="enum_member_description"><para>unknown error</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.22">2.22</link></para></refsect2>
+
+</refsect1>
+<refsect1 id="GResolver.signal-details" role="signals">
+<title role="signals.title">Signal Details</title>
+<refsect2 id="GResolver-reload" role="signal"><title>The <literal>“reload”</literal> signal</title>
+<indexterm zone="GResolver-reload"><primary sortas="Resolver::reload">GResolver::reload</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+user_function (<link linkend="GResolver"><type>GResolver</type></link> *resolver,
+               <link linkend="gpointer"><type>gpointer</type></link>   user_data)</programlisting>
+<para>Emitted when the resolver notices that the system resolver
+configuration has changed.</para>
+<refsect3 id="GResolver-reload.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>resolver</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GResolver"><type>GResolver</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><simpara>user_data</simpara></entry>
+<entry role="parameter_description"><simpara>user data set when the signal handler was connected.</simpara></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para>Flags: <link linkend="G-SIGNAL-RUN-LAST:CAPS">Run Last</link></para>
+</refsect2>
+</refsect1>
+
+</refentry>

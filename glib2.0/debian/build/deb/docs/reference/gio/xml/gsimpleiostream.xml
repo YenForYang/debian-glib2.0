@@ -1,0 +1,145 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC '-//OASIS//DTD DocBook XML V4.5//EN'
+                      'http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd' [
+<!ENTITY % local.common.attrib "xmlns:xi  CDATA  #FIXED 'http://www.w3.org/2003/XInclude'">
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="GSimpleIOStream">
+<refmeta>
+<refentrytitle role="top_of_page" id="GSimpleIOStream.top_of_page">GSimpleIOStream</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>GIO Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>GSimpleIOStream</refname>
+<refpurpose>A wrapper around an input and an output stream.</refpurpose>
+</refnamediv>
+
+<refsect1 id="GSimpleIOStream.functions" role="functions_proto">
+<title role="functions_proto.title">Functions</title>
+<informaltable pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="functions_return" colwidth="150px"/>
+<colspec colname="functions_name"/>
+<tbody>
+<row><entry role="function_type"><link linkend="GIOStream"><returnvalue>GIOStream</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-simple-io-stream-new">g_simple_io_stream_new</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GSimpleIOStream.properties" role="properties">
+<title role="properties.title">Properties</title>
+<informaltable frame="none">
+<tgroup cols="3">
+<colspec colname="properties_type" colwidth="150px"/>
+<colspec colname="properties_name" colwidth="300px"/>
+<colspec colname="properties_flags" colwidth="200px"/>
+<tbody>
+<row><entry role="property_type"><link linkend="GInputStream"><type>GInputStream</type></link>&#160;*</entry><entry role="property_name"><link linkend="GSimpleIOStream--input-stream">input-stream</link></entry><entry role="property_flags">Read / Write / Construct Only</entry></row>
+<row><entry role="property_type"><link linkend="GOutputStream"><type>GOutputStream</type></link>&#160;*</entry><entry role="property_name"><link linkend="GSimpleIOStream--output-stream">output-stream</link></entry><entry role="property_flags">Read / Write / Construct Only</entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GSimpleIOStream.other" role="other_proto">
+<title role="other_proto.title">Types and Values</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="name" colwidth="150px"/>
+<colspec colname="description"/>
+<tbody>
+<row><entry role="datatype_keyword"></entry><entry role="function_name"><link linkend="GSimpleIOStream-struct">GSimpleIOStream</link></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GSimpleIOStream.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<screen>    <link linkend="GObject">GObject</link>
+    <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> <link linkend="GIOStream">GIOStream</link>
+        <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> GSimpleIOStream
+</screen>
+</refsect1>
+
+<refsect1 id="GSimpleIOStream.includes"><title>Includes</title><synopsis>#include &lt;gio/gio.h&gt;
+</synopsis></refsect1>
+
+<refsect1 id="GSimpleIOStream.description" role="desc">
+<title role="desc.title">Description</title>
+<para>GSimpleIOStream creates a <link linkend="GIOStream"><type>GIOStream</type></link> from an arbitrary <link linkend="GInputStream"><type>GInputStream</type></link> and
+<link linkend="GOutputStream"><type>GOutputStream</type></link>. This allows any pair of input and output streams to be used
+with <link linkend="GIOStream"><type>GIOStream</type></link> methods.</para>
+<para>This is useful when you obtained a <link linkend="GInputStream"><type>GInputStream</type></link> and a <link linkend="GOutputStream"><type>GOutputStream</type></link>
+by other means, for instance creating them with platform specific methods as
+<link linkend="g-unix-input-stream-new"><function>g_unix_input_stream_new()</function></link> or <link linkend="g-win32-input-stream-new"><function>g_win32_input_stream_new()</function></link>, and you want
+to take advantage of the methods provided by <link linkend="GIOStream"><type>GIOStream</type></link>.</para>
+
+</refsect1>
+<refsect1 id="GSimpleIOStream.functions_details" role="details">
+<title role="details.title">Functions</title>
+<refsect2 id="g-simple-io-stream-new" role="function" condition="since:2.44">
+<title>g_simple_io_stream_new&#160;()</title>
+<indexterm zone="g-simple-io-stream-new" role="2.44"><primary sortas="simple_io_stream_new">g_simple_io_stream_new</primary></indexterm>
+<programlisting language="C"><link linkend="GIOStream"><returnvalue>GIOStream</returnvalue></link>&#160;*
+g_simple_io_stream_new (<parameter><link linkend="GInputStream"><type>GInputStream</type></link> *input_stream</parameter>,
+                        <parameter><link linkend="GOutputStream"><type>GOutputStream</type></link> *output_stream</parameter>);</programlisting>
+<para>Creates a new <link linkend="GSimpleIOStream"><type>GSimpleIOStream</type></link> wrapping <parameter>input_stream</parameter>
+ and <parameter>output_stream</parameter>
+.
+See also <link linkend="GIOStream"><type>GIOStream</type></link>.</para>
+<refsect3 id="g-simple-io-stream-new.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>input_stream</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GInputStream"><type>GInputStream</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>output_stream</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GOutputStream"><type>GOutputStream</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-simple-io-stream-new.returns" role="returns">
+<title>Returns</title>
+<para> a new <link linkend="GSimpleIOStream"><type>GSimpleIOStream</type></link> instance.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.44">2.44</link></para></refsect2>
+
+</refsect1>
+<refsect1 id="GSimpleIOStream.other_details" role="details">
+<title role="details.title">Types and Values</title>
+<refsect2 id="GSimpleIOStream-struct" role="struct">
+<title>GSimpleIOStream</title>
+<indexterm zone="GSimpleIOStream-struct" role="2.44"><primary sortas="SimpleIOStream">GSimpleIOStream</primary></indexterm>
+<programlisting language="C">typedef struct _GSimpleIOStream GSimpleIOStream;</programlisting>
+<para>A wrapper around a <link linkend="GInputStream"><type>GInputStream</type></link> and a <link linkend="GOutputStream"><type>GOutputStream</type></link>.</para>
+<para role="since">Since: <link linkend="api-index-2.44">2.44</link></para></refsect2>
+
+</refsect1>
+<refsect1 id="GSimpleIOStream.property-details" role="property_details">
+<title role="property_details.title">Property Details</title>
+<refsect2 id="GSimpleIOStream--input-stream" role="property"><title>The <literal>“input-stream”</literal> property</title>
+<indexterm zone="GSimpleIOStream--input-stream" role="2.44"><primary sortas="SimpleIOStream:input-stream">GSimpleIOStream:input-stream</primary></indexterm>
+<programlisting>  “input-stream”             <link linkend="GInputStream"><type>GInputStream</type></link>&#160;*</programlisting>
+<para>The GInputStream to read from.</para><para>Flags: Read / Write / Construct Only</para>
+<para role="since">Since: <link linkend="api-index-2.44">2.44</link></para></refsect2>
+<refsect2 id="GSimpleIOStream--output-stream" role="property"><title>The <literal>“output-stream”</literal> property</title>
+<indexterm zone="GSimpleIOStream--output-stream" role="2.44"><primary sortas="SimpleIOStream:output-stream">GSimpleIOStream:output-stream</primary></indexterm>
+<programlisting>  “output-stream”            <link linkend="GOutputStream"><type>GOutputStream</type></link>&#160;*</programlisting>
+<para>The GOutputStream to write to.</para><para>Flags: Read / Write / Construct Only</para>
+<para role="since">Since: <link linkend="api-index-2.44">2.44</link></para></refsect2>
+
+</refsect1>
+<refsect1 id="GSimpleIOStream.see-also">
+<title>See Also</title>
+<para><link linkend="GIOStream"><type>GIOStream</type></link></para>
+
+</refsect1>
+
+</refentry>

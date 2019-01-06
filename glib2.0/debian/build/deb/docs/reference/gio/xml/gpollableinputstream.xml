@@ -1,0 +1,318 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC '-//OASIS//DTD DocBook XML V4.5//EN'
+                      'http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd' [
+<!ENTITY % local.common.attrib "xmlns:xi  CDATA  #FIXED 'http://www.w3.org/2003/XInclude'">
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="GPollableInputStream">
+<refmeta>
+<refentrytitle role="top_of_page" id="GPollableInputStream.top_of_page">GPollableInputStream</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>GIO Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>GPollableInputStream</refname>
+<refpurpose>Interface for pollable input streams</refpurpose>
+</refnamediv>
+
+<refsect1 id="GPollableInputStream.functions" role="functions_proto">
+<title role="functions_proto.title">Functions</title>
+<informaltable pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="functions_return" colwidth="150px"/>
+<colspec colname="functions_name"/>
+<tbody>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-pollable-input-stream-can-poll">g_pollable_input_stream_can_poll</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-pollable-input-stream-is-readable">g_pollable_input_stream_is_readable</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GSource"><returnvalue>GSource</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-pollable-input-stream-create-source">g_pollable_input_stream_create_source</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gssize"><returnvalue>gssize</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-pollable-input-stream-read-nonblocking">g_pollable_input_stream_read_nonblocking</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GPollableInputStream.other" role="other_proto">
+<title role="other_proto.title">Types and Values</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="name" colwidth="150px"/>
+<colspec colname="description"/>
+<tbody>
+<row><entry role="datatype_keyword"></entry><entry role="function_name"><link linkend="GPollableInputStream-struct">GPollableInputStream</link></entry></row>
+<row><entry role="datatype_keyword">struct</entry><entry role="function_name"><link linkend="GPollableInputStreamInterface">GPollableInputStreamInterface</link></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GPollableInputStream.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<screen>    <link linkend="GInterface">GInterface</link>
+    <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> GPollableInputStream
+</screen>
+</refsect1>
+<refsect1 id="GPollableInputStream.prerequisites" role="prerequisites">
+<title role="prerequisites.title">Prerequisites</title>
+<para>
+GPollableInputStream requires
+ <link linkend="GInputStream">GInputStream</link>.</para>
+
+</refsect1>
+<refsect1 id="GPollableInputStream.implementations" role="implementations">
+<title role="implementations.title">Known Implementations</title>
+<para>
+GPollableInputStream is implemented by
+ <link linkend="GConverterInputStream">GConverterInputStream</link>,  <link linkend="GMemoryInputStream">GMemoryInputStream</link> and  <link linkend="GUnixInputStream">GUnixInputStream</link>.</para>
+
+</refsect1>
+
+<refsect1 id="GPollableInputStream.includes"><title>Includes</title><synopsis>#include &lt;gio/gio.h&gt;
+</synopsis></refsect1>
+
+<refsect1 id="GPollableInputStream.description" role="desc">
+<title role="desc.title">Description</title>
+<para><link linkend="GPollableInputStream"><type>GPollableInputStream</type></link> is implemented by <link linkend="GInputStreams"><type>GInputStreams</type></link> that
+can be polled for readiness to read. This can be used when
+interfacing with a non-GIO API that expects
+UNIX-file-descriptor-style asynchronous I/O rather than GIO-style.</para>
+
+</refsect1>
+<refsect1 id="GPollableInputStream.functions_details" role="details">
+<title role="details.title">Functions</title>
+<refsect2 id="g-pollable-input-stream-can-poll" role="function" condition="since:2.28">
+<title>g_pollable_input_stream_can_poll&#160;()</title>
+<indexterm zone="g-pollable-input-stream-can-poll" role="2.28"><primary sortas="pollable_input_stream_can_poll">g_pollable_input_stream_can_poll</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_pollable_input_stream_can_poll (<parameter><link linkend="GPollableInputStream"><type>GPollableInputStream</type></link> *stream</parameter>);</programlisting>
+<para>Checks if <parameter>stream</parameter>
+ is actually pollable. Some classes may implement
+<link linkend="GPollableInputStream"><type>GPollableInputStream</type></link> but have only certain instances of that class
+be pollable. If this method returns <link linkend="FALSE:CAPS"><literal>FALSE</literal></link>, then the behavior of
+other <link linkend="GPollableInputStream"><type>GPollableInputStream</type></link> methods is undefined.</para>
+<para>For any given stream, the value returned by this method is constant;
+a stream cannot switch from pollable to non-pollable or vice versa.</para>
+<refsect3 id="g-pollable-input-stream-can-poll.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>stream</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GPollableInputStream"><type>GPollableInputStream</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-pollable-input-stream-can-poll.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if <parameter>stream</parameter>
+is pollable, <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> if not.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.28">2.28</link></para></refsect2>
+<refsect2 id="g-pollable-input-stream-is-readable" role="function" condition="since:2.28">
+<title>g_pollable_input_stream_is_readable&#160;()</title>
+<indexterm zone="g-pollable-input-stream-is-readable" role="2.28"><primary sortas="pollable_input_stream_is_readable">g_pollable_input_stream_is_readable</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_pollable_input_stream_is_readable (<parameter><link linkend="GPollableInputStream"><type>GPollableInputStream</type></link> *stream</parameter>);</programlisting>
+<para>Checks if <parameter>stream</parameter>
+ can be read.</para>
+<para>Note that some stream types may not be able to implement this 100%
+reliably, and it is possible that a call to <link linkend="g-input-stream-read"><function>g_input_stream_read()</function></link>
+after this returns <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> would still block. To guarantee
+non-blocking behavior, you should always use
+<link linkend="g-pollable-input-stream-read-nonblocking"><function>g_pollable_input_stream_read_nonblocking()</function></link>, which will return a
+<link linkend="G-IO-ERROR-WOULD-BLOCK:CAPS"><literal>G_IO_ERROR_WOULD_BLOCK</literal></link> error rather than blocking.</para>
+<refsect3 id="g-pollable-input-stream-is-readable.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>stream</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GPollableInputStream"><type>GPollableInputStream</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-pollable-input-stream-is-readable.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if <parameter>stream</parameter>
+is readable, <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> if not. If an error
+has occurred on <parameter>stream</parameter>
+, this will result in
+<link linkend="g-pollable-input-stream-is-readable"><function>g_pollable_input_stream_is_readable()</function></link> returning <link linkend="TRUE:CAPS"><literal>TRUE</literal></link>, and the
+next attempt to read will return the error.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.28">2.28</link></para></refsect2>
+<refsect2 id="g-pollable-input-stream-create-source" role="function" condition="since:2.28">
+<title>g_pollable_input_stream_create_source&#160;()</title>
+<indexterm zone="g-pollable-input-stream-create-source" role="2.28"><primary sortas="pollable_input_stream_create_source">g_pollable_input_stream_create_source</primary></indexterm>
+<programlisting language="C"><link linkend="GSource"><returnvalue>GSource</returnvalue></link>&#160;*
+g_pollable_input_stream_create_source (<parameter><link linkend="GPollableInputStream"><type>GPollableInputStream</type></link> *stream</parameter>,
+                                       <parameter><link linkend="GCancellable"><type>GCancellable</type></link> *cancellable</parameter>);</programlisting>
+<para>Creates a <link linkend="GSource"><type>GSource</type></link> that triggers when <parameter>stream</parameter>
+ can be read, or
+<parameter>cancellable</parameter>
+ is triggered or an error occurs. The callback on the
+source is of the <link linkend="GPollableSourceFunc"><type>GPollableSourceFunc</type></link> type.</para>
+<para>As with <link linkend="g-pollable-input-stream-is-readable"><function>g_pollable_input_stream_is_readable()</function></link>, it is possible that
+the stream may not actually be readable even after the source
+triggers, so you should use <link linkend="g-pollable-input-stream-read-nonblocking"><function>g_pollable_input_stream_read_nonblocking()</function></link>
+rather than <link linkend="g-input-stream-read"><function>g_input_stream_read()</function></link> from the callback.</para>
+<refsect3 id="g-pollable-input-stream-create-source.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>stream</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GPollableInputStream"><type>GPollableInputStream</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>cancellable</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GCancellable"><type>GCancellable</type></link>, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-pollable-input-stream-create-source.returns" role="returns">
+<title>Returns</title>
+<para>a new <link linkend="GSource"><type>GSource</type></link>. </para>
+<para><emphasis role="annotation">[<acronym>transfer full</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.28">2.28</link></para></refsect2>
+<refsect2 id="g-pollable-input-stream-read-nonblocking" role="function">
+<title>g_pollable_input_stream_read_nonblocking&#160;()</title>
+<indexterm zone="g-pollable-input-stream-read-nonblocking"><primary sortas="pollable_input_stream_read_nonblocking">g_pollable_input_stream_read_nonblocking</primary></indexterm>
+<programlisting language="C"><link linkend="gssize"><returnvalue>gssize</returnvalue></link>
+g_pollable_input_stream_read_nonblocking
+                               (<parameter><link linkend="GPollableInputStream"><type>GPollableInputStream</type></link> *stream</parameter>,
+                                <parameter><link linkend="void"><type>void</type></link> *buffer</parameter>,
+                                <parameter><link linkend="gsize"><type>gsize</type></link> count</parameter>,
+                                <parameter><link linkend="GCancellable"><type>GCancellable</type></link> *cancellable</parameter>,
+                                <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para>Attempts to read up to <parameter>count</parameter>
+ bytes from <parameter>stream</parameter>
+ into <parameter>buffer</parameter>
+, as
+with <link linkend="g-input-stream-read"><function>g_input_stream_read()</function></link>. If <parameter>stream</parameter>
+ is not currently readable,
+this will immediately return <link linkend="G-IO-ERROR-WOULD-BLOCK:CAPS"><literal>G_IO_ERROR_WOULD_BLOCK</literal></link>, and you can
+use <link linkend="g-pollable-input-stream-create-source"><function>g_pollable_input_stream_create_source()</function></link> to create a <link linkend="GSource"><type>GSource</type></link>
+that will be triggered when <parameter>stream</parameter>
+ is readable.</para>
+<para>Note that since this method never blocks, you cannot actually
+use <parameter>cancellable</parameter>
+ to cancel it. However, it will return an error
+if <parameter>cancellable</parameter>
+ has already been cancelled when you call, which
+may happen if you call this method after a source triggers due
+to having been cancelled.</para>
+<para>Virtual: read_nonblocking</para>
+<refsect3 id="g-pollable-input-stream-read-nonblocking.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>stream</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GPollableInputStream"><type>GPollableInputStream</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>buffer</para></entry>
+<entry role="parameter_description"><para>a buffer to
+read data into (which should be at least <parameter>count</parameter>
+bytes long). </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>array</acronym> length=count][<acronym>element-type</acronym> guint8]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>count</para></entry>
+<entry role="parameter_description"><para>the number of bytes you want to read</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>cancellable</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GCancellable"><type>GCancellable</type></link>, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para><link linkend="GError"><type>GError</type></link> for error reporting, or <link linkend="NULL:CAPS"><literal>NULL</literal></link> to ignore.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-pollable-input-stream-read-nonblocking.returns" role="returns">
+<title>Returns</title>
+<para> the number of bytes read, or -1 on error (including
+<link linkend="G-IO-ERROR-WOULD-BLOCK:CAPS"><literal>G_IO_ERROR_WOULD_BLOCK</literal></link>).</para>
+</refsect3></refsect2>
+
+</refsect1>
+<refsect1 id="GPollableInputStream.other_details" role="details">
+<title role="details.title">Types and Values</title>
+<refsect2 id="GPollableInputStream-struct" role="struct">
+<title>GPollableInputStream</title>
+<indexterm zone="GPollableInputStream-struct" role="2.28"><primary sortas="PollableInputStream">GPollableInputStream</primary></indexterm>
+<programlisting language="C">typedef struct _GPollableInputStream GPollableInputStream;</programlisting>
+<para>An interface for a <link linkend="GInputStream"><type>GInputStream</type></link> that can be polled for readability.</para>
+<para role="since">Since: <link linkend="api-index-2.28">2.28</link></para></refsect2>
+<refsect2 id="GPollableInputStreamInterface" role="struct" condition="since:2.28">
+<title>struct GPollableInputStreamInterface</title>
+<indexterm zone="GPollableInputStreamInterface" role="2.28"><primary sortas="PollableInputStreamInterface">GPollableInputStreamInterface</primary></indexterm>
+<programlisting language="C">struct GPollableInputStreamInterface {
+  GTypeInterface g_iface;
+
+  /* Virtual Table */
+  gboolean     (*can_poll)         (GPollableInputStream  *stream);
+
+  gboolean     (*is_readable)      (GPollableInputStream  *stream);
+  GSource *    (*create_source)    (GPollableInputStream  *stream,
+				    GCancellable          *cancellable);
+  gssize       (*read_nonblocking) (GPollableInputStream  *stream,
+				    void                  *buffer,
+				    gsize                  count,
+				    GError               **error);
+};
+</programlisting>
+<para>The interface for pollable input streams.</para>
+<para>The default implementation of <parameter>can_poll</parameter>
+ always returns <link linkend="TRUE:CAPS"><literal>TRUE</literal></link>.</para>
+<para>The default implementation of <parameter>read_nonblocking</parameter>
+ calls
+<link linkend="g-pollable-input-stream-is-readable"><function>g_pollable_input_stream_is_readable()</function></link>, and then calls
+<link linkend="g-input-stream-read"><function>g_input_stream_read()</function></link> if it returns <link linkend="TRUE:CAPS"><literal>TRUE</literal></link>. This means you only need
+to override it if it is possible that your <parameter>is_readable</parameter>
+
+implementation may return <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> when the stream is not actually
+readable.</para>
+<refsect3 id="GPollableInputStreamInterface.members" role="struct_members">
+<title>Members</title>
+<informaltable role="struct_members_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="struct_members_name" colwidth="300px"/>
+<colspec colname="struct_members_description"/>
+<colspec colname="struct_members_annotations" colwidth="200px"/>
+<tbody>
+<row role="member"><entry role="struct_member_name"><para><structfield id="GPollableInputStreamInterface.can-poll">can_poll</structfield>&#160;()</para></entry>
+<entry role="struct_member_description"><para>Checks if the <link linkend="GPollableInputStream"><type>GPollableInputStream</type></link> instance is actually pollable</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><structfield id="GPollableInputStreamInterface.is-readable">is_readable</structfield>&#160;()</para></entry>
+<entry role="struct_member_description"><para>Checks if the stream is readable</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><structfield id="GPollableInputStreamInterface.create-source">create_source</structfield>&#160;()</para></entry>
+<entry role="struct_member_description"><para>Creates a <link linkend="GSource"><type>GSource</type></link> to poll the stream</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><structfield id="GPollableInputStreamInterface.read-nonblocking">read_nonblocking</structfield>&#160;()</para></entry>
+<entry role="struct_member_description"><para>Does a non-blocking read or returns
+<link linkend="G-IO-ERROR-WOULD-BLOCK:CAPS"><literal>G_IO_ERROR_WOULD_BLOCK</literal></link></para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+</tbody></tgroup></informaltable>
+</refsect3>
+<para role="since">Since: <link linkend="api-index-2.28">2.28</link></para></refsect2>
+
+</refsect1>
+<refsect1 id="GPollableInputStream.see-also">
+<title>See Also</title>
+<para><link linkend="GInputStream"><type>GInputStream</type></link>, <link linkend="GPollableOutputStream"><type>GPollableOutputStream</type></link>, <link linkend="GFileDescriptorBased"><type>GFileDescriptorBased</type></link></para>
+
+</refsect1>
+
+</refentry>

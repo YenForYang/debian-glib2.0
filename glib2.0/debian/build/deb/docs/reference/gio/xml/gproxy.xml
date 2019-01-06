@@ -1,0 +1,334 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC '-//OASIS//DTD DocBook XML V4.5//EN'
+                      'http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd' [
+<!ENTITY % local.common.attrib "xmlns:xi  CDATA  #FIXED 'http://www.w3.org/2003/XInclude'">
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="GProxy">
+<refmeta>
+<refentrytitle role="top_of_page" id="GProxy.top_of_page">GProxy</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>GIO Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>GProxy</refname>
+<refpurpose>Interface for proxy handling</refpurpose>
+</refnamediv>
+
+<refsect1 id="GProxy.functions" role="functions_proto">
+<title role="functions_proto.title">Functions</title>
+<informaltable pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="functions_return" colwidth="150px"/>
+<colspec colname="functions_name"/>
+<tbody>
+<row><entry role="function_type"><link linkend="GIOStream"><returnvalue>GIOStream</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-proxy-connect">g_proxy_connect</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-proxy-connect-async">g_proxy_connect_async</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GIOStream"><returnvalue>GIOStream</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-proxy-connect-finish">g_proxy_connect_finish</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GProxy"><returnvalue>GProxy</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-proxy-get-default-for-protocol">g_proxy_get_default_for_protocol</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-proxy-supports-hostname">g_proxy_supports_hostname</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GProxy.other" role="other_proto">
+<title role="other_proto.title">Types and Values</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="name" colwidth="150px"/>
+<colspec colname="description"/>
+<tbody>
+<row><entry role="datatype_keyword"></entry><entry role="function_name"><link linkend="GProxy-struct">GProxy</link></entry></row>
+<row><entry role="datatype_keyword">struct</entry><entry role="function_name"><link linkend="GProxyInterface">GProxyInterface</link></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="G-PROXY-EXTENSION-POINT-NAME:CAPS">G_PROXY_EXTENSION_POINT_NAME</link></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GProxy.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<screen>    <link linkend="GInterface">GInterface</link>
+    <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> GProxy
+</screen>
+</refsect1>
+<refsect1 id="GProxy.prerequisites" role="prerequisites">
+<title role="prerequisites.title">Prerequisites</title>
+<para>
+GProxy requires
+ <link linkend="GObject">GObject</link>.</para>
+
+</refsect1>
+
+<refsect1 id="GProxy.includes"><title>Includes</title><synopsis>#include &lt;gio/gio.h&gt;
+</synopsis></refsect1>
+
+<refsect1 id="GProxy.description" role="desc">
+<title role="desc.title">Description</title>
+<para>A <link linkend="GProxy"><type>GProxy</type></link> handles connecting to a remote host via a given type of
+proxy server. It is implemented by the 'gio-proxy' extension point.
+The extensions are named after their proxy protocol name. As an
+example, a SOCKS5 proxy implementation can be retrieved with the
+name 'socks5' using the function
+<link linkend="g-io-extension-point-get-extension-by-name"><function>g_io_extension_point_get_extension_by_name()</function></link>.</para>
+
+</refsect1>
+<refsect1 id="GProxy.functions_details" role="details">
+<title role="details.title">Functions</title>
+<refsect2 id="g-proxy-connect" role="function" condition="since:2.26">
+<title>g_proxy_connect&#160;()</title>
+<indexterm zone="g-proxy-connect" role="2.26"><primary sortas="proxy_connect">g_proxy_connect</primary></indexterm>
+<programlisting language="C"><link linkend="GIOStream"><returnvalue>GIOStream</returnvalue></link>&#160;*
+g_proxy_connect (<parameter><link linkend="GProxy"><type>GProxy</type></link> *proxy</parameter>,
+                 <parameter><link linkend="GIOStream"><type>GIOStream</type></link> *connection</parameter>,
+                 <parameter><link linkend="GProxyAddress"><type>GProxyAddress</type></link> *proxy_address</parameter>,
+                 <parameter><link linkend="GCancellable"><type>GCancellable</type></link> *cancellable</parameter>,
+                 <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para>Given <parameter>connection</parameter>
+ to communicate with a proxy (eg, a
+<link linkend="GSocketConnection"><type>GSocketConnection</type></link> that is connected to the proxy server), this
+does the necessary handshake to connect to <parameter>proxy_address</parameter>
+, and if
+required, wraps the <link linkend="GIOStream"><type>GIOStream</type></link> to handle proxy payload.</para>
+<refsect3 id="g-proxy-connect.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>proxy</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GProxy"><type>GProxy</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>connection</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GIOStream"><type>GIOStream</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>proxy_address</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GProxyAddress"><type>GProxyAddress</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>cancellable</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GCancellable"><type>GCancellable</type></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para>return <link linkend="GError"><type>GError</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-proxy-connect.returns" role="returns">
+<title>Returns</title>
+<para>a <link linkend="GIOStream"><type>GIOStream</type></link> that will replace <parameter>connection</parameter>
+. This might
+be the same as <parameter>connection</parameter>
+, in which case a reference
+will be added. </para>
+<para><emphasis role="annotation">[<acronym>transfer full</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.26">2.26</link></para></refsect2>
+<refsect2 id="g-proxy-connect-async" role="function" condition="since:2.26">
+<title>g_proxy_connect_async&#160;()</title>
+<indexterm zone="g-proxy-connect-async" role="2.26"><primary sortas="proxy_connect_async">g_proxy_connect_async</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_proxy_connect_async (<parameter><link linkend="GProxy"><type>GProxy</type></link> *proxy</parameter>,
+                       <parameter><link linkend="GIOStream"><type>GIOStream</type></link> *connection</parameter>,
+                       <parameter><link linkend="GProxyAddress"><type>GProxyAddress</type></link> *proxy_address</parameter>,
+                       <parameter><link linkend="GCancellable"><type>GCancellable</type></link> *cancellable</parameter>,
+                       <parameter><link linkend="GAsyncReadyCallback"><type>GAsyncReadyCallback</type></link> callback</parameter>,
+                       <parameter><link linkend="gpointer"><type>gpointer</type></link> user_data</parameter>);</programlisting>
+<para>Asynchronous version of <link linkend="g-proxy-connect"><function>g_proxy_connect()</function></link>.</para>
+<refsect3 id="g-proxy-connect-async.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>proxy</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GProxy"><type>GProxy</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>connection</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GIOStream"><type>GIOStream</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>proxy_address</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GProxyAddress"><type>GProxyAddress</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>cancellable</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GCancellable"><type>GCancellable</type></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>callback</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GAsyncReadyCallback"><type>GAsyncReadyCallback</type></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>scope async</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>user_data</para></entry>
+<entry role="parameter_description"><para>callback data. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>closure</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.26">2.26</link></para></refsect2>
+<refsect2 id="g-proxy-connect-finish" role="function" condition="since:2.26">
+<title>g_proxy_connect_finish&#160;()</title>
+<indexterm zone="g-proxy-connect-finish" role="2.26"><primary sortas="proxy_connect_finish">g_proxy_connect_finish</primary></indexterm>
+<programlisting language="C"><link linkend="GIOStream"><returnvalue>GIOStream</returnvalue></link>&#160;*
+g_proxy_connect_finish (<parameter><link linkend="GProxy"><type>GProxy</type></link> *proxy</parameter>,
+                        <parameter><link linkend="GAsyncResult"><type>GAsyncResult</type></link> *result</parameter>,
+                        <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para>See <link linkend="g-proxy-connect"><function>g_proxy_connect()</function></link>.</para>
+<refsect3 id="g-proxy-connect-finish.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>proxy</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GProxy"><type>GProxy</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>result</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GAsyncResult"><type>GAsyncResult</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para>return <link linkend="GError"><type>GError</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-proxy-connect-finish.returns" role="returns">
+<title>Returns</title>
+<para>a <link linkend="GIOStream"><type>GIOStream</type></link>. </para>
+<para><emphasis role="annotation">[<acronym>transfer full</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.26">2.26</link></para></refsect2>
+<refsect2 id="g-proxy-get-default-for-protocol" role="function" condition="since:2.26">
+<title>g_proxy_get_default_for_protocol&#160;()</title>
+<indexterm zone="g-proxy-get-default-for-protocol" role="2.26"><primary sortas="proxy_get_default_for_protocol">g_proxy_get_default_for_protocol</primary></indexterm>
+<programlisting language="C"><link linkend="GProxy"><returnvalue>GProxy</returnvalue></link>&#160;*
+g_proxy_get_default_for_protocol (<parameter>const <link linkend="gchar"><type>gchar</type></link> *protocol</parameter>);</programlisting>
+<para>Lookup "gio-proxy" extension point for a proxy implementation that supports
+specified protocol.</para>
+<refsect3 id="g-proxy-get-default-for-protocol.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>protocol</para></entry>
+<entry role="parameter_description"><para>the proxy protocol name (e.g. http, socks, etc)</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-proxy-get-default-for-protocol.returns" role="returns">
+<title>Returns</title>
+<para>return a <link linkend="GProxy"><type>GProxy</type></link> or NULL if protocol
+is not supported. </para>
+<para><emphasis role="annotation">[<acronym>transfer full</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.26">2.26</link></para></refsect2>
+<refsect2 id="g-proxy-supports-hostname" role="function" condition="since:2.26">
+<title>g_proxy_supports_hostname&#160;()</title>
+<indexterm zone="g-proxy-supports-hostname" role="2.26"><primary sortas="proxy_supports_hostname">g_proxy_supports_hostname</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_proxy_supports_hostname (<parameter><link linkend="GProxy"><type>GProxy</type></link> *proxy</parameter>);</programlisting>
+<para>Some proxy protocols expect to be passed a hostname, which they
+will resolve to an IP address themselves. Others, like SOCKS4, do
+not allow this. This function will return <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> if <parameter>proxy</parameter>
+ is
+implementing such a protocol. When <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> is returned, the caller
+should resolve the destination hostname first, and then pass a
+<link linkend="GProxyAddress"><type>GProxyAddress</type></link> containing the stringified IP address to
+<link linkend="g-proxy-connect"><function>g_proxy_connect()</function></link> or <link linkend="g-proxy-connect-async"><function>g_proxy_connect_async()</function></link>.</para>
+<refsect3 id="g-proxy-supports-hostname.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>proxy</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GProxy"><type>GProxy</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-proxy-supports-hostname.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if hostname resolution is supported.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.26">2.26</link></para></refsect2>
+
+</refsect1>
+<refsect1 id="GProxy.other_details" role="details">
+<title role="details.title">Types and Values</title>
+<refsect2 id="GProxy-struct" role="struct">
+<title>GProxy</title>
+<indexterm zone="GProxy-struct" role="2.26"><primary sortas="Proxy">GProxy</primary></indexterm>
+<programlisting language="C">typedef struct _GProxy GProxy;</programlisting>
+<para>Interface that handles proxy connection and payload.</para>
+<para role="since">Since: <link linkend="api-index-2.26">2.26</link></para></refsect2>
+<refsect2 id="GProxyInterface" role="struct" condition="since:2.26">
+<title>struct GProxyInterface</title>
+<indexterm zone="GProxyInterface" role="2.26"><primary sortas="ProxyInterface">GProxyInterface</primary></indexterm>
+<programlisting language="C">struct GProxyInterface {
+  GTypeInterface g_iface;
+
+  /* Virtual Table */
+
+  GIOStream * (* connect)           (GProxy               *proxy,
+				     GIOStream            *connection,
+				     GProxyAddress        *proxy_address,
+				     GCancellable         *cancellable,
+				     GError              **error);
+
+  void        (* connect_async)     (GProxy               *proxy,
+				     GIOStream            *connection,
+				     GProxyAddress	  *proxy_address,
+				     GCancellable         *cancellable,
+				     GAsyncReadyCallback   callback,
+				     gpointer              user_data);
+
+  GIOStream * (* connect_finish)    (GProxy               *proxy,
+				     GAsyncResult         *result,
+				     GError              **error);
+
+  gboolean    (* supports_hostname) (GProxy             *proxy);
+};
+</programlisting>
+<para>Provides an interface for handling proxy connection and payload.</para>
+<refsect3 id="GProxyInterface.members" role="struct_members">
+<title>Members</title>
+<informaltable role="struct_members_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="struct_members_name" colwidth="300px"/>
+<colspec colname="struct_members_description"/>
+<colspec colname="struct_members_annotations" colwidth="200px"/>
+<tbody>
+<row role="member"><entry role="struct_member_name"><para><structfield id="GProxyInterface.connect">connect</structfield>&#160;()</para></entry>
+<entry role="struct_member_description"><para>Connect to proxy server and wrap (if required) the <link linkend="connection"><type>connection</type></link>
+to handle payload.</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><structfield id="GProxyInterface.connect-async">connect_async</structfield>&#160;()</para></entry>
+<entry role="struct_member_description"><para>Same as <link linkend="connect"><function>connect()</function></link> but asynchronous.</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><structfield id="GProxyInterface.connect-finish">connect_finish</structfield>&#160;()</para></entry>
+<entry role="struct_member_description"><para>Returns the result of <link linkend="connect-async"><function>connect_async()</function></link></para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><structfield id="GProxyInterface.supports-hostname">supports_hostname</structfield>&#160;()</para></entry>
+<entry role="struct_member_description"><para>Returns whether the proxy supports hostname lookups.</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+</tbody></tgroup></informaltable>
+</refsect3>
+<para role="since">Since: <link linkend="api-index-2.26">2.26</link></para></refsect2>
+<refsect2 id="G-PROXY-EXTENSION-POINT-NAME:CAPS" role="macro" condition="since:2.26">
+<title>G_PROXY_EXTENSION_POINT_NAME</title>
+<indexterm zone="G-PROXY-EXTENSION-POINT-NAME:CAPS" role="2.26"><primary sortas="PROXY_EXTENSION_POINT_NAME">G_PROXY_EXTENSION_POINT_NAME</primary></indexterm>
+<programlisting language="C">#define G_PROXY_EXTENSION_POINT_NAME "gio-proxy"
+</programlisting>
+<para>Extension point for proxy functionality.
+See <link linkend="extending-gio">Extending GIO</link>.</para>
+<para role="since">Since: <link linkend="api-index-2.26">2.26</link></para></refsect2>
+
+</refsect1>
+
+</refentry>

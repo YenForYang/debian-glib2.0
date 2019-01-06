@@ -1,0 +1,103 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC '-//OASIS//DTD DocBook XML V4.5//EN'
+                      'http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd' [
+<!ENTITY % local.common.attrib "xmlns:xi  CDATA  #FIXED 'http://www.w3.org/2003/XInclude'">
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="GSimplePermission">
+<refmeta>
+<refentrytitle role="top_of_page" id="GSimplePermission.top_of_page">GSimplePermission</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>GIO Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>GSimplePermission</refname>
+<refpurpose>A GPermission that doesn't change value</refpurpose>
+</refnamediv>
+
+<refsect1 id="GSimplePermission.functions" role="functions_proto">
+<title role="functions_proto.title">Functions</title>
+<informaltable pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="functions_return" colwidth="150px"/>
+<colspec colname="functions_name"/>
+<tbody>
+<row><entry role="function_type"><link linkend="GPermission"><returnvalue>GPermission</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-simple-permission-new">g_simple_permission_new</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GSimplePermission.other" role="other_proto">
+<title role="other_proto.title">Types and Values</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="name" colwidth="150px"/>
+<colspec colname="description"/>
+<tbody>
+<row><entry role="datatype_keyword"></entry><entry role="function_name"><link linkend="GSimplePermission-struct">GSimplePermission</link></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GSimplePermission.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<screen>    <link linkend="GObject">GObject</link>
+    <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> <link linkend="GPermission">GPermission</link>
+        <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> GSimplePermission
+</screen>
+</refsect1>
+
+<refsect1 id="GSimplePermission.includes"><title>Includes</title><synopsis>#include &lt;gio/gio.h&gt;
+</synopsis></refsect1>
+
+<refsect1 id="GSimplePermission.description" role="desc">
+<title role="desc.title">Description</title>
+<para><link linkend="GSimplePermission"><type>GSimplePermission</type></link> is a trivial implementation of <link linkend="GPermission"><type>GPermission</type></link> that
+represents a permission that is either always or never allowed.  The
+value is given at construction and doesn't change.</para>
+<para>Calling request or release will result in errors.</para>
+
+</refsect1>
+<refsect1 id="GSimplePermission.functions_details" role="details">
+<title role="details.title">Functions</title>
+<refsect2 id="g-simple-permission-new" role="function" condition="since:2.26">
+<title>g_simple_permission_new&#160;()</title>
+<indexterm zone="g-simple-permission-new" role="2.26"><primary sortas="simple_permission_new">g_simple_permission_new</primary></indexterm>
+<programlisting language="C"><link linkend="GPermission"><returnvalue>GPermission</returnvalue></link>&#160;*
+g_simple_permission_new (<parameter><link linkend="gboolean"><type>gboolean</type></link> allowed</parameter>);</programlisting>
+<para>Creates a new <link linkend="GPermission"><type>GPermission</type></link> instance that represents an action that is
+either always or never allowed.</para>
+<refsect3 id="g-simple-permission-new.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>allowed</para></entry>
+<entry role="parameter_description"><para><link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if the action is allowed</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-simple-permission-new.returns" role="returns">
+<title>Returns</title>
+<para> the <link linkend="GSimplePermission"><type>GSimplePermission</type></link>, as a <link linkend="GPermission"><type>GPermission</type></link></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.26">2.26</link></para></refsect2>
+
+</refsect1>
+<refsect1 id="GSimplePermission.other_details" role="details">
+<title role="details.title">Types and Values</title>
+<refsect2 id="GSimplePermission-struct" role="struct">
+<title>GSimplePermission</title>
+<indexterm zone="GSimplePermission-struct"><primary sortas="SimplePermission">GSimplePermission</primary></indexterm>
+<programlisting language="C">typedef struct _GSimplePermission GSimplePermission;</programlisting>
+<para><link linkend="GSimplePermission"><type>GSimplePermission</type></link> is an opaque data structure.  There are no methods
+except for those defined by <link linkend="GPermission"><type>GPermission</type></link>.</para>
+</refsect2>
+
+</refsect1>
+
+</refentry>

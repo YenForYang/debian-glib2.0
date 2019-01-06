@@ -1,0 +1,342 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC '-//OASIS//DTD DocBook XML V4.5//EN'
+                      'http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd' [
+<!ENTITY % local.common.attrib "xmlns:xi  CDATA  #FIXED 'http://www.w3.org/2003/XInclude'">
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="gio-gpollableutils">
+<refmeta>
+<refentrytitle role="top_of_page" id="gio-gpollableutils.top_of_page">gpollableutils</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>GIO Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>gpollableutils</refname>
+<refpurpose>Utilities for pollable streams</refpurpose>
+</refnamediv>
+
+<refsect1 id="gio-gpollableutils.functions" role="functions_proto">
+<title role="functions_proto.title">Functions</title>
+<informaltable pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="functions_return" colwidth="150px"/>
+<colspec colname="functions_name"/>
+<tbody>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><phrase role="c_punctuation">(</phrase><link linkend="GPollableSourceFunc">*GPollableSourceFunc</link><phrase role="c_punctuation">)</phrase>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GSource"><returnvalue>GSource</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-pollable-source-new">g_pollable_source_new</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GSource"><returnvalue>GSource</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-pollable-source-new-full">g_pollable_source_new_full</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+<row><entry role="function_type"><link linkend="gssize"><returnvalue>gssize</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-pollable-stream-read">g_pollable_stream_read</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gssize"><returnvalue>gssize</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-pollable-stream-write">g_pollable_stream_write</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-pollable-stream-write-all">g_pollable_stream_write_all</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+
+<refsect1 id="gio-gpollableutils.includes"><title>Includes</title><synopsis>#include &lt;gio/gio.h&gt;
+</synopsis></refsect1>
+
+<refsect1 id="gio-gpollableutils.description" role="desc">
+<title role="desc.title">Description</title>
+<para>Utility functions for <link linkend="GPollableInputStream"><type>GPollableInputStream</type></link> and
+<link linkend="GPollableOutputStream"><type>GPollableOutputStream</type></link> implementations.</para>
+
+</refsect1>
+<refsect1 id="gio-gpollableutils.functions_details" role="details">
+<title role="details.title">Functions</title>
+<refsect2 id="GPollableSourceFunc" role="function" condition="since:2.28">
+<title>GPollableSourceFunc&#160;()</title>
+<indexterm zone="GPollableSourceFunc" role="2.28"><primary sortas="PollableSourceFunc">GPollableSourceFunc</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+<phrase role="c_punctuation">(</phrase>*GPollableSourceFunc<phrase role="c_punctuation">)</phrase> (<parameter><link linkend="GObject"><type>GObject</type></link> *pollable_stream</parameter>,
+                        <parameter><link linkend="gpointer"><type>gpointer</type></link> user_data</parameter>);</programlisting>
+<para>This is the function type of the callback used for the <link linkend="GSource"><type>GSource</type></link>
+returned by <link linkend="g-pollable-input-stream-create-source"><function>g_pollable_input_stream_create_source()</function></link> and
+<link linkend="g-pollable-output-stream-create-source"><function>g_pollable_output_stream_create_source()</function></link>.</para>
+<refsect3 id="GPollableSourceFunc.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>pollable_stream</para></entry>
+<entry role="parameter_description"><para>the <link linkend="GPollableInputStream"><type>GPollableInputStream</type></link> or <link linkend="GPollableOutputStream"><type>GPollableOutputStream</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>user_data</para></entry>
+<entry role="parameter_description"><para>data passed in by the user.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="GPollableSourceFunc.returns" role="returns">
+<title>Returns</title>
+<para> it should return <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> if the source should be removed.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.28">2.28</link></para></refsect2>
+<refsect2 id="g-pollable-source-new" role="function" condition="since:2.28">
+<title>g_pollable_source_new&#160;()</title>
+<indexterm zone="g-pollable-source-new" role="2.28"><primary sortas="pollable_source_new">g_pollable_source_new</primary></indexterm>
+<programlisting language="C"><link linkend="GSource"><returnvalue>GSource</returnvalue></link>&#160;*
+g_pollable_source_new (<parameter><link linkend="GObject"><type>GObject</type></link> *pollable_stream</parameter>);</programlisting>
+<para>Utility method for <link linkend="GPollableInputStream"><type>GPollableInputStream</type></link> and <link linkend="GPollableOutputStream"><type>GPollableOutputStream</type></link>
+implementations. Creates a new <link linkend="GSource"><type>GSource</type></link> that expects a callback of
+type <link linkend="GPollableSourceFunc"><type>GPollableSourceFunc</type></link>. The new source does not actually do
+anything on its own; use <link linkend="g-source-add-child-source"><function>g_source_add_child_source()</function></link> to add other
+sources to it to cause it to trigger.</para>
+<refsect3 id="g-pollable-source-new.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>pollable_stream</para></entry>
+<entry role="parameter_description"><para>the stream associated with the new source</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-pollable-source-new.returns" role="returns">
+<title>Returns</title>
+<para>the new <link linkend="GSource"><type>GSource</type></link>. </para>
+<para><emphasis role="annotation">[<acronym>transfer full</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.28">2.28</link></para></refsect2>
+<refsect2 id="g-pollable-source-new-full" role="function" condition="since:2.34">
+<title>g_pollable_source_new_full&#160;()</title>
+<indexterm zone="g-pollable-source-new-full" role="2.34"><primary sortas="pollable_source_new_full">g_pollable_source_new_full</primary></indexterm>
+<programlisting language="C"><link linkend="GSource"><returnvalue>GSource</returnvalue></link>&#160;*
+g_pollable_source_new_full (<parameter><link linkend="gpointer"><type>gpointer</type></link> pollable_stream</parameter>,
+                            <parameter><link linkend="GSource"><type>GSource</type></link> *child_source</parameter>,
+                            <parameter><link linkend="GCancellable"><type>GCancellable</type></link> *cancellable</parameter>);</programlisting>
+<para>Utility method for <link linkend="GPollableInputStream"><type>GPollableInputStream</type></link> and <link linkend="GPollableOutputStream"><type>GPollableOutputStream</type></link>
+implementations. Creates a new <link linkend="GSource"><type>GSource</type></link>, as with
+<link linkend="g-pollable-source-new"><function>g_pollable_source_new()</function></link>, but also attaching <parameter>child_source</parameter>
+ (with a
+dummy callback), and <parameter>cancellable</parameter>
+, if they are non-<link linkend="NULL:CAPS"><literal>NULL</literal></link>.</para>
+<refsect3 id="g-pollable-source-new-full.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>pollable_stream</para></entry>
+<entry role="parameter_description"><para>the stream associated with the
+new source. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>type</acronym> GObject]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>child_source</para></entry>
+<entry role="parameter_description"><para>optional child source to attach. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>cancellable</para></entry>
+<entry role="parameter_description"><para>optional <link linkend="GCancellable"><type>GCancellable</type></link> to attach. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-pollable-source-new-full.returns" role="returns">
+<title>Returns</title>
+<para>the new <link linkend="GSource"><type>GSource</type></link>. </para>
+<para><emphasis role="annotation">[<acronym>transfer full</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.34">2.34</link></para></refsect2>
+<refsect2 id="g-pollable-stream-read" role="function" condition="since:2.34">
+<title>g_pollable_stream_read&#160;()</title>
+<indexterm zone="g-pollable-stream-read" role="2.34"><primary sortas="pollable_stream_read">g_pollable_stream_read</primary></indexterm>
+<programlisting language="C"><link linkend="gssize"><returnvalue>gssize</returnvalue></link>
+g_pollable_stream_read (<parameter><link linkend="GInputStream"><type>GInputStream</type></link> *stream</parameter>,
+                        <parameter><link linkend="void"><type>void</type></link> *buffer</parameter>,
+                        <parameter><link linkend="gsize"><type>gsize</type></link> count</parameter>,
+                        <parameter><link linkend="gboolean"><type>gboolean</type></link> blocking</parameter>,
+                        <parameter><link linkend="GCancellable"><type>GCancellable</type></link> *cancellable</parameter>,
+                        <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para>Tries to read from <parameter>stream</parameter>
+, as with <link linkend="g-input-stream-read"><function>g_input_stream_read()</function></link> (if
+<parameter>blocking</parameter>
+ is <link linkend="TRUE:CAPS"><literal>TRUE</literal></link>) or <link linkend="g-pollable-input-stream-read-nonblocking"><function>g_pollable_input_stream_read_nonblocking()</function></link>
+(if <parameter>blocking</parameter>
+ is <link linkend="FALSE:CAPS"><literal>FALSE</literal></link>). This can be used to more easily share
+code between blocking and non-blocking implementations of a method.</para>
+<para>If <parameter>blocking</parameter>
+ is <link linkend="FALSE:CAPS"><literal>FALSE</literal></link>, then <parameter>stream</parameter>
+ must be a
+<link linkend="GPollableInputStream"><type>GPollableInputStream</type></link> for which <link linkend="g-pollable-input-stream-can-poll"><function>g_pollable_input_stream_can_poll()</function></link>
+returns <link linkend="TRUE:CAPS"><literal>TRUE</literal></link>, or else the behavior is undefined. If <parameter>blocking</parameter>
+ is
+<link linkend="TRUE:CAPS"><literal>TRUE</literal></link>, then <parameter>stream</parameter>
+ does not need to be a <link linkend="GPollableInputStream"><type>GPollableInputStream</type></link>.</para>
+<refsect3 id="g-pollable-stream-read.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>stream</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GInputStream"><type>GInputStream</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>buffer</para></entry>
+<entry role="parameter_description"><para>a buffer to
+read data into. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>array</acronym> length=count][<acronym>element-type</acronym> guint8]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>count</para></entry>
+<entry role="parameter_description"><para>the number of bytes to read</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>blocking</para></entry>
+<entry role="parameter_description"><para>whether to do blocking I/O</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>cancellable</para></entry>
+<entry role="parameter_description"><para>optional <link linkend="GCancellable"><type>GCancellable</type></link> object, <link linkend="NULL:CAPS"><literal>NULL</literal></link> to ignore. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para>location to store the error occurring, or <link linkend="NULL:CAPS"><literal>NULL</literal></link> to ignore</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-pollable-stream-read.returns" role="returns">
+<title>Returns</title>
+<para> the number of bytes read, or -1 on error.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.34">2.34</link></para></refsect2>
+<refsect2 id="g-pollable-stream-write" role="function" condition="since:2.34">
+<title>g_pollable_stream_write&#160;()</title>
+<indexterm zone="g-pollable-stream-write" role="2.34"><primary sortas="pollable_stream_write">g_pollable_stream_write</primary></indexterm>
+<programlisting language="C"><link linkend="gssize"><returnvalue>gssize</returnvalue></link>
+g_pollable_stream_write (<parameter><link linkend="GOutputStream"><type>GOutputStream</type></link> *stream</parameter>,
+                         <parameter>const <link linkend="void"><type>void</type></link> *buffer</parameter>,
+                         <parameter><link linkend="gsize"><type>gsize</type></link> count</parameter>,
+                         <parameter><link linkend="gboolean"><type>gboolean</type></link> blocking</parameter>,
+                         <parameter><link linkend="GCancellable"><type>GCancellable</type></link> *cancellable</parameter>,
+                         <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para>Tries to write to <parameter>stream</parameter>
+, as with <link linkend="g-output-stream-write"><function>g_output_stream_write()</function></link> (if
+<parameter>blocking</parameter>
+ is <link linkend="TRUE:CAPS"><literal>TRUE</literal></link>) or <link linkend="g-pollable-output-stream-write-nonblocking"><function>g_pollable_output_stream_write_nonblocking()</function></link>
+(if <parameter>blocking</parameter>
+ is <link linkend="FALSE:CAPS"><literal>FALSE</literal></link>). This can be used to more easily share
+code between blocking and non-blocking implementations of a method.</para>
+<para>If <parameter>blocking</parameter>
+ is <link linkend="FALSE:CAPS"><literal>FALSE</literal></link>, then <parameter>stream</parameter>
+ must be a
+<link linkend="GPollableOutputStream"><type>GPollableOutputStream</type></link> for which
+<link linkend="g-pollable-output-stream-can-poll"><function>g_pollable_output_stream_can_poll()</function></link> returns <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> or else the
+behavior is undefined. If <parameter>blocking</parameter>
+ is <link linkend="TRUE:CAPS"><literal>TRUE</literal></link>, then <parameter>stream</parameter>
+ does not
+need to be a <link linkend="GPollableOutputStream"><type>GPollableOutputStream</type></link>.</para>
+<refsect3 id="g-pollable-stream-write.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>stream</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GOutputStream"><type>GOutputStream</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>buffer</para></entry>
+<entry role="parameter_description"><para>the buffer
+containing the data to write. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>array</acronym> length=count][<acronym>element-type</acronym> guint8]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>count</para></entry>
+<entry role="parameter_description"><para>the number of bytes to write</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>blocking</para></entry>
+<entry role="parameter_description"><para>whether to do blocking I/O</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>cancellable</para></entry>
+<entry role="parameter_description"><para>optional <link linkend="GCancellable"><type>GCancellable</type></link> object, <link linkend="NULL:CAPS"><literal>NULL</literal></link> to ignore. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para>location to store the error occurring, or <link linkend="NULL:CAPS"><literal>NULL</literal></link> to ignore</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-pollable-stream-write.returns" role="returns">
+<title>Returns</title>
+<para> the number of bytes written, or -1 on error.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.34">2.34</link></para></refsect2>
+<refsect2 id="g-pollable-stream-write-all" role="function" condition="since:2.34">
+<title>g_pollable_stream_write_all&#160;()</title>
+<indexterm zone="g-pollable-stream-write-all" role="2.34"><primary sortas="pollable_stream_write_all">g_pollable_stream_write_all</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_pollable_stream_write_all (<parameter><link linkend="GOutputStream"><type>GOutputStream</type></link> *stream</parameter>,
+                             <parameter>const <link linkend="void"><type>void</type></link> *buffer</parameter>,
+                             <parameter><link linkend="gsize"><type>gsize</type></link> count</parameter>,
+                             <parameter><link linkend="gboolean"><type>gboolean</type></link> blocking</parameter>,
+                             <parameter><link linkend="gsize"><type>gsize</type></link> *bytes_written</parameter>,
+                             <parameter><link linkend="GCancellable"><type>GCancellable</type></link> *cancellable</parameter>,
+                             <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para>Tries to write <parameter>count</parameter>
+ bytes to <parameter>stream</parameter>
+, as with
+<link linkend="g-output-stream-write-all"><function>g_output_stream_write_all()</function></link>, but using <link linkend="g-pollable-stream-write"><function>g_pollable_stream_write()</function></link>
+rather than <link linkend="g-output-stream-write"><function>g_output_stream_write()</function></link>.</para>
+<para>On a successful write of <parameter>count</parameter>
+ bytes, <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> is returned, and
+<parameter>bytes_written</parameter>
+ is set to <parameter>count</parameter>
+.</para>
+<para>If there is an error during the operation (including
+<link linkend="G-IO-ERROR-WOULD-BLOCK:CAPS"><literal>G_IO_ERROR_WOULD_BLOCK</literal></link> in the non-blocking case), <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> is
+returned and <parameter>error</parameter>
+ is set to indicate the error status,
+<parameter>bytes_written</parameter>
+ is updated to contain the number of bytes written
+into the stream before the error occurred.</para>
+<para>As with <link linkend="g-pollable-stream-write"><function>g_pollable_stream_write()</function></link>, if <parameter>blocking</parameter>
+ is <link linkend="FALSE:CAPS"><literal>FALSE</literal></link>, then
+<parameter>stream</parameter>
+ must be a <link linkend="GPollableOutputStream"><type>GPollableOutputStream</type></link> for which
+<link linkend="g-pollable-output-stream-can-poll"><function>g_pollable_output_stream_can_poll()</function></link> returns <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> or else the
+behavior is undefined. If <parameter>blocking</parameter>
+ is <link linkend="TRUE:CAPS"><literal>TRUE</literal></link>, then <parameter>stream</parameter>
+ does not
+need to be a <link linkend="GPollableOutputStream"><type>GPollableOutputStream</type></link>.</para>
+<refsect3 id="g-pollable-stream-write-all.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>stream</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GOutputStream"><type>GOutputStream</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>buffer</para></entry>
+<entry role="parameter_description"><para>the buffer
+containing the data to write. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>array</acronym> length=count][<acronym>element-type</acronym> guint8]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>count</para></entry>
+<entry role="parameter_description"><para>the number of bytes to write</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>blocking</para></entry>
+<entry role="parameter_description"><para>whether to do blocking I/O</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>bytes_written</para></entry>
+<entry role="parameter_description"><para>location to store the number of bytes that was
+written to the stream. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>out</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>cancellable</para></entry>
+<entry role="parameter_description"><para>optional <link linkend="GCancellable"><type>GCancellable</type></link> object, <link linkend="NULL:CAPS"><literal>NULL</literal></link> to ignore. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para>location to store the error occurring, or <link linkend="NULL:CAPS"><literal>NULL</literal></link> to ignore</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-pollable-stream-write-all.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> on success, <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> if there was an error</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.34">2.34</link></para></refsect2>
+
+</refsect1>
+<refsect1 id="gio-gpollableutils.other_details" role="details">
+<title role="details.title">Types and Values</title>
+
+</refsect1>
+
+</refentry>

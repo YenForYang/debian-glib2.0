@@ -1,0 +1,294 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC '-//OASIS//DTD DocBook XML V4.5//EN'
+                      'http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd' [
+<!ENTITY % local.common.attrib "xmlns:xi  CDATA  #FIXED 'http://www.w3.org/2003/XInclude'">
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="GBufferedOutputStream">
+<refmeta>
+<refentrytitle role="top_of_page" id="GBufferedOutputStream.top_of_page">GBufferedOutputStream</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>GIO Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>GBufferedOutputStream</refname>
+<refpurpose>Buffered Output Stream</refpurpose>
+</refnamediv>
+
+<refsect1 id="GBufferedOutputStream.functions" role="functions_proto">
+<title role="functions_proto.title">Functions</title>
+<informaltable pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="functions_return" colwidth="150px"/>
+<colspec colname="functions_name"/>
+<tbody>
+<row><entry role="function_type"><link linkend="GOutputStream"><returnvalue>GOutputStream</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-buffered-output-stream-new">g_buffered_output_stream_new</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GOutputStream"><returnvalue>GOutputStream</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-buffered-output-stream-new-sized">g_buffered_output_stream_new_sized</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gsize"><returnvalue>gsize</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-buffered-output-stream-get-buffer-size">g_buffered_output_stream_get_buffer_size</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-buffered-output-stream-set-buffer-size">g_buffered_output_stream_set_buffer_size</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-buffered-output-stream-get-auto-grow">g_buffered_output_stream_get_auto_grow</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-buffered-output-stream-set-auto-grow">g_buffered_output_stream_set_auto_grow</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GBufferedOutputStream.properties" role="properties">
+<title role="properties.title">Properties</title>
+<informaltable frame="none">
+<tgroup cols="3">
+<colspec colname="properties_type" colwidth="150px"/>
+<colspec colname="properties_name" colwidth="300px"/>
+<colspec colname="properties_flags" colwidth="200px"/>
+<tbody>
+<row><entry role="property_type"><link linkend="gboolean"><type>gboolean</type></link></entry><entry role="property_name"><link linkend="GBufferedOutputStream--auto-grow">auto-grow</link></entry><entry role="property_flags">Read / Write</entry></row>
+<row><entry role="property_type"><link linkend="guint"><type>guint</type></link></entry><entry role="property_name"><link linkend="GBufferedOutputStream--buffer-size">buffer-size</link></entry><entry role="property_flags">Read / Write / Construct</entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GBufferedOutputStream.other" role="other_proto">
+<title role="other_proto.title">Types and Values</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="name" colwidth="150px"/>
+<colspec colname="description"/>
+<tbody>
+<row><entry role="datatype_keyword"></entry><entry role="function_name"><link linkend="GBufferedOutputStream-struct">GBufferedOutputStream</link></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GBufferedOutputStream.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<screen>    <link linkend="GObject">GObject</link>
+    <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> <link linkend="GOutputStream">GOutputStream</link>
+        <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> <link linkend="GFilterOutputStream">GFilterOutputStream</link>
+            <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> GBufferedOutputStream
+</screen>
+</refsect1>
+<refsect1 id="GBufferedOutputStream.implemented-interfaces" role="impl_interfaces">
+<title role="impl_interfaces.title">Implemented Interfaces</title>
+<para>
+GBufferedOutputStream implements
+ <link linkend="GSeekable">GSeekable</link>.</para>
+
+</refsect1>
+
+<refsect1 id="GBufferedOutputStream.includes"><title>Includes</title><synopsis>#include &lt;gio/gio.h&gt;
+</synopsis></refsect1>
+
+<refsect1 id="GBufferedOutputStream.description" role="desc">
+<title role="desc.title">Description</title>
+<para>Buffered output stream implements <link linkend="GFilterOutputStream"><type>GFilterOutputStream</type></link> and provides 
+for buffered writes. </para>
+<para>By default, <link linkend="GBufferedOutputStream"><type>GBufferedOutputStream</type></link>'s buffer size is set at 4 kilobytes.</para>
+<para>To create a buffered output stream, use <link linkend="g-buffered-output-stream-new"><function>g_buffered_output_stream_new()</function></link>, 
+or <link linkend="g-buffered-output-stream-new-sized"><function>g_buffered_output_stream_new_sized()</function></link> to specify the buffer's size 
+at construction.</para>
+<para>To get the size of a buffer within a buffered input stream, use 
+<link linkend="g-buffered-output-stream-get-buffer-size"><function>g_buffered_output_stream_get_buffer_size()</function></link>. To change the size of a 
+buffered output stream's buffer, use 
+<link linkend="g-buffered-output-stream-set-buffer-size"><function>g_buffered_output_stream_set_buffer_size()</function></link>. Note that the buffer's 
+size cannot be reduced below the size of the data within the buffer.</para>
+
+</refsect1>
+<refsect1 id="GBufferedOutputStream.functions_details" role="details">
+<title role="details.title">Functions</title>
+<refsect2 id="g-buffered-output-stream-new" role="function">
+<title>g_buffered_output_stream_new&#160;()</title>
+<indexterm zone="g-buffered-output-stream-new"><primary sortas="buffered_output_stream_new">g_buffered_output_stream_new</primary></indexterm>
+<programlisting language="C"><link linkend="GOutputStream"><returnvalue>GOutputStream</returnvalue></link>&#160;*
+g_buffered_output_stream_new (<parameter><link linkend="GOutputStream"><type>GOutputStream</type></link> *base_stream</parameter>);</programlisting>
+<para>Creates a new buffered output stream for a base stream.</para>
+<refsect3 id="g-buffered-output-stream-new.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>base_stream</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GOutputStream"><type>GOutputStream</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-buffered-output-stream-new.returns" role="returns">
+<title>Returns</title>
+<para> a <link linkend="GOutputStream"><type>GOutputStream</type></link> for the given <parameter>base_stream</parameter>
+.</para>
+</refsect3></refsect2>
+<refsect2 id="g-buffered-output-stream-new-sized" role="function">
+<title>g_buffered_output_stream_new_sized&#160;()</title>
+<indexterm zone="g-buffered-output-stream-new-sized"><primary sortas="buffered_output_stream_new_sized">g_buffered_output_stream_new_sized</primary></indexterm>
+<programlisting language="C"><link linkend="GOutputStream"><returnvalue>GOutputStream</returnvalue></link>&#160;*
+g_buffered_output_stream_new_sized (<parameter><link linkend="GOutputStream"><type>GOutputStream</type></link> *base_stream</parameter>,
+                                    <parameter><link linkend="gsize"><type>gsize</type></link> size</parameter>);</programlisting>
+<para>Creates a new buffered output stream with a given buffer size.</para>
+<refsect3 id="g-buffered-output-stream-new-sized.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>base_stream</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GOutputStream"><type>GOutputStream</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>size</para></entry>
+<entry role="parameter_description"><para>a <link linkend="gsize"><type>gsize</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-buffered-output-stream-new-sized.returns" role="returns">
+<title>Returns</title>
+<para> a <link linkend="GOutputStream"><type>GOutputStream</type></link> with an internal buffer set to <parameter>size</parameter>
+.</para>
+</refsect3></refsect2>
+<refsect2 id="g-buffered-output-stream-get-buffer-size" role="function">
+<title>g_buffered_output_stream_get_buffer_size&#160;()</title>
+<indexterm zone="g-buffered-output-stream-get-buffer-size"><primary sortas="buffered_output_stream_get_buffer_size">g_buffered_output_stream_get_buffer_size</primary></indexterm>
+<programlisting language="C"><link linkend="gsize"><returnvalue>gsize</returnvalue></link>
+g_buffered_output_stream_get_buffer_size
+                               (<parameter><link linkend="GBufferedOutputStream"><type>GBufferedOutputStream</type></link> *stream</parameter>);</programlisting>
+<para>Gets the size of the buffer in the <parameter>stream</parameter>
+.</para>
+<refsect3 id="g-buffered-output-stream-get-buffer-size.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>stream</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GBufferedOutputStream"><type>GBufferedOutputStream</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-buffered-output-stream-get-buffer-size.returns" role="returns">
+<title>Returns</title>
+<para> the current size of the buffer.</para>
+</refsect3></refsect2>
+<refsect2 id="g-buffered-output-stream-set-buffer-size" role="function">
+<title>g_buffered_output_stream_set_buffer_size&#160;()</title>
+<indexterm zone="g-buffered-output-stream-set-buffer-size"><primary sortas="buffered_output_stream_set_buffer_size">g_buffered_output_stream_set_buffer_size</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_buffered_output_stream_set_buffer_size
+                               (<parameter><link linkend="GBufferedOutputStream"><type>GBufferedOutputStream</type></link> *stream</parameter>,
+                                <parameter><link linkend="gsize"><type>gsize</type></link> size</parameter>);</programlisting>
+<para>Sets the size of the internal buffer to <parameter>size</parameter>
+.</para>
+<refsect3 id="g-buffered-output-stream-set-buffer-size.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>stream</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GBufferedOutputStream"><type>GBufferedOutputStream</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>size</para></entry>
+<entry role="parameter_description"><para>a <link linkend="gsize"><type>gsize</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-buffered-output-stream-get-auto-grow" role="function">
+<title>g_buffered_output_stream_get_auto_grow&#160;()</title>
+<indexterm zone="g-buffered-output-stream-get-auto-grow"><primary sortas="buffered_output_stream_get_auto_grow">g_buffered_output_stream_get_auto_grow</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_buffered_output_stream_get_auto_grow
+                               (<parameter><link linkend="GBufferedOutputStream"><type>GBufferedOutputStream</type></link> *stream</parameter>);</programlisting>
+<para>Checks if the buffer automatically grows as data is added.</para>
+<refsect3 id="g-buffered-output-stream-get-auto-grow.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>stream</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GBufferedOutputStream"><type>GBufferedOutputStream</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-buffered-output-stream-get-auto-grow.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if the <parameter>stream</parameter>
+'s buffer automatically grows,
+<link linkend="FALSE:CAPS"><literal>FALSE</literal></link> otherwise.</para>
+</refsect3></refsect2>
+<refsect2 id="g-buffered-output-stream-set-auto-grow" role="function">
+<title>g_buffered_output_stream_set_auto_grow&#160;()</title>
+<indexterm zone="g-buffered-output-stream-set-auto-grow"><primary sortas="buffered_output_stream_set_auto_grow">g_buffered_output_stream_set_auto_grow</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_buffered_output_stream_set_auto_grow
+                               (<parameter><link linkend="GBufferedOutputStream"><type>GBufferedOutputStream</type></link> *stream</parameter>,
+                                <parameter><link linkend="gboolean"><type>gboolean</type></link> auto_grow</parameter>);</programlisting>
+<para>Sets whether or not the <parameter>stream</parameter>
+'s buffer should automatically grow.
+If <parameter>auto_grow</parameter>
+ is true, then each write will just make the buffer
+larger, and you must manually flush the buffer to actually write out
+the data to the underlying stream.</para>
+<refsect3 id="g-buffered-output-stream-set-auto-grow.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>stream</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GBufferedOutputStream"><type>GBufferedOutputStream</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>auto_grow</para></entry>
+<entry role="parameter_description"><para>a <link linkend="gboolean"><type>gboolean</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+
+</refsect1>
+<refsect1 id="GBufferedOutputStream.other_details" role="details">
+<title role="details.title">Types and Values</title>
+<refsect2 id="GBufferedOutputStream-struct" role="struct">
+<title>GBufferedOutputStream</title>
+<indexterm zone="GBufferedOutputStream-struct"><primary sortas="BufferedOutputStream">GBufferedOutputStream</primary></indexterm>
+<programlisting language="C">typedef struct _GBufferedOutputStream GBufferedOutputStream;</programlisting>
+<para>An implementation of <link linkend="GFilterOutputStream"><type>GFilterOutputStream</type></link> with a sized buffer.</para>
+</refsect2>
+
+</refsect1>
+<refsect1 id="GBufferedOutputStream.property-details" role="property_details">
+<title role="property_details.title">Property Details</title>
+<refsect2 id="GBufferedOutputStream--auto-grow" role="property"><title>The <literal>“auto-grow”</literal> property</title>
+<indexterm zone="GBufferedOutputStream--auto-grow"><primary sortas="BufferedOutputStream:auto-grow">GBufferedOutputStream:auto-grow</primary></indexterm>
+<programlisting>  “auto-grow”                <link linkend="gboolean"><type>gboolean</type></link></programlisting>
+<para>Whether the buffer should automatically grow.</para><para>Flags: Read / Write</para>
+<para>Default value: FALSE</para>
+</refsect2>
+<refsect2 id="GBufferedOutputStream--buffer-size" role="property"><title>The <literal>“buffer-size”</literal> property</title>
+<indexterm zone="GBufferedOutputStream--buffer-size"><primary sortas="BufferedOutputStream:buffer-size">GBufferedOutputStream:buffer-size</primary></indexterm>
+<programlisting>  “buffer-size”              <link linkend="guint"><type>guint</type></link></programlisting>
+<para>The size of the backend buffer.</para><para>Flags: Read / Write / Construct</para>
+<para>Allowed values: &gt;= 1</para>
+<para>Default value: 4096</para>
+</refsect2>
+
+</refsect1>
+<refsect1 id="GBufferedOutputStream.see-also">
+<title>See Also</title>
+<para><link linkend="GFilterOutputStream"><type>GFilterOutputStream</type></link>, <link linkend="GOutputStream"><type>GOutputStream</type></link></para>
+
+</refsect1>
+
+</refentry>

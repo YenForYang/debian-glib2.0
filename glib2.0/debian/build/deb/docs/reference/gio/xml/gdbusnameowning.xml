@@ -1,0 +1,493 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC '-//OASIS//DTD DocBook XML V4.5//EN'
+                      'http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd' [
+<!ENTITY % local.common.attrib "xmlns:xi  CDATA  #FIXED 'http://www.w3.org/2003/XInclude'">
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="gio-Owning-Bus-Names">
+<refmeta>
+<refentrytitle role="top_of_page" id="gio-Owning-Bus-Names.top_of_page">Owning Bus Names</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>GIO Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>Owning Bus Names</refname>
+<refpurpose>Simple API for owning bus names</refpurpose>
+</refnamediv>
+
+<refsect1 id="gio-Owning-Bus-Names.functions" role="functions_proto">
+<title role="functions_proto.title">Functions</title>
+<informaltable pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="functions_return" colwidth="150px"/>
+<colspec colname="functions_name"/>
+<tbody>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><phrase role="c_punctuation">(</phrase><link linkend="GBusAcquiredCallback">*GBusAcquiredCallback</link><phrase role="c_punctuation">)</phrase>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><phrase role="c_punctuation">(</phrase><link linkend="GBusNameAcquiredCallback">*GBusNameAcquiredCallback</link><phrase role="c_punctuation">)</phrase>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><phrase role="c_punctuation">(</phrase><link linkend="GBusNameLostCallback">*GBusNameLostCallback</link><phrase role="c_punctuation">)</phrase>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="guint"><returnvalue>guint</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-bus-own-name">g_bus_own_name</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="guint"><returnvalue>guint</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-bus-own-name-on-connection">g_bus_own_name_on_connection</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-bus-unown-name">g_bus_unown_name</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="guint"><returnvalue>guint</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-bus-own-name-with-closures">g_bus_own_name_with_closures</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="guint"><returnvalue>guint</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-bus-own-name-on-connection-with-closures">g_bus_own_name_on_connection_with_closures</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="gio-Owning-Bus-Names.other" role="other_proto">
+<title role="other_proto.title">Types and Values</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="name" colwidth="150px"/>
+<colspec colname="description"/>
+<tbody>
+<row><entry role="datatype_keyword">enum</entry><entry role="function_name"><link linkend="GBusNameOwnerFlags">GBusNameOwnerFlags</link></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="gio-Owning-Bus-Names.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<screen>    <link linkend="GFlags">GFlags</link>
+    <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> GBusNameOwnerFlags
+</screen>
+</refsect1>
+
+<refsect1 id="gio-Owning-Bus-Names.includes"><title>Includes</title><synopsis>#include &lt;gio/gio.h&gt;
+</synopsis></refsect1>
+
+<refsect1 id="gio-Owning-Bus-Names.description" role="desc">
+<title role="desc.title">Description</title>
+<para>Convenience API for owning bus names.</para>
+<para>A simple example for owning a name can be found in
+<ulink url="https://git.gnome.org/browse/glib/tree/gio/tests/gdbus-example-own-name.c">gdbus-example-own-name.c</ulink></para>
+
+</refsect1>
+<refsect1 id="gio-Owning-Bus-Names.functions_details" role="details">
+<title role="details.title">Functions</title>
+<refsect2 id="GBusAcquiredCallback" role="function" condition="since:2.26">
+<title>GBusAcquiredCallback&#160;()</title>
+<indexterm zone="GBusAcquiredCallback" role="2.26"><primary sortas="BusAcquiredCallback">GBusAcquiredCallback</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+<phrase role="c_punctuation">(</phrase>*GBusAcquiredCallback<phrase role="c_punctuation">)</phrase> (<parameter><link linkend="GDBusConnection"><type>GDBusConnection</type></link> *connection</parameter>,
+                         <parameter>const <link linkend="gchar"><type>gchar</type></link> *name</parameter>,
+                         <parameter><link linkend="gpointer"><type>gpointer</type></link> user_data</parameter>);</programlisting>
+<para>Invoked when a connection to a message bus has been obtained.</para>
+<refsect3 id="GBusAcquiredCallback.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>connection</para></entry>
+<entry role="parameter_description"><para>The <link linkend="GDBusConnection"><type>GDBusConnection</type></link> to a message bus.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>name</para></entry>
+<entry role="parameter_description"><para>The name that is requested to be owned.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>user_data</para></entry>
+<entry role="parameter_description"><para>User data passed to <link linkend="g-bus-own-name"><function>g_bus_own_name()</function></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.26">2.26</link></para></refsect2>
+<refsect2 id="GBusNameAcquiredCallback" role="function" condition="since:2.26">
+<title>GBusNameAcquiredCallback&#160;()</title>
+<indexterm zone="GBusNameAcquiredCallback" role="2.26"><primary sortas="BusNameAcquiredCallback">GBusNameAcquiredCallback</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+<phrase role="c_punctuation">(</phrase>*GBusNameAcquiredCallback<phrase role="c_punctuation">)</phrase> (<parameter><link linkend="GDBusConnection"><type>GDBusConnection</type></link> *connection</parameter>,
+                             <parameter>const <link linkend="gchar"><type>gchar</type></link> *name</parameter>,
+                             <parameter><link linkend="gpointer"><type>gpointer</type></link> user_data</parameter>);</programlisting>
+<para>Invoked when the name is acquired.</para>
+<refsect3 id="GBusNameAcquiredCallback.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>connection</para></entry>
+<entry role="parameter_description"><para>The <link linkend="GDBusConnection"><type>GDBusConnection</type></link> on which to acquired the name.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>name</para></entry>
+<entry role="parameter_description"><para>The name being owned.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>user_data</para></entry>
+<entry role="parameter_description"><para>User data passed to <link linkend="g-bus-own-name"><function>g_bus_own_name()</function></link> or <link linkend="g-bus-own-name-on-connection"><function>g_bus_own_name_on_connection()</function></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.26">2.26</link></para></refsect2>
+<refsect2 id="GBusNameLostCallback" role="function" condition="since:2.26">
+<title>GBusNameLostCallback&#160;()</title>
+<indexterm zone="GBusNameLostCallback" role="2.26"><primary sortas="BusNameLostCallback">GBusNameLostCallback</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+<phrase role="c_punctuation">(</phrase>*GBusNameLostCallback<phrase role="c_punctuation">)</phrase> (<parameter><link linkend="GDBusConnection"><type>GDBusConnection</type></link> *connection</parameter>,
+                         <parameter>const <link linkend="gchar"><type>gchar</type></link> *name</parameter>,
+                         <parameter><link linkend="gpointer"><type>gpointer</type></link> user_data</parameter>);</programlisting>
+<para>Invoked when the name is lost or <parameter>connection</parameter>
+ has been closed.</para>
+<refsect3 id="GBusNameLostCallback.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>connection</para></entry>
+<entry role="parameter_description"><para>The <link linkend="GDBusConnection"><type>GDBusConnection</type></link> on which to acquire the name or <link linkend="NULL:CAPS"><literal>NULL</literal></link> if
+the connection was disconnected.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>name</para></entry>
+<entry role="parameter_description"><para>The name being owned.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>user_data</para></entry>
+<entry role="parameter_description"><para>User data passed to <link linkend="g-bus-own-name"><function>g_bus_own_name()</function></link> or <link linkend="g-bus-own-name-on-connection"><function>g_bus_own_name_on_connection()</function></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.26">2.26</link></para></refsect2>
+<refsect2 id="g-bus-own-name" role="function" condition="since:2.26">
+<title>g_bus_own_name&#160;()</title>
+<indexterm zone="g-bus-own-name" role="2.26"><primary sortas="bus_own_name">g_bus_own_name</primary></indexterm>
+<programlisting language="C"><link linkend="guint"><returnvalue>guint</returnvalue></link>
+g_bus_own_name (<parameter><link linkend="GBusType"><type>GBusType</type></link> bus_type</parameter>,
+                <parameter>const <link linkend="gchar"><type>gchar</type></link> *name</parameter>,
+                <parameter><link linkend="GBusNameOwnerFlags"><type>GBusNameOwnerFlags</type></link> flags</parameter>,
+                <parameter><link linkend="GBusAcquiredCallback"><type>GBusAcquiredCallback</type></link> bus_acquired_handler</parameter>,
+                <parameter><link linkend="GBusNameAcquiredCallback"><type>GBusNameAcquiredCallback</type></link> name_acquired_handler</parameter>,
+                <parameter><link linkend="GBusNameLostCallback"><type>GBusNameLostCallback</type></link> name_lost_handler</parameter>,
+                <parameter><link linkend="gpointer"><type>gpointer</type></link> user_data</parameter>,
+                <parameter><link linkend="GDestroyNotify"><type>GDestroyNotify</type></link> user_data_free_func</parameter>);</programlisting>
+<para>Starts acquiring <parameter>name</parameter>
+ on the bus specified by <parameter>bus_type</parameter>
+ and calls
+<parameter>name_acquired_handler</parameter>
+ and <parameter>name_lost_handler</parameter>
+ when the name is
+acquired respectively lost. Callbacks will be invoked in the 
+<link linkend="g-main-context-push-thread-default">thread-default main context</link>
+of the thread you are calling this function from.</para>
+<para>You are guaranteed that one of the <parameter>name_acquired_handler</parameter>
+ and <parameter>name_lost_handler</parameter>
+
+callbacks will be invoked after calling this function - there are three
+possible cases:</para>
+<itemizedlist>
+<listitem>
+<para><parameter>name_lost_handler</parameter>
+ with a <link linkend="NULL:CAPS"><literal>NULL</literal></link> connection (if a connection to the bus
+can't be made).</para>
+</listitem>
+<listitem>
+<para><parameter>bus_acquired_handler</parameter>
+ then <parameter>name_lost_handler</parameter>
+ (if the name can't be
+obtained)</para>
+</listitem>
+<listitem>
+<para><parameter>bus_acquired_handler</parameter>
+ then <parameter>name_acquired_handler</parameter>
+ (if the name was
+obtained).</para>
+</listitem>
+</itemizedlist>
+<para>When you are done owning the name, just call <link linkend="g-bus-unown-name"><function>g_bus_unown_name()</function></link>
+with the owner id this function returns.</para>
+<para>If the name is acquired or lost (for example another application
+could acquire the name if you allow replacement or the application
+currently owning the name exits), the handlers are also invoked.
+If the <link linkend="GDBusConnection"><type>GDBusConnection</type></link> that is used for attempting to own the name
+closes, then <parameter>name_lost_handler</parameter>
+ is invoked since it is no longer
+possible for other processes to access the process.</para>
+<para>You cannot use <link linkend="g-bus-own-name"><function>g_bus_own_name()</function></link> several times for the same name (unless
+interleaved with calls to <link linkend="g-bus-unown-name"><function>g_bus_unown_name()</function></link>) - only the first call
+will work.</para>
+<para>Another guarantee is that invocations of <parameter>name_acquired_handler</parameter>
+
+and <parameter>name_lost_handler</parameter>
+ are guaranteed to alternate; that
+is, if <parameter>name_acquired_handler</parameter>
+ is invoked then you are
+guaranteed that the next time one of the handlers is invoked, it
+will be <parameter>name_lost_handler</parameter>
+. The reverse is also true.</para>
+<para>If you plan on exporting objects (using e.g.
+<link linkend="g-dbus-connection-register-object"><function>g_dbus_connection_register_object()</function></link>), note that it is generally too late
+to export the objects in <parameter>name_acquired_handler</parameter>
+. Instead, you can do this
+in <parameter>bus_acquired_handler</parameter>
+ since you are guaranteed that this will run
+before <parameter>name</parameter>
+ is requested from the bus.</para>
+<para>This behavior makes it very simple to write applications that wants
+to <link linkend="gdbus-owning-names">own names</link> and export objects.
+Simply register objects to be exported in <parameter>bus_acquired_handler</parameter>
+ and
+unregister the objects (if any) in <parameter>name_lost_handler</parameter>
+.</para>
+<refsect3 id="g-bus-own-name.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>bus_type</para></entry>
+<entry role="parameter_description"><para>the type of bus to own a name on</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>name</para></entry>
+<entry role="parameter_description"><para>the well-known name to own</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>flags</para></entry>
+<entry role="parameter_description"><para>a set of flags from the <link linkend="GBusNameOwnerFlags"><type>GBusNameOwnerFlags</type></link> enumeration</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>bus_acquired_handler</para></entry>
+<entry role="parameter_description"><para>handler to invoke when connected to the bus of type <parameter>bus_type</parameter>
+or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>name_acquired_handler</para></entry>
+<entry role="parameter_description"><para>handler to invoke when <parameter>name</parameter>
+is acquired or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>name_lost_handler</para></entry>
+<entry role="parameter_description"><para>handler to invoke when <parameter>name</parameter>
+is lost or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>user_data</para></entry>
+<entry role="parameter_description"><para>user data to pass to handlers</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>user_data_free_func</para></entry>
+<entry role="parameter_description"><para>function for freeing <parameter>user_data</parameter>
+or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-bus-own-name.returns" role="returns">
+<title>Returns</title>
+<para> an identifier (never 0) that an be used with
+<link linkend="g-bus-unown-name"><function>g_bus_unown_name()</function></link> to stop owning the name.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.26">2.26</link></para></refsect2>
+<refsect2 id="g-bus-own-name-on-connection" role="function" condition="since:2.26">
+<title>g_bus_own_name_on_connection&#160;()</title>
+<indexterm zone="g-bus-own-name-on-connection" role="2.26"><primary sortas="bus_own_name_on_connection">g_bus_own_name_on_connection</primary></indexterm>
+<programlisting language="C"><link linkend="guint"><returnvalue>guint</returnvalue></link>
+g_bus_own_name_on_connection (<parameter><link linkend="GDBusConnection"><type>GDBusConnection</type></link> *connection</parameter>,
+                              <parameter>const <link linkend="gchar"><type>gchar</type></link> *name</parameter>,
+                              <parameter><link linkend="GBusNameOwnerFlags"><type>GBusNameOwnerFlags</type></link> flags</parameter>,
+                              <parameter><link linkend="GBusNameAcquiredCallback"><type>GBusNameAcquiredCallback</type></link> name_acquired_handler</parameter>,
+                              <parameter><link linkend="GBusNameLostCallback"><type>GBusNameLostCallback</type></link> name_lost_handler</parameter>,
+                              <parameter><link linkend="gpointer"><type>gpointer</type></link> user_data</parameter>,
+                              <parameter><link linkend="GDestroyNotify"><type>GDestroyNotify</type></link> user_data_free_func</parameter>);</programlisting>
+<para>Like <link linkend="g-bus-own-name"><function>g_bus_own_name()</function></link> but takes a <link linkend="GDBusConnection"><type>GDBusConnection</type></link> instead of a
+<link linkend="GBusType"><type>GBusType</type></link>.</para>
+<refsect3 id="g-bus-own-name-on-connection.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>connection</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GDBusConnection"><type>GDBusConnection</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>name</para></entry>
+<entry role="parameter_description"><para>the well-known name to own</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>flags</para></entry>
+<entry role="parameter_description"><para>a set of flags from the <link linkend="GBusNameOwnerFlags"><type>GBusNameOwnerFlags</type></link> enumeration</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>name_acquired_handler</para></entry>
+<entry role="parameter_description"><para>handler to invoke when <parameter>name</parameter>
+is acquired or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>name_lost_handler</para></entry>
+<entry role="parameter_description"><para>handler to invoke when <parameter>name</parameter>
+is lost or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>user_data</para></entry>
+<entry role="parameter_description"><para>user data to pass to handlers</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>user_data_free_func</para></entry>
+<entry role="parameter_description"><para>function for freeing <parameter>user_data</parameter>
+or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-bus-own-name-on-connection.returns" role="returns">
+<title>Returns</title>
+<para> an identifier (never 0) that an be used with
+<link linkend="g-bus-unown-name"><function>g_bus_unown_name()</function></link> to stop owning the name</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.26">2.26</link></para></refsect2>
+<refsect2 id="g-bus-unown-name" role="function" condition="since:2.26">
+<title>g_bus_unown_name&#160;()</title>
+<indexterm zone="g-bus-unown-name" role="2.26"><primary sortas="bus_unown_name">g_bus_unown_name</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_bus_unown_name (<parameter><link linkend="guint"><type>guint</type></link> owner_id</parameter>);</programlisting>
+<para>Stops owning a name.</para>
+<refsect3 id="g-bus-unown-name.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>owner_id</para></entry>
+<entry role="parameter_description"><para>an identifier obtained from <link linkend="g-bus-own-name"><function>g_bus_own_name()</function></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.26">2.26</link></para></refsect2>
+<refsect2 id="g-bus-own-name-with-closures" role="function" condition="since:2.26">
+<title>g_bus_own_name_with_closures&#160;()</title>
+<indexterm zone="g-bus-own-name-with-closures" role="2.26"><primary sortas="bus_own_name_with_closures">g_bus_own_name_with_closures</primary></indexterm>
+<programlisting language="C"><link linkend="guint"><returnvalue>guint</returnvalue></link>
+g_bus_own_name_with_closures (<parameter><link linkend="GBusType"><type>GBusType</type></link> bus_type</parameter>,
+                              <parameter>const <link linkend="gchar"><type>gchar</type></link> *name</parameter>,
+                              <parameter><link linkend="GBusNameOwnerFlags"><type>GBusNameOwnerFlags</type></link> flags</parameter>,
+                              <parameter><link linkend="GClosure"><type>GClosure</type></link> *bus_acquired_closure</parameter>,
+                              <parameter><link linkend="GClosure"><type>GClosure</type></link> *name_acquired_closure</parameter>,
+                              <parameter><link linkend="GClosure"><type>GClosure</type></link> *name_lost_closure</parameter>);</programlisting>
+<para>Version of <link linkend="g-bus-own-name"><function>g_bus_own_name()</function></link> using closures instead of callbacks for
+easier binding in other languages.</para>
+
+<para><emphasis role="annotation">[<acronym>rename-to</acronym> g_bus_own_name]</emphasis></para><refsect3 id="g-bus-own-name-with-closures.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>bus_type</para></entry>
+<entry role="parameter_description"><para>the type of bus to own a name on</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>name</para></entry>
+<entry role="parameter_description"><para>the well-known name to own</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>flags</para></entry>
+<entry role="parameter_description"><para>a set of flags from the <link linkend="GBusNameOwnerFlags"><type>GBusNameOwnerFlags</type></link> enumeration</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>bus_acquired_closure</para></entry>
+<entry role="parameter_description"><para><link linkend="GClosure"><type>GClosure</type></link> to invoke when connected to
+the bus of type <parameter>bus_type</parameter>
+or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>name_acquired_closure</para></entry>
+<entry role="parameter_description"><para><link linkend="GClosure"><type>GClosure</type></link> to invoke when <parameter>name</parameter>
+is
+acquired or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>name_lost_closure</para></entry>
+<entry role="parameter_description"><para><link linkend="GClosure"><type>GClosure</type></link> to invoke when <parameter>name</parameter>
+is lost or
+<link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-bus-own-name-with-closures.returns" role="returns">
+<title>Returns</title>
+<para> an identifier (never 0) that an be used with
+<link linkend="g-bus-unown-name"><function>g_bus_unown_name()</function></link> to stop owning the name.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.26">2.26</link></para></refsect2>
+<refsect2 id="g-bus-own-name-on-connection-with-closures" role="function" condition="since:2.26">
+<title>g_bus_own_name_on_connection_with_closures&#160;()</title>
+<indexterm zone="g-bus-own-name-on-connection-with-closures" role="2.26"><primary sortas="bus_own_name_on_connection_with_closures">g_bus_own_name_on_connection_with_closures</primary></indexterm>
+<programlisting language="C"><link linkend="guint"><returnvalue>guint</returnvalue></link>
+g_bus_own_name_on_connection_with_closures
+                               (<parameter><link linkend="GDBusConnection"><type>GDBusConnection</type></link> *connection</parameter>,
+                                <parameter>const <link linkend="gchar"><type>gchar</type></link> *name</parameter>,
+                                <parameter><link linkend="GBusNameOwnerFlags"><type>GBusNameOwnerFlags</type></link> flags</parameter>,
+                                <parameter><link linkend="GClosure"><type>GClosure</type></link> *name_acquired_closure</parameter>,
+                                <parameter><link linkend="GClosure"><type>GClosure</type></link> *name_lost_closure</parameter>);</programlisting>
+<para>Version of <link linkend="g-bus-own-name-on-connection"><function>g_bus_own_name_on_connection()</function></link> using closures instead of
+callbacks for easier binding in other languages.</para>
+
+<para><emphasis role="annotation">[<acronym>rename-to</acronym> g_bus_own_name_on_connection]</emphasis></para><refsect3 id="g-bus-own-name-on-connection-with-closures.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>connection</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GDBusConnection"><type>GDBusConnection</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>name</para></entry>
+<entry role="parameter_description"><para>the well-known name to own</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>flags</para></entry>
+<entry role="parameter_description"><para>a set of flags from the <link linkend="GBusNameOwnerFlags"><type>GBusNameOwnerFlags</type></link> enumeration</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>name_acquired_closure</para></entry>
+<entry role="parameter_description"><para><link linkend="GClosure"><type>GClosure</type></link> to invoke when <parameter>name</parameter>
+is
+acquired or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>name_lost_closure</para></entry>
+<entry role="parameter_description"><para><link linkend="GClosure"><type>GClosure</type></link> to invoke when <parameter>name</parameter>
+is lost
+or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-bus-own-name-on-connection-with-closures.returns" role="returns">
+<title>Returns</title>
+<para> an identifier (never 0) that an be used with
+<link linkend="g-bus-unown-name"><function>g_bus_unown_name()</function></link> to stop owning the name.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.26">2.26</link></para></refsect2>
+
+</refsect1>
+<refsect1 id="gio-Owning-Bus-Names.other_details" role="details">
+<title role="details.title">Types and Values</title>
+<refsect2 id="GBusNameOwnerFlags" role="enum" condition="since:2.26">
+<title>enum GBusNameOwnerFlags</title>
+<indexterm zone="GBusNameOwnerFlags" role="2.26"><primary sortas="BusNameOwnerFlags">GBusNameOwnerFlags</primary></indexterm>
+<para>Flags used in <link linkend="g-bus-own-name"><function>g_bus_own_name()</function></link>.</para>
+<refsect3 id="GBusNameOwnerFlags.members" role="enum_members">
+<title>Members</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="enum_members_name" colwidth="300px"/>
+<colspec colname="enum_members_description"/>
+<colspec colname="enum_members_annotations" colwidth="200px"/>
+<tbody>
+<row role="constant"><entry role="enum_member_name"><para id="G-BUS-NAME-OWNER-FLAGS-NONE:CAPS">G_BUS_NAME_OWNER_FLAGS_NONE</para></entry>
+<entry role="enum_member_description"><para>No flags set.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-BUS-NAME-OWNER-FLAGS-ALLOW-REPLACEMENT:CAPS">G_BUS_NAME_OWNER_FLAGS_ALLOW_REPLACEMENT</para></entry>
+<entry role="enum_member_description"><para>Allow another message bus connection to claim the name.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-BUS-NAME-OWNER-FLAGS-REPLACE:CAPS">G_BUS_NAME_OWNER_FLAGS_REPLACE</para></entry>
+<entry role="enum_member_description"><para>If another message bus connection owns the name and have
+specified <link linkend="G-BUS-NAME-OWNER-FLAGS-ALLOW-REPLACEMENT:CAPS"><type>G_BUS_NAME_OWNER_FLAGS_ALLOW_REPLACEMENT</type></link>, then take the name from the other connection.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-BUS-NAME-OWNER-FLAGS-DO-NOT-QUEUE:CAPS">G_BUS_NAME_OWNER_FLAGS_DO_NOT_QUEUE</para></entry>
+<entry role="enum_member_description"><para>If another message bus connection owns the name, immediately
+return an error from <link linkend="g-bus-own-name"><function>g_bus_own_name()</function></link> rather than entering the waiting queue for that name. (Since 2.54)</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.26">2.26</link></para></refsect2>
+
+</refsect1>
+
+</refentry>

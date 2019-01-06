@@ -1,0 +1,434 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC '-//OASIS//DTD DocBook XML V4.5//EN'
+                      'http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd' [
+<!ENTITY % local.common.attrib "xmlns:xi  CDATA  #FIXED 'http://www.w3.org/2003/XInclude'">
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="glib-Data-HMACs">
+<refmeta>
+<refentrytitle role="top_of_page" id="glib-Data-HMACs.top_of_page">Secure HMAC Digests</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>GLIB Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>Secure HMAC Digests</refname>
+<refpurpose>computes the HMAC for data</refpurpose>
+</refnamediv>
+
+<refsect1 id="glib-Data-HMACs.functions" role="functions_proto">
+<title role="functions_proto.title">Functions</title>
+<informaltable pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="functions_return" colwidth="150px"/>
+<colspec colname="functions_name"/>
+<tbody>
+<row><entry role="function_type"><link linkend="GHmac"><returnvalue>GHmac</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-hmac-new">g_hmac_new</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GHmac"><returnvalue>GHmac</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-hmac-copy">g_hmac_copy</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GHmac"><returnvalue>GHmac</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-hmac-ref">g_hmac_ref</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-hmac-unref">g_hmac_unref</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-hmac-update">g_hmac_update</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type">const <link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-hmac-get-string">g_hmac_get_string</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-hmac-get-digest">g_hmac_get_digest</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+<row><entry role="function_type"><link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-compute-hmac-for-data">g_compute_hmac_for_data</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-compute-hmac-for-string">g_compute_hmac_for_string</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-compute-hmac-for-bytes">g_compute_hmac_for_bytes</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="glib-Data-HMACs.other" role="other_proto">
+<title role="other_proto.title">Types and Values</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="name" colwidth="150px"/>
+<colspec colname="description"/>
+<tbody>
+<row><entry role="datatype_keyword"></entry><entry role="function_name"><link linkend="GHmac">GHmac</link></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+
+<refsect1 id="glib-Data-HMACs.includes"><title>Includes</title><synopsis>#include &lt;glib.h&gt;
+#include &lt;glib/gi18n.h&gt;
+</synopsis></refsect1>
+
+<refsect1 id="glib-Data-HMACs.description" role="desc">
+<title role="desc.title">Description</title>
+<para>HMACs should be used when producing a cookie or hash based on data
+and a key. Simple mechanisms for using SHA1 and other algorithms to
+digest a key and data together are vulnerable to various security
+issues.
+<ulink url="http://en.wikipedia.org/wiki/HMAC">HMAC</ulink>
+uses algorithms like SHA1 in a secure way to produce a digest of a
+key and data.</para>
+<para>Both the key and data are arbitrary byte arrays of bytes or characters.</para>
+<para>Support for HMAC Digests has been added in GLib 2.30, and support for SHA-512
+in GLib 2.42. Support for SHA-384 was added in GLib 2.52.</para>
+
+</refsect1>
+<refsect1 id="glib-Data-HMACs.functions_details" role="details">
+<title role="details.title">Functions</title>
+<refsect2 id="g-hmac-new" role="function" condition="since:2.30">
+<title>g_hmac_new&#160;()</title>
+<indexterm zone="g-hmac-new" role="2.30"><primary sortas="hmac_new">g_hmac_new</primary></indexterm>
+<programlisting language="C"><link linkend="GHmac"><returnvalue>GHmac</returnvalue></link>&#160;*
+g_hmac_new (<parameter><link linkend="GChecksumType"><type>GChecksumType</type></link> digest_type</parameter>,
+            <parameter>const <link linkend="guchar"><type>guchar</type></link> *key</parameter>,
+            <parameter><link linkend="gsize"><type>gsize</type></link> key_len</parameter>);</programlisting>
+<para>Creates a new <link linkend="GHmac"><type>GHmac</type></link>, using the digest algorithm <parameter>digest_type</parameter>
+.
+If the <parameter>digest_type</parameter>
+ is not known, <link linkend="NULL:CAPS"><literal>NULL</literal></link> is returned.
+A <link linkend="GHmac"><type>GHmac</type></link> can be used to compute the HMAC of a key and an
+arbitrary binary blob, using different hashing algorithms.</para>
+<para>A <link linkend="GHmac"><type>GHmac</type></link> works by feeding a binary blob through <link linkend="g-hmac-update"><function>g_hmac_update()</function></link>
+until the data is complete; the digest can then be extracted
+using <link linkend="g-hmac-get-string"><function>g_hmac_get_string()</function></link>, which will return the checksum as a
+hexadecimal string; or <link linkend="g-hmac-get-digest"><function>g_hmac_get_digest()</function></link>, which will return a
+array of raw bytes. Once either <link linkend="g-hmac-get-string"><function>g_hmac_get_string()</function></link> or
+<link linkend="g-hmac-get-digest"><function>g_hmac_get_digest()</function></link> have been called on a <link linkend="GHmac"><type>GHmac</type></link>, the HMAC
+will be closed and it won't be possible to call <link linkend="g-hmac-update"><function>g_hmac_update()</function></link>
+on it anymore.</para>
+<para>Support for digests of type <link linkend="G-CHECKSUM-SHA512:CAPS"><literal>G_CHECKSUM_SHA512</literal></link> has been added in GLib 2.42.
+Support for <link linkend="G-CHECKSUM-SHA384:CAPS"><literal>G_CHECKSUM_SHA384</literal></link> was added in GLib 2.52.</para>
+<refsect3 id="g-hmac-new.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>digest_type</para></entry>
+<entry role="parameter_description"><para>the desired type of digest</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>key</para></entry>
+<entry role="parameter_description"><para>the key for the HMAC. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>array</acronym> length=key_len]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>key_len</para></entry>
+<entry role="parameter_description"><para>the length of the keys</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-hmac-new.returns" role="returns">
+<title>Returns</title>
+<para> the newly created <link linkend="GHmac"><type>GHmac</type></link>, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>.
+Use <link linkend="g-hmac-unref"><function>g_hmac_unref()</function></link> to free the memory allocated by it.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.30">2.30</link></para></refsect2>
+<refsect2 id="g-hmac-copy" role="function" condition="since:2.30">
+<title>g_hmac_copy&#160;()</title>
+<indexterm zone="g-hmac-copy" role="2.30"><primary sortas="hmac_copy">g_hmac_copy</primary></indexterm>
+<programlisting language="C"><link linkend="GHmac"><returnvalue>GHmac</returnvalue></link>&#160;*
+g_hmac_copy (<parameter>const <link linkend="GHmac"><type>GHmac</type></link> *hmac</parameter>);</programlisting>
+<para>Copies a <link linkend="GHmac"><type>GHmac</type></link>. If <parameter>hmac</parameter>
+ has been closed, by calling
+<link linkend="g-hmac-get-string"><function>g_hmac_get_string()</function></link> or <link linkend="g-hmac-get-digest"><function>g_hmac_get_digest()</function></link>, the copied
+HMAC will be closed as well.</para>
+<refsect3 id="g-hmac-copy.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>hmac</para></entry>
+<entry role="parameter_description"><para>the <link linkend="GHmac"><type>GHmac</type></link> to copy</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-hmac-copy.returns" role="returns">
+<title>Returns</title>
+<para> the copy of the passed <link linkend="GHmac"><type>GHmac</type></link>. Use <link linkend="g-hmac-unref"><function>g_hmac_unref()</function></link>
+when finished using it.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.30">2.30</link></para></refsect2>
+<refsect2 id="g-hmac-ref" role="function" condition="since:2.30">
+<title>g_hmac_ref&#160;()</title>
+<indexterm zone="g-hmac-ref" role="2.30"><primary sortas="hmac_ref">g_hmac_ref</primary></indexterm>
+<programlisting language="C"><link linkend="GHmac"><returnvalue>GHmac</returnvalue></link>&#160;*
+g_hmac_ref (<parameter><link linkend="GHmac"><type>GHmac</type></link> *hmac</parameter>);</programlisting>
+<para>Atomically increments the reference count of <parameter>hmac</parameter>
+ by one.</para>
+<para>This function is MT-safe and may be called from any thread.</para>
+<refsect3 id="g-hmac-ref.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>hmac</para></entry>
+<entry role="parameter_description"><para>a valid <link linkend="GHmac"><type>GHmac</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-hmac-ref.returns" role="returns">
+<title>Returns</title>
+<para> the passed in <link linkend="GHmac"><type>GHmac</type></link>.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.30">2.30</link></para></refsect2>
+<refsect2 id="g-hmac-unref" role="function" condition="since:2.30">
+<title>g_hmac_unref&#160;()</title>
+<indexterm zone="g-hmac-unref" role="2.30"><primary sortas="hmac_unref">g_hmac_unref</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_hmac_unref (<parameter><link linkend="GHmac"><type>GHmac</type></link> *hmac</parameter>);</programlisting>
+<para>Atomically decrements the reference count of <parameter>hmac</parameter>
+ by one.</para>
+<para>If the reference count drops to 0, all keys and values will be
+destroyed, and all memory allocated by the hash table is released.
+This function is MT-safe and may be called from any thread.
+Frees the memory allocated for <parameter>hmac</parameter>
+.</para>
+<refsect3 id="g-hmac-unref.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>hmac</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GHmac"><type>GHmac</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.30">2.30</link></para></refsect2>
+<refsect2 id="g-hmac-update" role="function" condition="since:2.30">
+<title>g_hmac_update&#160;()</title>
+<indexterm zone="g-hmac-update" role="2.30"><primary sortas="hmac_update">g_hmac_update</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_hmac_update (<parameter><link linkend="GHmac"><type>GHmac</type></link> *hmac</parameter>,
+               <parameter>const <link linkend="guchar"><type>guchar</type></link> *data</parameter>,
+               <parameter><link linkend="gssize"><type>gssize</type></link> length</parameter>);</programlisting>
+<para>Feeds <parameter>data</parameter>
+ into an existing <link linkend="GHmac"><type>GHmac</type></link>.</para>
+<para>The HMAC must still be open, that is <link linkend="g-hmac-get-string"><function>g_hmac_get_string()</function></link> or
+<link linkend="g-hmac-get-digest"><function>g_hmac_get_digest()</function></link> must not have been called on <parameter>hmac</parameter>
+.</para>
+<refsect3 id="g-hmac-update.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>hmac</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GHmac"><type>GHmac</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>data</para></entry>
+<entry role="parameter_description"><para>buffer used to compute the checksum. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>array</acronym> length=length]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>length</para></entry>
+<entry role="parameter_description"><para>size of the buffer, or -1 if it is a nul-terminated string</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.30">2.30</link></para></refsect2>
+<refsect2 id="g-hmac-get-string" role="function" condition="since:2.30">
+<title>g_hmac_get_string&#160;()</title>
+<indexterm zone="g-hmac-get-string" role="2.30"><primary sortas="hmac_get_string">g_hmac_get_string</primary></indexterm>
+<programlisting language="C">const <link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+g_hmac_get_string (<parameter><link linkend="GHmac"><type>GHmac</type></link> *hmac</parameter>);</programlisting>
+<para>Gets the HMAC as an hexadecimal string.</para>
+<para>Once this function has been called the <link linkend="GHmac"><type>GHmac</type></link> can no longer be
+updated with <link linkend="g-hmac-update"><function>g_hmac_update()</function></link>.</para>
+<para>The hexadecimal characters will be lower case.</para>
+<refsect3 id="g-hmac-get-string.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>hmac</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GHmac"><type>GHmac</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-hmac-get-string.returns" role="returns">
+<title>Returns</title>
+<para> the hexadecimal representation of the HMAC. The
+returned string is owned by the HMAC and should not be modified
+or freed.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.30">2.30</link></para></refsect2>
+<refsect2 id="g-hmac-get-digest" role="function" condition="since:2.30">
+<title>g_hmac_get_digest&#160;()</title>
+<indexterm zone="g-hmac-get-digest" role="2.30"><primary sortas="hmac_get_digest">g_hmac_get_digest</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_hmac_get_digest (<parameter><link linkend="GHmac"><type>GHmac</type></link> *hmac</parameter>,
+                   <parameter><link linkend="guint8"><type>guint8</type></link> *buffer</parameter>,
+                   <parameter><link linkend="gsize"><type>gsize</type></link> *digest_len</parameter>);</programlisting>
+<para>Gets the digest from <parameter>checksum</parameter>
+ as a raw binary array and places it
+into <parameter>buffer</parameter>
+. The size of the digest depends on the type of checksum.</para>
+<para>Once this function has been called, the <link linkend="GHmac"><type>GHmac</type></link> is closed and can
+no longer be updated with <link linkend="g-checksum-update"><function>g_checksum_update()</function></link>.</para>
+<refsect3 id="g-hmac-get-digest.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>hmac</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GHmac"><type>GHmac</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>buffer</para></entry>
+<entry role="parameter_description"><para>output buffer. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>array</acronym> length=digest_len]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>digest_len</para></entry>
+<entry role="parameter_description"><para>an inout parameter. The caller initializes it to the
+size of <parameter>buffer</parameter>
+. After the call it contains the length of the digest. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>inout</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.30">2.30</link></para></refsect2>
+<refsect2 id="g-compute-hmac-for-data" role="function" condition="since:2.30">
+<title>g_compute_hmac_for_data&#160;()</title>
+<indexterm zone="g-compute-hmac-for-data" role="2.30"><primary sortas="compute_hmac_for_data">g_compute_hmac_for_data</primary></indexterm>
+<programlisting language="C"><link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+g_compute_hmac_for_data (<parameter><link linkend="GChecksumType"><type>GChecksumType</type></link> digest_type</parameter>,
+                         <parameter>const <link linkend="guchar"><type>guchar</type></link> *key</parameter>,
+                         <parameter><link linkend="gsize"><type>gsize</type></link> key_len</parameter>,
+                         <parameter>const <link linkend="guchar"><type>guchar</type></link> *data</parameter>,
+                         <parameter><link linkend="gsize"><type>gsize</type></link> length</parameter>);</programlisting>
+<para>Computes the HMAC for a binary <parameter>data</parameter>
+ of <parameter>length</parameter>
+. This is a
+convenience wrapper for <link linkend="g-hmac-new"><function>g_hmac_new()</function></link>, <link linkend="g-hmac-get-string"><function>g_hmac_get_string()</function></link>
+and <link linkend="g-hmac-unref"><function>g_hmac_unref()</function></link>.</para>
+<para>The hexadecimal string returned will be in lower case.</para>
+<refsect3 id="g-compute-hmac-for-data.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>digest_type</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GChecksumType"><type>GChecksumType</type></link> to use for the HMAC</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>key</para></entry>
+<entry role="parameter_description"><para>the key to use in the HMAC. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>array</acronym> length=key_len]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>key_len</para></entry>
+<entry role="parameter_description"><para>the length of the key</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>data</para></entry>
+<entry role="parameter_description"><para>binary blob to compute the HMAC of. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>array</acronym> length=length]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>length</para></entry>
+<entry role="parameter_description"><para>length of <parameter>data</parameter>
+</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-compute-hmac-for-data.returns" role="returns">
+<title>Returns</title>
+<para> the HMAC of the binary data as a string in hexadecimal.
+The returned string should be freed with <link linkend="g-free"><function>g_free()</function></link> when done using it.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.30">2.30</link></para></refsect2>
+<refsect2 id="g-compute-hmac-for-string" role="function" condition="since:2.30">
+<title>g_compute_hmac_for_string&#160;()</title>
+<indexterm zone="g-compute-hmac-for-string" role="2.30"><primary sortas="compute_hmac_for_string">g_compute_hmac_for_string</primary></indexterm>
+<programlisting language="C"><link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+g_compute_hmac_for_string (<parameter><link linkend="GChecksumType"><type>GChecksumType</type></link> digest_type</parameter>,
+                           <parameter>const <link linkend="guchar"><type>guchar</type></link> *key</parameter>,
+                           <parameter><link linkend="gsize"><type>gsize</type></link> key_len</parameter>,
+                           <parameter>const <link linkend="gchar"><type>gchar</type></link> *str</parameter>,
+                           <parameter><link linkend="gssize"><type>gssize</type></link> length</parameter>);</programlisting>
+<para>Computes the HMAC for a string.</para>
+<para>The hexadecimal string returned will be in lower case.</para>
+<refsect3 id="g-compute-hmac-for-string.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>digest_type</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GChecksumType"><type>GChecksumType</type></link> to use for the HMAC</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>key</para></entry>
+<entry role="parameter_description"><para>the key to use in the HMAC. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>array</acronym> length=key_len]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>key_len</para></entry>
+<entry role="parameter_description"><para>the length of the key</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>str</para></entry>
+<entry role="parameter_description"><para>the string to compute the HMAC for</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>length</para></entry>
+<entry role="parameter_description"><para>the length of the string, or -1 if the string is nul-terminated</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-compute-hmac-for-string.returns" role="returns">
+<title>Returns</title>
+<para> the HMAC as a hexadecimal string.
+The returned string should be freed with <link linkend="g-free"><function>g_free()</function></link>
+when done using it.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.30">2.30</link></para></refsect2>
+<refsect2 id="g-compute-hmac-for-bytes" role="function" condition="since:2.50">
+<title>g_compute_hmac_for_bytes&#160;()</title>
+<indexterm zone="g-compute-hmac-for-bytes" role="2.50"><primary sortas="compute_hmac_for_bytes">g_compute_hmac_for_bytes</primary></indexterm>
+<programlisting language="C"><link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+g_compute_hmac_for_bytes (<parameter><link linkend="GChecksumType"><type>GChecksumType</type></link> digest_type</parameter>,
+                          <parameter><link linkend="GBytes"><type>GBytes</type></link> *key</parameter>,
+                          <parameter><link linkend="GBytes"><type>GBytes</type></link> *data</parameter>);</programlisting>
+<para>Computes the HMAC for a binary <parameter>data</parameter>
+. This is a
+convenience wrapper for <link linkend="g-hmac-new"><function>g_hmac_new()</function></link>, <link linkend="g-hmac-get-string"><function>g_hmac_get_string()</function></link>
+and <link linkend="g-hmac-unref"><function>g_hmac_unref()</function></link>.</para>
+<para>The hexadecimal string returned will be in lower case.</para>
+<refsect3 id="g-compute-hmac-for-bytes.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>digest_type</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GChecksumType"><type>GChecksumType</type></link> to use for the HMAC</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>key</para></entry>
+<entry role="parameter_description"><para>the key to use in the HMAC</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>data</para></entry>
+<entry role="parameter_description"><para>binary blob to compute the HMAC of</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-compute-hmac-for-bytes.returns" role="returns">
+<title>Returns</title>
+<para> the HMAC of the binary data as a string in hexadecimal.
+The returned string should be freed with <link linkend="g-free"><function>g_free()</function></link> when done using it.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.50">2.50</link></para></refsect2>
+
+</refsect1>
+<refsect1 id="glib-Data-HMACs.other_details" role="details">
+<title role="details.title">Types and Values</title>
+<refsect2 id="GHmac" role="struct" condition="since:2.30">
+<title>GHmac</title>
+<indexterm zone="GHmac" role="2.30"><primary sortas="Hmac">GHmac</primary></indexterm>
+<programlisting language="C">typedef struct _GHmac GHmac;</programlisting>
+<para>An opaque structure representing a HMAC operation.
+To create a new GHmac, use <link linkend="g-hmac-new"><function>g_hmac_new()</function></link>. To free
+a GHmac, use <link linkend="g-hmac-unref"><function>g_hmac_unref()</function></link>.</para>
+<para role="since">Since: <link linkend="api-index-2.30">2.30</link></para></refsect2>
+
+</refsect1>
+
+</refentry>

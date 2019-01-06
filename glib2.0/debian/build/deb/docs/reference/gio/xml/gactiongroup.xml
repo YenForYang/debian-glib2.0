@@ -1,0 +1,919 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC '-//OASIS//DTD DocBook XML V4.5//EN'
+                      'http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd' [
+<!ENTITY % local.common.attrib "xmlns:xi  CDATA  #FIXED 'http://www.w3.org/2003/XInclude'">
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="GActionGroup">
+<refmeta>
+<refentrytitle role="top_of_page" id="GActionGroup.top_of_page">GActionGroup</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>GIO Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>GActionGroup</refname>
+<refpurpose>A group of actions</refpurpose>
+</refnamediv>
+
+<refsect1 id="GActionGroup.functions" role="functions_proto">
+<title role="functions_proto.title">Functions</title>
+<informaltable pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="functions_return" colwidth="150px"/>
+<colspec colname="functions_name"/>
+<tbody>
+<row><entry role="function_type"><link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;**
+</entry><entry role="function_name"><link linkend="g-action-group-list-actions">g_action_group_list_actions</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-action-group-query-action">g_action_group_query_action</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-action-group-has-action">g_action_group_has_action</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-action-group-get-action-enabled">g_action_group_get_action_enabled</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type">const <link linkend="GVariantType"><returnvalue>GVariantType</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-action-group-get-action-parameter-type">g_action_group_get_action_parameter_type</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type">const <link linkend="GVariantType"><returnvalue>GVariantType</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-action-group-get-action-state-type">g_action_group_get_action_state_type</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GVariant"><returnvalue>GVariant</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-action-group-get-action-state-hint">g_action_group_get_action_state_hint</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GVariant"><returnvalue>GVariant</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-action-group-get-action-state">g_action_group_get_action_state</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-action-group-change-action-state">g_action_group_change_action_state</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-action-group-activate-action">g_action_group_activate_action</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-action-group-action-added">g_action_group_action_added</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-action-group-action-removed">g_action_group_action_removed</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-action-group-action-enabled-changed">g_action_group_action_enabled_changed</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-action-group-action-state-changed">g_action_group_action_state_changed</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GActionGroup.signals" role="signal_proto">
+<title role="signal_proto.title">Signals</title>
+<informaltable frame="none">
+<tgroup cols="3">
+<colspec colname="signals_return" colwidth="150px"/>
+<colspec colname="signals_name" colwidth="300px"/>
+<colspec colname="signals_flags" colwidth="200px"/>
+<tbody>
+<row><entry role="signal_type"><link linkend="void"><returnvalue>void</returnvalue></link></entry><entry role="signal_name"><link linkend="GActionGroup-action-added">action-added</link></entry><entry role="signal_flags"><link linkend="G-SIGNAL-DETAILED:CAPS">Has Details</link></entry></row>
+<row><entry role="signal_type"><link linkend="void"><returnvalue>void</returnvalue></link></entry><entry role="signal_name"><link linkend="GActionGroup-action-enabled-changed">action-enabled-changed</link></entry><entry role="signal_flags"><link linkend="G-SIGNAL-DETAILED:CAPS">Has Details</link></entry></row>
+<row><entry role="signal_type"><link linkend="void"><returnvalue>void</returnvalue></link></entry><entry role="signal_name"><link linkend="GActionGroup-action-removed">action-removed</link></entry><entry role="signal_flags"><link linkend="G-SIGNAL-DETAILED:CAPS">Has Details</link></entry></row>
+<row><entry role="signal_type"><link linkend="void"><returnvalue>void</returnvalue></link></entry><entry role="signal_name"><link linkend="GActionGroup-action-state-changed">action-state-changed</link></entry><entry role="signal_flags"><link linkend="G-SIGNAL-DETAILED:CAPS">Has Details</link></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GActionGroup.other" role="other_proto">
+<title role="other_proto.title">Types and Values</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="name" colwidth="150px"/>
+<colspec colname="description"/>
+<tbody>
+<row><entry role="datatype_keyword"></entry><entry role="function_name"><link linkend="GActionGroup-struct">GActionGroup</link></entry></row>
+<row><entry role="datatype_keyword">struct</entry><entry role="function_name"><link linkend="GActionGroupInterface">GActionGroupInterface</link></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GActionGroup.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<screen>    <link linkend="GInterface">GInterface</link>
+    <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> GActionGroup
+</screen>
+</refsect1>
+<refsect1 id="GActionGroup.prerequisites" role="prerequisites">
+<title role="prerequisites.title">Prerequisites</title>
+<para>
+GActionGroup requires
+ <link linkend="GObject">GObject</link>.</para>
+
+</refsect1>
+<refsect1 id="GActionGroup.derived-interfaces" role="derived_interfaces">
+<title role="derived_interfaces.title">Known Derived Interfaces</title>
+<para>
+GActionGroup is required by
+ <link linkend="GRemoteActionGroup">GRemoteActionGroup</link>.</para>
+
+</refsect1>
+<refsect1 id="GActionGroup.implementations" role="implementations">
+<title role="implementations.title">Known Implementations</title>
+<para>
+GActionGroup is implemented by
+ <link linkend="GApplication">GApplication</link>,  <link linkend="GDBusActionGroup">GDBusActionGroup</link> and  <link linkend="GSimpleActionGroup">GSimpleActionGroup</link>.</para>
+
+</refsect1>
+
+<refsect1 id="GActionGroup.includes"><title>Includes</title><synopsis>#include &lt;gio/gio.h&gt;
+</synopsis></refsect1>
+
+<refsect1 id="GActionGroup.description" role="desc">
+<title role="desc.title">Description</title>
+<para><link linkend="GActionGroup"><type>GActionGroup</type></link> represents a group of actions. Actions can be used to
+expose functionality in a structured way, either from one part of a
+program to another, or to the outside world. Action groups are often
+used together with a <link linkend="GMenuModel"><type>GMenuModel</type></link> that provides additional
+representation data for displaying the actions to the user, e.g. in
+a menu.</para>
+<para>The main way to interact with the actions in a GActionGroup is to
+activate them with <link linkend="g-action-group-activate-action"><function>g_action_group_activate_action()</function></link>. Activating an
+action may require a <link linkend="GVariant"><type>GVariant</type></link> parameter. The required type of the
+parameter can be inquired with <link linkend="g-action-group-get-action-parameter-type"><function>g_action_group_get_action_parameter_type()</function></link>.
+Actions may be disabled, see <link linkend="g-action-group-get-action-enabled"><function>g_action_group_get_action_enabled()</function></link>.
+Activating a disabled action has no effect.</para>
+<para>Actions may optionally have a state in the form of a <link linkend="GVariant"><type>GVariant</type></link>. The
+current state of an action can be inquired with
+<link linkend="g-action-group-get-action-state"><function>g_action_group_get_action_state()</function></link>. Activating a stateful action may
+change its state, but it is also possible to set the state by calling
+<link linkend="g-action-group-change-action-state"><function>g_action_group_change_action_state()</function></link>.</para>
+<para>As typical example, consider a text editing application which has an
+option to change the current font to 'bold'. A good way to represent
+this would be a stateful action, with a boolean state. Activating the
+action would toggle the state.</para>
+<para>Each action in the group has a unique name (which is a string).  All
+method calls, except <link linkend="g-action-group-list-actions"><function>g_action_group_list_actions()</function></link> take the name of
+an action as an argument.</para>
+<para>The <link linkend="GActionGroup"><type>GActionGroup</type></link> API is meant to be the 'public' API to the action
+group.  The calls here are exactly the interaction that 'external
+forces' (eg: UI, incoming D-Bus messages, etc.) are supposed to have
+with actions.  'Internal' APIs (ie: ones meant only to be accessed by
+the action group implementation) are found on subclasses.  This is
+why you will find - for example - <link linkend="g-action-group-get-action-enabled"><function>g_action_group_get_action_enabled()</function></link>
+but not an equivalent <link linkend="set"><function>set()</function></link> call.</para>
+<para>Signals are emitted on the action group in response to state changes
+on individual actions.</para>
+<para>Implementations of <link linkend="GActionGroup"><type>GActionGroup</type></link> should provide implementations for
+the virtual functions <link linkend="g-action-group-list-actions"><function>g_action_group_list_actions()</function></link> and
+<link linkend="g-action-group-query-action"><function>g_action_group_query_action()</function></link>.  The other virtual functions should
+not be implemented - their "wrappers" are actually implemented with
+calls to <link linkend="g-action-group-query-action"><function>g_action_group_query_action()</function></link>.</para>
+
+</refsect1>
+<refsect1 id="GActionGroup.functions_details" role="details">
+<title role="details.title">Functions</title>
+<refsect2 id="g-action-group-list-actions" role="function" condition="since:2.28">
+<title>g_action_group_list_actions&#160;()</title>
+<indexterm zone="g-action-group-list-actions" role="2.28"><primary sortas="action_group_list_actions">g_action_group_list_actions</primary></indexterm>
+<programlisting language="C"><link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;**
+g_action_group_list_actions (<parameter><link linkend="GActionGroup"><type>GActionGroup</type></link> *action_group</parameter>);</programlisting>
+<para>Lists the actions contained within <parameter>action_group</parameter>
+.</para>
+<para>The caller is responsible for freeing the list with <link linkend="g-strfreev"><function>g_strfreev()</function></link> when
+it is no longer required.</para>
+<refsect3 id="g-action-group-list-actions.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>action_group</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GActionGroup"><type>GActionGroup</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-action-group-list-actions.returns" role="returns">
+<title>Returns</title>
+<para>a <link linkend="NULL:CAPS"><literal>NULL</literal></link>-terminated array of the names of the
+actions in the group. </para>
+<para><emphasis role="annotation">[<acronym>transfer full</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.28">2.28</link></para></refsect2>
+<refsect2 id="g-action-group-query-action" role="function" condition="since:2.32">
+<title>g_action_group_query_action&#160;()</title>
+<indexterm zone="g-action-group-query-action" role="2.32"><primary sortas="action_group_query_action">g_action_group_query_action</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_action_group_query_action (<parameter><link linkend="GActionGroup"><type>GActionGroup</type></link> *action_group</parameter>,
+                             <parameter>const <link linkend="gchar"><type>gchar</type></link> *action_name</parameter>,
+                             <parameter><link linkend="gboolean"><type>gboolean</type></link> *enabled</parameter>,
+                             <parameter>const <link linkend="GVariantType"><type>GVariantType</type></link> **parameter_type</parameter>,
+                             <parameter>const <link linkend="GVariantType"><type>GVariantType</type></link> **state_type</parameter>,
+                             <parameter><link linkend="GVariant"><type>GVariant</type></link> **state_hint</parameter>,
+                             <parameter><link linkend="GVariant"><type>GVariant</type></link> **state</parameter>);</programlisting>
+<para>Queries all aspects of the named action within an <parameter>action_group</parameter>
+.</para>
+<para>This function acquires the information available from
+<link linkend="g-action-group-has-action"><function>g_action_group_has_action()</function></link>, <link linkend="g-action-group-get-action-enabled"><function>g_action_group_get_action_enabled()</function></link>,
+<link linkend="g-action-group-get-action-parameter-type"><function>g_action_group_get_action_parameter_type()</function></link>,
+<link linkend="g-action-group-get-action-state-type"><function>g_action_group_get_action_state_type()</function></link>,
+<link linkend="g-action-group-get-action-state-hint"><function>g_action_group_get_action_state_hint()</function></link> and
+<link linkend="g-action-group-get-action-state"><function>g_action_group_get_action_state()</function></link> with a single function call.</para>
+<para>This provides two main benefits.</para>
+<para>The first is the improvement in efficiency that comes with not having
+to perform repeated lookups of the action in order to discover
+different things about it.  The second is that implementing
+<link linkend="GActionGroup"><type>GActionGroup</type></link> can now be done by only overriding this one virtual
+function.</para>
+<para>The interface provides a default implementation of this function that
+calls the individual functions, as required, to fetch the
+information.  The interface also provides default implementations of
+those functions that call this function.  All implementations,
+therefore, must override either this function or all of the others.</para>
+<para>If the action exists, <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> is returned and any of the requested
+fields (as indicated by having a non-<link linkend="NULL:CAPS"><literal>NULL</literal></link> reference passed in) are
+filled.  If the action doesn't exist, <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> is returned and the
+fields may or may not have been modified.</para>
+<refsect3 id="g-action-group-query-action.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>action_group</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GActionGroup"><type>GActionGroup</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>action_name</para></entry>
+<entry role="parameter_description"><para>the name of an action in the group</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>enabled</para></entry>
+<entry role="parameter_description"><para>if the action is presently enabled. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>out</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>parameter_type</para></entry>
+<entry role="parameter_description"><para>the parameter type, or <link linkend="NULL:CAPS"><literal>NULL</literal></link> if none needed. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>out</acronym>][<acronym>optional</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>state_type</para></entry>
+<entry role="parameter_description"><para>the state type, or <link linkend="NULL:CAPS"><literal>NULL</literal></link> if stateless. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>out</acronym>][<acronym>optional</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>state_hint</para></entry>
+<entry role="parameter_description"><para>the state hint, or <link linkend="NULL:CAPS"><literal>NULL</literal></link> if none. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>out</acronym>][<acronym>optional</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>state</para></entry>
+<entry role="parameter_description"><para>the current state, or <link linkend="NULL:CAPS"><literal>NULL</literal></link> if stateless. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>out</acronym>][<acronym>optional</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-action-group-query-action.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if the action exists, else <link linkend="FALSE:CAPS"><literal>FALSE</literal></link></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.32">2.32</link></para></refsect2>
+<refsect2 id="g-action-group-has-action" role="function" condition="since:2.28">
+<title>g_action_group_has_action&#160;()</title>
+<indexterm zone="g-action-group-has-action" role="2.28"><primary sortas="action_group_has_action">g_action_group_has_action</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_action_group_has_action (<parameter><link linkend="GActionGroup"><type>GActionGroup</type></link> *action_group</parameter>,
+                           <parameter>const <link linkend="gchar"><type>gchar</type></link> *action_name</parameter>);</programlisting>
+<para>Checks if the named action exists within <parameter>action_group</parameter>
+.</para>
+<refsect3 id="g-action-group-has-action.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>action_group</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GActionGroup"><type>GActionGroup</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>action_name</para></entry>
+<entry role="parameter_description"><para>the name of the action to check for</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-action-group-has-action.returns" role="returns">
+<title>Returns</title>
+<para> whether the named action exists</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.28">2.28</link></para></refsect2>
+<refsect2 id="g-action-group-get-action-enabled" role="function" condition="since:2.28">
+<title>g_action_group_get_action_enabled&#160;()</title>
+<indexterm zone="g-action-group-get-action-enabled" role="2.28"><primary sortas="action_group_get_action_enabled">g_action_group_get_action_enabled</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_action_group_get_action_enabled (<parameter><link linkend="GActionGroup"><type>GActionGroup</type></link> *action_group</parameter>,
+                                   <parameter>const <link linkend="gchar"><type>gchar</type></link> *action_name</parameter>);</programlisting>
+<para>Checks if the named action within <parameter>action_group</parameter>
+ is currently enabled.</para>
+<para>An action must be enabled in order to be activated or in order to
+have its state changed from outside callers.</para>
+<refsect3 id="g-action-group-get-action-enabled.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>action_group</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GActionGroup"><type>GActionGroup</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>action_name</para></entry>
+<entry role="parameter_description"><para>the name of the action to query</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-action-group-get-action-enabled.returns" role="returns">
+<title>Returns</title>
+<para> whether or not the action is currently enabled</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.28">2.28</link></para></refsect2>
+<refsect2 id="g-action-group-get-action-parameter-type" role="function" condition="since:2.28">
+<title>g_action_group_get_action_parameter_type&#160;()</title>
+<indexterm zone="g-action-group-get-action-parameter-type" role="2.28"><primary sortas="action_group_get_action_parameter_type">g_action_group_get_action_parameter_type</primary></indexterm>
+<programlisting language="C">const <link linkend="GVariantType"><returnvalue>GVariantType</returnvalue></link>&#160;*
+g_action_group_get_action_parameter_type
+                               (<parameter><link linkend="GActionGroup"><type>GActionGroup</type></link> *action_group</parameter>,
+                                <parameter>const <link linkend="gchar"><type>gchar</type></link> *action_name</parameter>);</programlisting>
+<para>Queries the type of the parameter that must be given when activating
+the named action within <parameter>action_group</parameter>
+.</para>
+<para>When activating the action using <link linkend="g-action-group-activate-action"><function>g_action_group_activate_action()</function></link>,
+the <link linkend="GVariant"><type>GVariant</type></link> given to that function must be of the type returned
+by this function.</para>
+<para>In the case that this function returns <link linkend="NULL:CAPS"><literal>NULL</literal></link>, you must not give any
+<link linkend="GVariant"><type>GVariant</type></link>, but <link linkend="NULL:CAPS"><literal>NULL</literal></link> instead.</para>
+<para>The parameter type of a particular action will never change but it is
+possible for an action to be removed and for a new action to be added
+with the same name but a different parameter type.</para>
+<refsect3 id="g-action-group-get-action-parameter-type.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>action_group</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GActionGroup"><type>GActionGroup</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>action_name</para></entry>
+<entry role="parameter_description"><para>the name of the action to query</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-action-group-get-action-parameter-type.returns" role="returns">
+<title>Returns</title>
+<para>the parameter type. </para>
+<para><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.28">2.28</link></para></refsect2>
+<refsect2 id="g-action-group-get-action-state-type" role="function" condition="since:2.28">
+<title>g_action_group_get_action_state_type&#160;()</title>
+<indexterm zone="g-action-group-get-action-state-type" role="2.28"><primary sortas="action_group_get_action_state_type">g_action_group_get_action_state_type</primary></indexterm>
+<programlisting language="C">const <link linkend="GVariantType"><returnvalue>GVariantType</returnvalue></link>&#160;*
+g_action_group_get_action_state_type (<parameter><link linkend="GActionGroup"><type>GActionGroup</type></link> *action_group</parameter>,
+                                      <parameter>const <link linkend="gchar"><type>gchar</type></link> *action_name</parameter>);</programlisting>
+<para>Queries the type of the state of the named action within
+<parameter>action_group</parameter>
+.</para>
+<para>If the action is stateful then this function returns the
+<link linkend="GVariantType"><type>GVariantType</type></link> of the state.  All calls to
+<link linkend="g-action-group-change-action-state"><function>g_action_group_change_action_state()</function></link> must give a <link linkend="GVariant"><type>GVariant</type></link> of this
+type and <link linkend="g-action-group-get-action-state"><function>g_action_group_get_action_state()</function></link> will return a <link linkend="GVariant"><type>GVariant</type></link>
+of the same type.</para>
+<para>If the action is not stateful then this function will return <link linkend="NULL:CAPS"><literal>NULL</literal></link>.
+In that case, <link linkend="g-action-group-get-action-state"><function>g_action_group_get_action_state()</function></link> will return <link linkend="NULL:CAPS"><literal>NULL</literal></link>
+and you must not call <link linkend="g-action-group-change-action-state"><function>g_action_group_change_action_state()</function></link>.</para>
+<para>The state type of a particular action will never change but it is
+possible for an action to be removed and for a new action to be added
+with the same name but a different state type.</para>
+<refsect3 id="g-action-group-get-action-state-type.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>action_group</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GActionGroup"><type>GActionGroup</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>action_name</para></entry>
+<entry role="parameter_description"><para>the name of the action to query</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-action-group-get-action-state-type.returns" role="returns">
+<title>Returns</title>
+<para>the state type, if the action is stateful. </para>
+<para><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.28">2.28</link></para></refsect2>
+<refsect2 id="g-action-group-get-action-state-hint" role="function" condition="since:2.28">
+<title>g_action_group_get_action_state_hint&#160;()</title>
+<indexterm zone="g-action-group-get-action-state-hint" role="2.28"><primary sortas="action_group_get_action_state_hint">g_action_group_get_action_state_hint</primary></indexterm>
+<programlisting language="C"><link linkend="GVariant"><returnvalue>GVariant</returnvalue></link>&#160;*
+g_action_group_get_action_state_hint (<parameter><link linkend="GActionGroup"><type>GActionGroup</type></link> *action_group</parameter>,
+                                      <parameter>const <link linkend="gchar"><type>gchar</type></link> *action_name</parameter>);</programlisting>
+<para>Requests a hint about the valid range of values for the state of the
+named action within <parameter>action_group</parameter>
+.</para>
+<para>If <link linkend="NULL:CAPS"><literal>NULL</literal></link> is returned it either means that the action is not stateful
+or that there is no hint about the valid range of values for the
+state of the action.</para>
+<para>If a <link linkend="GVariant"><type>GVariant</type></link> array is returned then each item in the array is a
+possible value for the state.  If a <link linkend="GVariant"><type>GVariant</type></link> pair (ie: two-tuple) is
+returned then the tuple specifies the inclusive lower and upper bound
+of valid values for the state.</para>
+<para>In any case, the information is merely a hint.  It may be possible to
+have a state value outside of the hinted range and setting a value
+within the range may fail.</para>
+<para>The return value (if non-<link linkend="NULL:CAPS"><literal>NULL</literal></link>) should be freed with
+<link linkend="g-variant-unref"><function>g_variant_unref()</function></link> when it is no longer required.</para>
+<refsect3 id="g-action-group-get-action-state-hint.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>action_group</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GActionGroup"><type>GActionGroup</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>action_name</para></entry>
+<entry role="parameter_description"><para>the name of the action to query</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-action-group-get-action-state-hint.returns" role="returns">
+<title>Returns</title>
+<para>the state range hint. </para>
+<para><emphasis role="annotation">[<acronym>nullable</acronym>][<acronym>transfer full</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.28">2.28</link></para></refsect2>
+<refsect2 id="g-action-group-get-action-state" role="function" condition="since:2.28">
+<title>g_action_group_get_action_state&#160;()</title>
+<indexterm zone="g-action-group-get-action-state" role="2.28"><primary sortas="action_group_get_action_state">g_action_group_get_action_state</primary></indexterm>
+<programlisting language="C"><link linkend="GVariant"><returnvalue>GVariant</returnvalue></link>&#160;*
+g_action_group_get_action_state (<parameter><link linkend="GActionGroup"><type>GActionGroup</type></link> *action_group</parameter>,
+                                 <parameter>const <link linkend="gchar"><type>gchar</type></link> *action_name</parameter>);</programlisting>
+<para>Queries the current state of the named action within <parameter>action_group</parameter>
+.</para>
+<para>If the action is not stateful then <link linkend="NULL:CAPS"><literal>NULL</literal></link> will be returned.  If the
+action is stateful then the type of the return value is the type
+given by <link linkend="g-action-group-get-action-state-type"><function>g_action_group_get_action_state_type()</function></link>.</para>
+<para>The return value (if non-<link linkend="NULL:CAPS"><literal>NULL</literal></link>) should be freed with
+<link linkend="g-variant-unref"><function>g_variant_unref()</function></link> when it is no longer required.</para>
+<refsect3 id="g-action-group-get-action-state.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>action_group</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GActionGroup"><type>GActionGroup</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>action_name</para></entry>
+<entry role="parameter_description"><para>the name of the action to query</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-action-group-get-action-state.returns" role="returns">
+<title>Returns</title>
+<para>the current state of the action. </para>
+<para><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.28">2.28</link></para></refsect2>
+<refsect2 id="g-action-group-change-action-state" role="function" condition="since:2.28">
+<title>g_action_group_change_action_state&#160;()</title>
+<indexterm zone="g-action-group-change-action-state" role="2.28"><primary sortas="action_group_change_action_state">g_action_group_change_action_state</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_action_group_change_action_state (<parameter><link linkend="GActionGroup"><type>GActionGroup</type></link> *action_group</parameter>,
+                                    <parameter>const <link linkend="gchar"><type>gchar</type></link> *action_name</parameter>,
+                                    <parameter><link linkend="GVariant"><type>GVariant</type></link> *value</parameter>);</programlisting>
+<para>Request for the state of the named action within <parameter>action_group</parameter>
+ to be
+changed to <parameter>value</parameter>
+.</para>
+<para>The action must be stateful and <parameter>value</parameter>
+ must be of the correct type.
+See <link linkend="g-action-group-get-action-state-type"><function>g_action_group_get_action_state_type()</function></link>.</para>
+<para>This call merely requests a change.  The action may refuse to change
+its state or may change its state to something other than <parameter>value</parameter>
+.
+See <link linkend="g-action-group-get-action-state-hint"><function>g_action_group_get_action_state_hint()</function></link>.</para>
+<para>If the <parameter>value</parameter>
+ GVariant is floating, it is consumed.</para>
+<refsect3 id="g-action-group-change-action-state.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>action_group</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GActionGroup"><type>GActionGroup</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>action_name</para></entry>
+<entry role="parameter_description"><para>the name of the action to request the change on</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>value</para></entry>
+<entry role="parameter_description"><para>the new state</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.28">2.28</link></para></refsect2>
+<refsect2 id="g-action-group-activate-action" role="function" condition="since:2.28">
+<title>g_action_group_activate_action&#160;()</title>
+<indexterm zone="g-action-group-activate-action" role="2.28"><primary sortas="action_group_activate_action">g_action_group_activate_action</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_action_group_activate_action (<parameter><link linkend="GActionGroup"><type>GActionGroup</type></link> *action_group</parameter>,
+                                <parameter>const <link linkend="gchar"><type>gchar</type></link> *action_name</parameter>,
+                                <parameter><link linkend="GVariant"><type>GVariant</type></link> *parameter</parameter>);</programlisting>
+<para>Activate the named action within <parameter>action_group</parameter>
+.</para>
+<para>If the action is expecting a parameter, then the correct type of
+parameter must be given as <parameter>parameter</parameter>
+.  If the action is expecting no
+parameters then <parameter>parameter</parameter>
+ must be <link linkend="NULL:CAPS"><literal>NULL</literal></link>.  See
+<link linkend="g-action-group-get-action-parameter-type"><function>g_action_group_get_action_parameter_type()</function></link>.</para>
+<refsect3 id="g-action-group-activate-action.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>action_group</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GActionGroup"><type>GActionGroup</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>action_name</para></entry>
+<entry role="parameter_description"><para>the name of the action to activate</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>parameter</para></entry>
+<entry role="parameter_description"><para>parameters to the activation. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.28">2.28</link></para></refsect2>
+<refsect2 id="g-action-group-action-added" role="function" condition="since:2.28">
+<title>g_action_group_action_added&#160;()</title>
+<indexterm zone="g-action-group-action-added" role="2.28"><primary sortas="action_group_action_added">g_action_group_action_added</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_action_group_action_added (<parameter><link linkend="GActionGroup"><type>GActionGroup</type></link> *action_group</parameter>,
+                             <parameter>const <link linkend="gchar"><type>gchar</type></link> *action_name</parameter>);</programlisting>
+<para>Emits the <link linkend="GActionGroup-action-added"><type>“action-added”</type></link> signal on <parameter>action_group</parameter>
+.</para>
+<para>This function should only be called by <link linkend="GActionGroup"><type>GActionGroup</type></link> implementations.</para>
+<refsect3 id="g-action-group-action-added.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>action_group</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GActionGroup"><type>GActionGroup</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>action_name</para></entry>
+<entry role="parameter_description"><para>the name of an action in the group</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.28">2.28</link></para></refsect2>
+<refsect2 id="g-action-group-action-removed" role="function" condition="since:2.28">
+<title>g_action_group_action_removed&#160;()</title>
+<indexterm zone="g-action-group-action-removed" role="2.28"><primary sortas="action_group_action_removed">g_action_group_action_removed</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_action_group_action_removed (<parameter><link linkend="GActionGroup"><type>GActionGroup</type></link> *action_group</parameter>,
+                               <parameter>const <link linkend="gchar"><type>gchar</type></link> *action_name</parameter>);</programlisting>
+<para>Emits the <link linkend="GActionGroup-action-removed"><type>“action-removed”</type></link> signal on <parameter>action_group</parameter>
+.</para>
+<para>This function should only be called by <link linkend="GActionGroup"><type>GActionGroup</type></link> implementations.</para>
+<refsect3 id="g-action-group-action-removed.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>action_group</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GActionGroup"><type>GActionGroup</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>action_name</para></entry>
+<entry role="parameter_description"><para>the name of an action in the group</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.28">2.28</link></para></refsect2>
+<refsect2 id="g-action-group-action-enabled-changed" role="function" condition="since:2.28">
+<title>g_action_group_action_enabled_changed&#160;()</title>
+<indexterm zone="g-action-group-action-enabled-changed" role="2.28"><primary sortas="action_group_action_enabled_changed">g_action_group_action_enabled_changed</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_action_group_action_enabled_changed (<parameter><link linkend="GActionGroup"><type>GActionGroup</type></link> *action_group</parameter>,
+                                       <parameter>const <link linkend="gchar"><type>gchar</type></link> *action_name</parameter>,
+                                       <parameter><link linkend="gboolean"><type>gboolean</type></link> enabled</parameter>);</programlisting>
+<para>Emits the <link linkend="GActionGroup-action-enabled-changed"><type>“action-enabled-changed”</type></link> signal on <parameter>action_group</parameter>
+.</para>
+<para>This function should only be called by <link linkend="GActionGroup"><type>GActionGroup</type></link> implementations.</para>
+<refsect3 id="g-action-group-action-enabled-changed.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>action_group</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GActionGroup"><type>GActionGroup</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>action_name</para></entry>
+<entry role="parameter_description"><para>the name of an action in the group</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>enabled</para></entry>
+<entry role="parameter_description"><para>whether or not the action is now enabled</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.28">2.28</link></para></refsect2>
+<refsect2 id="g-action-group-action-state-changed" role="function" condition="since:2.28">
+<title>g_action_group_action_state_changed&#160;()</title>
+<indexterm zone="g-action-group-action-state-changed" role="2.28"><primary sortas="action_group_action_state_changed">g_action_group_action_state_changed</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_action_group_action_state_changed (<parameter><link linkend="GActionGroup"><type>GActionGroup</type></link> *action_group</parameter>,
+                                     <parameter>const <link linkend="gchar"><type>gchar</type></link> *action_name</parameter>,
+                                     <parameter><link linkend="GVariant"><type>GVariant</type></link> *state</parameter>);</programlisting>
+<para>Emits the <link linkend="GActionGroup-action-state-changed"><type>“action-state-changed”</type></link> signal on <parameter>action_group</parameter>
+.</para>
+<para>This function should only be called by <link linkend="GActionGroup"><type>GActionGroup</type></link> implementations.</para>
+<refsect3 id="g-action-group-action-state-changed.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>action_group</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GActionGroup"><type>GActionGroup</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>action_name</para></entry>
+<entry role="parameter_description"><para>the name of an action in the group</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>state</para></entry>
+<entry role="parameter_description"><para>the new state of the named action</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.28">2.28</link></para></refsect2>
+
+</refsect1>
+<refsect1 id="GActionGroup.other_details" role="details">
+<title role="details.title">Types and Values</title>
+<refsect2 id="GActionGroup-struct" role="struct">
+<title>GActionGroup</title>
+<indexterm zone="GActionGroup-struct"><primary sortas="ActionGroup">GActionGroup</primary></indexterm>
+<programlisting language="C">typedef struct _GActionGroup GActionGroup;</programlisting>
+<para><link linkend="GActionGroup"><type>GActionGroup</type></link> is an opaque data structure and can only be accessed
+using the following functions.</para>
+</refsect2>
+<refsect2 id="GActionGroupInterface" role="struct" condition="since:2.28">
+<title>struct GActionGroupInterface</title>
+<indexterm zone="GActionGroupInterface" role="2.28"><primary sortas="ActionGroupInterface">GActionGroupInterface</primary></indexterm>
+<programlisting language="C">struct GActionGroupInterface {
+  GTypeInterface g_iface;
+
+  /* virtual functions */
+  gboolean              (* has_action)                 (GActionGroup  *action_group,
+                                                        const gchar   *action_name);
+
+  gchar **              (* list_actions)               (GActionGroup  *action_group);
+
+  gboolean              (* get_action_enabled)         (GActionGroup  *action_group,
+                                                        const gchar   *action_name);
+
+  const GVariantType *  (* get_action_parameter_type)  (GActionGroup  *action_group,
+                                                        const gchar   *action_name);
+
+  const GVariantType *  (* get_action_state_type)      (GActionGroup  *action_group,
+                                                        const gchar   *action_name);
+
+  GVariant *            (* get_action_state_hint)      (GActionGroup  *action_group,
+                                                        const gchar   *action_name);
+
+  GVariant *            (* get_action_state)           (GActionGroup  *action_group,
+                                                        const gchar   *action_name);
+
+  void                  (* change_action_state)        (GActionGroup  *action_group,
+                                                        const gchar   *action_name,
+                                                        GVariant      *value);
+
+  void                  (* activate_action)            (GActionGroup  *action_group,
+                                                        const gchar   *action_name,
+                                                        GVariant      *parameter);
+
+  /* signals */
+  void                  (* action_added)               (GActionGroup  *action_group,
+                                                        const gchar   *action_name);
+  void                  (* action_removed)             (GActionGroup  *action_group,
+                                                        const gchar   *action_name);
+  void                  (* action_enabled_changed)     (GActionGroup  *action_group,
+                                                        const gchar   *action_name,
+                                                        gboolean       enabled);
+  void                  (* action_state_changed)       (GActionGroup   *action_group,
+                                                        const gchar    *action_name,
+                                                        GVariant       *state);
+
+  /* more virtual functions */
+  gboolean              (* query_action)               (GActionGroup        *action_group,
+                                                        const gchar         *action_name,
+                                                        gboolean            *enabled,
+                                                        const GVariantType **parameter_type,
+                                                        const GVariantType **state_type,
+                                                        GVariant           **state_hint,
+                                                        GVariant           **state);
+};
+</programlisting>
+<para>The virtual function table for <link linkend="GActionGroup"><type>GActionGroup</type></link>.</para>
+<refsect3 id="GActionGroupInterface.members" role="struct_members">
+<title>Members</title>
+<informaltable role="struct_members_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="struct_members_name" colwidth="300px"/>
+<colspec colname="struct_members_description"/>
+<colspec colname="struct_members_annotations" colwidth="200px"/>
+<tbody>
+<row role="member"><entry role="struct_member_name"><para><structfield id="GActionGroupInterface.has-action">has_action</structfield>&#160;()</para></entry>
+<entry role="struct_member_description"><para>the virtual function pointer for <link linkend="g-action-group-has-action"><function>g_action_group_has_action()</function></link></para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><structfield id="GActionGroupInterface.list-actions">list_actions</structfield>&#160;()</para></entry>
+<entry role="struct_member_description"><para>the virtual function pointer for <link linkend="g-action-group-list-actions"><function>g_action_group_list_actions()</function></link></para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><structfield id="GActionGroupInterface.get-action-enabled">get_action_enabled</structfield>&#160;()</para></entry>
+<entry role="struct_member_description"><para>the virtual function pointer for <link linkend="g-action-group-get-action-enabled"><function>g_action_group_get_action_enabled()</function></link></para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><structfield id="GActionGroupInterface.get-action-parameter-type">get_action_parameter_type</structfield>&#160;()</para></entry>
+<entry role="struct_member_description"><para>the virtual function pointer for <link linkend="g-action-group-get-action-parameter-type"><function>g_action_group_get_action_parameter_type()</function></link></para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><structfield id="GActionGroupInterface.get-action-state-type">get_action_state_type</structfield>&#160;()</para></entry>
+<entry role="struct_member_description"><para>the virtual function pointer for <link linkend="g-action-group-get-action-state-type"><function>g_action_group_get_action_state_type()</function></link></para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><structfield id="GActionGroupInterface.get-action-state-hint">get_action_state_hint</structfield>&#160;()</para></entry>
+<entry role="struct_member_description"><para>the virtual function pointer for <link linkend="g-action-group-get-action-state-hint"><function>g_action_group_get_action_state_hint()</function></link></para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><structfield id="GActionGroupInterface.get-action-state">get_action_state</structfield>&#160;()</para></entry>
+<entry role="struct_member_description"><para>the virtual function pointer for <link linkend="g-action-group-get-action-state"><function>g_action_group_get_action_state()</function></link></para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><structfield id="GActionGroupInterface.change-action-state">change_action_state</structfield>&#160;()</para></entry>
+<entry role="struct_member_description"><para>the virtual function pointer for <link linkend="g-action-group-change-action-state"><function>g_action_group_change_action_state()</function></link></para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><structfield id="GActionGroupInterface.activate-action">activate_action</structfield>&#160;()</para></entry>
+<entry role="struct_member_description"><para>the virtual function pointer for <link linkend="g-action-group-activate-action"><function>g_action_group_activate_action()</function></link></para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><structfield id="GActionGroupInterface.action-added">action_added</structfield>&#160;()</para></entry>
+<entry role="struct_member_description"><para>the class closure for the <link linkend="GActionGroup-action-added"><type>“action-added”</type></link> signal</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><structfield id="GActionGroupInterface.action-removed">action_removed</structfield>&#160;()</para></entry>
+<entry role="struct_member_description"><para>the class closure for the <link linkend="GActionGroup-action-removed"><type>“action-removed”</type></link> signal</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><structfield id="GActionGroupInterface.action-enabled-changed">action_enabled_changed</structfield>&#160;()</para></entry>
+<entry role="struct_member_description"><para>the class closure for the <link linkend="GActionGroup-action-enabled-changed"><type>“action-enabled-changed”</type></link> signal</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><structfield id="GActionGroupInterface.action-state-changed">action_state_changed</structfield>&#160;()</para></entry>
+<entry role="struct_member_description"><para>the class closure for the <link linkend="GActionGroup-action-enabled-changed"><type>“action-enabled-changed”</type></link> signal</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><structfield id="GActionGroupInterface.query-action">query_action</structfield>&#160;()</para></entry>
+<entry role="struct_member_description"><para>the virtual function pointer for <link linkend="g-action-group-query-action"><function>g_action_group_query_action()</function></link></para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+</tbody></tgroup></informaltable>
+</refsect3>
+<para role="since">Since: <link linkend="api-index-2.28">2.28</link></para></refsect2>
+
+</refsect1>
+<refsect1 id="GActionGroup.signal-details" role="signals">
+<title role="signals.title">Signal Details</title>
+<refsect2 id="GActionGroup-action-added" role="signal"><title>The <literal>“action-added”</literal> signal</title>
+<indexterm zone="GActionGroup-action-added" role="2.28"><primary sortas="ActionGroup::action-added">GActionGroup::action-added</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+user_function (<link linkend="GActionGroup"><type>GActionGroup</type></link> *action_group,
+               <link linkend="gchar"><type>gchar</type></link>        *action_name,
+               <link linkend="gpointer"><type>gpointer</type></link>      user_data)</programlisting>
+<para>Signals that a new action was just added to the group.
+This signal is emitted after the action has been added
+and is now visible.</para>
+<refsect3 id="GActionGroup-action-added.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>action_group</para></entry>
+<entry role="parameter_description"><para>the <link linkend="GActionGroup"><type>GActionGroup</type></link> that changed</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>action_name</para></entry>
+<entry role="parameter_description"><para>the name of the action in <parameter>action_group</parameter>
+</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><simpara>user_data</simpara></entry>
+<entry role="parameter_description"><simpara>user data set when the signal handler was connected.</simpara></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para>Flags: <link linkend="G-SIGNAL-DETAILED:CAPS">Has Details</link></para>
+<para role="since">Since: <link linkend="api-index-2.28">2.28</link></para></refsect2><refsect2 id="GActionGroup-action-enabled-changed" role="signal"><title>The <literal>“action-enabled-changed”</literal> signal</title>
+<indexterm zone="GActionGroup-action-enabled-changed" role="2.28"><primary sortas="ActionGroup::action-enabled-changed">GActionGroup::action-enabled-changed</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+user_function (<link linkend="GActionGroup"><type>GActionGroup</type></link> *action_group,
+               <link linkend="gchar"><type>gchar</type></link>        *action_name,
+               <link linkend="gboolean"><type>gboolean</type></link>      enabled,
+               <link linkend="gpointer"><type>gpointer</type></link>      user_data)</programlisting>
+<para>Signals that the enabled status of the named action has changed.</para>
+<refsect3 id="GActionGroup-action-enabled-changed.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>action_group</para></entry>
+<entry role="parameter_description"><para>the <link linkend="GActionGroup"><type>GActionGroup</type></link> that changed</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>action_name</para></entry>
+<entry role="parameter_description"><para>the name of the action in <parameter>action_group</parameter>
+</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>enabled</para></entry>
+<entry role="parameter_description"><para>whether the action is enabled or not</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><simpara>user_data</simpara></entry>
+<entry role="parameter_description"><simpara>user data set when the signal handler was connected.</simpara></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para>Flags: <link linkend="G-SIGNAL-DETAILED:CAPS">Has Details</link></para>
+<para role="since">Since: <link linkend="api-index-2.28">2.28</link></para></refsect2><refsect2 id="GActionGroup-action-removed" role="signal"><title>The <literal>“action-removed”</literal> signal</title>
+<indexterm zone="GActionGroup-action-removed" role="2.28"><primary sortas="ActionGroup::action-removed">GActionGroup::action-removed</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+user_function (<link linkend="GActionGroup"><type>GActionGroup</type></link> *action_group,
+               <link linkend="gchar"><type>gchar</type></link>        *action_name,
+               <link linkend="gpointer"><type>gpointer</type></link>      user_data)</programlisting>
+<para>Signals that an action is just about to be removed from the group.
+This signal is emitted before the action is removed, so the action
+is still visible and can be queried from the signal handler.</para>
+<refsect3 id="GActionGroup-action-removed.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>action_group</para></entry>
+<entry role="parameter_description"><para>the <link linkend="GActionGroup"><type>GActionGroup</type></link> that changed</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>action_name</para></entry>
+<entry role="parameter_description"><para>the name of the action in <parameter>action_group</parameter>
+</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><simpara>user_data</simpara></entry>
+<entry role="parameter_description"><simpara>user data set when the signal handler was connected.</simpara></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para>Flags: <link linkend="G-SIGNAL-DETAILED:CAPS">Has Details</link></para>
+<para role="since">Since: <link linkend="api-index-2.28">2.28</link></para></refsect2><refsect2 id="GActionGroup-action-state-changed" role="signal"><title>The <literal>“action-state-changed”</literal> signal</title>
+<indexterm zone="GActionGroup-action-state-changed" role="2.28"><primary sortas="ActionGroup::action-state-changed">GActionGroup::action-state-changed</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+user_function (<link linkend="GActionGroup"><type>GActionGroup</type></link> *action_group,
+               <link linkend="gchar"><type>gchar</type></link>        *action_name,
+               <link linkend="GVariant"><type>GVariant</type></link>     *value,
+               <link linkend="gpointer"><type>gpointer</type></link>      user_data)</programlisting>
+<para>Signals that the state of the named action has changed.</para>
+<refsect3 id="GActionGroup-action-state-changed.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>action_group</para></entry>
+<entry role="parameter_description"><para>the <link linkend="GActionGroup"><type>GActionGroup</type></link> that changed</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>action_name</para></entry>
+<entry role="parameter_description"><para>the name of the action in <parameter>action_group</parameter>
+</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>value</para></entry>
+<entry role="parameter_description"><para>the new value of the state</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><simpara>user_data</simpara></entry>
+<entry role="parameter_description"><simpara>user data set when the signal handler was connected.</simpara></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para>Flags: <link linkend="G-SIGNAL-DETAILED:CAPS">Has Details</link></para>
+<para role="since">Since: <link linkend="api-index-2.28">2.28</link></para></refsect2>
+</refsect1>
+<refsect1 id="GActionGroup.see-also">
+<title>See Also</title>
+<para><link linkend="GAction"><type>GAction</type></link></para>
+
+</refsect1>
+
+</refentry>

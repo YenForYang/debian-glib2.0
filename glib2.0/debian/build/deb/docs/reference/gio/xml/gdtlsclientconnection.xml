@@ -1,0 +1,346 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC '-//OASIS//DTD DocBook XML V4.5//EN'
+                      'http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd' [
+<!ENTITY % local.common.attrib "xmlns:xi  CDATA  #FIXED 'http://www.w3.org/2003/XInclude'">
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="GDtlsClientConnection">
+<refmeta>
+<refentrytitle role="top_of_page" id="GDtlsClientConnection.top_of_page">GDtlsClientConnection</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>GIO Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>GDtlsClientConnection</refname>
+<refpurpose>DTLS client-side connection</refpurpose>
+</refnamediv>
+
+<refsect1 id="GDtlsClientConnection.functions" role="functions_proto">
+<title role="functions_proto.title">Functions</title>
+<informaltable pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="functions_return" colwidth="150px"/>
+<colspec colname="functions_name"/>
+<tbody>
+<row><entry role="function_type"><link linkend="GDatagramBased"><returnvalue>GDatagramBased</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-dtls-client-connection-new">g_dtls_client_connection_new</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-dtls-client-connection-set-server-identity">g_dtls_client_connection_set_server_identity</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GSocketConnectable"><returnvalue>GSocketConnectable</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-dtls-client-connection-get-server-identity">g_dtls_client_connection_get_server_identity</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-dtls-client-connection-set-validation-flags">g_dtls_client_connection_set_validation_flags</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GTlsCertificateFlags"><returnvalue>GTlsCertificateFlags</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-dtls-client-connection-get-validation-flags">g_dtls_client_connection_get_validation_flags</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GList"><returnvalue>GList</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-dtls-client-connection-get-accepted-cas">g_dtls_client_connection_get_accepted_cas</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GDtlsClientConnection.properties" role="properties">
+<title role="properties.title">Properties</title>
+<informaltable frame="none">
+<tgroup cols="3">
+<colspec colname="properties_type" colwidth="150px"/>
+<colspec colname="properties_name" colwidth="300px"/>
+<colspec colname="properties_flags" colwidth="200px"/>
+<tbody>
+<row><entry role="property_type"><link linkend="gpointer"><type>gpointer</type></link></entry><entry role="property_name"><link linkend="GDtlsClientConnection--accepted-cas">accepted-cas</link></entry><entry role="property_flags">Read</entry></row>
+<row><entry role="property_type"><link linkend="GSocketConnectable"><type>GSocketConnectable</type></link>&#160;*</entry><entry role="property_name"><link linkend="GDtlsClientConnection--server-identity">server-identity</link></entry><entry role="property_flags">Read / Write / Construct</entry></row>
+<row><entry role="property_type"><link linkend="GTlsCertificateFlags"><type>GTlsCertificateFlags</type></link></entry><entry role="property_name"><link linkend="GDtlsClientConnection--validation-flags">validation-flags</link></entry><entry role="property_flags">Read / Write / Construct</entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GDtlsClientConnection.other" role="other_proto">
+<title role="other_proto.title">Types and Values</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="name" colwidth="150px"/>
+<colspec colname="description"/>
+<tbody>
+<row><entry role="datatype_keyword"></entry><entry role="function_name"><link linkend="GDtlsClientConnection-struct">GDtlsClientConnection</link></entry></row>
+<row><entry role="datatype_keyword">struct</entry><entry role="function_name"><link linkend="GDtlsClientConnectionInterface">GDtlsClientConnectionInterface</link></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GDtlsClientConnection.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<screen>    <link linkend="GInterface">GInterface</link>
+    <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> GDtlsClientConnection
+</screen>
+</refsect1>
+<refsect1 id="GDtlsClientConnection.prerequisites" role="prerequisites">
+<title role="prerequisites.title">Prerequisites</title>
+<para>
+GDtlsClientConnection requires
+ <link linkend="GDatagramBased">GDatagramBased</link>,  <link linkend="GDtlsConnection">GDtlsConnection</link> and  <link linkend="GObject">GObject</link>.</para>
+
+</refsect1>
+
+<refsect1 id="GDtlsClientConnection.includes"><title>Includes</title><synopsis>#include &lt;gio/gio.h&gt;
+</synopsis></refsect1>
+
+<refsect1 id="GDtlsClientConnection.description" role="desc">
+<title role="desc.title">Description</title>
+<para><link linkend="GDtlsClientConnection"><type>GDtlsClientConnection</type></link> is the client-side subclass of
+<link linkend="GDtlsConnection"><type>GDtlsConnection</type></link>, representing a client-side DTLS connection.</para>
+
+</refsect1>
+<refsect1 id="GDtlsClientConnection.functions_details" role="details">
+<title role="details.title">Functions</title>
+<refsect2 id="g-dtls-client-connection-new" role="function" condition="since:2.48">
+<title>g_dtls_client_connection_new&#160;()</title>
+<indexterm zone="g-dtls-client-connection-new" role="2.48"><primary sortas="dtls_client_connection_new">g_dtls_client_connection_new</primary></indexterm>
+<programlisting language="C"><link linkend="GDatagramBased"><returnvalue>GDatagramBased</returnvalue></link>&#160;*
+g_dtls_client_connection_new (<parameter><link linkend="GDatagramBased"><type>GDatagramBased</type></link> *base_socket</parameter>,
+                              <parameter><link linkend="GSocketConnectable"><type>GSocketConnectable</type></link> *server_identity</parameter>,
+                              <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para>Creates a new <link linkend="GDtlsClientConnection"><type>GDtlsClientConnection</type></link> wrapping <parameter>base_socket</parameter>
+ which is
+assumed to communicate with the server identified by <parameter>server_identity</parameter>
+.</para>
+<refsect3 id="g-dtls-client-connection-new.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>base_socket</para></entry>
+<entry role="parameter_description"><para>the <link linkend="GDatagramBased"><type>GDatagramBased</type></link> to wrap</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>server_identity</para></entry>
+<entry role="parameter_description"><para>the expected identity of the server. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para><link linkend="GError"><type>GError</type></link> for error reporting, or <link linkend="NULL:CAPS"><literal>NULL</literal></link> to ignore.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-dtls-client-connection-new.returns" role="returns">
+<title>Returns</title>
+<para>the new
+<link linkend="GDtlsClientConnection"><type>GDtlsClientConnection</type></link>, or <link linkend="NULL:CAPS"><literal>NULL</literal></link> on error. </para>
+<para><emphasis role="annotation">[<acronym>transfer full</acronym>][<acronym>type</acronym> GDtlsClientConnection]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.48">2.48</link></para></refsect2>
+<refsect2 id="g-dtls-client-connection-set-server-identity" role="function" condition="since:2.48">
+<title>g_dtls_client_connection_set_server_identity&#160;()</title>
+<indexterm zone="g-dtls-client-connection-set-server-identity" role="2.48"><primary sortas="dtls_client_connection_set_server_identity">g_dtls_client_connection_set_server_identity</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_dtls_client_connection_set_server_identity
+                               (<parameter><link linkend="GDtlsClientConnection"><type>GDtlsClientConnection</type></link> *conn</parameter>,
+                                <parameter><link linkend="GSocketConnectable"><type>GSocketConnectable</type></link> *identity</parameter>);</programlisting>
+<para>Sets <parameter>conn</parameter>
+'s expected server identity, which is used both to tell
+servers on virtual hosts which certificate to present, and also
+to let <parameter>conn</parameter>
+ know what name to look for in the certificate when
+performing <link linkend="G-TLS-CERTIFICATE-BAD-IDENTITY:CAPS"><literal>G_TLS_CERTIFICATE_BAD_IDENTITY</literal></link> validation, if enabled.</para>
+<refsect3 id="g-dtls-client-connection-set-server-identity.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>conn</para></entry>
+<entry role="parameter_description"><para>the <link linkend="GDtlsClientConnection"><type>GDtlsClientConnection</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>identity</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSocketConnectable"><type>GSocketConnectable</type></link> describing the expected server identity</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.48">2.48</link></para></refsect2>
+<refsect2 id="g-dtls-client-connection-get-server-identity" role="function" condition="since:2.48">
+<title>g_dtls_client_connection_get_server_identity&#160;()</title>
+<indexterm zone="g-dtls-client-connection-get-server-identity" role="2.48"><primary sortas="dtls_client_connection_get_server_identity">g_dtls_client_connection_get_server_identity</primary></indexterm>
+<programlisting language="C"><link linkend="GSocketConnectable"><returnvalue>GSocketConnectable</returnvalue></link>&#160;*
+g_dtls_client_connection_get_server_identity
+                               (<parameter><link linkend="GDtlsClientConnection"><type>GDtlsClientConnection</type></link> *conn</parameter>);</programlisting>
+<para>Gets <parameter>conn</parameter>
+'s expected server identity</para>
+<refsect3 id="g-dtls-client-connection-get-server-identity.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>conn</para></entry>
+<entry role="parameter_description"><para>the <link linkend="GDtlsClientConnection"><type>GDtlsClientConnection</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-dtls-client-connection-get-server-identity.returns" role="returns">
+<title>Returns</title>
+<para>a <link linkend="GSocketConnectable"><type>GSocketConnectable</type></link> describing the
+expected server identity, or <link linkend="NULL:CAPS"><literal>NULL</literal></link> if the expected identity is not
+known. </para>
+<para><emphasis role="annotation">[<acronym>transfer none</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.48">2.48</link></para></refsect2>
+<refsect2 id="g-dtls-client-connection-set-validation-flags" role="function" condition="since:2.48">
+<title>g_dtls_client_connection_set_validation_flags&#160;()</title>
+<indexterm zone="g-dtls-client-connection-set-validation-flags" role="2.48"><primary sortas="dtls_client_connection_set_validation_flags">g_dtls_client_connection_set_validation_flags</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_dtls_client_connection_set_validation_flags
+                               (<parameter><link linkend="GDtlsClientConnection"><type>GDtlsClientConnection</type></link> *conn</parameter>,
+                                <parameter><link linkend="GTlsCertificateFlags"><type>GTlsCertificateFlags</type></link> flags</parameter>);</programlisting>
+<para>Sets <parameter>conn</parameter>
+'s validation flags, to override the default set of
+checks performed when validating a server certificate. By default,
+<link linkend="G-TLS-CERTIFICATE-VALIDATE-ALL:CAPS"><literal>G_TLS_CERTIFICATE_VALIDATE_ALL</literal></link> is used.</para>
+<refsect3 id="g-dtls-client-connection-set-validation-flags.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>conn</para></entry>
+<entry role="parameter_description"><para>the <link linkend="GDtlsClientConnection"><type>GDtlsClientConnection</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>flags</para></entry>
+<entry role="parameter_description"><para>the <link linkend="GTlsCertificateFlags"><type>GTlsCertificateFlags</type></link> to use</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.48">2.48</link></para></refsect2>
+<refsect2 id="g-dtls-client-connection-get-validation-flags" role="function" condition="since:2.48">
+<title>g_dtls_client_connection_get_validation_flags&#160;()</title>
+<indexterm zone="g-dtls-client-connection-get-validation-flags" role="2.48"><primary sortas="dtls_client_connection_get_validation_flags">g_dtls_client_connection_get_validation_flags</primary></indexterm>
+<programlisting language="C"><link linkend="GTlsCertificateFlags"><returnvalue>GTlsCertificateFlags</returnvalue></link>
+g_dtls_client_connection_get_validation_flags
+                               (<parameter><link linkend="GDtlsClientConnection"><type>GDtlsClientConnection</type></link> *conn</parameter>);</programlisting>
+<para>Gets <parameter>conn</parameter>
+'s validation flags</para>
+<refsect3 id="g-dtls-client-connection-get-validation-flags.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>conn</para></entry>
+<entry role="parameter_description"><para>the <link linkend="GDtlsClientConnection"><type>GDtlsClientConnection</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-dtls-client-connection-get-validation-flags.returns" role="returns">
+<title>Returns</title>
+<para> the validation flags</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.48">2.48</link></para></refsect2>
+<refsect2 id="g-dtls-client-connection-get-accepted-cas" role="function" condition="since:2.48">
+<title>g_dtls_client_connection_get_accepted_cas&#160;()</title>
+<indexterm zone="g-dtls-client-connection-get-accepted-cas" role="2.48"><primary sortas="dtls_client_connection_get_accepted_cas">g_dtls_client_connection_get_accepted_cas</primary></indexterm>
+<programlisting language="C"><link linkend="GList"><returnvalue>GList</returnvalue></link>&#160;*
+g_dtls_client_connection_get_accepted_cas
+                               (<parameter><link linkend="GDtlsClientConnection"><type>GDtlsClientConnection</type></link> *conn</parameter>);</programlisting>
+<para>Gets the list of distinguished names of the Certificate Authorities
+that the server will accept certificates from. This will be set
+during the TLS handshake if the server requests a certificate.
+Otherwise, it will be <link linkend="NULL:CAPS"><literal>NULL</literal></link>.</para>
+<para>Each item in the list is a <link linkend="GByteArray"><type>GByteArray</type></link> which contains the complete
+subject DN of the certificate authority.</para>
+<refsect3 id="g-dtls-client-connection-get-accepted-cas.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>conn</para></entry>
+<entry role="parameter_description"><para>the <link linkend="GDtlsClientConnection"><type>GDtlsClientConnection</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-dtls-client-connection-get-accepted-cas.returns" role="returns">
+<title>Returns</title>
+<para>the list of
+CA DNs. You should unref each element with <link linkend="g-byte-array-unref"><function>g_byte_array_unref()</function></link> and then
+the free the list with <link linkend="g-list-free"><function>g_list_free()</function></link>. </para>
+<para><emphasis role="annotation">[<acronym>element-type</acronym> GByteArray][<acronym>transfer full</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.48">2.48</link></para></refsect2>
+
+</refsect1>
+<refsect1 id="GDtlsClientConnection.other_details" role="details">
+<title role="details.title">Types and Values</title>
+<refsect2 id="GDtlsClientConnection-struct" role="struct">
+<title>GDtlsClientConnection</title>
+<indexterm zone="GDtlsClientConnection-struct" role="2.48"><primary sortas="DtlsClientConnection">GDtlsClientConnection</primary></indexterm>
+<programlisting language="C">typedef struct _GDtlsClientConnection GDtlsClientConnection;</programlisting>
+<para>Abstract base class for the backend-specific client connection
+type.</para>
+<para role="since">Since: <link linkend="api-index-2.48">2.48</link></para></refsect2>
+<refsect2 id="GDtlsClientConnectionInterface" role="struct" condition="since:2.48">
+<title>struct GDtlsClientConnectionInterface</title>
+<indexterm zone="GDtlsClientConnectionInterface" role="2.48"><primary sortas="DtlsClientConnectionInterface">GDtlsClientConnectionInterface</primary></indexterm>
+<programlisting language="C">struct GDtlsClientConnectionInterface {
+  GTypeInterface g_iface;
+};
+</programlisting>
+<para>vtable for a <link linkend="GDtlsClientConnection"><type>GDtlsClientConnection</type></link> implementation.</para>
+<refsect3 id="GDtlsClientConnectionInterface.members" role="struct_members">
+<title>Members</title>
+<informaltable role="struct_members_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="struct_members_name" colwidth="300px"/>
+<colspec colname="struct_members_description"/>
+<colspec colname="struct_members_annotations" colwidth="200px"/>
+<tbody>
+</tbody></tgroup></informaltable>
+</refsect3>
+<para role="since">Since: <link linkend="api-index-2.48">2.48</link></para></refsect2>
+
+</refsect1>
+<refsect1 id="GDtlsClientConnection.property-details" role="property_details">
+<title role="property_details.title">Property Details</title>
+<refsect2 id="GDtlsClientConnection--accepted-cas" role="property"><title>The <literal>“accepted-cas”</literal> property</title>
+<indexterm zone="GDtlsClientConnection--accepted-cas" role="2.48"><primary sortas="DtlsClientConnection:accepted-cas">GDtlsClientConnection:accepted-cas</primary></indexterm>
+<programlisting>  “accepted-cas”             <link linkend="gpointer"><type>gpointer</type></link></programlisting>
+<para>A list of the distinguished names of the Certificate Authorities
+that the server will accept client certificates signed by. If the
+server requests a client certificate during the handshake, then
+this property will be set after the handshake completes.</para>
+<para>Each item in the list is a <link linkend="GByteArray"><type>GByteArray</type></link> which contains the complete
+subject DN of the certificate authority.</para>
+
+<para><emphasis role="annotation">[<acronym>element-type</acronym> GLib.ByteArray]</emphasis></para><para>Flags: Read</para>
+<para role="since">Since: <link linkend="api-index-2.48">2.48</link></para></refsect2>
+<refsect2 id="GDtlsClientConnection--server-identity" role="property"><title>The <literal>“server-identity”</literal> property</title>
+<indexterm zone="GDtlsClientConnection--server-identity" role="2.48"><primary sortas="DtlsClientConnection:server-identity">GDtlsClientConnection:server-identity</primary></indexterm>
+<programlisting>  “server-identity”          <link linkend="GSocketConnectable"><type>GSocketConnectable</type></link>&#160;*</programlisting>
+<para>A <link linkend="GSocketConnectable"><type>GSocketConnectable</type></link> describing the identity of the server that
+is expected on the other end of the connection.</para>
+<para>If the <link linkend="G-TLS-CERTIFICATE-BAD-IDENTITY:CAPS"><literal>G_TLS_CERTIFICATE_BAD_IDENTITY</literal></link> flag is set in
+<link linkend="GDtlsClientConnection--validation-flags"><type>“validation-flags”</type></link>, this object will be used
+to determine the expected identify of the remote end of the
+connection; if <link linkend="GDtlsClientConnection--server-identity"><type>“server-identity”</type></link> is not set,
+or does not match the identity presented by the server, then the
+<link linkend="G-TLS-CERTIFICATE-BAD-IDENTITY:CAPS"><literal>G_TLS_CERTIFICATE_BAD_IDENTITY</literal></link> validation will fail.</para>
+<para>In addition to its use in verifying the server certificate,
+this is also used to give a hint to the server about what
+certificate we expect, which is useful for servers that serve
+virtual hosts.</para>
+<para>Flags: Read / Write / Construct</para>
+<para role="since">Since: <link linkend="api-index-2.48">2.48</link></para></refsect2>
+<refsect2 id="GDtlsClientConnection--validation-flags" role="property"><title>The <literal>“validation-flags”</literal> property</title>
+<indexterm zone="GDtlsClientConnection--validation-flags" role="2.48"><primary sortas="DtlsClientConnection:validation-flags">GDtlsClientConnection:validation-flags</primary></indexterm>
+<programlisting>  “validation-flags”         <link linkend="GTlsCertificateFlags"><type>GTlsCertificateFlags</type></link></programlisting>
+<para>What steps to perform when validating a certificate received from
+a server. Server certificates that fail to validate in all of the
+ways indicated here will be rejected unless the application
+overrides the default via <link linkend="GDtlsConnection-accept-certificate"><type>“accept-certificate”</type></link>.</para>
+<para>Flags: Read / Write / Construct</para>
+<para>Default value: G_TLS_CERTIFICATE_UNKNOWN_CA | G_TLS_CERTIFICATE_BAD_IDENTITY | G_TLS_CERTIFICATE_NOT_ACTIVATED | G_TLS_CERTIFICATE_EXPIRED | G_TLS_CERTIFICATE_REVOKED | G_TLS_CERTIFICATE_INSECURE | G_TLS_CERTIFICATE_GENERIC_ERROR</para>
+<para role="since">Since: <link linkend="api-index-2.48">2.48</link></para></refsect2>
+
+</refsect1>
+
+</refentry>

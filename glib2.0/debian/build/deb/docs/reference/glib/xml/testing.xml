@@ -1,0 +1,2467 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC '-//OASIS//DTD DocBook XML V4.5//EN'
+                      'http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd' [
+<!ENTITY % local.common.attrib "xmlns:xi  CDATA  #FIXED 'http://www.w3.org/2003/XInclude'">
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="glib-Testing">
+<refmeta>
+<refentrytitle role="top_of_page" id="glib-Testing.top_of_page">Testing</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>GLIB Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>Testing</refname>
+<refpurpose>a test framework</refpurpose>
+</refnamediv>
+
+<refsect1 id="glib-Testing.functions" role="functions_proto">
+<title role="functions_proto.title">Functions</title>
+<informaltable pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="functions_return" colwidth="150px"/>
+<colspec colname="functions_name"/>
+<tbody>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-test-minimized-result">g_test_minimized_result</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-test-maximized-result">g_test_maximized_result</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-test-init">g_test_init</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="g-test-initialized">g_test_initialized</link></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="g-test-quick">g_test_quick</link></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="g-test-slow">g_test_slow</link></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="g-test-thorough">g_test_thorough</link></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="g-test-perf">g_test_perf</link></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="g-test-verbose">g_test_verbose</link></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="g-test-undefined">g_test_undefined</link></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="g-test-quiet">g_test_quiet</link></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-test-subprocess">g_test_subprocess</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="int"><returnvalue>int</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-test-run">g_test_run</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><phrase role="c_punctuation">(</phrase><link linkend="GTestFunc">*GTestFunc</link><phrase role="c_punctuation">)</phrase>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-test-add-func">g_test_add_func</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><phrase role="c_punctuation">(</phrase><link linkend="GTestDataFunc">*GTestDataFunc</link><phrase role="c_punctuation">)</phrase>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-test-add-data-func">g_test_add_data_func</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-test-add-data-func-full">g_test_add_data_func_full</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="g-test-add">g_test_add</link><phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-test-build-filename">g_test_build_filename</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type">const <link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-test-get-filename">g_test_get_filename</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type">const <link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-test-get-dir">g_test_get_dir</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-test-fail">g_test_fail</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-test-skip">g_test_skip</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-test-incomplete">g_test_incomplete</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-test-failed">g_test_failed</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-test-message">g_test_message</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-test-bug-base">g_test_bug_base</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-test-bug">g_test_bug</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><phrase role="c_punctuation">(</phrase><link linkend="GTestLogFatalFunc">*GTestLogFatalFunc</link><phrase role="c_punctuation">)</phrase>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-test-log-set-fatal-handler">g_test_log_set_fatal_handler</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-test-timer-start">g_test_timer_start</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="double"><returnvalue>double</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-test-timer-elapsed">g_test_timer_elapsed</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="double"><returnvalue>double</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-test-timer-last">g_test_timer_last</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-test-queue-free">g_test_queue_free</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-test-queue-destroy">g_test_queue_destroy</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="g-test-queue-unref">g_test_queue_unref</link><phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-test-expect-message">g_test_expect_message</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="g-test-assert-expected-messages">g_test_assert_expected_messages</link></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-test-trap-subprocess">g_test_trap_subprocess</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-test-trap-has-passed">g_test_trap_has_passed</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-test-trap-reached-timeout">g_test_trap_reached_timeout</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="g-test-trap-assert-passed">g_test_trap_assert_passed</link></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="g-test-trap-assert-failed">g_test_trap_assert_failed</link></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="g-test-trap-assert-stdout">g_test_trap_assert_stdout</link><phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="g-test-trap-assert-stdout-unmatched">g_test_trap_assert_stdout_unmatched</link><phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="g-test-trap-assert-stderr">g_test_trap_assert_stderr</link><phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="g-test-trap-assert-stderr-unmatched">g_test_trap_assert_stderr_unmatched</link><phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-test-trap-fork">g_test_trap_fork</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="g-test-rand-bit">g_test_rand_bit</link></entry></row>
+<row><entry role="function_type"><link linkend="gint32"><returnvalue>gint32</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-test-rand-int">g_test_rand_int</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gint32"><returnvalue>gint32</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-test-rand-int-range">g_test_rand_int_range</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="double"><returnvalue>double</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-test-rand-double">g_test_rand_double</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="double"><returnvalue>double</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-test-rand-double-range">g_test_rand_double_range</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="g-assert">g_assert</link><phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="g-assert-not-reached">g_assert_not_reached</link></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="g-assert-cmpstr">g_assert_cmpstr</link><phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="g-assert-cmpint">g_assert_cmpint</link><phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="g-assert-cmpuint">g_assert_cmpuint</link><phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="g-assert-cmphex">g_assert_cmphex</link><phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="g-assert-cmpfloat">g_assert_cmpfloat</link><phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="g-assert-cmpfloat-with-epsilon">g_assert_cmpfloat_with_epsilon</link><phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="g-assert-cmpmem">g_assert_cmpmem</link><phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="g-assert-no-error">g_assert_no_error</link><phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="g-assert-error">g_assert_error</link><phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="g-assert-true">g_assert_true</link><phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="g-assert-false">g_assert_false</link><phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="g-assert-null">g_assert_null</link><phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="g-assert-nonnull">g_assert_nonnull</link><phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-test-set-nonfatal-assertions">g_test_set_nonfatal_assertions</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><phrase role="c_punctuation">(</phrase><link linkend="GTestFixtureFunc">*GTestFixtureFunc</link><phrase role="c_punctuation">)</phrase>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GTestCase"><returnvalue>GTestCase</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-test-create-case">g_test_create_case</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GTestSuite"><returnvalue>GTestSuite</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-test-create-suite">g_test_create_suite</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GTestSuite"><returnvalue>GTestSuite</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-test-get-root">g_test_get_root</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-test-suite-add">g_test_suite_add</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-test-suite-add-suite">g_test_suite_add_suite</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="int"><returnvalue>int</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-test-run-suite">g_test_run_suite</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="glib-Testing.other" role="other_proto">
+<title role="other_proto.title">Types and Values</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="name" colwidth="150px"/>
+<colspec colname="description"/>
+<tbody>
+<row><entry role="datatype_keyword">enum</entry><entry role="function_name"><link linkend="GTestFileType">GTestFileType</link></entry></row>
+<row><entry role="datatype_keyword">enum</entry><entry role="function_name"><link linkend="GTestTrapFlags">GTestTrapFlags</link></entry></row>
+<row><entry role="datatype_keyword">enum</entry><entry role="function_name"><link linkend="GTestSubprocessFlags">GTestSubprocessFlags</link></entry></row>
+<row><entry role="typedef_keyword">typedef</entry><entry role="function_name"><link linkend="GTestCase">GTestCase</link></entry></row>
+<row><entry role="typedef_keyword">typedef</entry><entry role="function_name"><link linkend="GTestSuite">GTestSuite</link></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+
+<refsect1 id="glib-Testing.includes"><title>Includes</title><synopsis>#include &lt;glib.h&gt;
+#include &lt;glib/gi18n.h&gt;
+</synopsis></refsect1>
+
+<refsect1 id="glib-Testing.description" role="desc">
+<title role="desc.title">Description</title>
+<para>GLib provides a framework for writing and maintaining unit tests
+in parallel to the code they are testing. The API is designed according
+to established concepts found in the other test frameworks (JUnit, NUnit,
+RUnit), which in turn is based on smalltalk unit testing concepts.</para>
+<itemizedlist>
+<listitem>
+<para>Test case: Tests (test methods) are grouped together with their
+fixture into test cases.</para>
+</listitem>
+<listitem>
+<para>Fixture: A test fixture consists of fixture data and setup and
+teardown methods to establish the environment for the test
+functions. We use fresh fixtures, i.e. fixtures are newly set
+up and torn down around each test invocation to avoid dependencies
+between tests.</para>
+</listitem>
+<listitem>
+<para>Test suite: Test cases can be grouped into test suites, to allow
+subsets of the available tests to be run. Test suites can be
+grouped into other test suites as well.</para>
+</listitem>
+</itemizedlist>
+<para>The API is designed to handle creation and registration of test suites
+and test cases implicitly. A simple call like</para>
+<informalexample><programlisting role="example"><![CDATA[
+  g_test_add_func ("/misc/assertions", test_assertions);
+]]></programlisting></informalexample>
+<para>
+creates a test suite called "misc" with a single test case named
+"assertions", which consists of running the test_assertions function.</para>
+<para>In addition to the traditional <link linkend="g-assert-true"><function>g_assert_true()</function></link>, the test framework provides
+an extended set of assertions for comparisons: <link linkend="g-assert-cmpfloat"><function>g_assert_cmpfloat()</function></link>,
+<link linkend="g-assert-cmpfloat-with-epsilon"><function>g_assert_cmpfloat_with_epsilon()</function></link>, <link linkend="g-assert-cmpint"><function>g_assert_cmpint()</function></link>, <link linkend="g-assert-cmpuint"><function>g_assert_cmpuint()</function></link>,
+<link linkend="g-assert-cmphex"><function>g_assert_cmphex()</function></link>, <link linkend="g-assert-cmpstr"><function>g_assert_cmpstr()</function></link>, and <link linkend="g-assert-cmpmem"><function>g_assert_cmpmem()</function></link>. The
+advantage of these variants over plain <link linkend="g-assert-true"><function>g_assert_true()</function></link> is that the assertion
+messages can be more elaborate, and include the values of the compared
+entities.</para>
+<para>Note that <link linkend="g-assert"><function>g_assert()</function></link> should not be used in unit tests, since it is a no-op
+when compiling with <literal>G_DISABLE_ASSERT</literal>. Use <link linkend="g-assert"><function>g_assert()</function></link> in production code,
+and <link linkend="g-assert-true"><function>g_assert_true()</function></link> in unit tests.</para>
+<para>A full example of creating a test suite with two tests using fixtures:</para>
+<informalexample><programlisting role="example"><![CDATA[
+#include <glib.h>
+#include <locale.h>
+
+typedef struct {
+  MyObject *obj;
+  OtherObject *helper;
+} MyObjectFixture;
+
+static void
+my_object_fixture_set_up (MyObjectFixture *fixture,
+                          gconstpointer user_data)
+{
+  fixture->obj = my_object_new ();
+  my_object_set_prop1 (fixture->obj, "some-value");
+  my_object_do_some_complex_setup (fixture->obj, user_data);
+
+  fixture->helper = other_object_new ();
+}
+
+static void
+my_object_fixture_tear_down (MyObjectFixture *fixture,
+                             gconstpointer user_data)
+{
+  g_clear_object (&fixture->helper);
+  g_clear_object (&fixture->obj);
+}
+
+static void
+test_my_object_test1 (MyObjectFixture *fixture,
+                      gconstpointer user_data)
+{
+  g_assert_cmpstr (my_object_get_property (fixture->obj), ==, "initial-value");
+}
+
+static void
+test_my_object_test2 (MyObjectFixture *fixture,
+                      gconstpointer user_data)
+{
+  my_object_do_some_work_using_helper (fixture->obj, fixture->helper);
+  g_assert_cmpstr (my_object_get_property (fixture->obj), ==, "updated-value");
+}
+
+int
+main (int argc, char *argv[])
+{
+  setlocale (LC_ALL, "");
+
+  g_test_init (&argc, &argv, NULL);
+  g_test_bug_base ("http://bugzilla.gnome.org/show_bug.cgi?id=");
+
+  // Define the tests.
+  g_test_add ("/my-object/test1", MyObjectFixture, "some-user-data",
+              my_object_fixture_set_up, test_my_object_test1,
+              my_object_fixture_tear_down);
+  g_test_add ("/my-object/test2", MyObjectFixture, "some-user-data",
+              my_object_fixture_set_up, test_my_object_test2,
+              my_object_fixture_tear_down);
+
+  return g_test_run ();
+}
+]]></programlisting></informalexample>
+<para></para>
+<para>### Integrating GTest in your project</para>
+<para>If you are using the <ulink url="http://mesonbuild.com">Meson</ulink> build system, you will
+typically use the provided <literal><link linkend="test"><function>test()</function></link></literal> primitive to call the test binaries,
+e.g.:</para>
+<informalexample><programlisting role="example"><![CDATA[
+  test(
+    'foo',
+    executable('foo', 'foo.c', dependencies: deps),
+    env: [
+      'G_TEST_SRCDIR=@0@'.format(meson.current_source_dir()),
+      'G_TEST_BUILDDIR=@0@'.format(meson.current_build_dir()),
+    ],
+  )
+
+  test(
+    'bar',
+    executable('bar', 'bar.c', dependencies: deps),
+    env: [
+      'G_TEST_SRCDIR=@0@'.format(meson.current_source_dir()),
+      'G_TEST_BUILDDIR=@0@'.format(meson.current_build_dir()),
+    ],
+  )
+]]></programlisting></informalexample>
+<para></para>
+<para>If you are using Autotools, you're strongly encouraged to use the Automake
+<ulink url="https://testanything.org/">TAP</ulink> harness; GLib provides template files for
+easily integrating with it:</para>
+<itemizedlist>
+<listitem><para><ulink url="https://git.gnome.org/browse/glib/tree/glib-tap.mk">glib-tap.mk</ulink></para></listitem>
+<listitem><para><ulink url="https://git.gnome.org/browse/glib/tree/tap-test">tap-test</ulink></para></listitem>
+<listitem>
+<para><ulink url="https://git.gnome.org/browse/glib/tree/tap-driver.sh">tap-driver.sh</ulink></para>
+</listitem>
+</itemizedlist>
+<para>You can copy these files in your own project's root directory, and then
+set up your <literal>Makefile.am</literal> file to reference them, for instance:</para>
+<informalexample><programlisting role="example"><![CDATA[
+include $(top_srcdir)/glib-tap.mk
+
+# test binaries
+test_programs = \
+  foo \
+  bar
+
+# data distributed in the tarball
+dist_test_data = \
+  foo.data.txt \
+  bar.data.txt
+
+# data not distributed in the tarball
+test_data = \
+  blah.data.txt
+]]></programlisting></informalexample>
+<para></para>
+<para>Make sure to distribute the TAP files, using something like the following
+in your top-level <literal>Makefile.am</literal>:</para>
+<informalexample><programlisting role="example"><![CDATA[
+EXTRA_DIST += \
+  tap-driver.sh \
+  tap-test
+]]></programlisting></informalexample>
+<para></para>
+<para><literal>glib-tap.mk</literal> will be distributed implicitly due to being included in a
+<literal>Makefile.am</literal>. All three files should be added to version control.</para>
+<para>If you don't have access to the Autotools TAP harness, you can use the
+<link linkend="gtester">gtester</link> and <link linkend="gtester-report">gtester-report</link> tools, and use
+the <ulink url="https://git.gnome.org/browse/glib/tree/glib.mk">glib.mk</ulink> Automake
+template provided by GLib.</para>
+
+</refsect1>
+<refsect1 id="glib-Testing.functions_details" role="details">
+<title role="details.title">Functions</title>
+<refsect2 id="g-test-minimized-result" role="function" condition="since:2.16">
+<title>g_test_minimized_result&#160;()</title>
+<indexterm zone="g-test-minimized-result" role="2.16"><primary sortas="test_minimized_result">g_test_minimized_result</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_test_minimized_result (<parameter><link linkend="double"><type>double</type></link> minimized_quantity</parameter>,
+                         <parameter>const <link linkend="char"><type>char</type></link> *format</parameter>,
+                         <parameter>...</parameter>);</programlisting>
+<para>Report the result of a performance or measurement test.
+The test should generally strive to minimize the reported
+quantities (smaller values are better than larger ones),
+this and <parameter>minimized_quantity</parameter>
+ can determine sorting
+order for test result reports.</para>
+<refsect3 id="g-test-minimized-result.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>minimized_quantity</para></entry>
+<entry role="parameter_description"><para>the reported value</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>format</para></entry>
+<entry role="parameter_description"><para>the format string of the report message</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>...</para></entry>
+<entry role="parameter_description"><para>arguments to pass to the <link linkend="printf"><function>printf()</function></link> function</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.16">2.16</link></para></refsect2>
+<refsect2 id="g-test-maximized-result" role="function" condition="since:2.16">
+<title>g_test_maximized_result&#160;()</title>
+<indexterm zone="g-test-maximized-result" role="2.16"><primary sortas="test_maximized_result">g_test_maximized_result</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_test_maximized_result (<parameter><link linkend="double"><type>double</type></link> maximized_quantity</parameter>,
+                         <parameter>const <link linkend="char"><type>char</type></link> *format</parameter>,
+                         <parameter>...</parameter>);</programlisting>
+<para>Report the result of a performance or measurement test.
+The test should generally strive to maximize the reported
+quantities (larger values are better than smaller ones),
+this and <parameter>maximized_quantity</parameter>
+ can determine sorting
+order for test result reports.</para>
+<refsect3 id="g-test-maximized-result.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>maximized_quantity</para></entry>
+<entry role="parameter_description"><para>the reported value</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>format</para></entry>
+<entry role="parameter_description"><para>the format string of the report message</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>...</para></entry>
+<entry role="parameter_description"><para>arguments to pass to the <link linkend="printf"><function>printf()</function></link> function</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.16">2.16</link></para></refsect2>
+<refsect2 id="g-test-init" role="function" condition="since:2.16">
+<title>g_test_init&#160;()</title>
+<indexterm zone="g-test-init" role="2.16"><primary sortas="test_init">g_test_init</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_test_init (<parameter><link linkend="int"><type>int</type></link> *argc</parameter>,
+             <parameter><link linkend="char"><type>char</type></link> ***argv</parameter>,
+             <parameter>...</parameter>);</programlisting>
+<para>Initialize the GLib testing framework, e.g. by seeding the
+test random number generator, the name for <link linkend="g-get-prgname"><function>g_get_prgname()</function></link>
+and parsing test related command line args.</para>
+<para>So far, the following arguments are understood:</para>
+<itemizedlist>
+<listitem><para><literal>-l</literal>: List test cases available in a test executable.</para></listitem>
+<listitem><para><literal>--seed=SEED</literal>: Provide a random seed to reproduce test
+runs using random numbers.</para></listitem>
+<listitem><para><literal>--verbose</literal>: Run tests verbosely.</para></listitem>
+<listitem><para><literal>-q</literal>, <literal>--quiet</literal>: Run tests quietly.</para></listitem>
+<listitem><para><literal>-p PATH</literal>: Execute all tests matching the given path.</para></listitem>
+<listitem><para><literal>-s PATH</literal>: Skip all tests matching the given path.
+This can also be used to force a test to run that would otherwise
+be skipped (ie, a test whose name contains "/subprocess").</para></listitem>
+<listitem>
+<para><literal>-m {perf|slow|thorough|quick|undefined|no-undefined}</literal>: Execute tests according to these test modes:</para>
+<para><literal>perf</literal>: Performance tests, may take long and report results (off by default).</para>
+<para><literal>slow</literal>, <literal>thorough</literal>: Slow and thorough tests, may take quite long and maximize coverage
+(off by default).</para>
+<para><literal>quick</literal>: Quick tests, should run really quickly and give good coverage (the default).</para>
+<para><literal>undefined</literal>: Tests for undefined behaviour, may provoke programming errors
+under <link linkend="g-test-trap-subprocess"><function>g_test_trap_subprocess()</function></link> or <link linkend="g-test-expect-message"><function>g_test_expect_message()</function></link> to check
+that appropriate assertions or warnings are given (the default).</para>
+<para><literal>no-undefined</literal>: Avoid tests for undefined behaviour</para>
+</listitem>
+<listitem>
+<para><literal>--debug-log</literal>: Debug test logging output.</para>
+</listitem>
+</itemizedlist>
+<para>Since 2.58, if tests are compiled with <literal>G_DISABLE_ASSERT</literal> defined,
+<link linkend="g-test-init"><function>g_test_init()</function></link> will print an error and exit. This is to prevent no-op tests
+from being executed, as <link linkend="g-assert"><function>g_assert()</function></link> is commonly (erroneously) used in unit
+tests, and is a no-op when compiled with <literal>G_DISABLE_ASSERT</literal>. Ensure your
+tests are compiled without <literal>G_DISABLE_ASSERT</literal> defined.</para>
+<refsect3 id="g-test-init.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>argc</para></entry>
+<entry role="parameter_description"><para>Address of the <parameter>argc</parameter>
+parameter of the <link linkend="main"><function>main()</function></link> function.
+Changed if any arguments were handled.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>argv</para></entry>
+<entry role="parameter_description"><para>Address of the <parameter>argv</parameter>
+parameter of <link linkend="main"><function>main()</function></link>.
+Any parameters understood by <link linkend="g-test-init"><function>g_test_init()</function></link> stripped before return.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>...</para></entry>
+<entry role="parameter_description"><para><link linkend="NULL:CAPS"><literal>NULL</literal></link>-terminated list of special options. Currently the only
+defined option is <literal>"no_g_set_prgname"</literal>, which
+will cause <link linkend="g-test-init"><function>g_test_init()</function></link> to not call <link linkend="g-set-prgname"><function>g_set_prgname()</function></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.16">2.16</link></para></refsect2>
+<refsect2 id="g-test-initialized" role="macro" condition="since:2.36">
+<title>g_test_initialized</title>
+<indexterm zone="g-test-initialized" role="2.36"><primary sortas="test_initialized">g_test_initialized</primary></indexterm>
+<programlisting language="C">#define             g_test_initialized()</programlisting>
+<para>Returns <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if <link linkend="g-test-init"><function>g_test_init()</function></link> has been called.</para>
+<refsect3 id="g-test-initialized.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if <link linkend="g-test-init"><function>g_test_init()</function></link> has been called.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.36">2.36</link></para></refsect2>
+<refsect2 id="g-test-quick" role="macro">
+<title>g_test_quick</title>
+<indexterm zone="g-test-quick"><primary sortas="test_quick">g_test_quick</primary></indexterm>
+<programlisting language="C">#define             g_test_quick()</programlisting>
+<para>Returns <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if tests are run in quick mode.
+Exactly one of <link linkend="g-test-quick"><function>g_test_quick()</function></link> and <link linkend="g-test-slow"><function>g_test_slow()</function></link> is active in any run;
+there is no "medium speed".</para>
+<para>By default, tests are run in quick mode. In tests that use
+<link linkend="g-test-init"><function>g_test_init()</function></link>, the options <literal>-m quick</literal>, <literal>-m slow</literal> and <literal>-m thorough</literal>
+can be used to change this.</para>
+<refsect3 id="g-test-quick.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if in quick mode</para>
+</refsect3></refsect2>
+<refsect2 id="g-test-slow" role="macro">
+<title>g_test_slow</title>
+<indexterm zone="g-test-slow"><primary sortas="test_slow">g_test_slow</primary></indexterm>
+<programlisting language="C">#define             g_test_slow()</programlisting>
+<para>Returns <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if tests are run in slow mode.
+Exactly one of <link linkend="g-test-quick"><function>g_test_quick()</function></link> and <link linkend="g-test-slow"><function>g_test_slow()</function></link> is active in any run;
+there is no "medium speed".</para>
+<para>By default, tests are run in quick mode. In tests that use
+<link linkend="g-test-init"><function>g_test_init()</function></link>, the options <literal>-m quick</literal>, <literal>-m slow</literal> and <literal>-m thorough</literal>
+can be used to change this.</para>
+<refsect3 id="g-test-slow.returns" role="returns">
+<title>Returns</title>
+<para> the opposite of <link linkend="g-test-quick"><function>g_test_quick()</function></link></para>
+</refsect3></refsect2>
+<refsect2 id="g-test-thorough" role="macro">
+<title>g_test_thorough</title>
+<indexterm zone="g-test-thorough"><primary sortas="test_thorough">g_test_thorough</primary></indexterm>
+<programlisting language="C">#define             g_test_thorough()</programlisting>
+<para>Returns <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if tests are run in thorough mode, equivalent to
+<link linkend="g-test-slow"><function>g_test_slow()</function></link>.</para>
+<para>By default, tests are run in quick mode. In tests that use
+<link linkend="g-test-init"><function>g_test_init()</function></link>, the options <literal>-m quick</literal>, <literal>-m slow</literal> and <literal>-m thorough</literal>
+can be used to change this.</para>
+<refsect3 id="g-test-thorough.returns" role="returns">
+<title>Returns</title>
+<para> the same thing as <link linkend="g-test-slow"><function>g_test_slow()</function></link></para>
+</refsect3></refsect2>
+<refsect2 id="g-test-perf" role="macro">
+<title>g_test_perf</title>
+<indexterm zone="g-test-perf"><primary sortas="test_perf">g_test_perf</primary></indexterm>
+<programlisting language="C">#define             g_test_perf()</programlisting>
+<para>Returns <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if tests are run in performance mode.</para>
+<para>By default, tests are run in quick mode. In tests that use
+<link linkend="g-test-init"><function>g_test_init()</function></link>, the option <literal>-m perf</literal> enables performance tests, while
+<literal>-m quick</literal> disables them.</para>
+<refsect3 id="g-test-perf.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if in performance mode</para>
+</refsect3></refsect2>
+<refsect2 id="g-test-verbose" role="macro">
+<title>g_test_verbose</title>
+<indexterm zone="g-test-verbose"><primary sortas="test_verbose">g_test_verbose</primary></indexterm>
+<programlisting language="C">#define             g_test_verbose()</programlisting>
+<para>Returns <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if tests are run in verbose mode.
+In tests that use <link linkend="g-test-init"><function>g_test_init()</function></link>, the option <literal>--verbose</literal> enables this,
+while <literal>-q</literal> or <literal>--quiet</literal> disables it.
+The default is neither <link linkend="g-test-verbose"><function>g_test_verbose()</function></link> nor <link linkend="g-test-quiet"><function>g_test_quiet()</function></link>.</para>
+<refsect3 id="g-test-verbose.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if in verbose mode</para>
+</refsect3></refsect2>
+<refsect2 id="g-test-undefined" role="macro">
+<title>g_test_undefined</title>
+<indexterm zone="g-test-undefined"><primary sortas="test_undefined">g_test_undefined</primary></indexterm>
+<programlisting language="C">#define             g_test_undefined()</programlisting>
+<para>Returns <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if tests may provoke assertions and other formally-undefined
+behaviour, to verify that appropriate warnings are given. It might, in some
+cases, be useful to turn this off with if running tests under valgrind;
+in tests that use <link linkend="g-test-init"><function>g_test_init()</function></link>, the option <literal>-m no-undefined</literal> disables
+those tests, while <literal>-m undefined</literal> explicitly enables them (the default
+behaviour).</para>
+<refsect3 id="g-test-undefined.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if tests may provoke programming errors</para>
+</refsect3></refsect2>
+<refsect2 id="g-test-quiet" role="macro">
+<title>g_test_quiet</title>
+<indexterm zone="g-test-quiet"><primary sortas="test_quiet">g_test_quiet</primary></indexterm>
+<programlisting language="C">#define             g_test_quiet()</programlisting>
+<para>Returns <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if tests are run in quiet mode.
+In tests that use <link linkend="g-test-init"><function>g_test_init()</function></link>, the option <literal>-q</literal> or <literal>--quiet</literal> enables
+this, while <literal>--verbose</literal> disables it.
+The default is neither <link linkend="g-test-verbose"><function>g_test_verbose()</function></link> nor <link linkend="g-test-quiet"><function>g_test_quiet()</function></link>.</para>
+<refsect3 id="g-test-quiet.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if in quiet mode</para>
+</refsect3></refsect2>
+<refsect2 id="g-test-subprocess" role="function" condition="since:2.38">
+<title>g_test_subprocess&#160;()</title>
+<indexterm zone="g-test-subprocess" role="2.38"><primary sortas="test_subprocess">g_test_subprocess</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_test_subprocess (<parameter><type>void</type></parameter>);</programlisting>
+<para>Returns <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> (after <link linkend="g-test-init"><function>g_test_init()</function></link> has been called) if the test
+program is running under <link linkend="g-test-trap-subprocess"><function>g_test_trap_subprocess()</function></link>.</para>
+<refsect3 id="g-test-subprocess.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if the test program is running under
+<link linkend="g-test-trap-subprocess"><function>g_test_trap_subprocess()</function></link>.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.38">2.38</link></para></refsect2>
+<refsect2 id="g-test-run" role="function" condition="since:2.16">
+<title>g_test_run&#160;()</title>
+<indexterm zone="g-test-run" role="2.16"><primary sortas="test_run">g_test_run</primary></indexterm>
+<programlisting language="C"><link linkend="int"><returnvalue>int</returnvalue></link>
+g_test_run (<parameter><type>void</type></parameter>);</programlisting>
+<para>Runs all tests under the toplevel suite which can be retrieved
+with <link linkend="g-test-get-root"><function>g_test_get_root()</function></link>. Similar to <link linkend="g-test-run-suite"><function>g_test_run_suite()</function></link>, the test
+cases to be run are filtered according to test path arguments
+(<literal>-p testpath</literal> and <literal>-s testpath</literal>) as parsed by <link linkend="g-test-init"><function>g_test_init()</function></link>.
+<link linkend="g-test-run-suite"><function>g_test_run_suite()</function></link> or <link linkend="g-test-run"><function>g_test_run()</function></link> may only be called once in a
+program.</para>
+<para>In general, the tests and sub-suites within each suite are run in
+the order in which they are defined. However, note that prior to
+GLib 2.36, there was a bug in the <literal>g_test_add_*</literal>
+functions which caused them to create multiple suites with the same
+name, meaning that if you created tests "/foo/simple",
+"/bar/simple", and "/foo/using-bar" in that order, they would get
+run in that order (since <link linkend="g-test-run"><function>g_test_run()</function></link> would run the first "/foo"
+suite, then the "/bar" suite, then the second "/foo" suite). As of
+2.36, this bug is fixed, and adding the tests in that order would
+result in a running order of "/foo/simple", "/foo/using-bar",
+"/bar/simple". If this new ordering is sub-optimal (because it puts
+more-complicated tests before simpler ones, making it harder to
+figure out exactly what has failed), you can fix it by changing the
+test paths to group tests by suite in a way that will result in the
+desired running order. Eg, "/simple/foo", "/simple/bar",
+"/complex/foo-using-bar".</para>
+<para>However, you should never make the actual result of a test depend
+on the order that tests are run in. If you need to ensure that some
+particular code runs before or after a given test case, use
+<link linkend="g-test-add"><function>g_test_add()</function></link>, which lets you specify setup and teardown functions.</para>
+<para>If all tests are skipped or marked as incomplete (expected failures),
+this function will return 0 if producing TAP output, or 77 (treated
+as "skip test" by Automake) otherwise.</para>
+<refsect3 id="g-test-run.returns" role="returns">
+<title>Returns</title>
+<para> 0 on success, 1 on failure (assuming it returns at all),
+0 or 77 if all tests were skipped with <link linkend="g-test-skip"><function>g_test_skip()</function></link> and/or
+<link linkend="g-test-incomplete"><function>g_test_incomplete()</function></link></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.16">2.16</link></para></refsect2>
+<refsect2 id="GTestFunc" role="function" condition="since:2.28">
+<title>GTestFunc&#160;()</title>
+<indexterm zone="GTestFunc" role="2.28"><primary sortas="TestFunc">GTestFunc</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+<phrase role="c_punctuation">(</phrase>*GTestFunc<phrase role="c_punctuation">)</phrase> (<parameter><type>void</type></parameter>);</programlisting>
+<para>The type used for test case functions.</para>
+<para role="since">Since: <link linkend="api-index-2.28">2.28</link></para></refsect2>
+<refsect2 id="g-test-add-func" role="function" condition="since:2.16">
+<title>g_test_add_func&#160;()</title>
+<indexterm zone="g-test-add-func" role="2.16"><primary sortas="test_add_func">g_test_add_func</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_test_add_func (<parameter>const <link linkend="char"><type>char</type></link> *testpath</parameter>,
+                 <parameter><link linkend="GTestFunc"><type>GTestFunc</type></link> test_func</parameter>);</programlisting>
+<para>Create a new test case, similar to <link linkend="g-test-create-case"><function>g_test_create_case()</function></link>. However
+the test is assumed to use no fixture, and test suites are automatically
+created on the fly and added to the root fixture, based on the
+slash-separated portions of <parameter>testpath</parameter>
+.</para>
+<para>If <parameter>testpath</parameter>
+ includes the component "subprocess" anywhere in it,
+the test will be skipped by default, and only run if explicitly
+required via the <literal>-p</literal> command-line option or <link linkend="g-test-trap-subprocess"><function>g_test_trap_subprocess()</function></link>.</para>
+<refsect3 id="g-test-add-func.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>testpath</para></entry>
+<entry role="parameter_description"><para>/-separated test case path name for the test.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>test_func</para></entry>
+<entry role="parameter_description"><para>The test function to invoke for this test. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>scope async</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.16">2.16</link></para></refsect2>
+<refsect2 id="GTestDataFunc" role="function" condition="since:2.28">
+<title>GTestDataFunc&#160;()</title>
+<indexterm zone="GTestDataFunc" role="2.28"><primary sortas="TestDataFunc">GTestDataFunc</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+<phrase role="c_punctuation">(</phrase>*GTestDataFunc<phrase role="c_punctuation">)</phrase> (<parameter><link linkend="gconstpointer"><type>gconstpointer</type></link> user_data</parameter>);</programlisting>
+<para>The type used for test case functions that take an extra pointer
+argument.</para>
+<refsect3 id="GTestDataFunc.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>user_data</para></entry>
+<entry role="parameter_description"><para>the data provided when registering the test</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.28">2.28</link></para></refsect2>
+<refsect2 id="g-test-add-data-func" role="function" condition="since:2.16">
+<title>g_test_add_data_func&#160;()</title>
+<indexterm zone="g-test-add-data-func" role="2.16"><primary sortas="test_add_data_func">g_test_add_data_func</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_test_add_data_func (<parameter>const <link linkend="char"><type>char</type></link> *testpath</parameter>,
+                      <parameter><link linkend="gconstpointer"><type>gconstpointer</type></link> test_data</parameter>,
+                      <parameter><link linkend="GTestDataFunc"><type>GTestDataFunc</type></link> test_func</parameter>);</programlisting>
+<para>Create a new test case, similar to <link linkend="g-test-create-case"><function>g_test_create_case()</function></link>. However
+the test is assumed to use no fixture, and test suites are automatically
+created on the fly and added to the root fixture, based on the
+slash-separated portions of <parameter>testpath</parameter>
+. The <parameter>test_data</parameter>
+ argument
+will be passed as first argument to <parameter>test_func</parameter>
+.</para>
+<para>If <parameter>testpath</parameter>
+ includes the component "subprocess" anywhere in it,
+the test will be skipped by default, and only run if explicitly
+required via the <literal>-p</literal> command-line option or <link linkend="g-test-trap-subprocess"><function>g_test_trap_subprocess()</function></link>.</para>
+<refsect3 id="g-test-add-data-func.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>testpath</para></entry>
+<entry role="parameter_description"><para>/-separated test case path name for the test.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>test_data</para></entry>
+<entry role="parameter_description"><para>Test data argument for the test function.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>test_func</para></entry>
+<entry role="parameter_description"><para>The test function to invoke for this test. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>scope async</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.16">2.16</link></para></refsect2>
+<refsect2 id="g-test-add-data-func-full" role="function" condition="since:2.34">
+<title>g_test_add_data_func_full&#160;()</title>
+<indexterm zone="g-test-add-data-func-full" role="2.34"><primary sortas="test_add_data_func_full">g_test_add_data_func_full</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_test_add_data_func_full (<parameter>const <link linkend="char"><type>char</type></link> *testpath</parameter>,
+                           <parameter><link linkend="gpointer"><type>gpointer</type></link> test_data</parameter>,
+                           <parameter><link linkend="GTestDataFunc"><type>GTestDataFunc</type></link> test_func</parameter>,
+                           <parameter><link linkend="GDestroyNotify"><type>GDestroyNotify</type></link> data_free_func</parameter>);</programlisting>
+<para>Create a new test case, as with <link linkend="g-test-add-data-func"><function>g_test_add_data_func()</function></link>, but freeing
+<parameter>test_data</parameter>
+ after the test run is complete.</para>
+<refsect3 id="g-test-add-data-func-full.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>testpath</para></entry>
+<entry role="parameter_description"><para>/-separated test case path name for the test.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>test_data</para></entry>
+<entry role="parameter_description"><para>Test data argument for the test function.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>test_func</para></entry>
+<entry role="parameter_description"><para>The test function to invoke for this test.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>data_free_func</para></entry>
+<entry role="parameter_description"><para><link linkend="GDestroyNotify"><type>GDestroyNotify</type></link> for <parameter>test_data</parameter>
+.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.34">2.34</link></para></refsect2>
+<refsect2 id="g-test-add" role="macro" condition="since:2.16">
+<title>g_test_add()</title>
+<indexterm zone="g-test-add" role="2.16"><primary sortas="test_add">g_test_add</primary></indexterm>
+<programlisting language="C">#define             g_test_add(testpath, Fixture, tdata, fsetup, ftest, fteardown)</programlisting>
+<para>Hook up a new test case at <parameter>testpath</parameter>
+, similar to <link linkend="g-test-add-func"><function>g_test_add_func()</function></link>.
+A fixture data structure with setup and teardown functions may be provided,
+similar to <link linkend="g-test-create-case"><function>g_test_create_case()</function></link>.</para>
+<para>g_test_add() is implemented as a macro, so that the <link linkend="fsetup"><function>fsetup()</function></link>, <link linkend="ftest"><function>ftest()</function></link> and
+<link linkend="fteardown"><function>fteardown()</function></link> callbacks can expect a <parameter>Fixture</parameter>
+ pointer as their first argument
+in a type safe manner. They otherwise have type <link linkend="GTestFixtureFunc"><type>GTestFixtureFunc</type></link>.</para>
+<refsect3 id="g-test-add.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>testpath</para></entry>
+<entry role="parameter_description"><para>The test path for a new test case.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>Fixture</para></entry>
+<entry role="parameter_description"><para>The type of a fixture data structure.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>tdata</para></entry>
+<entry role="parameter_description"><para>Data argument for the test functions.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>fsetup</para></entry>
+<entry role="parameter_description"><para>The function to set up the fixture data.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>ftest</para></entry>
+<entry role="parameter_description"><para>The actual test function.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>fteardown</para></entry>
+<entry role="parameter_description"><para>The function to tear down the fixture data.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.16">2.16</link></para></refsect2>
+<refsect2 id="g-test-build-filename" role="function" condition="since:2.38">
+<title>g_test_build_filename&#160;()</title>
+<indexterm zone="g-test-build-filename" role="2.38"><primary sortas="test_build_filename">g_test_build_filename</primary></indexterm>
+<programlisting language="C"><link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+g_test_build_filename (<parameter><link linkend="GTestFileType"><type>GTestFileType</type></link> file_type</parameter>,
+                       <parameter>const <link linkend="gchar"><type>gchar</type></link> *first_path</parameter>,
+                       <parameter>...</parameter>);</programlisting>
+<para>Creates the pathname to a data file that is required for a test.</para>
+<para>This function is conceptually similar to <link linkend="g-build-filename"><function>g_build_filename()</function></link> except
+that the first argument has been replaced with a <link linkend="GTestFileType"><type>GTestFileType</type></link>
+argument.</para>
+<para>The data file should either have been distributed with the module
+containing the test (<link linkend="G-TEST-DIST:CAPS"><literal>G_TEST_DIST</literal></link>) or built as part of the build
+system of that module (<link linkend="G-TEST-BUILT:CAPS"><literal>G_TEST_BUILT</literal></link>).</para>
+<para>In order for this function to work in srcdir != builddir situations,
+the G_TEST_SRCDIR and G_TEST_BUILDDIR environment variables need to
+have been defined.  As of 2.38, this is done by the glib.mk
+included in GLib.  Please ensure that your copy is up to date before
+using this function.</para>
+<para>In case neither variable is set, this function will fall back to
+using the dirname portion of argv[0], possibly removing ".libs".
+This allows for casual running of tests directly from the commandline
+in the srcdir == builddir case and should also support running of
+installed tests, assuming the data files have been installed in the
+same relative path as the test binary.</para>
+<refsect3 id="g-test-build-filename.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>file_type</para></entry>
+<entry role="parameter_description"><para>the type of file (built vs. distributed)</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>first_path</para></entry>
+<entry role="parameter_description"><para>the first segment of the pathname</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>...</para></entry>
+<entry role="parameter_description"><para><link linkend="NULL:CAPS"><literal>NULL</literal></link>-terminated additional path segments</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-test-build-filename.returns" role="returns">
+<title>Returns</title>
+<para> the path of the file, to be freed using <link linkend="g-free"><function>g_free()</function></link></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.38">2.38</link></para></refsect2>
+<refsect2 id="g-test-get-filename" role="function" condition="since:2.38">
+<title>g_test_get_filename&#160;()</title>
+<indexterm zone="g-test-get-filename" role="2.38"><primary sortas="test_get_filename">g_test_get_filename</primary></indexterm>
+<programlisting language="C">const <link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+g_test_get_filename (<parameter><link linkend="GTestFileType"><type>GTestFileType</type></link> file_type</parameter>,
+                     <parameter>const <link linkend="gchar"><type>gchar</type></link> *first_path</parameter>,
+                     <parameter>...</parameter>);</programlisting>
+<para>Gets the pathname to a data file that is required for a test.</para>
+<para>This is the same as <link linkend="g-test-build-filename"><function>g_test_build_filename()</function></link> with two differences.
+The first difference is that must only use this function from within
+a testcase function.  The second difference is that you need not free
+the return value -- it will be automatically freed when the testcase
+finishes running.</para>
+<para>It is safe to use this function from a thread inside of a testcase
+but you must ensure that all such uses occur before the main testcase
+function returns (ie: it is best to ensure that all threads have been
+joined).</para>
+<refsect3 id="g-test-get-filename.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>file_type</para></entry>
+<entry role="parameter_description"><para>the type of file (built vs. distributed)</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>first_path</para></entry>
+<entry role="parameter_description"><para>the first segment of the pathname</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>...</para></entry>
+<entry role="parameter_description"><para><link linkend="NULL:CAPS"><literal>NULL</literal></link>-terminated additional path segments</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-test-get-filename.returns" role="returns">
+<title>Returns</title>
+<para> the path, automatically freed at the end of the testcase</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.38">2.38</link></para></refsect2>
+<refsect2 id="g-test-get-dir" role="function" condition="since:2.38">
+<title>g_test_get_dir&#160;()</title>
+<indexterm zone="g-test-get-dir" role="2.38"><primary sortas="test_get_dir">g_test_get_dir</primary></indexterm>
+<programlisting language="C">const <link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+g_test_get_dir (<parameter><link linkend="GTestFileType"><type>GTestFileType</type></link> file_type</parameter>);</programlisting>
+<para>Gets the pathname of the directory containing test files of the type
+specified by <parameter>file_type</parameter>
+.</para>
+<para>This is approximately the same as calling g_test_build_filename("."),
+but you don't need to free the return value.</para>
+<refsect3 id="g-test-get-dir.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>file_type</para></entry>
+<entry role="parameter_description"><para>the type of file (built vs. distributed)</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-test-get-dir.returns" role="returns">
+<title>Returns</title>
+<para>the path of the directory, owned by GLib. </para>
+<para><emphasis role="annotation">[<acronym>type</acronym> filename]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.38">2.38</link></para></refsect2>
+<refsect2 id="g-test-fail" role="function" condition="since:2.30">
+<title>g_test_fail&#160;()</title>
+<indexterm zone="g-test-fail" role="2.30"><primary sortas="test_fail">g_test_fail</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_test_fail (<parameter><type>void</type></parameter>);</programlisting>
+<para>Indicates that a test failed. This function can be called
+multiple times from the same test. You can use this function
+if your test failed in a recoverable way.</para>
+<para>Do not use this function if the failure of a test could cause
+other tests to malfunction.</para>
+<para>Calling this function will not stop the test from running, you
+need to return from the test function yourself. So you can
+produce additional diagnostic messages or even continue running
+the test.</para>
+<para>If not called from inside a test, this function does nothing.</para>
+<para role="since">Since: <link linkend="api-index-2.30">2.30</link></para></refsect2>
+<refsect2 id="g-test-skip" role="function" condition="since:2.38">
+<title>g_test_skip&#160;()</title>
+<indexterm zone="g-test-skip" role="2.38"><primary sortas="test_skip">g_test_skip</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_test_skip (<parameter>const <link linkend="gchar"><type>gchar</type></link> *msg</parameter>);</programlisting>
+<para>Indicates that a test was skipped.</para>
+<para>Calling this function will not stop the test from running, you
+need to return from the test function yourself. So you can
+produce additional diagnostic messages or even continue running
+the test.</para>
+<para>If not called from inside a test, this function does nothing.</para>
+<refsect3 id="g-test-skip.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>msg</para></entry>
+<entry role="parameter_description"><para>explanation. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.38">2.38</link></para></refsect2>
+<refsect2 id="g-test-incomplete" role="function" condition="since:2.38">
+<title>g_test_incomplete&#160;()</title>
+<indexterm zone="g-test-incomplete" role="2.38"><primary sortas="test_incomplete">g_test_incomplete</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_test_incomplete (<parameter>const <link linkend="gchar"><type>gchar</type></link> *msg</parameter>);</programlisting>
+<para>Indicates that a test failed because of some incomplete
+functionality. This function can be called multiple times
+from the same test.</para>
+<para>Calling this function will not stop the test from running, you
+need to return from the test function yourself. So you can
+produce additional diagnostic messages or even continue running
+the test.</para>
+<para>If not called from inside a test, this function does nothing.</para>
+<refsect3 id="g-test-incomplete.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>msg</para></entry>
+<entry role="parameter_description"><para>explanation. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.38">2.38</link></para></refsect2>
+<refsect2 id="g-test-failed" role="function" condition="since:2.38">
+<title>g_test_failed&#160;()</title>
+<indexterm zone="g-test-failed" role="2.38"><primary sortas="test_failed">g_test_failed</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_test_failed (<parameter><type>void</type></parameter>);</programlisting>
+<para>Returns whether a test has already failed. This will
+be the case when <link linkend="g-test-fail"><function>g_test_fail()</function></link>, <link linkend="g-test-incomplete"><function>g_test_incomplete()</function></link>
+or <link linkend="g-test-skip"><function>g_test_skip()</function></link> have been called, but also if an
+assertion has failed.</para>
+<para>This can be useful to return early from a test if
+continuing after a failed assertion might be harmful.</para>
+<para>The return value of this function is only meaningful
+if it is called from inside a test function.</para>
+<refsect3 id="g-test-failed.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if the test has failed</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.38">2.38</link></para></refsect2>
+<refsect2 id="g-test-message" role="function" condition="since:2.16">
+<title>g_test_message&#160;()</title>
+<indexterm zone="g-test-message" role="2.16"><primary sortas="test_message">g_test_message</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_test_message (<parameter>const <link linkend="char"><type>char</type></link> *format</parameter>,
+                <parameter>...</parameter>);</programlisting>
+<para>Add a message to the test report.</para>
+<refsect3 id="g-test-message.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>format</para></entry>
+<entry role="parameter_description"><para>the format string</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>...</para></entry>
+<entry role="parameter_description"><para>printf-like arguments to <parameter>format</parameter>
+</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.16">2.16</link></para></refsect2>
+<refsect2 id="g-test-bug-base" role="function" condition="since:2.16">
+<title>g_test_bug_base&#160;()</title>
+<indexterm zone="g-test-bug-base" role="2.16"><primary sortas="test_bug_base">g_test_bug_base</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_test_bug_base (<parameter>const <link linkend="char"><type>char</type></link> *uri_pattern</parameter>);</programlisting>
+<para>Specify the base URI for bug reports.</para>
+<para>The base URI is used to construct bug report messages for
+<link linkend="g-test-message"><function>g_test_message()</function></link> when <link linkend="g-test-bug"><function>g_test_bug()</function></link> is called.
+Calling this function outside of a test case sets the
+default base URI for all test cases. Calling it from within
+a test case changes the base URI for the scope of the test
+case only.
+Bug URIs are constructed by appending a bug specific URI
+portion to <parameter>uri_pattern</parameter>
+, or by replacing the special string
+'%s' within <parameter>uri_pattern</parameter>
+ if that is present.</para>
+<refsect3 id="g-test-bug-base.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>uri_pattern</para></entry>
+<entry role="parameter_description"><para>the base pattern for bug URIs</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.16">2.16</link></para></refsect2>
+<refsect2 id="g-test-bug" role="function" condition="since:2.16">
+<title>g_test_bug&#160;()</title>
+<indexterm zone="g-test-bug" role="2.16"><primary sortas="test_bug">g_test_bug</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_test_bug (<parameter>const <link linkend="char"><type>char</type></link> *bug_uri_snippet</parameter>);</programlisting>
+<para>This function adds a message to test reports that
+associates a bug URI with a test case.
+Bug URIs are constructed from a base URI set with <link linkend="g-test-bug-base"><function>g_test_bug_base()</function></link>
+and <parameter>bug_uri_snippet</parameter>
+.</para>
+<refsect3 id="g-test-bug.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>bug_uri_snippet</para></entry>
+<entry role="parameter_description"><para>Bug specific bug tracker URI portion.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.16">2.16</link></para></refsect2>
+<refsect2 id="GTestLogFatalFunc" role="function" condition="since:2.22">
+<title>GTestLogFatalFunc&#160;()</title>
+<indexterm zone="GTestLogFatalFunc" role="2.22"><primary sortas="TestLogFatalFunc">GTestLogFatalFunc</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+<phrase role="c_punctuation">(</phrase>*GTestLogFatalFunc<phrase role="c_punctuation">)</phrase> (<parameter>const <link linkend="gchar"><type>gchar</type></link> *log_domain</parameter>,
+                      <parameter><link linkend="GLogLevelFlags"><type>GLogLevelFlags</type></link> log_level</parameter>,
+                      <parameter>const <link linkend="gchar"><type>gchar</type></link> *message</parameter>,
+                      <parameter><link linkend="gpointer"><type>gpointer</type></link> user_data</parameter>);</programlisting>
+<para>Specifies the prototype of fatal log handler functions.</para>
+<refsect3 id="GTestLogFatalFunc.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>log_domain</para></entry>
+<entry role="parameter_description"><para>the log domain of the message</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>log_level</para></entry>
+<entry role="parameter_description"><para>the log level of the message (including the fatal and recursion flags)</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>message</para></entry>
+<entry role="parameter_description"><para>the message to process</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>user_data</para></entry>
+<entry role="parameter_description"><para>user data, set in <link linkend="g-test-log-set-fatal-handler"><function>g_test_log_set_fatal_handler()</function></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="GTestLogFatalFunc.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if the program should abort, <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> otherwise</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.22">2.22</link></para></refsect2>
+<refsect2 id="g-test-log-set-fatal-handler" role="function" condition="since:2.22">
+<title>g_test_log_set_fatal_handler&#160;()</title>
+<indexterm zone="g-test-log-set-fatal-handler" role="2.22"><primary sortas="test_log_set_fatal_handler">g_test_log_set_fatal_handler</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_test_log_set_fatal_handler (<parameter><link linkend="GTestLogFatalFunc"><type>GTestLogFatalFunc</type></link> log_func</parameter>,
+                              <parameter><link linkend="gpointer"><type>gpointer</type></link> user_data</parameter>);</programlisting>
+<para>Installs a non-error fatal log handler which can be
+used to decide whether log messages which are counted
+as fatal abort the program.</para>
+<para>The use case here is that you are running a test case
+that depends on particular libraries or circumstances
+and cannot prevent certain known critical or warning
+messages. So you install a handler that compares the
+domain and message to precisely not abort in such a case.</para>
+<para>Note that the handler is reset at the beginning of
+any test case, so you have to set it inside each test
+function which needs the special behavior.</para>
+<para>This handler has no effect on g_error messages.</para>
+<para>This handler also has no effect on structured log messages (using
+<link linkend="g-log-structured"><function>g_log_structured()</function></link> or <link linkend="g-log-structured-array"><function>g_log_structured_array()</function></link>). To change the fatal
+behaviour for specific log messages, programs must install a custom log
+writer function using <link linkend="g-log-set-writer-func"><function>g_log_set_writer_func()</function></link>.See
+<link linkend="using-structured-logging">Using Structured Logging</link>.</para>
+<refsect3 id="g-test-log-set-fatal-handler.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>log_func</para></entry>
+<entry role="parameter_description"><para>the log handler function.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>user_data</para></entry>
+<entry role="parameter_description"><para>data passed to the log handler.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.22">2.22</link></para></refsect2>
+<refsect2 id="g-test-timer-start" role="function" condition="since:2.16">
+<title>g_test_timer_start&#160;()</title>
+<indexterm zone="g-test-timer-start" role="2.16"><primary sortas="test_timer_start">g_test_timer_start</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_test_timer_start (<parameter><type>void</type></parameter>);</programlisting>
+<para>Start a timing test. Call <link linkend="g-test-timer-elapsed"><function>g_test_timer_elapsed()</function></link> when the task is supposed
+to be done. Call this function again to restart the timer.</para>
+<para role="since">Since: <link linkend="api-index-2.16">2.16</link></para></refsect2>
+<refsect2 id="g-test-timer-elapsed" role="function" condition="since:2.16">
+<title>g_test_timer_elapsed&#160;()</title>
+<indexterm zone="g-test-timer-elapsed" role="2.16"><primary sortas="test_timer_elapsed">g_test_timer_elapsed</primary></indexterm>
+<programlisting language="C"><link linkend="double"><returnvalue>double</returnvalue></link>
+g_test_timer_elapsed (<parameter><type>void</type></parameter>);</programlisting>
+<para>Get the time since the last start of the timer with <link linkend="g-test-timer-start"><function>g_test_timer_start()</function></link>.</para>
+<refsect3 id="g-test-timer-elapsed.returns" role="returns">
+<title>Returns</title>
+<para> the time since the last start of the timer, as a double</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.16">2.16</link></para></refsect2>
+<refsect2 id="g-test-timer-last" role="function" condition="since:2.16">
+<title>g_test_timer_last&#160;()</title>
+<indexterm zone="g-test-timer-last" role="2.16"><primary sortas="test_timer_last">g_test_timer_last</primary></indexterm>
+<programlisting language="C"><link linkend="double"><returnvalue>double</returnvalue></link>
+g_test_timer_last (<parameter><type>void</type></parameter>);</programlisting>
+<para>Report the last result of <link linkend="g-test-timer-elapsed"><function>g_test_timer_elapsed()</function></link>.</para>
+<refsect3 id="g-test-timer-last.returns" role="returns">
+<title>Returns</title>
+<para> the last result of <link linkend="g-test-timer-elapsed"><function>g_test_timer_elapsed()</function></link>, as a double</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.16">2.16</link></para></refsect2>
+<refsect2 id="g-test-queue-free" role="function" condition="since:2.16">
+<title>g_test_queue_free&#160;()</title>
+<indexterm zone="g-test-queue-free" role="2.16"><primary sortas="test_queue_free">g_test_queue_free</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_test_queue_free (<parameter><link linkend="gpointer"><type>gpointer</type></link> gfree_pointer</parameter>);</programlisting>
+<para>Enqueue a pointer to be released with <link linkend="g-free"><function>g_free()</function></link> during the next
+teardown phase. This is equivalent to calling <link linkend="g-test-queue-destroy"><function>g_test_queue_destroy()</function></link>
+with a destroy callback of <link linkend="g-free"><function>g_free()</function></link>.</para>
+<refsect3 id="g-test-queue-free.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>gfree_pointer</para></entry>
+<entry role="parameter_description"><para>the pointer to be stored.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.16">2.16</link></para></refsect2>
+<refsect2 id="g-test-queue-destroy" role="function" condition="since:2.16">
+<title>g_test_queue_destroy&#160;()</title>
+<indexterm zone="g-test-queue-destroy" role="2.16"><primary sortas="test_queue_destroy">g_test_queue_destroy</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_test_queue_destroy (<parameter><link linkend="GDestroyNotify"><type>GDestroyNotify</type></link> destroy_func</parameter>,
+                      <parameter><link linkend="gpointer"><type>gpointer</type></link> destroy_data</parameter>);</programlisting>
+<para>This function enqueus a callback <parameter>destroy_func</parameter>
+ to be executed
+during the next test case teardown phase. This is most useful
+to auto destruct allocated test resources at the end of a test run.
+Resources are released in reverse queue order, that means enqueueing
+callback A before callback B will cause <link linkend="B:CAPS"><function>B()</function></link> to be called before
+<link linkend="A:CAPS"><function>A()</function></link> during teardown.</para>
+<refsect3 id="g-test-queue-destroy.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>destroy_func</para></entry>
+<entry role="parameter_description"><para>Destroy callback for teardown phase.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>destroy_data</para></entry>
+<entry role="parameter_description"><para>Destroy callback data.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.16">2.16</link></para></refsect2>
+<refsect2 id="g-test-queue-unref" role="macro" condition="since:2.16">
+<title>g_test_queue_unref()</title>
+<indexterm zone="g-test-queue-unref" role="2.16"><primary sortas="test_queue_unref">g_test_queue_unref</primary></indexterm>
+<programlisting language="C">#define             g_test_queue_unref(gobject)</programlisting>
+<para>Enqueue an object to be released with <link linkend="g-object-unref"><function>g_object_unref()</function></link> during
+the next teardown phase. This is equivalent to calling
+<link linkend="g-test-queue-destroy"><function>g_test_queue_destroy()</function></link> with a destroy callback of <link linkend="g-object-unref"><function>g_object_unref()</function></link>.</para>
+<refsect3 id="g-test-queue-unref.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>gobject</para></entry>
+<entry role="parameter_description"><para>the object to unref</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.16">2.16</link></para></refsect2>
+<refsect2 id="g-test-expect-message" role="function" condition="since:2.34">
+<title>g_test_expect_message&#160;()</title>
+<indexterm zone="g-test-expect-message" role="2.34"><primary sortas="test_expect_message">g_test_expect_message</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_test_expect_message (<parameter>const <link linkend="gchar"><type>gchar</type></link> *log_domain</parameter>,
+                       <parameter><link linkend="GLogLevelFlags"><type>GLogLevelFlags</type></link> log_level</parameter>,
+                       <parameter>const <link linkend="gchar"><type>gchar</type></link> *pattern</parameter>);</programlisting>
+<para>Indicates that a message with the given <parameter>log_domain</parameter>
+ and <parameter>log_level</parameter>
+,
+with text matching <parameter>pattern</parameter>
+, is expected to be logged. When this
+message is logged, it will not be printed, and the test case will
+not abort.</para>
+<para>This API may only be used with the old logging API (<link linkend="g-log"><function>g_log()</function></link> without
+<link linkend="G-LOG-USE-STRUCTURED:CAPS"><literal>G_LOG_USE_STRUCTURED</literal></link> defined). It will not work with the structured logging
+API. See <link linkend="testing-for-messages">Testing for Messages</link>.</para>
+<para>Use <link linkend="g-test-assert-expected-messages"><function>g_test_assert_expected_messages()</function></link> to assert that all
+previously-expected messages have been seen and suppressed.</para>
+<para>You can call this multiple times in a row, if multiple messages are
+expected as a result of a single call. (The messages must appear in
+the same order as the calls to <link linkend="g-test-expect-message"><function>g_test_expect_message()</function></link>.)</para>
+<para>For example:</para>
+<informalexample><programlisting role="example"><![CDATA[
+  // g_main_context_push_thread_default() should fail if the
+  // context is already owned by another thread.
+  g_test_expect_message (G_LOG_DOMAIN,
+                         G_LOG_LEVEL_CRITICAL,
+                         "assertion*acquired_context*failed");
+  g_main_context_push_thread_default (bad_context);
+  g_test_assert_expected_messages ();
+]]></programlisting></informalexample>
+<para></para>
+<para>Note that you cannot use this to test <link linkend="g-error"><function>g_error()</function></link> messages, since
+<link linkend="g-error"><function>g_error()</function></link> intentionally never returns even if the program doesn't
+abort; use <link linkend="g-test-trap-subprocess"><function>g_test_trap_subprocess()</function></link> in this case.</para>
+<para>If messages at <link linkend="G-LOG-LEVEL-DEBUG:CAPS"><literal>G_LOG_LEVEL_DEBUG</literal></link> are emitted, but not explicitly
+expected via <link linkend="g-test-expect-message"><function>g_test_expect_message()</function></link> then they will be ignored.</para>
+<refsect3 id="g-test-expect-message.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>log_domain</para></entry>
+<entry role="parameter_description"><para>the log domain of the message. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>log_level</para></entry>
+<entry role="parameter_description"><para>the log level of the message</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>pattern</para></entry>
+<entry role="parameter_description"><para>a glob-style <link linkend="glib-Glob-style-pattern-matching">pattern</link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.34">2.34</link></para></refsect2>
+<refsect2 id="g-test-assert-expected-messages" role="macro" condition="since:2.34">
+<title>g_test_assert_expected_messages</title>
+<indexterm zone="g-test-assert-expected-messages" role="2.34"><primary sortas="test_assert_expected_messages">g_test_assert_expected_messages</primary></indexterm>
+<programlisting language="C">#define             g_test_assert_expected_messages()</programlisting>
+<para>Asserts that all messages previously indicated via
+<link linkend="g-test-expect-message"><function>g_test_expect_message()</function></link> have been seen and suppressed.</para>
+<para>This API may only be used with the old logging API (<link linkend="g-log"><function>g_log()</function></link> without
+<link linkend="G-LOG-USE-STRUCTURED:CAPS"><literal>G_LOG_USE_STRUCTURED</literal></link> defined). It will not work with the structured logging
+API. See <link linkend="testing-for-messages">Testing for Messages</link>.</para>
+<para>If messages at <link linkend="G-LOG-LEVEL-DEBUG:CAPS"><literal>G_LOG_LEVEL_DEBUG</literal></link> are emitted, but not explicitly
+expected via <link linkend="g-test-expect-message"><function>g_test_expect_message()</function></link> then they will be ignored.</para>
+<para role="since">Since: <link linkend="api-index-2.34">2.34</link></para></refsect2>
+<refsect2 id="g-test-trap-subprocess" role="function" condition="since:2.38">
+<title>g_test_trap_subprocess&#160;()</title>
+<indexterm zone="g-test-trap-subprocess" role="2.38"><primary sortas="test_trap_subprocess">g_test_trap_subprocess</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_test_trap_subprocess (<parameter>const <link linkend="char"><type>char</type></link> *test_path</parameter>,
+                        <parameter><link linkend="guint64"><type>guint64</type></link> usec_timeout</parameter>,
+                        <parameter><link linkend="GTestSubprocessFlags"><type>GTestSubprocessFlags</type></link> test_flags</parameter>);</programlisting>
+<para>Respawns the test program to run only <parameter>test_path</parameter>
+ in a subprocess.
+This can be used for a test case that might not return, or that
+might abort.</para>
+<para>If <parameter>test_path</parameter>
+ is <link linkend="NULL:CAPS"><literal>NULL</literal></link> then the same test is re-run in a subprocess.
+You can use <link linkend="g-test-subprocess"><function>g_test_subprocess()</function></link> to determine whether the test is in
+a subprocess or not.</para>
+<para><parameter>test_path</parameter>
+ can also be the name of the parent test, followed by
+"<literal>/subprocess/</literal>" and then a name for the specific subtest (or just
+ending with "<literal>/subprocess</literal>" if the test only has one child test);
+tests with names of this form will automatically be skipped in the
+parent process.</para>
+<para>If <parameter>usec_timeout</parameter>
+ is non-0, the test subprocess is aborted and
+considered failing if its run time exceeds it.</para>
+<para>The subprocess behavior can be configured with the
+<link linkend="GTestSubprocessFlags"><type>GTestSubprocessFlags</type></link> flags.</para>
+<para>You can use methods such as <link linkend="g-test-trap-assert-passed"><function>g_test_trap_assert_passed()</function></link>,
+<link linkend="g-test-trap-assert-failed"><function>g_test_trap_assert_failed()</function></link>, and <link linkend="g-test-trap-assert-stderr"><function>g_test_trap_assert_stderr()</function></link> to
+check the results of the subprocess. (But note that
+<link linkend="g-test-trap-assert-stdout"><function>g_test_trap_assert_stdout()</function></link> and <link linkend="g-test-trap-assert-stderr"><function>g_test_trap_assert_stderr()</function></link>
+cannot be used if <parameter>test_flags</parameter>
+ specifies that the child should
+inherit the parent stdout/stderr.) </para>
+<para>If your <literal><link linkend="main"><function>main()</function></link></literal> needs to behave differently in
+the subprocess, you can call <link linkend="g-test-subprocess"><function>g_test_subprocess()</function></link> (after calling
+<link linkend="g-test-init"><function>g_test_init()</function></link>) to see whether you are in a subprocess.</para>
+<para>The following example tests that calling
+<literal>my_object_new(1000000)</literal> will abort with an error
+message.</para>
+<informalexample><programlisting role="example"><![CDATA[
+  static void
+  test_create_large_object (void)
+  {
+    if (g_test_subprocess ())
+      {
+        my_object_new (1000000);
+        return;
+      }
+
+    // Reruns this same test in a subprocess
+    g_test_trap_subprocess (NULL, 0, 0);
+    g_test_trap_assert_failed ();
+    g_test_trap_assert_stderr ("*ERROR*too large*");
+  }
+
+  int
+  main (int argc, char **argv)
+  {
+    g_test_init (&argc, &argv, NULL);
+
+    g_test_add_func ("/myobject/create_large_object",
+                     test_create_large_object);
+    return g_test_run ();
+  }
+]]></programlisting></informalexample>
+<para></para>
+<refsect3 id="g-test-trap-subprocess.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>test_path</para></entry>
+<entry role="parameter_description"><para>Test to run in a subprocess. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>usec_timeout</para></entry>
+<entry role="parameter_description"><para>Timeout for the subprocess test in micro seconds.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>test_flags</para></entry>
+<entry role="parameter_description"><para>Flags to modify subprocess behaviour.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.38">2.38</link></para></refsect2>
+<refsect2 id="g-test-trap-has-passed" role="function" condition="since:2.16">
+<title>g_test_trap_has_passed&#160;()</title>
+<indexterm zone="g-test-trap-has-passed" role="2.16"><primary sortas="test_trap_has_passed">g_test_trap_has_passed</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_test_trap_has_passed (<parameter><type>void</type></parameter>);</programlisting>
+<para>Check the result of the last <link linkend="g-test-trap-subprocess"><function>g_test_trap_subprocess()</function></link> call.</para>
+<refsect3 id="g-test-trap-has-passed.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if the last test subprocess terminated successfully.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.16">2.16</link></para></refsect2>
+<refsect2 id="g-test-trap-reached-timeout" role="function" condition="since:2.16">
+<title>g_test_trap_reached_timeout&#160;()</title>
+<indexterm zone="g-test-trap-reached-timeout" role="2.16"><primary sortas="test_trap_reached_timeout">g_test_trap_reached_timeout</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_test_trap_reached_timeout (<parameter><type>void</type></parameter>);</programlisting>
+<para>Check the result of the last <link linkend="g-test-trap-subprocess"><function>g_test_trap_subprocess()</function></link> call.</para>
+<refsect3 id="g-test-trap-reached-timeout.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if the last test subprocess got killed due to a timeout.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.16">2.16</link></para></refsect2>
+<refsect2 id="g-test-trap-assert-passed" role="macro" condition="since:2.16">
+<title>g_test_trap_assert_passed</title>
+<indexterm zone="g-test-trap-assert-passed" role="2.16"><primary sortas="test_trap_assert_passed">g_test_trap_assert_passed</primary></indexterm>
+<programlisting language="C">#define             g_test_trap_assert_passed()</programlisting>
+<para>Assert that the last test subprocess passed.
+See <link linkend="g-test-trap-subprocess"><function>g_test_trap_subprocess()</function></link>.</para>
+<para role="since">Since: <link linkend="api-index-2.16">2.16</link></para></refsect2>
+<refsect2 id="g-test-trap-assert-failed" role="macro" condition="since:2.16">
+<title>g_test_trap_assert_failed</title>
+<indexterm zone="g-test-trap-assert-failed" role="2.16"><primary sortas="test_trap_assert_failed">g_test_trap_assert_failed</primary></indexterm>
+<programlisting language="C">#define             g_test_trap_assert_failed()</programlisting>
+<para>Assert that the last test subprocess failed.
+See <link linkend="g-test-trap-subprocess"><function>g_test_trap_subprocess()</function></link>.</para>
+<para>This is sometimes used to test situations that are formally considered to
+be undefined behaviour, like inputs that fail a <link linkend="g-return-if-fail"><function>g_return_if_fail()</function></link>
+check. In these situations you should skip the entire test, including the
+call to <link linkend="g-test-trap-subprocess"><function>g_test_trap_subprocess()</function></link>, unless <link linkend="g-test-undefined"><function>g_test_undefined()</function></link> returns <link linkend="TRUE:CAPS"><literal>TRUE</literal></link>
+to indicate that undefined behaviour may be tested.</para>
+<para role="since">Since: <link linkend="api-index-2.16">2.16</link></para></refsect2>
+<refsect2 id="g-test-trap-assert-stdout" role="macro" condition="since:2.16">
+<title>g_test_trap_assert_stdout()</title>
+<indexterm zone="g-test-trap-assert-stdout" role="2.16"><primary sortas="test_trap_assert_stdout">g_test_trap_assert_stdout</primary></indexterm>
+<programlisting language="C">#define             g_test_trap_assert_stdout(soutpattern)</programlisting>
+<para>Assert that the stdout output of the last test subprocess matches
+<parameter>soutpattern</parameter>
+. See <link linkend="g-test-trap-subprocess"><function>g_test_trap_subprocess()</function></link>.</para>
+<refsect3 id="g-test-trap-assert-stdout.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>soutpattern</para></entry>
+<entry role="parameter_description"><para>a glob-style <link linkend="glib-Glob-style-pattern-matching">pattern</link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.16">2.16</link></para></refsect2>
+<refsect2 id="g-test-trap-assert-stdout-unmatched" role="macro" condition="since:2.16">
+<title>g_test_trap_assert_stdout_unmatched()</title>
+<indexterm zone="g-test-trap-assert-stdout-unmatched" role="2.16"><primary sortas="test_trap_assert_stdout_unmatched">g_test_trap_assert_stdout_unmatched</primary></indexterm>
+<programlisting language="C">#define             g_test_trap_assert_stdout_unmatched(soutpattern)</programlisting>
+<para>Assert that the stdout output of the last test subprocess
+does not match <parameter>soutpattern</parameter>
+. See <link linkend="g-test-trap-subprocess"><function>g_test_trap_subprocess()</function></link>.</para>
+<refsect3 id="g-test-trap-assert-stdout-unmatched.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>soutpattern</para></entry>
+<entry role="parameter_description"><para>a glob-style <link linkend="glib-Glob-style-pattern-matching">pattern</link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.16">2.16</link></para></refsect2>
+<refsect2 id="g-test-trap-assert-stderr" role="macro" condition="since:2.16">
+<title>g_test_trap_assert_stderr()</title>
+<indexterm zone="g-test-trap-assert-stderr" role="2.16"><primary sortas="test_trap_assert_stderr">g_test_trap_assert_stderr</primary></indexterm>
+<programlisting language="C">#define             g_test_trap_assert_stderr(serrpattern)</programlisting>
+<para>Assert that the stderr output of the last test subprocess
+matches <parameter>serrpattern</parameter>
+. See  <link linkend="g-test-trap-subprocess"><function>g_test_trap_subprocess()</function></link>.</para>
+<para>This is sometimes used to test situations that are formally
+considered to be undefined behaviour, like code that hits a
+<link linkend="g-assert"><function>g_assert()</function></link> or <link linkend="g-error"><function>g_error()</function></link>. In these situations you should skip the
+entire test, including the call to <link linkend="g-test-trap-subprocess"><function>g_test_trap_subprocess()</function></link>, unless
+<link linkend="g-test-undefined"><function>g_test_undefined()</function></link> returns <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> to indicate that undefined
+behaviour may be tested.</para>
+<refsect3 id="g-test-trap-assert-stderr.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>serrpattern</para></entry>
+<entry role="parameter_description"><para>a glob-style <link linkend="glib-Glob-style-pattern-matching">pattern</link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.16">2.16</link></para></refsect2>
+<refsect2 id="g-test-trap-assert-stderr-unmatched" role="macro" condition="since:2.16">
+<title>g_test_trap_assert_stderr_unmatched()</title>
+<indexterm zone="g-test-trap-assert-stderr-unmatched" role="2.16"><primary sortas="test_trap_assert_stderr_unmatched">g_test_trap_assert_stderr_unmatched</primary></indexterm>
+<programlisting language="C">#define             g_test_trap_assert_stderr_unmatched(serrpattern)</programlisting>
+<para>Assert that the stderr output of the last test subprocess
+does not match <parameter>serrpattern</parameter>
+. See <link linkend="g-test-trap-subprocess"><function>g_test_trap_subprocess()</function></link>.</para>
+<refsect3 id="g-test-trap-assert-stderr-unmatched.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>serrpattern</para></entry>
+<entry role="parameter_description"><para>a glob-style <link linkend="glib-Glob-style-pattern-matching">pattern</link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.16">2.16</link></para></refsect2>
+<refsect2 id="g-test-trap-fork" role="function" condition="deprecated|since:2.16">
+<title>g_test_trap_fork&#160;()</title>
+<indexterm zone="g-test-trap-fork" role="deprecated"><primary sortas="test_trap_fork">g_test_trap_fork</primary></indexterm><indexterm zone="g-test-trap-fork" role="2.16"><primary sortas="test_trap_fork">g_test_trap_fork</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_test_trap_fork (<parameter><link linkend="guint64"><type>guint64</type></link> usec_timeout</parameter>,
+                  <parameter><link linkend="GTestTrapFlags"><type>GTestTrapFlags</type></link> test_trap_flags</parameter>);</programlisting>
+<warning><para><literal>g_test_trap_fork</literal> is deprecated and should not be used in newly-written code.</para> <para>This function is implemented only on Unix platforms,
+and is not always reliable due to problems inherent in
+fork-without-exec. Use <link linkend="g-test-trap-subprocess"><function>g_test_trap_subprocess()</function></link> instead.</para>
+</warning>
+<para>Fork the current test program to execute a test case that might
+not return or that might abort.</para>
+<para>If <parameter>usec_timeout</parameter>
+ is non-0, the forked test case is aborted and
+considered failing if its run time exceeds it.</para>
+<para>The forking behavior can be configured with the <link linkend="GTestTrapFlags"><type>GTestTrapFlags</type></link> flags.</para>
+<para>In the following example, the test code forks, the forked child
+process produces some sample output and exits successfully.
+The forking parent process then asserts successful child program
+termination and validates child program outputs.</para>
+<informalexample><programlisting role="example"><![CDATA[
+  static void
+  test_fork_patterns (void)
+  {
+    if (g_test_trap_fork (0, G_TEST_TRAP_SILENCE_STDOUT | G_TEST_TRAP_SILENCE_STDERR))
+      {
+        g_print ("some stdout text: somagic17\n");
+        g_printerr ("some stderr text: semagic43\n");
+        exit (0); // successful test run
+      }
+    g_test_trap_assert_passed ();
+    g_test_trap_assert_stdout ("*somagic17*");
+    g_test_trap_assert_stderr ("*semagic43*");
+  }
+]]></programlisting></informalexample>
+<para></para>
+<refsect3 id="g-test-trap-fork.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>usec_timeout</para></entry>
+<entry role="parameter_description"><para>Timeout for the forked test in micro seconds.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>test_trap_flags</para></entry>
+<entry role="parameter_description"><para>Flags to modify forking behaviour.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-test-trap-fork.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> for the forked child and <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> for the executing parent process.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.16">2.16</link></para></refsect2>
+<refsect2 id="g-test-rand-bit" role="macro" condition="since:2.16">
+<title>g_test_rand_bit</title>
+<indexterm zone="g-test-rand-bit" role="2.16"><primary sortas="test_rand_bit">g_test_rand_bit</primary></indexterm>
+<programlisting language="C">#define             g_test_rand_bit()</programlisting>
+<para>Get a reproducible random bit (0 or 1), see <link linkend="g-test-rand-int"><function>g_test_rand_int()</function></link>
+for details on test case random numbers.</para>
+<para role="since">Since: <link linkend="api-index-2.16">2.16</link></para></refsect2>
+<refsect2 id="g-test-rand-int" role="function" condition="since:2.16">
+<title>g_test_rand_int&#160;()</title>
+<indexterm zone="g-test-rand-int" role="2.16"><primary sortas="test_rand_int">g_test_rand_int</primary></indexterm>
+<programlisting language="C"><link linkend="gint32"><returnvalue>gint32</returnvalue></link>
+g_test_rand_int (<parameter><type>void</type></parameter>);</programlisting>
+<para>Get a reproducible random integer number.</para>
+<para>The random numbers generated by the g_test_rand_*() family of functions
+change with every new test program start, unless the --seed option is
+given when starting test programs.</para>
+<para>For individual test cases however, the random number generator is
+reseeded, to avoid dependencies between tests and to make --seed
+effective for all test cases.</para>
+<refsect3 id="g-test-rand-int.returns" role="returns">
+<title>Returns</title>
+<para> a random number from the seeded random number generator.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.16">2.16</link></para></refsect2>
+<refsect2 id="g-test-rand-int-range" role="function" condition="since:2.16">
+<title>g_test_rand_int_range&#160;()</title>
+<indexterm zone="g-test-rand-int-range" role="2.16"><primary sortas="test_rand_int_range">g_test_rand_int_range</primary></indexterm>
+<programlisting language="C"><link linkend="gint32"><returnvalue>gint32</returnvalue></link>
+g_test_rand_int_range (<parameter><link linkend="gint32"><type>gint32</type></link> begin</parameter>,
+                       <parameter><link linkend="gint32"><type>gint32</type></link> end</parameter>);</programlisting>
+<para>Get a reproducible random integer number out of a specified range,
+see <link linkend="g-test-rand-int"><function>g_test_rand_int()</function></link> for details on test case random numbers.</para>
+<refsect3 id="g-test-rand-int-range.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>begin</para></entry>
+<entry role="parameter_description"><para>the minimum value returned by this function</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>end</para></entry>
+<entry role="parameter_description"><para>the smallest value not to be returned by this function</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-test-rand-int-range.returns" role="returns">
+<title>Returns</title>
+<para> a number with <parameter>begin</parameter>
+&lt;= number &lt; <parameter>end</parameter>
+.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.16">2.16</link></para></refsect2>
+<refsect2 id="g-test-rand-double" role="function" condition="since:2.16">
+<title>g_test_rand_double&#160;()</title>
+<indexterm zone="g-test-rand-double" role="2.16"><primary sortas="test_rand_double">g_test_rand_double</primary></indexterm>
+<programlisting language="C"><link linkend="double"><returnvalue>double</returnvalue></link>
+g_test_rand_double (<parameter><type>void</type></parameter>);</programlisting>
+<para>Get a reproducible random floating point number,
+see <link linkend="g-test-rand-int"><function>g_test_rand_int()</function></link> for details on test case random numbers.</para>
+<refsect3 id="g-test-rand-double.returns" role="returns">
+<title>Returns</title>
+<para> a random number from the seeded random number generator.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.16">2.16</link></para></refsect2>
+<refsect2 id="g-test-rand-double-range" role="function" condition="since:2.16">
+<title>g_test_rand_double_range&#160;()</title>
+<indexterm zone="g-test-rand-double-range" role="2.16"><primary sortas="test_rand_double_range">g_test_rand_double_range</primary></indexterm>
+<programlisting language="C"><link linkend="double"><returnvalue>double</returnvalue></link>
+g_test_rand_double_range (<parameter><link linkend="double"><type>double</type></link> range_start</parameter>,
+                          <parameter><link linkend="double"><type>double</type></link> range_end</parameter>);</programlisting>
+<para>Get a reproducible random floating pointer number out of a specified range,
+see <link linkend="g-test-rand-int"><function>g_test_rand_int()</function></link> for details on test case random numbers.</para>
+<refsect3 id="g-test-rand-double-range.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>range_start</para></entry>
+<entry role="parameter_description"><para>the minimum value returned by this function</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>range_end</para></entry>
+<entry role="parameter_description"><para>the minimum value not returned by this function</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-test-rand-double-range.returns" role="returns">
+<title>Returns</title>
+<para> a number with <parameter>range_start</parameter>
+&lt;= number &lt; <parameter>range_end</parameter>
+.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.16">2.16</link></para></refsect2>
+<refsect2 id="g-assert" role="macro">
+<title>g_assert()</title>
+<indexterm zone="g-assert"><primary sortas="assert">g_assert</primary></indexterm>
+<programlisting language="C">#define             g_assert(expr)</programlisting>
+<para>Debugging macro to terminate the application if the assertion
+fails. If the assertion fails (i.e. the expression is not true),
+an error message is logged and the application is terminated.</para>
+<para>The macro can be turned off in final releases of code by defining
+<literal>G_DISABLE_ASSERT</literal> when compiling the application, so code must
+not depend on any side effects from <parameter>expr</parameter>
+. Similarly, it must not be used
+in unit tests, otherwise the unit tests will be ineffective if compiled with
+<literal>G_DISABLE_ASSERT</literal>. Use <link linkend="g-assert-true"><function>g_assert_true()</function></link> and related macros in unit tests
+instead.</para>
+<refsect3 id="g-assert.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>expr</para></entry>
+<entry role="parameter_description"><para>the expression to check</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-assert-not-reached" role="macro">
+<title>g_assert_not_reached</title>
+<indexterm zone="g-assert-not-reached"><primary sortas="assert_not_reached">g_assert_not_reached</primary></indexterm>
+<programlisting language="C">#define             g_assert_not_reached()</programlisting>
+<para>Debugging macro to terminate the application if it is ever
+reached. If it is reached, an error message is logged and the
+application is terminated.</para>
+<para>The macro can be turned off in final releases of code by defining
+<literal>G_DISABLE_ASSERT</literal> when compiling the application. Hence, it should not be
+used in unit tests, where assertions should always be effective.</para>
+</refsect2>
+<refsect2 id="g-assert-cmpstr" role="macro" condition="since:2.16">
+<title>g_assert_cmpstr()</title>
+<indexterm zone="g-assert-cmpstr" role="2.16"><primary sortas="assert_cmpstr">g_assert_cmpstr</primary></indexterm>
+<programlisting language="C">#define             g_assert_cmpstr(s1, cmp, s2)</programlisting>
+<para>Debugging macro to compare two strings. If the comparison fails,
+an error message is logged and the application is either terminated
+or the testcase marked as failed.
+The strings are compared using <link linkend="g-strcmp0"><function>g_strcmp0()</function></link>.</para>
+<para>The effect of <literal>g_assert_cmpstr (s1, op, s2)</literal> is
+the same as <literal>g_assert_true (g_strcmp0 (s1, s2) op 0)</literal>.
+The advantage of this macro is that it can produce a message that
+includes the actual values of <parameter>s1</parameter>
+ and <parameter>s2</parameter>
+.</para>
+<informalexample><programlisting role="example"><![CDATA[
+  g_assert_cmpstr (mystring, ==, "fubar");
+]]></programlisting></informalexample>
+<para></para>
+<refsect3 id="g-assert-cmpstr.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>s1</para></entry>
+<entry role="parameter_description"><para>a string (may be <link linkend="NULL:CAPS"><literal>NULL</literal></link>)</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>cmp</para></entry>
+<entry role="parameter_description"><para>The comparison operator to use.
+One of ==, !=, &lt;, &gt;, &lt;=, &gt;=.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>s2</para></entry>
+<entry role="parameter_description"><para>another string (may be <link linkend="NULL:CAPS"><literal>NULL</literal></link>)</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.16">2.16</link></para></refsect2>
+<refsect2 id="g-assert-cmpint" role="macro" condition="since:2.16">
+<title>g_assert_cmpint()</title>
+<indexterm zone="g-assert-cmpint" role="2.16"><primary sortas="assert_cmpint">g_assert_cmpint</primary></indexterm>
+<programlisting language="C">#define             g_assert_cmpint(n1, cmp, n2)</programlisting>
+<para>Debugging macro to compare two integers.</para>
+<para>The effect of <literal>g_assert_cmpint (n1, op, n2)</literal> is
+the same as <literal>g_assert_true (n1 op n2)</literal>. The advantage
+of this macro is that it can produce a message that includes the
+actual values of <parameter>n1</parameter>
+ and <parameter>n2</parameter>
+.</para>
+<refsect3 id="g-assert-cmpint.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>n1</para></entry>
+<entry role="parameter_description"><para>an integer</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>cmp</para></entry>
+<entry role="parameter_description"><para>The comparison operator to use.
+One of ==, !=, &lt;, &gt;, &lt;=, &gt;=.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>n2</para></entry>
+<entry role="parameter_description"><para>another integer</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.16">2.16</link></para></refsect2>
+<refsect2 id="g-assert-cmpuint" role="macro" condition="since:2.16">
+<title>g_assert_cmpuint()</title>
+<indexterm zone="g-assert-cmpuint" role="2.16"><primary sortas="assert_cmpuint">g_assert_cmpuint</primary></indexterm>
+<programlisting language="C">#define             g_assert_cmpuint(n1, cmp, n2)</programlisting>
+<para>Debugging macro to compare two unsigned integers.</para>
+<para>The effect of <literal>g_assert_cmpuint (n1, op, n2)</literal> is
+the same as <literal>g_assert_true (n1 op n2)</literal>. The advantage
+of this macro is that it can produce a message that includes the
+actual values of <parameter>n1</parameter>
+ and <parameter>n2</parameter>
+.</para>
+<refsect3 id="g-assert-cmpuint.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>n1</para></entry>
+<entry role="parameter_description"><para>an unsigned integer</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>cmp</para></entry>
+<entry role="parameter_description"><para>The comparison operator to use.
+One of ==, !=, &lt;, &gt;, &lt;=, &gt;=.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>n2</para></entry>
+<entry role="parameter_description"><para>another unsigned integer</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.16">2.16</link></para></refsect2>
+<refsect2 id="g-assert-cmphex" role="macro" condition="since:2.16">
+<title>g_assert_cmphex()</title>
+<indexterm zone="g-assert-cmphex" role="2.16"><primary sortas="assert_cmphex">g_assert_cmphex</primary></indexterm>
+<programlisting language="C">#define             g_assert_cmphex(n1, cmp, n2)</programlisting>
+<para>Debugging macro to compare to unsigned integers.</para>
+<para>This is a variant of <link linkend="g-assert-cmpuint"><function>g_assert_cmpuint()</function></link> that displays the numbers
+in hexadecimal notation in the message.</para>
+<refsect3 id="g-assert-cmphex.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>n1</para></entry>
+<entry role="parameter_description"><para>an unsigned integer</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>cmp</para></entry>
+<entry role="parameter_description"><para>The comparison operator to use.
+One of ==, !=, &lt;, &gt;, &lt;=, &gt;=.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>n2</para></entry>
+<entry role="parameter_description"><para>another unsigned integer</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.16">2.16</link></para></refsect2>
+<refsect2 id="g-assert-cmpfloat" role="macro" condition="since:2.16">
+<title>g_assert_cmpfloat()</title>
+<indexterm zone="g-assert-cmpfloat" role="2.16"><primary sortas="assert_cmpfloat">g_assert_cmpfloat</primary></indexterm>
+<programlisting language="C">#define             g_assert_cmpfloat(n1,cmp,n2)</programlisting>
+<para>Debugging macro to compare two floating point numbers.</para>
+<para>The effect of <literal>g_assert_cmpfloat (n1, op, n2)</literal> is
+the same as <literal>g_assert_true (n1 op n2)</literal>. The advantage
+of this macro is that it can produce a message that includes the
+actual values of <parameter>n1</parameter>
+ and <parameter>n2</parameter>
+.</para>
+<refsect3 id="g-assert-cmpfloat.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>n1</para></entry>
+<entry role="parameter_description"><para>an floating point number</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>cmp</para></entry>
+<entry role="parameter_description"><para>The comparison operator to use.
+One of ==, !=, &lt;, &gt;, &lt;=, &gt;=.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>n2</para></entry>
+<entry role="parameter_description"><para>another floating point number</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.16">2.16</link></para></refsect2>
+<refsect2 id="g-assert-cmpfloat-with-epsilon" role="macro" condition="since:2.58">
+<title>g_assert_cmpfloat_with_epsilon()</title>
+<indexterm zone="g-assert-cmpfloat-with-epsilon" role="2.58"><primary sortas="assert_cmpfloat_with_epsilon">g_assert_cmpfloat_with_epsilon</primary></indexterm>
+<programlisting language="C">#define             g_assert_cmpfloat_with_epsilon(n1,n2,epsilon)</programlisting>
+<para>Debugging macro to compare two floating point numbers within an epsilon.</para>
+<para>The effect of <literal>g_assert_cmpfloat_with_epsilon (n1, n2, epsilon)</literal> is
+the same as <literal>g_assert_true (abs (n1 - n2) &amp;lt; epsilon)</literal>. The advantage
+of this macro is that it can produce a message that includes the
+actual values of <parameter>n1</parameter>
+ and <parameter>n2</parameter>
+.</para>
+<refsect3 id="g-assert-cmpfloat-with-epsilon.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>n1</para></entry>
+<entry role="parameter_description"><para>an floating point number</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>n2</para></entry>
+<entry role="parameter_description"><para>another floating point number</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>epsilon</para></entry>
+<entry role="parameter_description"><para>a numeric value that expresses the expected tolerance
+between <parameter>n1</parameter>
+and <parameter>n2</parameter>
+</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.58">2.58</link></para></refsect2>
+<refsect2 id="g-assert-cmpmem" role="macro" condition="since:2.46">
+<title>g_assert_cmpmem()</title>
+<indexterm zone="g-assert-cmpmem" role="2.46"><primary sortas="assert_cmpmem">g_assert_cmpmem</primary></indexterm>
+<programlisting language="C">#define             g_assert_cmpmem(m1, l1, m2, l2)</programlisting>
+<para>Debugging macro to compare memory regions. If the comparison fails,
+an error message is logged and the application is either terminated
+or the testcase marked as failed.</para>
+<para>The effect of <literal>g_assert_cmpmem (m1, l1, m2, l2)</literal> is
+the same as <literal>g_assert_true (l1 == l2 &amp;amp;&amp;amp; memcmp (m1, m2, l1) == 0)</literal>.
+The advantage of this macro is that it can produce a message that
+includes the actual values of <parameter>l1</parameter>
+ and <parameter>l2</parameter>
+.</para>
+<informalexample><programlisting role="example"><![CDATA[
+  g_assert_cmpmem (buf->data, buf->len, expected, sizeof (expected));
+]]></programlisting></informalexample>
+<para></para>
+<refsect3 id="g-assert-cmpmem.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>m1</para></entry>
+<entry role="parameter_description"><para>pointer to a buffer</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>l1</para></entry>
+<entry role="parameter_description"><para>length of <parameter>m1</parameter>
+</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>m2</para></entry>
+<entry role="parameter_description"><para>pointer to another buffer</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>l2</para></entry>
+<entry role="parameter_description"><para>length of <parameter>m2</parameter>
+</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.46">2.46</link></para></refsect2>
+<refsect2 id="g-assert-no-error" role="macro" condition="since:2.20">
+<title>g_assert_no_error()</title>
+<indexterm zone="g-assert-no-error" role="2.20"><primary sortas="assert_no_error">g_assert_no_error</primary></indexterm>
+<programlisting language="C">#define             g_assert_no_error(err)</programlisting>
+<para>Debugging macro to check that a <link linkend="GError"><type>GError</type></link> is not set.</para>
+<para>The effect of <literal>g_assert_no_error (err)</literal> is
+the same as <literal>g_assert_true (err == NULL)</literal>. The advantage
+of this macro is that it can produce a message that includes
+the error message and code.</para>
+<refsect3 id="g-assert-no-error.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>err</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GError"><type>GError</type></link>, possibly <link linkend="NULL:CAPS"><literal>NULL</literal></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.20">2.20</link></para></refsect2>
+<refsect2 id="g-assert-error" role="macro" condition="since:2.20">
+<title>g_assert_error()</title>
+<indexterm zone="g-assert-error" role="2.20"><primary sortas="assert_error">g_assert_error</primary></indexterm>
+<programlisting language="C">#define             g_assert_error(err, dom, c)</programlisting>
+<para>Debugging macro to check that a method has returned
+the correct <link linkend="GError"><type>GError</type></link>.</para>
+<para>The effect of <literal>g_assert_error (err, dom, c)</literal> is
+the same as <literal>g_assert_true (err != NULL &amp;amp;&amp;amp; err-&gt;domain
+== dom &amp;amp;&amp;amp; err-&gt;code == c)</literal>. The advantage of this
+macro is that it can produce a message that includes the incorrect
+error message and code.</para>
+<para>This can only be used to test for a specific error. If you want to
+test that <parameter>err</parameter>
+ is set, but don't care what it's set to, just use
+<literal>g_assert (err != NULL)</literal></para>
+<refsect3 id="g-assert-error.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>err</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GError"><type>GError</type></link>, possibly <link linkend="NULL:CAPS"><literal>NULL</literal></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>dom</para></entry>
+<entry role="parameter_description"><para>the expected error domain (a <link linkend="GQuark"><type>GQuark</type></link>)</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>c</para></entry>
+<entry role="parameter_description"><para>the expected error code</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.20">2.20</link></para></refsect2>
+<refsect2 id="g-assert-true" role="macro" condition="since:2.38">
+<title>g_assert_true()</title>
+<indexterm zone="g-assert-true" role="2.38"><primary sortas="assert_true">g_assert_true</primary></indexterm>
+<programlisting language="C">#define             g_assert_true(expr)</programlisting>
+<para>Debugging macro to check that an expression is true.</para>
+<para>If the assertion fails (i.e. the expression is not true),
+an error message is logged and the application is either
+terminated or the testcase marked as failed.</para>
+<para>Note that unlike <link linkend="g-assert"><function>g_assert()</function></link>, this macro is unaffected by whether
+<literal>G_DISABLE_ASSERT</literal> is defined. Hence it should only be used in tests and,
+conversely, <link linkend="g-assert"><function>g_assert()</function></link> should not be used in tests.</para>
+<para>See <link linkend="g-test-set-nonfatal-assertions"><function>g_test_set_nonfatal_assertions()</function></link>.</para>
+<refsect3 id="g-assert-true.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>expr</para></entry>
+<entry role="parameter_description"><para>the expression to check</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.38">2.38</link></para></refsect2>
+<refsect2 id="g-assert-false" role="macro" condition="since:2.38">
+<title>g_assert_false()</title>
+<indexterm zone="g-assert-false" role="2.38"><primary sortas="assert_false">g_assert_false</primary></indexterm>
+<programlisting language="C">#define             g_assert_false(expr)</programlisting>
+<para>Debugging macro to check an expression is false.</para>
+<para>If the assertion fails (i.e. the expression is not false),
+an error message is logged and the application is either
+terminated or the testcase marked as failed.</para>
+<para>Note that unlike <link linkend="g-assert"><function>g_assert()</function></link>, this macro is unaffected by whether
+<literal>G_DISABLE_ASSERT</literal> is defined. Hence it should only be used in tests and,
+conversely, <link linkend="g-assert"><function>g_assert()</function></link> should not be used in tests.</para>
+<para>See <link linkend="g-test-set-nonfatal-assertions"><function>g_test_set_nonfatal_assertions()</function></link>.</para>
+<refsect3 id="g-assert-false.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>expr</para></entry>
+<entry role="parameter_description"><para>the expression to check</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.38">2.38</link></para></refsect2>
+<refsect2 id="g-assert-null" role="macro" condition="since:2.38">
+<title>g_assert_null()</title>
+<indexterm zone="g-assert-null" role="2.38"><primary sortas="assert_null">g_assert_null</primary></indexterm>
+<programlisting language="C">#define             g_assert_null(expr)</programlisting>
+<para>Debugging macro to check an expression is <link linkend="NULL:CAPS"><literal>NULL</literal></link>.</para>
+<para>If the assertion fails (i.e. the expression is not <link linkend="NULL:CAPS"><literal>NULL</literal></link>),
+an error message is logged and the application is either
+terminated or the testcase marked as failed.</para>
+<para>Note that unlike <link linkend="g-assert"><function>g_assert()</function></link>, this macro is unaffected by whether
+<literal>G_DISABLE_ASSERT</literal> is defined. Hence it should only be used in tests and,
+conversely, <link linkend="g-assert"><function>g_assert()</function></link> should not be used in tests.</para>
+<para>See <link linkend="g-test-set-nonfatal-assertions"><function>g_test_set_nonfatal_assertions()</function></link>.</para>
+<refsect3 id="g-assert-null.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>expr</para></entry>
+<entry role="parameter_description"><para>the expression to check</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.38">2.38</link></para></refsect2>
+<refsect2 id="g-assert-nonnull" role="macro" condition="since:2.40">
+<title>g_assert_nonnull()</title>
+<indexterm zone="g-assert-nonnull" role="2.40"><primary sortas="assert_nonnull">g_assert_nonnull</primary></indexterm>
+<programlisting language="C">#define             g_assert_nonnull(expr)</programlisting>
+<para>Debugging macro to check an expression is not <link linkend="NULL:CAPS"><literal>NULL</literal></link>.</para>
+<para>If the assertion fails (i.e. the expression is <link linkend="NULL:CAPS"><literal>NULL</literal></link>),
+an error message is logged and the application is either
+terminated or the testcase marked as failed.</para>
+<para>Note that unlike <link linkend="g-assert"><function>g_assert()</function></link>, this macro is unaffected by whether
+<literal>G_DISABLE_ASSERT</literal> is defined. Hence it should only be used in tests and,
+conversely, <link linkend="g-assert"><function>g_assert()</function></link> should not be used in tests.</para>
+<para>See <link linkend="g-test-set-nonfatal-assertions"><function>g_test_set_nonfatal_assertions()</function></link>.</para>
+<refsect3 id="g-assert-nonnull.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>expr</para></entry>
+<entry role="parameter_description"><para>the expression to check</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.40">2.40</link></para></refsect2>
+<refsect2 id="g-test-set-nonfatal-assertions" role="function" condition="since:2.38">
+<title>g_test_set_nonfatal_assertions&#160;()</title>
+<indexterm zone="g-test-set-nonfatal-assertions" role="2.38"><primary sortas="test_set_nonfatal_assertions">g_test_set_nonfatal_assertions</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_test_set_nonfatal_assertions (<parameter><type>void</type></parameter>);</programlisting>
+<para>Changes the behaviour of <link linkend="g-assert-cmpstr"><function>g_assert_cmpstr()</function></link>, <link linkend="g-assert-cmpint"><function>g_assert_cmpint()</function></link>,
+<link linkend="g-assert-cmpuint"><function>g_assert_cmpuint()</function></link>, <link linkend="g-assert-cmphex"><function>g_assert_cmphex()</function></link>, <link linkend="g-assert-cmpfloat"><function>g_assert_cmpfloat()</function></link>,
+<link linkend="g-assert-true"><function>g_assert_true()</function></link>, <link linkend="g-assert-false"><function>g_assert_false()</function></link>, <link linkend="g-assert-null"><function>g_assert_null()</function></link>, <link linkend="g-assert-no-error"><function>g_assert_no_error()</function></link>,
+<link linkend="g-assert-error"><function>g_assert_error()</function></link>, <link linkend="g-test-assert-expected-messages"><function>g_test_assert_expected_messages()</function></link> and the various
+g_test_trap_assert_*() macros to not abort to program, but instead
+call <link linkend="g-test-fail"><function>g_test_fail()</function></link> and continue. (This also changes the behavior of
+<link linkend="g-test-fail"><function>g_test_fail()</function></link> so that it will not cause the test program to abort
+after completing the failed test.)</para>
+<para>Note that the <link linkend="g-assert-not-reached"><function>g_assert_not_reached()</function></link> and <link linkend="g-assert"><function>g_assert()</function></link> are not
+affected by this.</para>
+<para>This function can only be called after <link linkend="g-test-init"><function>g_test_init()</function></link>.</para>
+<para role="since">Since: <link linkend="api-index-2.38">2.38</link></para></refsect2>
+<refsect2 id="GTestFixtureFunc" role="function" condition="since:2.28">
+<title>GTestFixtureFunc&#160;()</title>
+<indexterm zone="GTestFixtureFunc" role="2.28"><primary sortas="TestFixtureFunc">GTestFixtureFunc</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+<phrase role="c_punctuation">(</phrase>*GTestFixtureFunc<phrase role="c_punctuation">)</phrase> (<parameter><link linkend="gpointer"><type>gpointer</type></link> fixture</parameter>,
+                     <parameter><link linkend="gconstpointer"><type>gconstpointer</type></link> user_data</parameter>);</programlisting>
+<para>The type used for functions that operate on test fixtures.  This is
+used for the fixture setup and teardown functions as well as for the
+testcases themselves.</para>
+<para><parameter>user_data</parameter>
+ is a pointer to the data that was given when registering
+the test case.</para>
+<para><parameter>fixture</parameter>
+ will be a pointer to the area of memory allocated by the
+test framework, of the size requested.  If the requested size was
+zero then <parameter>fixture</parameter>
+ will be equal to <parameter>user_data</parameter>
+.</para>
+<refsect3 id="GTestFixtureFunc.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>fixture</para></entry>
+<entry role="parameter_description"><para>the test fixture. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>not nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>user_data</para></entry>
+<entry role="parameter_description"><para>the data provided when registering the test</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.28">2.28</link></para></refsect2>
+<refsect2 id="g-test-create-case" role="function" condition="since:2.16">
+<title>g_test_create_case&#160;()</title>
+<indexterm zone="g-test-create-case" role="2.16"><primary sortas="test_create_case">g_test_create_case</primary></indexterm>
+<programlisting language="C"><link linkend="GTestCase"><returnvalue>GTestCase</returnvalue></link>&#160;*
+g_test_create_case (<parameter>const <link linkend="char"><type>char</type></link> *test_name</parameter>,
+                    <parameter><link linkend="gsize"><type>gsize</type></link> data_size</parameter>,
+                    <parameter><link linkend="gconstpointer"><type>gconstpointer</type></link> test_data</parameter>,
+                    <parameter><link linkend="GTestFixtureFunc"><type>GTestFixtureFunc</type></link> data_setup</parameter>,
+                    <parameter><link linkend="GTestFixtureFunc"><type>GTestFixtureFunc</type></link> data_test</parameter>,
+                    <parameter><link linkend="GTestFixtureFunc"><type>GTestFixtureFunc</type></link> data_teardown</parameter>);</programlisting>
+<para>Create a new <link linkend="GTestCase"><type>GTestCase</type></link>, named <parameter>test_name</parameter>
+, this API is fairly
+low level, calling <link linkend="g-test-add"><function>g_test_add()</function></link> or <link linkend="g-test-add-func"><function>g_test_add_func()</function></link> is preferable.
+When this test is executed, a fixture structure of size <parameter>data_size</parameter>
+
+will be automatically allocated and filled with zeros. Then <parameter>data_setup</parameter>
+ is
+called to initialize the fixture. After fixture setup, the actual test
+function <parameter>data_test</parameter>
+ is called. Once the test run completes, the
+fixture structure is torn down by calling <parameter>data_teardown</parameter>
+ and
+after that the memory is automatically released by the test framework.</para>
+<para>Splitting up a test run into fixture setup, test function and
+fixture teardown is most useful if the same fixture is used for
+multiple tests. In this cases, <link linkend="g-test-create-case"><function>g_test_create_case()</function></link> will be
+called with the same fixture, but varying <parameter>test_name</parameter>
+ and
+<parameter>data_test</parameter>
+ arguments.</para>
+<refsect3 id="g-test-create-case.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>test_name</para></entry>
+<entry role="parameter_description"><para>the name for the test case</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>data_size</para></entry>
+<entry role="parameter_description"><para>the size of the fixture data structure</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>test_data</para></entry>
+<entry role="parameter_description"><para>test data argument for the test functions</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>data_setup</para></entry>
+<entry role="parameter_description"><para>the function to set up the fixture data. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>scope async</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>data_test</para></entry>
+<entry role="parameter_description"><para>the actual test function. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>scope async</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>data_teardown</para></entry>
+<entry role="parameter_description"><para>the function to teardown the fixture data. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>scope async</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-test-create-case.returns" role="returns">
+<title>Returns</title>
+<para> a newly allocated <link linkend="GTestCase"><type>GTestCase</type></link>.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.16">2.16</link></para></refsect2>
+<refsect2 id="g-test-create-suite" role="function" condition="since:2.16">
+<title>g_test_create_suite&#160;()</title>
+<indexterm zone="g-test-create-suite" role="2.16"><primary sortas="test_create_suite">g_test_create_suite</primary></indexterm>
+<programlisting language="C"><link linkend="GTestSuite"><returnvalue>GTestSuite</returnvalue></link>&#160;*
+g_test_create_suite (<parameter>const <link linkend="char"><type>char</type></link> *suite_name</parameter>);</programlisting>
+<para>Create a new test suite with the name <parameter>suite_name</parameter>
+.</para>
+<refsect3 id="g-test-create-suite.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>suite_name</para></entry>
+<entry role="parameter_description"><para>a name for the suite</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-test-create-suite.returns" role="returns">
+<title>Returns</title>
+<para> A newly allocated <link linkend="GTestSuite"><type>GTestSuite</type></link> instance.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.16">2.16</link></para></refsect2>
+<refsect2 id="g-test-get-root" role="function" condition="since:2.16">
+<title>g_test_get_root&#160;()</title>
+<indexterm zone="g-test-get-root" role="2.16"><primary sortas="test_get_root">g_test_get_root</primary></indexterm>
+<programlisting language="C"><link linkend="GTestSuite"><returnvalue>GTestSuite</returnvalue></link>&#160;*
+g_test_get_root (<parameter><type>void</type></parameter>);</programlisting>
+<para>Get the toplevel test suite for the test path API.</para>
+<refsect3 id="g-test-get-root.returns" role="returns">
+<title>Returns</title>
+<para> the toplevel <link linkend="GTestSuite"><type>GTestSuite</type></link></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.16">2.16</link></para></refsect2>
+<refsect2 id="g-test-suite-add" role="function" condition="since:2.16">
+<title>g_test_suite_add&#160;()</title>
+<indexterm zone="g-test-suite-add" role="2.16"><primary sortas="test_suite_add">g_test_suite_add</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_test_suite_add (<parameter><link linkend="GTestSuite"><type>GTestSuite</type></link> *suite</parameter>,
+                  <parameter><link linkend="GTestCase"><type>GTestCase</type></link> *test_case</parameter>);</programlisting>
+<para>Adds <parameter>test_case</parameter>
+ to <parameter>suite</parameter>
+.</para>
+<refsect3 id="g-test-suite-add.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>suite</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GTestSuite"><type>GTestSuite</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>test_case</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GTestCase"><type>GTestCase</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.16">2.16</link></para></refsect2>
+<refsect2 id="g-test-suite-add-suite" role="function" condition="since:2.16">
+<title>g_test_suite_add_suite&#160;()</title>
+<indexterm zone="g-test-suite-add-suite" role="2.16"><primary sortas="test_suite_add_suite">g_test_suite_add_suite</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_test_suite_add_suite (<parameter><link linkend="GTestSuite"><type>GTestSuite</type></link> *suite</parameter>,
+                        <parameter><link linkend="GTestSuite"><type>GTestSuite</type></link> *nestedsuite</parameter>);</programlisting>
+<para>Adds <parameter>nestedsuite</parameter>
+ to <parameter>suite</parameter>
+.</para>
+<refsect3 id="g-test-suite-add-suite.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>suite</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GTestSuite"><type>GTestSuite</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>nestedsuite</para></entry>
+<entry role="parameter_description"><para>another <link linkend="GTestSuite"><type>GTestSuite</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.16">2.16</link></para></refsect2>
+<refsect2 id="g-test-run-suite" role="function" condition="since:2.16">
+<title>g_test_run_suite&#160;()</title>
+<indexterm zone="g-test-run-suite" role="2.16"><primary sortas="test_run_suite">g_test_run_suite</primary></indexterm>
+<programlisting language="C"><link linkend="int"><returnvalue>int</returnvalue></link>
+g_test_run_suite (<parameter><link linkend="GTestSuite"><type>GTestSuite</type></link> *suite</parameter>);</programlisting>
+<para>Execute the tests within <parameter>suite</parameter>
+ and all nested <link linkend="GTestSuites"><type>GTestSuites</type></link>.
+The test suites to be executed are filtered according to
+test path arguments (<literal>-p testpath</literal> and <literal>-s testpath</literal>) as parsed by
+<link linkend="g-test-init"><function>g_test_init()</function></link>. See the <link linkend="g-test-run"><function>g_test_run()</function></link> documentation for more
+information on the order that tests are run in.</para>
+<para>g_test_run_suite() or <link linkend="g-test-run"><function>g_test_run()</function></link> may only be called once
+in a program.</para>
+<refsect3 id="g-test-run-suite.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>suite</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GTestSuite"><type>GTestSuite</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-test-run-suite.returns" role="returns">
+<title>Returns</title>
+<para> 0 on success</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.16">2.16</link></para></refsect2>
+
+</refsect1>
+<refsect1 id="glib-Testing.other_details" role="details">
+<title role="details.title">Types and Values</title>
+<refsect2 id="GTestFileType" role="enum" condition="since:2.38">
+<title>enum GTestFileType</title>
+<indexterm zone="GTestFileType" role="2.38"><primary sortas="TestFileType">GTestFileType</primary></indexterm>
+<para>The type of file to return the filename for, when used with
+<link linkend="g-test-build-filename"><function>g_test_build_filename()</function></link>.</para>
+<para>These two options correspond rather directly to the 'dist' and
+'built' terminology that automake uses and are explicitly used to
+distinguish between the 'srcdir' and 'builddir' being separate.  All
+files in your project should either be dist (in the
+<literal>EXTRA_DIST</literal> or <literal>dist_schema_DATA</literal>
+sense, in which case they will always be in the srcdir) or built (in
+the <literal>BUILT_SOURCES</literal> sense, in which case they will
+always be in the builddir).</para>
+<para>Note: as a general rule of automake, files that are generated only as
+part of the build-from-git process (but then are distributed with the
+tarball) always go in srcdir (even if doing a srcdir != builddir
+build from git) and are considered as distributed files.</para>
+<refsect3 id="GTestFileType.members" role="enum_members">
+<title>Members</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="enum_members_name" colwidth="300px"/>
+<colspec colname="enum_members_description"/>
+<colspec colname="enum_members_annotations" colwidth="200px"/>
+<tbody>
+<row role="constant"><entry role="enum_member_name"><para id="G-TEST-DIST:CAPS">G_TEST_DIST</para></entry>
+<entry role="enum_member_description"><para>a file that was included in the distribution tarball</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-TEST-BUILT:CAPS">G_TEST_BUILT</para></entry>
+<entry role="enum_member_description"><para>a file that was built on the compiling machine</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.38">2.38</link></para></refsect2>
+<refsect2 id="GTestTrapFlags" role="enum" condition="deprecated">
+<title>enum GTestTrapFlags</title>
+<indexterm zone="GTestTrapFlags" role="deprecated"><primary sortas="TestTrapFlags">GTestTrapFlags</primary></indexterm>
+<warning><para><literal>GTestTrapFlags</literal> is deprecated and should not be used in newly-written code.</para> <para><link linkend="GTestTrapFlags"><type>GTestTrapFlags</type></link> is used only with <link linkend="g-test-trap-fork"><function>g_test_trap_fork()</function></link>,
+which is deprecated. <link linkend="g-test-trap-subprocess"><function>g_test_trap_subprocess()</function></link> uses
+<link linkend="GTestSubprocessFlags"><type>GTestSubprocessFlags</type></link>.</para>
+</warning>
+<para>Test traps are guards around forked tests.
+These flags determine what traps to set.</para>
+<refsect3 id="GTestTrapFlags.members" role="enum_members">
+<title>Members</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="enum_members_name" colwidth="300px"/>
+<colspec colname="enum_members_description"/>
+<colspec colname="enum_members_annotations" colwidth="200px"/>
+<tbody>
+<row role="constant"><entry role="enum_member_name"><para id="G-TEST-TRAP-SILENCE-STDOUT:CAPS">G_TEST_TRAP_SILENCE_STDOUT</para></entry>
+<entry role="enum_member_description"><para>Redirect stdout of the test child to
+    <literal>/dev/null</literal> so it cannot be observed on the console during test
+    runs. The actual output is still captured though to allow later
+    tests with <link linkend="g-test-trap-assert-stdout"><function>g_test_trap_assert_stdout()</function></link>.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-TEST-TRAP-SILENCE-STDERR:CAPS">G_TEST_TRAP_SILENCE_STDERR</para></entry>
+<entry role="enum_member_description"><para>Redirect stderr of the test child to
+    <literal>/dev/null</literal> so it cannot be observed on the console during test
+    runs. The actual output is still captured though to allow later
+    tests with <link linkend="g-test-trap-assert-stderr"><function>g_test_trap_assert_stderr()</function></link>.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-TEST-TRAP-INHERIT-STDIN:CAPS">G_TEST_TRAP_INHERIT_STDIN</para></entry>
+<entry role="enum_member_description"><para>If this flag is given, stdin of the
+    child process is shared with stdin of its parent process.
+    It is redirected to <literal>/dev/null</literal> otherwise.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="GTestSubprocessFlags" role="enum">
+<title>enum GTestSubprocessFlags</title>
+<indexterm zone="GTestSubprocessFlags"><primary sortas="TestSubprocessFlags">GTestSubprocessFlags</primary></indexterm>
+<para>Flags to pass to <link linkend="g-test-trap-subprocess"><function>g_test_trap_subprocess()</function></link> to control input and output.</para>
+<para>Note that in contrast with <link linkend="g-test-trap-fork"><function>g_test_trap_fork()</function></link>, the default is to
+not show stdout and stderr.</para>
+<refsect3 id="GTestSubprocessFlags.members" role="enum_members">
+<title>Members</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="enum_members_name" colwidth="300px"/>
+<colspec colname="enum_members_description"/>
+<colspec colname="enum_members_annotations" colwidth="200px"/>
+<tbody>
+<row role="constant"><entry role="enum_member_name"><para id="G-TEST-SUBPROCESS-INHERIT-STDIN:CAPS">G_TEST_SUBPROCESS_INHERIT_STDIN</para></entry>
+<entry role="enum_member_description"><para>If this flag is given, the child
+    process will inherit the parent's stdin. Otherwise, the child's
+    stdin is redirected to <literal>/dev/null</literal>.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-TEST-SUBPROCESS-INHERIT-STDOUT:CAPS">G_TEST_SUBPROCESS_INHERIT_STDOUT</para></entry>
+<entry role="enum_member_description"><para>If this flag is given, the child
+    process will inherit the parent's stdout. Otherwise, the child's
+    stdout will not be visible, but it will be captured to allow
+    later tests with <link linkend="g-test-trap-assert-stdout"><function>g_test_trap_assert_stdout()</function></link>.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-TEST-SUBPROCESS-INHERIT-STDERR:CAPS">G_TEST_SUBPROCESS_INHERIT_STDERR</para></entry>
+<entry role="enum_member_description"><para>If this flag is given, the child
+    process will inherit the parent's stderr. Otherwise, the child's
+    stderr will not be visible, but it will be captured to allow
+    later tests with <link linkend="g-test-trap-assert-stderr"><function>g_test_trap_assert_stderr()</function></link>.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="GTestCase" role="typedef">
+<title>GTestCase</title>
+<indexterm zone="GTestCase"><primary sortas="TestCase">GTestCase</primary></indexterm>
+<programlisting language="C">typedef struct GTestCase  GTestCase;
+</programlisting>
+<para>An opaque structure representing a test case.</para>
+</refsect2>
+<refsect2 id="GTestSuite" role="typedef">
+<title>GTestSuite</title>
+<indexterm zone="GTestSuite"><primary sortas="TestSuite">GTestSuite</primary></indexterm>
+<programlisting language="C">typedef struct GTestSuite GTestSuite;
+</programlisting>
+<para>An opaque structure representing a test suite.</para>
+</refsect2>
+
+</refsect1>
+<refsect1 id="glib-Testing.see-also">
+<title>See Also</title>
+<para><link linkend="gtester">gtester</link>, <link linkend="gtester-report">gtester-report</link></para>
+
+</refsect1>
+
+</refentry>

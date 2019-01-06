@@ -1,0 +1,105 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC '-//OASIS//DTD DocBook XML V4.5//EN'
+                      'http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd' [
+<!ENTITY % local.common.attrib "xmlns:xi  CDATA  #FIXED 'http://www.w3.org/2003/XInclude'">
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="glib-GUuid">
+<refmeta>
+<refentrytitle role="top_of_page" id="glib-GUuid.top_of_page">GUuid</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>GLIB Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>GUuid</refname>
+<refpurpose>a universally unique identifier</refpurpose>
+</refnamediv>
+
+<refsect1 id="glib-GUuid.functions" role="functions_proto">
+<title role="functions_proto.title">Functions</title>
+<informaltable pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="functions_return" colwidth="150px"/>
+<colspec colname="functions_name"/>
+<tbody>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-uuid-string-is-valid">g_uuid_string_is_valid</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-uuid-string-random">g_uuid_string_random</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+
+<refsect1 id="glib-GUuid.includes"><title>Includes</title><synopsis>#include &lt;glib.h&gt;
+#include &lt;glib/gi18n.h&gt;
+</synopsis></refsect1>
+
+<refsect1 id="glib-GUuid.description" role="desc">
+<title role="desc.title">Description</title>
+<para>A UUID, or Universally unique identifier, is intended to uniquely
+identify information in a distributed environment. For the
+definition of UUID, see <ulink url="https://tools.ietf.org/html/rfc4122.html">RFC 4122</ulink>.</para>
+<para>The creation of UUIDs does not require a centralized authority.</para>
+<para>UUIDs are of relatively small size (128 bits, or 16 bytes). The
+common string representation (ex:
+1d6c0810-2bd6-45f3-9890-0268422a6f14) needs 37 bytes.</para>
+<para>The UUID specification defines 5 versions, and calling
+<link linkend="g-uuid-string-random"><function>g_uuid_string_random()</function></link> will generate a unique (or rather random)
+UUID of the most common version, version 4.</para>
+
+</refsect1>
+<refsect1 id="glib-GUuid.functions_details" role="details">
+<title role="details.title">Functions</title>
+<refsect2 id="g-uuid-string-is-valid" role="function" condition="since:2.52">
+<title>g_uuid_string_is_valid&#160;()</title>
+<indexterm zone="g-uuid-string-is-valid" role="2.52"><primary sortas="uuid_string_is_valid">g_uuid_string_is_valid</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_uuid_string_is_valid (<parameter>const <link linkend="gchar"><type>gchar</type></link> *str</parameter>);</programlisting>
+<para>Parses the string <parameter>str</parameter>
+ and verify if it is a UUID.</para>
+<para>The function accepts the following syntax:</para>
+<itemizedlist>
+<listitem>
+<para>simple forms (e.g. <literal>f81d4fae-7dec-11d0-a765-00a0c91e6bf6</literal>)</para>
+</listitem>
+</itemizedlist>
+<para>Note that hyphens are required within the UUID string itself,
+as per the aforementioned RFC.</para>
+<refsect3 id="g-uuid-string-is-valid.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>str</para></entry>
+<entry role="parameter_description"><para>a string representing a UUID</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-uuid-string-is-valid.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if <parameter>str</parameter>
+is a valid UUID, <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> otherwise.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.52">2.52</link></para></refsect2>
+<refsect2 id="g-uuid-string-random" role="function" condition="since:2.52">
+<title>g_uuid_string_random&#160;()</title>
+<indexterm zone="g-uuid-string-random" role="2.52"><primary sortas="uuid_string_random">g_uuid_string_random</primary></indexterm>
+<programlisting language="C"><link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+g_uuid_string_random (<parameter><type>void</type></parameter>);</programlisting>
+<para>Generates a random UUID (RFC 4122 version 4) as a string.</para>
+<refsect3 id="g-uuid-string-random.returns" role="returns">
+<title>Returns</title>
+<para>A string that should be freed with <link linkend="g-free"><function>g_free()</function></link>. </para>
+<para><emphasis role="annotation">[<acronym>transfer full</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.52">2.52</link></para></refsect2>
+
+</refsect1>
+<refsect1 id="glib-GUuid.other_details" role="details">
+<title role="details.title">Types and Values</title>
+
+</refsect1>
+
+</refentry>

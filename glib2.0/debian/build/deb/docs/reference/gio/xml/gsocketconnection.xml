@@ -1,0 +1,456 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC '-//OASIS//DTD DocBook XML V4.5//EN'
+                      'http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd' [
+<!ENTITY % local.common.attrib "xmlns:xi  CDATA  #FIXED 'http://www.w3.org/2003/XInclude'">
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="GSocketConnection">
+<refmeta>
+<refentrytitle role="top_of_page" id="GSocketConnection.top_of_page">GSocketConnection</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>GIO Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>GSocketConnection</refname>
+<refpurpose>A socket connection</refpurpose>
+</refnamediv>
+
+<refsect1 id="GSocketConnection.functions" role="functions_proto">
+<title role="functions_proto.title">Functions</title>
+<informaltable pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="functions_return" colwidth="150px"/>
+<colspec colname="functions_name"/>
+<tbody>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-socket-connection-connect">g_socket_connection_connect</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-socket-connection-connect-async">g_socket_connection_connect_async</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-socket-connection-connect-finish">g_socket_connection_connect_finish</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-socket-connection-is-connected">g_socket_connection_is_connected</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GSocketAddress"><returnvalue>GSocketAddress</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-socket-connection-get-local-address">g_socket_connection_get_local_address</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GSocketAddress"><returnvalue>GSocketAddress</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-socket-connection-get-remote-address">g_socket_connection_get_remote_address</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GSocket"><returnvalue>GSocket</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-socket-connection-get-socket">g_socket_connection_get_socket</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+<row><entry role="function_type"><link linkend="GSocketConnection"><returnvalue>GSocketConnection</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-socket-connection-factory-create-connection">g_socket_connection_factory_create_connection</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GType"><returnvalue>GType</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-socket-connection-factory-lookup-type">g_socket_connection_factory_lookup_type</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-socket-connection-factory-register-type">g_socket_connection_factory_register_type</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GSocketConnection.properties" role="properties">
+<title role="properties.title">Properties</title>
+<informaltable frame="none">
+<tgroup cols="3">
+<colspec colname="properties_type" colwidth="150px"/>
+<colspec colname="properties_name" colwidth="300px"/>
+<colspec colname="properties_flags" colwidth="200px"/>
+<tbody>
+<row><entry role="property_type"><link linkend="GSocket"><type>GSocket</type></link>&#160;*</entry><entry role="property_name"><link linkend="GSocketConnection--socket">socket</link></entry><entry role="property_flags">Read / Write / Construct Only</entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GSocketConnection.other" role="other_proto">
+<title role="other_proto.title">Types and Values</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="name" colwidth="150px"/>
+<colspec colname="description"/>
+<tbody>
+<row><entry role="datatype_keyword"></entry><entry role="function_name"><link linkend="GSocketConnection-struct">GSocketConnection</link></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GSocketConnection.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<screen>    <link linkend="GObject">GObject</link>
+    <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> <link linkend="GIOStream">GIOStream</link>
+        <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> GSocketConnection
+            <phrase role="lineart">&#9500;&#9472;&#9472;</phrase> <link linkend="GTcpConnection">GTcpConnection</link>
+            <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> <link linkend="GUnixConnection">GUnixConnection</link>
+</screen>
+</refsect1>
+
+<refsect1 id="GSocketConnection.includes"><title>Includes</title><synopsis>#include &lt;gio/gio.h&gt;
+</synopsis></refsect1>
+
+<refsect1 id="GSocketConnection.description" role="desc">
+<title role="desc.title">Description</title>
+<para><link linkend="GSocketConnection"><type>GSocketConnection</type></link> is a <link linkend="GIOStream"><type>GIOStream</type></link> for a connected socket. They
+can be created either by <link linkend="GSocketClient"><type>GSocketClient</type></link> when connecting to a host,
+or by <link linkend="GSocketListener"><type>GSocketListener</type></link> when accepting a new client.</para>
+<para>The type of the <link linkend="GSocketConnection"><type>GSocketConnection</type></link> object returned from these calls
+depends on the type of the underlying socket that is in use. For
+instance, for a TCP/IP connection it will be a <link linkend="GTcpConnection"><type>GTcpConnection</type></link>.</para>
+<para>Choosing what type of object to construct is done with the socket
+connection factory, and it is possible for 3rd parties to register
+custom socket connection types for specific combination of socket
+family/type/protocol using <link linkend="g-socket-connection-factory-register-type"><function>g_socket_connection_factory_register_type()</function></link>.</para>
+<para>To close a <link linkend="GSocketConnection"><type>GSocketConnection</type></link>, use <link linkend="g-io-stream-close"><function>g_io_stream_close()</function></link>. Closing both
+substreams of the <link linkend="GIOStream"><type>GIOStream</type></link> separately will not close the underlying
+<link linkend="GSocket"><type>GSocket</type></link>.</para>
+
+</refsect1>
+<refsect1 id="GSocketConnection.functions_details" role="details">
+<title role="details.title">Functions</title>
+<refsect2 id="g-socket-connection-connect" role="function" condition="since:2.32">
+<title>g_socket_connection_connect&#160;()</title>
+<indexterm zone="g-socket-connection-connect" role="2.32"><primary sortas="socket_connection_connect">g_socket_connection_connect</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_socket_connection_connect (<parameter><link linkend="GSocketConnection"><type>GSocketConnection</type></link> *connection</parameter>,
+                             <parameter><link linkend="GSocketAddress"><type>GSocketAddress</type></link> *address</parameter>,
+                             <parameter><link linkend="GCancellable"><type>GCancellable</type></link> *cancellable</parameter>,
+                             <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para>Connect <parameter>connection</parameter>
+ to the specified remote address.</para>
+<refsect3 id="g-socket-connection-connect.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>connection</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSocketConnection"><type>GSocketConnection</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>address</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSocketAddress"><type>GSocketAddress</type></link> specifying the remote address.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>cancellable</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GCancellable"><literal>GCancellable</literal></link> or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para><link linkend="GError"><type>GError</type></link> for error reporting, or <link linkend="NULL:CAPS"><literal>NULL</literal></link> to ignore.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-socket-connection-connect.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if the connection succeeded, <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> on error</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.32">2.32</link></para></refsect2>
+<refsect2 id="g-socket-connection-connect-async" role="function" condition="since:2.32">
+<title>g_socket_connection_connect_async&#160;()</title>
+<indexterm zone="g-socket-connection-connect-async" role="2.32"><primary sortas="socket_connection_connect_async">g_socket_connection_connect_async</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_socket_connection_connect_async (<parameter><link linkend="GSocketConnection"><type>GSocketConnection</type></link> *connection</parameter>,
+                                   <parameter><link linkend="GSocketAddress"><type>GSocketAddress</type></link> *address</parameter>,
+                                   <parameter><link linkend="GCancellable"><type>GCancellable</type></link> *cancellable</parameter>,
+                                   <parameter><link linkend="GAsyncReadyCallback"><type>GAsyncReadyCallback</type></link> callback</parameter>,
+                                   <parameter><link linkend="gpointer"><type>gpointer</type></link> user_data</parameter>);</programlisting>
+<para>Asynchronously connect <parameter>connection</parameter>
+ to the specified remote address.</para>
+<para>This clears the <link linkend="GSocket--blocking"><type>“blocking”</type></link> flag on <parameter>connection</parameter>
+'s underlying
+socket if it is currently set.</para>
+<para>Use <link linkend="g-socket-connection-connect-finish"><function>g_socket_connection_connect_finish()</function></link> to retrieve the result.</para>
+<refsect3 id="g-socket-connection-connect-async.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>connection</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSocketConnection"><type>GSocketConnection</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>address</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSocketAddress"><type>GSocketAddress</type></link> specifying the remote address.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>cancellable</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GCancellable"><literal>GCancellable</literal></link> or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>callback</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GAsyncReadyCallback"><type>GAsyncReadyCallback</type></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>scope async</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>user_data</para></entry>
+<entry role="parameter_description"><para>user data for the callback. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>closure</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.32">2.32</link></para></refsect2>
+<refsect2 id="g-socket-connection-connect-finish" role="function" condition="since:2.32">
+<title>g_socket_connection_connect_finish&#160;()</title>
+<indexterm zone="g-socket-connection-connect-finish" role="2.32"><primary sortas="socket_connection_connect_finish">g_socket_connection_connect_finish</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_socket_connection_connect_finish (<parameter><link linkend="GSocketConnection"><type>GSocketConnection</type></link> *connection</parameter>,
+                                    <parameter><link linkend="GAsyncResult"><type>GAsyncResult</type></link> *result</parameter>,
+                                    <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para>Gets the result of a <link linkend="g-socket-connection-connect-async"><function>g_socket_connection_connect_async()</function></link> call.</para>
+<refsect3 id="g-socket-connection-connect-finish.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>connection</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSocketConnection"><type>GSocketConnection</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>result</para></entry>
+<entry role="parameter_description"><para>the <link linkend="GAsyncResult"><type>GAsyncResult</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para><link linkend="GError"><type>GError</type></link> for error reporting, or <link linkend="NULL:CAPS"><literal>NULL</literal></link> to ignore.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-socket-connection-connect-finish.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if the connection succeeded, <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> on error</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.32">2.32</link></para></refsect2>
+<refsect2 id="g-socket-connection-is-connected" role="function" condition="since:2.32">
+<title>g_socket_connection_is_connected&#160;()</title>
+<indexterm zone="g-socket-connection-is-connected" role="2.32"><primary sortas="socket_connection_is_connected">g_socket_connection_is_connected</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_socket_connection_is_connected (<parameter><link linkend="GSocketConnection"><type>GSocketConnection</type></link> *connection</parameter>);</programlisting>
+<para>Checks if <parameter>connection</parameter>
+ is connected. This is equivalent to calling
+<link linkend="g-socket-is-connected"><function>g_socket_is_connected()</function></link> on <parameter>connection</parameter>
+'s underlying <link linkend="GSocket"><type>GSocket</type></link>.</para>
+<refsect3 id="g-socket-connection-is-connected.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>connection</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSocketConnection"><type>GSocketConnection</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-socket-connection-is-connected.returns" role="returns">
+<title>Returns</title>
+<para> whether <parameter>connection</parameter>
+is connected</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.32">2.32</link></para></refsect2>
+<refsect2 id="g-socket-connection-get-local-address" role="function" condition="since:2.22">
+<title>g_socket_connection_get_local_address&#160;()</title>
+<indexterm zone="g-socket-connection-get-local-address" role="2.22"><primary sortas="socket_connection_get_local_address">g_socket_connection_get_local_address</primary></indexterm>
+<programlisting language="C"><link linkend="GSocketAddress"><returnvalue>GSocketAddress</returnvalue></link>&#160;*
+g_socket_connection_get_local_address (<parameter><link linkend="GSocketConnection"><type>GSocketConnection</type></link> *connection</parameter>,
+                                       <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para>Try to get the local address of a socket connection.</para>
+<refsect3 id="g-socket-connection-get-local-address.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>connection</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSocketConnection"><type>GSocketConnection</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para><link linkend="GError"><type>GError</type></link> for error reporting, or <link linkend="NULL:CAPS"><literal>NULL</literal></link> to ignore.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-socket-connection-get-local-address.returns" role="returns">
+<title>Returns</title>
+<para>a <link linkend="GSocketAddress"><type>GSocketAddress</type></link> or <link linkend="NULL:CAPS"><literal>NULL</literal></link> on error.
+Free the returned object with <link linkend="g-object-unref"><function>g_object_unref()</function></link>. </para>
+<para><emphasis role="annotation">[<acronym>transfer full</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.22">2.22</link></para></refsect2>
+<refsect2 id="g-socket-connection-get-remote-address" role="function" condition="since:2.22">
+<title>g_socket_connection_get_remote_address&#160;()</title>
+<indexterm zone="g-socket-connection-get-remote-address" role="2.22"><primary sortas="socket_connection_get_remote_address">g_socket_connection_get_remote_address</primary></indexterm>
+<programlisting language="C"><link linkend="GSocketAddress"><returnvalue>GSocketAddress</returnvalue></link>&#160;*
+g_socket_connection_get_remote_address
+                               (<parameter><link linkend="GSocketConnection"><type>GSocketConnection</type></link> *connection</parameter>,
+                                <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para>Try to get the remote address of a socket connection.</para>
+<para>Since GLib 2.40, when used with <link linkend="g-socket-client-connect"><function>g_socket_client_connect()</function></link> or
+<link linkend="g-socket-client-connect-async"><function>g_socket_client_connect_async()</function></link>, during emission of
+<link linkend="G-SOCKET-CLIENT-CONNECTING:CAPS"><literal>G_SOCKET_CLIENT_CONNECTING</literal></link>, this function will return the remote
+address that will be used for the connection.  This allows
+applications to print e.g. "Connecting to example.com
+(10.42.77.3)...".</para>
+<refsect3 id="g-socket-connection-get-remote-address.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>connection</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSocketConnection"><type>GSocketConnection</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para><link linkend="GError"><type>GError</type></link> for error reporting, or <link linkend="NULL:CAPS"><literal>NULL</literal></link> to ignore.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-socket-connection-get-remote-address.returns" role="returns">
+<title>Returns</title>
+<para>a <link linkend="GSocketAddress"><type>GSocketAddress</type></link> or <link linkend="NULL:CAPS"><literal>NULL</literal></link> on error.
+Free the returned object with <link linkend="g-object-unref"><function>g_object_unref()</function></link>. </para>
+<para><emphasis role="annotation">[<acronym>transfer full</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.22">2.22</link></para></refsect2>
+<refsect2 id="g-socket-connection-get-socket" role="function" condition="since:2.22">
+<title>g_socket_connection_get_socket&#160;()</title>
+<indexterm zone="g-socket-connection-get-socket" role="2.22"><primary sortas="socket_connection_get_socket">g_socket_connection_get_socket</primary></indexterm>
+<programlisting language="C"><link linkend="GSocket"><returnvalue>GSocket</returnvalue></link>&#160;*
+g_socket_connection_get_socket (<parameter><link linkend="GSocketConnection"><type>GSocketConnection</type></link> *connection</parameter>);</programlisting>
+<para>Gets the underlying <link linkend="GSocket"><type>GSocket</type></link> object of the connection.
+This can be useful if you want to do something unusual on it
+not supported by the <link linkend="GSocketConnection"><type>GSocketConnection</type></link> APIs.</para>
+<refsect3 id="g-socket-connection-get-socket.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>connection</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSocketConnection"><type>GSocketConnection</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-socket-connection-get-socket.returns" role="returns">
+<title>Returns</title>
+<para>a <link linkend="GSocket"><type>GSocket</type></link> or <link linkend="NULL:CAPS"><literal>NULL</literal></link> on error. </para>
+<para><emphasis role="annotation">[<acronym>transfer none</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.22">2.22</link></para></refsect2>
+<refsect2 id="g-socket-connection-factory-create-connection" role="function" condition="since:2.22">
+<title>g_socket_connection_factory_create_connection&#160;()</title>
+<indexterm zone="g-socket-connection-factory-create-connection" role="2.22"><primary sortas="socket_connection_factory_create_connection">g_socket_connection_factory_create_connection</primary></indexterm>
+<programlisting language="C"><link linkend="GSocketConnection"><returnvalue>GSocketConnection</returnvalue></link>&#160;*
+g_socket_connection_factory_create_connection
+                               (<parameter><link linkend="GSocket"><type>GSocket</type></link> *socket</parameter>);</programlisting>
+<para>Creates a <link linkend="GSocketConnection"><type>GSocketConnection</type></link> subclass of the right type for
+<parameter>socket</parameter>
+.</para>
+<refsect3 id="g-socket-connection-factory-create-connection.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>socket</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSocket"><type>GSocket</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-socket-connection-factory-create-connection.returns" role="returns">
+<title>Returns</title>
+<para>a <link linkend="GSocketConnection"><type>GSocketConnection</type></link>. </para>
+<para><emphasis role="annotation">[<acronym>transfer full</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.22">2.22</link></para></refsect2>
+<refsect2 id="g-socket-connection-factory-lookup-type" role="function" condition="since:2.22">
+<title>g_socket_connection_factory_lookup_type&#160;()</title>
+<indexterm zone="g-socket-connection-factory-lookup-type" role="2.22"><primary sortas="socket_connection_factory_lookup_type">g_socket_connection_factory_lookup_type</primary></indexterm>
+<programlisting language="C"><link linkend="GType"><returnvalue>GType</returnvalue></link>
+g_socket_connection_factory_lookup_type
+                               (<parameter><link linkend="GSocketFamily"><type>GSocketFamily</type></link> family</parameter>,
+                                <parameter><link linkend="GSocketType"><type>GSocketType</type></link> type</parameter>,
+                                <parameter><link linkend="gint"><type>gint</type></link> protocol_id</parameter>);</programlisting>
+<para>Looks up the <link linkend="GType"><type>GType</type></link> to be used when creating socket connections on
+sockets with the specified <parameter>family</parameter>
+, <parameter>type</parameter>
+ and <parameter>protocol_id</parameter>
+.</para>
+<para>If no type is registered, the <link linkend="GSocketConnection"><type>GSocketConnection</type></link> base type is returned.</para>
+<refsect3 id="g-socket-connection-factory-lookup-type.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>family</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSocketFamily"><type>GSocketFamily</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>type</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSocketType"><type>GSocketType</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>protocol_id</para></entry>
+<entry role="parameter_description"><para>a protocol id</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-socket-connection-factory-lookup-type.returns" role="returns">
+<title>Returns</title>
+<para> a <link linkend="GType"><type>GType</type></link></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.22">2.22</link></para></refsect2>
+<refsect2 id="g-socket-connection-factory-register-type" role="function" condition="since:2.22">
+<title>g_socket_connection_factory_register_type&#160;()</title>
+<indexterm zone="g-socket-connection-factory-register-type" role="2.22"><primary sortas="socket_connection_factory_register_type">g_socket_connection_factory_register_type</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_socket_connection_factory_register_type
+                               (<parameter><link linkend="GType"><type>GType</type></link> g_type</parameter>,
+                                <parameter><link linkend="GSocketFamily"><type>GSocketFamily</type></link> family</parameter>,
+                                <parameter><link linkend="GSocketType"><type>GSocketType</type></link> type</parameter>,
+                                <parameter><link linkend="gint"><type>gint</type></link> protocol</parameter>);</programlisting>
+<para>Looks up the <link linkend="GType"><type>GType</type></link> to be used when creating socket connections on
+sockets with the specified <parameter>family</parameter>
+, <parameter>type</parameter>
+ and <parameter>protocol</parameter>
+.</para>
+<para>If no type is registered, the <link linkend="GSocketConnection"><type>GSocketConnection</type></link> base type is returned.</para>
+<refsect3 id="g-socket-connection-factory-register-type.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>g_type</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GType"><type>GType</type></link>, inheriting from <link linkend="G-TYPE-SOCKET-CONNECTION:CAPS"><literal>G_TYPE_SOCKET_CONNECTION</literal></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>family</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSocketFamily"><type>GSocketFamily</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>type</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSocketType"><type>GSocketType</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>protocol</para></entry>
+<entry role="parameter_description"><para>a protocol id</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.22">2.22</link></para></refsect2>
+
+</refsect1>
+<refsect1 id="GSocketConnection.other_details" role="details">
+<title role="details.title">Types and Values</title>
+<refsect2 id="GSocketConnection-struct" role="struct">
+<title>GSocketConnection</title>
+<indexterm zone="GSocketConnection-struct" role="2.22"><primary sortas="SocketConnection">GSocketConnection</primary></indexterm>
+<programlisting language="C">typedef struct _GSocketConnection GSocketConnection;</programlisting>
+<para>A socket connection GIOStream object for connection-oriented sockets.</para>
+<para role="since">Since: <link linkend="api-index-2.22">2.22</link></para></refsect2>
+
+</refsect1>
+<refsect1 id="GSocketConnection.property-details" role="property_details">
+<title role="property_details.title">Property Details</title>
+<refsect2 id="GSocketConnection--socket" role="property"><title>The <literal>“socket”</literal> property</title>
+<indexterm zone="GSocketConnection--socket"><primary sortas="SocketConnection:socket">GSocketConnection:socket</primary></indexterm>
+<programlisting>  “socket”                   <link linkend="GSocket"><type>GSocket</type></link>&#160;*</programlisting>
+<para>The underlying GSocket.</para><para>Flags: Read / Write / Construct Only</para>
+</refsect2>
+
+</refsect1>
+<refsect1 id="GSocketConnection.see-also">
+<title>See Also</title>
+<para><link linkend="GIOStream"><type>GIOStream</type></link>, <link linkend="GSocketClient"><type>GSocketClient</type></link>, <link linkend="GSocketListener"><type>GSocketListener</type></link></para>
+
+</refsect1>
+
+</refentry>

@@ -1,0 +1,973 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC '-//OASIS//DTD DocBook XML V4.5//EN'
+                      'http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd' [
+<!ENTITY % local.common.attrib "xmlns:xi  CDATA  #FIXED 'http://www.w3.org/2003/XInclude'">
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="GTlsDatabase">
+<refmeta>
+<refentrytitle role="top_of_page" id="GTlsDatabase.top_of_page">GTlsDatabase</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>GIO Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>GTlsDatabase</refname>
+<refpurpose>TLS database type</refpurpose>
+</refnamediv>
+
+<refsect1 id="GTlsDatabase.functions" role="functions_proto">
+<title role="functions_proto.title">Functions</title>
+<informaltable pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="functions_return" colwidth="150px"/>
+<colspec colname="functions_name"/>
+<tbody>
+<row><entry role="function_type"><link linkend="GTlsCertificateFlags"><returnvalue>GTlsCertificateFlags</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-tls-database-verify-chain">g_tls_database_verify_chain</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-tls-database-verify-chain-async">g_tls_database_verify_chain_async</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GTlsCertificateFlags"><returnvalue>GTlsCertificateFlags</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-tls-database-verify-chain-finish">g_tls_database_verify_chain_finish</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GTlsCertificate"><returnvalue>GTlsCertificate</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-tls-database-lookup-certificate-issuer">g_tls_database_lookup_certificate_issuer</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-tls-database-lookup-certificate-issuer-async">g_tls_database_lookup_certificate_issuer_async</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GTlsCertificate"><returnvalue>GTlsCertificate</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-tls-database-lookup-certificate-issuer-finish">g_tls_database_lookup_certificate_issuer_finish</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GList"><returnvalue>GList</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-tls-database-lookup-certificates-issued-by">g_tls_database_lookup_certificates_issued_by</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-tls-database-lookup-certificates-issued-by-async">g_tls_database_lookup_certificates_issued_by_async</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GList"><returnvalue>GList</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-tls-database-lookup-certificates-issued-by-finish">g_tls_database_lookup_certificates_issued_by_finish</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-tls-database-create-certificate-handle">g_tls_database_create_certificate_handle</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GTlsCertificate"><returnvalue>GTlsCertificate</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-tls-database-lookup-certificate-for-handle">g_tls_database_lookup_certificate_for_handle</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-tls-database-lookup-certificate-for-handle-async">g_tls_database_lookup_certificate_for_handle_async</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GTlsCertificate"><returnvalue>GTlsCertificate</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-tls-database-lookup-certificate-for-handle-finish">g_tls_database_lookup_certificate_for_handle_finish</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GTlsDatabase.other" role="other_proto">
+<title role="other_proto.title">Types and Values</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="name" colwidth="150px"/>
+<colspec colname="description"/>
+<tbody>
+<row><entry role="datatype_keyword"></entry><entry role="function_name"><link linkend="GTlsDatabase-struct">GTlsDatabase</link></entry></row>
+<row><entry role="datatype_keyword">struct</entry><entry role="function_name"><link linkend="GTlsDatabaseClass">GTlsDatabaseClass</link></entry></row>
+<row><entry role="datatype_keyword">enum</entry><entry role="function_name"><link linkend="GTlsDatabaseVerifyFlags">GTlsDatabaseVerifyFlags</link></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="G-TLS-DATABASE-PURPOSE-AUTHENTICATE-SERVER:CAPS">G_TLS_DATABASE_PURPOSE_AUTHENTICATE_SERVER</link></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="G-TLS-DATABASE-PURPOSE-AUTHENTICATE-CLIENT:CAPS">G_TLS_DATABASE_PURPOSE_AUTHENTICATE_CLIENT</link></entry></row>
+<row><entry role="datatype_keyword">enum</entry><entry role="function_name"><link linkend="GTlsDatabaseLookupFlags">GTlsDatabaseLookupFlags</link></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GTlsDatabase.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<screen>    <link linkend="GEnum">GEnum</link>
+    <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> GTlsDatabaseLookupFlags
+    <link linkend="GFlags">GFlags</link>
+    <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> GTlsDatabaseVerifyFlags
+    <link linkend="GObject">GObject</link>
+    <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> GTlsDatabase
+</screen>
+</refsect1>
+<refsect1 id="GTlsDatabase.derived-interfaces" role="derived_interfaces">
+<title role="derived_interfaces.title">Known Derived Interfaces</title>
+<para>
+GTlsDatabase is required by
+ <link linkend="GTlsFileDatabase">GTlsFileDatabase</link>.</para>
+
+</refsect1>
+
+<refsect1 id="GTlsDatabase.includes"><title>Includes</title><synopsis>#include &lt;gio/gio.h&gt;
+</synopsis></refsect1>
+
+<refsect1 id="GTlsDatabase.description" role="desc">
+<title role="desc.title">Description</title>
+<para><link linkend="GTlsDatabase"><type>GTlsDatabase</type></link> is used to lookup certificates and other information
+from a certificate or key store. It is an abstract base class which
+TLS library specific subtypes override.</para>
+<para>Most common client applications will not directly interact with
+<link linkend="GTlsDatabase"><type>GTlsDatabase</type></link>. It is used internally by <link linkend="GTlsConnection"><type>GTlsConnection</type></link>.</para>
+
+</refsect1>
+<refsect1 id="GTlsDatabase.functions_details" role="details">
+<title role="details.title">Functions</title>
+<refsect2 id="g-tls-database-verify-chain" role="function" condition="since:2.30">
+<title>g_tls_database_verify_chain&#160;()</title>
+<indexterm zone="g-tls-database-verify-chain" role="2.30"><primary sortas="tls_database_verify_chain">g_tls_database_verify_chain</primary></indexterm>
+<programlisting language="C"><link linkend="GTlsCertificateFlags"><returnvalue>GTlsCertificateFlags</returnvalue></link>
+g_tls_database_verify_chain (<parameter><link linkend="GTlsDatabase"><type>GTlsDatabase</type></link> *self</parameter>,
+                             <parameter><link linkend="GTlsCertificate"><type>GTlsCertificate</type></link> *chain</parameter>,
+                             <parameter>const <link linkend="gchar"><type>gchar</type></link> *purpose</parameter>,
+                             <parameter><link linkend="GSocketConnectable"><type>GSocketConnectable</type></link> *identity</parameter>,
+                             <parameter><link linkend="GTlsInteraction"><type>GTlsInteraction</type></link> *interaction</parameter>,
+                             <parameter><link linkend="GTlsDatabaseVerifyFlags"><type>GTlsDatabaseVerifyFlags</type></link> flags</parameter>,
+                             <parameter><link linkend="GCancellable"><type>GCancellable</type></link> *cancellable</parameter>,
+                             <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para>Determines the validity of a certificate chain after looking up and
+adding any missing certificates to the chain.</para>
+<para><parameter>chain</parameter>
+ is a chain of <link linkend="GTlsCertificate"><type>GTlsCertificate</type></link> objects each pointing to the next
+certificate in the chain by its <link linkend="GTlsCertificate--issuer"><type>“issuer”</type></link> property. The chain may initially
+consist of one or more certificates. After the verification process is
+complete, <parameter>chain</parameter>
+ may be modified by adding missing certificates, or removing
+extra certificates. If a certificate anchor was found, then it is added to
+the <parameter>chain</parameter>
+.</para>
+<para><parameter>purpose</parameter>
+ describes the purpose (or usage) for which the certificate
+is being used. Typically <parameter>purpose</parameter>
+ will be set to <link linkend="G-TLS-DATABASE-PURPOSE-AUTHENTICATE-SERVER:CAPS"><type>G_TLS_DATABASE_PURPOSE_AUTHENTICATE_SERVER</type></link>
+which means that the certificate is being used to authenticate a server
+(and we are acting as the client).</para>
+<para>The <parameter>identity</parameter>
+ is used to check for pinned certificates (trust exceptions)
+in the database. These will override the normal verification process on a
+host by host basis.</para>
+<para>Currently there are no <parameter>flags</parameter>
+, and <link linkend="G-TLS-DATABASE-VERIFY-NONE:CAPS"><literal>G_TLS_DATABASE_VERIFY_NONE</literal></link> should be
+used.</para>
+<para>If <parameter>chain</parameter>
+ is found to be valid, then the return value will be 0. If
+<parameter>chain</parameter>
+ is found to be invalid, then the return value will indicate
+the problems found. If the function is unable to determine whether
+<parameter>chain</parameter>
+ is valid or not (eg, because <parameter>cancellable</parameter>
+ is triggered
+before it completes) then the return value will be
+<link linkend="G-TLS-CERTIFICATE-GENERIC-ERROR:CAPS"><literal>G_TLS_CERTIFICATE_GENERIC_ERROR</literal></link> and <parameter>error</parameter>
+ will be set
+accordingly. <parameter>error</parameter>
+ is not set when <parameter>chain</parameter>
+ is successfully analyzed
+but found to be invalid.</para>
+<para>This function can block, use <link linkend="g-tls-database-verify-chain-async"><function>g_tls_database_verify_chain_async()</function></link> to perform
+the verification operation asynchronously.</para>
+<refsect3 id="g-tls-database-verify-chain.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>self</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GTlsDatabase"><type>GTlsDatabase</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>chain</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GTlsCertificate"><type>GTlsCertificate</type></link> chain</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>purpose</para></entry>
+<entry role="parameter_description"><para>the purpose that this certificate chain will be used for.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>identity</para></entry>
+<entry role="parameter_description"><para>the expected peer identity. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>interaction</para></entry>
+<entry role="parameter_description"><para>used to interact with the user if necessary. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>flags</para></entry>
+<entry role="parameter_description"><para>additional verify flags</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>cancellable</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GCancellable"><type>GCancellable</type></link>, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GError"><type>GError</type></link>, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-tls-database-verify-chain.returns" role="returns">
+<title>Returns</title>
+<para> the appropriate <link linkend="GTlsCertificateFlags"><type>GTlsCertificateFlags</type></link> which represents the
+result of verification.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.30">2.30</link></para></refsect2>
+<refsect2 id="g-tls-database-verify-chain-async" role="function" condition="since:2.30">
+<title>g_tls_database_verify_chain_async&#160;()</title>
+<indexterm zone="g-tls-database-verify-chain-async" role="2.30"><primary sortas="tls_database_verify_chain_async">g_tls_database_verify_chain_async</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_tls_database_verify_chain_async (<parameter><link linkend="GTlsDatabase"><type>GTlsDatabase</type></link> *self</parameter>,
+                                   <parameter><link linkend="GTlsCertificate"><type>GTlsCertificate</type></link> *chain</parameter>,
+                                   <parameter>const <link linkend="gchar"><type>gchar</type></link> *purpose</parameter>,
+                                   <parameter><link linkend="GSocketConnectable"><type>GSocketConnectable</type></link> *identity</parameter>,
+                                   <parameter><link linkend="GTlsInteraction"><type>GTlsInteraction</type></link> *interaction</parameter>,
+                                   <parameter><link linkend="GTlsDatabaseVerifyFlags"><type>GTlsDatabaseVerifyFlags</type></link> flags</parameter>,
+                                   <parameter><link linkend="GCancellable"><type>GCancellable</type></link> *cancellable</parameter>,
+                                   <parameter><link linkend="GAsyncReadyCallback"><type>GAsyncReadyCallback</type></link> callback</parameter>,
+                                   <parameter><link linkend="gpointer"><type>gpointer</type></link> user_data</parameter>);</programlisting>
+<para>Asynchronously determines the validity of a certificate chain after
+looking up and adding any missing certificates to the chain. See
+<link linkend="g-tls-database-verify-chain"><function>g_tls_database_verify_chain()</function></link> for more information.</para>
+<refsect3 id="g-tls-database-verify-chain-async.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>self</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GTlsDatabase"><type>GTlsDatabase</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>chain</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GTlsCertificate"><type>GTlsCertificate</type></link> chain</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>purpose</para></entry>
+<entry role="parameter_description"><para>the purpose that this certificate chain will be used for.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>identity</para></entry>
+<entry role="parameter_description"><para>the expected peer identity. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>interaction</para></entry>
+<entry role="parameter_description"><para>used to interact with the user if necessary. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>flags</para></entry>
+<entry role="parameter_description"><para>additional verify flags</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>cancellable</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GCancellable"><type>GCancellable</type></link>, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>callback</para></entry>
+<entry role="parameter_description"><para>callback to call when the operation completes</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>user_data</para></entry>
+<entry role="parameter_description"><para>the data to pass to the callback function</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.30">2.30</link></para></refsect2>
+<refsect2 id="g-tls-database-verify-chain-finish" role="function" condition="since:2.30">
+<title>g_tls_database_verify_chain_finish&#160;()</title>
+<indexterm zone="g-tls-database-verify-chain-finish" role="2.30"><primary sortas="tls_database_verify_chain_finish">g_tls_database_verify_chain_finish</primary></indexterm>
+<programlisting language="C"><link linkend="GTlsCertificateFlags"><returnvalue>GTlsCertificateFlags</returnvalue></link>
+g_tls_database_verify_chain_finish (<parameter><link linkend="GTlsDatabase"><type>GTlsDatabase</type></link> *self</parameter>,
+                                    <parameter><link linkend="GAsyncResult"><type>GAsyncResult</type></link> *result</parameter>,
+                                    <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para>Finish an asynchronous verify chain operation. See
+<link linkend="g-tls-database-verify-chain"><function>g_tls_database_verify_chain()</function></link> for more information.</para>
+<para>If <parameter>chain</parameter>
+ is found to be valid, then the return value will be 0. If
+<parameter>chain</parameter>
+ is found to be invalid, then the return value will indicate
+the problems found. If the function is unable to determine whether
+<parameter>chain</parameter>
+ is valid or not (eg, because <parameter>cancellable</parameter>
+ is triggered
+before it completes) then the return value will be
+<link linkend="G-TLS-CERTIFICATE-GENERIC-ERROR:CAPS"><literal>G_TLS_CERTIFICATE_GENERIC_ERROR</literal></link> and <parameter>error</parameter>
+ will be set
+accordingly. <parameter>error</parameter>
+ is not set when <parameter>chain</parameter>
+ is successfully analyzed
+but found to be invalid.</para>
+<refsect3 id="g-tls-database-verify-chain-finish.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>self</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GTlsDatabase"><type>GTlsDatabase</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>result</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GAsyncResult"><type>GAsyncResult</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GError"><type>GError</type></link> pointer, or <link linkend="NULL:CAPS"><literal>NULL</literal></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-tls-database-verify-chain-finish.returns" role="returns">
+<title>Returns</title>
+<para> the appropriate <link linkend="GTlsCertificateFlags"><type>GTlsCertificateFlags</type></link> which represents the
+result of verification.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.30">2.30</link></para></refsect2>
+<refsect2 id="g-tls-database-lookup-certificate-issuer" role="function" condition="since:2.30">
+<title>g_tls_database_lookup_certificate_issuer&#160;()</title>
+<indexterm zone="g-tls-database-lookup-certificate-issuer" role="2.30"><primary sortas="tls_database_lookup_certificate_issuer">g_tls_database_lookup_certificate_issuer</primary></indexterm>
+<programlisting language="C"><link linkend="GTlsCertificate"><returnvalue>GTlsCertificate</returnvalue></link>&#160;*
+g_tls_database_lookup_certificate_issuer
+                               (<parameter><link linkend="GTlsDatabase"><type>GTlsDatabase</type></link> *self</parameter>,
+                                <parameter><link linkend="GTlsCertificate"><type>GTlsCertificate</type></link> *certificate</parameter>,
+                                <parameter><link linkend="GTlsInteraction"><type>GTlsInteraction</type></link> *interaction</parameter>,
+                                <parameter><link linkend="GTlsDatabaseLookupFlags"><type>GTlsDatabaseLookupFlags</type></link> flags</parameter>,
+                                <parameter><link linkend="GCancellable"><type>GCancellable</type></link> *cancellable</parameter>,
+                                <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para>Lookup the issuer of <parameter>certificate</parameter>
+ in the database.</para>
+<para>The <link linkend="issuer"><literal>issuer</literal></link> property
+of <parameter>certificate</parameter>
+ is not modified, and the two certificates are not hooked
+into a chain.</para>
+<para>This function can block, use <link linkend="g-tls-database-lookup-certificate-issuer-async"><function>g_tls_database_lookup_certificate_issuer_async()</function></link> to perform
+the lookup operation asynchronously.</para>
+<refsect3 id="g-tls-database-lookup-certificate-issuer.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>self</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GTlsDatabase"><type>GTlsDatabase</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>certificate</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GTlsCertificate"><type>GTlsCertificate</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>interaction</para></entry>
+<entry role="parameter_description"><para>used to interact with the user if necessary. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>flags</para></entry>
+<entry role="parameter_description"><para>flags which affect the lookup operation</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>cancellable</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GCancellable"><type>GCancellable</type></link>, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GError"><type>GError</type></link>, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-tls-database-lookup-certificate-issuer.returns" role="returns">
+<title>Returns</title>
+<para>a newly allocated issuer <link linkend="GTlsCertificate"><type>GTlsCertificate</type></link>,
+or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. Use <link linkend="g-object-unref"><function>g_object_unref()</function></link> to release the certificate. </para>
+<para><emphasis role="annotation">[<acronym>transfer full</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.30">2.30</link></para></refsect2>
+<refsect2 id="g-tls-database-lookup-certificate-issuer-async" role="function" condition="since:2.30">
+<title>g_tls_database_lookup_certificate_issuer_async&#160;()</title>
+<indexterm zone="g-tls-database-lookup-certificate-issuer-async" role="2.30"><primary sortas="tls_database_lookup_certificate_issuer_async">g_tls_database_lookup_certificate_issuer_async</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_tls_database_lookup_certificate_issuer_async
+                               (<parameter><link linkend="GTlsDatabase"><type>GTlsDatabase</type></link> *self</parameter>,
+                                <parameter><link linkend="GTlsCertificate"><type>GTlsCertificate</type></link> *certificate</parameter>,
+                                <parameter><link linkend="GTlsInteraction"><type>GTlsInteraction</type></link> *interaction</parameter>,
+                                <parameter><link linkend="GTlsDatabaseLookupFlags"><type>GTlsDatabaseLookupFlags</type></link> flags</parameter>,
+                                <parameter><link linkend="GCancellable"><type>GCancellable</type></link> *cancellable</parameter>,
+                                <parameter><link linkend="GAsyncReadyCallback"><type>GAsyncReadyCallback</type></link> callback</parameter>,
+                                <parameter><link linkend="gpointer"><type>gpointer</type></link> user_data</parameter>);</programlisting>
+<para>Asynchronously lookup the issuer of <parameter>certificate</parameter>
+ in the database. See
+<link linkend="g-tls-database-lookup-certificate-issuer"><function>g_tls_database_lookup_certificate_issuer()</function></link> for more information.</para>
+<refsect3 id="g-tls-database-lookup-certificate-issuer-async.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>self</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GTlsDatabase"><type>GTlsDatabase</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>certificate</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GTlsCertificate"><type>GTlsCertificate</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>interaction</para></entry>
+<entry role="parameter_description"><para>used to interact with the user if necessary. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>flags</para></entry>
+<entry role="parameter_description"><para>flags which affect the lookup operation</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>cancellable</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GCancellable"><type>GCancellable</type></link>, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>callback</para></entry>
+<entry role="parameter_description"><para>callback to call when the operation completes</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>user_data</para></entry>
+<entry role="parameter_description"><para>the data to pass to the callback function</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.30">2.30</link></para></refsect2>
+<refsect2 id="g-tls-database-lookup-certificate-issuer-finish" role="function" condition="since:2.30">
+<title>g_tls_database_lookup_certificate_issuer_finish&#160;()</title>
+<indexterm zone="g-tls-database-lookup-certificate-issuer-finish" role="2.30"><primary sortas="tls_database_lookup_certificate_issuer_finish">g_tls_database_lookup_certificate_issuer_finish</primary></indexterm>
+<programlisting language="C"><link linkend="GTlsCertificate"><returnvalue>GTlsCertificate</returnvalue></link>&#160;*
+g_tls_database_lookup_certificate_issuer_finish
+                               (<parameter><link linkend="GTlsDatabase"><type>GTlsDatabase</type></link> *self</parameter>,
+                                <parameter><link linkend="GAsyncResult"><type>GAsyncResult</type></link> *result</parameter>,
+                                <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para>Finish an asynchronous lookup issuer operation. See
+<link linkend="g-tls-database-lookup-certificate-issuer"><function>g_tls_database_lookup_certificate_issuer()</function></link> for more information.</para>
+<refsect3 id="g-tls-database-lookup-certificate-issuer-finish.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>self</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GTlsDatabase"><type>GTlsDatabase</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>result</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GAsyncResult"><type>GAsyncResult</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GError"><type>GError</type></link> pointer, or <link linkend="NULL:CAPS"><literal>NULL</literal></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-tls-database-lookup-certificate-issuer-finish.returns" role="returns">
+<title>Returns</title>
+<para>a newly allocated issuer <link linkend="GTlsCertificate"><type>GTlsCertificate</type></link>,
+or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. Use <link linkend="g-object-unref"><function>g_object_unref()</function></link> to release the certificate. </para>
+<para><emphasis role="annotation">[<acronym>transfer full</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.30">2.30</link></para></refsect2>
+<refsect2 id="g-tls-database-lookup-certificates-issued-by" role="function" condition="since:2.30">
+<title>g_tls_database_lookup_certificates_issued_by&#160;()</title>
+<indexterm zone="g-tls-database-lookup-certificates-issued-by" role="2.30"><primary sortas="tls_database_lookup_certificates_issued_by">g_tls_database_lookup_certificates_issued_by</primary></indexterm>
+<programlisting language="C"><link linkend="GList"><returnvalue>GList</returnvalue></link>&#160;*
+g_tls_database_lookup_certificates_issued_by
+                               (<parameter><link linkend="GTlsDatabase"><type>GTlsDatabase</type></link> *self</parameter>,
+                                <parameter><link linkend="GByteArray"><type>GByteArray</type></link> *issuer_raw_dn</parameter>,
+                                <parameter><link linkend="GTlsInteraction"><type>GTlsInteraction</type></link> *interaction</parameter>,
+                                <parameter><link linkend="GTlsDatabaseLookupFlags"><type>GTlsDatabaseLookupFlags</type></link> flags</parameter>,
+                                <parameter><link linkend="GCancellable"><type>GCancellable</type></link> *cancellable</parameter>,
+                                <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para>Lookup certificates issued by this issuer in the database.</para>
+<para>This function can block, use <link linkend="g-tls-database-lookup-certificates-issued-by-async"><function>g_tls_database_lookup_certificates_issued_by_async()</function></link> to perform
+the lookup operation asynchronously.</para>
+<refsect3 id="g-tls-database-lookup-certificates-issued-by.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>self</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GTlsDatabase"><type>GTlsDatabase</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>issuer_raw_dn</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GByteArray"><type>GByteArray</type></link> which holds the DER encoded issuer DN.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>interaction</para></entry>
+<entry role="parameter_description"><para>used to interact with the user if necessary. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>flags</para></entry>
+<entry role="parameter_description"><para>Flags which affect the lookup operation.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>cancellable</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GCancellable"><type>GCancellable</type></link>, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GError"><type>GError</type></link>, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-tls-database-lookup-certificates-issued-by.returns" role="returns">
+<title>Returns</title>
+<para>a newly allocated list of <link linkend="GTlsCertificate"><type>GTlsCertificate</type></link>
+objects. Use <link linkend="g-object-unref"><function>g_object_unref()</function></link> on each certificate, and <link linkend="g-list-free"><function>g_list_free()</function></link> on the release the list. </para>
+<para><emphasis role="annotation">[<acronym>transfer full</acronym>][<acronym>element-type</acronym> GTlsCertificate]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.30">2.30</link></para></refsect2>
+<refsect2 id="g-tls-database-lookup-certificates-issued-by-async" role="function" condition="since:2.30">
+<title>g_tls_database_lookup_certificates_issued_by_async&#160;()</title>
+<indexterm zone="g-tls-database-lookup-certificates-issued-by-async" role="2.30"><primary sortas="tls_database_lookup_certificates_issued_by_async">g_tls_database_lookup_certificates_issued_by_async</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_tls_database_lookup_certificates_issued_by_async
+                               (<parameter><link linkend="GTlsDatabase"><type>GTlsDatabase</type></link> *self</parameter>,
+                                <parameter><link linkend="GByteArray"><type>GByteArray</type></link> *issuer_raw_dn</parameter>,
+                                <parameter><link linkend="GTlsInteraction"><type>GTlsInteraction</type></link> *interaction</parameter>,
+                                <parameter><link linkend="GTlsDatabaseLookupFlags"><type>GTlsDatabaseLookupFlags</type></link> flags</parameter>,
+                                <parameter><link linkend="GCancellable"><type>GCancellable</type></link> *cancellable</parameter>,
+                                <parameter><link linkend="GAsyncReadyCallback"><type>GAsyncReadyCallback</type></link> callback</parameter>,
+                                <parameter><link linkend="gpointer"><type>gpointer</type></link> user_data</parameter>);</programlisting>
+<para>Asynchronously lookup certificates issued by this issuer in the database. See
+<link linkend="g-tls-database-lookup-certificates-issued-by"><function>g_tls_database_lookup_certificates_issued_by()</function></link> for more information.</para>
+<para>The database may choose to hold a reference to the issuer byte array for the duration
+of of this asynchronous operation. The byte array should not be modified during
+this time.</para>
+<refsect3 id="g-tls-database-lookup-certificates-issued-by-async.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>self</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GTlsDatabase"><type>GTlsDatabase</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>issuer_raw_dn</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GByteArray"><type>GByteArray</type></link> which holds the DER encoded issuer DN.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>interaction</para></entry>
+<entry role="parameter_description"><para>used to interact with the user if necessary. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>flags</para></entry>
+<entry role="parameter_description"><para>Flags which affect the lookup operation.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>cancellable</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GCancellable"><type>GCancellable</type></link>, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>callback</para></entry>
+<entry role="parameter_description"><para>callback to call when the operation completes</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>user_data</para></entry>
+<entry role="parameter_description"><para>the data to pass to the callback function</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.30">2.30</link></para></refsect2>
+<refsect2 id="g-tls-database-lookup-certificates-issued-by-finish" role="function" condition="since:2.30">
+<title>g_tls_database_lookup_certificates_issued_by_finish&#160;()</title>
+<indexterm zone="g-tls-database-lookup-certificates-issued-by-finish" role="2.30"><primary sortas="tls_database_lookup_certificates_issued_by_finish">g_tls_database_lookup_certificates_issued_by_finish</primary></indexterm>
+<programlisting language="C"><link linkend="GList"><returnvalue>GList</returnvalue></link>&#160;*
+g_tls_database_lookup_certificates_issued_by_finish
+                               (<parameter><link linkend="GTlsDatabase"><type>GTlsDatabase</type></link> *self</parameter>,
+                                <parameter><link linkend="GAsyncResult"><type>GAsyncResult</type></link> *result</parameter>,
+                                <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para>Finish an asynchronous lookup of certificates. See
+<link linkend="g-tls-database-lookup-certificates-issued-by"><function>g_tls_database_lookup_certificates_issued_by()</function></link> for more information.</para>
+<refsect3 id="g-tls-database-lookup-certificates-issued-by-finish.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>self</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GTlsDatabase"><type>GTlsDatabase</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>result</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GAsyncResult"><type>GAsyncResult</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GError"><type>GError</type></link> pointer, or <link linkend="NULL:CAPS"><literal>NULL</literal></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-tls-database-lookup-certificates-issued-by-finish.returns" role="returns">
+<title>Returns</title>
+<para>a newly allocated list of <link linkend="GTlsCertificate"><type>GTlsCertificate</type></link>
+objects. Use <link linkend="g-object-unref"><function>g_object_unref()</function></link> on each certificate, and <link linkend="g-list-free"><function>g_list_free()</function></link> on the release the list. </para>
+<para><emphasis role="annotation">[<acronym>transfer full</acronym>][<acronym>element-type</acronym> GTlsCertificate]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.30">2.30</link></para></refsect2>
+<refsect2 id="g-tls-database-create-certificate-handle" role="function" condition="since:2.30">
+<title>g_tls_database_create_certificate_handle&#160;()</title>
+<indexterm zone="g-tls-database-create-certificate-handle" role="2.30"><primary sortas="tls_database_create_certificate_handle">g_tls_database_create_certificate_handle</primary></indexterm>
+<programlisting language="C"><link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+g_tls_database_create_certificate_handle
+                               (<parameter><link linkend="GTlsDatabase"><type>GTlsDatabase</type></link> *self</parameter>,
+                                <parameter><link linkend="GTlsCertificate"><type>GTlsCertificate</type></link> *certificate</parameter>);</programlisting>
+<para>Create a handle string for the certificate. The database will only be able
+to create a handle for certificates that originate from the database. In
+cases where the database cannot create a handle for a certificate, <link linkend="NULL:CAPS"><literal>NULL</literal></link>
+will be returned.</para>
+<para>This handle should be stable across various instances of the application,
+and between applications. If a certificate is modified in the database,
+then it is not guaranteed that this handle will continue to point to it.</para>
+<refsect3 id="g-tls-database-create-certificate-handle.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>self</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GTlsDatabase"><type>GTlsDatabase</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>certificate</para></entry>
+<entry role="parameter_description"><para>certificate for which to create a handle.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-tls-database-create-certificate-handle.returns" role="returns">
+<title>Returns</title>
+<para>a newly allocated string containing the
+handle. </para>
+<para><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.30">2.30</link></para></refsect2>
+<refsect2 id="g-tls-database-lookup-certificate-for-handle" role="function" condition="since:2.30">
+<title>g_tls_database_lookup_certificate_for_handle&#160;()</title>
+<indexterm zone="g-tls-database-lookup-certificate-for-handle" role="2.30"><primary sortas="tls_database_lookup_certificate_for_handle">g_tls_database_lookup_certificate_for_handle</primary></indexterm>
+<programlisting language="C"><link linkend="GTlsCertificate"><returnvalue>GTlsCertificate</returnvalue></link>&#160;*
+g_tls_database_lookup_certificate_for_handle
+                               (<parameter><link linkend="GTlsDatabase"><type>GTlsDatabase</type></link> *self</parameter>,
+                                <parameter>const <link linkend="gchar"><type>gchar</type></link> *handle</parameter>,
+                                <parameter><link linkend="GTlsInteraction"><type>GTlsInteraction</type></link> *interaction</parameter>,
+                                <parameter><link linkend="GTlsDatabaseLookupFlags"><type>GTlsDatabaseLookupFlags</type></link> flags</parameter>,
+                                <parameter><link linkend="GCancellable"><type>GCancellable</type></link> *cancellable</parameter>,
+                                <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para>Lookup a certificate by its handle.</para>
+<para>The handle should have been created by calling
+<link linkend="g-tls-database-create-certificate-handle"><function>g_tls_database_create_certificate_handle()</function></link> on a <link linkend="GTlsDatabase"><type>GTlsDatabase</type></link> object of
+the same TLS backend. The handle is designed to remain valid across
+instantiations of the database.</para>
+<para>If the handle is no longer valid, or does not point to a certificate in
+this database, then <link linkend="NULL:CAPS"><literal>NULL</literal></link> will be returned.</para>
+<para>This function can block, use <link linkend="g-tls-database-lookup-certificate-for-handle-async"><function>g_tls_database_lookup_certificate_for_handle_async()</function></link> to perform
+the lookup operation asynchronously.</para>
+<refsect3 id="g-tls-database-lookup-certificate-for-handle.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>self</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GTlsDatabase"><type>GTlsDatabase</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>handle</para></entry>
+<entry role="parameter_description"><para>a certificate handle</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>interaction</para></entry>
+<entry role="parameter_description"><para>used to interact with the user if necessary. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>flags</para></entry>
+<entry role="parameter_description"><para>Flags which affect the lookup.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>cancellable</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GCancellable"><type>GCancellable</type></link>, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GError"><type>GError</type></link>, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-tls-database-lookup-certificate-for-handle.returns" role="returns">
+<title>Returns</title>
+<para>a newly allocated
+<link linkend="GTlsCertificate"><type>GTlsCertificate</type></link>, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. Use <link linkend="g-object-unref"><function>g_object_unref()</function></link> to release the certificate. </para>
+<para><emphasis role="annotation">[<acronym>transfer full</acronym>][<acronym>nullable</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.30">2.30</link></para></refsect2>
+<refsect2 id="g-tls-database-lookup-certificate-for-handle-async" role="function" condition="since:2.30">
+<title>g_tls_database_lookup_certificate_for_handle_async&#160;()</title>
+<indexterm zone="g-tls-database-lookup-certificate-for-handle-async" role="2.30"><primary sortas="tls_database_lookup_certificate_for_handle_async">g_tls_database_lookup_certificate_for_handle_async</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_tls_database_lookup_certificate_for_handle_async
+                               (<parameter><link linkend="GTlsDatabase"><type>GTlsDatabase</type></link> *self</parameter>,
+                                <parameter>const <link linkend="gchar"><type>gchar</type></link> *handle</parameter>,
+                                <parameter><link linkend="GTlsInteraction"><type>GTlsInteraction</type></link> *interaction</parameter>,
+                                <parameter><link linkend="GTlsDatabaseLookupFlags"><type>GTlsDatabaseLookupFlags</type></link> flags</parameter>,
+                                <parameter><link linkend="GCancellable"><type>GCancellable</type></link> *cancellable</parameter>,
+                                <parameter><link linkend="GAsyncReadyCallback"><type>GAsyncReadyCallback</type></link> callback</parameter>,
+                                <parameter><link linkend="gpointer"><type>gpointer</type></link> user_data</parameter>);</programlisting>
+<para>Asynchronously lookup a certificate by its handle in the database. See
+<link linkend="g-tls-database-lookup-certificate-for-handle"><function>g_tls_database_lookup_certificate_for_handle()</function></link> for more information.</para>
+<refsect3 id="g-tls-database-lookup-certificate-for-handle-async.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>self</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GTlsDatabase"><type>GTlsDatabase</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>handle</para></entry>
+<entry role="parameter_description"><para>a certificate handle</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>interaction</para></entry>
+<entry role="parameter_description"><para>used to interact with the user if necessary. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>flags</para></entry>
+<entry role="parameter_description"><para>Flags which affect the lookup.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>cancellable</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GCancellable"><type>GCancellable</type></link>, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>callback</para></entry>
+<entry role="parameter_description"><para>callback to call when the operation completes</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>user_data</para></entry>
+<entry role="parameter_description"><para>the data to pass to the callback function</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.30">2.30</link></para></refsect2>
+<refsect2 id="g-tls-database-lookup-certificate-for-handle-finish" role="function" condition="since:2.30">
+<title>g_tls_database_lookup_certificate_for_handle_finish&#160;()</title>
+<indexterm zone="g-tls-database-lookup-certificate-for-handle-finish" role="2.30"><primary sortas="tls_database_lookup_certificate_for_handle_finish">g_tls_database_lookup_certificate_for_handle_finish</primary></indexterm>
+<programlisting language="C"><link linkend="GTlsCertificate"><returnvalue>GTlsCertificate</returnvalue></link>&#160;*
+g_tls_database_lookup_certificate_for_handle_finish
+                               (<parameter><link linkend="GTlsDatabase"><type>GTlsDatabase</type></link> *self</parameter>,
+                                <parameter><link linkend="GAsyncResult"><type>GAsyncResult</type></link> *result</parameter>,
+                                <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para>Finish an asynchronous lookup of a certificate by its handle. See
+<link linkend="g-tls-database-lookup-certificate-by-handle"><function>g_tls_database_lookup_certificate_by_handle()</function></link> for more information.</para>
+<para>If the handle is no longer valid, or does not point to a certificate in
+this database, then <link linkend="NULL:CAPS"><literal>NULL</literal></link> will be returned.</para>
+<refsect3 id="g-tls-database-lookup-certificate-for-handle-finish.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>self</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GTlsDatabase"><type>GTlsDatabase</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>result</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GAsyncResult"><type>GAsyncResult</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GError"><type>GError</type></link> pointer, or <link linkend="NULL:CAPS"><literal>NULL</literal></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-tls-database-lookup-certificate-for-handle-finish.returns" role="returns">
+<title>Returns</title>
+<para>a newly allocated <link linkend="GTlsCertificate"><type>GTlsCertificate</type></link> object.
+Use <link linkend="g-object-unref"><function>g_object_unref()</function></link> to release the certificate. </para>
+<para><emphasis role="annotation">[<acronym>transfer full</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.30">2.30</link></para></refsect2>
+
+</refsect1>
+<refsect1 id="GTlsDatabase.other_details" role="details">
+<title role="details.title">Types and Values</title>
+<refsect2 id="GTlsDatabase-struct" role="struct">
+<title>GTlsDatabase</title>
+<indexterm zone="GTlsDatabase-struct" role="2.30"><primary sortas="TlsDatabase">GTlsDatabase</primary></indexterm>
+<programlisting language="C">typedef struct _GTlsDatabase GTlsDatabase;</programlisting>
+<para>Abstract base class for the backend-specific database types.</para>
+<para role="since">Since: <link linkend="api-index-2.30">2.30</link></para></refsect2>
+<refsect2 id="GTlsDatabaseClass" role="struct" condition="since:2.30">
+<title>struct GTlsDatabaseClass</title>
+<indexterm zone="GTlsDatabaseClass" role="2.30"><primary sortas="TlsDatabaseClass">GTlsDatabaseClass</primary></indexterm>
+<programlisting language="C">struct GTlsDatabaseClass {
+  GObjectClass parent_class;
+
+  /* virtual methods */
+
+  GTlsCertificateFlags  (*verify_chain)                         (GTlsDatabase            *self,
+                                                                 GTlsCertificate         *chain,
+                                                                 const gchar             *purpose,
+                                                                 GSocketConnectable      *identity,
+                                                                 GTlsInteraction         *interaction,
+                                                                 GTlsDatabaseVerifyFlags  flags,
+                                                                 GCancellable            *cancellable,
+                                                                 GError                 **error);
+
+  void                  (*verify_chain_async)                   (GTlsDatabase            *self,
+                                                                 GTlsCertificate         *chain,
+                                                                 const gchar             *purpose,
+                                                                 GSocketConnectable      *identity,
+                                                                 GTlsInteraction         *interaction,
+                                                                 GTlsDatabaseVerifyFlags  flags,
+                                                                 GCancellable            *cancellable,
+                                                                 GAsyncReadyCallback      callback,
+                                                                 gpointer                 user_data);
+
+  GTlsCertificateFlags  (*verify_chain_finish)                  (GTlsDatabase            *self,
+                                                                 GAsyncResult            *result,
+                                                                 GError                 **error);
+
+  gchar*                (*create_certificate_handle)            (GTlsDatabase            *self,
+                                                                 GTlsCertificate         *certificate);
+
+  GTlsCertificate*      (*lookup_certificate_for_handle)        (GTlsDatabase            *self,
+                                                                 const gchar             *handle,
+                                                                 GTlsInteraction         *interaction,
+                                                                 GTlsDatabaseLookupFlags  flags,
+                                                                 GCancellable            *cancellable,
+                                                                 GError                 **error);
+
+  void                  (*lookup_certificate_for_handle_async)  (GTlsDatabase            *self,
+                                                                 const gchar             *handle,
+                                                                 GTlsInteraction         *interaction,
+                                                                 GTlsDatabaseLookupFlags  flags,
+                                                                 GCancellable            *cancellable,
+                                                                 GAsyncReadyCallback      callback,
+                                                                 gpointer                 user_data);
+
+  GTlsCertificate*      (*lookup_certificate_for_handle_finish) (GTlsDatabase            *self,
+                                                                 GAsyncResult            *result,
+                                                                 GError                 **error);
+
+  GTlsCertificate*      (*lookup_certificate_issuer)            (GTlsDatabase            *self,
+                                                                 GTlsCertificate         *certificate,
+                                                                 GTlsInteraction         *interaction,
+                                                                 GTlsDatabaseLookupFlags  flags,
+                                                                 GCancellable            *cancellable,
+                                                                 GError                 **error);
+
+  void                  (*lookup_certificate_issuer_async)      (GTlsDatabase            *self,
+                                                                 GTlsCertificate         *certificate,
+                                                                 GTlsInteraction         *interaction,
+                                                                 GTlsDatabaseLookupFlags  flags,
+                                                                 GCancellable            *cancellable,
+                                                                 GAsyncReadyCallback      callback,
+                                                                 gpointer                 user_data);
+
+  GTlsCertificate*      (*lookup_certificate_issuer_finish)     (GTlsDatabase            *self,
+                                                                 GAsyncResult            *result,
+                                                                 GError                 **error);
+
+  GList*                (*lookup_certificates_issued_by)        (GTlsDatabase            *self,
+                                                                 GByteArray              *issuer_raw_dn,
+                                                                 GTlsInteraction         *interaction,
+                                                                 GTlsDatabaseLookupFlags  flags,
+                                                                 GCancellable            *cancellable,
+                                                                 GError                 **error);
+
+  void                  (*lookup_certificates_issued_by_async)  (GTlsDatabase            *self,
+                                                                 GByteArray              *issuer_raw_dn,
+                                                                 GTlsInteraction         *interaction,
+                                                                 GTlsDatabaseLookupFlags  flags,
+                                                                 GCancellable            *cancellable,
+                                                                 GAsyncReadyCallback      callback,
+                                                                 gpointer                 user_data);
+
+  GList*                (*lookup_certificates_issued_by_finish) (GTlsDatabase            *self,
+                                                                 GAsyncResult            *result,
+                                                                 GError                 **error);
+};
+</programlisting>
+<para>The class for <link linkend="GTlsDatabase"><type>GTlsDatabase</type></link>. Derived classes should implement the various
+virtual methods. _async and _finish methods have a default
+implementation that runs the corresponding sync method in a thread.</para>
+<refsect3 id="GTlsDatabaseClass.members" role="struct_members">
+<title>Members</title>
+<informaltable role="struct_members_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="struct_members_name" colwidth="300px"/>
+<colspec colname="struct_members_description"/>
+<colspec colname="struct_members_annotations" colwidth="200px"/>
+<tbody>
+<row role="member"><entry role="struct_member_name"><para><structfield id="GTlsDatabaseClass.verify-chain">verify_chain</structfield>&#160;()</para></entry>
+<entry role="struct_member_description"><para>Virtual method implementing
+<link linkend="g-tls-database-verify-chain"><function>g_tls_database_verify_chain()</function></link>.</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><structfield id="GTlsDatabaseClass.verify-chain-async">verify_chain_async</structfield>&#160;()</para></entry>
+<entry role="struct_member_description"><para>Virtual method implementing
+<link linkend="g-tls-database-verify-chain-async"><function>g_tls_database_verify_chain_async()</function></link>.</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><structfield id="GTlsDatabaseClass.verify-chain-finish">verify_chain_finish</structfield>&#160;()</para></entry>
+<entry role="struct_member_description"><para>Virtual method implementing
+<link linkend="g-tls-database-verify-chain-finish"><function>g_tls_database_verify_chain_finish()</function></link>.</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><structfield id="GTlsDatabaseClass.create-certificate-handle">create_certificate_handle</structfield>&#160;()</para></entry>
+<entry role="struct_member_description"><para>Virtual method implementing
+<link linkend="g-tls-database-create-certificate-handle"><function>g_tls_database_create_certificate_handle()</function></link>.</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><structfield id="GTlsDatabaseClass.lookup-certificate-for-handle">lookup_certificate_for_handle</structfield>&#160;()</para></entry>
+<entry role="struct_member_description"><para>Virtual method implementing
+<link linkend="g-tls-database-lookup-certificate-for-handle"><function>g_tls_database_lookup_certificate_for_handle()</function></link>.</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><structfield id="GTlsDatabaseClass.lookup-certificate-for-handle-async">lookup_certificate_for_handle_async</structfield>&#160;()</para></entry>
+<entry role="struct_member_description"><para>Virtual method implementing
+<link linkend="g-tls-database-lookup-certificate-for-handle-async"><function>g_tls_database_lookup_certificate_for_handle_async()</function></link>.</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><structfield id="GTlsDatabaseClass.lookup-certificate-for-handle-finish">lookup_certificate_for_handle_finish</structfield>&#160;()</para></entry>
+<entry role="struct_member_description"><para>Virtual method implementing
+<link linkend="g-tls-database-lookup-certificate-for-handle-finish"><function>g_tls_database_lookup_certificate_for_handle_finish()</function></link>.</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><structfield id="GTlsDatabaseClass.lookup-certificate-issuer">lookup_certificate_issuer</structfield>&#160;()</para></entry>
+<entry role="struct_member_description"><para>Virtual method implementing
+<link linkend="g-tls-database-lookup-certificate-issuer"><function>g_tls_database_lookup_certificate_issuer()</function></link>.</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><structfield id="GTlsDatabaseClass.lookup-certificate-issuer-async">lookup_certificate_issuer_async</structfield>&#160;()</para></entry>
+<entry role="struct_member_description"><para>Virtual method implementing
+<link linkend="g-tls-database-lookup-certificate-issuer-async"><function>g_tls_database_lookup_certificate_issuer_async()</function></link>.</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><structfield id="GTlsDatabaseClass.lookup-certificate-issuer-finish">lookup_certificate_issuer_finish</structfield>&#160;()</para></entry>
+<entry role="struct_member_description"><para>Virtual method implementing
+<link linkend="g-tls-database-lookup-certificate-issuer-finish"><function>g_tls_database_lookup_certificate_issuer_finish()</function></link>.</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><structfield id="GTlsDatabaseClass.lookup-certificates-issued-by">lookup_certificates_issued_by</structfield>&#160;()</para></entry>
+<entry role="struct_member_description"><para>Virtual method implementing
+<link linkend="g-tls-database-lookup-certificates-issued-by"><function>g_tls_database_lookup_certificates_issued_by()</function></link>.</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><structfield id="GTlsDatabaseClass.lookup-certificates-issued-by-async">lookup_certificates_issued_by_async</structfield>&#160;()</para></entry>
+<entry role="struct_member_description"><para>Virtual method implementing
+<link linkend="g-tls-database-lookup-certificates-issued-by-async"><function>g_tls_database_lookup_certificates_issued_by_async()</function></link>.</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><structfield id="GTlsDatabaseClass.lookup-certificates-issued-by-finish">lookup_certificates_issued_by_finish</structfield>&#160;()</para></entry>
+<entry role="struct_member_description"><para>Virtual method implementing
+<link linkend="g-tls-database-lookup-certificates-issued-by-finish"><function>g_tls_database_lookup_certificates_issued_by_finish()</function></link>.</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+</tbody></tgroup></informaltable>
+</refsect3>
+<para role="since">Since: <link linkend="api-index-2.30">2.30</link></para></refsect2>
+<refsect2 id="GTlsDatabaseVerifyFlags" role="enum" condition="since:2.30">
+<title>enum GTlsDatabaseVerifyFlags</title>
+<indexterm zone="GTlsDatabaseVerifyFlags" role="2.30"><primary sortas="TlsDatabaseVerifyFlags">GTlsDatabaseVerifyFlags</primary></indexterm>
+<para>Flags for <link linkend="g-tls-database-verify-chain"><function>g_tls_database_verify_chain()</function></link>.</para>
+<refsect3 id="GTlsDatabaseVerifyFlags.members" role="enum_members">
+<title>Members</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="enum_members_name" colwidth="300px"/>
+<colspec colname="enum_members_description"/>
+<colspec colname="enum_members_annotations" colwidth="200px"/>
+<tbody>
+<row role="constant"><entry role="enum_member_name"><para id="G-TLS-DATABASE-VERIFY-NONE:CAPS">G_TLS_DATABASE_VERIFY_NONE</para></entry>
+<entry role="enum_member_description"><para>No verification flags</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.30">2.30</link></para></refsect2>
+<refsect2 id="G-TLS-DATABASE-PURPOSE-AUTHENTICATE-SERVER:CAPS" role="macro">
+<title>G_TLS_DATABASE_PURPOSE_AUTHENTICATE_SERVER</title>
+<indexterm zone="G-TLS-DATABASE-PURPOSE-AUTHENTICATE-SERVER:CAPS"><primary sortas="TLS_DATABASE_PURPOSE_AUTHENTICATE_SERVER">G_TLS_DATABASE_PURPOSE_AUTHENTICATE_SERVER</primary></indexterm>
+<programlisting language="C">#define G_TLS_DATABASE_PURPOSE_AUTHENTICATE_SERVER "1.3.6.1.5.5.7.3.1"
+</programlisting>
+<para>The purpose used to verify the server certificate in a TLS connection. This
+is the most common purpose in use. Used by TLS clients.</para>
+</refsect2>
+<refsect2 id="G-TLS-DATABASE-PURPOSE-AUTHENTICATE-CLIENT:CAPS" role="macro">
+<title>G_TLS_DATABASE_PURPOSE_AUTHENTICATE_CLIENT</title>
+<indexterm zone="G-TLS-DATABASE-PURPOSE-AUTHENTICATE-CLIENT:CAPS"><primary sortas="TLS_DATABASE_PURPOSE_AUTHENTICATE_CLIENT">G_TLS_DATABASE_PURPOSE_AUTHENTICATE_CLIENT</primary></indexterm>
+<programlisting language="C">#define G_TLS_DATABASE_PURPOSE_AUTHENTICATE_CLIENT "1.3.6.1.5.5.7.3.2"
+</programlisting>
+<para>The purpose used to verify the client certificate in a TLS connection.
+Used by TLS servers.</para>
+</refsect2>
+<refsect2 id="GTlsDatabaseLookupFlags" role="enum" condition="since:2.30">
+<title>enum GTlsDatabaseLookupFlags</title>
+<indexterm zone="GTlsDatabaseLookupFlags" role="2.30"><primary sortas="TlsDatabaseLookupFlags">GTlsDatabaseLookupFlags</primary></indexterm>
+<para>Flags for <link linkend="g-tls-database-lookup-certificate-for-handle"><function>g_tls_database_lookup_certificate_for_handle()</function></link>,
+<link linkend="g-tls-database-lookup-certificate-issuer"><function>g_tls_database_lookup_certificate_issuer()</function></link>,
+and <link linkend="g-tls-database-lookup-certificates-issued-by"><function>g_tls_database_lookup_certificates_issued_by()</function></link>.</para>
+<refsect3 id="GTlsDatabaseLookupFlags.members" role="enum_members">
+<title>Members</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="enum_members_name" colwidth="300px"/>
+<colspec colname="enum_members_description"/>
+<colspec colname="enum_members_annotations" colwidth="200px"/>
+<tbody>
+<row role="constant"><entry role="enum_member_name"><para id="G-TLS-DATABASE-LOOKUP-NONE:CAPS">G_TLS_DATABASE_LOOKUP_NONE</para></entry>
+<entry role="enum_member_description"><para>No lookup flags</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-TLS-DATABASE-LOOKUP-KEYPAIR:CAPS">G_TLS_DATABASE_LOOKUP_KEYPAIR</para></entry>
+<entry role="enum_member_description"><para>Restrict lookup to certificates that have
+    a private key.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.30">2.30</link></para></refsect2>
+
+</refsect1>
+
+</refentry>

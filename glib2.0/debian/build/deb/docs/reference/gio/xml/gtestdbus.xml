@@ -1,0 +1,375 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC '-//OASIS//DTD DocBook XML V4.5//EN'
+                      'http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd' [
+<!ENTITY % local.common.attrib "xmlns:xi  CDATA  #FIXED 'http://www.w3.org/2003/XInclude'">
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="GTestDBus">
+<refmeta>
+<refentrytitle role="top_of_page" id="GTestDBus.top_of_page">GTestDBus</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>GIO Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>GTestDBus</refname>
+<refpurpose>D-Bus testing helper</refpurpose>
+</refnamediv>
+
+<refsect1 id="GTestDBus.functions" role="functions_proto">
+<title role="functions_proto.title">Functions</title>
+<informaltable pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="functions_return" colwidth="150px"/>
+<colspec colname="functions_name"/>
+<tbody>
+<row><entry role="function_type"><link linkend="GTestDBus"><returnvalue>GTestDBus</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-test-dbus-new">g_test_dbus_new</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GTestDBusFlags"><returnvalue>GTestDBusFlags</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-test-dbus-get-flags">g_test_dbus_get_flags</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type">const <link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-test-dbus-get-bus-address">g_test_dbus_get_bus_address</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-test-dbus-add-service-dir">g_test_dbus_add_service_dir</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-test-dbus-up">g_test_dbus_up</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-test-dbus-stop">g_test_dbus_stop</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-test-dbus-down">g_test_dbus_down</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-test-dbus-unset">g_test_dbus_unset</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GTestDBus.properties" role="properties">
+<title role="properties.title">Properties</title>
+<informaltable frame="none">
+<tgroup cols="3">
+<colspec colname="properties_type" colwidth="150px"/>
+<colspec colname="properties_name" colwidth="300px"/>
+<colspec colname="properties_flags" colwidth="200px"/>
+<tbody>
+<row><entry role="property_type"><link linkend="GTestDBusFlags"><type>GTestDBusFlags</type></link></entry><entry role="property_name"><link linkend="GTestDBus--flags">flags</link></entry><entry role="property_flags">Read / Write / Construct Only</entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GTestDBus.other" role="other_proto">
+<title role="other_proto.title">Types and Values</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="name" colwidth="150px"/>
+<colspec colname="description"/>
+<tbody>
+<row><entry role="datatype_keyword"></entry><entry role="function_name"><link linkend="GTestDBus-struct">GTestDBus</link></entry></row>
+<row><entry role="datatype_keyword">enum</entry><entry role="function_name"><link linkend="GTestDBusFlags">GTestDBusFlags</link></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GTestDBus.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<screen>    <link linkend="GFlags">GFlags</link>
+    <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> GTestDBusFlags
+    <link linkend="GObject">GObject</link>
+    <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> GTestDBus
+</screen>
+</refsect1>
+
+<refsect1 id="GTestDBus.includes"><title>Includes</title><synopsis>#include &lt;gio/gio.h&gt;
+</synopsis></refsect1>
+
+<refsect1 id="GTestDBus.description" role="desc">
+<title role="desc.title">Description</title>
+<para>A helper class for testing code which uses D-Bus without touching the user's
+session bus.</para>
+<para>Note that <link linkend="GTestDBus"><type>GTestDBus</type></link> modifies the user’s environment, calling <link linkend="setenv"><function>setenv()</function></link>.
+This is not thread-safe, so all <link linkend="GTestDBus"><type>GTestDBus</type></link> calls should be completed before
+threads are spawned, or should have appropriate locking to ensure no access
+conflicts to environment variables shared between <link linkend="GTestDBus"><type>GTestDBus</type></link> and other
+threads.</para>
+<refsect3><title>Creating unit tests using GTestDBus</title><para>Testing of D-Bus services can be tricky because normally we only ever run
+D-Bus services over an existing instance of the D-Bus daemon thus we
+usually don't activate D-Bus services that are not yet installed into the
+target system. The <link linkend="GTestDBus"><type>GTestDBus</type></link> object makes this easier for us by taking care
+of the lower level tasks such as running a private D-Bus daemon and looking
+up uninstalled services in customizable locations, typically in your source
+code tree.</para>
+<para>The first thing you will need is a separate service description file for the
+D-Bus daemon. Typically a <literal>services</literal> subdirectory of your <literal>tests</literal> directory
+is a good place to put this file.</para>
+<para>The service file should list your service along with an absolute path to the
+uninstalled service executable in your source tree. Using autotools we would
+achieve this by adding a file such as <literal>my-server.service.in</literal> in the services
+directory and have it processed by configure.</para>
+<informalexample><programlisting role="example"><![CDATA[
+    [D-BUS Service]
+    Name=org.gtk.GDBus.Examples.ObjectManager
+    Exec=@abs_top_builddir@/gio/tests/gdbus-example-objectmanager-server
+]]></programlisting></informalexample>
+<para>
+You will also need to indicate this service directory in your test
+fixtures, so you will need to pass the path while compiling your
+test cases. Typically this is done with autotools with an added
+preprocessor flag specified to compile your tests such as:</para>
+<informalexample><programlisting role="example"><![CDATA[
+    -DTEST_SERVICES=\""$(abs_top_builddir)/tests/services"\"
+]]></programlisting></informalexample>
+<para>
+    Once you have a service definition file which is local to your source tree,
+you can proceed to set up a GTest fixture using the <link linkend="GTestDBus"><type>GTestDBus</type></link> scaffolding.</para>
+<para>An example of a test fixture for D-Bus services can be found
+here:
+<ulink url="https://git.gnome.org/browse/glib/tree/gio/tests/gdbus-test-fixture.c">gdbus-test-fixture.c</ulink></para>
+<para>Note that these examples only deal with isolating the D-Bus aspect of your
+service. To successfully run isolated unit tests on your service you may need
+some additional modifications to your test case fixture. For example; if your
+service uses GSettings and installs a schema then it is important that your test service
+not load the schema in the ordinary installed location (chances are that your service
+and schema files are not yet installed, or worse; there is an older version of the
+schema file sitting in the install location).</para>
+<para>Most of the time we can work around these obstacles using the
+environment. Since the environment is inherited by the D-Bus daemon
+created by <link linkend="GTestDBus"><type>GTestDBus</type></link> and then in turn inherited by any services the
+D-Bus daemon activates, using the setup routine for your fixture is
+a practical place to help sandbox your runtime environment. For the
+rather typical GSettings case we can work around this by setting
+<literal>GSETTINGS_SCHEMA_DIR</literal> to the in tree directory holding your schemas
+in the above <link linkend="fixture-setup"><function>fixture_setup()</function></link> routine.</para>
+<para>The GSettings schemas need to be locally pre-compiled for this to work. This can be achieved
+by compiling the schemas locally as a step before running test cases, an autotools setup might
+do the following in the directory holding schemas:</para>
+<informalexample><programlisting role="example"><![CDATA[
+    all-am:
+            $(GLIB_COMPILE_SCHEMAS) .
+
+    CLEANFILES += gschemas.compiled
+]]></programlisting></informalexample>
+<para></para>
+</refsect3>
+
+</refsect1>
+<refsect1 id="GTestDBus.functions_details" role="details">
+<title role="details.title">Functions</title>
+<refsect2 id="g-test-dbus-new" role="function">
+<title>g_test_dbus_new&#160;()</title>
+<indexterm zone="g-test-dbus-new"><primary sortas="test_dbus_new">g_test_dbus_new</primary></indexterm>
+<programlisting language="C"><link linkend="GTestDBus"><returnvalue>GTestDBus</returnvalue></link>&#160;*
+g_test_dbus_new (<parameter><link linkend="GTestDBusFlags"><type>GTestDBusFlags</type></link> flags</parameter>);</programlisting>
+<para>Create a new <link linkend="GTestDBus"><type>GTestDBus</type></link> object.</para>
+<refsect3 id="g-test-dbus-new.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>flags</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GTestDBusFlags"><type>GTestDBusFlags</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-test-dbus-new.returns" role="returns">
+<title>Returns</title>
+<para>a new <link linkend="GTestDBus"><type>GTestDBus</type></link>. </para>
+<para><emphasis role="annotation">[<acronym>transfer full</acronym>]</emphasis></para>
+</refsect3></refsect2>
+<refsect2 id="g-test-dbus-get-flags" role="function">
+<title>g_test_dbus_get_flags&#160;()</title>
+<indexterm zone="g-test-dbus-get-flags"><primary sortas="test_dbus_get_flags">g_test_dbus_get_flags</primary></indexterm>
+<programlisting language="C"><link linkend="GTestDBusFlags"><returnvalue>GTestDBusFlags</returnvalue></link>
+g_test_dbus_get_flags (<parameter><link linkend="GTestDBus"><type>GTestDBus</type></link> *self</parameter>);</programlisting>
+<para>Get the flags of the <link linkend="GTestDBus"><type>GTestDBus</type></link> object.</para>
+<refsect3 id="g-test-dbus-get-flags.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>self</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GTestDBus"><type>GTestDBus</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-test-dbus-get-flags.returns" role="returns">
+<title>Returns</title>
+<para> the value of <link linkend="GTestDBus--flags"><type>“flags”</type></link> property</para>
+</refsect3></refsect2>
+<refsect2 id="g-test-dbus-get-bus-address" role="function">
+<title>g_test_dbus_get_bus_address&#160;()</title>
+<indexterm zone="g-test-dbus-get-bus-address"><primary sortas="test_dbus_get_bus_address">g_test_dbus_get_bus_address</primary></indexterm>
+<programlisting language="C">const <link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+g_test_dbus_get_bus_address (<parameter><link linkend="GTestDBus"><type>GTestDBus</type></link> *self</parameter>);</programlisting>
+<para>Get the address on which dbus-daemon is running. If <link linkend="g-test-dbus-up"><function>g_test_dbus_up()</function></link> has not
+been called yet, <link linkend="NULL:CAPS"><literal>NULL</literal></link> is returned. This can be used with
+<link linkend="g-dbus-connection-new-for-address"><function>g_dbus_connection_new_for_address()</function></link>.</para>
+<refsect3 id="g-test-dbus-get-bus-address.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>self</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GTestDBus"><type>GTestDBus</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-test-dbus-get-bus-address.returns" role="returns">
+<title>Returns</title>
+<para>the address of the bus, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para>
+<para><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></para>
+</refsect3></refsect2>
+<refsect2 id="g-test-dbus-add-service-dir" role="function">
+<title>g_test_dbus_add_service_dir&#160;()</title>
+<indexterm zone="g-test-dbus-add-service-dir"><primary sortas="test_dbus_add_service_dir">g_test_dbus_add_service_dir</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_test_dbus_add_service_dir (<parameter><link linkend="GTestDBus"><type>GTestDBus</type></link> *self</parameter>,
+                             <parameter>const <link linkend="gchar"><type>gchar</type></link> *path</parameter>);</programlisting>
+<para>Add a path where dbus-daemon will look up .service files. This can't be
+called after <link linkend="g-test-dbus-up"><function>g_test_dbus_up()</function></link>.</para>
+<refsect3 id="g-test-dbus-add-service-dir.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>self</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GTestDBus"><type>GTestDBus</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>path</para></entry>
+<entry role="parameter_description"><para>path to a directory containing .service files</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-test-dbus-up" role="function">
+<title>g_test_dbus_up&#160;()</title>
+<indexterm zone="g-test-dbus-up"><primary sortas="test_dbus_up">g_test_dbus_up</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_test_dbus_up (<parameter><link linkend="GTestDBus"><type>GTestDBus</type></link> *self</parameter>);</programlisting>
+<para>Start a dbus-daemon instance and set DBUS_SESSION_BUS_ADDRESS. After this
+call, it is safe for unit tests to start sending messages on the session bus.</para>
+<para>If this function is called from setup callback of <link linkend="g-test-add"><function>g_test_add()</function></link>,
+<link linkend="g-test-dbus-down"><function>g_test_dbus_down()</function></link> must be called in its teardown callback.</para>
+<para>If this function is called from unit test's <link linkend="main"><function>main()</function></link>, then <link linkend="g-test-dbus-down"><function>g_test_dbus_down()</function></link>
+must be called after <link linkend="g-test-run"><function>g_test_run()</function></link>.</para>
+<refsect3 id="g-test-dbus-up.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>self</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GTestDBus"><type>GTestDBus</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-test-dbus-stop" role="function">
+<title>g_test_dbus_stop&#160;()</title>
+<indexterm zone="g-test-dbus-stop"><primary sortas="test_dbus_stop">g_test_dbus_stop</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_test_dbus_stop (<parameter><link linkend="GTestDBus"><type>GTestDBus</type></link> *self</parameter>);</programlisting>
+<para>Stop the session bus started by <link linkend="g-test-dbus-up"><function>g_test_dbus_up()</function></link>.</para>
+<para>Unlike <link linkend="g-test-dbus-down"><function>g_test_dbus_down()</function></link>, this won't verify the <link linkend="GDBusConnection"><type>GDBusConnection</type></link>
+singleton returned by <link linkend="g-bus-get"><function>g_bus_get()</function></link> or <link linkend="g-bus-get-sync"><function>g_bus_get_sync()</function></link> is destroyed. Unit
+tests wanting to verify behaviour after the session bus has been stopped
+can use this function but should still call <link linkend="g-test-dbus-down"><function>g_test_dbus_down()</function></link> when done.</para>
+<refsect3 id="g-test-dbus-stop.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>self</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GTestDBus"><type>GTestDBus</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-test-dbus-down" role="function">
+<title>g_test_dbus_down&#160;()</title>
+<indexterm zone="g-test-dbus-down"><primary sortas="test_dbus_down">g_test_dbus_down</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_test_dbus_down (<parameter><link linkend="GTestDBus"><type>GTestDBus</type></link> *self</parameter>);</programlisting>
+<para>Stop the session bus started by <link linkend="g-test-dbus-up"><function>g_test_dbus_up()</function></link>.</para>
+<para>This will wait for the singleton returned by <link linkend="g-bus-get"><function>g_bus_get()</function></link> or <link linkend="g-bus-get-sync"><function>g_bus_get_sync()</function></link>
+is destroyed. This is done to ensure that the next unit test won't get a
+leaked singleton from this test.</para>
+<refsect3 id="g-test-dbus-down.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>self</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GTestDBus"><type>GTestDBus</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-test-dbus-unset" role="function">
+<title>g_test_dbus_unset&#160;()</title>
+<indexterm zone="g-test-dbus-unset"><primary sortas="test_dbus_unset">g_test_dbus_unset</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_test_dbus_unset (<parameter><type>void</type></parameter>);</programlisting>
+<para>Unset DISPLAY and DBUS_SESSION_BUS_ADDRESS env variables to ensure the test
+won't use user's session bus.</para>
+<para>This is useful for unit tests that want to verify behaviour when no session
+bus is running. It is not necessary to call this if unit test already calls
+<link linkend="g-test-dbus-up"><function>g_test_dbus_up()</function></link> before acquiring the session bus.</para>
+</refsect2>
+
+</refsect1>
+<refsect1 id="GTestDBus.other_details" role="details">
+<title role="details.title">Types and Values</title>
+<refsect2 id="GTestDBus-struct" role="struct">
+<title>GTestDBus</title>
+<indexterm zone="GTestDBus-struct" role="2.34"><primary sortas="TestDBus">GTestDBus</primary></indexterm>
+<programlisting language="C">typedef struct _GTestDBus GTestDBus;</programlisting>
+<para>The <link linkend="GTestDBus"><type>GTestDBus</type></link> structure contains only private data and
+should only be accessed using the provided API.</para>
+<para role="since">Since: <link linkend="api-index-2.34">2.34</link></para></refsect2>
+<refsect2 id="GTestDBusFlags" role="enum" condition="since:2.34">
+<title>enum GTestDBusFlags</title>
+<indexterm zone="GTestDBusFlags" role="2.34"><primary sortas="TestDBusFlags">GTestDBusFlags</primary></indexterm>
+<para>Flags to define future <link linkend="GTestDBus"><type>GTestDBus</type></link> behaviour.</para>
+<refsect3 id="GTestDBusFlags.members" role="enum_members">
+<title>Members</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="enum_members_name" colwidth="300px"/>
+<colspec colname="enum_members_description"/>
+<colspec colname="enum_members_annotations" colwidth="200px"/>
+<tbody>
+<row role="constant"><entry role="enum_member_name"><para id="G-TEST-DBUS-NONE:CAPS">G_TEST_DBUS_NONE</para></entry>
+<entry role="enum_member_description"><para>No flags.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.34">2.34</link></para></refsect2>
+
+</refsect1>
+<refsect1 id="GTestDBus.property-details" role="property_details">
+<title role="property_details.title">Property Details</title>
+<refsect2 id="GTestDBus--flags" role="property"><title>The <literal>“flags”</literal> property</title>
+<indexterm zone="GTestDBus--flags" role="2.34"><primary sortas="TestDBus:flags">GTestDBus:flags</primary></indexterm>
+<programlisting>  “flags”                    <link linkend="GTestDBusFlags"><type>GTestDBusFlags</type></link></programlisting>
+<para><link linkend="GTestDBusFlags"><type>GTestDBusFlags</type></link> specifying the behaviour of the D-Bus session.</para>
+<para>Flags: Read / Write / Construct Only</para>
+<para role="since">Since: <link linkend="api-index-2.34">2.34</link></para></refsect2>
+
+</refsect1>
+
+</refentry>

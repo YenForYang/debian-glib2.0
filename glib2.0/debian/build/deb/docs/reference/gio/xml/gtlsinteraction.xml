@@ -1,0 +1,633 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC '-//OASIS//DTD DocBook XML V4.5//EN'
+                      'http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd' [
+<!ENTITY % local.common.attrib "xmlns:xi  CDATA  #FIXED 'http://www.w3.org/2003/XInclude'">
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="GTlsInteraction">
+<refmeta>
+<refentrytitle role="top_of_page" id="GTlsInteraction.top_of_page">GTlsInteraction</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>GIO Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>GTlsInteraction</refname>
+<refpurpose>Interaction with the user during TLS operations.</refpurpose>
+</refnamediv>
+
+<refsect1 id="GTlsInteraction.functions" role="functions_proto">
+<title role="functions_proto.title">Functions</title>
+<informaltable pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="functions_return" colwidth="150px"/>
+<colspec colname="functions_name"/>
+<tbody>
+<row><entry role="function_type"><link linkend="GTlsInteractionResult"><returnvalue>GTlsInteractionResult</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-tls-interaction-invoke-ask-password">g_tls_interaction_invoke_ask_password</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GTlsInteractionResult"><returnvalue>GTlsInteractionResult</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-tls-interaction-invoke-request-certificate">g_tls_interaction_invoke_request_certificate</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GTlsInteractionResult"><returnvalue>GTlsInteractionResult</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-tls-interaction-ask-password">g_tls_interaction_ask_password</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-tls-interaction-ask-password-async">g_tls_interaction_ask_password_async</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GTlsInteractionResult"><returnvalue>GTlsInteractionResult</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-tls-interaction-ask-password-finish">g_tls_interaction_ask_password_finish</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GTlsInteractionResult"><returnvalue>GTlsInteractionResult</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-tls-interaction-request-certificate">g_tls_interaction_request_certificate</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-tls-interaction-request-certificate-async">g_tls_interaction_request_certificate_async</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GTlsInteractionResult"><returnvalue>GTlsInteractionResult</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-tls-interaction-request-certificate-finish">g_tls_interaction_request_certificate_finish</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GTlsInteraction.other" role="other_proto">
+<title role="other_proto.title">Types and Values</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="name" colwidth="150px"/>
+<colspec colname="description"/>
+<tbody>
+<row><entry role="datatype_keyword"></entry><entry role="function_name"><link linkend="GTlsInteraction-struct">GTlsInteraction</link></entry></row>
+<row><entry role="datatype_keyword">enum</entry><entry role="function_name"><link linkend="GTlsInteractionResult">GTlsInteractionResult</link></entry></row>
+<row><entry role="datatype_keyword">enum</entry><entry role="function_name"><link linkend="GTlsCertificateRequestFlags">GTlsCertificateRequestFlags</link></entry></row>
+<row><entry role="datatype_keyword">struct</entry><entry role="function_name"><link linkend="GTlsInteractionClass">GTlsInteractionClass</link></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GTlsInteraction.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<screen>    <link linkend="GEnum">GEnum</link>
+    <phrase role="lineart">&#9500;&#9472;&#9472;</phrase> GTlsCertificateRequestFlags
+    <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> GTlsInteractionResult
+    <link linkend="GObject">GObject</link>
+    <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> GTlsInteraction
+</screen>
+</refsect1>
+
+<refsect1 id="GTlsInteraction.includes"><title>Includes</title><synopsis>#include &lt;gio/gio.h&gt;
+</synopsis></refsect1>
+
+<refsect1 id="GTlsInteraction.description" role="desc">
+<title role="desc.title">Description</title>
+<para><link linkend="GTlsInteraction"><type>GTlsInteraction</type></link> provides a mechanism for the TLS connection and database
+code to interact with the user. It can be used to ask the user for passwords.</para>
+<para>To use a <link linkend="GTlsInteraction"><type>GTlsInteraction</type></link> with a TLS connection use
+<link linkend="g-tls-connection-set-interaction"><function>g_tls_connection_set_interaction()</function></link>.</para>
+<para>Callers should instantiate a derived class that implements the various
+interaction methods to show the required dialogs.</para>
+<para>Callers should use the 'invoke' functions like
+<link linkend="g-tls-interaction-invoke-ask-password"><function>g_tls_interaction_invoke_ask_password()</function></link> to run interaction methods. These
+functions make sure that the interaction is invoked in the main loop
+and not in the current thread, if the current thread is not running the
+main loop.</para>
+<para>Derived classes can choose to implement whichever interactions methods they'd
+like to support by overriding those virtual methods in their class
+initialization function. Any interactions not implemented will return
+<link linkend="G-TLS-INTERACTION-UNHANDLED:CAPS"><literal>G_TLS_INTERACTION_UNHANDLED</literal></link>. If a derived class implements an async method,
+it must also implement the corresponding finish method.</para>
+
+</refsect1>
+<refsect1 id="GTlsInteraction.functions_details" role="details">
+<title role="details.title">Functions</title>
+<refsect2 id="g-tls-interaction-invoke-ask-password" role="function" condition="since:2.30">
+<title>g_tls_interaction_invoke_ask_password&#160;()</title>
+<indexterm zone="g-tls-interaction-invoke-ask-password" role="2.30"><primary sortas="tls_interaction_invoke_ask_password">g_tls_interaction_invoke_ask_password</primary></indexterm>
+<programlisting language="C"><link linkend="GTlsInteractionResult"><returnvalue>GTlsInteractionResult</returnvalue></link>
+g_tls_interaction_invoke_ask_password (<parameter><link linkend="GTlsInteraction"><type>GTlsInteraction</type></link> *interaction</parameter>,
+                                       <parameter><link linkend="GTlsPassword"><type>GTlsPassword</type></link> *password</parameter>,
+                                       <parameter><link linkend="GCancellable"><type>GCancellable</type></link> *cancellable</parameter>,
+                                       <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para>Invoke the interaction to ask the user for a password. It invokes this
+interaction in the main loop, specifically the <link linkend="GMainContext"><type>GMainContext</type></link> returned by
+<link linkend="g-main-context-get-thread-default"><function>g_main_context_get_thread_default()</function></link> when the interaction is created. This
+is called by called by <link linkend="GTlsConnection"><type>GTlsConnection</type></link> or <link linkend="GTlsDatabase"><type>GTlsDatabase</type></link> to ask the user
+for a password.</para>
+<para>Derived subclasses usually implement a password prompt, although they may
+also choose to provide a password from elsewhere. The <parameter>password</parameter>
+ value will
+be filled in and then <parameter>callback</parameter>
+ will be called. Alternatively the user may
+abort this password request, which will usually abort the TLS connection.</para>
+<para>The implementation can either be a synchronous (eg: modal dialog) or an
+asynchronous one (eg: modeless dialog). This function will take care of
+calling which ever one correctly.</para>
+<para>If the interaction is cancelled by the cancellation object, or by the
+user then <link linkend="G-TLS-INTERACTION-FAILED:CAPS"><literal>G_TLS_INTERACTION_FAILED</literal></link> will be returned with an error that
+contains a <link linkend="G-IO-ERROR-CANCELLED:CAPS"><literal>G_IO_ERROR_CANCELLED</literal></link> error code. Certain implementations may
+not support immediate cancellation.</para>
+<refsect3 id="g-tls-interaction-invoke-ask-password.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>interaction</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GTlsInteraction"><type>GTlsInteraction</type></link> object</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>password</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GTlsPassword"><type>GTlsPassword</type></link> object</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>cancellable</para></entry>
+<entry role="parameter_description"><para>an optional <link linkend="GCancellable"><type>GCancellable</type></link> cancellation object</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para>an optional location to place an error on failure</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-tls-interaction-invoke-ask-password.returns" role="returns">
+<title>Returns</title>
+<para> The status of the ask password interaction.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.30">2.30</link></para></refsect2>
+<refsect2 id="g-tls-interaction-invoke-request-certificate" role="function" condition="since:2.40">
+<title>g_tls_interaction_invoke_request_certificate&#160;()</title>
+<indexterm zone="g-tls-interaction-invoke-request-certificate" role="2.40"><primary sortas="tls_interaction_invoke_request_certificate">g_tls_interaction_invoke_request_certificate</primary></indexterm>
+<programlisting language="C"><link linkend="GTlsInteractionResult"><returnvalue>GTlsInteractionResult</returnvalue></link>
+g_tls_interaction_invoke_request_certificate
+                               (<parameter><link linkend="GTlsInteraction"><type>GTlsInteraction</type></link> *interaction</parameter>,
+                                <parameter><link linkend="GTlsConnection"><type>GTlsConnection</type></link> *connection</parameter>,
+                                <parameter><link linkend="GTlsCertificateRequestFlags"><type>GTlsCertificateRequestFlags</type></link> flags</parameter>,
+                                <parameter><link linkend="GCancellable"><type>GCancellable</type></link> *cancellable</parameter>,
+                                <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para>Invoke the interaction to ask the user to choose a certificate to
+use with the connection. It invokes this interaction in the main
+loop, specifically the <link linkend="GMainContext"><type>GMainContext</type></link> returned by
+<link linkend="g-main-context-get-thread-default"><function>g_main_context_get_thread_default()</function></link> when the interaction is
+created. This is called by called by <link linkend="GTlsConnection"><type>GTlsConnection</type></link> when the peer
+requests a certificate during the handshake.</para>
+<para>Derived subclasses usually implement a certificate selector,
+although they may also choose to provide a certificate from
+elsewhere. Alternatively the user may abort this certificate
+request, which may or may not abort the TLS connection.</para>
+<para>The implementation can either be a synchronous (eg: modal dialog) or an
+asynchronous one (eg: modeless dialog). This function will take care of
+calling which ever one correctly.</para>
+<para>If the interaction is cancelled by the cancellation object, or by the
+user then <link linkend="G-TLS-INTERACTION-FAILED:CAPS"><literal>G_TLS_INTERACTION_FAILED</literal></link> will be returned with an error that
+contains a <link linkend="G-IO-ERROR-CANCELLED:CAPS"><literal>G_IO_ERROR_CANCELLED</literal></link> error code. Certain implementations may
+not support immediate cancellation.</para>
+<refsect3 id="g-tls-interaction-invoke-request-certificate.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>interaction</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GTlsInteraction"><type>GTlsInteraction</type></link> object</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>connection</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GTlsConnection"><type>GTlsConnection</type></link> object</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>flags</para></entry>
+<entry role="parameter_description"><para>flags providing more information about the request</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>cancellable</para></entry>
+<entry role="parameter_description"><para>an optional <link linkend="GCancellable"><type>GCancellable</type></link> cancellation object</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para>an optional location to place an error on failure</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-tls-interaction-invoke-request-certificate.returns" role="returns">
+<title>Returns</title>
+<para> The status of the certificate request interaction.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.40">2.40</link></para></refsect2>
+<refsect2 id="g-tls-interaction-ask-password" role="function" condition="since:2.30">
+<title>g_tls_interaction_ask_password&#160;()</title>
+<indexterm zone="g-tls-interaction-ask-password" role="2.30"><primary sortas="tls_interaction_ask_password">g_tls_interaction_ask_password</primary></indexterm>
+<programlisting language="C"><link linkend="GTlsInteractionResult"><returnvalue>GTlsInteractionResult</returnvalue></link>
+g_tls_interaction_ask_password (<parameter><link linkend="GTlsInteraction"><type>GTlsInteraction</type></link> *interaction</parameter>,
+                                <parameter><link linkend="GTlsPassword"><type>GTlsPassword</type></link> *password</parameter>,
+                                <parameter><link linkend="GCancellable"><type>GCancellable</type></link> *cancellable</parameter>,
+                                <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para>Run synchronous interaction to ask the user for a password. In general,
+<link linkend="g-tls-interaction-invoke-ask-password"><function>g_tls_interaction_invoke_ask_password()</function></link> should be used instead of this
+function.</para>
+<para>Derived subclasses usually implement a password prompt, although they may
+also choose to provide a password from elsewhere. The <parameter>password</parameter>
+ value will
+be filled in and then <parameter>callback</parameter>
+ will be called. Alternatively the user may
+abort this password request, which will usually abort the TLS connection.</para>
+<para>If the interaction is cancelled by the cancellation object, or by the
+user then <link linkend="G-TLS-INTERACTION-FAILED:CAPS"><literal>G_TLS_INTERACTION_FAILED</literal></link> will be returned with an error that
+contains a <link linkend="G-IO-ERROR-CANCELLED:CAPS"><literal>G_IO_ERROR_CANCELLED</literal></link> error code. Certain implementations may
+not support immediate cancellation.</para>
+<refsect3 id="g-tls-interaction-ask-password.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>interaction</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GTlsInteraction"><type>GTlsInteraction</type></link> object</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>password</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GTlsPassword"><type>GTlsPassword</type></link> object</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>cancellable</para></entry>
+<entry role="parameter_description"><para>an optional <link linkend="GCancellable"><type>GCancellable</type></link> cancellation object</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para>an optional location to place an error on failure</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-tls-interaction-ask-password.returns" role="returns">
+<title>Returns</title>
+<para> The status of the ask password interaction.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.30">2.30</link></para></refsect2>
+<refsect2 id="g-tls-interaction-ask-password-async" role="function" condition="since:2.30">
+<title>g_tls_interaction_ask_password_async&#160;()</title>
+<indexterm zone="g-tls-interaction-ask-password-async" role="2.30"><primary sortas="tls_interaction_ask_password_async">g_tls_interaction_ask_password_async</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_tls_interaction_ask_password_async (<parameter><link linkend="GTlsInteraction"><type>GTlsInteraction</type></link> *interaction</parameter>,
+                                      <parameter><link linkend="GTlsPassword"><type>GTlsPassword</type></link> *password</parameter>,
+                                      <parameter><link linkend="GCancellable"><type>GCancellable</type></link> *cancellable</parameter>,
+                                      <parameter><link linkend="GAsyncReadyCallback"><type>GAsyncReadyCallback</type></link> callback</parameter>,
+                                      <parameter><link linkend="gpointer"><type>gpointer</type></link> user_data</parameter>);</programlisting>
+<para>Run asynchronous interaction to ask the user for a password. In general,
+<link linkend="g-tls-interaction-invoke-ask-password"><function>g_tls_interaction_invoke_ask_password()</function></link> should be used instead of this
+function.</para>
+<para>Derived subclasses usually implement a password prompt, although they may
+also choose to provide a password from elsewhere. The <parameter>password</parameter>
+ value will
+be filled in and then <parameter>callback</parameter>
+ will be called. Alternatively the user may
+abort this password request, which will usually abort the TLS connection.</para>
+<para>If the interaction is cancelled by the cancellation object, or by the
+user then <link linkend="G-TLS-INTERACTION-FAILED:CAPS"><literal>G_TLS_INTERACTION_FAILED</literal></link> will be returned with an error that
+contains a <link linkend="G-IO-ERROR-CANCELLED:CAPS"><literal>G_IO_ERROR_CANCELLED</literal></link> error code. Certain implementations may
+not support immediate cancellation.</para>
+<para>Certain implementations may not support immediate cancellation.</para>
+<refsect3 id="g-tls-interaction-ask-password-async.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>interaction</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GTlsInteraction"><type>GTlsInteraction</type></link> object</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>password</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GTlsPassword"><type>GTlsPassword</type></link> object</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>cancellable</para></entry>
+<entry role="parameter_description"><para>an optional <link linkend="GCancellable"><type>GCancellable</type></link> cancellation object</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>callback</para></entry>
+<entry role="parameter_description"><para>will be called when the interaction completes. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>user_data</para></entry>
+<entry role="parameter_description"><para>data to pass to the <parameter>callback</parameter>
+. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.30">2.30</link></para></refsect2>
+<refsect2 id="g-tls-interaction-ask-password-finish" role="function" condition="since:2.30">
+<title>g_tls_interaction_ask_password_finish&#160;()</title>
+<indexterm zone="g-tls-interaction-ask-password-finish" role="2.30"><primary sortas="tls_interaction_ask_password_finish">g_tls_interaction_ask_password_finish</primary></indexterm>
+<programlisting language="C"><link linkend="GTlsInteractionResult"><returnvalue>GTlsInteractionResult</returnvalue></link>
+g_tls_interaction_ask_password_finish (<parameter><link linkend="GTlsInteraction"><type>GTlsInteraction</type></link> *interaction</parameter>,
+                                       <parameter><link linkend="GAsyncResult"><type>GAsyncResult</type></link> *result</parameter>,
+                                       <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para>Complete an ask password user interaction request. This should be once
+the <link linkend="g-tls-interaction-ask-password-async"><function>g_tls_interaction_ask_password_async()</function></link> completion callback is called.</para>
+<para>If <link linkend="G-TLS-INTERACTION-HANDLED:CAPS"><literal>G_TLS_INTERACTION_HANDLED</literal></link> is returned, then the <link linkend="GTlsPassword"><type>GTlsPassword</type></link> passed
+to <link linkend="g-tls-interaction-ask-password"><function>g_tls_interaction_ask_password()</function></link> will have its password filled in.</para>
+<para>If the interaction is cancelled by the cancellation object, or by the
+user then <link linkend="G-TLS-INTERACTION-FAILED:CAPS"><literal>G_TLS_INTERACTION_FAILED</literal></link> will be returned with an error that
+contains a <link linkend="G-IO-ERROR-CANCELLED:CAPS"><literal>G_IO_ERROR_CANCELLED</literal></link> error code.</para>
+<refsect3 id="g-tls-interaction-ask-password-finish.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>interaction</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GTlsInteraction"><type>GTlsInteraction</type></link> object</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>result</para></entry>
+<entry role="parameter_description"><para>the result passed to the callback</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para>an optional location to place an error on failure</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-tls-interaction-ask-password-finish.returns" role="returns">
+<title>Returns</title>
+<para> The status of the ask password interaction.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.30">2.30</link></para></refsect2>
+<refsect2 id="g-tls-interaction-request-certificate" role="function" condition="since:2.40">
+<title>g_tls_interaction_request_certificate&#160;()</title>
+<indexterm zone="g-tls-interaction-request-certificate" role="2.40"><primary sortas="tls_interaction_request_certificate">g_tls_interaction_request_certificate</primary></indexterm>
+<programlisting language="C"><link linkend="GTlsInteractionResult"><returnvalue>GTlsInteractionResult</returnvalue></link>
+g_tls_interaction_request_certificate (<parameter><link linkend="GTlsInteraction"><type>GTlsInteraction</type></link> *interaction</parameter>,
+                                       <parameter><link linkend="GTlsConnection"><type>GTlsConnection</type></link> *connection</parameter>,
+                                       <parameter><link linkend="GTlsCertificateRequestFlags"><type>GTlsCertificateRequestFlags</type></link> flags</parameter>,
+                                       <parameter><link linkend="GCancellable"><type>GCancellable</type></link> *cancellable</parameter>,
+                                       <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para>Run synchronous interaction to ask the user to choose a certificate to use
+with the connection. In general, <link linkend="g-tls-interaction-invoke-request-certificate"><function>g_tls_interaction_invoke_request_certificate()</function></link>
+should be used instead of this function.</para>
+<para>Derived subclasses usually implement a certificate selector, although they may
+also choose to provide a certificate from elsewhere. Alternatively the user may
+abort this certificate request, which will usually abort the TLS connection.</para>
+<para>If <link linkend="G-TLS-INTERACTION-HANDLED:CAPS"><literal>G_TLS_INTERACTION_HANDLED</literal></link> is returned, then the <link linkend="GTlsConnection"><type>GTlsConnection</type></link>
+passed to <link linkend="g-tls-interaction-request-certificate"><function>g_tls_interaction_request_certificate()</function></link> will have had its
+<link linkend="GTlsConnection--certificate"><type>“certificate”</type></link> filled in.</para>
+<para>If the interaction is cancelled by the cancellation object, or by the
+user then <link linkend="G-TLS-INTERACTION-FAILED:CAPS"><literal>G_TLS_INTERACTION_FAILED</literal></link> will be returned with an error that
+contains a <link linkend="G-IO-ERROR-CANCELLED:CAPS"><literal>G_IO_ERROR_CANCELLED</literal></link> error code. Certain implementations may
+not support immediate cancellation.</para>
+<refsect3 id="g-tls-interaction-request-certificate.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>interaction</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GTlsInteraction"><type>GTlsInteraction</type></link> object</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>connection</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GTlsConnection"><type>GTlsConnection</type></link> object</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>flags</para></entry>
+<entry role="parameter_description"><para>flags providing more information about the request</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>cancellable</para></entry>
+<entry role="parameter_description"><para>an optional <link linkend="GCancellable"><type>GCancellable</type></link> cancellation object</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para>an optional location to place an error on failure</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-tls-interaction-request-certificate.returns" role="returns">
+<title>Returns</title>
+<para> The status of the request certificate interaction.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.40">2.40</link></para></refsect2>
+<refsect2 id="g-tls-interaction-request-certificate-async" role="function" condition="since:2.40">
+<title>g_tls_interaction_request_certificate_async&#160;()</title>
+<indexterm zone="g-tls-interaction-request-certificate-async" role="2.40"><primary sortas="tls_interaction_request_certificate_async">g_tls_interaction_request_certificate_async</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_tls_interaction_request_certificate_async
+                               (<parameter><link linkend="GTlsInteraction"><type>GTlsInteraction</type></link> *interaction</parameter>,
+                                <parameter><link linkend="GTlsConnection"><type>GTlsConnection</type></link> *connection</parameter>,
+                                <parameter><link linkend="GTlsCertificateRequestFlags"><type>GTlsCertificateRequestFlags</type></link> flags</parameter>,
+                                <parameter><link linkend="GCancellable"><type>GCancellable</type></link> *cancellable</parameter>,
+                                <parameter><link linkend="GAsyncReadyCallback"><type>GAsyncReadyCallback</type></link> callback</parameter>,
+                                <parameter><link linkend="gpointer"><type>gpointer</type></link> user_data</parameter>);</programlisting>
+<para>Run asynchronous interaction to ask the user for a certificate to use with
+the connection. In general, <link linkend="g-tls-interaction-invoke-request-certificate"><function>g_tls_interaction_invoke_request_certificate()</function></link> should
+be used instead of this function.</para>
+<para>Derived subclasses usually implement a certificate selector, although they may
+also choose to provide a certificate from elsewhere. <parameter>callback</parameter>
+ will be called
+when the operation completes. Alternatively the user may abort this certificate
+request, which will usually abort the TLS connection.</para>
+<refsect3 id="g-tls-interaction-request-certificate-async.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>interaction</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GTlsInteraction"><type>GTlsInteraction</type></link> object</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>connection</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GTlsConnection"><type>GTlsConnection</type></link> object</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>flags</para></entry>
+<entry role="parameter_description"><para>flags providing more information about the request</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>cancellable</para></entry>
+<entry role="parameter_description"><para>an optional <link linkend="GCancellable"><type>GCancellable</type></link> cancellation object</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>callback</para></entry>
+<entry role="parameter_description"><para>will be called when the interaction completes. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>user_data</para></entry>
+<entry role="parameter_description"><para>data to pass to the <parameter>callback</parameter>
+. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.40">2.40</link></para></refsect2>
+<refsect2 id="g-tls-interaction-request-certificate-finish" role="function" condition="since:2.40">
+<title>g_tls_interaction_request_certificate_finish&#160;()</title>
+<indexterm zone="g-tls-interaction-request-certificate-finish" role="2.40"><primary sortas="tls_interaction_request_certificate_finish">g_tls_interaction_request_certificate_finish</primary></indexterm>
+<programlisting language="C"><link linkend="GTlsInteractionResult"><returnvalue>GTlsInteractionResult</returnvalue></link>
+g_tls_interaction_request_certificate_finish
+                               (<parameter><link linkend="GTlsInteraction"><type>GTlsInteraction</type></link> *interaction</parameter>,
+                                <parameter><link linkend="GAsyncResult"><type>GAsyncResult</type></link> *result</parameter>,
+                                <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para>Complete an request certificate user interaction request. This should be once
+the <link linkend="g-tls-interaction-request-certificate-async"><function>g_tls_interaction_request_certificate_async()</function></link> completion callback is called.</para>
+<para>If <link linkend="G-TLS-INTERACTION-HANDLED:CAPS"><literal>G_TLS_INTERACTION_HANDLED</literal></link> is returned, then the <link linkend="GTlsConnection"><type>GTlsConnection</type></link>
+passed to <link linkend="g-tls-interaction-request-certificate-async"><function>g_tls_interaction_request_certificate_async()</function></link> will have had its
+<link linkend="GTlsConnection--certificate"><type>“certificate”</type></link> filled in.</para>
+<para>If the interaction is cancelled by the cancellation object, or by the
+user then <link linkend="G-TLS-INTERACTION-FAILED:CAPS"><literal>G_TLS_INTERACTION_FAILED</literal></link> will be returned with an error that
+contains a <link linkend="G-IO-ERROR-CANCELLED:CAPS"><literal>G_IO_ERROR_CANCELLED</literal></link> error code.</para>
+<refsect3 id="g-tls-interaction-request-certificate-finish.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>interaction</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GTlsInteraction"><type>GTlsInteraction</type></link> object</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>result</para></entry>
+<entry role="parameter_description"><para>the result passed to the callback</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para>an optional location to place an error on failure</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-tls-interaction-request-certificate-finish.returns" role="returns">
+<title>Returns</title>
+<para> The status of the request certificate interaction.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.40">2.40</link></para></refsect2>
+
+</refsect1>
+<refsect1 id="GTlsInteraction.other_details" role="details">
+<title role="details.title">Types and Values</title>
+<refsect2 id="GTlsInteraction-struct" role="struct">
+<title>GTlsInteraction</title>
+<indexterm zone="GTlsInteraction-struct" role="2.30"><primary sortas="TlsInteraction">GTlsInteraction</primary></indexterm>
+<programlisting language="C">typedef struct _GTlsInteraction GTlsInteraction;</programlisting>
+<para>An object representing interaction that the TLS connection and database
+might have with the user.</para>
+<para role="since">Since: <link linkend="api-index-2.30">2.30</link></para></refsect2>
+<refsect2 id="GTlsInteractionResult" role="enum" condition="since:2.30">
+<title>enum GTlsInteractionResult</title>
+<indexterm zone="GTlsInteractionResult" role="2.30"><primary sortas="TlsInteractionResult">GTlsInteractionResult</primary></indexterm>
+<para><link linkend="GTlsInteractionResult"><type>GTlsInteractionResult</type></link> is returned by various functions in <link linkend="GTlsInteraction"><type>GTlsInteraction</type></link>
+when finishing an interaction request.</para>
+<refsect3 id="GTlsInteractionResult.members" role="enum_members">
+<title>Members</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="enum_members_name" colwidth="300px"/>
+<colspec colname="enum_members_description"/>
+<colspec colname="enum_members_annotations" colwidth="200px"/>
+<tbody>
+<row role="constant"><entry role="enum_member_name"><para id="G-TLS-INTERACTION-UNHANDLED:CAPS">G_TLS_INTERACTION_UNHANDLED</para></entry>
+<entry role="enum_member_description"><para>The interaction was unhandled (i.e. not
+    implemented).</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-TLS-INTERACTION-HANDLED:CAPS">G_TLS_INTERACTION_HANDLED</para></entry>
+<entry role="enum_member_description"><para>The interaction completed, and resulting data
+    is available.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-TLS-INTERACTION-FAILED:CAPS">G_TLS_INTERACTION_FAILED</para></entry>
+<entry role="enum_member_description"><para>The interaction has failed, or was cancelled.
+    and the operation should be aborted.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.30">2.30</link></para></refsect2>
+<refsect2 id="GTlsCertificateRequestFlags" role="enum" condition="since:2.40">
+<title>enum GTlsCertificateRequestFlags</title>
+<indexterm zone="GTlsCertificateRequestFlags" role="2.40"><primary sortas="TlsCertificateRequestFlags">GTlsCertificateRequestFlags</primary></indexterm>
+<para>Flags for <link linkend="g-tls-interaction-request-certificate"><function>g_tls_interaction_request_certificate()</function></link>,
+<link linkend="g-tls-interaction-request-certificate-async"><function>g_tls_interaction_request_certificate_async()</function></link>, and
+<link linkend="g-tls-interaction-invoke-request-certificate"><function>g_tls_interaction_invoke_request_certificate()</function></link>.</para>
+<refsect3 id="GTlsCertificateRequestFlags.members" role="enum_members">
+<title>Members</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="enum_members_name" colwidth="300px"/>
+<colspec colname="enum_members_description"/>
+<colspec colname="enum_members_annotations" colwidth="200px"/>
+<tbody>
+<row role="constant"><entry role="enum_member_name"><para id="G-TLS-CERTIFICATE-REQUEST-NONE:CAPS">G_TLS_CERTIFICATE_REQUEST_NONE</para></entry>
+<entry role="enum_member_description"><para>No flags</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.40">2.40</link></para></refsect2>
+<refsect2 id="GTlsInteractionClass" role="struct" condition="since:2.30">
+<title>struct GTlsInteractionClass</title>
+<indexterm zone="GTlsInteractionClass" role="2.30"><primary sortas="TlsInteractionClass">GTlsInteractionClass</primary></indexterm>
+<programlisting language="C">struct GTlsInteractionClass {
+  GTlsInteractionResult  (* ask_password)        (GTlsInteraction    *interaction,
+                                                  GTlsPassword       *password,
+                                                  GCancellable       *cancellable,
+                                                  GError            **error);
+
+  void                   (* ask_password_async)  (GTlsInteraction    *interaction,
+                                                  GTlsPassword       *password,
+                                                  GCancellable       *cancellable,
+                                                  GAsyncReadyCallback callback,
+                                                  gpointer            user_data);
+
+  GTlsInteractionResult  (* ask_password_finish) (GTlsInteraction    *interaction,
+                                                  GAsyncResult       *result,
+                                                  GError            **error);
+
+  GTlsInteractionResult  (* request_certificate)        (GTlsInteraction              *interaction,
+                                                         GTlsConnection               *connection,
+                                                         GTlsCertificateRequestFlags   flags,
+                                                         GCancellable                 *cancellable,
+                                                         GError                      **error);
+
+  void                   (* request_certificate_async)  (GTlsInteraction              *interaction,
+                                                         GTlsConnection               *connection,
+                                                         GTlsCertificateRequestFlags   flags,
+                                                         GCancellable                 *cancellable,
+                                                         GAsyncReadyCallback           callback,
+                                                         gpointer                      user_data);
+
+  GTlsInteractionResult  (* request_certificate_finish) (GTlsInteraction              *interaction,
+                                                         GAsyncResult                 *result,
+                                                         GError                      **error);
+};
+</programlisting>
+<para>The class for <link linkend="GTlsInteraction"><type>GTlsInteraction</type></link>. Derived classes implement the various
+virtual interaction methods to handle TLS interactions.</para>
+<para>Derived classes can choose to implement whichever interactions methods they'd
+like to support by overriding those virtual methods in their class
+initialization function. If a derived class implements an async method,
+it must also implement the corresponding finish method.</para>
+<para>The synchronous interaction methods should implement to display modal dialogs,
+and the asynchronous methods to display modeless dialogs.</para>
+<para>If the user cancels an interaction, then the result should be
+<link linkend="G-TLS-INTERACTION-FAILED:CAPS"><literal>G_TLS_INTERACTION_FAILED</literal></link> and the error should be set with a domain of
+<link linkend="G-IO-ERROR:CAPS"><literal>G_IO_ERROR</literal></link> and code of <link linkend="G-IO-ERROR-CANCELLED:CAPS"><literal>G_IO_ERROR_CANCELLED</literal></link>.</para>
+<refsect3 id="GTlsInteractionClass.members" role="struct_members">
+<title>Members</title>
+<informaltable role="struct_members_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="struct_members_name" colwidth="300px"/>
+<colspec colname="struct_members_description"/>
+<colspec colname="struct_members_annotations" colwidth="200px"/>
+<tbody>
+<row role="member"><entry role="struct_member_name"><para><structfield id="GTlsInteractionClass.ask-password">ask_password</structfield>&#160;()</para></entry>
+<entry role="struct_member_description"><para>ask for a password synchronously. If the implementation
+returns <link linkend="G-TLS-INTERACTION-HANDLED:CAPS"><literal>G_TLS_INTERACTION_HANDLED</literal></link>, then the password argument should
+have been filled in by using <link linkend="g-tls-password-set-value"><function>g_tls_password_set_value()</function></link> or a similar
+function.</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><structfield id="GTlsInteractionClass.ask-password-async">ask_password_async</structfield>&#160;()</para></entry>
+<entry role="struct_member_description"><para>ask for a password asynchronously.</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><structfield id="GTlsInteractionClass.ask-password-finish">ask_password_finish</structfield>&#160;()</para></entry>
+<entry role="struct_member_description"><para>complete operation to ask for a password asynchronously.
+If the implementation returns <link linkend="G-TLS-INTERACTION-HANDLED:CAPS"><literal>G_TLS_INTERACTION_HANDLED</literal></link>, then the
+password argument of the async method should have been filled in by using
+<link linkend="g-tls-password-set-value"><function>g_tls_password_set_value()</function></link> or a similar function.</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><structfield id="GTlsInteractionClass.request-certificate">request_certificate</structfield>&#160;()</para></entry>
+<entry role="struct_member_description"><para>ask for a certificate synchronously. If the
+implementation returns <link linkend="G-TLS-INTERACTION-HANDLED:CAPS"><literal>G_TLS_INTERACTION_HANDLED</literal></link>, then the connection
+argument should have been filled in by using
+<link linkend="g-tls-connection-set-certificate"><function>g_tls_connection_set_certificate()</function></link>.</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><structfield id="GTlsInteractionClass.request-certificate-async">request_certificate_async</structfield>&#160;()</para></entry>
+<entry role="struct_member_description"><para>ask for a certificate asynchronously.</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><structfield id="GTlsInteractionClass.request-certificate-finish">request_certificate_finish</structfield>&#160;()</para></entry>
+<entry role="struct_member_description"><para>complete operation to ask for a certificate
+asynchronously. If the implementation returns <link linkend="G-TLS-INTERACTION-HANDLED:CAPS"><literal>G_TLS_INTERACTION_HANDLED</literal></link>,
+then the connection argument of the async method should have been
+filled in by using <link linkend="g-tls-connection-set-certificate"><function>g_tls_connection_set_certificate()</function></link>.</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+</tbody></tgroup></informaltable>
+</refsect3>
+<para role="since">Since: <link linkend="api-index-2.30">2.30</link></para></refsect2>
+
+</refsect1>
+
+</refentry>

@@ -1,0 +1,732 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC '-//OASIS//DTD DocBook XML V4.5//EN'
+                      'http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd' [
+<!ENTITY % local.common.attrib "xmlns:xi  CDATA  #FIXED 'http://www.w3.org/2003/XInclude'">
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="GSocketListener">
+<refmeta>
+<refentrytitle role="top_of_page" id="GSocketListener.top_of_page">GSocketListener</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>GIO Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>GSocketListener</refname>
+<refpurpose>Helper for accepting network client connections</refpurpose>
+</refnamediv>
+
+<refsect1 id="GSocketListener.functions" role="functions_proto">
+<title role="functions_proto.title">Functions</title>
+<informaltable pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="functions_return" colwidth="150px"/>
+<colspec colname="functions_name"/>
+<tbody>
+<row><entry role="function_type"><link linkend="GSocketListener"><returnvalue>GSocketListener</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-socket-listener-new">g_socket_listener_new</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-socket-listener-add-socket">g_socket_listener_add_socket</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-socket-listener-add-address">g_socket_listener_add_address</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-socket-listener-add-inet-port">g_socket_listener_add_inet_port</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="guint16"><returnvalue>guint16</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-socket-listener-add-any-inet-port">g_socket_listener_add_any_inet_port</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GSocketConnection"><returnvalue>GSocketConnection</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-socket-listener-accept">g_socket_listener_accept</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-socket-listener-accept-async">g_socket_listener_accept_async</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GSocketConnection"><returnvalue>GSocketConnection</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-socket-listener-accept-finish">g_socket_listener_accept_finish</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GSocket"><returnvalue>GSocket</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-socket-listener-accept-socket">g_socket_listener_accept_socket</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-socket-listener-accept-socket-async">g_socket_listener_accept_socket_async</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GSocket"><returnvalue>GSocket</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-socket-listener-accept-socket-finish">g_socket_listener_accept_socket_finish</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-socket-listener-close">g_socket_listener_close</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-socket-listener-set-backlog">g_socket_listener_set_backlog</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GSocketListener.properties" role="properties">
+<title role="properties.title">Properties</title>
+<informaltable frame="none">
+<tgroup cols="3">
+<colspec colname="properties_type" colwidth="150px"/>
+<colspec colname="properties_name" colwidth="300px"/>
+<colspec colname="properties_flags" colwidth="200px"/>
+<tbody>
+<row><entry role="property_type"><link linkend="gint"><type>gint</type></link></entry><entry role="property_name"><link linkend="GSocketListener--listen-backlog">listen-backlog</link></entry><entry role="property_flags">Read / Write / Construct</entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GSocketListener.signals" role="signal_proto">
+<title role="signal_proto.title">Signals</title>
+<informaltable frame="none">
+<tgroup cols="3">
+<colspec colname="signals_return" colwidth="150px"/>
+<colspec colname="signals_name" colwidth="300px"/>
+<colspec colname="signals_flags" colwidth="200px"/>
+<tbody>
+<row><entry role="signal_type"><link linkend="void"><returnvalue>void</returnvalue></link></entry><entry role="signal_name"><link linkend="GSocketListener-event">event</link></entry><entry role="signal_flags"><link linkend="G-SIGNAL-RUN-LAST:CAPS">Run Last</link></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GSocketListener.other" role="other_proto">
+<title role="other_proto.title">Types and Values</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="name" colwidth="150px"/>
+<colspec colname="description"/>
+<tbody>
+<row><entry role="datatype_keyword"></entry><entry role="function_name"><link linkend="GSocketListener-struct">GSocketListener</link></entry></row>
+<row><entry role="datatype_keyword">enum</entry><entry role="function_name"><link linkend="GSocketListenerEvent">GSocketListenerEvent</link></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GSocketListener.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<screen>    <link linkend="GEnum">GEnum</link>
+    <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> GSocketListenerEvent
+    <link linkend="GObject">GObject</link>
+    <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> GSocketListener
+        <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> <link linkend="GSocketService">GSocketService</link>
+</screen>
+</refsect1>
+
+<refsect1 id="GSocketListener.includes"><title>Includes</title><synopsis>#include &lt;gio/gio.h&gt;
+</synopsis></refsect1>
+
+<refsect1 id="GSocketListener.description" role="desc">
+<title role="desc.title">Description</title>
+<para>A <link linkend="GSocketListener"><type>GSocketListener</type></link> is an object that keeps track of a set
+of server sockets and helps you accept sockets from any of the
+socket, either sync or async.</para>
+<para>Add addresses and ports to listen on using <link linkend="g-socket-listener-add-address"><function>g_socket_listener_add_address()</function></link>
+and <link linkend="g-socket-listener-add-inet-port"><function>g_socket_listener_add_inet_port()</function></link>. These will be listened on until
+<link linkend="g-socket-listener-close"><function>g_socket_listener_close()</function></link> is called. Dropping your final reference to the
+<link linkend="GSocketListener"><type>GSocketListener</type></link> will not cause <link linkend="g-socket-listener-close"><function>g_socket_listener_close()</function></link> to be called
+implicitly, as some references to the <link linkend="GSocketListener"><type>GSocketListener</type></link> may be held
+internally.</para>
+<para>If you want to implement a network server, also look at <link linkend="GSocketService"><type>GSocketService</type></link>
+and <link linkend="GThreadedSocketService"><type>GThreadedSocketService</type></link> which are subclasses of <link linkend="GSocketListener"><type>GSocketListener</type></link>
+that make this even easier.</para>
+
+</refsect1>
+<refsect1 id="GSocketListener.functions_details" role="details">
+<title role="details.title">Functions</title>
+<refsect2 id="g-socket-listener-new" role="function" condition="since:2.22">
+<title>g_socket_listener_new&#160;()</title>
+<indexterm zone="g-socket-listener-new" role="2.22"><primary sortas="socket_listener_new">g_socket_listener_new</primary></indexterm>
+<programlisting language="C"><link linkend="GSocketListener"><returnvalue>GSocketListener</returnvalue></link>&#160;*
+g_socket_listener_new (<parameter><type>void</type></parameter>);</programlisting>
+<para>Creates a new <link linkend="GSocketListener"><type>GSocketListener</type></link> with no sockets to listen for.
+New listeners can be added with e.g. <link linkend="g-socket-listener-add-address"><function>g_socket_listener_add_address()</function></link>
+or <link linkend="g-socket-listener-add-inet-port"><function>g_socket_listener_add_inet_port()</function></link>.</para>
+<refsect3 id="g-socket-listener-new.returns" role="returns">
+<title>Returns</title>
+<para> a new <link linkend="GSocketListener"><type>GSocketListener</type></link>.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.22">2.22</link></para></refsect2>
+<refsect2 id="g-socket-listener-add-socket" role="function" condition="since:2.22">
+<title>g_socket_listener_add_socket&#160;()</title>
+<indexterm zone="g-socket-listener-add-socket" role="2.22"><primary sortas="socket_listener_add_socket">g_socket_listener_add_socket</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_socket_listener_add_socket (<parameter><link linkend="GSocketListener"><type>GSocketListener</type></link> *listener</parameter>,
+                              <parameter><link linkend="GSocket"><type>GSocket</type></link> *socket</parameter>,
+                              <parameter><link linkend="GObject"><type>GObject</type></link> *source_object</parameter>,
+                              <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para>Adds <parameter>socket</parameter>
+ to the set of sockets that we try to accept
+new clients from. The socket must be bound to a local
+address and listened to.</para>
+<para><parameter>source_object</parameter>
+ will be passed out in the various calls
+to accept to identify this particular source, which is
+useful if you're listening on multiple addresses and do
+different things depending on what address is connected to.</para>
+<para>The <parameter>socket</parameter>
+ will not be automatically closed when the <parameter>listener</parameter>
+ is finalized
+unless the listener held the final reference to the socket. Before GLib 2.42,
+the <parameter>socket</parameter>
+ was automatically closed on finalization of the <parameter>listener</parameter>
+, even
+if references to it were held elsewhere.</para>
+<refsect3 id="g-socket-listener-add-socket.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>listener</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSocketListener"><type>GSocketListener</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>socket</para></entry>
+<entry role="parameter_description"><para>a listening <link linkend="GSocket"><type>GSocket</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>source_object</para></entry>
+<entry role="parameter_description"><para>Optional <link linkend="GObject"><type>GObject</type></link> identifying this source. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para><link linkend="GError"><type>GError</type></link> for error reporting, or <link linkend="NULL:CAPS"><literal>NULL</literal></link> to ignore.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-socket-listener-add-socket.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> on success, <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> on error.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.22">2.22</link></para></refsect2>
+<refsect2 id="g-socket-listener-add-address" role="function" condition="since:2.22">
+<title>g_socket_listener_add_address&#160;()</title>
+<indexterm zone="g-socket-listener-add-address" role="2.22"><primary sortas="socket_listener_add_address">g_socket_listener_add_address</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_socket_listener_add_address (<parameter><link linkend="GSocketListener"><type>GSocketListener</type></link> *listener</parameter>,
+                               <parameter><link linkend="GSocketAddress"><type>GSocketAddress</type></link> *address</parameter>,
+                               <parameter><link linkend="GSocketType"><type>GSocketType</type></link> type</parameter>,
+                               <parameter><link linkend="GSocketProtocol"><type>GSocketProtocol</type></link> protocol</parameter>,
+                               <parameter><link linkend="GObject"><type>GObject</type></link> *source_object</parameter>,
+                               <parameter><link linkend="GSocketAddress"><type>GSocketAddress</type></link> **effective_address</parameter>,
+                               <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para>Creates a socket of type <parameter>type</parameter>
+ and protocol <parameter>protocol</parameter>
+, binds
+it to <parameter>address</parameter>
+ and adds it to the set of sockets we're accepting
+sockets from.</para>
+<para>Note that adding an IPv6 address, depending on the platform,
+may or may not result in a listener that also accepts IPv4
+connections.  For more deterministic behavior, see
+<link linkend="g-socket-listener-add-inet-port"><function>g_socket_listener_add_inet_port()</function></link>.</para>
+<para><parameter>source_object</parameter>
+ will be passed out in the various calls
+to accept to identify this particular source, which is
+useful if you're listening on multiple addresses and do
+different things depending on what address is connected to.</para>
+<para>If successful and <parameter>effective_address</parameter>
+ is non-<link linkend="NULL:CAPS"><literal>NULL</literal></link> then it will
+be set to the address that the binding actually occurred at.  This
+is helpful for determining the port number that was used for when
+requesting a binding to port 0 (ie: "any port").  This address, if
+requested, belongs to the caller and must be freed.</para>
+<para>Call <link linkend="g-socket-listener-close"><function>g_socket_listener_close()</function></link> to stop listening on <parameter>address</parameter>
+; this will not
+be done automatically when you drop your final reference to <parameter>listener</parameter>
+, as
+references may be held internally.</para>
+<refsect3 id="g-socket-listener-add-address.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>listener</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSocketListener"><type>GSocketListener</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>address</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSocketAddress"><type>GSocketAddress</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>type</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSocketType"><type>GSocketType</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>protocol</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSocketProtocol"><type>GSocketProtocol</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>source_object</para></entry>
+<entry role="parameter_description"><para>Optional <link linkend="GObject"><type>GObject</type></link> identifying this source. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>effective_address</para></entry>
+<entry role="parameter_description"><para>location to store the address that was bound to, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>out</acronym>][<acronym>optional</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para><link linkend="GError"><type>GError</type></link> for error reporting, or <link linkend="NULL:CAPS"><literal>NULL</literal></link> to ignore.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-socket-listener-add-address.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> on success, <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> on error.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.22">2.22</link></para></refsect2>
+<refsect2 id="g-socket-listener-add-inet-port" role="function" condition="since:2.22">
+<title>g_socket_listener_add_inet_port&#160;()</title>
+<indexterm zone="g-socket-listener-add-inet-port" role="2.22"><primary sortas="socket_listener_add_inet_port">g_socket_listener_add_inet_port</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_socket_listener_add_inet_port (<parameter><link linkend="GSocketListener"><type>GSocketListener</type></link> *listener</parameter>,
+                                 <parameter><link linkend="guint16"><type>guint16</type></link> port</parameter>,
+                                 <parameter><link linkend="GObject"><type>GObject</type></link> *source_object</parameter>,
+                                 <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para>Helper function for <link linkend="g-socket-listener-add-address"><function>g_socket_listener_add_address()</function></link> that
+creates a TCP/IP socket listening on IPv4 and IPv6 (if
+supported) on the specified port on all interfaces.</para>
+<para><parameter>source_object</parameter>
+ will be passed out in the various calls
+to accept to identify this particular source, which is
+useful if you're listening on multiple addresses and do
+different things depending on what address is connected to.</para>
+<para>Call <link linkend="g-socket-listener-close"><function>g_socket_listener_close()</function></link> to stop listening on <parameter>port</parameter>
+; this will not
+be done automatically when you drop your final reference to <parameter>listener</parameter>
+, as
+references may be held internally.</para>
+<refsect3 id="g-socket-listener-add-inet-port.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>listener</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSocketListener"><type>GSocketListener</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>port</para></entry>
+<entry role="parameter_description"><para>an IP port number (non-zero)</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>source_object</para></entry>
+<entry role="parameter_description"><para>Optional <link linkend="GObject"><type>GObject</type></link> identifying this source. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para><link linkend="GError"><type>GError</type></link> for error reporting, or <link linkend="NULL:CAPS"><literal>NULL</literal></link> to ignore.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-socket-listener-add-inet-port.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> on success, <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> on error.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.22">2.22</link></para></refsect2>
+<refsect2 id="g-socket-listener-add-any-inet-port" role="function" condition="since:2.24">
+<title>g_socket_listener_add_any_inet_port&#160;()</title>
+<indexterm zone="g-socket-listener-add-any-inet-port" role="2.24"><primary sortas="socket_listener_add_any_inet_port">g_socket_listener_add_any_inet_port</primary></indexterm>
+<programlisting language="C"><link linkend="guint16"><returnvalue>guint16</returnvalue></link>
+g_socket_listener_add_any_inet_port (<parameter><link linkend="GSocketListener"><type>GSocketListener</type></link> *listener</parameter>,
+                                     <parameter><link linkend="GObject"><type>GObject</type></link> *source_object</parameter>,
+                                     <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para>Listens for TCP connections on any available port number for both
+IPv6 and IPv4 (if each is available).</para>
+<para>This is useful if you need to have a socket for incoming connections
+but don't care about the specific port number.</para>
+<para><parameter>source_object</parameter>
+ will be passed out in the various calls
+to accept to identify this particular source, which is
+useful if you're listening on multiple addresses and do
+different things depending on what address is connected to.</para>
+<refsect3 id="g-socket-listener-add-any-inet-port.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>listener</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSocketListener"><type>GSocketListener</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>source_object</para></entry>
+<entry role="parameter_description"><para>Optional <link linkend="GObject"><type>GObject</type></link> identifying this source. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GError"><type>GError</type></link> location to store the error occurring, or <link linkend="NULL:CAPS"><literal>NULL</literal></link> to
+ignore.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-socket-listener-add-any-inet-port.returns" role="returns">
+<title>Returns</title>
+<para> the port number, or 0 in case of failure.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.24">2.24</link></para></refsect2>
+<refsect2 id="g-socket-listener-accept" role="function" condition="since:2.22">
+<title>g_socket_listener_accept&#160;()</title>
+<indexterm zone="g-socket-listener-accept" role="2.22"><primary sortas="socket_listener_accept">g_socket_listener_accept</primary></indexterm>
+<programlisting language="C"><link linkend="GSocketConnection"><returnvalue>GSocketConnection</returnvalue></link>&#160;*
+g_socket_listener_accept (<parameter><link linkend="GSocketListener"><type>GSocketListener</type></link> *listener</parameter>,
+                          <parameter><link linkend="GObject"><type>GObject</type></link> **source_object</parameter>,
+                          <parameter><link linkend="GCancellable"><type>GCancellable</type></link> *cancellable</parameter>,
+                          <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para>Blocks waiting for a client to connect to any of the sockets added
+to the listener. Returns a <link linkend="GSocketConnection"><type>GSocketConnection</type></link> for the socket that was
+accepted.</para>
+<para>If <parameter>source_object</parameter>
+ is not <link linkend="NULL:CAPS"><literal>NULL</literal></link> it will be filled out with the source
+object specified when the corresponding socket or address was added
+to the listener.</para>
+<para>If <parameter>cancellable</parameter>
+ is not <link linkend="NULL:CAPS"><literal>NULL</literal></link>, then the operation can be cancelled by
+triggering the cancellable object from another thread. If the operation
+was cancelled, the error <link linkend="G-IO-ERROR-CANCELLED:CAPS"><literal>G_IO_ERROR_CANCELLED</literal></link> will be returned.</para>
+<refsect3 id="g-socket-listener-accept.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>listener</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSocketListener"><type>GSocketListener</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>source_object</para></entry>
+<entry role="parameter_description"><para>location where <link linkend="GObject"><type>GObject</type></link> pointer will be stored, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>out</acronym>][<acronym>transfer none</acronym>][<acronym>optional</acronym>][<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>cancellable</para></entry>
+<entry role="parameter_description"><para>optional <link linkend="GCancellable"><type>GCancellable</type></link> object, <link linkend="NULL:CAPS"><literal>NULL</literal></link> to ignore. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para><link linkend="GError"><type>GError</type></link> for error reporting, or <link linkend="NULL:CAPS"><literal>NULL</literal></link> to ignore.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-socket-listener-accept.returns" role="returns">
+<title>Returns</title>
+<para>a <link linkend="GSocketConnection"><type>GSocketConnection</type></link> on success, <link linkend="NULL:CAPS"><literal>NULL</literal></link> on error. </para>
+<para><emphasis role="annotation">[<acronym>transfer full</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.22">2.22</link></para></refsect2>
+<refsect2 id="g-socket-listener-accept-async" role="function" condition="since:2.22">
+<title>g_socket_listener_accept_async&#160;()</title>
+<indexterm zone="g-socket-listener-accept-async" role="2.22"><primary sortas="socket_listener_accept_async">g_socket_listener_accept_async</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_socket_listener_accept_async (<parameter><link linkend="GSocketListener"><type>GSocketListener</type></link> *listener</parameter>,
+                                <parameter><link linkend="GCancellable"><type>GCancellable</type></link> *cancellable</parameter>,
+                                <parameter><link linkend="GAsyncReadyCallback"><type>GAsyncReadyCallback</type></link> callback</parameter>,
+                                <parameter><link linkend="gpointer"><type>gpointer</type></link> user_data</parameter>);</programlisting>
+<para>This is the asynchronous version of <link linkend="g-socket-listener-accept"><function>g_socket_listener_accept()</function></link>.</para>
+<para>When the operation is finished <parameter>callback</parameter>
+ will be
+called. You can then call <link linkend="g-socket-listener-accept-socket"><function>g_socket_listener_accept_socket()</function></link>
+to get the result of the operation.</para>
+<refsect3 id="g-socket-listener-accept-async.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>listener</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSocketListener"><type>GSocketListener</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>cancellable</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GCancellable"><type>GCancellable</type></link>, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>callback</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GAsyncReadyCallback"><type>GAsyncReadyCallback</type></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>scope async</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>user_data</para></entry>
+<entry role="parameter_description"><para>user data for the callback. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>closure</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.22">2.22</link></para></refsect2>
+<refsect2 id="g-socket-listener-accept-finish" role="function" condition="since:2.22">
+<title>g_socket_listener_accept_finish&#160;()</title>
+<indexterm zone="g-socket-listener-accept-finish" role="2.22"><primary sortas="socket_listener_accept_finish">g_socket_listener_accept_finish</primary></indexterm>
+<programlisting language="C"><link linkend="GSocketConnection"><returnvalue>GSocketConnection</returnvalue></link>&#160;*
+g_socket_listener_accept_finish (<parameter><link linkend="GSocketListener"><type>GSocketListener</type></link> *listener</parameter>,
+                                 <parameter><link linkend="GAsyncResult"><type>GAsyncResult</type></link> *result</parameter>,
+                                 <parameter><link linkend="GObject"><type>GObject</type></link> **source_object</parameter>,
+                                 <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para>Finishes an async accept operation. See <link linkend="g-socket-listener-accept-async"><function>g_socket_listener_accept_async()</function></link></para>
+<refsect3 id="g-socket-listener-accept-finish.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>listener</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSocketListener"><type>GSocketListener</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>result</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GAsyncResult"><type>GAsyncResult</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>source_object</para></entry>
+<entry role="parameter_description"><para>Optional <link linkend="GObject"><type>GObject</type></link> identifying this source. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>out</acronym>][<acronym>transfer none</acronym>][<acronym>optional</acronym>][<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GError"><type>GError</type></link> location to store the error occurring, or <link linkend="NULL:CAPS"><literal>NULL</literal></link> to
+ignore.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-socket-listener-accept-finish.returns" role="returns">
+<title>Returns</title>
+<para>a <link linkend="GSocketConnection"><type>GSocketConnection</type></link> on success, <link linkend="NULL:CAPS"><literal>NULL</literal></link> on error. </para>
+<para><emphasis role="annotation">[<acronym>transfer full</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.22">2.22</link></para></refsect2>
+<refsect2 id="g-socket-listener-accept-socket" role="function" condition="since:2.22">
+<title>g_socket_listener_accept_socket&#160;()</title>
+<indexterm zone="g-socket-listener-accept-socket" role="2.22"><primary sortas="socket_listener_accept_socket">g_socket_listener_accept_socket</primary></indexterm>
+<programlisting language="C"><link linkend="GSocket"><returnvalue>GSocket</returnvalue></link>&#160;*
+g_socket_listener_accept_socket (<parameter><link linkend="GSocketListener"><type>GSocketListener</type></link> *listener</parameter>,
+                                 <parameter><link linkend="GObject"><type>GObject</type></link> **source_object</parameter>,
+                                 <parameter><link linkend="GCancellable"><type>GCancellable</type></link> *cancellable</parameter>,
+                                 <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para>Blocks waiting for a client to connect to any of the sockets added
+to the listener. Returns the <link linkend="GSocket"><type>GSocket</type></link> that was accepted.</para>
+<para>If you want to accept the high-level <link linkend="GSocketConnection"><type>GSocketConnection</type></link>, not a <link linkend="GSocket"><type>GSocket</type></link>,
+which is often the case, then you should use <link linkend="g-socket-listener-accept"><function>g_socket_listener_accept()</function></link>
+instead.</para>
+<para>If <parameter>source_object</parameter>
+ is not <link linkend="NULL:CAPS"><literal>NULL</literal></link> it will be filled out with the source
+object specified when the corresponding socket or address was added
+to the listener.</para>
+<para>If <parameter>cancellable</parameter>
+ is not <link linkend="NULL:CAPS"><literal>NULL</literal></link>, then the operation can be cancelled by
+triggering the cancellable object from another thread. If the operation
+was cancelled, the error <link linkend="G-IO-ERROR-CANCELLED:CAPS"><literal>G_IO_ERROR_CANCELLED</literal></link> will be returned.</para>
+<refsect3 id="g-socket-listener-accept-socket.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>listener</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSocketListener"><type>GSocketListener</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>source_object</para></entry>
+<entry role="parameter_description"><para>location where <link linkend="GObject"><type>GObject</type></link> pointer will be stored, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>out</acronym>][<acronym>transfer none</acronym>][<acronym>optional</acronym>][<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>cancellable</para></entry>
+<entry role="parameter_description"><para>optional <link linkend="GCancellable"><type>GCancellable</type></link> object, <link linkend="NULL:CAPS"><literal>NULL</literal></link> to ignore. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para><link linkend="GError"><type>GError</type></link> for error reporting, or <link linkend="NULL:CAPS"><literal>NULL</literal></link> to ignore.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-socket-listener-accept-socket.returns" role="returns">
+<title>Returns</title>
+<para>a <link linkend="GSocket"><type>GSocket</type></link> on success, <link linkend="NULL:CAPS"><literal>NULL</literal></link> on error. </para>
+<para><emphasis role="annotation">[<acronym>transfer full</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.22">2.22</link></para></refsect2>
+<refsect2 id="g-socket-listener-accept-socket-async" role="function" condition="since:2.22">
+<title>g_socket_listener_accept_socket_async&#160;()</title>
+<indexterm zone="g-socket-listener-accept-socket-async" role="2.22"><primary sortas="socket_listener_accept_socket_async">g_socket_listener_accept_socket_async</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_socket_listener_accept_socket_async (<parameter><link linkend="GSocketListener"><type>GSocketListener</type></link> *listener</parameter>,
+                                       <parameter><link linkend="GCancellable"><type>GCancellable</type></link> *cancellable</parameter>,
+                                       <parameter><link linkend="GAsyncReadyCallback"><type>GAsyncReadyCallback</type></link> callback</parameter>,
+                                       <parameter><link linkend="gpointer"><type>gpointer</type></link> user_data</parameter>);</programlisting>
+<para>This is the asynchronous version of <link linkend="g-socket-listener-accept-socket"><function>g_socket_listener_accept_socket()</function></link>.</para>
+<para>When the operation is finished <parameter>callback</parameter>
+ will be
+called. You can then call <link linkend="g-socket-listener-accept-socket-finish"><function>g_socket_listener_accept_socket_finish()</function></link>
+to get the result of the operation.</para>
+<refsect3 id="g-socket-listener-accept-socket-async.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>listener</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSocketListener"><type>GSocketListener</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>cancellable</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GCancellable"><type>GCancellable</type></link>, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>callback</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GAsyncReadyCallback"><type>GAsyncReadyCallback</type></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>scope async</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>user_data</para></entry>
+<entry role="parameter_description"><para>user data for the callback. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>closure</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.22">2.22</link></para></refsect2>
+<refsect2 id="g-socket-listener-accept-socket-finish" role="function" condition="since:2.22">
+<title>g_socket_listener_accept_socket_finish&#160;()</title>
+<indexterm zone="g-socket-listener-accept-socket-finish" role="2.22"><primary sortas="socket_listener_accept_socket_finish">g_socket_listener_accept_socket_finish</primary></indexterm>
+<programlisting language="C"><link linkend="GSocket"><returnvalue>GSocket</returnvalue></link>&#160;*
+g_socket_listener_accept_socket_finish
+                               (<parameter><link linkend="GSocketListener"><type>GSocketListener</type></link> *listener</parameter>,
+                                <parameter><link linkend="GAsyncResult"><type>GAsyncResult</type></link> *result</parameter>,
+                                <parameter><link linkend="GObject"><type>GObject</type></link> **source_object</parameter>,
+                                <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para>Finishes an async accept operation. See <link linkend="g-socket-listener-accept-socket-async"><function>g_socket_listener_accept_socket_async()</function></link></para>
+<refsect3 id="g-socket-listener-accept-socket-finish.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>listener</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSocketListener"><type>GSocketListener</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>result</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GAsyncResult"><type>GAsyncResult</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>source_object</para></entry>
+<entry role="parameter_description"><para>Optional <link linkend="GObject"><type>GObject</type></link> identifying this source. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>out</acronym>][<acronym>transfer none</acronym>][<acronym>optional</acronym>][<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GError"><type>GError</type></link> location to store the error occurring, or <link linkend="NULL:CAPS"><literal>NULL</literal></link> to
+ignore.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-socket-listener-accept-socket-finish.returns" role="returns">
+<title>Returns</title>
+<para>a <link linkend="GSocket"><type>GSocket</type></link> on success, <link linkend="NULL:CAPS"><literal>NULL</literal></link> on error. </para>
+<para><emphasis role="annotation">[<acronym>transfer full</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.22">2.22</link></para></refsect2>
+<refsect2 id="g-socket-listener-close" role="function" condition="since:2.22">
+<title>g_socket_listener_close&#160;()</title>
+<indexterm zone="g-socket-listener-close" role="2.22"><primary sortas="socket_listener_close">g_socket_listener_close</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_socket_listener_close (<parameter><link linkend="GSocketListener"><type>GSocketListener</type></link> *listener</parameter>);</programlisting>
+<para>Closes all the sockets in the listener.</para>
+<refsect3 id="g-socket-listener-close.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>listener</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSocketListener"><type>GSocketListener</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.22">2.22</link></para></refsect2>
+<refsect2 id="g-socket-listener-set-backlog" role="function" condition="since:2.22">
+<title>g_socket_listener_set_backlog&#160;()</title>
+<indexterm zone="g-socket-listener-set-backlog" role="2.22"><primary sortas="socket_listener_set_backlog">g_socket_listener_set_backlog</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_socket_listener_set_backlog (<parameter><link linkend="GSocketListener"><type>GSocketListener</type></link> *listener</parameter>,
+                               <parameter><link linkend="int"><type>int</type></link> listen_backlog</parameter>);</programlisting>
+<para>Sets the listen backlog on the sockets in the listener.</para>
+<para>See <link linkend="g-socket-set-listen-backlog"><function>g_socket_set_listen_backlog()</function></link> for details</para>
+<refsect3 id="g-socket-listener-set-backlog.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>listener</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSocketListener"><type>GSocketListener</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>listen_backlog</para></entry>
+<entry role="parameter_description"><para>an integer</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.22">2.22</link></para></refsect2>
+
+</refsect1>
+<refsect1 id="GSocketListener.other_details" role="details">
+<title role="details.title">Types and Values</title>
+<refsect2 id="GSocketListener-struct" role="struct">
+<title>GSocketListener</title>
+<indexterm zone="GSocketListener-struct" role="2.22"><primary sortas="SocketListener">GSocketListener</primary></indexterm>
+<programlisting language="C">typedef struct _GSocketListener GSocketListener;</programlisting>
+<para>A helper class for network servers to listen for and accept connections.</para>
+<para role="since">Since: <link linkend="api-index-2.22">2.22</link></para></refsect2>
+<refsect2 id="GSocketListenerEvent" role="enum" condition="since:2.46">
+<title>enum GSocketListenerEvent</title>
+<indexterm zone="GSocketListenerEvent" role="2.46"><primary sortas="SocketListenerEvent">GSocketListenerEvent</primary></indexterm>
+<para>Describes an event occurring on a <link linkend="GSocketListener"><type>GSocketListener</type></link>. See the
+<link linkend="GSocketListener-event"><type>“event”</type></link> signal for more details.</para>
+<para>Additional values may be added to this type in the future.</para>
+<refsect3 id="GSocketListenerEvent.members" role="enum_members">
+<title>Members</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="enum_members_name" colwidth="300px"/>
+<colspec colname="enum_members_description"/>
+<colspec colname="enum_members_annotations" colwidth="200px"/>
+<tbody>
+<row role="constant"><entry role="enum_member_name"><para id="G-SOCKET-LISTENER-BINDING:CAPS">G_SOCKET_LISTENER_BINDING</para></entry>
+<entry role="enum_member_description"><para>The listener is about to bind a socket.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-SOCKET-LISTENER-BOUND:CAPS">G_SOCKET_LISTENER_BOUND</para></entry>
+<entry role="enum_member_description"><para>The listener has bound a socket.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-SOCKET-LISTENER-LISTENING:CAPS">G_SOCKET_LISTENER_LISTENING</para></entry>
+<entry role="enum_member_description"><para>The listener is about to start
+   listening on this socket.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-SOCKET-LISTENER-LISTENED:CAPS">G_SOCKET_LISTENER_LISTENED</para></entry>
+<entry role="enum_member_description"><para>The listener is now listening on
+  this socket.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.46">2.46</link></para></refsect2>
+
+</refsect1>
+<refsect1 id="GSocketListener.property-details" role="property_details">
+<title role="property_details.title">Property Details</title>
+<refsect2 id="GSocketListener--listen-backlog" role="property"><title>The <literal>“listen-backlog”</literal> property</title>
+<indexterm zone="GSocketListener--listen-backlog"><primary sortas="SocketListener:listen-backlog">GSocketListener:listen-backlog</primary></indexterm>
+<programlisting>  “listen-backlog”           <link linkend="gint"><type>gint</type></link></programlisting>
+<para>outstanding connections in the listen queue.</para><para>Flags: Read / Write / Construct</para>
+<para>Allowed values: [0,2000]</para>
+<para>Default value: 10</para>
+</refsect2>
+
+</refsect1>
+<refsect1 id="GSocketListener.signal-details" role="signals">
+<title role="signals.title">Signal Details</title>
+<refsect2 id="GSocketListener-event" role="signal"><title>The <literal>“event”</literal> signal</title>
+<indexterm zone="GSocketListener-event" role="2.46"><primary sortas="SocketListener::event">GSocketListener::event</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+user_function (<link linkend="GSocketListener"><type>GSocketListener</type></link>     *listener,
+               <link linkend="GSocketListenerEvent"><type>GSocketListenerEvent</type></link> event,
+               <link linkend="GSocket"><type>GSocket</type></link>             *socket,
+               <link linkend="gpointer"><type>gpointer</type></link>             user_data)</programlisting>
+<para>Emitted when <parameter>listener</parameter>
+'s activity on <parameter>socket</parameter>
+ changes state.
+Note that when <parameter>listener</parameter>
+ is used to listen on both IPv4 and
+IPv6, a separate set of signals will be emitted for each, and
+the order they happen in is undefined.</para>
+<refsect3 id="GSocketListener-event.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>listener</para></entry>
+<entry role="parameter_description"><para>the <link linkend="GSocketListener"><type>GSocketListener</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>event</para></entry>
+<entry role="parameter_description"><para>the event that is occurring</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>socket</para></entry>
+<entry role="parameter_description"><para>the <link linkend="GSocket"><type>GSocket</type></link> the event is occurring on</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><simpara>user_data</simpara></entry>
+<entry role="parameter_description"><simpara>user data set when the signal handler was connected.</simpara></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para>Flags: <link linkend="G-SIGNAL-RUN-LAST:CAPS">Run Last</link></para>
+<para role="since">Since: <link linkend="api-index-2.46">2.46</link></para></refsect2>
+</refsect1>
+<refsect1 id="GSocketListener.see-also">
+<title>See Also</title>
+<para><link linkend="GThreadedSocketService"><type>GThreadedSocketService</type></link>, <link linkend="GSocketService"><type>GSocketService</type></link>.</para>
+
+</refsect1>
+
+</refentry>

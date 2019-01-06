@@ -1,0 +1,169 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC '-//OASIS//DTD DocBook XML V4.5//EN'
+                      'http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd' [
+<!ENTITY % local.common.attrib "xmlns:xi  CDATA  #FIXED 'http://www.w3.org/2003/XInclude'">
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="GTcpWrapperConnection">
+<refmeta>
+<refentrytitle role="top_of_page" id="GTcpWrapperConnection.top_of_page">GTcpWrapperConnection</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>GIO Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>GTcpWrapperConnection</refname>
+<refpurpose>Wrapper for non-GSocketConnection-based,
+    GSocket-based GIOStreams</refpurpose>
+</refnamediv>
+
+<refsect1 id="GTcpWrapperConnection.functions" role="functions_proto">
+<title role="functions_proto.title">Functions</title>
+<informaltable pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="functions_return" colwidth="150px"/>
+<colspec colname="functions_name"/>
+<tbody>
+<row><entry role="function_type"><link linkend="GSocketConnection"><returnvalue>GSocketConnection</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-tcp-wrapper-connection-new">g_tcp_wrapper_connection_new</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GIOStream"><returnvalue>GIOStream</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-tcp-wrapper-connection-get-base-io-stream">g_tcp_wrapper_connection_get_base_io_stream</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GTcpWrapperConnection.properties" role="properties">
+<title role="properties.title">Properties</title>
+<informaltable frame="none">
+<tgroup cols="3">
+<colspec colname="properties_type" colwidth="150px"/>
+<colspec colname="properties_name" colwidth="300px"/>
+<colspec colname="properties_flags" colwidth="200px"/>
+<tbody>
+<row><entry role="property_type"><link linkend="GIOStream"><type>GIOStream</type></link>&#160;*</entry><entry role="property_name"><link linkend="GTcpWrapperConnection--base-io-stream">base-io-stream</link></entry><entry role="property_flags">Read / Write / Construct Only</entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GTcpWrapperConnection.other" role="other_proto">
+<title role="other_proto.title">Types and Values</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="name" colwidth="150px"/>
+<colspec colname="description"/>
+<tbody>
+<row><entry role="datatype_keyword"></entry><entry role="function_name"><link linkend="GTcpWrapperConnection-struct">GTcpWrapperConnection</link></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GTcpWrapperConnection.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<screen>    <link linkend="GObject">GObject</link>
+    <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> <link linkend="GIOStream">GIOStream</link>
+        <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> <link linkend="GSocketConnection">GSocketConnection</link>
+            <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> <link linkend="GTcpConnection">GTcpConnection</link>
+                <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> GTcpWrapperConnection
+</screen>
+</refsect1>
+
+<refsect1 id="GTcpWrapperConnection.includes"><title>Includes</title><synopsis>#include &lt;gio/gio.h&gt;
+</synopsis></refsect1>
+
+<refsect1 id="GTcpWrapperConnection.description" role="desc">
+<title role="desc.title">Description</title>
+<para>A <link linkend="GTcpWrapperConnection"><type>GTcpWrapperConnection</type></link> can be used to wrap a <link linkend="GIOStream"><type>GIOStream</type></link> that is
+based on a <link linkend="GSocket"><type>GSocket</type></link>, but which is not actually a
+<link linkend="GSocketConnection"><type>GSocketConnection</type></link>. This is used by <link linkend="GSocketClient"><type>GSocketClient</type></link> so that it can
+always return a <link linkend="GSocketConnection"><type>GSocketConnection</type></link>, even when the connection it has
+actually created is not directly a <link linkend="GSocketConnection"><type>GSocketConnection</type></link>.</para>
+
+</refsect1>
+<refsect1 id="GTcpWrapperConnection.functions_details" role="details">
+<title role="details.title">Functions</title>
+<refsect2 id="g-tcp-wrapper-connection-new" role="function" condition="since:2.28">
+<title>g_tcp_wrapper_connection_new&#160;()</title>
+<indexterm zone="g-tcp-wrapper-connection-new" role="2.28"><primary sortas="tcp_wrapper_connection_new">g_tcp_wrapper_connection_new</primary></indexterm>
+<programlisting language="C"><link linkend="GSocketConnection"><returnvalue>GSocketConnection</returnvalue></link>&#160;*
+g_tcp_wrapper_connection_new (<parameter><link linkend="GIOStream"><type>GIOStream</type></link> *base_io_stream</parameter>,
+                              <parameter><link linkend="GSocket"><type>GSocket</type></link> *socket</parameter>);</programlisting>
+<para>Wraps <parameter>base_io_stream</parameter>
+ and <parameter>socket</parameter>
+ together as a <link linkend="GSocketConnection"><type>GSocketConnection</type></link>.</para>
+<refsect3 id="g-tcp-wrapper-connection-new.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>base_io_stream</para></entry>
+<entry role="parameter_description"><para>the <link linkend="GIOStream"><type>GIOStream</type></link> to wrap</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>socket</para></entry>
+<entry role="parameter_description"><para>the <link linkend="GSocket"><type>GSocket</type></link> associated with <parameter>base_io_stream</parameter>
+</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-tcp-wrapper-connection-new.returns" role="returns">
+<title>Returns</title>
+<para> the new <link linkend="GSocketConnection"><type>GSocketConnection</type></link>.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.28">2.28</link></para></refsect2>
+<refsect2 id="g-tcp-wrapper-connection-get-base-io-stream" role="function">
+<title>g_tcp_wrapper_connection_get_base_io_stream&#160;()</title>
+<indexterm zone="g-tcp-wrapper-connection-get-base-io-stream"><primary sortas="tcp_wrapper_connection_get_base_io_stream">g_tcp_wrapper_connection_get_base_io_stream</primary></indexterm>
+<programlisting language="C"><link linkend="GIOStream"><returnvalue>GIOStream</returnvalue></link>&#160;*
+g_tcp_wrapper_connection_get_base_io_stream
+                               (<parameter><link linkend="GTcpWrapperConnection"><type>GTcpWrapperConnection</type></link> *conn</parameter>);</programlisting>
+<para>Get's <parameter>conn</parameter>
+'s base <link linkend="GIOStream"><type>GIOStream</type></link></para>
+<refsect3 id="g-tcp-wrapper-connection-get-base-io-stream.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>conn</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GTcpWrapperConnection"><type>GTcpWrapperConnection</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-tcp-wrapper-connection-get-base-io-stream.returns" role="returns">
+<title>Returns</title>
+<para><parameter>conn</parameter>
+'s base <link linkend="GIOStream"><type>GIOStream</type></link>. </para>
+<para><emphasis role="annotation">[<acronym>transfer none</acronym>]</emphasis></para>
+</refsect3></refsect2>
+
+</refsect1>
+<refsect1 id="GTcpWrapperConnection.other_details" role="details">
+<title role="details.title">Types and Values</title>
+<refsect2 id="GTcpWrapperConnection-struct" role="struct">
+<title>GTcpWrapperConnection</title>
+<indexterm zone="GTcpWrapperConnection-struct"><primary sortas="TcpWrapperConnection">GTcpWrapperConnection</primary></indexterm>
+<programlisting language="C">typedef struct _GTcpWrapperConnection GTcpWrapperConnection;</programlisting>
+<para><link linkend="GTcpWrapperConnection"><type>GTcpWrapperConnection</type></link> is an opaque data structure and can only be accessed
+using the following functions.</para>
+</refsect2>
+
+</refsect1>
+<refsect1 id="GTcpWrapperConnection.property-details" role="property_details">
+<title role="property_details.title">Property Details</title>
+<refsect2 id="GTcpWrapperConnection--base-io-stream" role="property"><title>The <literal>“base-io-stream”</literal> property</title>
+<indexterm zone="GTcpWrapperConnection--base-io-stream"><primary sortas="TcpWrapperConnection:base-io-stream">GTcpWrapperConnection:base-io-stream</primary></indexterm>
+<programlisting>  “base-io-stream”           <link linkend="GIOStream"><type>GIOStream</type></link>&#160;*</programlisting>
+<para>The wrapped GIOStream.</para><para>Flags: Read / Write / Construct Only</para>
+</refsect2>
+
+</refsect1>
+<refsect1 id="GTcpWrapperConnection.see-also">
+<title>See Also</title>
+<para><link linkend="GSocketConnection"><type>GSocketConnection</type></link>.</para>
+
+</refsect1>
+
+</refentry>

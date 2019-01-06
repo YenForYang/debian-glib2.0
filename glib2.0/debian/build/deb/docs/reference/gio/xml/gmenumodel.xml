@@ -1,0 +1,919 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC '-//OASIS//DTD DocBook XML V4.5//EN'
+                      'http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd' [
+<!ENTITY % local.common.attrib "xmlns:xi  CDATA  #FIXED 'http://www.w3.org/2003/XInclude'">
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="GMenuModel">
+<refmeta>
+<refentrytitle role="top_of_page" id="GMenuModel.top_of_page">GMenuModel</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>GIO Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>GMenuModel</refname>
+<refpurpose>An abstract class representing the contents of a menu</refpurpose>
+</refnamediv>
+
+<refsect1 id="GMenuModel.functions" role="functions_proto">
+<title role="functions_proto.title">Functions</title>
+<informaltable pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="functions_return" colwidth="150px"/>
+<colspec colname="functions_name"/>
+<tbody>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-menu-model-is-mutable">g_menu_model_is_mutable</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gint"><returnvalue>gint</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-menu-model-get-n-items">g_menu_model_get_n_items</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+
+<row><entry role="function_type"><link linkend="GVariant"><returnvalue>GVariant</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-menu-model-get-item-attribute-value">g_menu_model_get_item_attribute_value</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-menu-model-get-item-attribute">g_menu_model_get_item_attribute</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GMenuModel"><returnvalue>GMenuModel</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-menu-model-get-item-link">g_menu_model_get_item_link</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GMenuAttributeIter"><returnvalue>GMenuAttributeIter</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-menu-model-iterate-item-attributes">g_menu_model_iterate_item_attributes</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GMenuLinkIter"><returnvalue>GMenuLinkIter</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-menu-model-iterate-item-links">g_menu_model_iterate_item_links</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-menu-model-items-changed">g_menu_model_items_changed</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-menu-attribute-iter-get-next">g_menu_attribute_iter_get_next</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type">const <link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-menu-attribute-iter-get-name">g_menu_attribute_iter_get_name</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GVariant"><returnvalue>GVariant</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-menu-attribute-iter-get-value">g_menu_attribute_iter_get_value</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-menu-attribute-iter-next">g_menu_attribute_iter_next</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+<row><entry role="function_type">const <link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-menu-link-iter-get-name">g_menu_link_iter_get_name</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-menu-link-iter-get-next">g_menu_link_iter_get_next</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GMenuModel"><returnvalue>GMenuModel</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-menu-link-iter-get-value">g_menu_link_iter_get_value</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-menu-link-iter-next">g_menu_link_iter_next</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GMenuModel.signals" role="signal_proto">
+<title role="signal_proto.title">Signals</title>
+<informaltable frame="none">
+<tgroup cols="3">
+<colspec colname="signals_return" colwidth="150px"/>
+<colspec colname="signals_name" colwidth="300px"/>
+<colspec colname="signals_flags" colwidth="200px"/>
+<tbody>
+<row><entry role="signal_type"><link linkend="void"><returnvalue>void</returnvalue></link></entry><entry role="signal_name"><link linkend="GMenuModel-items-changed">items-changed</link></entry><entry role="signal_flags"><link linkend="G-SIGNAL-RUN-LAST:CAPS">Run Last</link></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<anchor id="GMenuAttributeIter"/><anchor id="GMenuLinkIter"/><refsect1 id="GMenuModel.other" role="other_proto">
+<title role="other_proto.title">Types and Values</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="name" colwidth="150px"/>
+<colspec colname="description"/>
+<tbody>
+<row><entry role="datatype_keyword"></entry><entry role="function_name"><link linkend="GMenuModel-struct">GMenuModel</link></entry></row>
+
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="G-MENU-ATTRIBUTE-ACTION:CAPS">G_MENU_ATTRIBUTE_ACTION</link></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="G-MENU-ATTRIBUTE-ACTION-NAMESPACE:CAPS">G_MENU_ATTRIBUTE_ACTION_NAMESPACE</link></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="G-MENU-ATTRIBUTE-TARGET:CAPS">G_MENU_ATTRIBUTE_TARGET</link></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="G-MENU-ATTRIBUTE-LABEL:CAPS">G_MENU_ATTRIBUTE_LABEL</link></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="G-MENU-ATTRIBUTE-ICON:CAPS">G_MENU_ATTRIBUTE_ICON</link></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="G-MENU-LINK-SECTION:CAPS">G_MENU_LINK_SECTION</link></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="G-MENU-LINK-SUBMENU:CAPS">G_MENU_LINK_SUBMENU</link></entry></row>
+
+
+
+<row><entry role="datatype_keyword">struct</entry><entry role="function_name"><link linkend="GMenuAttributeIter-struct">GMenuAttributeIter</link></entry></row>
+
+<row><entry role="datatype_keyword">struct</entry><entry role="function_name"><link linkend="GMenuLinkIter-struct">GMenuLinkIter</link></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GMenuModel.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<screen>    <link linkend="GObject">GObject</link>
+    <phrase role="lineart">&#9500;&#9472;&#9472;</phrase> GMenuAttributeIter
+    <phrase role="lineart">&#9500;&#9472;&#9472;</phrase> GMenuLinkIter
+    <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> GMenuModel
+        <phrase role="lineart">&#9500;&#9472;&#9472;</phrase> <link linkend="GDBusMenuModel">GDBusMenuModel</link>
+        <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> <link linkend="GMenu">GMenu</link>
+</screen>
+</refsect1>
+
+<refsect1 id="GMenuModel.includes"><title>Includes</title><synopsis>#include &lt;gio/gio.h&gt;
+</synopsis></refsect1>
+
+<refsect1 id="GMenuModel.description" role="desc">
+<title role="desc.title">Description</title>
+<para><link linkend="GMenuModel"><type>GMenuModel</type></link> represents the contents of a menu -- an ordered list of
+menu items. The items are associated with actions, which can be
+activated through them. Items can be grouped in sections, and may
+have submenus associated with them. Both items and sections usually
+have some representation data, such as labels or icons. The type of
+the associated action (ie whether it is stateful, and what kind of
+state it has) can influence the representation of the item.</para>
+<para>The conceptual model of menus in <link linkend="GMenuModel"><type>GMenuModel</type></link> is hierarchical:
+sections and submenus are again represented by <link linkend="GMenuModels"><type>GMenuModels</type></link>.
+Menus themselves do not define their own roles. Rather, the role
+of a particular <link linkend="GMenuModel"><type>GMenuModel</type></link> is defined by the item that references
+it (or, in the case of the 'root' menu, is defined by the context
+in which it is used).</para>
+<para>As an example, consider the visible portions of this menu:</para>
+<refsect3 id="menu-example"><title>An example menu</title><para><inlinemediaobject><imageobject><imagedata fileref="menu-example.png"></imagedata></imageobject><textobject><phrase></phrase></textobject></inlinemediaobject></para>
+<para>There are 8 "menus" visible in the screenshot: one menubar, two
+submenus and 5 sections:</para>
+<itemizedlist>
+<listitem><para>the toplevel menubar (containing 4 items)</para></listitem>
+<listitem><para>the View submenu (containing 3 sections)</para></listitem>
+<listitem><para>the first section of the View submenu (containing 2 items)</para></listitem>
+<listitem><para>the second section of the View submenu (containing 1 item)</para></listitem>
+<listitem><para>the final section of the View submenu (containing 1 item)</para></listitem>
+<listitem><para>the Highlight Mode submenu (containing 2 sections)</para></listitem>
+<listitem><para>the Sources section (containing 2 items)</para></listitem>
+<listitem>
+<para>the Markup section (containing 2 items)</para>
+</listitem>
+</itemizedlist>
+<para>The <link linkend="menu-model">example</link> illustrates the conceptual connection between
+these 8 menus. Each large block in the figure represents a menu and the
+smaller blocks within the large block represent items in that menu. Some
+items contain references to other menus.</para>
+</refsect3>
+<refsect3 id="menu-model"><title>A menu example</title><para><inlinemediaobject><imageobject><imagedata fileref="menu-model.png"></imagedata></imageobject><textobject><phrase></phrase></textobject></inlinemediaobject></para>
+<para>Notice that the separators visible in the <link linkend="menu-example">example</link>
+appear nowhere in the <link linkend="menu-model">menu model</link>. This is because
+separators are not explicitly represented in the menu model. Instead,
+a separator is inserted between any two non-empty sections of a menu.
+Section items can have labels just like any other item. In that case,
+a display system may show a section header instead of a separator.</para>
+<para>The motivation for this abstract model of application controls is
+that modern user interfaces tend to make these controls available
+outside the application. Examples include global menus, jumplists,
+dash boards, etc. To support such uses, it is necessary to 'export'
+information about actions and their representation in menus, which
+is exactly what the <link linkend="gio-GActionGroup-exporter">GActionGroup exporter</link>
+and the <link linkend="gio-GMenuModel-exporter">GMenuModel exporter</link> do for
+<link linkend="GActionGroup"><type>GActionGroup</type></link> and <link linkend="GMenuModel"><type>GMenuModel</type></link>. The client-side counterparts to
+make use of the exported information are <link linkend="GDBusActionGroup"><type>GDBusActionGroup</type></link> and
+<link linkend="GDBusMenuModel"><type>GDBusMenuModel</type></link>.</para>
+<para>The API of <link linkend="GMenuModel"><type>GMenuModel</type></link> is very generic, with iterators for the
+attributes and links of an item, see <link linkend="g-menu-model-iterate-item-attributes"><function>g_menu_model_iterate_item_attributes()</function></link>
+and <link linkend="g-menu-model-iterate-item-links"><function>g_menu_model_iterate_item_links()</function></link>. The 'standard' attributes and
+link types have predefined names: <link linkend="G-MENU-ATTRIBUTE-LABEL:CAPS"><literal>G_MENU_ATTRIBUTE_LABEL</literal></link>,
+<link linkend="G-MENU-ATTRIBUTE-ACTION:CAPS"><literal>G_MENU_ATTRIBUTE_ACTION</literal></link>, <link linkend="G-MENU-ATTRIBUTE-TARGET:CAPS"><literal>G_MENU_ATTRIBUTE_TARGET</literal></link>, <link linkend="G-MENU-LINK-SECTION:CAPS"><literal>G_MENU_LINK_SECTION</literal></link>
+and <link linkend="G-MENU-LINK-SUBMENU:CAPS"><literal>G_MENU_LINK_SUBMENU</literal></link>.</para>
+<para>Items in a <link linkend="GMenuModel"><type>GMenuModel</type></link> represent active controls if they refer to
+an action that can get activated when the user interacts with the
+menu item. The reference to the action is encoded by the string id
+in the <link linkend="G-MENU-ATTRIBUTE-ACTION:CAPS"><literal>G_MENU_ATTRIBUTE_ACTION</literal></link> attribute. An action id uniquely
+identifies an action in an action group. Which action group(s) provide
+actions depends on the context in which the menu model is used.
+E.g. when the model is exported as the application menu of a
+<link linkend="GtkApplication"><type>GtkApplication</type></link>, actions can be application-wide or window-specific
+(and thus come from two different action groups). By convention, the
+application-wide actions have names that start with "app.", while the
+names of window-specific actions start with "win.".</para>
+<para>While a wide variety of stateful actions is possible, the following
+is the minimum that is expected to be supported by all users of exported
+menu information:</para>
+<itemizedlist>
+<listitem><para>an action with no parameter type and no state</para></listitem>
+<listitem><para>an action with no parameter type and boolean state</para></listitem>
+<listitem>
+<para>an action with string parameter type and string state</para>
+</listitem>
+</itemizedlist>
+</refsect3>
+<refsect3><title>Stateless</title><para>A stateless action typically corresponds to an ordinary menu item.</para>
+<para>Selecting such a menu item will activate the action (with no parameter).</para>
+</refsect3>
+<refsect3><title>Boolean State</title><para>An action with a boolean state will most typically be used with a "toggle"
+or "switch" menu item. The state can be set directly, but activating the
+action (with no parameter) results in the state being toggled.</para>
+<para>Selecting a toggle menu item will activate the action. The menu item should
+be rendered as "checked" when the state is true.</para>
+</refsect3>
+<refsect3><title>String Parameter and State</title><para>Actions with string parameters and state will most typically be used to
+represent an enumerated choice over the items available for a group of
+radio menu items. Activating the action with a string parameter is
+equivalent to setting that parameter as the state.</para>
+<para>Radio menu items, in addition to being associated with the action, will
+have a target value. Selecting that menu item will result in activation
+of the action with the target value as the parameter. The menu item should
+be rendered as "selected" when the state of the action is equal to the
+target value of the menu item.</para>
+</refsect3>
+
+</refsect1>
+<refsect1 id="GMenuModel.functions_details" role="details">
+<title role="details.title">Functions</title>
+<refsect2 id="g-menu-model-is-mutable" role="function" condition="since:2.32">
+<title>g_menu_model_is_mutable&#160;()</title>
+<indexterm zone="g-menu-model-is-mutable" role="2.32"><primary sortas="menu_model_is_mutable">g_menu_model_is_mutable</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_menu_model_is_mutable (<parameter><link linkend="GMenuModel"><type>GMenuModel</type></link> *model</parameter>);</programlisting>
+<para>Queries if <parameter>model</parameter>
+ is mutable.</para>
+<para>An immutable <link linkend="GMenuModel"><type>GMenuModel</type></link> will never emit the <link linkend="GMenuModel-items-changed"><type>“items-changed”</type></link>
+signal. Consumers of the model may make optimisations accordingly.</para>
+<refsect3 id="g-menu-model-is-mutable.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>model</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GMenuModel"><type>GMenuModel</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-menu-model-is-mutable.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if the model is mutable (ie: "items-changed" may be
+emitted).</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.32">2.32</link></para></refsect2>
+<refsect2 id="g-menu-model-get-n-items" role="function" condition="since:2.32">
+<title>g_menu_model_get_n_items&#160;()</title>
+<indexterm zone="g-menu-model-get-n-items" role="2.32"><primary sortas="menu_model_get_n_items">g_menu_model_get_n_items</primary></indexterm>
+<programlisting language="C"><link linkend="gint"><returnvalue>gint</returnvalue></link>
+g_menu_model_get_n_items (<parameter><link linkend="GMenuModel"><type>GMenuModel</type></link> *model</parameter>);</programlisting>
+<para>Query the number of items in <parameter>model</parameter>
+.</para>
+<refsect3 id="g-menu-model-get-n-items.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>model</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GMenuModel"><type>GMenuModel</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-menu-model-get-n-items.returns" role="returns">
+<title>Returns</title>
+<para> the number of items</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.32">2.32</link></para></refsect2>
+<refsect2 id="g-menu-model-get-item-attribute-value" role="function" condition="since:2.32">
+<title>g_menu_model_get_item_attribute_value&#160;()</title>
+<indexterm zone="g-menu-model-get-item-attribute-value" role="2.32"><primary sortas="menu_model_get_item_attribute_value">g_menu_model_get_item_attribute_value</primary></indexterm>
+<programlisting language="C"><link linkend="GVariant"><returnvalue>GVariant</returnvalue></link>&#160;*
+g_menu_model_get_item_attribute_value (<parameter><link linkend="GMenuModel"><type>GMenuModel</type></link> *model</parameter>,
+                                       <parameter><link linkend="gint"><type>gint</type></link> item_index</parameter>,
+                                       <parameter>const <link linkend="gchar"><type>gchar</type></link> *attribute</parameter>,
+                                       <parameter>const <link linkend="GVariantType"><type>GVariantType</type></link> *expected_type</parameter>);</programlisting>
+<para>Queries the item at position <parameter>item_index</parameter>
+ in <parameter>model</parameter>
+ for the attribute
+specified by <parameter>attribute</parameter>
+.</para>
+<para>If <parameter>expected_type</parameter>
+ is non-<link linkend="NULL:CAPS"><literal>NULL</literal></link> then it specifies the expected type of
+the attribute.  If it is <link linkend="NULL:CAPS"><literal>NULL</literal></link> then any type will be accepted.</para>
+<para>If the attribute exists and matches <parameter>expected_type</parameter>
+ (or if the
+expected type is unspecified) then the value is returned.</para>
+<para>If the attribute does not exist, or does not match the expected type
+then <link linkend="NULL:CAPS"><literal>NULL</literal></link> is returned.</para>
+<refsect3 id="g-menu-model-get-item-attribute-value.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>model</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GMenuModel"><type>GMenuModel</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>item_index</para></entry>
+<entry role="parameter_description"><para>the index of the item</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>attribute</para></entry>
+<entry role="parameter_description"><para>the attribute to query</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>expected_type</para></entry>
+<entry role="parameter_description"><para>the expected type of the attribute, or
+<link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-menu-model-get-item-attribute-value.returns" role="returns">
+<title>Returns</title>
+<para>the value of the attribute. </para>
+<para><emphasis role="annotation">[<acronym>transfer full</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.32">2.32</link></para></refsect2>
+<refsect2 id="g-menu-model-get-item-attribute" role="function" condition="since:2.32">
+<title>g_menu_model_get_item_attribute&#160;()</title>
+<indexterm zone="g-menu-model-get-item-attribute" role="2.32"><primary sortas="menu_model_get_item_attribute">g_menu_model_get_item_attribute</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_menu_model_get_item_attribute (<parameter><link linkend="GMenuModel"><type>GMenuModel</type></link> *model</parameter>,
+                                 <parameter><link linkend="gint"><type>gint</type></link> item_index</parameter>,
+                                 <parameter>const <link linkend="gchar"><type>gchar</type></link> *attribute</parameter>,
+                                 <parameter>const <link linkend="gchar"><type>gchar</type></link> *format_string</parameter>,
+                                 <parameter>...</parameter>);</programlisting>
+<para>Queries item at position <parameter>item_index</parameter>
+ in <parameter>model</parameter>
+ for the attribute
+specified by <parameter>attribute</parameter>
+.</para>
+<para>If the attribute exists and matches the <link linkend="GVariantType"><type>GVariantType</type></link> corresponding
+to <parameter>format_string</parameter>
+ then <parameter>format_string</parameter>
+ is used to deconstruct the
+value into the positional parameters and <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> is returned.</para>
+<para>If the attribute does not exist, or it does exist but has the wrong
+type, then the positional parameters are ignored and <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> is
+returned.</para>
+<para>This function is a mix of <link linkend="g-menu-model-get-item-attribute-value"><function>g_menu_model_get_item_attribute_value()</function></link> and
+<link linkend="g-variant-get"><function>g_variant_get()</function></link>, followed by a <link linkend="g-variant-unref"><function>g_variant_unref()</function></link>.  As such,
+<parameter>format_string</parameter>
+ must make a complete copy of the data (since the
+<link linkend="GVariant"><type>GVariant</type></link> may go away after the call to <link linkend="g-variant-unref"><function>g_variant_unref()</function></link>).  In
+particular, no '&amp;' characters are allowed in <parameter>format_string</parameter>
+.</para>
+<refsect3 id="g-menu-model-get-item-attribute.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>model</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GMenuModel"><type>GMenuModel</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>item_index</para></entry>
+<entry role="parameter_description"><para>the index of the item</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>attribute</para></entry>
+<entry role="parameter_description"><para>the attribute to query</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>format_string</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GVariant"><type>GVariant</type></link> format string</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>...</para></entry>
+<entry role="parameter_description"><para>positional parameters, as per <parameter>format_string</parameter>
+</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-menu-model-get-item-attribute.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if the named attribute was found with the expected
+type</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.32">2.32</link></para></refsect2>
+<refsect2 id="g-menu-model-get-item-link" role="function" condition="since:2.32">
+<title>g_menu_model_get_item_link&#160;()</title>
+<indexterm zone="g-menu-model-get-item-link" role="2.32"><primary sortas="menu_model_get_item_link">g_menu_model_get_item_link</primary></indexterm>
+<programlisting language="C"><link linkend="GMenuModel"><returnvalue>GMenuModel</returnvalue></link>&#160;*
+g_menu_model_get_item_link (<parameter><link linkend="GMenuModel"><type>GMenuModel</type></link> *model</parameter>,
+                            <parameter><link linkend="gint"><type>gint</type></link> item_index</parameter>,
+                            <parameter>const <link linkend="gchar"><type>gchar</type></link> *link</parameter>);</programlisting>
+<para>Queries the item at position <parameter>item_index</parameter>
+ in <parameter>model</parameter>
+ for the link
+specified by <parameter>link</parameter>
+.</para>
+<para>If the link exists, the linked <link linkend="GMenuModel"><type>GMenuModel</type></link> is returned.  If the link
+does not exist, <link linkend="NULL:CAPS"><literal>NULL</literal></link> is returned.</para>
+<refsect3 id="g-menu-model-get-item-link.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>model</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GMenuModel"><type>GMenuModel</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>item_index</para></entry>
+<entry role="parameter_description"><para>the index of the item</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>link</para></entry>
+<entry role="parameter_description"><para>the link to query</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-menu-model-get-item-link.returns" role="returns">
+<title>Returns</title>
+<para>the linked <link linkend="GMenuModel"><type>GMenuModel</type></link>, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para>
+<para><emphasis role="annotation">[<acronym>transfer full</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.32">2.32</link></para></refsect2>
+<refsect2 id="g-menu-model-iterate-item-attributes" role="function" condition="since:2.32">
+<title>g_menu_model_iterate_item_attributes&#160;()</title>
+<indexterm zone="g-menu-model-iterate-item-attributes" role="2.32"><primary sortas="menu_model_iterate_item_attributes">g_menu_model_iterate_item_attributes</primary></indexterm>
+<programlisting language="C"><link linkend="GMenuAttributeIter"><returnvalue>GMenuAttributeIter</returnvalue></link>&#160;*
+g_menu_model_iterate_item_attributes (<parameter><link linkend="GMenuModel"><type>GMenuModel</type></link> *model</parameter>,
+                                      <parameter><link linkend="gint"><type>gint</type></link> item_index</parameter>);</programlisting>
+<para>Creates a <link linkend="GMenuAttributeIter"><type>GMenuAttributeIter</type></link> to iterate over the attributes of
+the item at position <parameter>item_index</parameter>
+ in <parameter>model</parameter>
+.</para>
+<para>You must free the iterator with <link linkend="g-object-unref"><function>g_object_unref()</function></link> when you are done.</para>
+<refsect3 id="g-menu-model-iterate-item-attributes.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>model</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GMenuModel"><type>GMenuModel</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>item_index</para></entry>
+<entry role="parameter_description"><para>the index of the item</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-menu-model-iterate-item-attributes.returns" role="returns">
+<title>Returns</title>
+<para>a new <link linkend="GMenuAttributeIter"><type>GMenuAttributeIter</type></link>. </para>
+<para><emphasis role="annotation">[<acronym>transfer full</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.32">2.32</link></para></refsect2>
+<refsect2 id="g-menu-model-iterate-item-links" role="function" condition="since:2.32">
+<title>g_menu_model_iterate_item_links&#160;()</title>
+<indexterm zone="g-menu-model-iterate-item-links" role="2.32"><primary sortas="menu_model_iterate_item_links">g_menu_model_iterate_item_links</primary></indexterm>
+<programlisting language="C"><link linkend="GMenuLinkIter"><returnvalue>GMenuLinkIter</returnvalue></link>&#160;*
+g_menu_model_iterate_item_links (<parameter><link linkend="GMenuModel"><type>GMenuModel</type></link> *model</parameter>,
+                                 <parameter><link linkend="gint"><type>gint</type></link> item_index</parameter>);</programlisting>
+<para>Creates a <link linkend="GMenuLinkIter"><type>GMenuLinkIter</type></link> to iterate over the links of the item at
+position <parameter>item_index</parameter>
+ in <parameter>model</parameter>
+.</para>
+<para>You must free the iterator with <link linkend="g-object-unref"><function>g_object_unref()</function></link> when you are done.</para>
+<refsect3 id="g-menu-model-iterate-item-links.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>model</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GMenuModel"><type>GMenuModel</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>item_index</para></entry>
+<entry role="parameter_description"><para>the index of the item</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-menu-model-iterate-item-links.returns" role="returns">
+<title>Returns</title>
+<para>a new <link linkend="GMenuLinkIter"><type>GMenuLinkIter</type></link>. </para>
+<para><emphasis role="annotation">[<acronym>transfer full</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.32">2.32</link></para></refsect2>
+<refsect2 id="g-menu-model-items-changed" role="function" condition="since:2.32">
+<title>g_menu_model_items_changed&#160;()</title>
+<indexterm zone="g-menu-model-items-changed" role="2.32"><primary sortas="menu_model_items_changed">g_menu_model_items_changed</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_menu_model_items_changed (<parameter><link linkend="GMenuModel"><type>GMenuModel</type></link> *model</parameter>,
+                            <parameter><link linkend="gint"><type>gint</type></link> position</parameter>,
+                            <parameter><link linkend="gint"><type>gint</type></link> removed</parameter>,
+                            <parameter><link linkend="gint"><type>gint</type></link> added</parameter>);</programlisting>
+<para>Requests emission of the <link linkend="GMenuModel-items-changed"><type>“items-changed”</type></link> signal on <parameter>model</parameter>
+.</para>
+<para>This function should never be called except by <link linkend="GMenuModel"><type>GMenuModel</type></link>
+subclasses.  Any other calls to this function will very likely lead
+to a violation of the interface of the model.</para>
+<para>The implementation should update its internal representation of the
+menu before emitting the signal.  The implementation should further
+expect to receive queries about the new state of the menu (and
+particularly added menu items) while signal handlers are running.</para>
+<para>The implementation must dispatch this call directly from a mainloop
+entry and not in response to calls -- particularly those from the
+<link linkend="GMenuModel"><type>GMenuModel</type></link> API.  Said another way: the menu must not change while
+user code is running without returning to the mainloop.</para>
+<refsect3 id="g-menu-model-items-changed.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>model</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GMenuModel"><type>GMenuModel</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>position</para></entry>
+<entry role="parameter_description"><para>the position of the change</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>removed</para></entry>
+<entry role="parameter_description"><para>the number of items removed</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>added</para></entry>
+<entry role="parameter_description"><para>the number of items added</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.32">2.32</link></para></refsect2>
+<refsect2 id="g-menu-attribute-iter-get-next" role="function" condition="since:2.32">
+<title>g_menu_attribute_iter_get_next&#160;()</title>
+<indexterm zone="g-menu-attribute-iter-get-next" role="2.32"><primary sortas="menu_attribute_iter_get_next">g_menu_attribute_iter_get_next</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_menu_attribute_iter_get_next (<parameter><link linkend="GMenuAttributeIter"><type>GMenuAttributeIter</type></link> *iter</parameter>,
+                                <parameter>const <link linkend="gchar"><type>gchar</type></link> **out_name</parameter>,
+                                <parameter><link linkend="GVariant"><type>GVariant</type></link> **value</parameter>);</programlisting>
+<para>This function combines <link linkend="g-menu-attribute-iter-next"><function>g_menu_attribute_iter_next()</function></link> with
+<link linkend="g-menu-attribute-iter-get-name"><function>g_menu_attribute_iter_get_name()</function></link> and <link linkend="g-menu-attribute-iter-get-value"><function>g_menu_attribute_iter_get_value()</function></link>.</para>
+<para>First the iterator is advanced to the next (possibly first) attribute.
+If that fails, then <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> is returned and there are no other
+effects.</para>
+<para>If successful, <parameter>name</parameter>
+ and <parameter>value</parameter>
+ are set to the name and value of the
+attribute that has just been advanced to.  At this point,
+<link linkend="g-menu-attribute-iter-get-name"><function>g_menu_attribute_iter_get_name()</function></link> and <link linkend="g-menu-attribute-iter-get-value"><function>g_menu_attribute_iter_get_value()</function></link> will
+return the same values again.</para>
+<para>The value returned in <parameter>name</parameter>
+ remains valid for as long as the iterator
+remains at the current position.  The value returned in <parameter>value</parameter>
+ must
+be unreffed using <link linkend="g-variant-unref"><function>g_variant_unref()</function></link> when it is no longer in use.</para>
+<refsect3 id="g-menu-attribute-iter-get-next.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>iter</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GMenuAttributeIter"><type>GMenuAttributeIter</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>out_name</para></entry>
+<entry role="parameter_description"><para>the type of the attribute. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>out</acronym>][<acronym>optional</acronym>][<acronym>transfer none</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>value</para></entry>
+<entry role="parameter_description"><para>the attribute value. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>out</acronym>][<acronym>optional</acronym>][<acronym>transfer full</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-menu-attribute-iter-get-next.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> on success, or <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> if there is no additional
+attribute</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.32">2.32</link></para></refsect2>
+<refsect2 id="g-menu-attribute-iter-get-name" role="function" condition="since:2.32">
+<title>g_menu_attribute_iter_get_name&#160;()</title>
+<indexterm zone="g-menu-attribute-iter-get-name" role="2.32"><primary sortas="menu_attribute_iter_get_name">g_menu_attribute_iter_get_name</primary></indexterm>
+<programlisting language="C">const <link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+g_menu_attribute_iter_get_name (<parameter><link linkend="GMenuAttributeIter"><type>GMenuAttributeIter</type></link> *iter</parameter>);</programlisting>
+<para>Gets the name of the attribute at the current iterator position, as
+a string.</para>
+<para>The iterator is not advanced.</para>
+<refsect3 id="g-menu-attribute-iter-get-name.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>iter</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GMenuAttributeIter"><type>GMenuAttributeIter</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-menu-attribute-iter-get-name.returns" role="returns">
+<title>Returns</title>
+<para> the name of the attribute</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.32">2.32</link></para></refsect2>
+<refsect2 id="g-menu-attribute-iter-get-value" role="function" condition="since:2.32">
+<title>g_menu_attribute_iter_get_value&#160;()</title>
+<indexterm zone="g-menu-attribute-iter-get-value" role="2.32"><primary sortas="menu_attribute_iter_get_value">g_menu_attribute_iter_get_value</primary></indexterm>
+<programlisting language="C"><link linkend="GVariant"><returnvalue>GVariant</returnvalue></link>&#160;*
+g_menu_attribute_iter_get_value (<parameter><link linkend="GMenuAttributeIter"><type>GMenuAttributeIter</type></link> *iter</parameter>);</programlisting>
+<para>Gets the value of the attribute at the current iterator position.</para>
+<para>The iterator is not advanced.</para>
+<refsect3 id="g-menu-attribute-iter-get-value.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>iter</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GMenuAttributeIter"><type>GMenuAttributeIter</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-menu-attribute-iter-get-value.returns" role="returns">
+<title>Returns</title>
+<para>the value of the current attribute. </para>
+<para><emphasis role="annotation">[<acronym>transfer full</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.32">2.32</link></para></refsect2>
+<refsect2 id="g-menu-attribute-iter-next" role="function" condition="since:2.32">
+<title>g_menu_attribute_iter_next&#160;()</title>
+<indexterm zone="g-menu-attribute-iter-next" role="2.32"><primary sortas="menu_attribute_iter_next">g_menu_attribute_iter_next</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_menu_attribute_iter_next (<parameter><link linkend="GMenuAttributeIter"><type>GMenuAttributeIter</type></link> *iter</parameter>);</programlisting>
+<para>Attempts to advance the iterator to the next (possibly first)
+attribute.</para>
+<para><link linkend="TRUE:CAPS"><literal>TRUE</literal></link> is returned on success, or <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> if there are no more
+attributes.</para>
+<para>You must call this function when you first acquire the iterator
+to advance it to the first attribute (and determine if the first
+attribute exists at all).</para>
+<refsect3 id="g-menu-attribute-iter-next.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>iter</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GMenuAttributeIter"><type>GMenuAttributeIter</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-menu-attribute-iter-next.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> on success, or <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> when there are no more attributes</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.32">2.32</link></para></refsect2>
+<refsect2 id="g-menu-link-iter-get-name" role="function" condition="since:2.32">
+<title>g_menu_link_iter_get_name&#160;()</title>
+<indexterm zone="g-menu-link-iter-get-name" role="2.32"><primary sortas="menu_link_iter_get_name">g_menu_link_iter_get_name</primary></indexterm>
+<programlisting language="C">const <link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+g_menu_link_iter_get_name (<parameter><link linkend="GMenuLinkIter"><type>GMenuLinkIter</type></link> *iter</parameter>);</programlisting>
+<para>Gets the name of the link at the current iterator position.</para>
+<para>The iterator is not advanced.</para>
+<refsect3 id="g-menu-link-iter-get-name.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>iter</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GMenuLinkIter"><type>GMenuLinkIter</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-menu-link-iter-get-name.returns" role="returns">
+<title>Returns</title>
+<para> the type of the link</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.32">2.32</link></para></refsect2>
+<refsect2 id="g-menu-link-iter-get-next" role="function" condition="since:2.32">
+<title>g_menu_link_iter_get_next&#160;()</title>
+<indexterm zone="g-menu-link-iter-get-next" role="2.32"><primary sortas="menu_link_iter_get_next">g_menu_link_iter_get_next</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_menu_link_iter_get_next (<parameter><link linkend="GMenuLinkIter"><type>GMenuLinkIter</type></link> *iter</parameter>,
+                           <parameter>const <link linkend="gchar"><type>gchar</type></link> **out_link</parameter>,
+                           <parameter><link linkend="GMenuModel"><type>GMenuModel</type></link> **value</parameter>);</programlisting>
+<para>This function combines <link linkend="g-menu-link-iter-next"><function>g_menu_link_iter_next()</function></link> with
+<link linkend="g-menu-link-iter-get-name"><function>g_menu_link_iter_get_name()</function></link> and <link linkend="g-menu-link-iter-get-value"><function>g_menu_link_iter_get_value()</function></link>.</para>
+<para>First the iterator is advanced to the next (possibly first) link.
+If that fails, then <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> is returned and there are no other effects.</para>
+<para>If successful, <parameter>out_link</parameter>
+ and <parameter>value</parameter>
+ are set to the name and <link linkend="GMenuModel"><type>GMenuModel</type></link>
+of the link that has just been advanced to.  At this point,
+<link linkend="g-menu-link-iter-get-name"><function>g_menu_link_iter_get_name()</function></link> and <link linkend="g-menu-link-iter-get-value"><function>g_menu_link_iter_get_value()</function></link> will return the
+same values again.</para>
+<para>The value returned in <parameter>out_link</parameter>
+ remains valid for as long as the iterator
+remains at the current position.  The value returned in <parameter>value</parameter>
+ must
+be unreffed using <link linkend="g-object-unref"><function>g_object_unref()</function></link> when it is no longer in use.</para>
+<refsect3 id="g-menu-link-iter-get-next.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>iter</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GMenuLinkIter"><type>GMenuLinkIter</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>out_link</para></entry>
+<entry role="parameter_description"><para>the name of the link. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>out</acronym>][<acronym>optional</acronym>][<acronym>transfer none</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>value</para></entry>
+<entry role="parameter_description"><para>the linked <link linkend="GMenuModel"><type>GMenuModel</type></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>out</acronym>][<acronym>optional</acronym>][<acronym>transfer full</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-menu-link-iter-get-next.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> on success, or <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> if there is no additional link</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.32">2.32</link></para></refsect2>
+<refsect2 id="g-menu-link-iter-get-value" role="function" condition="since:2.32">
+<title>g_menu_link_iter_get_value&#160;()</title>
+<indexterm zone="g-menu-link-iter-get-value" role="2.32"><primary sortas="menu_link_iter_get_value">g_menu_link_iter_get_value</primary></indexterm>
+<programlisting language="C"><link linkend="GMenuModel"><returnvalue>GMenuModel</returnvalue></link>&#160;*
+g_menu_link_iter_get_value (<parameter><link linkend="GMenuLinkIter"><type>GMenuLinkIter</type></link> *iter</parameter>);</programlisting>
+<para>Gets the linked <link linkend="GMenuModel"><type>GMenuModel</type></link> at the current iterator position.</para>
+<para>The iterator is not advanced.</para>
+<refsect3 id="g-menu-link-iter-get-value.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>iter</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GMenuLinkIter"><type>GMenuLinkIter</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-menu-link-iter-get-value.returns" role="returns">
+<title>Returns</title>
+<para>the <link linkend="GMenuModel"><type>GMenuModel</type></link> that is linked to. </para>
+<para><emphasis role="annotation">[<acronym>transfer full</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.32">2.32</link></para></refsect2>
+<refsect2 id="g-menu-link-iter-next" role="function" condition="since:2.32">
+<title>g_menu_link_iter_next&#160;()</title>
+<indexterm zone="g-menu-link-iter-next" role="2.32"><primary sortas="menu_link_iter_next">g_menu_link_iter_next</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_menu_link_iter_next (<parameter><link linkend="GMenuLinkIter"><type>GMenuLinkIter</type></link> *iter</parameter>);</programlisting>
+<para>Attempts to advance the iterator to the next (possibly first)
+link.</para>
+<para><link linkend="TRUE:CAPS"><literal>TRUE</literal></link> is returned on success, or <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> if there are no more links.</para>
+<para>You must call this function when you first acquire the iterator to
+advance it to the first link (and determine if the first link exists
+at all).</para>
+<refsect3 id="g-menu-link-iter-next.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>iter</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GMenuLinkIter"><type>GMenuLinkIter</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-menu-link-iter-next.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> on success, or <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> when there are no more links</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.32">2.32</link></para></refsect2>
+
+</refsect1>
+<refsect1 id="GMenuModel.other_details" role="details">
+<title role="details.title">Types and Values</title>
+<refsect2 id="GMenuModel-struct" role="struct">
+<title>GMenuModel</title>
+<indexterm zone="GMenuModel-struct" role="2.32"><primary sortas="MenuModel">GMenuModel</primary></indexterm>
+<programlisting language="C">typedef struct _GMenuModel GMenuModel;</programlisting>
+<para><link linkend="GMenuModel"><type>GMenuModel</type></link> is an opaque structure type.  You must access it using the
+functions below.</para>
+<para role="since">Since: <link linkend="api-index-2.32">2.32</link></para></refsect2>
+<refsect2 id="G-MENU-ATTRIBUTE-ACTION:CAPS" role="macro" condition="since:2.32">
+<title>G_MENU_ATTRIBUTE_ACTION</title>
+<indexterm zone="G-MENU-ATTRIBUTE-ACTION:CAPS" role="2.32"><primary sortas="MENU_ATTRIBUTE_ACTION">G_MENU_ATTRIBUTE_ACTION</primary></indexterm>
+<programlisting language="C">#define G_MENU_ATTRIBUTE_ACTION "action"
+</programlisting>
+<para>The menu item attribute which holds the action name of the item.  Action
+names are namespaced with an identifier for the action group in which the
+action resides. For example, "win." for window-specific actions and "app."
+for application-wide actions.</para>
+<para>See also <link linkend="g-menu-model-get-item-attribute"><function>g_menu_model_get_item_attribute()</function></link> and <link linkend="g-menu-item-set-attribute"><function>g_menu_item_set_attribute()</function></link>.</para>
+<para role="since">Since: <link linkend="api-index-2.32">2.32</link></para></refsect2>
+<refsect2 id="G-MENU-ATTRIBUTE-ACTION-NAMESPACE:CAPS" role="macro" condition="since:2.36">
+<title>G_MENU_ATTRIBUTE_ACTION_NAMESPACE</title>
+<indexterm zone="G-MENU-ATTRIBUTE-ACTION-NAMESPACE:CAPS" role="2.36"><primary sortas="MENU_ATTRIBUTE_ACTION_NAMESPACE">G_MENU_ATTRIBUTE_ACTION_NAMESPACE</primary></indexterm>
+<programlisting language="C">#define G_MENU_ATTRIBUTE_ACTION_NAMESPACE "action-namespace"
+</programlisting>
+<para>The menu item attribute that holds the namespace for all action names in
+menus that are linked from this item.</para>
+<para role="since">Since: <link linkend="api-index-2.36">2.36</link></para></refsect2>
+<refsect2 id="G-MENU-ATTRIBUTE-TARGET:CAPS" role="macro" condition="since:2.32">
+<title>G_MENU_ATTRIBUTE_TARGET</title>
+<indexterm zone="G-MENU-ATTRIBUTE-TARGET:CAPS" role="2.32"><primary sortas="MENU_ATTRIBUTE_TARGET">G_MENU_ATTRIBUTE_TARGET</primary></indexterm>
+<programlisting language="C">#define G_MENU_ATTRIBUTE_TARGET "target"
+</programlisting>
+<para>The menu item attribute which holds the target with which the item's action
+will be activated.</para>
+<para>See also <link linkend="g-menu-item-set-action-and-target"><function>g_menu_item_set_action_and_target()</function></link></para>
+<para role="since">Since: <link linkend="api-index-2.32">2.32</link></para></refsect2>
+<refsect2 id="G-MENU-ATTRIBUTE-LABEL:CAPS" role="macro" condition="since:2.32">
+<title>G_MENU_ATTRIBUTE_LABEL</title>
+<indexterm zone="G-MENU-ATTRIBUTE-LABEL:CAPS" role="2.32"><primary sortas="MENU_ATTRIBUTE_LABEL">G_MENU_ATTRIBUTE_LABEL</primary></indexterm>
+<programlisting language="C">#define G_MENU_ATTRIBUTE_LABEL "label"
+</programlisting>
+<para>The menu item attribute which holds the label of the item.</para>
+<para role="since">Since: <link linkend="api-index-2.32">2.32</link></para></refsect2>
+<refsect2 id="G-MENU-ATTRIBUTE-ICON:CAPS" role="macro" condition="since:2.38">
+<title>G_MENU_ATTRIBUTE_ICON</title>
+<indexterm zone="G-MENU-ATTRIBUTE-ICON:CAPS" role="2.38"><primary sortas="MENU_ATTRIBUTE_ICON">G_MENU_ATTRIBUTE_ICON</primary></indexterm>
+<programlisting language="C">#define G_MENU_ATTRIBUTE_ICON "icon"
+</programlisting>
+<para>The menu item attribute which holds the icon of the item.</para>
+<para>The icon is stored in the format returned by <link linkend="g-icon-serialize"><function>g_icon_serialize()</function></link>.</para>
+<para>This attribute is intended only to represent 'noun' icons such as
+favicons for a webpage, or application icons.  It should not be used
+for 'verbs' (ie: stock icons).</para>
+<para role="since">Since: <link linkend="api-index-2.38">2.38</link></para></refsect2>
+<refsect2 id="G-MENU-LINK-SECTION:CAPS" role="macro" condition="since:2.32">
+<title>G_MENU_LINK_SECTION</title>
+<indexterm zone="G-MENU-LINK-SECTION:CAPS" role="2.32"><primary sortas="MENU_LINK_SECTION">G_MENU_LINK_SECTION</primary></indexterm>
+<programlisting language="C">#define G_MENU_LINK_SECTION "section"
+</programlisting>
+<para>The name of the link that associates a menu item with a section.  The linked
+menu will usually be shown in place of the menu item, using the item's label
+as a header.</para>
+<para>See also <link linkend="g-menu-item-set-link"><function>g_menu_item_set_link()</function></link>.</para>
+<para role="since">Since: <link linkend="api-index-2.32">2.32</link></para></refsect2>
+<refsect2 id="G-MENU-LINK-SUBMENU:CAPS" role="macro" condition="since:2.32">
+<title>G_MENU_LINK_SUBMENU</title>
+<indexterm zone="G-MENU-LINK-SUBMENU:CAPS" role="2.32"><primary sortas="MENU_LINK_SUBMENU">G_MENU_LINK_SUBMENU</primary></indexterm>
+<programlisting language="C">#define G_MENU_LINK_SUBMENU "submenu"
+</programlisting>
+<para>The name of the link that associates a menu item with a submenu.</para>
+<para>See also <link linkend="g-menu-item-set-link"><function>g_menu_item_set_link()</function></link>.</para>
+<para role="since">Since: <link linkend="api-index-2.32">2.32</link></para></refsect2>
+<refsect2 id="GMenuAttributeIter-struct" role="struct">
+<title>struct GMenuAttributeIter</title>
+<indexterm zone="GMenuAttributeIter-struct" role="2.32"><primary sortas="MenuAttributeIter">GMenuAttributeIter</primary></indexterm>
+<programlisting language="C">struct GMenuAttributeIter;</programlisting>
+<para><link linkend="GMenuAttributeIter"><type>GMenuAttributeIter</type></link> is an opaque structure type.  You must access it
+using the functions below.</para>
+<para role="since">Since: <link linkend="api-index-2.32">2.32</link></para></refsect2>
+<refsect2 id="GMenuLinkIter-struct" role="struct">
+<title>struct GMenuLinkIter</title>
+<indexterm zone="GMenuLinkIter-struct" role="2.32"><primary sortas="MenuLinkIter">GMenuLinkIter</primary></indexterm>
+<programlisting language="C">struct GMenuLinkIter;</programlisting>
+<para><link linkend="GMenuLinkIter"><type>GMenuLinkIter</type></link> is an opaque structure type.  You must access it using
+the functions below.</para>
+<para role="since">Since: <link linkend="api-index-2.32">2.32</link></para></refsect2>
+
+</refsect1>
+<refsect1 id="GMenuModel.signal-details" role="signals">
+<title role="signals.title">Signal Details</title>
+<refsect2 id="GMenuModel-items-changed" role="signal"><title>The <literal>“items-changed”</literal> signal</title>
+<indexterm zone="GMenuModel-items-changed"><primary sortas="MenuModel::items-changed">GMenuModel::items-changed</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+user_function (<link linkend="GMenuModel"><type>GMenuModel</type></link> *model,
+               <link linkend="gint"><type>gint</type></link>        position,
+               <link linkend="gint"><type>gint</type></link>        removed,
+               <link linkend="gint"><type>gint</type></link>        added,
+               <link linkend="gpointer"><type>gpointer</type></link>    user_data)</programlisting>
+<para>Emitted when a change has occured to the menu.</para>
+<para>The only changes that can occur to a menu is that items are removed
+or added.  Items may not change (except by being removed and added
+back in the same location).  This signal is capable of describing
+both of those changes (at the same time).</para>
+<para>The signal means that starting at the index <parameter>position</parameter>
+, <parameter>removed</parameter>
+
+items were removed and <parameter>added</parameter>
+ items were added in their place.  If
+<parameter>removed</parameter>
+ is zero then only items were added.  If <parameter>added</parameter>
+ is zero
+then only items were removed.</para>
+<para>As an example, if the menu contains items a, b, c, d (in that
+order) and the signal (2, 1, 3) occurs then the new composition of
+the menu will be a, b, _, _, _, d (with each _ representing some
+new item).</para>
+<para>Signal handlers may query the model (particularly the added items)
+and expect to see the results of the modification that is being
+reported.  The signal is emitted after the modification.</para>
+<refsect3 id="GMenuModel-items-changed.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>model</para></entry>
+<entry role="parameter_description"><para>the <link linkend="GMenuModel"><type>GMenuModel</type></link> that is changing</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>position</para></entry>
+<entry role="parameter_description"><para>the position of the change</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>removed</para></entry>
+<entry role="parameter_description"><para>the number of items removed</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>added</para></entry>
+<entry role="parameter_description"><para>the number of items added</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><simpara>user_data</simpara></entry>
+<entry role="parameter_description"><simpara>user data set when the signal handler was connected.</simpara></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para>Flags: <link linkend="G-SIGNAL-RUN-LAST:CAPS">Run Last</link></para>
+</refsect2>
+</refsect1>
+<refsect1 id="GMenuModel.see-also">
+<title>See Also</title>
+<para><link linkend="GActionGroup"><type>GActionGroup</type></link></para>
+
+</refsect1>
+
+</refentry>

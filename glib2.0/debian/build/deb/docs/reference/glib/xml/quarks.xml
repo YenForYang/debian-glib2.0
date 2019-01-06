@@ -1,0 +1,285 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC '-//OASIS//DTD DocBook XML V4.5//EN'
+                      'http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd' [
+<!ENTITY % local.common.attrib "xmlns:xi  CDATA  #FIXED 'http://www.w3.org/2003/XInclude'">
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="glib-Quarks">
+<refmeta>
+<refentrytitle role="top_of_page" id="glib-Quarks.top_of_page">Quarks</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>GLIB Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>Quarks</refname>
+<refpurpose>a 2-way association between a string and a
+    unique integer identifier</refpurpose>
+</refnamediv>
+
+<refsect1 id="glib-Quarks.functions" role="functions_proto">
+<title role="functions_proto.title">Functions</title>
+<informaltable pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="functions_return" colwidth="150px"/>
+<colspec colname="functions_name"/>
+<tbody>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="G-DEFINE-QUARK:CAPS">G_DEFINE_QUARK</link><phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GQuark"><returnvalue>GQuark</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-quark-from-string">g_quark_from_string</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GQuark"><returnvalue>GQuark</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-quark-from-static-string">g_quark_from_static_string</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type">const <link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-quark-to-string">g_quark_to_string</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GQuark"><returnvalue>GQuark</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-quark-try-string">g_quark_try_string</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type">const <link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-intern-string">g_intern_string</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type">const <link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-intern-static-string">g_intern_static_string</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="glib-Quarks.other" role="other_proto">
+<title role="other_proto.title">Types and Values</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="name" colwidth="150px"/>
+<colspec colname="description"/>
+<tbody>
+<row><entry role="typedef_keyword">typedef</entry><entry role="function_name"><link linkend="GQuark">GQuark</link></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+
+<refsect1 id="glib-Quarks.includes"><title>Includes</title><synopsis>#include &lt;gmodule.h&gt;
+</synopsis></refsect1>
+
+<refsect1 id="glib-Quarks.description" role="desc">
+<title role="desc.title">Description</title>
+<para>Quarks are associations between strings and integer identifiers.
+Given either the string or the <link linkend="GQuark"><type>GQuark</type></link> identifier it is possible to
+retrieve the other.</para>
+<para>Quarks are used for both <link linkend="glib-Datasets">datasets</link> and
+<link linkend="glib-Keyed-Data-Lists">keyed data lists</link>.</para>
+<para>To create a new quark from a string, use <link linkend="g-quark-from-string"><function>g_quark_from_string()</function></link> or
+<link linkend="g-quark-from-static-string"><function>g_quark_from_static_string()</function></link>.</para>
+<para>To find the string corresponding to a given <link linkend="GQuark"><type>GQuark</type></link>, use
+<link linkend="g-quark-to-string"><function>g_quark_to_string()</function></link>.</para>
+<para>To find the <link linkend="GQuark"><type>GQuark</type></link> corresponding to a given string, use
+<link linkend="g-quark-try-string"><function>g_quark_try_string()</function></link>.</para>
+<para>Another use for the string pool maintained for the quark functions
+is string interning, using <link linkend="g-intern-string"><function>g_intern_string()</function></link> or
+<link linkend="g-intern-static-string"><function>g_intern_static_string()</function></link>. An interned string is a canonical
+representation for a string. One important advantage of interned
+strings is that they can be compared for equality by a simple
+pointer comparison, rather than using <link linkend="strcmp"><function>strcmp()</function></link>.</para>
+
+</refsect1>
+<refsect1 id="glib-Quarks.functions_details" role="details">
+<title role="details.title">Functions</title>
+<refsect2 id="G-DEFINE-QUARK:CAPS" role="macro" condition="since:2.34">
+<title>G_DEFINE_QUARK()</title>
+<indexterm zone="G-DEFINE-QUARK:CAPS" role="2.34"><primary sortas="DEFINE_QUARK">G_DEFINE_QUARK</primary></indexterm>
+<programlisting language="C">#define             G_DEFINE_QUARK(QN, q_n)</programlisting>
+<para>A convenience macro which defines a function returning the
+<link linkend="GQuark"><type>GQuark</type></link> for the name <parameter>QN</parameter>
+. The function will be named
+<parameter><link linkend="q-n-quark"><function>q_n_quark()</function></link></parameter>
+.</para>
+<para>Note that the quark name will be stringified automatically
+in the macro, so you shouldn't use double quotes.</para>
+<refsect3 id="G-DEFINE-QUARK.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>QN</para></entry>
+<entry role="parameter_description"><para>the name to return a <link linkend="GQuark"><type>GQuark</type></link> for</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>q_n</para></entry>
+<entry role="parameter_description"><para>prefix for the function name</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.34">2.34</link></para></refsect2>
+<refsect2 id="g-quark-from-string" role="function">
+<title>g_quark_from_string&#160;()</title>
+<indexterm zone="g-quark-from-string"><primary sortas="quark_from_string">g_quark_from_string</primary></indexterm>
+<programlisting language="C"><link linkend="GQuark"><returnvalue>GQuark</returnvalue></link>
+g_quark_from_string (<parameter>const <link linkend="gchar"><type>gchar</type></link> *string</parameter>);</programlisting>
+<para>Gets the <link linkend="GQuark"><type>GQuark</type></link> identifying the given string. If the string does
+not currently have an associated <link linkend="GQuark"><type>GQuark</type></link>, a new <link linkend="GQuark"><type>GQuark</type></link> is created,
+using a copy of the string.</para>
+<refsect3 id="g-quark-from-string.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>string</para></entry>
+<entry role="parameter_description"><para>a string. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-quark-from-string.returns" role="returns">
+<title>Returns</title>
+<para> the <link linkend="GQuark"><type>GQuark</type></link> identifying the string, or 0 if <parameter>string</parameter>
+is <link linkend="NULL:CAPS"><literal>NULL</literal></link></para>
+</refsect3></refsect2>
+<refsect2 id="g-quark-from-static-string" role="function">
+<title>g_quark_from_static_string&#160;()</title>
+<indexterm zone="g-quark-from-static-string"><primary sortas="quark_from_static_string">g_quark_from_static_string</primary></indexterm>
+<programlisting language="C"><link linkend="GQuark"><returnvalue>GQuark</returnvalue></link>
+g_quark_from_static_string (<parameter>const <link linkend="gchar"><type>gchar</type></link> *string</parameter>);</programlisting>
+<para>Gets the <link linkend="GQuark"><type>GQuark</type></link> identifying the given (static) string. If the
+string does not currently have an associated <link linkend="GQuark"><type>GQuark</type></link>, a new <link linkend="GQuark"><type>GQuark</type></link>
+is created, linked to the given string.</para>
+<para>Note that this function is identical to <link linkend="g-quark-from-string"><function>g_quark_from_string()</function></link> except
+that if a new <link linkend="GQuark"><type>GQuark</type></link> is created the string itself is used rather
+than a copy. This saves memory, but can only be used if the string
+will continue to exist until the program terminates. It can be used
+with statically allocated strings in the main program, but not with
+statically allocated memory in dynamically loaded modules, if you
+expect to ever unload the module again (e.g. do not use this
+function in GTK+ theme engines).</para>
+<refsect3 id="g-quark-from-static-string.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>string</para></entry>
+<entry role="parameter_description"><para>a string. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-quark-from-static-string.returns" role="returns">
+<title>Returns</title>
+<para> the <link linkend="GQuark"><type>GQuark</type></link> identifying the string, or 0 if <parameter>string</parameter>
+is <link linkend="NULL:CAPS"><literal>NULL</literal></link></para>
+</refsect3></refsect2>
+<refsect2 id="g-quark-to-string" role="function">
+<title>g_quark_to_string&#160;()</title>
+<indexterm zone="g-quark-to-string"><primary sortas="quark_to_string">g_quark_to_string</primary></indexterm>
+<programlisting language="C">const <link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+g_quark_to_string (<parameter><link linkend="GQuark"><type>GQuark</type></link> quark</parameter>);</programlisting>
+<para>Gets the string associated with the given <link linkend="GQuark"><type>GQuark</type></link>.</para>
+<refsect3 id="g-quark-to-string.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>quark</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GQuark"><type>GQuark</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-quark-to-string.returns" role="returns">
+<title>Returns</title>
+<para> the string associated with the <link linkend="GQuark"><type>GQuark</type></link></para>
+</refsect3></refsect2>
+<refsect2 id="g-quark-try-string" role="function">
+<title>g_quark_try_string&#160;()</title>
+<indexterm zone="g-quark-try-string"><primary sortas="quark_try_string">g_quark_try_string</primary></indexterm>
+<programlisting language="C"><link linkend="GQuark"><returnvalue>GQuark</returnvalue></link>
+g_quark_try_string (<parameter>const <link linkend="gchar"><type>gchar</type></link> *string</parameter>);</programlisting>
+<para>Gets the <link linkend="GQuark"><type>GQuark</type></link> associated with the given string, or 0 if string is
+<link linkend="NULL:CAPS"><literal>NULL</literal></link> or it has no associated <link linkend="GQuark"><type>GQuark</type></link>.</para>
+<para>If you want the GQuark to be created if it doesn't already exist,
+use <link linkend="g-quark-from-string"><function>g_quark_from_string()</function></link> or <link linkend="g-quark-from-static-string"><function>g_quark_from_static_string()</function></link>.</para>
+<refsect3 id="g-quark-try-string.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>string</para></entry>
+<entry role="parameter_description"><para>a string. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-quark-try-string.returns" role="returns">
+<title>Returns</title>
+<para> the <link linkend="GQuark"><type>GQuark</type></link> associated with the string, or 0 if <parameter>string</parameter>
+is
+<link linkend="NULL:CAPS"><literal>NULL</literal></link> or there is no <link linkend="GQuark"><type>GQuark</type></link> associated with it</para>
+</refsect3></refsect2>
+<refsect2 id="g-intern-string" role="function" condition="since:2.10">
+<title>g_intern_string&#160;()</title>
+<indexterm zone="g-intern-string" role="2.10"><primary sortas="intern_string">g_intern_string</primary></indexterm>
+<programlisting language="C">const <link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+g_intern_string (<parameter>const <link linkend="gchar"><type>gchar</type></link> *string</parameter>);</programlisting>
+<para>Returns a canonical representation for <parameter>string</parameter>
+. Interned strings
+can be compared for equality by comparing the pointers, instead of
+using <link linkend="strcmp"><function>strcmp()</function></link>.</para>
+<refsect3 id="g-intern-string.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>string</para></entry>
+<entry role="parameter_description"><para>a string. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-intern-string.returns" role="returns">
+<title>Returns</title>
+<para> a canonical representation for the string</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.10">2.10</link></para></refsect2>
+<refsect2 id="g-intern-static-string" role="function" condition="since:2.10">
+<title>g_intern_static_string&#160;()</title>
+<indexterm zone="g-intern-static-string" role="2.10"><primary sortas="intern_static_string">g_intern_static_string</primary></indexterm>
+<programlisting language="C">const <link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+g_intern_static_string (<parameter>const <link linkend="gchar"><type>gchar</type></link> *string</parameter>);</programlisting>
+<para>Returns a canonical representation for <parameter>string</parameter>
+. Interned strings
+can be compared for equality by comparing the pointers, instead of
+using <link linkend="strcmp"><function>strcmp()</function></link>. <link linkend="g-intern-static-string"><function>g_intern_static_string()</function></link> does not copy the string,
+therefore <parameter>string</parameter>
+ must not be freed or modified.</para>
+<refsect3 id="g-intern-static-string.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>string</para></entry>
+<entry role="parameter_description"><para>a static string. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-intern-static-string.returns" role="returns">
+<title>Returns</title>
+<para> a canonical representation for the string</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.10">2.10</link></para></refsect2>
+
+</refsect1>
+<refsect1 id="glib-Quarks.other_details" role="details">
+<title role="details.title">Types and Values</title>
+<refsect2 id="GQuark" role="typedef">
+<title>GQuark</title>
+<indexterm zone="GQuark"><primary sortas="Quark">GQuark</primary></indexterm>
+<programlisting language="C">typedef guint32 GQuark;
+</programlisting>
+<para>A GQuark is a non-zero integer which uniquely identifies a
+particular string. A GQuark value of zero is associated to <link linkend="NULL:CAPS"><literal>NULL</literal></link>.</para>
+</refsect2>
+
+</refsect1>
+
+</refentry>

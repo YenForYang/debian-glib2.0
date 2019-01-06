@@ -1,0 +1,193 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC '-//OASIS//DTD DocBook XML V4.5//EN'
+                      'http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd' [
+<!ENTITY % local.common.attrib "xmlns:xi  CDATA  #FIXED 'http://www.w3.org/2003/XInclude'">
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="GDBusObjectProxy">
+<refmeta>
+<refentrytitle role="top_of_page" id="GDBusObjectProxy.top_of_page">GDBusObjectProxy</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>GIO Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>GDBusObjectProxy</refname>
+<refpurpose>Client-side D-Bus object</refpurpose>
+</refnamediv>
+
+<refsect1 id="GDBusObjectProxy.functions" role="functions_proto">
+<title role="functions_proto.title">Functions</title>
+<informaltable pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="functions_return" colwidth="150px"/>
+<colspec colname="functions_name"/>
+<tbody>
+<row><entry role="function_type"><link linkend="GDBusObjectProxy"><returnvalue>GDBusObjectProxy</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-dbus-object-proxy-new">g_dbus_object_proxy_new</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GDBusConnection"><returnvalue>GDBusConnection</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-dbus-object-proxy-get-connection">g_dbus_object_proxy_get_connection</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GDBusObjectProxy.properties" role="properties">
+<title role="properties.title">Properties</title>
+<informaltable frame="none">
+<tgroup cols="3">
+<colspec colname="properties_type" colwidth="150px"/>
+<colspec colname="properties_name" colwidth="300px"/>
+<colspec colname="properties_flags" colwidth="200px"/>
+<tbody>
+<row><entry role="property_type"><link linkend="GDBusConnection"><type>GDBusConnection</type></link>&#160;*</entry><entry role="property_name"><link linkend="GDBusObjectProxy--g-connection">g-connection</link></entry><entry role="property_flags">Read / Write / Construct Only</entry></row>
+<row><entry role="property_type"><link linkend="gchar"><type>gchar</type></link>&#160;*</entry><entry role="property_name"><link linkend="GDBusObjectProxy--g-object-path">g-object-path</link></entry><entry role="property_flags">Read / Write / Construct Only</entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GDBusObjectProxy.other" role="other_proto">
+<title role="other_proto.title">Types and Values</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="name" colwidth="150px"/>
+<colspec colname="description"/>
+<tbody>
+<row><entry role="datatype_keyword"></entry><entry role="function_name"><link linkend="GDBusObjectProxy-struct">GDBusObjectProxy</link></entry></row>
+<row><entry role="datatype_keyword">struct</entry><entry role="function_name"><link linkend="GDBusObjectProxyClass">GDBusObjectProxyClass</link></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GDBusObjectProxy.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<screen>    <link linkend="GObject">GObject</link>
+    <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> GDBusObjectProxy
+</screen>
+</refsect1>
+<refsect1 id="GDBusObjectProxy.implemented-interfaces" role="impl_interfaces">
+<title role="impl_interfaces.title">Implemented Interfaces</title>
+<para>
+GDBusObjectProxy implements
+ <link linkend="GDBusObject">GDBusObject</link>.</para>
+
+</refsect1>
+
+<refsect1 id="GDBusObjectProxy.includes"><title>Includes</title><synopsis>#include &lt;gio/gio.h&gt;
+</synopsis></refsect1>
+
+<refsect1 id="GDBusObjectProxy.description" role="desc">
+<title role="desc.title">Description</title>
+<para>A <link linkend="GDBusObjectProxy"><type>GDBusObjectProxy</type></link> is an object used to represent a remote object
+with one or more D-Bus interfaces. Normally, you don't instantiate
+a <link linkend="GDBusObjectProxy"><type>GDBusObjectProxy</type></link> yourself - typically <link linkend="GDBusObjectManagerClient"><type>GDBusObjectManagerClient</type></link>
+is used to obtain it.</para>
+
+</refsect1>
+<refsect1 id="GDBusObjectProxy.functions_details" role="details">
+<title role="details.title">Functions</title>
+<refsect2 id="g-dbus-object-proxy-new" role="function" condition="since:2.30">
+<title>g_dbus_object_proxy_new&#160;()</title>
+<indexterm zone="g-dbus-object-proxy-new" role="2.30"><primary sortas="dbus_object_proxy_new">g_dbus_object_proxy_new</primary></indexterm>
+<programlisting language="C"><link linkend="GDBusObjectProxy"><returnvalue>GDBusObjectProxy</returnvalue></link>&#160;*
+g_dbus_object_proxy_new (<parameter><link linkend="GDBusConnection"><type>GDBusConnection</type></link> *connection</parameter>,
+                         <parameter>const <link linkend="gchar"><type>gchar</type></link> *object_path</parameter>);</programlisting>
+<para>Creates a new <link linkend="GDBusObjectProxy"><type>GDBusObjectProxy</type></link> for the given connection and
+object path.</para>
+<refsect3 id="g-dbus-object-proxy-new.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>connection</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GDBusConnection"><type>GDBusConnection</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>object_path</para></entry>
+<entry role="parameter_description"><para>the object path</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-dbus-object-proxy-new.returns" role="returns">
+<title>Returns</title>
+<para> a new <link linkend="GDBusObjectProxy"><type>GDBusObjectProxy</type></link></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.30">2.30</link></para></refsect2>
+<refsect2 id="g-dbus-object-proxy-get-connection" role="function" condition="since:2.30">
+<title>g_dbus_object_proxy_get_connection&#160;()</title>
+<indexterm zone="g-dbus-object-proxy-get-connection" role="2.30"><primary sortas="dbus_object_proxy_get_connection">g_dbus_object_proxy_get_connection</primary></indexterm>
+<programlisting language="C"><link linkend="GDBusConnection"><returnvalue>GDBusConnection</returnvalue></link>&#160;*
+g_dbus_object_proxy_get_connection (<parameter><link linkend="GDBusObjectProxy"><type>GDBusObjectProxy</type></link> *proxy</parameter>);</programlisting>
+<para>Gets the connection that <parameter>proxy</parameter>
+ is for.</para>
+<refsect3 id="g-dbus-object-proxy-get-connection.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>proxy</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GDBusObjectProxy"><type>GDBusObjectProxy</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-dbus-object-proxy-get-connection.returns" role="returns">
+<title>Returns</title>
+<para>A <link linkend="GDBusConnection"><type>GDBusConnection</type></link>. Do not free, the
+object is owned by <parameter>proxy</parameter>
+. </para>
+<para><emphasis role="annotation">[<acronym>transfer none</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.30">2.30</link></para></refsect2>
+
+</refsect1>
+<refsect1 id="GDBusObjectProxy.other_details" role="details">
+<title role="details.title">Types and Values</title>
+<refsect2 id="GDBusObjectProxy-struct" role="struct">
+<title>GDBusObjectProxy</title>
+<indexterm zone="GDBusObjectProxy-struct" role="2.30"><primary sortas="DBusObjectProxy">GDBusObjectProxy</primary></indexterm>
+<programlisting language="C">typedef struct _GDBusObjectProxy GDBusObjectProxy;</programlisting>
+<para>The <link linkend="GDBusObjectProxy"><type>GDBusObjectProxy</type></link> structure contains private data and should
+only be accessed using the provided API.</para>
+<para role="since">Since: <link linkend="api-index-2.30">2.30</link></para></refsect2>
+<refsect2 id="GDBusObjectProxyClass" role="struct" condition="since:2.30">
+<title>struct GDBusObjectProxyClass</title>
+<indexterm zone="GDBusObjectProxyClass" role="2.30"><primary sortas="DBusObjectProxyClass">GDBusObjectProxyClass</primary></indexterm>
+<programlisting language="C">struct GDBusObjectProxyClass {
+  GObjectClass parent_class;
+};
+</programlisting>
+<para>Class structure for <link linkend="GDBusObjectProxy"><type>GDBusObjectProxy</type></link>.</para>
+<refsect3 id="GDBusObjectProxyClass.members" role="struct_members">
+<title>Members</title>
+<informaltable role="struct_members_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="struct_members_name" colwidth="300px"/>
+<colspec colname="struct_members_description"/>
+<colspec colname="struct_members_annotations" colwidth="200px"/>
+<tbody>
+</tbody></tgroup></informaltable>
+</refsect3>
+<para role="since">Since: <link linkend="api-index-2.30">2.30</link></para></refsect2>
+
+</refsect1>
+<refsect1 id="GDBusObjectProxy.property-details" role="property_details">
+<title role="property_details.title">Property Details</title>
+<refsect2 id="GDBusObjectProxy--g-connection" role="property"><title>The <literal>“g-connection”</literal> property</title>
+<indexterm zone="GDBusObjectProxy--g-connection" role="2.30"><primary sortas="DBusObjectProxy:g-connection">GDBusObjectProxy:g-connection</primary></indexterm>
+<programlisting>  “g-connection”             <link linkend="GDBusConnection"><type>GDBusConnection</type></link>&#160;*</programlisting>
+<para>The connection of the proxy.</para>
+<para>Flags: Read / Write / Construct Only</para>
+<para role="since">Since: <link linkend="api-index-2.30">2.30</link></para></refsect2>
+<refsect2 id="GDBusObjectProxy--g-object-path" role="property"><title>The <literal>“g-object-path”</literal> property</title>
+<indexterm zone="GDBusObjectProxy--g-object-path" role="2.30"><primary sortas="DBusObjectProxy:g-object-path">GDBusObjectProxy:g-object-path</primary></indexterm>
+<programlisting>  “g-object-path”            <link linkend="gchar"><type>gchar</type></link>&#160;*</programlisting>
+<para>The object path of the proxy.</para>
+<para>Flags: Read / Write / Construct Only</para>
+<para>Default value: NULL</para>
+<para role="since">Since: <link linkend="api-index-2.30">2.30</link></para></refsect2>
+
+</refsect1>
+
+</refentry>

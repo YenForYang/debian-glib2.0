@@ -1,0 +1,858 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC '-//OASIS//DTD DocBook XML V4.5//EN'
+                      'http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd' [
+<!ENTITY % local.common.attrib "xmlns:xi  CDATA  #FIXED 'http://www.w3.org/2003/XInclude'">
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="glib-Pointer-Arrays">
+<refmeta>
+<refentrytitle role="top_of_page" id="glib-Pointer-Arrays.top_of_page">Pointer Arrays</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>GLIB Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>Pointer Arrays</refname>
+<refpurpose>arrays of pointers to any type of data, which
+    grow automatically as new elements are added</refpurpose>
+</refnamediv>
+
+<refsect1 id="glib-Pointer-Arrays.functions" role="functions_proto">
+<title role="functions_proto.title">Functions</title>
+<informaltable pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="functions_return" colwidth="150px"/>
+<colspec colname="functions_name"/>
+<tbody>
+<row><entry role="function_type"><link linkend="GPtrArray"><returnvalue>GPtrArray</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-ptr-array-new">g_ptr_array_new</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GPtrArray"><returnvalue>GPtrArray</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-ptr-array-sized-new">g_ptr_array_sized_new</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GPtrArray"><returnvalue>GPtrArray</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-ptr-array-new-with-free-func">g_ptr_array_new_with_free_func</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GPtrArray"><returnvalue>GPtrArray</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-ptr-array-new-full">g_ptr_array_new_full</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-ptr-array-set-free-func">g_ptr_array_set_free_func</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GPtrArray"><returnvalue>GPtrArray</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-ptr-array-ref">g_ptr_array_ref</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-ptr-array-unref">g_ptr_array_unref</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-ptr-array-add">g_ptr_array_add</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-ptr-array-insert">g_ptr_array_insert</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-ptr-array-remove">g_ptr_array_remove</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gpointer"><returnvalue>gpointer</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-ptr-array-remove-index">g_ptr_array_remove_index</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-ptr-array-remove-fast">g_ptr_array_remove_fast</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gpointer"><returnvalue>gpointer</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-ptr-array-remove-index-fast">g_ptr_array_remove_index_fast</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GPtrArray"><returnvalue>GPtrArray</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-ptr-array-remove-range">g_ptr_array_remove_range</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-ptr-array-sort">g_ptr_array_sort</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-ptr-array-sort-with-data">g_ptr_array_sort_with_data</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-ptr-array-set-size">g_ptr_array_set_size</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="g-ptr-array-index">g_ptr_array_index</link><phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gpointer"><returnvalue>gpointer</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-ptr-array-free">g_ptr_array_free</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-ptr-array-foreach">g_ptr_array_foreach</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-ptr-array-find">g_ptr_array_find</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-ptr-array-find-with-equal-func">g_ptr_array_find_with_equal_func</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="glib-Pointer-Arrays.other" role="other_proto">
+<title role="other_proto.title">Types and Values</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="name" colwidth="150px"/>
+<colspec colname="description"/>
+<tbody>
+<row><entry role="datatype_keyword">struct</entry><entry role="function_name"><link linkend="GPtrArray">GPtrArray</link></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+
+<refsect1 id="glib-Pointer-Arrays.includes"><title>Includes</title><synopsis>#include &lt;gmodule.h&gt;
+</synopsis></refsect1>
+
+<refsect1 id="glib-Pointer-Arrays.description" role="desc">
+<title role="desc.title">Description</title>
+<para>Pointer Arrays are similar to Arrays but are used only for storing
+pointers.</para>
+<para>If you remove elements from the array, elements at the end of the
+array are moved into the space previously occupied by the removed
+element. This means that you should not rely on the index of particular
+elements remaining the same. You should also be careful when deleting
+elements while iterating over the array.</para>
+<para>To create a pointer array, use <link linkend="g-ptr-array-new"><function>g_ptr_array_new()</function></link>.</para>
+<para>To add elements to a pointer array, use <link linkend="g-ptr-array-add"><function>g_ptr_array_add()</function></link>.</para>
+<para>To remove elements from a pointer array, use <link linkend="g-ptr-array-remove"><function>g_ptr_array_remove()</function></link>,
+<link linkend="g-ptr-array-remove-index"><function>g_ptr_array_remove_index()</function></link> or <link linkend="g-ptr-array-remove-index-fast"><function>g_ptr_array_remove_index_fast()</function></link>.</para>
+<para>To access an element of a pointer array, use <link linkend="g-ptr-array-index"><function>g_ptr_array_index()</function></link>.</para>
+<para>To set the size of a pointer array, use <link linkend="g-ptr-array-set-size"><function>g_ptr_array_set_size()</function></link>.</para>
+<para>To free a pointer array, use <link linkend="g-ptr-array-free"><function>g_ptr_array_free()</function></link>.</para>
+<para>An example using a <link linkend="GPtrArray"><type>GPtrArray</type></link>:</para>
+<informalexample><programlisting role="example"><![CDATA[
+  GPtrArray *array;
+  gchar *string1 = "one";
+  gchar *string2 = "two";
+  gchar *string3 = "three";
+
+  array = g_ptr_array_new ();
+  g_ptr_array_add (array, (gpointer) string1);
+  g_ptr_array_add (array, (gpointer) string2);
+  g_ptr_array_add (array, (gpointer) string3);
+
+  if (g_ptr_array_index (array, 0) != (gpointer) string1)
+    g_print ("ERROR: got %p instead of %p\n",
+             g_ptr_array_index (array, 0), string1);
+
+  g_ptr_array_free (array, TRUE);
+]]></programlisting></informalexample>
+<para></para>
+
+</refsect1>
+<refsect1 id="glib-Pointer-Arrays.functions_details" role="details">
+<title role="details.title">Functions</title>
+<refsect2 id="g-ptr-array-new" role="function">
+<title>g_ptr_array_new&#160;()</title>
+<indexterm zone="g-ptr-array-new"><primary sortas="ptr_array_new">g_ptr_array_new</primary></indexterm>
+<programlisting language="C"><link linkend="GPtrArray"><returnvalue>GPtrArray</returnvalue></link>&#160;*
+g_ptr_array_new (<parameter><type>void</type></parameter>);</programlisting>
+<para>Creates a new <link linkend="GPtrArray"><type>GPtrArray</type></link> with a reference count of 1.</para>
+<refsect3 id="g-ptr-array-new.returns" role="returns">
+<title>Returns</title>
+<para> the new <link linkend="GPtrArray"><type>GPtrArray</type></link></para>
+</refsect3></refsect2>
+<refsect2 id="g-ptr-array-sized-new" role="function">
+<title>g_ptr_array_sized_new&#160;()</title>
+<indexterm zone="g-ptr-array-sized-new"><primary sortas="ptr_array_sized_new">g_ptr_array_sized_new</primary></indexterm>
+<programlisting language="C"><link linkend="GPtrArray"><returnvalue>GPtrArray</returnvalue></link>&#160;*
+g_ptr_array_sized_new (<parameter><link linkend="guint"><type>guint</type></link> reserved_size</parameter>);</programlisting>
+<para>Creates a new <link linkend="GPtrArray"><type>GPtrArray</type></link> with <parameter>reserved_size</parameter>
+ pointers preallocated
+and a reference count of 1. This avoids frequent reallocation, if
+you are going to add many pointers to the array. Note however that
+the size of the array is still 0.</para>
+<refsect3 id="g-ptr-array-sized-new.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>reserved_size</para></entry>
+<entry role="parameter_description"><para>number of pointers preallocated</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-ptr-array-sized-new.returns" role="returns">
+<title>Returns</title>
+<para> the new <link linkend="GPtrArray"><type>GPtrArray</type></link></para>
+</refsect3></refsect2>
+<refsect2 id="g-ptr-array-new-with-free-func" role="function" condition="since:2.22">
+<title>g_ptr_array_new_with_free_func&#160;()</title>
+<indexterm zone="g-ptr-array-new-with-free-func" role="2.22"><primary sortas="ptr_array_new_with_free_func">g_ptr_array_new_with_free_func</primary></indexterm>
+<programlisting language="C"><link linkend="GPtrArray"><returnvalue>GPtrArray</returnvalue></link>&#160;*
+g_ptr_array_new_with_free_func (<parameter><link linkend="GDestroyNotify"><type>GDestroyNotify</type></link> element_free_func</parameter>);</programlisting>
+<para>Creates a new <link linkend="GPtrArray"><type>GPtrArray</type></link> with a reference count of 1 and use
+<parameter>element_free_func</parameter>
+ for freeing each element when the array is destroyed
+either via <link linkend="g-ptr-array-unref"><function>g_ptr_array_unref()</function></link>, when <link linkend="g-ptr-array-free"><function>g_ptr_array_free()</function></link> is called with
+<parameter>free_segment</parameter>
+ set to <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> or when removing elements.</para>
+<refsect3 id="g-ptr-array-new-with-free-func.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>element_free_func</para></entry>
+<entry role="parameter_description"><para>A function to free elements with
+destroy <parameter>array</parameter>
+or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-ptr-array-new-with-free-func.returns" role="returns">
+<title>Returns</title>
+<para> A new <link linkend="GPtrArray"><type>GPtrArray</type></link></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.22">2.22</link></para></refsect2>
+<refsect2 id="g-ptr-array-new-full" role="function" condition="since:2.30">
+<title>g_ptr_array_new_full&#160;()</title>
+<indexterm zone="g-ptr-array-new-full" role="2.30"><primary sortas="ptr_array_new_full">g_ptr_array_new_full</primary></indexterm>
+<programlisting language="C"><link linkend="GPtrArray"><returnvalue>GPtrArray</returnvalue></link>&#160;*
+g_ptr_array_new_full (<parameter><link linkend="guint"><type>guint</type></link> reserved_size</parameter>,
+                      <parameter><link linkend="GDestroyNotify"><type>GDestroyNotify</type></link> element_free_func</parameter>);</programlisting>
+<para>Creates a new <link linkend="GPtrArray"><type>GPtrArray</type></link> with <parameter>reserved_size</parameter>
+ pointers preallocated
+and a reference count of 1. This avoids frequent reallocation, if
+you are going to add many pointers to the array. Note however that
+the size of the array is still 0. It also set <parameter>element_free_func</parameter>
+
+for freeing each element when the array is destroyed either via
+<link linkend="g-ptr-array-unref"><function>g_ptr_array_unref()</function></link>, when <link linkend="g-ptr-array-free"><function>g_ptr_array_free()</function></link> is called with
+<parameter>free_segment</parameter>
+ set to <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> or when removing elements.</para>
+<refsect3 id="g-ptr-array-new-full.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>reserved_size</para></entry>
+<entry role="parameter_description"><para>number of pointers preallocated</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>element_free_func</para></entry>
+<entry role="parameter_description"><para>A function to free elements with
+destroy <parameter>array</parameter>
+or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-ptr-array-new-full.returns" role="returns">
+<title>Returns</title>
+<para> A new <link linkend="GPtrArray"><type>GPtrArray</type></link></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.30">2.30</link></para></refsect2>
+<refsect2 id="g-ptr-array-set-free-func" role="function" condition="since:2.22">
+<title>g_ptr_array_set_free_func&#160;()</title>
+<indexterm zone="g-ptr-array-set-free-func" role="2.22"><primary sortas="ptr_array_set_free_func">g_ptr_array_set_free_func</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_ptr_array_set_free_func (<parameter><link linkend="GPtrArray"><type>GPtrArray</type></link> *array</parameter>,
+                           <parameter><link linkend="GDestroyNotify"><type>GDestroyNotify</type></link> element_free_func</parameter>);</programlisting>
+<para>Sets a function for freeing each element when <parameter>array</parameter>
+ is destroyed
+either via <link linkend="g-ptr-array-unref"><function>g_ptr_array_unref()</function></link>, when <link linkend="g-ptr-array-free"><function>g_ptr_array_free()</function></link> is called
+with <parameter>free_segment</parameter>
+ set to <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> or when removing elements.</para>
+<refsect3 id="g-ptr-array-set-free-func.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>array</para></entry>
+<entry role="parameter_description"><para>A <link linkend="GPtrArray"><type>GPtrArray</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>element_free_func</para></entry>
+<entry role="parameter_description"><para>A function to free elements with
+destroy <parameter>array</parameter>
+or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.22">2.22</link></para></refsect2>
+<refsect2 id="g-ptr-array-ref" role="function" condition="since:2.22">
+<title>g_ptr_array_ref&#160;()</title>
+<indexterm zone="g-ptr-array-ref" role="2.22"><primary sortas="ptr_array_ref">g_ptr_array_ref</primary></indexterm>
+<programlisting language="C"><link linkend="GPtrArray"><returnvalue>GPtrArray</returnvalue></link>&#160;*
+g_ptr_array_ref (<parameter><link linkend="GPtrArray"><type>GPtrArray</type></link> *array</parameter>);</programlisting>
+<para>Atomically increments the reference count of <parameter>array</parameter>
+ by one.
+This function is thread-safe and may be called from any thread.</para>
+<refsect3 id="g-ptr-array-ref.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>array</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GPtrArray"><type>GPtrArray</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-ptr-array-ref.returns" role="returns">
+<title>Returns</title>
+<para> The passed in <link linkend="GPtrArray"><type>GPtrArray</type></link></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.22">2.22</link></para></refsect2>
+<refsect2 id="g-ptr-array-unref" role="function" condition="since:2.22">
+<title>g_ptr_array_unref&#160;()</title>
+<indexterm zone="g-ptr-array-unref" role="2.22"><primary sortas="ptr_array_unref">g_ptr_array_unref</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_ptr_array_unref (<parameter><link linkend="GPtrArray"><type>GPtrArray</type></link> *array</parameter>);</programlisting>
+<para>Atomically decrements the reference count of <parameter>array</parameter>
+ by one. If the
+reference count drops to 0, the effect is the same as calling
+<link linkend="g-ptr-array-free"><function>g_ptr_array_free()</function></link> with <parameter>free_segment</parameter>
+ set to <link linkend="TRUE:CAPS"><literal>TRUE</literal></link>. This function
+is thread-safe and may be called from any thread.</para>
+<refsect3 id="g-ptr-array-unref.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>array</para></entry>
+<entry role="parameter_description"><para>A <link linkend="GPtrArray"><type>GPtrArray</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.22">2.22</link></para></refsect2>
+<refsect2 id="g-ptr-array-add" role="function">
+<title>g_ptr_array_add&#160;()</title>
+<indexterm zone="g-ptr-array-add"><primary sortas="ptr_array_add">g_ptr_array_add</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_ptr_array_add (<parameter><link linkend="GPtrArray"><type>GPtrArray</type></link> *array</parameter>,
+                 <parameter><link linkend="gpointer"><type>gpointer</type></link> data</parameter>);</programlisting>
+<para>Adds a pointer to the end of the pointer array. The array will grow
+in size automatically if necessary.</para>
+<refsect3 id="g-ptr-array-add.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>array</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GPtrArray"><type>GPtrArray</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>data</para></entry>
+<entry role="parameter_description"><para>the pointer to add</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-ptr-array-insert" role="function" condition="since:2.40">
+<title>g_ptr_array_insert&#160;()</title>
+<indexterm zone="g-ptr-array-insert" role="2.40"><primary sortas="ptr_array_insert">g_ptr_array_insert</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_ptr_array_insert (<parameter><link linkend="GPtrArray"><type>GPtrArray</type></link> *array</parameter>,
+                    <parameter><link linkend="gint"><type>gint</type></link> index_</parameter>,
+                    <parameter><link linkend="gpointer"><type>gpointer</type></link> data</parameter>);</programlisting>
+<para>Inserts an element into the pointer array at the given index. The 
+array will grow in size automatically if necessary.</para>
+<refsect3 id="g-ptr-array-insert.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>array</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GPtrArray"><type>GPtrArray</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>index_</para></entry>
+<entry role="parameter_description"><para>the index to place the new element at, or -1 to append</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>data</para></entry>
+<entry role="parameter_description"><para>the pointer to add.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.40">2.40</link></para></refsect2>
+<refsect2 id="g-ptr-array-remove" role="function">
+<title>g_ptr_array_remove&#160;()</title>
+<indexterm zone="g-ptr-array-remove"><primary sortas="ptr_array_remove">g_ptr_array_remove</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_ptr_array_remove (<parameter><link linkend="GPtrArray"><type>GPtrArray</type></link> *array</parameter>,
+                    <parameter><link linkend="gpointer"><type>gpointer</type></link> data</parameter>);</programlisting>
+<para>Removes the first occurrence of the given pointer from the pointer
+array. The following elements are moved down one place. If <parameter>array</parameter>
+
+has a non-<link linkend="NULL:CAPS"><literal>NULL</literal></link> <link linkend="GDestroyNotify"><type>GDestroyNotify</type></link> function it is called for the
+removed element.</para>
+<para>It returns <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if the pointer was removed, or <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> if the
+pointer was not found.</para>
+<refsect3 id="g-ptr-array-remove.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>array</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GPtrArray"><type>GPtrArray</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>data</para></entry>
+<entry role="parameter_description"><para>the pointer to remove</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-ptr-array-remove.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if the pointer is removed, <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> if the pointer
+is not found in the array</para>
+</refsect3></refsect2>
+<refsect2 id="g-ptr-array-remove-index" role="function">
+<title>g_ptr_array_remove_index&#160;()</title>
+<indexterm zone="g-ptr-array-remove-index"><primary sortas="ptr_array_remove_index">g_ptr_array_remove_index</primary></indexterm>
+<programlisting language="C"><link linkend="gpointer"><returnvalue>gpointer</returnvalue></link>
+g_ptr_array_remove_index (<parameter><link linkend="GPtrArray"><type>GPtrArray</type></link> *array</parameter>,
+                          <parameter><link linkend="guint"><type>guint</type></link> index_</parameter>);</programlisting>
+<para>Removes the pointer at the given index from the pointer array.
+The following elements are moved down one place. If <parameter>array</parameter>
+ has
+a non-<link linkend="NULL:CAPS"><literal>NULL</literal></link> <link linkend="GDestroyNotify"><type>GDestroyNotify</type></link> function it is called for the removed
+element. If so, the return value from this function will potentially point
+to freed memory (depending on the <link linkend="GDestroyNotify"><type>GDestroyNotify</type></link> implementation).</para>
+<refsect3 id="g-ptr-array-remove-index.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>array</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GPtrArray"><type>GPtrArray</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>index_</para></entry>
+<entry role="parameter_description"><para>the index of the pointer to remove</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-ptr-array-remove-index.returns" role="returns">
+<title>Returns</title>
+<para>the pointer which was removed. </para>
+<para><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></para>
+</refsect3></refsect2>
+<refsect2 id="g-ptr-array-remove-fast" role="function">
+<title>g_ptr_array_remove_fast&#160;()</title>
+<indexterm zone="g-ptr-array-remove-fast"><primary sortas="ptr_array_remove_fast">g_ptr_array_remove_fast</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_ptr_array_remove_fast (<parameter><link linkend="GPtrArray"><type>GPtrArray</type></link> *array</parameter>,
+                         <parameter><link linkend="gpointer"><type>gpointer</type></link> data</parameter>);</programlisting>
+<para>Removes the first occurrence of the given pointer from the pointer
+array. The last element in the array is used to fill in the space,
+so this function does not preserve the order of the array. But it
+is faster than <link linkend="g-ptr-array-remove"><function>g_ptr_array_remove()</function></link>. If <parameter>array</parameter>
+ has a non-<link linkend="NULL:CAPS"><literal>NULL</literal></link>
+<link linkend="GDestroyNotify"><type>GDestroyNotify</type></link> function it is called for the removed element.</para>
+<para>It returns <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if the pointer was removed, or <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> if the
+pointer was not found.</para>
+<refsect3 id="g-ptr-array-remove-fast.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>array</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GPtrArray"><type>GPtrArray</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>data</para></entry>
+<entry role="parameter_description"><para>the pointer to remove</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-ptr-array-remove-fast.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if the pointer was found in the array</para>
+</refsect3></refsect2>
+<refsect2 id="g-ptr-array-remove-index-fast" role="function">
+<title>g_ptr_array_remove_index_fast&#160;()</title>
+<indexterm zone="g-ptr-array-remove-index-fast"><primary sortas="ptr_array_remove_index_fast">g_ptr_array_remove_index_fast</primary></indexterm>
+<programlisting language="C"><link linkend="gpointer"><returnvalue>gpointer</returnvalue></link>
+g_ptr_array_remove_index_fast (<parameter><link linkend="GPtrArray"><type>GPtrArray</type></link> *array</parameter>,
+                               <parameter><link linkend="guint"><type>guint</type></link> index_</parameter>);</programlisting>
+<para>Removes the pointer at the given index from the pointer array.
+The last element in the array is used to fill in the space, so
+this function does not preserve the order of the array. But it
+is faster than <link linkend="g-ptr-array-remove-index"><function>g_ptr_array_remove_index()</function></link>. If <parameter>array</parameter>
+ has a non-<link linkend="NULL:CAPS"><literal>NULL</literal></link>
+<link linkend="GDestroyNotify"><type>GDestroyNotify</type></link> function it is called for the removed element. If so, the
+return value from this function will potentially point to freed memory
+(depending on the <link linkend="GDestroyNotify"><type>GDestroyNotify</type></link> implementation).</para>
+<refsect3 id="g-ptr-array-remove-index-fast.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>array</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GPtrArray"><type>GPtrArray</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>index_</para></entry>
+<entry role="parameter_description"><para>the index of the pointer to remove</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-ptr-array-remove-index-fast.returns" role="returns">
+<title>Returns</title>
+<para>the pointer which was removed. </para>
+<para><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></para>
+</refsect3></refsect2>
+<refsect2 id="g-ptr-array-remove-range" role="function" condition="since:2.4">
+<title>g_ptr_array_remove_range&#160;()</title>
+<indexterm zone="g-ptr-array-remove-range" role="2.4"><primary sortas="ptr_array_remove_range">g_ptr_array_remove_range</primary></indexterm>
+<programlisting language="C"><link linkend="GPtrArray"><returnvalue>GPtrArray</returnvalue></link>&#160;*
+g_ptr_array_remove_range (<parameter><link linkend="GPtrArray"><type>GPtrArray</type></link> *array</parameter>,
+                          <parameter><link linkend="guint"><type>guint</type></link> index_</parameter>,
+                          <parameter><link linkend="guint"><type>guint</type></link> length</parameter>);</programlisting>
+<para>Removes the given number of pointers starting at the given index
+from a <link linkend="GPtrArray"><type>GPtrArray</type></link>. The following elements are moved to close the
+gap. If <parameter>array</parameter>
+ has a non-<link linkend="NULL:CAPS"><literal>NULL</literal></link> <link linkend="GDestroyNotify"><type>GDestroyNotify</type></link> function it is
+called for the removed elements.</para>
+<refsect3 id="g-ptr-array-remove-range.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>array</para></entry>
+<entry role="parameter_description"><para>a <parameter>GPtrArray</parameter>
+</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>index_</para></entry>
+<entry role="parameter_description"><para>the index of the first pointer to remove</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>length</para></entry>
+<entry role="parameter_description"><para>the number of pointers to remove</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-ptr-array-remove-range.returns" role="returns">
+<title>Returns</title>
+<para> the <parameter>array</parameter>
+</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.4">2.4</link></para></refsect2>
+<refsect2 id="g-ptr-array-sort" role="function">
+<title>g_ptr_array_sort&#160;()</title>
+<indexterm zone="g-ptr-array-sort"><primary sortas="ptr_array_sort">g_ptr_array_sort</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_ptr_array_sort (<parameter><link linkend="GPtrArray"><type>GPtrArray</type></link> *array</parameter>,
+                  <parameter><link linkend="GCompareFunc"><type>GCompareFunc</type></link> compare_func</parameter>);</programlisting>
+<para>Sorts the array, using <parameter>compare_func</parameter>
+ which should be a <link linkend="qsort"><function>qsort()</function></link>-style
+comparison function (returns less than zero for first arg is less
+than second arg, zero for equal, greater than zero if irst arg is
+greater than second arg).</para>
+<para>Note that the comparison function for <link linkend="g-ptr-array-sort"><function>g_ptr_array_sort()</function></link> doesn't
+take the pointers from the array as arguments, it takes pointers to
+the pointers in the array.</para>
+<para>This is guaranteed to be a stable sort since version 2.32.</para>
+<refsect3 id="g-ptr-array-sort.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>array</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GPtrArray"><type>GPtrArray</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>compare_func</para></entry>
+<entry role="parameter_description"><para>comparison function</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-ptr-array-sort-with-data" role="function">
+<title>g_ptr_array_sort_with_data&#160;()</title>
+<indexterm zone="g-ptr-array-sort-with-data"><primary sortas="ptr_array_sort_with_data">g_ptr_array_sort_with_data</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_ptr_array_sort_with_data (<parameter><link linkend="GPtrArray"><type>GPtrArray</type></link> *array</parameter>,
+                            <parameter><link linkend="GCompareDataFunc"><type>GCompareDataFunc</type></link> compare_func</parameter>,
+                            <parameter><link linkend="gpointer"><type>gpointer</type></link> user_data</parameter>);</programlisting>
+<para>Like <link linkend="g-ptr-array-sort"><function>g_ptr_array_sort()</function></link>, but the comparison function has an extra
+user data argument.</para>
+<para>Note that the comparison function for <link linkend="g-ptr-array-sort-with-data"><function>g_ptr_array_sort_with_data()</function></link>
+doesn't take the pointers from the array as arguments, it takes
+pointers to the pointers in the array.</para>
+<para>This is guaranteed to be a stable sort since version 2.32.</para>
+<refsect3 id="g-ptr-array-sort-with-data.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>array</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GPtrArray"><type>GPtrArray</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>compare_func</para></entry>
+<entry role="parameter_description"><para>comparison function</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>user_data</para></entry>
+<entry role="parameter_description"><para>data to pass to <parameter>compare_func</parameter>
+</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-ptr-array-set-size" role="function">
+<title>g_ptr_array_set_size&#160;()</title>
+<indexterm zone="g-ptr-array-set-size"><primary sortas="ptr_array_set_size">g_ptr_array_set_size</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_ptr_array_set_size (<parameter><link linkend="GPtrArray"><type>GPtrArray</type></link> *array</parameter>,
+                      <parameter><link linkend="gint"><type>gint</type></link> length</parameter>);</programlisting>
+<para>Sets the size of the array. When making the array larger,
+newly-added elements will be set to <link linkend="NULL:CAPS"><literal>NULL</literal></link>. When making it smaller,
+if <parameter>array</parameter>
+ has a non-<link linkend="NULL:CAPS"><literal>NULL</literal></link> <link linkend="GDestroyNotify"><type>GDestroyNotify</type></link> function then it will be
+called for the removed elements.</para>
+<refsect3 id="g-ptr-array-set-size.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>array</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GPtrArray"><type>GPtrArray</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>length</para></entry>
+<entry role="parameter_description"><para>the new length of the pointer array</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-ptr-array-index" role="macro">
+<title>g_ptr_array_index()</title>
+<indexterm zone="g-ptr-array-index"><primary sortas="ptr_array_index">g_ptr_array_index</primary></indexterm>
+<programlisting language="C">#define             g_ptr_array_index(array,index_)</programlisting>
+<para>Returns the pointer at the given index of the pointer array.</para>
+<para>This does not perform bounds checking on the given <parameter>index_</parameter>
+,
+so you are responsible for checking it against the array length.</para>
+<refsect3 id="g-ptr-array-index.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>array</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GPtrArray"><type>GPtrArray</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>index_</para></entry>
+<entry role="parameter_description"><para>the index of the pointer to return</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-ptr-array-index.returns" role="returns">
+<title>Returns</title>
+<para> the pointer at the given index</para>
+</refsect3></refsect2>
+<refsect2 id="g-ptr-array-free" role="function">
+<title>g_ptr_array_free&#160;()</title>
+<indexterm zone="g-ptr-array-free"><primary sortas="ptr_array_free">g_ptr_array_free</primary></indexterm>
+<programlisting language="C"><link linkend="gpointer"><returnvalue>gpointer</returnvalue></link>&#160;*
+g_ptr_array_free (<parameter><link linkend="GPtrArray"><type>GPtrArray</type></link> *array</parameter>,
+                  <parameter><link linkend="gboolean"><type>gboolean</type></link> free_seg</parameter>);</programlisting>
+<para>Frees the memory allocated for the <link linkend="GPtrArray"><type>GPtrArray</type></link>. If <parameter>free_seg</parameter>
+ is <link linkend="TRUE:CAPS"><literal>TRUE</literal></link>
+it frees the memory block holding the elements as well. Pass <link linkend="FALSE:CAPS"><literal>FALSE</literal></link>
+if you want to free the <link linkend="GPtrArray"><type>GPtrArray</type></link> wrapper but preserve the
+underlying array for use elsewhere. If the reference count of <parameter>array</parameter>
+
+is greater than one, the <link linkend="GPtrArray"><type>GPtrArray</type></link> wrapper is preserved but the
+size of <parameter>array</parameter>
+ will be set to zero.</para>
+<para>If array contents point to dynamically-allocated memory, they should
+be freed separately if <parameter>free_seg</parameter>
+ is <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> and no <link linkend="GDestroyNotify"><type>GDestroyNotify</type></link>
+function has been set for <parameter>array</parameter>
+.</para>
+<para>This function is not thread-safe. If using a <link linkend="GPtrArray"><type>GPtrArray</type></link> from multiple
+threads, use only the atomic <link linkend="g-ptr-array-ref"><function>g_ptr_array_ref()</function></link> and <link linkend="g-ptr-array-unref"><function>g_ptr_array_unref()</function></link>
+functions.</para>
+<refsect3 id="g-ptr-array-free.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>array</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GPtrArray"><type>GPtrArray</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>free_seg</para></entry>
+<entry role="parameter_description"><para>if <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> the actual pointer array is freed as well</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-ptr-array-free.returns" role="returns">
+<title>Returns</title>
+<para> the pointer array if <parameter>free_seg</parameter>
+is <link linkend="FALSE:CAPS"><literal>FALSE</literal></link>, otherwise <link linkend="NULL:CAPS"><literal>NULL</literal></link>.
+The pointer array should be freed using <link linkend="g-free"><function>g_free()</function></link>.</para>
+</refsect3></refsect2>
+<refsect2 id="g-ptr-array-foreach" role="function" condition="since:2.4">
+<title>g_ptr_array_foreach&#160;()</title>
+<indexterm zone="g-ptr-array-foreach" role="2.4"><primary sortas="ptr_array_foreach">g_ptr_array_foreach</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_ptr_array_foreach (<parameter><link linkend="GPtrArray"><type>GPtrArray</type></link> *array</parameter>,
+                     <parameter><link linkend="GFunc"><type>GFunc</type></link> func</parameter>,
+                     <parameter><link linkend="gpointer"><type>gpointer</type></link> user_data</parameter>);</programlisting>
+<para>Calls a function for each element of a <link linkend="GPtrArray"><type>GPtrArray</type></link>. <parameter>func</parameter>
+ must not
+add elements to or remove elements from the array.</para>
+<refsect3 id="g-ptr-array-foreach.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>array</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GPtrArray"><type>GPtrArray</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>func</para></entry>
+<entry role="parameter_description"><para>the function to call for each array element</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>user_data</para></entry>
+<entry role="parameter_description"><para>user data to pass to the function</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.4">2.4</link></para></refsect2>
+<refsect2 id="g-ptr-array-find" role="function" condition="since:2.54">
+<title>g_ptr_array_find&#160;()</title>
+<indexterm zone="g-ptr-array-find" role="2.54"><primary sortas="ptr_array_find">g_ptr_array_find</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_ptr_array_find (<parameter><link linkend="GPtrArray"><type>GPtrArray</type></link> *haystack</parameter>,
+                  <parameter><link linkend="gconstpointer"><type>gconstpointer</type></link> needle</parameter>,
+                  <parameter><link linkend="guint"><type>guint</type></link> *index_</parameter>);</programlisting>
+<para>Checks whether <parameter>needle</parameter>
+ exists in <parameter>haystack</parameter>
+. If the element is found, <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> is
+returned and the element’s index is returned in <parameter>index_</parameter>
+ (if non-<link linkend="NULL:CAPS"><literal>NULL</literal></link>).
+Otherwise, <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> is returned and <parameter>index_</parameter>
+ is undefined. If <parameter>needle</parameter>
+ exists
+multiple times in <parameter>haystack</parameter>
+, the index of the first instance is returned.</para>
+<para>This does pointer comparisons only. If you want to use more complex equality
+checks, such as string comparisons, use <link linkend="g-ptr-array-find-with-equal-func"><function>g_ptr_array_find_with_equal_func()</function></link>.</para>
+
+<para><emphasis role="annotation">[<acronym>skip</acronym>]</emphasis></para><refsect3 id="g-ptr-array-find.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>haystack</para></entry>
+<entry role="parameter_description"><para>pointer array to be searched</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>needle</para></entry>
+<entry role="parameter_description"><para>pointer to look for</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>index_</para></entry>
+<entry role="parameter_description"><para>return location for the index of
+the element, if found. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>optional</acronym>][<acronym>out caller-allocates</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-ptr-array-find.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if <parameter>needle</parameter>
+is one of the elements of <parameter>haystack</parameter>
+</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.54">2.54</link></para></refsect2>
+<refsect2 id="g-ptr-array-find-with-equal-func" role="function" condition="since:2.54">
+<title>g_ptr_array_find_with_equal_func&#160;()</title>
+<indexterm zone="g-ptr-array-find-with-equal-func" role="2.54"><primary sortas="ptr_array_find_with_equal_func">g_ptr_array_find_with_equal_func</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_ptr_array_find_with_equal_func (<parameter><link linkend="GPtrArray"><type>GPtrArray</type></link> *haystack</parameter>,
+                                  <parameter><link linkend="gconstpointer"><type>gconstpointer</type></link> needle</parameter>,
+                                  <parameter><link linkend="GEqualFunc"><type>GEqualFunc</type></link> equal_func</parameter>,
+                                  <parameter><link linkend="guint"><type>guint</type></link> *index_</parameter>);</programlisting>
+<para>Checks whether <parameter>needle</parameter>
+ exists in <parameter>haystack</parameter>
+, using the given <parameter>equal_func</parameter>
+.
+If the element is found, <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> is returned and the element’s index is
+returned in <parameter>index_</parameter>
+ (if non-<link linkend="NULL:CAPS"><literal>NULL</literal></link>). Otherwise, <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> is returned and <parameter>index_</parameter>
+
+is undefined. If <parameter>needle</parameter>
+ exists multiple times in <parameter>haystack</parameter>
+, the index of
+the first instance is returned.</para>
+<para><parameter>equal_func</parameter>
+ is called with the element from the array as its first parameter,
+and <parameter>needle</parameter>
+ as its second parameter. If <parameter>equal_func</parameter>
+ is <link linkend="NULL:CAPS"><literal>NULL</literal></link>, pointer
+equality is used.</para>
+
+<para><emphasis role="annotation">[<acronym>skip</acronym>]</emphasis></para><refsect3 id="g-ptr-array-find-with-equal-func.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>haystack</para></entry>
+<entry role="parameter_description"><para>pointer array to be searched</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>needle</para></entry>
+<entry role="parameter_description"><para>pointer to look for</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>equal_func</para></entry>
+<entry role="parameter_description"><para>the function to call for each element, which should
+return <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> when the desired element is found; or <link linkend="NULL:CAPS"><literal>NULL</literal></link> to use pointer
+equality. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>index_</para></entry>
+<entry role="parameter_description"><para>return location for the index of
+the element, if found. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>optional</acronym>][<acronym>out caller-allocates</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-ptr-array-find-with-equal-func.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if <parameter>needle</parameter>
+is one of the elements of <parameter>haystack</parameter>
+</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.54">2.54</link></para></refsect2>
+
+</refsect1>
+<refsect1 id="glib-Pointer-Arrays.other_details" role="details">
+<title role="details.title">Types and Values</title>
+<refsect2 id="GPtrArray" role="struct">
+<title>struct GPtrArray</title>
+<indexterm zone="GPtrArray"><primary sortas="PtrArray">GPtrArray</primary></indexterm>
+<programlisting language="C">struct GPtrArray {
+  gpointer *pdata;
+  guint	    len;
+};
+</programlisting>
+<para>Contains the public fields of a pointer array.</para>
+<refsect3 id="GPtrArray.members" role="struct_members">
+<title>Members</title>
+<informaltable role="struct_members_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="struct_members_name" colwidth="300px"/>
+<colspec colname="struct_members_description"/>
+<colspec colname="struct_members_annotations" colwidth="200px"/>
+<tbody>
+<row role="member"><entry role="struct_member_name"><para><link linkend="gpointer"><type>gpointer</type></link>&#160;*<structfield id="GPtrArray.pdata">pdata</structfield>;</para></entry>
+<entry role="struct_member_description"><para>points to the array of pointers, which may be moved when the
+array grows</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><link linkend="guint"><type>guint</type></link>&#160;<structfield id="GPtrArray.len">len</structfield>;</para></entry>
+<entry role="struct_member_description"><para>number of pointers in the array</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+</tbody></tgroup></informaltable>
+</refsect3>
+</refsect2>
+
+</refsect1>
+
+</refentry>

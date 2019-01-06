@@ -1,0 +1,1480 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC '-//OASIS//DTD DocBook XML V4.5//EN'
+                      'http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd' [
+<!ENTITY % local.common.attrib "xmlns:xi  CDATA  #FIXED 'http://www.w3.org/2003/XInclude'">
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="glib-Lexical-Scanner">
+<refmeta>
+<refentrytitle role="top_of_page" id="glib-Lexical-Scanner.top_of_page">Lexical Scanner</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>GLIB Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>Lexical Scanner</refname>
+<refpurpose>a general purpose lexical scanner</refpurpose>
+</refnamediv>
+
+<refsect1 id="glib-Lexical-Scanner.functions" role="functions_proto">
+<title role="functions_proto.title">Functions</title>
+<informaltable pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="functions_return" colwidth="150px"/>
+<colspec colname="functions_name"/>
+<tbody>
+<row><entry role="function_type"><link linkend="GScanner"><returnvalue>GScanner</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-scanner-new">g_scanner_new</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-scanner-destroy">g_scanner_destroy</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-scanner-input-file">g_scanner_input_file</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-scanner-sync-file-offset">g_scanner_sync_file_offset</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-scanner-input-text">g_scanner_input_text</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GTokenType"><returnvalue>GTokenType</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-scanner-peek-next-token">g_scanner_peek_next_token</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GTokenType"><returnvalue>GTokenType</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-scanner-get-next-token">g_scanner_get_next_token</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-scanner-eof">g_scanner_eof</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+<row><entry role="function_type"><link linkend="guint"><returnvalue>guint</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-scanner-cur-line">g_scanner_cur_line</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="guint"><returnvalue>guint</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-scanner-cur-position">g_scanner_cur_position</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GTokenType"><returnvalue>GTokenType</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-scanner-cur-token">g_scanner_cur_token</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GTokenValue"><returnvalue>GTokenValue</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-scanner-cur-value">g_scanner_cur_value</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+<row><entry role="function_type"><link linkend="guint"><returnvalue>guint</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-scanner-set-scope">g_scanner_set_scope</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-scanner-scope-add-symbol">g_scanner_scope_add_symbol</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-scanner-scope-foreach-symbol">g_scanner_scope_foreach_symbol</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gpointer"><returnvalue>gpointer</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-scanner-scope-lookup-symbol">g_scanner_scope_lookup_symbol</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-scanner-scope-remove-symbol">g_scanner_scope_remove_symbol</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="g-scanner-add-symbol">g_scanner_add_symbol</link><phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="g-scanner-remove-symbol">g_scanner_remove_symbol</link><phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="g-scanner-foreach-symbol">g_scanner_foreach_symbol</link><phrase role="c_punctuation">()</phrase></entry></row>
+
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="g-scanner-freeze-symbol-table">g_scanner_freeze_symbol_table</link><phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="g-scanner-thaw-symbol-table">g_scanner_thaw_symbol_table</link><phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gpointer"><returnvalue>gpointer</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-scanner-lookup-symbol">g_scanner_lookup_symbol</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-scanner-warn">g_scanner_warn</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-scanner-error">g_scanner_error</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-scanner-unexp-token">g_scanner_unexp_token</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><phrase role="c_punctuation">(</phrase><link linkend="GScannerMsgFunc">*GScannerMsgFunc</link><phrase role="c_punctuation">)</phrase>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="glib-Lexical-Scanner.other" role="other_proto">
+<title role="other_proto.title">Types and Values</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="name" colwidth="150px"/>
+<colspec colname="description"/>
+<tbody>
+<row><entry role="datatype_keyword">struct</entry><entry role="function_name"><link linkend="GScanner">GScanner</link></entry></row>
+<row><entry role="datatype_keyword">struct</entry><entry role="function_name"><link linkend="GScannerConfig">GScannerConfig</link></entry></row>
+
+
+
+
+
+
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="G-CSET-a-2-z">G_CSET_a_2_z</link></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="G-CSET-A-2-Z:CAPS">G_CSET_A_2_Z</link></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="G-CSET-DIGITS:CAPS">G_CSET_DIGITS</link></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="G-CSET-LATINC:CAPS">G_CSET_LATINC</link></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="G-CSET-LATINS:CAPS">G_CSET_LATINS</link></entry></row>
+<row><entry role="datatype_keyword">enum</entry><entry role="function_name"><link linkend="GTokenType">GTokenType</link></entry></row>
+<row><entry role="datatype_keyword">union</entry><entry role="function_name"><link linkend="GTokenValue">GTokenValue</link></entry></row>
+<row><entry role="datatype_keyword">enum</entry><entry role="function_name"><link linkend="GErrorType">GErrorType</link></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+
+<refsect1 id="glib-Lexical-Scanner.includes"><title>Includes</title><synopsis>#include &lt;glib.h&gt;
+#include &lt;glib/gprintf.h&gt;
+</synopsis></refsect1>
+
+<refsect1 id="glib-Lexical-Scanner.description" role="desc">
+<title role="desc.title">Description</title>
+<para>The <link linkend="GScanner"><type>GScanner</type></link> and its associated functions provide a
+general purpose lexical scanner.</para>
+
+</refsect1>
+<refsect1 id="glib-Lexical-Scanner.functions_details" role="details">
+<title role="details.title">Functions</title>
+<refsect2 id="g-scanner-new" role="function">
+<title>g_scanner_new&#160;()</title>
+<indexterm zone="g-scanner-new"><primary sortas="scanner_new">g_scanner_new</primary></indexterm>
+<programlisting language="C"><link linkend="GScanner"><returnvalue>GScanner</returnvalue></link>&#160;*
+g_scanner_new (<parameter>const <link linkend="GScannerConfig"><type>GScannerConfig</type></link> *config_templ</parameter>);</programlisting>
+<para>Creates a new <link linkend="GScanner"><type>GScanner</type></link>.</para>
+<para>The <parameter>config_templ</parameter>
+ structure specifies the initial settings
+of the scanner, which are copied into the <link linkend="GScanner"><type>GScanner</type></link>
+<parameter>config</parameter>
+ field. If you pass <link linkend="NULL:CAPS"><literal>NULL</literal></link> then the default settings
+are used.</para>
+<refsect3 id="g-scanner-new.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>config_templ</para></entry>
+<entry role="parameter_description"><para>the initial scanner settings</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-scanner-new.returns" role="returns">
+<title>Returns</title>
+<para> the new <link linkend="GScanner"><type>GScanner</type></link></para>
+</refsect3></refsect2>
+<refsect2 id="g-scanner-destroy" role="function">
+<title>g_scanner_destroy&#160;()</title>
+<indexterm zone="g-scanner-destroy"><primary sortas="scanner_destroy">g_scanner_destroy</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_scanner_destroy (<parameter><link linkend="GScanner"><type>GScanner</type></link> *scanner</parameter>);</programlisting>
+<para>Frees all memory used by the <link linkend="GScanner"><type>GScanner</type></link>.</para>
+<refsect3 id="g-scanner-destroy.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>scanner</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GScanner"><type>GScanner</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-scanner-input-file" role="function">
+<title>g_scanner_input_file&#160;()</title>
+<indexterm zone="g-scanner-input-file"><primary sortas="scanner_input_file">g_scanner_input_file</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_scanner_input_file (<parameter><link linkend="GScanner"><type>GScanner</type></link> *scanner</parameter>,
+                      <parameter><link linkend="gint"><type>gint</type></link> input_fd</parameter>);</programlisting>
+<para>Prepares to scan a file.</para>
+<refsect3 id="g-scanner-input-file.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>scanner</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GScanner"><type>GScanner</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>input_fd</para></entry>
+<entry role="parameter_description"><para>a file descriptor</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-scanner-sync-file-offset" role="function">
+<title>g_scanner_sync_file_offset&#160;()</title>
+<indexterm zone="g-scanner-sync-file-offset"><primary sortas="scanner_sync_file_offset">g_scanner_sync_file_offset</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_scanner_sync_file_offset (<parameter><link linkend="GScanner"><type>GScanner</type></link> *scanner</parameter>);</programlisting>
+<para>Rewinds the filedescriptor to the current buffer position
+and blows the file read ahead buffer. This is useful for
+third party uses of the scanners filedescriptor, which hooks
+onto the current scanning position.</para>
+<refsect3 id="g-scanner-sync-file-offset.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>scanner</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GScanner"><type>GScanner</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-scanner-input-text" role="function">
+<title>g_scanner_input_text&#160;()</title>
+<indexterm zone="g-scanner-input-text"><primary sortas="scanner_input_text">g_scanner_input_text</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_scanner_input_text (<parameter><link linkend="GScanner"><type>GScanner</type></link> *scanner</parameter>,
+                      <parameter>const <link linkend="gchar"><type>gchar</type></link> *text</parameter>,
+                      <parameter><link linkend="guint"><type>guint</type></link> text_len</parameter>);</programlisting>
+<para>Prepares to scan a text buffer.</para>
+<refsect3 id="g-scanner-input-text.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>scanner</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GScanner"><type>GScanner</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>text</para></entry>
+<entry role="parameter_description"><para>the text buffer to scan</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>text_len</para></entry>
+<entry role="parameter_description"><para>the length of the text buffer</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-scanner-peek-next-token" role="function">
+<title>g_scanner_peek_next_token&#160;()</title>
+<indexterm zone="g-scanner-peek-next-token"><primary sortas="scanner_peek_next_token">g_scanner_peek_next_token</primary></indexterm>
+<programlisting language="C"><link linkend="GTokenType"><returnvalue>GTokenType</returnvalue></link>
+g_scanner_peek_next_token (<parameter><link linkend="GScanner"><type>GScanner</type></link> *scanner</parameter>);</programlisting>
+<para>Parses the next token, without removing it from the input stream.
+The token data is placed in the <parameter>next_token</parameter>
+, <parameter>next_value</parameter>
+, <parameter>next_line</parameter>
+,
+and <parameter>next_position</parameter>
+ fields of the <link linkend="GScanner"><type>GScanner</type></link> structure.</para>
+<para>Note that, while the token is not removed from the input stream
+(i.e. the next call to <link linkend="g-scanner-get-next-token"><function>g_scanner_get_next_token()</function></link> will return the
+same token), it will not be reevaluated. This can lead to surprising
+results when changing scope or the scanner configuration after peeking
+the next token. Getting the next token after switching the scope or
+configuration will return whatever was peeked before, regardless of
+any symbols that may have been added or removed in the new scope.</para>
+<refsect3 id="g-scanner-peek-next-token.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>scanner</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GScanner"><type>GScanner</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-scanner-peek-next-token.returns" role="returns">
+<title>Returns</title>
+<para> the type of the token</para>
+</refsect3></refsect2>
+<refsect2 id="g-scanner-get-next-token" role="function">
+<title>g_scanner_get_next_token&#160;()</title>
+<indexterm zone="g-scanner-get-next-token"><primary sortas="scanner_get_next_token">g_scanner_get_next_token</primary></indexterm>
+<programlisting language="C"><link linkend="GTokenType"><returnvalue>GTokenType</returnvalue></link>
+g_scanner_get_next_token (<parameter><link linkend="GScanner"><type>GScanner</type></link> *scanner</parameter>);</programlisting>
+<para>Parses the next token just like <link linkend="g-scanner-peek-next-token"><function>g_scanner_peek_next_token()</function></link>
+and also removes it from the input stream. The token data is
+placed in the <parameter>token</parameter>
+, <parameter>value</parameter>
+, <parameter>line</parameter>
+, and <parameter>position</parameter>
+ fields of
+the <link linkend="GScanner"><type>GScanner</type></link> structure.</para>
+<refsect3 id="g-scanner-get-next-token.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>scanner</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GScanner"><type>GScanner</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-scanner-get-next-token.returns" role="returns">
+<title>Returns</title>
+<para> the type of the token</para>
+</refsect3></refsect2>
+<refsect2 id="g-scanner-eof" role="function">
+<title>g_scanner_eof&#160;()</title>
+<indexterm zone="g-scanner-eof"><primary sortas="scanner_eof">g_scanner_eof</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_scanner_eof (<parameter><link linkend="GScanner"><type>GScanner</type></link> *scanner</parameter>);</programlisting>
+<para>Returns <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if the scanner has reached the end of
+the file or text buffer.</para>
+<refsect3 id="g-scanner-eof.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>scanner</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GScanner"><type>GScanner</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-scanner-eof.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if the scanner has reached the end of
+the file or text buffer</para>
+</refsect3></refsect2>
+<refsect2 id="g-scanner-cur-line" role="function">
+<title>g_scanner_cur_line&#160;()</title>
+<indexterm zone="g-scanner-cur-line"><primary sortas="scanner_cur_line">g_scanner_cur_line</primary></indexterm>
+<programlisting language="C"><link linkend="guint"><returnvalue>guint</returnvalue></link>
+g_scanner_cur_line (<parameter><link linkend="GScanner"><type>GScanner</type></link> *scanner</parameter>);</programlisting>
+<para>Returns the current line in the input stream (counting
+from 1). This is the line of the last token parsed via
+<link linkend="g-scanner-get-next-token"><function>g_scanner_get_next_token()</function></link>.</para>
+<refsect3 id="g-scanner-cur-line.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>scanner</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GScanner"><type>GScanner</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-scanner-cur-line.returns" role="returns">
+<title>Returns</title>
+<para> the current line</para>
+</refsect3></refsect2>
+<refsect2 id="g-scanner-cur-position" role="function">
+<title>g_scanner_cur_position&#160;()</title>
+<indexterm zone="g-scanner-cur-position"><primary sortas="scanner_cur_position">g_scanner_cur_position</primary></indexterm>
+<programlisting language="C"><link linkend="guint"><returnvalue>guint</returnvalue></link>
+g_scanner_cur_position (<parameter><link linkend="GScanner"><type>GScanner</type></link> *scanner</parameter>);</programlisting>
+<para>Returns the current position in the current line (counting
+from 0). This is the position of the last token parsed via
+<link linkend="g-scanner-get-next-token"><function>g_scanner_get_next_token()</function></link>.</para>
+<refsect3 id="g-scanner-cur-position.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>scanner</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GScanner"><type>GScanner</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-scanner-cur-position.returns" role="returns">
+<title>Returns</title>
+<para> the current position on the line</para>
+</refsect3></refsect2>
+<refsect2 id="g-scanner-cur-token" role="function">
+<title>g_scanner_cur_token&#160;()</title>
+<indexterm zone="g-scanner-cur-token"><primary sortas="scanner_cur_token">g_scanner_cur_token</primary></indexterm>
+<programlisting language="C"><link linkend="GTokenType"><returnvalue>GTokenType</returnvalue></link>
+g_scanner_cur_token (<parameter><link linkend="GScanner"><type>GScanner</type></link> *scanner</parameter>);</programlisting>
+<para>Gets the current token type. This is simply the <parameter>token</parameter>
+
+field in the <link linkend="GScanner"><type>GScanner</type></link> structure.</para>
+<refsect3 id="g-scanner-cur-token.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>scanner</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GScanner"><type>GScanner</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-scanner-cur-token.returns" role="returns">
+<title>Returns</title>
+<para> the current token type</para>
+</refsect3></refsect2>
+<refsect2 id="g-scanner-cur-value" role="function">
+<title>g_scanner_cur_value&#160;()</title>
+<indexterm zone="g-scanner-cur-value"><primary sortas="scanner_cur_value">g_scanner_cur_value</primary></indexterm>
+<programlisting language="C"><link linkend="GTokenValue"><returnvalue>GTokenValue</returnvalue></link>
+g_scanner_cur_value (<parameter><link linkend="GScanner"><type>GScanner</type></link> *scanner</parameter>);</programlisting>
+<para>Gets the current token value. This is simply the <parameter>value</parameter>
+
+field in the <link linkend="GScanner"><type>GScanner</type></link> structure.</para>
+<refsect3 id="g-scanner-cur-value.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>scanner</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GScanner"><type>GScanner</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-scanner-cur-value.returns" role="returns">
+<title>Returns</title>
+<para> the current token value</para>
+</refsect3></refsect2>
+<refsect2 id="g-scanner-set-scope" role="function">
+<title>g_scanner_set_scope&#160;()</title>
+<indexterm zone="g-scanner-set-scope"><primary sortas="scanner_set_scope">g_scanner_set_scope</primary></indexterm>
+<programlisting language="C"><link linkend="guint"><returnvalue>guint</returnvalue></link>
+g_scanner_set_scope (<parameter><link linkend="GScanner"><type>GScanner</type></link> *scanner</parameter>,
+                     <parameter><link linkend="guint"><type>guint</type></link> scope_id</parameter>);</programlisting>
+<para>Sets the current scope.</para>
+<refsect3 id="g-scanner-set-scope.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>scanner</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GScanner"><type>GScanner</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>scope_id</para></entry>
+<entry role="parameter_description"><para>the new scope id</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-scanner-set-scope.returns" role="returns">
+<title>Returns</title>
+<para> the old scope id</para>
+</refsect3></refsect2>
+<refsect2 id="g-scanner-scope-add-symbol" role="function">
+<title>g_scanner_scope_add_symbol&#160;()</title>
+<indexterm zone="g-scanner-scope-add-symbol"><primary sortas="scanner_scope_add_symbol">g_scanner_scope_add_symbol</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_scanner_scope_add_symbol (<parameter><link linkend="GScanner"><type>GScanner</type></link> *scanner</parameter>,
+                            <parameter><link linkend="guint"><type>guint</type></link> scope_id</parameter>,
+                            <parameter>const <link linkend="gchar"><type>gchar</type></link> *symbol</parameter>,
+                            <parameter><link linkend="gpointer"><type>gpointer</type></link> value</parameter>);</programlisting>
+<para>Adds a symbol to the given scope.</para>
+<refsect3 id="g-scanner-scope-add-symbol.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>scanner</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GScanner"><type>GScanner</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>scope_id</para></entry>
+<entry role="parameter_description"><para>the scope id</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>symbol</para></entry>
+<entry role="parameter_description"><para>the symbol to add</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>value</para></entry>
+<entry role="parameter_description"><para>the value of the symbol</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-scanner-scope-foreach-symbol" role="function">
+<title>g_scanner_scope_foreach_symbol&#160;()</title>
+<indexterm zone="g-scanner-scope-foreach-symbol"><primary sortas="scanner_scope_foreach_symbol">g_scanner_scope_foreach_symbol</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_scanner_scope_foreach_symbol (<parameter><link linkend="GScanner"><type>GScanner</type></link> *scanner</parameter>,
+                                <parameter><link linkend="guint"><type>guint</type></link> scope_id</parameter>,
+                                <parameter><link linkend="GHFunc"><type>GHFunc</type></link> func</parameter>,
+                                <parameter><link linkend="gpointer"><type>gpointer</type></link> user_data</parameter>);</programlisting>
+<para>Calls the given function for each of the symbol/value pairs
+in the given scope of the <link linkend="GScanner"><type>GScanner</type></link>. The function is passed
+the symbol and value of each pair, and the given <parameter>user_data</parameter>
+
+parameter.</para>
+<refsect3 id="g-scanner-scope-foreach-symbol.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>scanner</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GScanner"><type>GScanner</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>scope_id</para></entry>
+<entry role="parameter_description"><para>the scope id</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>func</para></entry>
+<entry role="parameter_description"><para>the function to call for each symbol/value pair</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>user_data</para></entry>
+<entry role="parameter_description"><para>user data to pass to the function</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-scanner-scope-lookup-symbol" role="function">
+<title>g_scanner_scope_lookup_symbol&#160;()</title>
+<indexterm zone="g-scanner-scope-lookup-symbol"><primary sortas="scanner_scope_lookup_symbol">g_scanner_scope_lookup_symbol</primary></indexterm>
+<programlisting language="C"><link linkend="gpointer"><returnvalue>gpointer</returnvalue></link>
+g_scanner_scope_lookup_symbol (<parameter><link linkend="GScanner"><type>GScanner</type></link> *scanner</parameter>,
+                               <parameter><link linkend="guint"><type>guint</type></link> scope_id</parameter>,
+                               <parameter>const <link linkend="gchar"><type>gchar</type></link> *symbol</parameter>);</programlisting>
+<para>Looks up a symbol in a scope and return its value. If the
+symbol is not bound in the scope, <link linkend="NULL:CAPS"><literal>NULL</literal></link> is returned.</para>
+<refsect3 id="g-scanner-scope-lookup-symbol.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>scanner</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GScanner"><type>GScanner</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>scope_id</para></entry>
+<entry role="parameter_description"><para>the scope id</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>symbol</para></entry>
+<entry role="parameter_description"><para>the symbol to look up</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-scanner-scope-lookup-symbol.returns" role="returns">
+<title>Returns</title>
+<para> the value of <parameter>symbol</parameter>
+in the given scope, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>
+if <parameter>symbol</parameter>
+is not bound in the given scope.</para>
+</refsect3></refsect2>
+<refsect2 id="g-scanner-scope-remove-symbol" role="function">
+<title>g_scanner_scope_remove_symbol&#160;()</title>
+<indexterm zone="g-scanner-scope-remove-symbol"><primary sortas="scanner_scope_remove_symbol">g_scanner_scope_remove_symbol</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_scanner_scope_remove_symbol (<parameter><link linkend="GScanner"><type>GScanner</type></link> *scanner</parameter>,
+                               <parameter><link linkend="guint"><type>guint</type></link> scope_id</parameter>,
+                               <parameter>const <link linkend="gchar"><type>gchar</type></link> *symbol</parameter>);</programlisting>
+<para>Removes a symbol from a scope.</para>
+<refsect3 id="g-scanner-scope-remove-symbol.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>scanner</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GScanner"><type>GScanner</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>scope_id</para></entry>
+<entry role="parameter_description"><para>the scope id</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>symbol</para></entry>
+<entry role="parameter_description"><para>the symbol to remove</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-scanner-add-symbol" role="macro" condition="deprecated:2.2: Use g_scanner_scope_add_symbol() instead.">
+<title>g_scanner_add_symbol()</title>
+<indexterm zone="g-scanner-add-symbol" role="deprecated"><primary sortas="scanner_add_symbol">g_scanner_add_symbol</primary></indexterm>
+<programlisting language="C">#define             g_scanner_add_symbol( scanner, symbol, value )</programlisting>
+<warning><para><literal>g_scanner_add_symbol</literal> has been deprecated since version 2.2 and should not be used in newly-written code.</para> <para>Use <link linkend="g-scanner-scope-add-symbol"><function>g_scanner_scope_add_symbol()</function></link> instead.</para>
+</warning>
+<para>Adds a symbol to the default scope.</para>
+<refsect3 id="g-scanner-add-symbol.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>scanner</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GScanner"><type>GScanner</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>symbol</para></entry>
+<entry role="parameter_description"><para>the symbol to add</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>value</para></entry>
+<entry role="parameter_description"><para>the value of the symbol</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-scanner-remove-symbol" role="macro" condition="deprecated:2.2: Use g_scanner_scope_remove_symbol() instead.">
+<title>g_scanner_remove_symbol()</title>
+<indexterm zone="g-scanner-remove-symbol" role="deprecated"><primary sortas="scanner_remove_symbol">g_scanner_remove_symbol</primary></indexterm>
+<programlisting language="C">#define             g_scanner_remove_symbol( scanner, symbol )</programlisting>
+<warning><para><literal>g_scanner_remove_symbol</literal> has been deprecated since version 2.2 and should not be used in newly-written code.</para> <para>Use <link linkend="g-scanner-scope-remove-symbol"><function>g_scanner_scope_remove_symbol()</function></link> instead.</para>
+</warning>
+<para>Removes a symbol from the default scope.</para>
+<refsect3 id="g-scanner-remove-symbol.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>scanner</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GScanner"><type>GScanner</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>symbol</para></entry>
+<entry role="parameter_description"><para>the symbol to remove</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-scanner-foreach-symbol" role="macro" condition="deprecated:2.2: Use g_scanner_scope_foreach_symbol() instead.">
+<title>g_scanner_foreach_symbol()</title>
+<indexterm zone="g-scanner-foreach-symbol" role="deprecated"><primary sortas="scanner_foreach_symbol">g_scanner_foreach_symbol</primary></indexterm>
+<programlisting language="C">#define             g_scanner_foreach_symbol( scanner, func, data )</programlisting>
+<warning><para><literal>g_scanner_foreach_symbol</literal> has been deprecated since version 2.2 and should not be used in newly-written code.</para> <para>Use <link linkend="g-scanner-scope-foreach-symbol"><function>g_scanner_scope_foreach_symbol()</function></link> instead.</para>
+</warning>
+<para>Calls a function for each symbol in the default scope.</para>
+<refsect3 id="g-scanner-foreach-symbol.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>scanner</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GScanner"><type>GScanner</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>func</para></entry>
+<entry role="parameter_description"><para>the function to call with each symbol</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>data</para></entry>
+<entry role="parameter_description"><para>data to pass to the function</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-scanner-freeze-symbol-table" role="macro" condition="deprecated:2.2: This macro does nothing.">
+<title>g_scanner_freeze_symbol_table()</title>
+<indexterm zone="g-scanner-freeze-symbol-table" role="deprecated"><primary sortas="scanner_freeze_symbol_table">g_scanner_freeze_symbol_table</primary></indexterm>
+<programlisting language="C">#define             g_scanner_freeze_symbol_table(scanner)</programlisting>
+<warning><para><literal>g_scanner_freeze_symbol_table</literal> has been deprecated since version 2.2 and should not be used in newly-written code.</para> <para>This macro does nothing.</para>
+</warning>
+<para>There is no reason to use this macro, since it does nothing.</para>
+<refsect3 id="g-scanner-freeze-symbol-table.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>scanner</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GScanner"><type>GScanner</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-scanner-thaw-symbol-table" role="macro" condition="deprecated:2.2: This macro does nothing.">
+<title>g_scanner_thaw_symbol_table()</title>
+<indexterm zone="g-scanner-thaw-symbol-table" role="deprecated"><primary sortas="scanner_thaw_symbol_table">g_scanner_thaw_symbol_table</primary></indexterm>
+<programlisting language="C">#define             g_scanner_thaw_symbol_table(scanner)</programlisting>
+<warning><para><literal>g_scanner_thaw_symbol_table</literal> has been deprecated since version 2.2 and should not be used in newly-written code.</para> <para>This macro does nothing.</para>
+</warning>
+<para>There is no reason to use this macro, since it does nothing.</para>
+<refsect3 id="g-scanner-thaw-symbol-table.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>scanner</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GScanner"><type>GScanner</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-scanner-lookup-symbol" role="function">
+<title>g_scanner_lookup_symbol&#160;()</title>
+<indexterm zone="g-scanner-lookup-symbol"><primary sortas="scanner_lookup_symbol">g_scanner_lookup_symbol</primary></indexterm>
+<programlisting language="C"><link linkend="gpointer"><returnvalue>gpointer</returnvalue></link>
+g_scanner_lookup_symbol (<parameter><link linkend="GScanner"><type>GScanner</type></link> *scanner</parameter>,
+                         <parameter>const <link linkend="gchar"><type>gchar</type></link> *symbol</parameter>);</programlisting>
+<para>Looks up a symbol in the current scope and return its value.
+If the symbol is not bound in the current scope, <link linkend="NULL:CAPS"><literal>NULL</literal></link> is
+returned.</para>
+<refsect3 id="g-scanner-lookup-symbol.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>scanner</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GScanner"><type>GScanner</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>symbol</para></entry>
+<entry role="parameter_description"><para>the symbol to look up</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-scanner-lookup-symbol.returns" role="returns">
+<title>Returns</title>
+<para> the value of <parameter>symbol</parameter>
+in the current scope, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>
+if <parameter>symbol</parameter>
+is not bound in the current scope</para>
+</refsect3></refsect2>
+<refsect2 id="g-scanner-warn" role="function">
+<title>g_scanner_warn&#160;()</title>
+<indexterm zone="g-scanner-warn"><primary sortas="scanner_warn">g_scanner_warn</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_scanner_warn (<parameter><link linkend="GScanner"><type>GScanner</type></link> *scanner</parameter>,
+                <parameter>const <link linkend="gchar"><type>gchar</type></link> *format</parameter>,
+                <parameter>...</parameter>);</programlisting>
+<para>Outputs a warning message, via the <link linkend="GScanner"><type>GScanner</type></link> message handler.</para>
+<refsect3 id="g-scanner-warn.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>scanner</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GScanner"><type>GScanner</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>format</para></entry>
+<entry role="parameter_description"><para>the message format. See the <link linkend="printf"><function>printf()</function></link> documentation</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>...</para></entry>
+<entry role="parameter_description"><para>the parameters to insert into the format string</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-scanner-error" role="function">
+<title>g_scanner_error&#160;()</title>
+<indexterm zone="g-scanner-error"><primary sortas="scanner_error">g_scanner_error</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_scanner_error (<parameter><link linkend="GScanner"><type>GScanner</type></link> *scanner</parameter>,
+                 <parameter>const <link linkend="gchar"><type>gchar</type></link> *format</parameter>,
+                 <parameter>...</parameter>);</programlisting>
+<para>Outputs an error message, via the <link linkend="GScanner"><type>GScanner</type></link> message handler.</para>
+<refsect3 id="g-scanner-error.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>scanner</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GScanner"><type>GScanner</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>format</para></entry>
+<entry role="parameter_description"><para>the message format. See the <link linkend="printf"><function>printf()</function></link> documentation</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>...</para></entry>
+<entry role="parameter_description"><para>the parameters to insert into the format string</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-scanner-unexp-token" role="function">
+<title>g_scanner_unexp_token&#160;()</title>
+<indexterm zone="g-scanner-unexp-token"><primary sortas="scanner_unexp_token">g_scanner_unexp_token</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_scanner_unexp_token (<parameter><link linkend="GScanner"><type>GScanner</type></link> *scanner</parameter>,
+                       <parameter><link linkend="GTokenType"><type>GTokenType</type></link> expected_token</parameter>,
+                       <parameter>const <link linkend="gchar"><type>gchar</type></link> *identifier_spec</parameter>,
+                       <parameter>const <link linkend="gchar"><type>gchar</type></link> *symbol_spec</parameter>,
+                       <parameter>const <link linkend="gchar"><type>gchar</type></link> *symbol_name</parameter>,
+                       <parameter>const <link linkend="gchar"><type>gchar</type></link> *message</parameter>,
+                       <parameter><link linkend="gint"><type>gint</type></link> is_error</parameter>);</programlisting>
+<para>Outputs a message through the scanner's msg_handler,
+resulting from an unexpected token in the input stream.
+Note that you should not call <link linkend="g-scanner-peek-next-token"><function>g_scanner_peek_next_token()</function></link>
+followed by <link linkend="g-scanner-unexp-token"><function>g_scanner_unexp_token()</function></link> without an intermediate
+call to <link linkend="g-scanner-get-next-token"><function>g_scanner_get_next_token()</function></link>, as <link linkend="g-scanner-unexp-token"><function>g_scanner_unexp_token()</function></link>
+evaluates the scanner's current token (not the peeked token)
+to construct part of the message.</para>
+<refsect3 id="g-scanner-unexp-token.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>scanner</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GScanner"><type>GScanner</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>expected_token</para></entry>
+<entry role="parameter_description"><para>the expected token</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>identifier_spec</para></entry>
+<entry role="parameter_description"><para>a string describing how the scanner's user
+refers to identifiers (<link linkend="NULL:CAPS"><literal>NULL</literal></link> defaults to "identifier").
+This is used if <parameter>expected_token</parameter>
+is <link linkend="G-TOKEN-IDENTIFIER:CAPS"><literal>G_TOKEN_IDENTIFIER</literal></link> or
+<link linkend="G-TOKEN-IDENTIFIER-NULL:CAPS"><literal>G_TOKEN_IDENTIFIER_NULL</literal></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>symbol_spec</para></entry>
+<entry role="parameter_description"><para>a string describing how the scanner's user refers
+to symbols (<link linkend="NULL:CAPS"><literal>NULL</literal></link> defaults to "symbol"). This is used if
+<parameter>expected_token</parameter>
+is <link linkend="G-TOKEN-SYMBOL:CAPS"><literal>G_TOKEN_SYMBOL</literal></link> or any token value greater
+than <link linkend="G-TOKEN-LAST:CAPS"><literal>G_TOKEN_LAST</literal></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>symbol_name</para></entry>
+<entry role="parameter_description"><para>the name of the symbol, if the scanner's current
+token is a symbol.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>message</para></entry>
+<entry role="parameter_description"><para>a message string to output at the end of the
+warning/error, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>is_error</para></entry>
+<entry role="parameter_description"><para>if <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> it is output as an error. If <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> it is
+output as a warning.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="GScannerMsgFunc" role="function">
+<title>GScannerMsgFunc&#160;()</title>
+<indexterm zone="GScannerMsgFunc"><primary sortas="ScannerMsgFunc">GScannerMsgFunc</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+<phrase role="c_punctuation">(</phrase>*GScannerMsgFunc<phrase role="c_punctuation">)</phrase> (<parameter><link linkend="GScanner"><type>GScanner</type></link> *scanner</parameter>,
+                    <parameter><link linkend="gchar"><type>gchar</type></link> *message</parameter>,
+                    <parameter><link linkend="gboolean"><type>gboolean</type></link> error</parameter>);</programlisting>
+<para>Specifies the type of the message handler function.</para>
+<refsect3 id="GScannerMsgFunc.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>scanner</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GScanner"><type>GScanner</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>message</para></entry>
+<entry role="parameter_description"><para>the message</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para><link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if the message signals an error,
+<link linkend="FALSE:CAPS"><literal>FALSE</literal></link> if it signals a warning.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+
+</refsect1>
+<refsect1 id="glib-Lexical-Scanner.other_details" role="details">
+<title role="details.title">Types and Values</title>
+<refsect2 id="GScanner" role="struct">
+<title>struct GScanner</title>
+<indexterm zone="GScanner"><primary sortas="Scanner">GScanner</primary></indexterm>
+<programlisting language="C">struct GScanner {
+  /* unused fields */
+  gpointer		user_data;
+  guint			max_parse_errors;
+  
+  /* g_scanner_error() increments this field */
+  guint			parse_errors;
+  
+  /* name of input stream, featured by the default message handler */
+  const gchar		*input_name;
+  
+  /* quarked data */
+  GData			*qdata;
+  
+  /* link into the scanner configuration */
+  GScannerConfig&#160;*config;
+  
+  /* fields filled in after g_scanner_get_next_token() */
+  GTokenType		token;
+  GTokenValue		value;
+  guint			line;
+  guint			position;
+  
+  /* fields filled in after g_scanner_peek_next_token() */
+  GTokenType		next_token;
+  GTokenValue		next_value;
+  guint			next_line;
+  guint			next_position;
+
+  /* handler function for _warn and _error */
+  GScannerMsgFunc&#160;msg_handler;
+};
+</programlisting>
+<para>The data structure representing a lexical scanner.</para>
+<para>You should set <parameter>input_name</parameter>
+ after creating the scanner, since
+it is used by the default message handler when displaying
+warnings and errors. If you are scanning a file, the filename
+would be a good choice.</para>
+<para>The <parameter>user_data</parameter>
+ and <parameter>max_parse_errors</parameter>
+ fields are not used.
+If you need to associate extra data with the scanner you
+can place them here.</para>
+<para>If you want to use your own message handler you can set the
+<parameter>msg_handler</parameter>
+ field. The type of the message handler function
+is declared by <link linkend="GScannerMsgFunc"><type>GScannerMsgFunc</type></link>.</para>
+<refsect3 id="GScanner.members" role="struct_members">
+<title>Members</title>
+<informaltable role="struct_members_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="struct_members_name" colwidth="300px"/>
+<colspec colname="struct_members_description"/>
+<colspec colname="struct_members_annotations" colwidth="200px"/>
+<tbody>
+<row role="member"><entry role="struct_member_name"><para><link linkend="gpointer"><type>gpointer</type></link>&#160;<structfield id="GScanner.user-data">user_data</structfield>;</para></entry>
+<entry role="struct_member_description"><para>unused</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><link linkend="guint"><type>guint</type></link>&#160;<structfield id="GScanner.max-parse-errors">max_parse_errors</structfield>;</para></entry>
+<entry role="struct_member_description"><para>unused</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><link linkend="guint"><type>guint</type></link>&#160;<structfield id="GScanner.parse-errors">parse_errors</structfield>;</para></entry>
+<entry role="struct_member_description"><para>g_scanner_error() increments this field</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para>const&#160;<link linkend="gchar"><type>gchar</type></link>&#160;*<structfield id="GScanner.input-name">input_name</structfield>;</para></entry>
+<entry role="struct_member_description"><para>name of input stream, featured by the default message handler</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><link linkend="GData"><type>GData</type></link>&#160;*<structfield id="GScanner.qdata">qdata</structfield>;</para></entry>
+<entry role="struct_member_description"><para>quarked data</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><link linkend="GScannerConfig"><type>GScannerConfig</type></link>&#160;*<structfield id="GScanner.config">config</structfield>;</para></entry>
+<entry role="struct_member_description"><para>link into the scanner configuration</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><link linkend="GTokenType"><type>GTokenType</type></link>&#160;<structfield id="GScanner.token">token</structfield>;</para></entry>
+<entry role="struct_member_description"><para>token parsed by the last <link linkend="g-scanner-get-next-token"><function>g_scanner_get_next_token()</function></link></para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><link linkend="GTokenValue"><type>GTokenValue</type></link>&#160;<structfield id="GScanner.value">value</structfield>;</para></entry>
+<entry role="struct_member_description"><para>value of the last token from <link linkend="g-scanner-get-next-token"><function>g_scanner_get_next_token()</function></link></para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><link linkend="guint"><type>guint</type></link>&#160;<structfield id="GScanner.line">line</structfield>;</para></entry>
+<entry role="struct_member_description"><para>line number of the last token from <link linkend="g-scanner-get-next-token"><function>g_scanner_get_next_token()</function></link></para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><link linkend="guint"><type>guint</type></link>&#160;<structfield id="GScanner.position">position</structfield>;</para></entry>
+<entry role="struct_member_description"><para>char number of the last token from <link linkend="g-scanner-get-next-token"><function>g_scanner_get_next_token()</function></link></para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><link linkend="GTokenType"><type>GTokenType</type></link>&#160;<structfield id="GScanner.next-token">next_token</structfield>;</para></entry>
+<entry role="struct_member_description"><para>token parsed by the last <link linkend="g-scanner-peek-next-token"><function>g_scanner_peek_next_token()</function></link></para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><link linkend="GTokenValue"><type>GTokenValue</type></link>&#160;<structfield id="GScanner.next-value">next_value</structfield>;</para></entry>
+<entry role="struct_member_description"><para>value of the last token from <link linkend="g-scanner-peek-next-token"><function>g_scanner_peek_next_token()</function></link></para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><link linkend="guint"><type>guint</type></link>&#160;<structfield id="GScanner.next-line">next_line</structfield>;</para></entry>
+<entry role="struct_member_description"><para>line number of the last token from <link linkend="g-scanner-peek-next-token"><function>g_scanner_peek_next_token()</function></link></para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><link linkend="guint"><type>guint</type></link>&#160;<structfield id="GScanner.next-position">next_position</structfield>;</para></entry>
+<entry role="struct_member_description"><para>char number of the last token from <link linkend="g-scanner-peek-next-token"><function>g_scanner_peek_next_token()</function></link></para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><link linkend="GScannerMsgFunc"><type>GScannerMsgFunc</type></link>&#160;<structfield id="GScanner.msg-handler">msg_handler</structfield>;</para></entry>
+<entry role="struct_member_description"><para>handler function for _warn and _error</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+</tbody></tgroup></informaltable>
+</refsect3>
+</refsect2>
+<refsect2 id="GScannerConfig" role="struct">
+<title>struct GScannerConfig</title>
+<indexterm zone="GScannerConfig"><primary sortas="ScannerConfig">GScannerConfig</primary></indexterm>
+<programlisting language="C">struct GScannerConfig {
+  /* Character sets
+   */
+  gchar		*cset_skip_characters;		/* default: " \t\n" */
+  gchar		*cset_identifier_first;
+  gchar		*cset_identifier_nth;
+  gchar		*cpair_comment_single;		/* default: "#\n" */
+  
+  /* Should symbol lookup work case sensitive?
+   */
+  guint		case_sensitive : 1;
+  
+  /* Boolean values to be adjusted "on the fly"
+   * to configure scanning behaviour.
+   */
+  guint		skip_comment_multi : 1;		/* C like comment */
+  guint		skip_comment_single : 1;&#160;/* single line comment */
+  guint		scan_comment_multi : 1;		/* scan multi line comments? */
+  guint		scan_identifier : 1;
+  guint		scan_identifier_1char : 1;
+  guint		scan_identifier_NULL : 1;
+  guint		scan_symbols : 1;
+  guint		scan_binary : 1;
+  guint		scan_octal : 1;
+  guint		scan_float : 1;
+  guint		scan_hex : 1;			/* '0x0ff0' */
+  guint		scan_hex_dollar : 1;		/* '$0ff0' */
+  guint		scan_string_sq : 1;		/* string: 'anything' */
+  guint		scan_string_dq : 1;		/* string: "\\-escapes!\n" */
+  guint		numbers_2_int : 1;		/* bin, octal, hex =&gt; int */
+  guint		int_2_float : 1;		/* int =&gt; G_TOKEN_FLOAT? */
+  guint		identifier_2_string : 1;
+  guint		char_2_token : 1;		/* return G_TOKEN_CHAR? */
+  guint		symbol_2_token : 1;
+  guint		scope_0_fallback : 1;		/* try scope 0 on lookups? */
+  guint		store_int64 : 1; 		/* use value.v_int64 rather than v_int */
+};
+</programlisting>
+<para>Specifies the <link linkend="GScanner"><type>GScanner</type></link> parser configuration. Most settings can
+be changed during the parsing phase and will affect the lexical
+parsing of the next unpeeked token.</para>
+<refsect3 id="GScannerConfig.members" role="struct_members">
+<title>Members</title>
+<informaltable role="struct_members_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="struct_members_name" colwidth="300px"/>
+<colspec colname="struct_members_description"/>
+<colspec colname="struct_members_annotations" colwidth="200px"/>
+<tbody>
+<row role="member"><entry role="struct_member_name"><para><link linkend="gchar"><type>gchar</type></link>&#160;*<structfield id="GScannerConfig.cset-skip-characters">cset_skip_characters</structfield>;</para></entry>
+<entry role="struct_member_description"><para>specifies which characters should be skipped
+by the scanner (the default is the whitespace characters: space,
+tab, carriage-return and line-feed).</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><link linkend="gchar"><type>gchar</type></link>&#160;*<structfield id="GScannerConfig.cset-identifier-first">cset_identifier_first</structfield>;</para></entry>
+<entry role="struct_member_description"><para>specifies the characters which can start
+identifiers (the default is <link linkend="G-CSET-a-2-z"><type>G_CSET_a_2_z</type></link>, "_", and <link linkend="G-CSET-A-2-Z:CAPS"><type>G_CSET_A_2_Z</type></link>).</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><link linkend="gchar"><type>gchar</type></link>&#160;*<structfield id="GScannerConfig.cset-identifier-nth">cset_identifier_nth</structfield>;</para></entry>
+<entry role="struct_member_description"><para>specifies the characters which can be used
+in identifiers, after the first character (the default is
+<link linkend="G-CSET-a-2-z"><type>G_CSET_a_2_z</type></link>, "_0123456789", <link linkend="G-CSET-A-2-Z:CAPS"><type>G_CSET_A_2_Z</type></link>, <link linkend="G-CSET-LATINS:CAPS"><type>G_CSET_LATINS</type></link>,
+<link linkend="G-CSET-LATINC:CAPS"><type>G_CSET_LATINC</type></link>).</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><link linkend="gchar"><type>gchar</type></link>&#160;*<structfield id="GScannerConfig.cpair-comment-single">cpair_comment_single</structfield>;</para></entry>
+<entry role="struct_member_description"><para>specifies the characters at the start and
+end of single-line comments. The default is "#\n" which means
+that single-line comments start with a '#' and continue until
+a '\n' (end of line).</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><link linkend="guint"><type>guint</type></link>&#160;<structfield id="GScannerConfig.case-sensitive">case_sensitive</structfield>&#160;:&#160;1;</para></entry>
+<entry role="struct_member_description"><para>specifies if symbols are case sensitive (the
+default is <link linkend="FALSE:CAPS"><literal>FALSE</literal></link>).</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><link linkend="guint"><type>guint</type></link>&#160;<structfield id="GScannerConfig.skip-comment-multi">skip_comment_multi</structfield>&#160;:&#160;1;</para></entry>
+<entry role="struct_member_description"><para>specifies if multi-line comments are skipped
+and not returned as tokens (the default is <link linkend="TRUE:CAPS"><literal>TRUE</literal></link>).</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><link linkend="guint"><type>guint</type></link>&#160;<structfield id="GScannerConfig.skip-comment-single">skip_comment_single</structfield>&#160;:&#160;1;</para></entry>
+<entry role="struct_member_description"><para>specifies if single-line comments are skipped
+and not returned as tokens (the default is <link linkend="TRUE:CAPS"><literal>TRUE</literal></link>).</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><link linkend="guint"><type>guint</type></link>&#160;<structfield id="GScannerConfig.scan-comment-multi">scan_comment_multi</structfield>&#160;:&#160;1;</para></entry>
+<entry role="struct_member_description"><para>specifies if multi-line comments are recognized
+(the default is <link linkend="TRUE:CAPS"><literal>TRUE</literal></link>).</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><link linkend="guint"><type>guint</type></link>&#160;<structfield id="GScannerConfig.scan-identifier">scan_identifier</structfield>&#160;:&#160;1;</para></entry>
+<entry role="struct_member_description"><para>specifies if identifiers are recognized (the
+default is <link linkend="TRUE:CAPS"><literal>TRUE</literal></link>).</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><link linkend="guint"><type>guint</type></link>&#160;<structfield id="GScannerConfig.scan-identifier-1char">scan_identifier_1char</structfield>&#160;:&#160;1;</para></entry>
+<entry role="struct_member_description"><para>specifies if single-character
+identifiers are recognized (the default is <link linkend="FALSE:CAPS"><literal>FALSE</literal></link>).</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><link linkend="guint"><type>guint</type></link>&#160;<structfield id="GScannerConfig.scan-identifier-NULL">scan_identifier_NULL</structfield>&#160;:&#160;1;</para></entry>
+<entry role="struct_member_description"><para>specifies if <link linkend="NULL:CAPS"><literal>NULL</literal></link> is reported as
+<link linkend="G-TOKEN-IDENTIFIER-NULL:CAPS"><literal>G_TOKEN_IDENTIFIER_NULL</literal></link> (the default is <link linkend="FALSE:CAPS"><literal>FALSE</literal></link>).</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><link linkend="guint"><type>guint</type></link>&#160;<structfield id="GScannerConfig.scan-symbols">scan_symbols</structfield>&#160;:&#160;1;</para></entry>
+<entry role="struct_member_description"><para>specifies if symbols are recognized (the default
+is <link linkend="TRUE:CAPS"><literal>TRUE</literal></link>).</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><link linkend="guint"><type>guint</type></link>&#160;<structfield id="GScannerConfig.scan-binary">scan_binary</structfield>&#160;:&#160;1;</para></entry>
+<entry role="struct_member_description"><para>specifies if binary numbers are recognized (the
+default is <link linkend="FALSE:CAPS"><literal>FALSE</literal></link>).</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><link linkend="guint"><type>guint</type></link>&#160;<structfield id="GScannerConfig.scan-octal">scan_octal</structfield>&#160;:&#160;1;</para></entry>
+<entry role="struct_member_description"><para>specifies if octal numbers are recognized (the
+default is <link linkend="TRUE:CAPS"><literal>TRUE</literal></link>).</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><link linkend="guint"><type>guint</type></link>&#160;<structfield id="GScannerConfig.scan-float">scan_float</structfield>&#160;:&#160;1;</para></entry>
+<entry role="struct_member_description"><para>specifies if floating point numbers are recognized
+(the default is <link linkend="TRUE:CAPS"><literal>TRUE</literal></link>).</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><link linkend="guint"><type>guint</type></link>&#160;<structfield id="GScannerConfig.scan-hex">scan_hex</structfield>&#160;:&#160;1;</para></entry>
+<entry role="struct_member_description"><para>specifies if hexadecimal numbers are recognized (the
+default is <link linkend="TRUE:CAPS"><literal>TRUE</literal></link>).</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><link linkend="guint"><type>guint</type></link>&#160;<structfield id="GScannerConfig.scan-hex-dollar">scan_hex_dollar</structfield>&#160;:&#160;1;</para></entry>
+<entry role="struct_member_description"><para>specifies if '$' is recognized as a prefix for
+hexadecimal numbers (the default is <link linkend="FALSE:CAPS"><literal>FALSE</literal></link>).</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><link linkend="guint"><type>guint</type></link>&#160;<structfield id="GScannerConfig.scan-string-sq">scan_string_sq</structfield>&#160;:&#160;1;</para></entry>
+<entry role="struct_member_description"><para>specifies if strings can be enclosed in single
+quotes (the default is <link linkend="TRUE:CAPS"><literal>TRUE</literal></link>).</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><link linkend="guint"><type>guint</type></link>&#160;<structfield id="GScannerConfig.scan-string-dq">scan_string_dq</structfield>&#160;:&#160;1;</para></entry>
+<entry role="struct_member_description"><para>specifies if strings can be enclosed in double
+quotes (the default is <link linkend="TRUE:CAPS"><literal>TRUE</literal></link>).</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><link linkend="guint"><type>guint</type></link>&#160;<structfield id="GScannerConfig.numbers-2-int">numbers_2_int</structfield>&#160;:&#160;1;</para></entry>
+<entry role="struct_member_description"><para>specifies if binary, octal and hexadecimal numbers
+are reported as <link linkend="G-TOKEN-INT:CAPS"><type>G_TOKEN_INT</type></link> (the default is <link linkend="TRUE:CAPS"><literal>TRUE</literal></link>).</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><link linkend="guint"><type>guint</type></link>&#160;<structfield id="GScannerConfig.int-2-float">int_2_float</structfield>&#160;:&#160;1;</para></entry>
+<entry role="struct_member_description"><para>specifies if all numbers are reported as <link linkend="G-TOKEN-FLOAT:CAPS"><literal>G_TOKEN_FLOAT</literal></link>
+(the default is <link linkend="FALSE:CAPS"><literal>FALSE</literal></link>).</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><link linkend="guint"><type>guint</type></link>&#160;<structfield id="GScannerConfig.identifier-2-string">identifier_2_string</structfield>&#160;:&#160;1;</para></entry>
+<entry role="struct_member_description"><para>specifies if identifiers are reported as strings
+(the default is <link linkend="FALSE:CAPS"><literal>FALSE</literal></link>).</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><link linkend="guint"><type>guint</type></link>&#160;<structfield id="GScannerConfig.char-2-token">char_2_token</structfield>&#160;:&#160;1;</para></entry>
+<entry role="struct_member_description"><para>specifies if characters are reported by setting
+<literal>token = ch</literal> or as <link linkend="G-TOKEN-CHAR:CAPS"><literal>G_TOKEN_CHAR</literal></link> (the default is <link linkend="TRUE:CAPS"><literal>TRUE</literal></link>).</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><link linkend="guint"><type>guint</type></link>&#160;<structfield id="GScannerConfig.symbol-2-token">symbol_2_token</structfield>&#160;:&#160;1;</para></entry>
+<entry role="struct_member_description"><para>specifies if symbols are reported by setting
+<literal>token = v_symbol</literal> or as <link linkend="G-TOKEN-SYMBOL:CAPS"><literal>G_TOKEN_SYMBOL</literal></link> (the default is <link linkend="FALSE:CAPS"><literal>FALSE</literal></link>).</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><link linkend="guint"><type>guint</type></link>&#160;<structfield id="GScannerConfig.scope-0-fallback">scope_0_fallback</structfield>&#160;:&#160;1;</para></entry>
+<entry role="struct_member_description"><para>specifies if a symbol is searched for in the
+default scope in addition to the current scope (the default is <link linkend="FALSE:CAPS"><literal>FALSE</literal></link>).</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><link linkend="guint"><type>guint</type></link>&#160;<structfield id="GScannerConfig.store-int64">store_int64</structfield>&#160;:&#160;1;</para></entry>
+<entry role="struct_member_description"><para>use value.v_int64 rather than v_int</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+</tbody></tgroup></informaltable>
+</refsect3>
+</refsect2>
+<refsect2 id="G-CSET-a-2-z" role="macro">
+<title>G_CSET_a_2_z</title>
+<indexterm zone="G-CSET-a-2-z"><primary sortas="CSET_a_2_z">G_CSET_a_2_z</primary></indexterm>
+<programlisting language="C">#define G_CSET_a_2_z&#160;"abcdefghijklmnopqrstuvwxyz"
+</programlisting>
+<para>The set of lowercase ASCII alphabet characters.
+Used for specifying valid identifier characters
+in <link linkend="GScannerConfig"><type>GScannerConfig</type></link>.</para>
+</refsect2>
+<refsect2 id="G-CSET-A-2-Z:CAPS" role="macro">
+<title>G_CSET_A_2_Z</title>
+<indexterm zone="G-CSET-A-2-Z:CAPS"><primary sortas="CSET_A_2_Z">G_CSET_A_2_Z</primary></indexterm>
+<programlisting language="C">#define G_CSET_A_2_Z&#160;"ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+</programlisting>
+<para>The set of uppercase ASCII alphabet characters.
+Used for specifying valid identifier characters
+in <link linkend="GScannerConfig"><type>GScannerConfig</type></link>.</para>
+</refsect2>
+<refsect2 id="G-CSET-DIGITS:CAPS" role="macro">
+<title>G_CSET_DIGITS</title>
+<indexterm zone="G-CSET-DIGITS:CAPS"><primary sortas="CSET_DIGITS">G_CSET_DIGITS</primary></indexterm>
+<programlisting language="C">#define G_CSET_DIGITS&#160;"0123456789"
+</programlisting>
+<para>The set of ASCII digits.
+Used for specifying valid identifier characters
+in <link linkend="GScannerConfig"><type>GScannerConfig</type></link>.</para>
+</refsect2>
+<refsect2 id="G-CSET-LATINC:CAPS" role="macro">
+<title>G_CSET_LATINC</title>
+<indexterm zone="G-CSET-LATINC:CAPS"><primary sortas="CSET_LATINC">G_CSET_LATINC</primary></indexterm>
+<programlisting language="C">#define             G_CSET_LATINC</programlisting>
+<para>The set of uppercase ISO 8859-1 alphabet characters
+which are not ASCII characters.
+Used for specifying valid identifier characters
+in <link linkend="GScannerConfig"><type>GScannerConfig</type></link>.</para>
+</refsect2>
+<refsect2 id="G-CSET-LATINS:CAPS" role="macro">
+<title>G_CSET_LATINS</title>
+<indexterm zone="G-CSET-LATINS:CAPS"><primary sortas="CSET_LATINS">G_CSET_LATINS</primary></indexterm>
+<programlisting language="C">#define             G_CSET_LATINS</programlisting>
+<para>The set of lowercase ISO 8859-1 alphabet characters
+which are not ASCII characters.
+Used for specifying valid identifier characters
+in <link linkend="GScannerConfig"><type>GScannerConfig</type></link>.</para>
+</refsect2>
+<refsect2 id="GTokenType" role="enum">
+<title>enum GTokenType</title>
+<indexterm zone="GTokenType"><primary sortas="TokenType">GTokenType</primary></indexterm>
+<para>The possible types of token returned from each
+<link linkend="g-scanner-get-next-token"><function>g_scanner_get_next_token()</function></link> call.</para>
+<refsect3 id="GTokenType.members" role="enum_members">
+<title>Members</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="enum_members_name" colwidth="300px"/>
+<colspec colname="enum_members_description"/>
+<colspec colname="enum_members_annotations" colwidth="200px"/>
+<tbody>
+<row role="constant"><entry role="enum_member_name"><para id="G-TOKEN-EOF:CAPS">G_TOKEN_EOF</para></entry>
+<entry role="enum_member_description"><para>the end of the file</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-TOKEN-LEFT-PAREN:CAPS">G_TOKEN_LEFT_PAREN</para></entry>
+<entry role="enum_member_description"><para>a '(' character</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-TOKEN-RIGHT-PAREN:CAPS">G_TOKEN_RIGHT_PAREN</para></entry>
+<entry role="enum_member_description"><para>a ')' character</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-TOKEN-LEFT-CURLY:CAPS">G_TOKEN_LEFT_CURLY</para></entry>
+<entry role="enum_member_description"><para>a '{' character</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-TOKEN-RIGHT-CURLY:CAPS">G_TOKEN_RIGHT_CURLY</para></entry>
+<entry role="enum_member_description"><para>a '}' character</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-TOKEN-LEFT-BRACE:CAPS">G_TOKEN_LEFT_BRACE</para></entry>
+<entry role="enum_member_description"><para>a '[' character</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-TOKEN-RIGHT-BRACE:CAPS">G_TOKEN_RIGHT_BRACE</para></entry>
+<entry role="enum_member_description"><para>a ']' character</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-TOKEN-EQUAL-SIGN:CAPS">G_TOKEN_EQUAL_SIGN</para></entry>
+<entry role="enum_member_description"><para>a '=' character</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-TOKEN-COMMA:CAPS">G_TOKEN_COMMA</para></entry>
+<entry role="enum_member_description"><para>a ',' character</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-TOKEN-NONE:CAPS">G_TOKEN_NONE</para></entry>
+<entry role="enum_member_description"><para>not a token</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-TOKEN-ERROR:CAPS">G_TOKEN_ERROR</para></entry>
+<entry role="enum_member_description"><para>an error occurred</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-TOKEN-CHAR:CAPS">G_TOKEN_CHAR</para></entry>
+<entry role="enum_member_description"><para>a character</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-TOKEN-BINARY:CAPS">G_TOKEN_BINARY</para></entry>
+<entry role="enum_member_description"><para>a binary integer</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-TOKEN-OCTAL:CAPS">G_TOKEN_OCTAL</para></entry>
+<entry role="enum_member_description"><para>an octal integer</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-TOKEN-INT:CAPS">G_TOKEN_INT</para></entry>
+<entry role="enum_member_description"><para>an integer</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-TOKEN-HEX:CAPS">G_TOKEN_HEX</para></entry>
+<entry role="enum_member_description"><para>a hex integer</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-TOKEN-FLOAT:CAPS">G_TOKEN_FLOAT</para></entry>
+<entry role="enum_member_description"><para>a floating point number</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-TOKEN-STRING:CAPS">G_TOKEN_STRING</para></entry>
+<entry role="enum_member_description"><para>a string</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-TOKEN-SYMBOL:CAPS">G_TOKEN_SYMBOL</para></entry>
+<entry role="enum_member_description"><para>a symbol</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-TOKEN-IDENTIFIER:CAPS">G_TOKEN_IDENTIFIER</para></entry>
+<entry role="enum_member_description"><para>an identifier</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-TOKEN-IDENTIFIER-NULL:CAPS">G_TOKEN_IDENTIFIER_NULL</para></entry>
+<entry role="enum_member_description"><para>a null identifier</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-TOKEN-COMMENT-SINGLE:CAPS">G_TOKEN_COMMENT_SINGLE</para></entry>
+<entry role="enum_member_description"><para>one line comment</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-TOKEN-COMMENT-MULTI:CAPS">G_TOKEN_COMMENT_MULTI</para></entry>
+<entry role="enum_member_description"><para>multi line comment</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="GTokenValue" role="union">
+<title>union GTokenValue</title>
+<indexterm zone="GTokenValue"><primary sortas="TokenValue">GTokenValue</primary></indexterm>
+<para>A union holding the value of the token.</para>
+<refsect3 id="GTokenValue.members" role="union_members">
+<title>Members</title>
+<informaltable role="union_members_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="union_members_name" colwidth="300px"/>
+<colspec colname="union_members_description"/>
+<colspec colname="union_members_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="union_member_name"><para><link linkend="gpointer"><type>gpointer</type></link>&#160;<structfield id="GTokenValue.v-symbol">v_symbol</structfield>;</para></entry>
+<entry role="union_member_description"><para>token symbol value</para></entry>
+<entry role="union_member_annotations"></entry>
+</row>
+<row><entry role="union_member_name"><para><link linkend="gchar"><type>gchar</type></link>&#160;*<structfield id="GTokenValue.v-identifier">v_identifier</structfield>;</para></entry>
+<entry role="union_member_description"><para>token identifier value</para></entry>
+<entry role="union_member_annotations"></entry>
+</row>
+<row><entry role="union_member_name"><para><link linkend="gulong"><type>gulong</type></link>&#160;<structfield id="GTokenValue.v-binary">v_binary</structfield>;</para></entry>
+<entry role="union_member_description"><para>token binary integer value</para></entry>
+<entry role="union_member_annotations"></entry>
+</row>
+<row><entry role="union_member_name"><para><link linkend="gulong"><type>gulong</type></link>&#160;<structfield id="GTokenValue.v-octal">v_octal</structfield>;</para></entry>
+<entry role="union_member_description"><para>octal integer value</para></entry>
+<entry role="union_member_annotations"></entry>
+</row>
+<row><entry role="union_member_name"><para><link linkend="gulong"><type>gulong</type></link>&#160;<structfield id="GTokenValue.v-int">v_int</structfield>;</para></entry>
+<entry role="union_member_description"><para>integer value</para></entry>
+<entry role="union_member_annotations"></entry>
+</row>
+<row><entry role="union_member_name"><para><link linkend="guint64"><type>guint64</type></link>&#160;<structfield id="GTokenValue.v-int64">v_int64</structfield>;</para></entry>
+<entry role="union_member_description"><para>64-bit integer value</para></entry>
+<entry role="union_member_annotations"></entry>
+</row>
+<row><entry role="union_member_name"><para><link linkend="gdouble"><type>gdouble</type></link>&#160;<structfield id="GTokenValue.v-float">v_float</structfield>;</para></entry>
+<entry role="union_member_description"><para>floating point value</para></entry>
+<entry role="union_member_annotations"></entry>
+</row>
+<row><entry role="union_member_name"><para><link linkend="gulong"><type>gulong</type></link>&#160;<structfield id="GTokenValue.v-hex">v_hex</structfield>;</para></entry>
+<entry role="union_member_description"><para>hex integer value</para></entry>
+<entry role="union_member_annotations"></entry>
+</row>
+<row><entry role="union_member_name"><para><link linkend="gchar"><type>gchar</type></link>&#160;*<structfield id="GTokenValue.v-string">v_string</structfield>;</para></entry>
+<entry role="union_member_description"><para>string value</para></entry>
+<entry role="union_member_annotations"></entry>
+</row>
+<row><entry role="union_member_name"><para><link linkend="gchar"><type>gchar</type></link>&#160;*<structfield id="GTokenValue.v-comment">v_comment</structfield>;</para></entry>
+<entry role="union_member_description"><para>comment value</para></entry>
+<entry role="union_member_annotations"></entry>
+</row>
+<row><entry role="union_member_name"><para><link linkend="guchar"><type>guchar</type></link>&#160;<structfield id="GTokenValue.v-char">v_char</structfield>;</para></entry>
+<entry role="union_member_description"><para>character value</para></entry>
+<entry role="union_member_annotations"></entry>
+</row>
+<row><entry role="union_member_name"><para><link linkend="guint"><type>guint</type></link>&#160;<structfield id="GTokenValue.v-error">v_error</structfield>;</para></entry>
+<entry role="union_member_description"><para>error value</para></entry>
+<entry role="union_member_annotations"></entry>
+</row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="GErrorType" role="enum">
+<title>enum GErrorType</title>
+<indexterm zone="GErrorType"><primary sortas="ErrorType">GErrorType</primary></indexterm>
+<para>The possible errors, used in the <parameter>v_error</parameter>
+ field
+of <link linkend="GTokenValue"><type>GTokenValue</type></link>, when the token is a <link linkend="G-TOKEN-ERROR:CAPS"><literal>G_TOKEN_ERROR</literal></link>.</para>
+<refsect3 id="GErrorType.members" role="enum_members">
+<title>Members</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="enum_members_name" colwidth="300px"/>
+<colspec colname="enum_members_description"/>
+<colspec colname="enum_members_annotations" colwidth="200px"/>
+<tbody>
+<row role="constant"><entry role="enum_member_name"><para id="G-ERR-UNKNOWN:CAPS">G_ERR_UNKNOWN</para></entry>
+<entry role="enum_member_description"><para>unknown error</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-ERR-UNEXP-EOF:CAPS">G_ERR_UNEXP_EOF</para></entry>
+<entry role="enum_member_description"><para>unexpected end of file</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-ERR-UNEXP-EOF-IN-STRING:CAPS">G_ERR_UNEXP_EOF_IN_STRING</para></entry>
+<entry role="enum_member_description"><para>unterminated string constant</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-ERR-UNEXP-EOF-IN-COMMENT:CAPS">G_ERR_UNEXP_EOF_IN_COMMENT</para></entry>
+<entry role="enum_member_description"><para>unterminated comment</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-ERR-NON-DIGIT-IN-CONST:CAPS">G_ERR_NON_DIGIT_IN_CONST</para></entry>
+<entry role="enum_member_description"><para>non-digit character in a number</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-ERR-DIGIT-RADIX:CAPS">G_ERR_DIGIT_RADIX</para></entry>
+<entry role="enum_member_description"><para>digit beyond radix in a number</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-ERR-FLOAT-RADIX:CAPS">G_ERR_FLOAT_RADIX</para></entry>
+<entry role="enum_member_description"><para>non-decimal floating point number</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-ERR-FLOAT-MALFORMED:CAPS">G_ERR_FLOAT_MALFORMED</para></entry>
+<entry role="enum_member_description"><para>malformed floating point number</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+
+</refsect1>
+
+</refentry>

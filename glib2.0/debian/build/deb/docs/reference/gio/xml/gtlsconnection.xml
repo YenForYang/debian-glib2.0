@@ -1,0 +1,951 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC '-//OASIS//DTD DocBook XML V4.5//EN'
+                      'http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd' [
+<!ENTITY % local.common.attrib "xmlns:xi  CDATA  #FIXED 'http://www.w3.org/2003/XInclude'">
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="GTlsConnection">
+<refmeta>
+<refentrytitle role="top_of_page" id="GTlsConnection.top_of_page">GTlsConnection</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>GIO Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>GTlsConnection</refname>
+<refpurpose>TLS connection type</refpurpose>
+</refnamediv>
+
+<refsect1 id="GTlsConnection.functions" role="functions_proto">
+<title role="functions_proto.title">Functions</title>
+<informaltable pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="functions_return" colwidth="150px"/>
+<colspec colname="functions_name"/>
+<tbody>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-tls-connection-set-certificate">g_tls_connection_set_certificate</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GTlsCertificate"><returnvalue>GTlsCertificate</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-tls-connection-get-certificate">g_tls_connection_get_certificate</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GTlsCertificate"><returnvalue>GTlsCertificate</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-tls-connection-get-peer-certificate">g_tls_connection_get_peer_certificate</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GTlsCertificateFlags"><returnvalue>GTlsCertificateFlags</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-tls-connection-get-peer-certificate-errors">g_tls_connection_get_peer_certificate_errors</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-tls-connection-set-require-close-notify">g_tls_connection_set_require_close_notify</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-tls-connection-get-require-close-notify">g_tls_connection_get_require_close_notify</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-tls-connection-set-rehandshake-mode">g_tls_connection_set_rehandshake_mode</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GTlsRehandshakeMode"><returnvalue>GTlsRehandshakeMode</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-tls-connection-get-rehandshake-mode">g_tls_connection_get_rehandshake_mode</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-tls-connection-set-use-system-certdb">g_tls_connection_set_use_system_certdb</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-tls-connection-get-use-system-certdb">g_tls_connection_get_use_system_certdb</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GTlsDatabase"><returnvalue>GTlsDatabase</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-tls-connection-get-database">g_tls_connection_get_database</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-tls-connection-set-database">g_tls_connection_set_database</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GTlsInteraction"><returnvalue>GTlsInteraction</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-tls-connection-get-interaction">g_tls_connection_get_interaction</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-tls-connection-set-interaction">g_tls_connection_set_interaction</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-tls-connection-handshake">g_tls_connection_handshake</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-tls-connection-handshake-async">g_tls_connection_handshake_async</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-tls-connection-handshake-finish">g_tls_connection_handshake_finish</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-tls-connection-emit-accept-certificate">g_tls_connection_emit_accept_certificate</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GTlsConnection.properties" role="properties">
+<title role="properties.title">Properties</title>
+<informaltable frame="none">
+<tgroup cols="3">
+<colspec colname="properties_type" colwidth="150px"/>
+<colspec colname="properties_name" colwidth="300px"/>
+<colspec colname="properties_flags" colwidth="200px"/>
+<tbody>
+<row><entry role="property_type"><link linkend="GIOStream"><type>GIOStream</type></link>&#160;*</entry><entry role="property_name"><link linkend="GTlsConnection--base-io-stream">base-io-stream</link></entry><entry role="property_flags">Read / Write / Construct Only</entry></row>
+<row><entry role="property_type"><link linkend="GTlsCertificate"><type>GTlsCertificate</type></link>&#160;*</entry><entry role="property_name"><link linkend="GTlsConnection--certificate">certificate</link></entry><entry role="property_flags">Read / Write</entry></row>
+<row><entry role="property_type"><link linkend="GTlsDatabase"><type>GTlsDatabase</type></link>&#160;*</entry><entry role="property_name"><link linkend="GTlsConnection--database">database</link></entry><entry role="property_flags">Read / Write</entry></row>
+<row><entry role="property_type"><link linkend="GTlsInteraction"><type>GTlsInteraction</type></link>&#160;*</entry><entry role="property_name"><link linkend="GTlsConnection--interaction">interaction</link></entry><entry role="property_flags">Read / Write</entry></row>
+<row><entry role="property_type"><link linkend="GTlsCertificate"><type>GTlsCertificate</type></link>&#160;*</entry><entry role="property_name"><link linkend="GTlsConnection--peer-certificate">peer-certificate</link></entry><entry role="property_flags">Read</entry></row>
+<row><entry role="property_type"><link linkend="GTlsCertificateFlags"><type>GTlsCertificateFlags</type></link></entry><entry role="property_name"><link linkend="GTlsConnection--peer-certificate-errors">peer-certificate-errors</link></entry><entry role="property_flags">Read</entry></row>
+<row><entry role="property_type"><link linkend="GTlsRehandshakeMode"><type>GTlsRehandshakeMode</type></link></entry><entry role="property_name"><link linkend="GTlsConnection--rehandshake-mode">rehandshake-mode</link></entry><entry role="property_flags">Read / Write / Construct</entry></row>
+<row><entry role="property_type"><link linkend="gboolean"><type>gboolean</type></link></entry><entry role="property_name"><link linkend="GTlsConnection--require-close-notify">require-close-notify</link></entry><entry role="property_flags">Read / Write / Construct</entry></row>
+<row><entry role="property_type"><link linkend="gboolean"><type>gboolean</type></link></entry><entry role="property_name"><link linkend="GTlsConnection--use-system-certdb">use-system-certdb</link></entry><entry role="property_flags">Read / Write / Construct</entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GTlsConnection.signals" role="signal_proto">
+<title role="signal_proto.title">Signals</title>
+<informaltable frame="none">
+<tgroup cols="3">
+<colspec colname="signals_return" colwidth="150px"/>
+<colspec colname="signals_name" colwidth="300px"/>
+<colspec colname="signals_flags" colwidth="200px"/>
+<tbody>
+<row><entry role="signal_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link></entry><entry role="signal_name"><link linkend="GTlsConnection-accept-certificate">accept-certificate</link></entry><entry role="signal_flags"><link linkend="G-SIGNAL-RUN-LAST:CAPS">Run Last</link></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GTlsConnection.other" role="other_proto">
+<title role="other_proto.title">Types and Values</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="name" colwidth="150px"/>
+<colspec colname="description"/>
+<tbody>
+<row><entry role="datatype_keyword"></entry><entry role="function_name"><link linkend="GTlsConnection-struct">GTlsConnection</link></entry></row>
+<row><entry role="datatype_keyword">enum</entry><entry role="function_name"><link linkend="GTlsRehandshakeMode">GTlsRehandshakeMode</link></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GTlsConnection.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<screen>    <link linkend="GEnum">GEnum</link>
+    <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> GTlsRehandshakeMode
+    <link linkend="GObject">GObject</link>
+    <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> <link linkend="GIOStream">GIOStream</link>
+        <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> GTlsConnection
+</screen>
+</refsect1>
+<refsect1 id="GTlsConnection.derived-interfaces" role="derived_interfaces">
+<title role="derived_interfaces.title">Known Derived Interfaces</title>
+<para>
+GTlsConnection is required by
+ <link linkend="GTlsClientConnection">GTlsClientConnection</link> and  <link linkend="GTlsServerConnection">GTlsServerConnection</link>.</para>
+
+</refsect1>
+
+<refsect1 id="GTlsConnection.includes"><title>Includes</title><synopsis>#include &lt;gio/gio.h&gt;
+</synopsis></refsect1>
+
+<refsect1 id="GTlsConnection.description" role="desc">
+<title role="desc.title">Description</title>
+<para><link linkend="GTlsConnection"><type>GTlsConnection</type></link> is the base TLS connection class type, which wraps
+a <link linkend="GIOStream"><type>GIOStream</type></link> and provides TLS encryption on top of it. Its
+subclasses, <link linkend="GTlsClientConnection"><type>GTlsClientConnection</type></link> and <link linkend="GTlsServerConnection"><type>GTlsServerConnection</type></link>,
+implement client-side and server-side TLS, respectively.</para>
+<para>For DTLS (Datagram TLS) support, see <link linkend="GDtlsConnection"><type>GDtlsConnection</type></link>.</para>
+
+</refsect1>
+<refsect1 id="GTlsConnection.functions_details" role="details">
+<title role="details.title">Functions</title>
+<refsect2 id="g-tls-connection-set-certificate" role="function" condition="since:2.28">
+<title>g_tls_connection_set_certificate&#160;()</title>
+<indexterm zone="g-tls-connection-set-certificate" role="2.28"><primary sortas="tls_connection_set_certificate">g_tls_connection_set_certificate</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_tls_connection_set_certificate (<parameter><link linkend="GTlsConnection"><type>GTlsConnection</type></link> *conn</parameter>,
+                                  <parameter><link linkend="GTlsCertificate"><type>GTlsCertificate</type></link> *certificate</parameter>);</programlisting>
+<para>This sets the certificate that <parameter>conn</parameter>
+ will present to its peer
+during the TLS handshake. For a <link linkend="GTlsServerConnection"><type>GTlsServerConnection</type></link>, it is
+mandatory to set this, and that will normally be done at construct
+time.</para>
+<para>For a <link linkend="GTlsClientConnection"><type>GTlsClientConnection</type></link>, this is optional. If a handshake fails
+with <link linkend="G-TLS-ERROR-CERTIFICATE-REQUIRED:CAPS"><literal>G_TLS_ERROR_CERTIFICATE_REQUIRED</literal></link>, that means that the server
+requires a certificate, and if you try connecting again, you should
+call this method first. You can call
+<link linkend="g-tls-client-connection-get-accepted-cas"><function>g_tls_client_connection_get_accepted_cas()</function></link> on the failed connection
+to get a list of Certificate Authorities that the server will
+accept certificates from.</para>
+<para>(It is also possible that a server will allow the connection with
+or without a certificate; in that case, if you don't provide a
+certificate, you can tell that the server requested one by the fact
+that <link linkend="g-tls-client-connection-get-accepted-cas"><function>g_tls_client_connection_get_accepted_cas()</function></link> will return
+non-<link linkend="NULL:CAPS"><literal>NULL</literal></link>.)</para>
+<refsect3 id="g-tls-connection-set-certificate.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>conn</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GTlsConnection"><type>GTlsConnection</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>certificate</para></entry>
+<entry role="parameter_description"><para>the certificate to use for <parameter>conn</parameter>
+</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.28">2.28</link></para></refsect2>
+<refsect2 id="g-tls-connection-get-certificate" role="function" condition="since:2.28">
+<title>g_tls_connection_get_certificate&#160;()</title>
+<indexterm zone="g-tls-connection-get-certificate" role="2.28"><primary sortas="tls_connection_get_certificate">g_tls_connection_get_certificate</primary></indexterm>
+<programlisting language="C"><link linkend="GTlsCertificate"><returnvalue>GTlsCertificate</returnvalue></link>&#160;*
+g_tls_connection_get_certificate (<parameter><link linkend="GTlsConnection"><type>GTlsConnection</type></link> *conn</parameter>);</programlisting>
+<para>Gets <parameter>conn</parameter>
+'s certificate, as set by
+<link linkend="g-tls-connection-set-certificate"><function>g_tls_connection_set_certificate()</function></link>.</para>
+<refsect3 id="g-tls-connection-get-certificate.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>conn</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GTlsConnection"><type>GTlsConnection</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-tls-connection-get-certificate.returns" role="returns">
+<title>Returns</title>
+<para><parameter>conn</parameter>
+'s certificate, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para>
+<para><emphasis role="annotation">[<acronym>transfer none</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.28">2.28</link></para></refsect2>
+<refsect2 id="g-tls-connection-get-peer-certificate" role="function" condition="since:2.28">
+<title>g_tls_connection_get_peer_certificate&#160;()</title>
+<indexterm zone="g-tls-connection-get-peer-certificate" role="2.28"><primary sortas="tls_connection_get_peer_certificate">g_tls_connection_get_peer_certificate</primary></indexterm>
+<programlisting language="C"><link linkend="GTlsCertificate"><returnvalue>GTlsCertificate</returnvalue></link>&#160;*
+g_tls_connection_get_peer_certificate (<parameter><link linkend="GTlsConnection"><type>GTlsConnection</type></link> *conn</parameter>);</programlisting>
+<para>Gets <parameter>conn</parameter>
+'s peer's certificate after the handshake has completed.
+(It is not set during the emission of
+<link linkend="GTlsConnection-accept-certificate"><type>“accept-certificate”</type></link>.)</para>
+<refsect3 id="g-tls-connection-get-peer-certificate.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>conn</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GTlsConnection"><type>GTlsConnection</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-tls-connection-get-peer-certificate.returns" role="returns">
+<title>Returns</title>
+<para><parameter>conn</parameter>
+'s peer's certificate, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para>
+<para><emphasis role="annotation">[<acronym>transfer none</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.28">2.28</link></para></refsect2>
+<refsect2 id="g-tls-connection-get-peer-certificate-errors" role="function" condition="since:2.28">
+<title>g_tls_connection_get_peer_certificate_errors&#160;()</title>
+<indexterm zone="g-tls-connection-get-peer-certificate-errors" role="2.28"><primary sortas="tls_connection_get_peer_certificate_errors">g_tls_connection_get_peer_certificate_errors</primary></indexterm>
+<programlisting language="C"><link linkend="GTlsCertificateFlags"><returnvalue>GTlsCertificateFlags</returnvalue></link>
+g_tls_connection_get_peer_certificate_errors
+                               (<parameter><link linkend="GTlsConnection"><type>GTlsConnection</type></link> *conn</parameter>);</programlisting>
+<para>Gets the errors associated with validating <parameter>conn</parameter>
+'s peer's
+certificate, after the handshake has completed. (It is not set
+during the emission of <link linkend="GTlsConnection-accept-certificate"><type>“accept-certificate”</type></link>.)</para>
+<refsect3 id="g-tls-connection-get-peer-certificate-errors.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>conn</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GTlsConnection"><type>GTlsConnection</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-tls-connection-get-peer-certificate-errors.returns" role="returns">
+<title>Returns</title>
+<para> <parameter>conn</parameter>
+'s peer's certificate errors</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.28">2.28</link></para></refsect2>
+<refsect2 id="g-tls-connection-set-require-close-notify" role="function" condition="since:2.28">
+<title>g_tls_connection_set_require_close_notify&#160;()</title>
+<indexterm zone="g-tls-connection-set-require-close-notify" role="2.28"><primary sortas="tls_connection_set_require_close_notify">g_tls_connection_set_require_close_notify</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_tls_connection_set_require_close_notify
+                               (<parameter><link linkend="GTlsConnection"><type>GTlsConnection</type></link> *conn</parameter>,
+                                <parameter><link linkend="gboolean"><type>gboolean</type></link> require_close_notify</parameter>);</programlisting>
+<para>Sets whether or not <parameter>conn</parameter>
+ expects a proper TLS close notification
+before the connection is closed. If this is <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> (the default),
+then <parameter>conn</parameter>
+ will expect to receive a TLS close notification from its
+peer before the connection is closed, and will return a
+<link linkend="G-TLS-ERROR-EOF:CAPS"><literal>G_TLS_ERROR_EOF</literal></link> error if the connection is closed without proper
+notification (since this may indicate a network error, or
+man-in-the-middle attack).</para>
+<para>In some protocols, the application will know whether or not the
+connection was closed cleanly based on application-level data
+(because the application-level data includes a length field, or is
+somehow self-delimiting); in this case, the close notify is
+redundant and sometimes omitted. (TLS 1.1 explicitly allows this;
+in TLS 1.0 it is technically an error, but often done anyway.) You
+can use <link linkend="g-tls-connection-set-require-close-notify"><function>g_tls_connection_set_require_close_notify()</function></link> to tell <parameter>conn</parameter>
+
+to allow an "unannounced" connection close, in which case the close
+will show up as a 0-length read, as in a non-TLS
+<link linkend="GSocketConnection"><type>GSocketConnection</type></link>, and it is up to the application to check that
+the data has been fully received.</para>
+<para>Note that this only affects the behavior when the peer closes the
+connection; when the application calls <link linkend="g-io-stream-close"><function>g_io_stream_close()</function></link> itself
+on <parameter>conn</parameter>
+, this will send a close notification regardless of the
+setting of this property. If you explicitly want to do an unclean
+close, you can close <parameter>conn</parameter>
+'s <link linkend="GTlsConnection--base-io-stream"><type>“base-io-stream”</type></link> rather
+than closing <parameter>conn</parameter>
+ itself, but note that this may only be done when no other
+operations are pending on <parameter>conn</parameter>
+ or the base I/O stream.</para>
+<refsect3 id="g-tls-connection-set-require-close-notify.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>conn</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GTlsConnection"><type>GTlsConnection</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>require_close_notify</para></entry>
+<entry role="parameter_description"><para>whether or not to require close notification</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.28">2.28</link></para></refsect2>
+<refsect2 id="g-tls-connection-get-require-close-notify" role="function" condition="since:2.28">
+<title>g_tls_connection_get_require_close_notify&#160;()</title>
+<indexterm zone="g-tls-connection-get-require-close-notify" role="2.28"><primary sortas="tls_connection_get_require_close_notify">g_tls_connection_get_require_close_notify</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_tls_connection_get_require_close_notify
+                               (<parameter><link linkend="GTlsConnection"><type>GTlsConnection</type></link> *conn</parameter>);</programlisting>
+<para>Tests whether or not <parameter>conn</parameter>
+ expects a proper TLS close notification
+when the connection is closed. See
+<link linkend="g-tls-connection-set-require-close-notify"><function>g_tls_connection_set_require_close_notify()</function></link> for details.</para>
+<refsect3 id="g-tls-connection-get-require-close-notify.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>conn</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GTlsConnection"><type>GTlsConnection</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-tls-connection-get-require-close-notify.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if <parameter>conn</parameter>
+requires a proper TLS close
+notification.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.28">2.28</link></para></refsect2>
+<refsect2 id="g-tls-connection-set-rehandshake-mode" role="function" condition="since:2.28">
+<title>g_tls_connection_set_rehandshake_mode&#160;()</title>
+<indexterm zone="g-tls-connection-set-rehandshake-mode" role="2.28"><primary sortas="tls_connection_set_rehandshake_mode">g_tls_connection_set_rehandshake_mode</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_tls_connection_set_rehandshake_mode (<parameter><link linkend="GTlsConnection"><type>GTlsConnection</type></link> *conn</parameter>,
+                                       <parameter><link linkend="GTlsRehandshakeMode"><type>GTlsRehandshakeMode</type></link> mode</parameter>);</programlisting>
+<para>Sets how <parameter>conn</parameter>
+ behaves with respect to rehandshaking requests, when
+TLS 1.2 or older is in use.</para>
+<para><link linkend="G-TLS-REHANDSHAKE-NEVER:CAPS"><literal>G_TLS_REHANDSHAKE_NEVER</literal></link> means that it will never agree to
+rehandshake after the initial handshake is complete. (For a client,
+this means it will refuse rehandshake requests from the server, and
+for a server, this means it will close the connection with an error
+if the client attempts to rehandshake.)</para>
+<para><link linkend="G-TLS-REHANDSHAKE-SAFELY:CAPS"><literal>G_TLS_REHANDSHAKE_SAFELY</literal></link> means that the connection will allow a
+rehandshake only if the other end of the connection supports the
+TLS <literal>renegotiation_info</literal> extension. This is the default behavior,
+but means that rehandshaking will not work against older
+implementations that do not support that extension.</para>
+<para><link linkend="G-TLS-REHANDSHAKE-UNSAFELY:CAPS"><literal>G_TLS_REHANDSHAKE_UNSAFELY</literal></link> means that the connection will allow
+rehandshaking even without the <literal>renegotiation_info</literal> extension. On
+the server side in particular, this is not recommended, since it
+leaves the server open to certain attacks. However, this mode is
+necessary if you need to allow renegotiation with older client
+software.</para>
+<refsect3 id="g-tls-connection-set-rehandshake-mode.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>conn</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GTlsConnection"><type>GTlsConnection</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>mode</para></entry>
+<entry role="parameter_description"><para>the rehandshaking mode</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.28">2.28</link></para></refsect2>
+<refsect2 id="g-tls-connection-get-rehandshake-mode" role="function" condition="since:2.28">
+<title>g_tls_connection_get_rehandshake_mode&#160;()</title>
+<indexterm zone="g-tls-connection-get-rehandshake-mode" role="2.28"><primary sortas="tls_connection_get_rehandshake_mode">g_tls_connection_get_rehandshake_mode</primary></indexterm>
+<programlisting language="C"><link linkend="GTlsRehandshakeMode"><returnvalue>GTlsRehandshakeMode</returnvalue></link>
+g_tls_connection_get_rehandshake_mode (<parameter><link linkend="GTlsConnection"><type>GTlsConnection</type></link> *conn</parameter>);</programlisting>
+<para>Gets <parameter>conn</parameter>
+ rehandshaking mode. See
+<link linkend="g-tls-connection-set-rehandshake-mode"><function>g_tls_connection_set_rehandshake_mode()</function></link> for details.</para>
+<refsect3 id="g-tls-connection-get-rehandshake-mode.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>conn</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GTlsConnection"><type>GTlsConnection</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-tls-connection-get-rehandshake-mode.returns" role="returns">
+<title>Returns</title>
+<para> <parameter>conn</parameter>
+'s rehandshaking mode</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.28">2.28</link></para></refsect2>
+<refsect2 id="g-tls-connection-set-use-system-certdb" role="function" condition="deprecated:2.30: Use g_tls_connection_set_database() instead">
+<title>g_tls_connection_set_use_system_certdb&#160;()</title>
+<indexterm zone="g-tls-connection-set-use-system-certdb" role="deprecated"><primary sortas="tls_connection_set_use_system_certdb">g_tls_connection_set_use_system_certdb</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_tls_connection_set_use_system_certdb
+                               (<parameter><link linkend="GTlsConnection"><type>GTlsConnection</type></link> *conn</parameter>,
+                                <parameter><link linkend="gboolean"><type>gboolean</type></link> use_system_certdb</parameter>);</programlisting>
+<warning><para><literal>g_tls_connection_set_use_system_certdb</literal> has been deprecated since version 2.30 and should not be used in newly-written code.</para> <para>Use <link linkend="g-tls-connection-set-database"><function>g_tls_connection_set_database()</function></link> instead</para>
+</warning>
+<para>Sets whether <parameter>conn</parameter>
+ uses the system certificate database to verify
+peer certificates. This is <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> by default. If set to <link linkend="FALSE:CAPS"><literal>FALSE</literal></link>, then
+peer certificate validation will always set the
+<link linkend="G-TLS-CERTIFICATE-UNKNOWN-CA:CAPS"><literal>G_TLS_CERTIFICATE_UNKNOWN_CA</literal></link> error (meaning
+<link linkend="GTlsConnection-accept-certificate"><type>“accept-certificate”</type></link> will always be emitted on
+client-side connections, unless that bit is not set in
+<link linkend="GTlsClientConnection--validation-flags"><type>“validation-flags”</type></link>).</para>
+<refsect3 id="g-tls-connection-set-use-system-certdb.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>conn</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GTlsConnection"><type>GTlsConnection</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>use_system_certdb</para></entry>
+<entry role="parameter_description"><para>whether to use the system certificate database</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-tls-connection-get-use-system-certdb" role="function" condition="deprecated:2.30: Use g_tls_connection_get_database() instead">
+<title>g_tls_connection_get_use_system_certdb&#160;()</title>
+<indexterm zone="g-tls-connection-get-use-system-certdb" role="deprecated"><primary sortas="tls_connection_get_use_system_certdb">g_tls_connection_get_use_system_certdb</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_tls_connection_get_use_system_certdb
+                               (<parameter><link linkend="GTlsConnection"><type>GTlsConnection</type></link> *conn</parameter>);</programlisting>
+<warning><para><literal>g_tls_connection_get_use_system_certdb</literal> has been deprecated since version 2.30 and should not be used in newly-written code.</para> <para>Use <link linkend="g-tls-connection-get-database"><function>g_tls_connection_get_database()</function></link> instead</para>
+</warning>
+<para>Gets whether <parameter>conn</parameter>
+ uses the system certificate database to verify
+peer certificates. See <link linkend="g-tls-connection-set-use-system-certdb"><function>g_tls_connection_set_use_system_certdb()</function></link>.</para>
+<refsect3 id="g-tls-connection-get-use-system-certdb.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>conn</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GTlsConnection"><type>GTlsConnection</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-tls-connection-get-use-system-certdb.returns" role="returns">
+<title>Returns</title>
+<para> whether <parameter>conn</parameter>
+uses the system certificate database</para>
+</refsect3></refsect2>
+<refsect2 id="g-tls-connection-get-database" role="function" condition="since:2.30">
+<title>g_tls_connection_get_database&#160;()</title>
+<indexterm zone="g-tls-connection-get-database" role="2.30"><primary sortas="tls_connection_get_database">g_tls_connection_get_database</primary></indexterm>
+<programlisting language="C"><link linkend="GTlsDatabase"><returnvalue>GTlsDatabase</returnvalue></link>&#160;*
+g_tls_connection_get_database (<parameter><link linkend="GTlsConnection"><type>GTlsConnection</type></link> *conn</parameter>);</programlisting>
+<para>Gets the certificate database that <parameter>conn</parameter>
+ uses to verify
+peer certificates. See <link linkend="g-tls-connection-set-database"><function>g_tls_connection_set_database()</function></link>.</para>
+<refsect3 id="g-tls-connection-get-database.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>conn</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GTlsConnection"><type>GTlsConnection</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-tls-connection-get-database.returns" role="returns">
+<title>Returns</title>
+<para>the certificate database that <parameter>conn</parameter>
+uses or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para>
+<para><emphasis role="annotation">[<acronym>transfer none</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.30">2.30</link></para></refsect2>
+<refsect2 id="g-tls-connection-set-database" role="function" condition="since:2.30">
+<title>g_tls_connection_set_database&#160;()</title>
+<indexterm zone="g-tls-connection-set-database" role="2.30"><primary sortas="tls_connection_set_database">g_tls_connection_set_database</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_tls_connection_set_database (<parameter><link linkend="GTlsConnection"><type>GTlsConnection</type></link> *conn</parameter>,
+                               <parameter><link linkend="GTlsDatabase"><type>GTlsDatabase</type></link> *database</parameter>);</programlisting>
+<para>Sets the certificate database that is used to verify peer certificates.
+This is set to the default database by default. See
+<link linkend="g-tls-backend-get-default-database"><function>g_tls_backend_get_default_database()</function></link>. If set to <link linkend="NULL:CAPS"><literal>NULL</literal></link>, then
+peer certificate validation will always set the
+<link linkend="G-TLS-CERTIFICATE-UNKNOWN-CA:CAPS"><literal>G_TLS_CERTIFICATE_UNKNOWN_CA</literal></link> error (meaning
+<link linkend="GTlsConnection-accept-certificate"><type>“accept-certificate”</type></link> will always be emitted on
+client-side connections, unless that bit is not set in
+<link linkend="GTlsClientConnection--validation-flags"><type>“validation-flags”</type></link>).</para>
+<refsect3 id="g-tls-connection-set-database.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>conn</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GTlsConnection"><type>GTlsConnection</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>database</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GTlsDatabase"><type>GTlsDatabase</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.30">2.30</link></para></refsect2>
+<refsect2 id="g-tls-connection-get-interaction" role="function" condition="since:2.30">
+<title>g_tls_connection_get_interaction&#160;()</title>
+<indexterm zone="g-tls-connection-get-interaction" role="2.30"><primary sortas="tls_connection_get_interaction">g_tls_connection_get_interaction</primary></indexterm>
+<programlisting language="C"><link linkend="GTlsInteraction"><returnvalue>GTlsInteraction</returnvalue></link>&#160;*
+g_tls_connection_get_interaction (<parameter><link linkend="GTlsConnection"><type>GTlsConnection</type></link> *conn</parameter>);</programlisting>
+<para>Get the object that will be used to interact with the user. It will be used
+for things like prompting the user for passwords. If <link linkend="NULL:CAPS"><literal>NULL</literal></link> is returned, then
+no user interaction will occur for this connection.</para>
+<refsect3 id="g-tls-connection-get-interaction.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>conn</para></entry>
+<entry role="parameter_description"><para>a connection</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-tls-connection-get-interaction.returns" role="returns">
+<title>Returns</title>
+<para>The interaction object. </para>
+<para><emphasis role="annotation">[<acronym>transfer none</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.30">2.30</link></para></refsect2>
+<refsect2 id="g-tls-connection-set-interaction" role="function" condition="since:2.30">
+<title>g_tls_connection_set_interaction&#160;()</title>
+<indexterm zone="g-tls-connection-set-interaction" role="2.30"><primary sortas="tls_connection_set_interaction">g_tls_connection_set_interaction</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_tls_connection_set_interaction (<parameter><link linkend="GTlsConnection"><type>GTlsConnection</type></link> *conn</parameter>,
+                                  <parameter><link linkend="GTlsInteraction"><type>GTlsInteraction</type></link> *interaction</parameter>);</programlisting>
+<para>Set the object that will be used to interact with the user. It will be used
+for things like prompting the user for passwords.</para>
+<para>The <parameter>interaction</parameter>
+ argument will normally be a derived subclass of
+<link linkend="GTlsInteraction"><type>GTlsInteraction</type></link>. <link linkend="NULL:CAPS"><literal>NULL</literal></link> can also be provided if no user interaction
+should occur for this connection.</para>
+<refsect3 id="g-tls-connection-set-interaction.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>conn</para></entry>
+<entry role="parameter_description"><para>a connection</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>interaction</para></entry>
+<entry role="parameter_description"><para>an interaction object, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.30">2.30</link></para></refsect2>
+<refsect2 id="g-tls-connection-handshake" role="function" condition="since:2.28">
+<title>g_tls_connection_handshake&#160;()</title>
+<indexterm zone="g-tls-connection-handshake" role="2.28"><primary sortas="tls_connection_handshake">g_tls_connection_handshake</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_tls_connection_handshake (<parameter><link linkend="GTlsConnection"><type>GTlsConnection</type></link> *conn</parameter>,
+                            <parameter><link linkend="GCancellable"><type>GCancellable</type></link> *cancellable</parameter>,
+                            <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para>Attempts a TLS handshake on <parameter>conn</parameter>
+.</para>
+<para>On the client side, it is never necessary to call this method;
+although the connection needs to perform a handshake after
+connecting (or after sending a "STARTTLS"-type command) and may
+need to rehandshake later if the server requests it,
+<link linkend="GTlsConnection"><type>GTlsConnection</type></link> will handle this for you automatically when you try
+to send or receive data on the connection. However, you can call
+<link linkend="g-tls-connection-handshake"><function>g_tls_connection_handshake()</function></link> manually if you want to know for sure
+whether the initial handshake succeeded or failed (as opposed to
+just immediately trying to write to <parameter>conn</parameter>
+'s output stream, in which
+case if it fails, it may not be possible to tell if it failed
+before or after completing the handshake).</para>
+<para>Likewise, on the server side, although a handshake is necessary at
+the beginning of the communication, you do not need to call this
+function explicitly unless you want clearer error reporting.
+However, you may call <link linkend="g-tls-connection-handshake"><function>g_tls_connection_handshake()</function></link> later on to
+rehandshake, if TLS 1.2 or older is in use. With TLS 1.3, the
+behavior is undefined but guaranteed to be reasonable and
+nondestructive, so most older code should be expected to continue to
+work without changes.</para>
+<para><link linkend="GTlsConnection-accept-certificate"><type>“accept_certificate”</type></link> may be emitted during the
+handshake.</para>
+<refsect3 id="g-tls-connection-handshake.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>conn</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GTlsConnection"><type>GTlsConnection</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>cancellable</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GCancellable"><type>GCancellable</type></link>, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GError"><type>GError</type></link>, or <link linkend="NULL:CAPS"><literal>NULL</literal></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-tls-connection-handshake.returns" role="returns">
+<title>Returns</title>
+<para> success or failure</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.28">2.28</link></para></refsect2>
+<refsect2 id="g-tls-connection-handshake-async" role="function" condition="since:2.28">
+<title>g_tls_connection_handshake_async&#160;()</title>
+<indexterm zone="g-tls-connection-handshake-async" role="2.28"><primary sortas="tls_connection_handshake_async">g_tls_connection_handshake_async</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_tls_connection_handshake_async (<parameter><link linkend="GTlsConnection"><type>GTlsConnection</type></link> *conn</parameter>,
+                                  <parameter><link linkend="int"><type>int</type></link> io_priority</parameter>,
+                                  <parameter><link linkend="GCancellable"><type>GCancellable</type></link> *cancellable</parameter>,
+                                  <parameter><link linkend="GAsyncReadyCallback"><type>GAsyncReadyCallback</type></link> callback</parameter>,
+                                  <parameter><link linkend="gpointer"><type>gpointer</type></link> user_data</parameter>);</programlisting>
+<para>Asynchronously performs a TLS handshake on <parameter>conn</parameter>
+. See
+<link linkend="g-tls-connection-handshake"><function>g_tls_connection_handshake()</function></link> for more information.</para>
+<refsect3 id="g-tls-connection-handshake-async.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>conn</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GTlsConnection"><type>GTlsConnection</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>io_priority</para></entry>
+<entry role="parameter_description"><para>the <link linkend="io-priority">I/O priority</link> of the request</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>cancellable</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GCancellable"><type>GCancellable</type></link>, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>callback</para></entry>
+<entry role="parameter_description"><para>callback to call when the handshake is complete</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>user_data</para></entry>
+<entry role="parameter_description"><para>the data to pass to the callback function</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.28">2.28</link></para></refsect2>
+<refsect2 id="g-tls-connection-handshake-finish" role="function" condition="since:2.28">
+<title>g_tls_connection_handshake_finish&#160;()</title>
+<indexterm zone="g-tls-connection-handshake-finish" role="2.28"><primary sortas="tls_connection_handshake_finish">g_tls_connection_handshake_finish</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_tls_connection_handshake_finish (<parameter><link linkend="GTlsConnection"><type>GTlsConnection</type></link> *conn</parameter>,
+                                   <parameter><link linkend="GAsyncResult"><type>GAsyncResult</type></link> *result</parameter>,
+                                   <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para>Finish an asynchronous TLS handshake operation. See
+<link linkend="g-tls-connection-handshake"><function>g_tls_connection_handshake()</function></link> for more information.</para>
+<refsect3 id="g-tls-connection-handshake-finish.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>conn</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GTlsConnection"><type>GTlsConnection</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>result</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GAsyncResult"><type>GAsyncResult</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GError"><type>GError</type></link> pointer, or <link linkend="NULL:CAPS"><literal>NULL</literal></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-tls-connection-handshake-finish.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> on success, <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> on failure, in which
+case <parameter>error</parameter>
+will be set.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.28">2.28</link></para></refsect2>
+<refsect2 id="g-tls-connection-emit-accept-certificate" role="function" condition="since:2.28">
+<title>g_tls_connection_emit_accept_certificate&#160;()</title>
+<indexterm zone="g-tls-connection-emit-accept-certificate" role="2.28"><primary sortas="tls_connection_emit_accept_certificate">g_tls_connection_emit_accept_certificate</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_tls_connection_emit_accept_certificate
+                               (<parameter><link linkend="GTlsConnection"><type>GTlsConnection</type></link> *conn</parameter>,
+                                <parameter><link linkend="GTlsCertificate"><type>GTlsCertificate</type></link> *peer_cert</parameter>,
+                                <parameter><link linkend="GTlsCertificateFlags"><type>GTlsCertificateFlags</type></link> errors</parameter>);</programlisting>
+<para>Used by <link linkend="GTlsConnection"><type>GTlsConnection</type></link> implementations to emit the
+<link linkend="GTlsConnection-accept-certificate"><type>“accept-certificate”</type></link> signal.</para>
+<refsect3 id="g-tls-connection-emit-accept-certificate.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>conn</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GTlsConnection"><type>GTlsConnection</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>peer_cert</para></entry>
+<entry role="parameter_description"><para>the peer's <link linkend="GTlsCertificate"><type>GTlsCertificate</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>errors</para></entry>
+<entry role="parameter_description"><para>the problems with <parameter>peer_cert</parameter>
+</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-tls-connection-emit-accept-certificate.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if one of the signal handlers has returned
+<link linkend="TRUE:CAPS"><literal>TRUE</literal></link> to accept <parameter>peer_cert</parameter>
+</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.28">2.28</link></para></refsect2>
+
+</refsect1>
+<refsect1 id="GTlsConnection.other_details" role="details">
+<title role="details.title">Types and Values</title>
+<refsect2 id="GTlsConnection-struct" role="struct">
+<title>GTlsConnection</title>
+<indexterm zone="GTlsConnection-struct" role="2.28"><primary sortas="TlsConnection">GTlsConnection</primary></indexterm>
+<programlisting language="C">typedef struct _GTlsConnection GTlsConnection;</programlisting>
+<para>Abstract base class for the backend-specific <link linkend="GTlsClientConnection"><type>GTlsClientConnection</type></link>
+and <link linkend="GTlsServerConnection"><type>GTlsServerConnection</type></link> types.</para>
+<para role="since">Since: <link linkend="api-index-2.28">2.28</link></para></refsect2>
+<refsect2 id="GTlsRehandshakeMode" role="enum" condition="since:2.28">
+<title>enum GTlsRehandshakeMode</title>
+<indexterm zone="GTlsRehandshakeMode" role="2.28"><primary sortas="TlsRehandshakeMode">GTlsRehandshakeMode</primary></indexterm>
+<para>When to allow rehandshaking. See
+<link linkend="g-tls-connection-set-rehandshake-mode"><function>g_tls_connection_set_rehandshake_mode()</function></link>.</para>
+<refsect3 id="GTlsRehandshakeMode.members" role="enum_members">
+<title>Members</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="enum_members_name" colwidth="300px"/>
+<colspec colname="enum_members_description"/>
+<colspec colname="enum_members_annotations" colwidth="200px"/>
+<tbody>
+<row role="constant"><entry role="enum_member_name"><para id="G-TLS-REHANDSHAKE-NEVER:CAPS">G_TLS_REHANDSHAKE_NEVER</para></entry>
+<entry role="enum_member_description"><para>Never allow rehandshaking</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-TLS-REHANDSHAKE-SAFELY:CAPS">G_TLS_REHANDSHAKE_SAFELY</para></entry>
+<entry role="enum_member_description"><para>Allow safe rehandshaking only</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-TLS-REHANDSHAKE-UNSAFELY:CAPS">G_TLS_REHANDSHAKE_UNSAFELY</para></entry>
+<entry role="enum_member_description"><para>Allow unsafe rehandshaking</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.28">2.28</link></para></refsect2>
+
+</refsect1>
+<refsect1 id="GTlsConnection.property-details" role="property_details">
+<title role="property_details.title">Property Details</title>
+<refsect2 id="GTlsConnection--base-io-stream" role="property"><title>The <literal>“base-io-stream”</literal> property</title>
+<indexterm zone="GTlsConnection--base-io-stream" role="2.28"><primary sortas="TlsConnection:base-io-stream">GTlsConnection:base-io-stream</primary></indexterm>
+<programlisting>  “base-io-stream”           <link linkend="GIOStream"><type>GIOStream</type></link>&#160;*</programlisting>
+<para>The <link linkend="GIOStream"><type>GIOStream</type></link> that the connection wraps. The connection holds a reference
+to this stream, and may run operations on the stream from other threads
+throughout its lifetime. Consequently, after the <link linkend="GIOStream"><type>GIOStream</type></link> has been
+constructed, application code may only run its own operations on this
+stream when no <link linkend="GIOStream"><type>GIOStream</type></link> operations are running.</para>
+<para>Flags: Read / Write / Construct Only</para>
+<para role="since">Since: <link linkend="api-index-2.28">2.28</link></para></refsect2>
+<refsect2 id="GTlsConnection--certificate" role="property"><title>The <literal>“certificate”</literal> property</title>
+<indexterm zone="GTlsConnection--certificate" role="2.28"><primary sortas="TlsConnection:certificate">GTlsConnection:certificate</primary></indexterm>
+<programlisting>  “certificate”              <link linkend="GTlsCertificate"><type>GTlsCertificate</type></link>&#160;*</programlisting>
+<para>The connection's certificate; see
+<link linkend="g-tls-connection-set-certificate"><function>g_tls_connection_set_certificate()</function></link>.</para>
+<para>Flags: Read / Write</para>
+<para role="since">Since: <link linkend="api-index-2.28">2.28</link></para></refsect2>
+<refsect2 id="GTlsConnection--database" role="property"><title>The <literal>“database”</literal> property</title>
+<indexterm zone="GTlsConnection--database" role="2.30"><primary sortas="TlsConnection:database">GTlsConnection:database</primary></indexterm>
+<programlisting>  “database”                 <link linkend="GTlsDatabase"><type>GTlsDatabase</type></link>&#160;*</programlisting>
+<para>The certificate database to use when verifying this TLS connection.
+If no certificate database is set, then the default database will be
+used. See <link linkend="g-tls-backend-get-default-database"><function>g_tls_backend_get_default_database()</function></link>.</para>
+<para>Flags: Read / Write</para>
+<para role="since">Since: <link linkend="api-index-2.30">2.30</link></para></refsect2>
+<refsect2 id="GTlsConnection--interaction" role="property"><title>The <literal>“interaction”</literal> property</title>
+<indexterm zone="GTlsConnection--interaction" role="2.30"><primary sortas="TlsConnection:interaction">GTlsConnection:interaction</primary></indexterm>
+<programlisting>  “interaction”              <link linkend="GTlsInteraction"><type>GTlsInteraction</type></link>&#160;*</programlisting>
+<para>A <link linkend="GTlsInteraction"><type>GTlsInteraction</type></link> object to be used when the connection or certificate
+database need to interact with the user. This will be used to prompt the
+user for passwords where necessary.</para>
+<para>Flags: Read / Write</para>
+<para role="since">Since: <link linkend="api-index-2.30">2.30</link></para></refsect2>
+<refsect2 id="GTlsConnection--peer-certificate" role="property"><title>The <literal>“peer-certificate”</literal> property</title>
+<indexterm zone="GTlsConnection--peer-certificate" role="2.28"><primary sortas="TlsConnection:peer-certificate">GTlsConnection:peer-certificate</primary></indexterm>
+<programlisting>  “peer-certificate”         <link linkend="GTlsCertificate"><type>GTlsCertificate</type></link>&#160;*</programlisting>
+<para>The connection's peer's certificate, after the TLS handshake has
+completed and the certificate has been accepted. Note in
+particular that this is not yet set during the emission of
+<link linkend="GTlsConnection-accept-certificate"><type>“accept-certificate”</type></link>.</para>
+<para>(You can watch for a <link linkend="GObject-notify"><type>“notify”</type></link> signal on this property to
+detect when a handshake has occurred.)</para>
+<para>Flags: Read</para>
+<para role="since">Since: <link linkend="api-index-2.28">2.28</link></para></refsect2>
+<refsect2 id="GTlsConnection--peer-certificate-errors" role="property"><title>The <literal>“peer-certificate-errors”</literal> property</title>
+<indexterm zone="GTlsConnection--peer-certificate-errors" role="2.28"><primary sortas="TlsConnection:peer-certificate-errors">GTlsConnection:peer-certificate-errors</primary></indexterm>
+<programlisting>  “peer-certificate-errors”  <link linkend="GTlsCertificateFlags"><type>GTlsCertificateFlags</type></link></programlisting>
+<para>The errors noticed-and-ignored while verifying
+<link linkend="GTlsConnection--peer-certificate"><type>“peer-certificate”</type></link>. Normally this should be 0, but
+it may not be if <link linkend="GTlsClientConnection--validation-flags"><type>“validation-flags”</type></link> is not
+<link linkend="G-TLS-CERTIFICATE-VALIDATE-ALL:CAPS"><literal>G_TLS_CERTIFICATE_VALIDATE_ALL</literal></link>, or if
+<link linkend="GTlsConnection-accept-certificate"><type>“accept-certificate”</type></link> overrode the default
+behavior.</para>
+<para>Flags: Read</para>
+<para role="since">Since: <link linkend="api-index-2.28">2.28</link></para></refsect2>
+<refsect2 id="GTlsConnection--rehandshake-mode" role="property"><title>The <literal>“rehandshake-mode”</literal> property</title>
+<indexterm zone="GTlsConnection--rehandshake-mode" role="2.28"><primary sortas="TlsConnection:rehandshake-mode">GTlsConnection:rehandshake-mode</primary></indexterm>
+<programlisting>  “rehandshake-mode”         <link linkend="GTlsRehandshakeMode"><type>GTlsRehandshakeMode</type></link></programlisting>
+<para>The rehandshaking mode. See
+<link linkend="g-tls-connection-set-rehandshake-mode"><function>g_tls_connection_set_rehandshake_mode()</function></link>.</para>
+<para>Flags: Read / Write / Construct</para>
+<para>Default value: G_TLS_REHANDSHAKE_SAFELY</para>
+<para role="since">Since: <link linkend="api-index-2.28">2.28</link></para></refsect2>
+<refsect2 id="GTlsConnection--require-close-notify" role="property"><title>The <literal>“require-close-notify”</literal> property</title>
+<indexterm zone="GTlsConnection--require-close-notify" role="2.28"><primary sortas="TlsConnection:require-close-notify">GTlsConnection:require-close-notify</primary></indexterm>
+<programlisting>  “require-close-notify”     <link linkend="gboolean"><type>gboolean</type></link></programlisting>
+<para>Whether or not proper TLS close notification is required.
+See <link linkend="g-tls-connection-set-require-close-notify"><function>g_tls_connection_set_require_close_notify()</function></link>.</para>
+<para>Flags: Read / Write / Construct</para>
+<para>Default value: TRUE</para>
+<para role="since">Since: <link linkend="api-index-2.28">2.28</link></para></refsect2>
+<refsect2 id="GTlsConnection--use-system-certdb" role="property"><title>The <literal>“use-system-certdb”</literal> property</title>
+<indexterm zone="GTlsConnection--use-system-certdb" role="deprecated"><primary sortas="TlsConnection:use-system-certdb">GTlsConnection:use-system-certdb</primary></indexterm>
+<programlisting>  “use-system-certdb”        <link linkend="gboolean"><type>gboolean</type></link></programlisting>
+<para>Whether or not the system certificate database will be used to
+verify peer certificates. See
+<link linkend="g-tls-connection-set-use-system-certdb"><function>g_tls_connection_set_use_system_certdb()</function></link>.</para>
+<warning><para><literal>GTlsConnection:use-system-certdb</literal> has been deprecated since version 2.30 and should not be used in newly-written code.</para> <para>Use GTlsConnection:database instead</para>
+</warning>
+<para>Flags: Read / Write / Construct</para>
+<para>Default value: TRUE</para>
+</refsect2>
+
+</refsect1>
+<refsect1 id="GTlsConnection.signal-details" role="signals">
+<title role="signals.title">Signal Details</title>
+<refsect2 id="GTlsConnection-accept-certificate" role="signal"><title>The <literal>“accept-certificate”</literal> signal</title>
+<indexterm zone="GTlsConnection-accept-certificate" role="2.28"><primary sortas="TlsConnection::accept-certificate">GTlsConnection::accept-certificate</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+user_function (<link linkend="GTlsConnection"><type>GTlsConnection</type></link>      *conn,
+               <link linkend="GTlsCertificate"><type>GTlsCertificate</type></link>     *peer_cert,
+               <link linkend="GTlsCertificateFlags"><type>GTlsCertificateFlags</type></link> errors,
+               <link linkend="gpointer"><type>gpointer</type></link>             user_data)</programlisting>
+<para>Emitted during the TLS handshake after the peer certificate has
+been received. You can examine <parameter>peer_cert</parameter>
+'s certification path by
+calling <link linkend="g-tls-certificate-get-issuer"><function>g_tls_certificate_get_issuer()</function></link> on it.</para>
+<para>For a client-side connection, <parameter>peer_cert</parameter>
+ is the server's
+certificate, and the signal will only be emitted if the
+certificate was not acceptable according to <parameter>conn</parameter>
+'s
+<link linkend="GTlsClientConnection--validation-flags"><type>“validation_flags”</type></link>. If you would like the
+certificate to be accepted despite <parameter>errors</parameter>
+, return <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> from the
+signal handler. Otherwise, if no handler accepts the certificate,
+the handshake will fail with <link linkend="G-TLS-ERROR-BAD-CERTIFICATE:CAPS"><literal>G_TLS_ERROR_BAD_CERTIFICATE</literal></link>.</para>
+<para>For a server-side connection, <parameter>peer_cert</parameter>
+ is the certificate
+presented by the client, if this was requested via the server's
+<link linkend="GTlsServerConnection--authentication-mode"><type>“authentication_mode”</type></link>. On the server side,
+the signal is always emitted when the client presents a
+certificate, and the certificate will only be accepted if a
+handler returns <link linkend="TRUE:CAPS"><literal>TRUE</literal></link>.</para>
+<para>Note that if this signal is emitted as part of asynchronous I/O
+in the main thread, then you should not attempt to interact with
+the user before returning from the signal handler. If you want to
+let the user decide whether or not to accept the certificate, you
+would have to return <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> from the signal handler on the first
+attempt, and then after the connection attempt returns a
+<link linkend="G-TLS-ERROR-HANDSHAKE:CAPS"><literal>G_TLS_ERROR_HANDSHAKE</literal></link>, you can interact with the user, and if
+the user decides to accept the certificate, remember that fact,
+create a new connection, and return <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> from the signal handler
+the next time.</para>
+<para>If you are doing I/O in another thread, you do not
+need to worry about this, and can simply block in the signal
+handler until the UI thread returns an answer.</para>
+<refsect3 id="GTlsConnection-accept-certificate.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>conn</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GTlsConnection"><type>GTlsConnection</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>peer_cert</para></entry>
+<entry role="parameter_description"><para>the peer's <link linkend="GTlsCertificate"><type>GTlsCertificate</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>errors</para></entry>
+<entry role="parameter_description"><para>the problems with <parameter>peer_cert</parameter>
+.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><simpara>user_data</simpara></entry>
+<entry role="parameter_description"><simpara>user data set when the signal handler was connected.</simpara></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="GTlsConnection-accept-certificate.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> to accept <parameter>peer_cert</parameter>
+(which will also
+immediately end the signal emission). <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> to allow the signal
+emission to continue, which will cause the handshake to fail if
+no one else overrides it.</para>
+</refsect3><para>Flags: <link linkend="G-SIGNAL-RUN-LAST:CAPS">Run Last</link></para>
+<para role="since">Since: <link linkend="api-index-2.28">2.28</link></para></refsect2>
+</refsect1>
+
+</refentry>

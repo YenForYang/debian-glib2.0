@@ -1,0 +1,2575 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC '-//OASIS//DTD DocBook XML V4.5//EN'
+                      'http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd' [
+<!ENTITY % local.common.attrib "xmlns:xi  CDATA  #FIXED 'http://www.w3.org/2003/XInclude'">
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="glib-Perl-compatible-regular-expressions">
+<refmeta>
+<refentrytitle role="top_of_page" id="glib-Perl-compatible-regular-expressions.top_of_page">Perl-compatible regular expressions</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>GLIB Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>Perl-compatible regular expressions</refname>
+<refpurpose>matches strings against regular expressions</refpurpose>
+</refnamediv>
+
+<refsect1 id="glib-Perl-compatible-regular-expressions.functions" role="functions_proto">
+<title role="functions_proto.title">Functions</title>
+<informaltable pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="functions_return" colwidth="150px"/>
+<colspec colname="functions_name"/>
+<tbody>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><phrase role="c_punctuation">(</phrase><link linkend="GRegexEvalCallback">*GRegexEvalCallback</link><phrase role="c_punctuation">)</phrase>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GRegex"><returnvalue>GRegex</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-regex-new">g_regex_new</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GRegex"><returnvalue>GRegex</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-regex-ref">g_regex_ref</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-regex-unref">g_regex_unref</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type">const <link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-regex-get-pattern">g_regex_get_pattern</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gint"><returnvalue>gint</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-regex-get-max-backref">g_regex_get_max_backref</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gint"><returnvalue>gint</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-regex-get-capture-count">g_regex_get_capture_count</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-regex-get-has-cr-or-lf">g_regex_get_has_cr_or_lf</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gint"><returnvalue>gint</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-regex-get-max-lookbehind">g_regex_get_max_lookbehind</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gint"><returnvalue>gint</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-regex-get-string-number">g_regex_get_string_number</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GRegexCompileFlags"><returnvalue>GRegexCompileFlags</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-regex-get-compile-flags">g_regex_get_compile_flags</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GRegexMatchFlags"><returnvalue>GRegexMatchFlags</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-regex-get-match-flags">g_regex_get_match_flags</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-regex-escape-string">g_regex_escape_string</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-regex-escape-nul">g_regex_escape_nul</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-regex-match-simple">g_regex_match_simple</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-regex-match">g_regex_match</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-regex-match-full">g_regex_match_full</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-regex-match-all">g_regex_match_all</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-regex-match-all-full">g_regex_match_all_full</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;**
+</entry><entry role="function_name"><link linkend="g-regex-split-simple">g_regex_split_simple</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;**
+</entry><entry role="function_name"><link linkend="g-regex-split">g_regex_split</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;**
+</entry><entry role="function_name"><link linkend="g-regex-split-full">g_regex_split_full</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-regex-replace">g_regex_replace</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-regex-replace-literal">g_regex_replace_literal</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-regex-replace-eval">g_regex_replace_eval</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-regex-check-replacement">g_regex_check_replacement</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GRegex"><returnvalue>GRegex</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-match-info-get-regex">g_match_info_get_regex</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type">const <link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-match-info-get-string">g_match_info_get_string</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GMatchInfo"><returnvalue>GMatchInfo</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-match-info-ref">g_match_info_ref</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-match-info-unref">g_match_info_unref</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-match-info-free">g_match_info_free</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-match-info-matches">g_match_info_matches</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-match-info-next">g_match_info_next</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gint"><returnvalue>gint</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-match-info-get-match-count">g_match_info_get_match_count</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-match-info-is-partial-match">g_match_info_is_partial_match</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-match-info-expand-references">g_match_info_expand_references</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-match-info-fetch">g_match_info_fetch</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-match-info-fetch-pos">g_match_info_fetch_pos</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-match-info-fetch-named">g_match_info_fetch_named</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-match-info-fetch-named-pos">g_match_info_fetch_named_pos</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;**
+</entry><entry role="function_name"><link linkend="g-match-info-fetch-all">g_match_info_fetch_all</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="glib-Perl-compatible-regular-expressions.other" role="other_proto">
+<title role="other_proto.title">Types and Values</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="name" colwidth="150px"/>
+<colspec colname="description"/>
+<tbody>
+<row><entry role="datatype_keyword">enum</entry><entry role="function_name"><link linkend="GRegexError">GRegexError</link></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="G-REGEX-ERROR:CAPS">G_REGEX_ERROR</link></entry></row>
+<row><entry role="datatype_keyword">enum</entry><entry role="function_name"><link linkend="GRegexCompileFlags">GRegexCompileFlags</link></entry></row>
+<row><entry role="datatype_keyword">enum</entry><entry role="function_name"><link linkend="GRegexMatchFlags">GRegexMatchFlags</link></entry></row>
+<row><entry role="datatype_keyword"></entry><entry role="function_name"><link linkend="GRegex">GRegex</link></entry></row>
+<row><entry role="datatype_keyword"></entry><entry role="function_name"><link linkend="GMatchInfo">GMatchInfo</link></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+
+<refsect1 id="glib-Perl-compatible-regular-expressions.includes"><title>Includes</title><synopsis>#include &lt;glib.h&gt;
+</synopsis></refsect1>
+
+<refsect1 id="glib-Perl-compatible-regular-expressions.description" role="desc">
+<title role="desc.title">Description</title>
+<para>The g_regex_*() functions implement regular
+expression pattern matching using syntax and semantics similar to
+Perl regular expression.</para>
+<para>Some functions accept a <parameter>start_position</parameter>
+ argument, setting it differs
+from just passing over a shortened string and setting <link linkend="G-REGEX-MATCH-NOTBOL:CAPS"><type>G_REGEX_MATCH_NOTBOL</type></link>
+in the case of a pattern that begins with any kind of lookbehind assertion.
+For example, consider the pattern "\Biss\B" which finds occurrences of "iss"
+in the middle of words. ("\B" matches only if the current position in the
+subject is not a word boundary.) When applied to the string "Mississipi"
+from the fourth byte, namely "issipi", it does not match, because "\B" is
+always false at the start of the subject, which is deemed to be a word
+boundary. However, if the entire string is passed , but with
+<parameter>start_position</parameter>
+ set to 4, it finds the second occurrence of "iss" because
+it is able to look behind the starting point to discover that it is
+preceded by a letter.</para>
+<para>Note that, unless you set the <link linkend="G-REGEX-RAW:CAPS"><type>G_REGEX_RAW</type></link> flag, all the strings passed
+to these functions must be encoded in UTF-8. The lengths and the positions
+inside the strings are in bytes and not in characters, so, for instance,
+"\xc3\xa0" (i.e. "à") is two bytes long but it is treated as a
+single character. If you set <link linkend="G-REGEX-RAW:CAPS"><type>G_REGEX_RAW</type></link> the strings can be non-valid
+UTF-8 strings and a byte is treated as a character, so "\xc3\xa0" is two
+bytes and two characters long.</para>
+<para>When matching a pattern, "\n" matches only against a "\n" character in
+the string, and "\r" matches only a "\r" character. To match any newline
+sequence use "\R". This particular group matches either the two-character
+sequence CR + LF ("\r\n"), or one of the single characters LF (linefeed,
+U+000A, "\n"), VT vertical tab, U+000B, "\v"), FF (formfeed, U+000C, "\f"),
+CR (carriage return, U+000D, "\r"), NEL (next line, U+0085), LS (line
+separator, U+2028), or PS (paragraph separator, U+2029).</para>
+<para>The behaviour of the dot, circumflex, and dollar metacharacters are
+affected by newline characters, the default is to recognize any newline
+character (the same characters recognized by "\R"). This can be changed
+with <link linkend="G-REGEX-NEWLINE-CR:CAPS"><type>G_REGEX_NEWLINE_CR</type></link>, <link linkend="G-REGEX-NEWLINE-LF:CAPS"><type>G_REGEX_NEWLINE_LF</type></link> and <link linkend="G-REGEX-NEWLINE-CRLF:CAPS"><type>G_REGEX_NEWLINE_CRLF</type></link>
+compile options, and with <link linkend="G-REGEX-MATCH-NEWLINE-ANY:CAPS"><type>G_REGEX_MATCH_NEWLINE_ANY</type></link>,
+<link linkend="G-REGEX-MATCH-NEWLINE-CR:CAPS"><type>G_REGEX_MATCH_NEWLINE_CR</type></link>, <link linkend="G-REGEX-MATCH-NEWLINE-LF:CAPS"><type>G_REGEX_MATCH_NEWLINE_LF</type></link> and
+<link linkend="G-REGEX-MATCH-NEWLINE-CRLF:CAPS"><type>G_REGEX_MATCH_NEWLINE_CRLF</type></link> match options. These settings are also
+relevant when compiling a pattern if <link linkend="G-REGEX-EXTENDED:CAPS"><type>G_REGEX_EXTENDED</type></link> is set, and an
+unescaped "#" outside a character class is encountered. This indicates
+a comment that lasts until after the next newline.</para>
+<para>When setting the <link linkend="G-REGEX-JAVASCRIPT-COMPAT:CAPS"><literal>G_REGEX_JAVASCRIPT_COMPAT</literal></link> flag, pattern syntax and pattern
+matching is changed to be compatible with the way that regular expressions
+work in JavaScript. More precisely, a lonely ']' character in the pattern
+is a syntax error; the '\x' escape only allows 0 to 2 hexadecimal digits, and
+you must use the '\u' escape sequence with 4 hex digits to specify a unicode
+codepoint instead of '\x' or 'x{....}'. If '\x' or '\u' are not followed by
+the specified number of hex digits, they match 'x' and 'u' literally; also
+'\U' always matches 'U' instead of being an error in the pattern. Finally,
+pattern matching is modified so that back references to an unset subpattern
+group produces a match with the empty string instead of an error. See
+pcreapi(3) for more information.</para>
+<para>Creating and manipulating the same <link linkend="GRegex"><type>GRegex</type></link> structure from different
+threads is not a problem as <link linkend="GRegex"><type>GRegex</type></link> does not modify its internal
+state between creation and destruction, on the other hand <link linkend="GMatchInfo"><type>GMatchInfo</type></link>
+is not threadsafe.</para>
+<para>The regular expressions low-level functionalities are obtained through
+the excellent
+<ulink url="http://www.pcre.org/">PCRE</ulink>
+library written by Philip Hazel.</para>
+
+</refsect1>
+<refsect1 id="glib-Perl-compatible-regular-expressions.functions_details" role="details">
+<title role="details.title">Functions</title>
+<refsect2 id="GRegexEvalCallback" role="function" condition="since:2.14">
+<title>GRegexEvalCallback&#160;()</title>
+<indexterm zone="GRegexEvalCallback" role="2.14"><primary sortas="RegexEvalCallback">GRegexEvalCallback</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+<phrase role="c_punctuation">(</phrase>*GRegexEvalCallback<phrase role="c_punctuation">)</phrase> (<parameter>const <link linkend="GMatchInfo"><type>GMatchInfo</type></link> *match_info</parameter>,
+                       <parameter><link linkend="GString"><type>GString</type></link> *result</parameter>,
+                       <parameter><link linkend="gpointer"><type>gpointer</type></link> user_data</parameter>);</programlisting>
+<para>Specifies the type of the function passed to <link linkend="g-regex-replace-eval"><function>g_regex_replace_eval()</function></link>.
+It is called for each occurrence of the pattern in the string passed
+to <link linkend="g-regex-replace-eval"><function>g_regex_replace_eval()</function></link>, and it should append the replacement to
+<parameter>result</parameter>
+.</para>
+<refsect3 id="GRegexEvalCallback.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>match_info</para></entry>
+<entry role="parameter_description"><para>the <link linkend="GMatchInfo"><type>GMatchInfo</type></link> generated by the match.
+Use <link linkend="g-match-info-get-regex"><function>g_match_info_get_regex()</function></link> and <link linkend="g-match-info-get-string"><function>g_match_info_get_string()</function></link> if you
+need the <link linkend="GRegex"><type>GRegex</type></link> or the matched string.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>result</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GString"><type>GString</type></link> containing the new string</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>user_data</para></entry>
+<entry role="parameter_description"><para>user data passed to <link linkend="g-regex-replace-eval"><function>g_regex_replace_eval()</function></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="GRegexEvalCallback.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> to continue the replacement process, <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> to stop it</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.14">2.14</link></para></refsect2>
+<refsect2 id="g-regex-new" role="function" condition="since:2.14">
+<title>g_regex_new&#160;()</title>
+<indexterm zone="g-regex-new" role="2.14"><primary sortas="regex_new">g_regex_new</primary></indexterm>
+<programlisting language="C"><link linkend="GRegex"><returnvalue>GRegex</returnvalue></link>&#160;*
+g_regex_new (<parameter>const <link linkend="gchar"><type>gchar</type></link> *pattern</parameter>,
+             <parameter><link linkend="GRegexCompileFlags"><type>GRegexCompileFlags</type></link> compile_options</parameter>,
+             <parameter><link linkend="GRegexMatchFlags"><type>GRegexMatchFlags</type></link> match_options</parameter>,
+             <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para>Compiles the regular expression to an internal form, and does
+the initial setup of the <link linkend="GRegex"><type>GRegex</type></link> structure.</para>
+<refsect3 id="g-regex-new.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>pattern</para></entry>
+<entry role="parameter_description"><para>the regular expression</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>compile_options</para></entry>
+<entry role="parameter_description"><para>compile options for the regular expression, or 0</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>match_options</para></entry>
+<entry role="parameter_description"><para>match options for the regular expression, or 0</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para>return location for a <link linkend="GError"><type>GError</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-regex-new.returns" role="returns">
+<title>Returns</title>
+<para>a <link linkend="GRegex"><type>GRegex</type></link> structure or <link linkend="NULL:CAPS"><literal>NULL</literal></link> if an error occured. Call
+<link linkend="g-regex-unref"><function>g_regex_unref()</function></link> when you are done with it. </para>
+<para><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.14">2.14</link></para></refsect2>
+<refsect2 id="g-regex-ref" role="function" condition="since:2.14">
+<title>g_regex_ref&#160;()</title>
+<indexterm zone="g-regex-ref" role="2.14"><primary sortas="regex_ref">g_regex_ref</primary></indexterm>
+<programlisting language="C"><link linkend="GRegex"><returnvalue>GRegex</returnvalue></link>&#160;*
+g_regex_ref (<parameter><link linkend="GRegex"><type>GRegex</type></link> *regex</parameter>);</programlisting>
+<para>Increases reference count of <parameter>regex</parameter>
+ by 1.</para>
+<refsect3 id="g-regex-ref.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>regex</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GRegex"><type>GRegex</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-regex-ref.returns" role="returns">
+<title>Returns</title>
+<para> <parameter>regex</parameter>
+</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.14">2.14</link></para></refsect2>
+<refsect2 id="g-regex-unref" role="function" condition="since:2.14">
+<title>g_regex_unref&#160;()</title>
+<indexterm zone="g-regex-unref" role="2.14"><primary sortas="regex_unref">g_regex_unref</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_regex_unref (<parameter><link linkend="GRegex"><type>GRegex</type></link> *regex</parameter>);</programlisting>
+<para>Decreases reference count of <parameter>regex</parameter>
+ by 1. When reference count drops
+to zero, it frees all the memory associated with the regex structure.</para>
+<refsect3 id="g-regex-unref.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>regex</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GRegex"><type>GRegex</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.14">2.14</link></para></refsect2>
+<refsect2 id="g-regex-get-pattern" role="function" condition="since:2.14">
+<title>g_regex_get_pattern&#160;()</title>
+<indexterm zone="g-regex-get-pattern" role="2.14"><primary sortas="regex_get_pattern">g_regex_get_pattern</primary></indexterm>
+<programlisting language="C">const <link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+g_regex_get_pattern (<parameter>const <link linkend="GRegex"><type>GRegex</type></link> *regex</parameter>);</programlisting>
+<para>Gets the pattern string associated with <parameter>regex</parameter>
+, i.e. a copy of
+the string passed to <link linkend="g-regex-new"><function>g_regex_new()</function></link>.</para>
+<refsect3 id="g-regex-get-pattern.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>regex</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GRegex"><type>GRegex</type></link> structure</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-regex-get-pattern.returns" role="returns">
+<title>Returns</title>
+<para> the pattern of <parameter>regex</parameter>
+</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.14">2.14</link></para></refsect2>
+<refsect2 id="g-regex-get-max-backref" role="function" condition="since:2.14">
+<title>g_regex_get_max_backref&#160;()</title>
+<indexterm zone="g-regex-get-max-backref" role="2.14"><primary sortas="regex_get_max_backref">g_regex_get_max_backref</primary></indexterm>
+<programlisting language="C"><link linkend="gint"><returnvalue>gint</returnvalue></link>
+g_regex_get_max_backref (<parameter>const <link linkend="GRegex"><type>GRegex</type></link> *regex</parameter>);</programlisting>
+<para>Returns the number of the highest back reference
+in the pattern, or 0 if the pattern does not contain
+back references.</para>
+<refsect3 id="g-regex-get-max-backref.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>regex</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GRegex"><type>GRegex</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-regex-get-max-backref.returns" role="returns">
+<title>Returns</title>
+<para> the number of the highest back reference</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.14">2.14</link></para></refsect2>
+<refsect2 id="g-regex-get-capture-count" role="function" condition="since:2.14">
+<title>g_regex_get_capture_count&#160;()</title>
+<indexterm zone="g-regex-get-capture-count" role="2.14"><primary sortas="regex_get_capture_count">g_regex_get_capture_count</primary></indexterm>
+<programlisting language="C"><link linkend="gint"><returnvalue>gint</returnvalue></link>
+g_regex_get_capture_count (<parameter>const <link linkend="GRegex"><type>GRegex</type></link> *regex</parameter>);</programlisting>
+<para>Returns the number of capturing subpatterns in the pattern.</para>
+<refsect3 id="g-regex-get-capture-count.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>regex</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GRegex"><type>GRegex</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-regex-get-capture-count.returns" role="returns">
+<title>Returns</title>
+<para> the number of capturing subpatterns</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.14">2.14</link></para></refsect2>
+<refsect2 id="g-regex-get-has-cr-or-lf" role="function" condition="since:2.34">
+<title>g_regex_get_has_cr_or_lf&#160;()</title>
+<indexterm zone="g-regex-get-has-cr-or-lf" role="2.34"><primary sortas="regex_get_has_cr_or_lf">g_regex_get_has_cr_or_lf</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_regex_get_has_cr_or_lf (<parameter>const <link linkend="GRegex"><type>GRegex</type></link> *regex</parameter>);</programlisting>
+<para>Checks whether the pattern contains explicit CR or LF references.</para>
+<refsect3 id="g-regex-get-has-cr-or-lf.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>regex</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GRegex"><type>GRegex</type></link> structure</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-regex-get-has-cr-or-lf.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if the pattern contains explicit CR or LF references</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.34">2.34</link></para></refsect2>
+<refsect2 id="g-regex-get-max-lookbehind" role="function" condition="since:2.38">
+<title>g_regex_get_max_lookbehind&#160;()</title>
+<indexterm zone="g-regex-get-max-lookbehind" role="2.38"><primary sortas="regex_get_max_lookbehind">g_regex_get_max_lookbehind</primary></indexterm>
+<programlisting language="C"><link linkend="gint"><returnvalue>gint</returnvalue></link>
+g_regex_get_max_lookbehind (<parameter>const <link linkend="GRegex"><type>GRegex</type></link> *regex</parameter>);</programlisting>
+<para>Gets the number of characters in the longest lookbehind assertion in the
+pattern. This information is useful when doing multi-segment matching using
+the partial matching facilities.</para>
+<refsect3 id="g-regex-get-max-lookbehind.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>regex</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GRegex"><type>GRegex</type></link> structure</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-regex-get-max-lookbehind.returns" role="returns">
+<title>Returns</title>
+<para> the number of characters in the longest lookbehind assertion.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.38">2.38</link></para></refsect2>
+<refsect2 id="g-regex-get-string-number" role="function" condition="since:2.14">
+<title>g_regex_get_string_number&#160;()</title>
+<indexterm zone="g-regex-get-string-number" role="2.14"><primary sortas="regex_get_string_number">g_regex_get_string_number</primary></indexterm>
+<programlisting language="C"><link linkend="gint"><returnvalue>gint</returnvalue></link>
+g_regex_get_string_number (<parameter>const <link linkend="GRegex"><type>GRegex</type></link> *regex</parameter>,
+                           <parameter>const <link linkend="gchar"><type>gchar</type></link> *name</parameter>);</programlisting>
+<para>Retrieves the number of the subexpression named <parameter>name</parameter>
+.</para>
+<refsect3 id="g-regex-get-string-number.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>regex</para></entry>
+<entry role="parameter_description"><para><link linkend="GRegex"><type>GRegex</type></link> structure</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>name</para></entry>
+<entry role="parameter_description"><para>name of the subexpression</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-regex-get-string-number.returns" role="returns">
+<title>Returns</title>
+<para> The number of the subexpression or -1 if <parameter>name</parameter>
+does not exists</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.14">2.14</link></para></refsect2>
+<refsect2 id="g-regex-get-compile-flags" role="function" condition="since:2.26">
+<title>g_regex_get_compile_flags&#160;()</title>
+<indexterm zone="g-regex-get-compile-flags" role="2.26"><primary sortas="regex_get_compile_flags">g_regex_get_compile_flags</primary></indexterm>
+<programlisting language="C"><link linkend="GRegexCompileFlags"><returnvalue>GRegexCompileFlags</returnvalue></link>
+g_regex_get_compile_flags (<parameter>const <link linkend="GRegex"><type>GRegex</type></link> *regex</parameter>);</programlisting>
+<para>Returns the compile options that <parameter>regex</parameter>
+ was created with.</para>
+<para>Depending on the version of PCRE that is used, this may or may not
+include flags set by option expressions such as <literal>(?i)</literal> found at the
+top-level within the compiled pattern.</para>
+<refsect3 id="g-regex-get-compile-flags.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>regex</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GRegex"><type>GRegex</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-regex-get-compile-flags.returns" role="returns">
+<title>Returns</title>
+<para> flags from <link linkend="GRegexCompileFlags"><type>GRegexCompileFlags</type></link></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.26">2.26</link></para></refsect2>
+<refsect2 id="g-regex-get-match-flags" role="function" condition="since:2.26">
+<title>g_regex_get_match_flags&#160;()</title>
+<indexterm zone="g-regex-get-match-flags" role="2.26"><primary sortas="regex_get_match_flags">g_regex_get_match_flags</primary></indexterm>
+<programlisting language="C"><link linkend="GRegexMatchFlags"><returnvalue>GRegexMatchFlags</returnvalue></link>
+g_regex_get_match_flags (<parameter>const <link linkend="GRegex"><type>GRegex</type></link> *regex</parameter>);</programlisting>
+<para>Returns the match options that <parameter>regex</parameter>
+ was created with.</para>
+<refsect3 id="g-regex-get-match-flags.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>regex</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GRegex"><type>GRegex</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-regex-get-match-flags.returns" role="returns">
+<title>Returns</title>
+<para> flags from <link linkend="GRegexMatchFlags"><type>GRegexMatchFlags</type></link></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.26">2.26</link></para></refsect2>
+<refsect2 id="g-regex-escape-string" role="function" condition="since:2.14">
+<title>g_regex_escape_string&#160;()</title>
+<indexterm zone="g-regex-escape-string" role="2.14"><primary sortas="regex_escape_string">g_regex_escape_string</primary></indexterm>
+<programlisting language="C"><link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+g_regex_escape_string (<parameter>const <link linkend="gchar"><type>gchar</type></link> *string</parameter>,
+                       <parameter><link linkend="gint"><type>gint</type></link> length</parameter>);</programlisting>
+<para>Escapes the special characters used for regular expressions
+in <parameter>string</parameter>
+, for instance "a.b*c" becomes "a.b*c". This
+function is useful to dynamically generate regular expressions.</para>
+<para><parameter>string</parameter>
+ can contain nul characters that are replaced with "\0",
+in this case remember to specify the correct length of <parameter>string</parameter>
+
+in <parameter>length</parameter>
+.</para>
+<refsect3 id="g-regex-escape-string.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>string</para></entry>
+<entry role="parameter_description"><para>the string to escape. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>array</acronym> length=length]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>length</para></entry>
+<entry role="parameter_description"><para>the length of <parameter>string</parameter>
+, in bytes, or -1 if <parameter>string</parameter>
+is nul-terminated</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-regex-escape-string.returns" role="returns">
+<title>Returns</title>
+<para> a newly-allocated escaped string</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.14">2.14</link></para></refsect2>
+<refsect2 id="g-regex-escape-nul" role="function" condition="since:2.30">
+<title>g_regex_escape_nul&#160;()</title>
+<indexterm zone="g-regex-escape-nul" role="2.30"><primary sortas="regex_escape_nul">g_regex_escape_nul</primary></indexterm>
+<programlisting language="C"><link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+g_regex_escape_nul (<parameter>const <link linkend="gchar"><type>gchar</type></link> *string</parameter>,
+                    <parameter><link linkend="gint"><type>gint</type></link> length</parameter>);</programlisting>
+<para>Escapes the nul characters in <parameter>string</parameter>
+ to "\x00".  It can be used
+to compile a regex with embedded nul characters.</para>
+<para>For completeness, <parameter>length</parameter>
+ can be -1 for a nul-terminated string.
+In this case the output string will be of course equal to <parameter>string</parameter>
+.</para>
+<refsect3 id="g-regex-escape-nul.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>string</para></entry>
+<entry role="parameter_description"><para>the string to escape</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>length</para></entry>
+<entry role="parameter_description"><para>the length of <parameter>string</parameter>
+</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-regex-escape-nul.returns" role="returns">
+<title>Returns</title>
+<para> a newly-allocated escaped string</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.30">2.30</link></para></refsect2>
+<refsect2 id="g-regex-match-simple" role="function" condition="since:2.14">
+<title>g_regex_match_simple&#160;()</title>
+<indexterm zone="g-regex-match-simple" role="2.14"><primary sortas="regex_match_simple">g_regex_match_simple</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_regex_match_simple (<parameter>const <link linkend="gchar"><type>gchar</type></link> *pattern</parameter>,
+                      <parameter>const <link linkend="gchar"><type>gchar</type></link> *string</parameter>,
+                      <parameter><link linkend="GRegexCompileFlags"><type>GRegexCompileFlags</type></link> compile_options</parameter>,
+                      <parameter><link linkend="GRegexMatchFlags"><type>GRegexMatchFlags</type></link> match_options</parameter>);</programlisting>
+<para>Scans for a match in <parameter>string</parameter>
+ for <parameter>pattern</parameter>
+.</para>
+<para>This function is equivalent to <link linkend="g-regex-match"><function>g_regex_match()</function></link> but it does not
+require to compile the pattern with <link linkend="g-regex-new"><function>g_regex_new()</function></link>, avoiding some
+lines of code when you need just to do a match without extracting
+substrings, capture counts, and so on.</para>
+<para>If this function is to be called on the same <parameter>pattern</parameter>
+ more than
+once, it's more efficient to compile the pattern once with
+<link linkend="g-regex-new"><function>g_regex_new()</function></link> and then use <link linkend="g-regex-match"><function>g_regex_match()</function></link>.</para>
+<refsect3 id="g-regex-match-simple.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>pattern</para></entry>
+<entry role="parameter_description"><para>the regular expression</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>string</para></entry>
+<entry role="parameter_description"><para>the string to scan for matches</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>compile_options</para></entry>
+<entry role="parameter_description"><para>compile options for the regular expression, or 0</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>match_options</para></entry>
+<entry role="parameter_description"><para>match options, or 0</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-regex-match-simple.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if the string matched, <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> otherwise</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.14">2.14</link></para></refsect2>
+<refsect2 id="g-regex-match" role="function" condition="since:2.14">
+<title>g_regex_match&#160;()</title>
+<indexterm zone="g-regex-match" role="2.14"><primary sortas="regex_match">g_regex_match</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_regex_match (<parameter>const <link linkend="GRegex"><type>GRegex</type></link> *regex</parameter>,
+               <parameter>const <link linkend="gchar"><type>gchar</type></link> *string</parameter>,
+               <parameter><link linkend="GRegexMatchFlags"><type>GRegexMatchFlags</type></link> match_options</parameter>,
+               <parameter><link linkend="GMatchInfo"><type>GMatchInfo</type></link> **match_info</parameter>);</programlisting>
+<para>Scans for a match in <parameter>string</parameter>
+ for the pattern in <parameter>regex</parameter>
+.
+The <parameter>match_options</parameter>
+ are combined with the match options specified
+when the <parameter>regex</parameter>
+ structure was created, letting you have more
+flexibility in reusing <link linkend="GRegex"><type>GRegex</type></link> structures.</para>
+<para>Unless <link linkend="G-REGEX-RAW:CAPS"><literal>G_REGEX_RAW</literal></link> is specified in the options, <parameter>string</parameter>
+ must be valid UTF-8.</para>
+<para>A <link linkend="GMatchInfo"><type>GMatchInfo</type></link> structure, used to get information on the match,
+is stored in <parameter>match_info</parameter>
+ if not <link linkend="NULL:CAPS"><literal>NULL</literal></link>. Note that if <parameter>match_info</parameter>
+
+is not <link linkend="NULL:CAPS"><literal>NULL</literal></link> then it is created even if the function returns <link linkend="FALSE:CAPS"><literal>FALSE</literal></link>,
+i.e. you must free it regardless if regular expression actually matched.</para>
+<para>To retrieve all the non-overlapping matches of the pattern in
+string you can use <link linkend="g-match-info-next"><function>g_match_info_next()</function></link>.</para>
+<informalexample><programlisting role="example"><![CDATA[
+static void
+print_uppercase_words (const gchar *string)
+{
+  // Print all uppercase-only words.
+  GRegex *regex;
+  GMatchInfo *match_info;
+ 
+  regex = g_regex_new ("[A-Z]+", 0, 0, NULL);
+  g_regex_match (regex, string, 0, &match_info);
+  while (g_match_info_matches (match_info))
+    {
+      gchar *word = g_match_info_fetch (match_info, 0);
+      g_print ("Found: %s\n", word);
+      g_free (word);
+      g_match_info_next (match_info, NULL);
+    }
+  g_match_info_free (match_info);
+  g_regex_unref (regex);
+}
+]]></programlisting></informalexample>
+<para></para>
+<para><parameter>string</parameter>
+ is not copied and is used in <link linkend="GMatchInfo"><type>GMatchInfo</type></link> internally. If
+you use any <link linkend="GMatchInfo"><type>GMatchInfo</type></link> method (except <link linkend="g-match-info-free"><function>g_match_info_free()</function></link>) after
+freeing or modifying <parameter>string</parameter>
+ then the behaviour is undefined.</para>
+<refsect3 id="g-regex-match.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>regex</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GRegex"><type>GRegex</type></link> structure from <link linkend="g-regex-new"><function>g_regex_new()</function></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>string</para></entry>
+<entry role="parameter_description"><para>the string to scan for matches</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>match_options</para></entry>
+<entry role="parameter_description"><para>match options</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>match_info</para></entry>
+<entry role="parameter_description"><para>pointer to location where to store
+the <link linkend="GMatchInfo"><type>GMatchInfo</type></link>, or <link linkend="NULL:CAPS"><literal>NULL</literal></link> if you do not need it. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>out</acronym>][<acronym>optional</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-regex-match.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> is the string matched, <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> otherwise</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.14">2.14</link></para></refsect2>
+<refsect2 id="g-regex-match-full" role="function" condition="since:2.14">
+<title>g_regex_match_full&#160;()</title>
+<indexterm zone="g-regex-match-full" role="2.14"><primary sortas="regex_match_full">g_regex_match_full</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_regex_match_full (<parameter>const <link linkend="GRegex"><type>GRegex</type></link> *regex</parameter>,
+                    <parameter>const <link linkend="gchar"><type>gchar</type></link> *string</parameter>,
+                    <parameter><link linkend="gssize"><type>gssize</type></link> string_len</parameter>,
+                    <parameter><link linkend="gint"><type>gint</type></link> start_position</parameter>,
+                    <parameter><link linkend="GRegexMatchFlags"><type>GRegexMatchFlags</type></link> match_options</parameter>,
+                    <parameter><link linkend="GMatchInfo"><type>GMatchInfo</type></link> **match_info</parameter>,
+                    <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para>Scans for a match in <parameter>string</parameter>
+ for the pattern in <parameter>regex</parameter>
+.
+The <parameter>match_options</parameter>
+ are combined with the match options specified
+when the <parameter>regex</parameter>
+ structure was created, letting you have more
+flexibility in reusing <link linkend="GRegex"><type>GRegex</type></link> structures.</para>
+<para>Setting <parameter>start_position</parameter>
+ differs from just passing over a shortened
+string and setting <link linkend="G-REGEX-MATCH-NOTBOL:CAPS"><type>G_REGEX_MATCH_NOTBOL</type></link> in the case of a pattern
+that begins with any kind of lookbehind assertion, such as "\b".</para>
+<para>Unless <link linkend="G-REGEX-RAW:CAPS"><literal>G_REGEX_RAW</literal></link> is specified in the options, <parameter>string</parameter>
+ must be valid UTF-8.</para>
+<para>A <link linkend="GMatchInfo"><type>GMatchInfo</type></link> structure, used to get information on the match, is
+stored in <parameter>match_info</parameter>
+ if not <link linkend="NULL:CAPS"><literal>NULL</literal></link>. Note that if <parameter>match_info</parameter>
+ is
+not <link linkend="NULL:CAPS"><literal>NULL</literal></link> then it is created even if the function returns <link linkend="FALSE:CAPS"><literal>FALSE</literal></link>,
+i.e. you must free it regardless if regular expression actually
+matched.</para>
+<para><parameter>string</parameter>
+ is not copied and is used in <link linkend="GMatchInfo"><type>GMatchInfo</type></link> internally. If
+you use any <link linkend="GMatchInfo"><type>GMatchInfo</type></link> method (except <link linkend="g-match-info-free"><function>g_match_info_free()</function></link>) after
+freeing or modifying <parameter>string</parameter>
+ then the behaviour is undefined.</para>
+<para>To retrieve all the non-overlapping matches of the pattern in
+string you can use <link linkend="g-match-info-next"><function>g_match_info_next()</function></link>.</para>
+<informalexample><programlisting role="example"><![CDATA[
+static void
+print_uppercase_words (const gchar *string)
+{
+  // Print all uppercase-only words.
+  GRegex *regex;
+  GMatchInfo *match_info;
+  GError *error = NULL;
+  
+  regex = g_regex_new ("[A-Z]+", 0, 0, NULL);
+  g_regex_match_full (regex, string, -1, 0, 0, &match_info, &error);
+  while (g_match_info_matches (match_info))
+    {
+      gchar *word = g_match_info_fetch (match_info, 0);
+      g_print ("Found: %s\n", word);
+      g_free (word);
+      g_match_info_next (match_info, &error);
+    }
+  g_match_info_free (match_info);
+  g_regex_unref (regex);
+  if (error != NULL)
+    {
+      g_printerr ("Error while matching: %s\n", error->message);
+      g_error_free (error);
+    }
+}
+]]></programlisting></informalexample>
+<para></para>
+<refsect3 id="g-regex-match-full.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>regex</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GRegex"><type>GRegex</type></link> structure from <link linkend="g-regex-new"><function>g_regex_new()</function></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>string</para></entry>
+<entry role="parameter_description"><para>the string to scan for matches. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>array</acronym> length=string_len]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>string_len</para></entry>
+<entry role="parameter_description"><para>the length of <parameter>string</parameter>
+, in bytes, or -1 if <parameter>string</parameter>
+is nul-terminated</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>start_position</para></entry>
+<entry role="parameter_description"><para>starting index of the string to match, in bytes</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>match_options</para></entry>
+<entry role="parameter_description"><para>match options</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>match_info</para></entry>
+<entry role="parameter_description"><para>pointer to location where to store
+the <link linkend="GMatchInfo"><type>GMatchInfo</type></link>, or <link linkend="NULL:CAPS"><literal>NULL</literal></link> if you do not need it. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>out</acronym>][<acronym>optional</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para>location to store the error occurring, or <link linkend="NULL:CAPS"><literal>NULL</literal></link> to ignore errors</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-regex-match-full.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> is the string matched, <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> otherwise</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.14">2.14</link></para></refsect2>
+<refsect2 id="g-regex-match-all" role="function" condition="since:2.14">
+<title>g_regex_match_all&#160;()</title>
+<indexterm zone="g-regex-match-all" role="2.14"><primary sortas="regex_match_all">g_regex_match_all</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_regex_match_all (<parameter>const <link linkend="GRegex"><type>GRegex</type></link> *regex</parameter>,
+                   <parameter>const <link linkend="gchar"><type>gchar</type></link> *string</parameter>,
+                   <parameter><link linkend="GRegexMatchFlags"><type>GRegexMatchFlags</type></link> match_options</parameter>,
+                   <parameter><link linkend="GMatchInfo"><type>GMatchInfo</type></link> **match_info</parameter>);</programlisting>
+<para>Using the standard algorithm for regular expression matching only
+the longest match in the string is retrieved. This function uses
+a different algorithm so it can retrieve all the possible matches.
+For more documentation see <link linkend="g-regex-match-all-full"><function>g_regex_match_all_full()</function></link>.</para>
+<para>A <link linkend="GMatchInfo"><type>GMatchInfo</type></link> structure, used to get information on the match, is
+stored in <parameter>match_info</parameter>
+ if not <link linkend="NULL:CAPS"><literal>NULL</literal></link>. Note that if <parameter>match_info</parameter>
+ is
+not <link linkend="NULL:CAPS"><literal>NULL</literal></link> then it is created even if the function returns <link linkend="FALSE:CAPS"><literal>FALSE</literal></link>,
+i.e. you must free it regardless if regular expression actually
+matched.</para>
+<para><parameter>string</parameter>
+ is not copied and is used in <link linkend="GMatchInfo"><type>GMatchInfo</type></link> internally. If
+you use any <link linkend="GMatchInfo"><type>GMatchInfo</type></link> method (except <link linkend="g-match-info-free"><function>g_match_info_free()</function></link>) after
+freeing or modifying <parameter>string</parameter>
+ then the behaviour is undefined.</para>
+<refsect3 id="g-regex-match-all.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>regex</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GRegex"><type>GRegex</type></link> structure from <link linkend="g-regex-new"><function>g_regex_new()</function></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>string</para></entry>
+<entry role="parameter_description"><para>the string to scan for matches</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>match_options</para></entry>
+<entry role="parameter_description"><para>match options</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>match_info</para></entry>
+<entry role="parameter_description"><para>pointer to location where to store
+the <link linkend="GMatchInfo"><type>GMatchInfo</type></link>, or <link linkend="NULL:CAPS"><literal>NULL</literal></link> if you do not need it. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>out</acronym>][<acronym>optional</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-regex-match-all.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> is the string matched, <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> otherwise</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.14">2.14</link></para></refsect2>
+<refsect2 id="g-regex-match-all-full" role="function" condition="since:2.14">
+<title>g_regex_match_all_full&#160;()</title>
+<indexterm zone="g-regex-match-all-full" role="2.14"><primary sortas="regex_match_all_full">g_regex_match_all_full</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_regex_match_all_full (<parameter>const <link linkend="GRegex"><type>GRegex</type></link> *regex</parameter>,
+                        <parameter>const <link linkend="gchar"><type>gchar</type></link> *string</parameter>,
+                        <parameter><link linkend="gssize"><type>gssize</type></link> string_len</parameter>,
+                        <parameter><link linkend="gint"><type>gint</type></link> start_position</parameter>,
+                        <parameter><link linkend="GRegexMatchFlags"><type>GRegexMatchFlags</type></link> match_options</parameter>,
+                        <parameter><link linkend="GMatchInfo"><type>GMatchInfo</type></link> **match_info</parameter>,
+                        <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para>Using the standard algorithm for regular expression matching only
+the longest match in the <parameter>string</parameter>
+ is retrieved, it is not possible
+to obtain all the available matches. For instance matching
+"&lt;a> &lt;b> &lt;c>" against the pattern "&lt;.*&gt;"
+you get "&lt;a> &lt;b> &lt;c>".</para>
+<para>This function uses a different algorithm (called DFA, i.e. deterministic
+finite automaton), so it can retrieve all the possible matches, all
+starting at the same point in the string. For instance matching
+"&lt;a> &lt;b> &lt;c>" against the pattern "&lt;.*&gt;;"
+you would obtain three matches: "&lt;a> &lt;b> &lt;c>",
+"&lt;a> &lt;b>" and "&lt;a>".</para>
+<para>The number of matched strings is retrieved using
+<link linkend="g-match-info-get-match-count"><function>g_match_info_get_match_count()</function></link>. To obtain the matched strings and
+their position you can use, respectively, <link linkend="g-match-info-fetch"><function>g_match_info_fetch()</function></link> and
+<link linkend="g-match-info-fetch-pos"><function>g_match_info_fetch_pos()</function></link>. Note that the strings are returned in
+reverse order of length; that is, the longest matching string is
+given first.</para>
+<para>Note that the DFA algorithm is slower than the standard one and it
+is not able to capture substrings, so backreferences do not work.</para>
+<para>Setting <parameter>start_position</parameter>
+ differs from just passing over a shortened
+string and setting <link linkend="G-REGEX-MATCH-NOTBOL:CAPS"><type>G_REGEX_MATCH_NOTBOL</type></link> in the case of a pattern
+that begins with any kind of lookbehind assertion, such as "\b".</para>
+<para>Unless <link linkend="G-REGEX-RAW:CAPS"><literal>G_REGEX_RAW</literal></link> is specified in the options, <parameter>string</parameter>
+ must be valid UTF-8.</para>
+<para>A <link linkend="GMatchInfo"><type>GMatchInfo</type></link> structure, used to get information on the match, is
+stored in <parameter>match_info</parameter>
+ if not <link linkend="NULL:CAPS"><literal>NULL</literal></link>. Note that if <parameter>match_info</parameter>
+ is
+not <link linkend="NULL:CAPS"><literal>NULL</literal></link> then it is created even if the function returns <link linkend="FALSE:CAPS"><literal>FALSE</literal></link>,
+i.e. you must free it regardless if regular expression actually
+matched.</para>
+<para><parameter>string</parameter>
+ is not copied and is used in <link linkend="GMatchInfo"><type>GMatchInfo</type></link> internally. If
+you use any <link linkend="GMatchInfo"><type>GMatchInfo</type></link> method (except <link linkend="g-match-info-free"><function>g_match_info_free()</function></link>) after
+freeing or modifying <parameter>string</parameter>
+ then the behaviour is undefined.</para>
+<refsect3 id="g-regex-match-all-full.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>regex</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GRegex"><type>GRegex</type></link> structure from <link linkend="g-regex-new"><function>g_regex_new()</function></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>string</para></entry>
+<entry role="parameter_description"><para>the string to scan for matches. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>array</acronym> length=string_len]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>string_len</para></entry>
+<entry role="parameter_description"><para>the length of <parameter>string</parameter>
+, in bytes, or -1 if <parameter>string</parameter>
+is nul-terminated</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>start_position</para></entry>
+<entry role="parameter_description"><para>starting index of the string to match, in bytes</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>match_options</para></entry>
+<entry role="parameter_description"><para>match options</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>match_info</para></entry>
+<entry role="parameter_description"><para>pointer to location where to store
+the <link linkend="GMatchInfo"><type>GMatchInfo</type></link>, or <link linkend="NULL:CAPS"><literal>NULL</literal></link> if you do not need it. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>out</acronym>][<acronym>optional</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para>location to store the error occurring, or <link linkend="NULL:CAPS"><literal>NULL</literal></link> to ignore errors</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-regex-match-all-full.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> is the string matched, <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> otherwise</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.14">2.14</link></para></refsect2>
+<refsect2 id="g-regex-split-simple" role="function" condition="since:2.14">
+<title>g_regex_split_simple&#160;()</title>
+<indexterm zone="g-regex-split-simple" role="2.14"><primary sortas="regex_split_simple">g_regex_split_simple</primary></indexterm>
+<programlisting language="C"><link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;**
+g_regex_split_simple (<parameter>const <link linkend="gchar"><type>gchar</type></link> *pattern</parameter>,
+                      <parameter>const <link linkend="gchar"><type>gchar</type></link> *string</parameter>,
+                      <parameter><link linkend="GRegexCompileFlags"><type>GRegexCompileFlags</type></link> compile_options</parameter>,
+                      <parameter><link linkend="GRegexMatchFlags"><type>GRegexMatchFlags</type></link> match_options</parameter>);</programlisting>
+<para>Breaks the string on the pattern, and returns an array of
+the tokens. If the pattern contains capturing parentheses,
+then the text for each of the substrings will also be returned.
+If the pattern does not match anywhere in the string, then the
+whole string is returned as the first token.</para>
+<para>This function is equivalent to <link linkend="g-regex-split"><function>g_regex_split()</function></link> but it does
+not require to compile the pattern with <link linkend="g-regex-new"><function>g_regex_new()</function></link>, avoiding
+some lines of code when you need just to do a split without
+extracting substrings, capture counts, and so on.</para>
+<para>If this function is to be called on the same <parameter>pattern</parameter>
+ more than
+once, it's more efficient to compile the pattern once with
+<link linkend="g-regex-new"><function>g_regex_new()</function></link> and then use <link linkend="g-regex-split"><function>g_regex_split()</function></link>.</para>
+<para>As a special case, the result of splitting the empty string ""
+is an empty vector, not a vector containing a single string.
+The reason for this special case is that being able to represent
+a empty vector is typically more useful than consistent handling
+of empty elements. If you do need to represent empty elements,
+you'll need to check for the empty string before calling this
+function.</para>
+<para>A pattern that can match empty strings splits <parameter>string</parameter>
+ into
+separate characters wherever it matches the empty string between
+characters. For example splitting "ab c" using as a separator
+"\s*", you will get "a", "b" and "c".</para>
+<refsect3 id="g-regex-split-simple.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>pattern</para></entry>
+<entry role="parameter_description"><para>the regular expression</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>string</para></entry>
+<entry role="parameter_description"><para>the string to scan for matches</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>compile_options</para></entry>
+<entry role="parameter_description"><para>compile options for the regular expression, or 0</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>match_options</para></entry>
+<entry role="parameter_description"><para>match options, or 0</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-regex-split-simple.returns" role="returns">
+<title>Returns</title>
+<para>a <link linkend="NULL:CAPS"><literal>NULL</literal></link>-terminated array of strings. Free
+it using <link linkend="g-strfreev"><function>g_strfreev()</function></link>. </para>
+<para><emphasis role="annotation">[<acronym>transfer full</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.14">2.14</link></para></refsect2>
+<refsect2 id="g-regex-split" role="function" condition="since:2.14">
+<title>g_regex_split&#160;()</title>
+<indexterm zone="g-regex-split" role="2.14"><primary sortas="regex_split">g_regex_split</primary></indexterm>
+<programlisting language="C"><link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;**
+g_regex_split (<parameter>const <link linkend="GRegex"><type>GRegex</type></link> *regex</parameter>,
+               <parameter>const <link linkend="gchar"><type>gchar</type></link> *string</parameter>,
+               <parameter><link linkend="GRegexMatchFlags"><type>GRegexMatchFlags</type></link> match_options</parameter>);</programlisting>
+<para>Breaks the string on the pattern, and returns an array of the tokens.
+If the pattern contains capturing parentheses, then the text for each
+of the substrings will also be returned. If the pattern does not match
+anywhere in the string, then the whole string is returned as the first
+token.</para>
+<para>As a special case, the result of splitting the empty string "" is an
+empty vector, not a vector containing a single string. The reason for
+this special case is that being able to represent a empty vector is
+typically more useful than consistent handling of empty elements. If
+you do need to represent empty elements, you'll need to check for the
+empty string before calling this function.</para>
+<para>A pattern that can match empty strings splits <parameter>string</parameter>
+ into separate
+characters wherever it matches the empty string between characters.
+For example splitting "ab c" using as a separator "\s*", you will get
+"a", "b" and "c".</para>
+<refsect3 id="g-regex-split.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>regex</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GRegex"><type>GRegex</type></link> structure</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>string</para></entry>
+<entry role="parameter_description"><para>the string to split with the pattern</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>match_options</para></entry>
+<entry role="parameter_description"><para>match time option flags</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-regex-split.returns" role="returns">
+<title>Returns</title>
+<para>a <link linkend="NULL:CAPS"><literal>NULL</literal></link>-terminated gchar ** array. Free
+it using <link linkend="g-strfreev"><function>g_strfreev()</function></link>. </para>
+<para><emphasis role="annotation">[<acronym>transfer full</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.14">2.14</link></para></refsect2>
+<refsect2 id="g-regex-split-full" role="function" condition="since:2.14">
+<title>g_regex_split_full&#160;()</title>
+<indexterm zone="g-regex-split-full" role="2.14"><primary sortas="regex_split_full">g_regex_split_full</primary></indexterm>
+<programlisting language="C"><link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;**
+g_regex_split_full (<parameter>const <link linkend="GRegex"><type>GRegex</type></link> *regex</parameter>,
+                    <parameter>const <link linkend="gchar"><type>gchar</type></link> *string</parameter>,
+                    <parameter><link linkend="gssize"><type>gssize</type></link> string_len</parameter>,
+                    <parameter><link linkend="gint"><type>gint</type></link> start_position</parameter>,
+                    <parameter><link linkend="GRegexMatchFlags"><type>GRegexMatchFlags</type></link> match_options</parameter>,
+                    <parameter><link linkend="gint"><type>gint</type></link> max_tokens</parameter>,
+                    <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para>Breaks the string on the pattern, and returns an array of the tokens.
+If the pattern contains capturing parentheses, then the text for each
+of the substrings will also be returned. If the pattern does not match
+anywhere in the string, then the whole string is returned as the first
+token.</para>
+<para>As a special case, the result of splitting the empty string "" is an
+empty vector, not a vector containing a single string. The reason for
+this special case is that being able to represent a empty vector is
+typically more useful than consistent handling of empty elements. If
+you do need to represent empty elements, you'll need to check for the
+empty string before calling this function.</para>
+<para>A pattern that can match empty strings splits <parameter>string</parameter>
+ into separate
+characters wherever it matches the empty string between characters.
+For example splitting "ab c" using as a separator "\s*", you will get
+"a", "b" and "c".</para>
+<para>Setting <parameter>start_position</parameter>
+ differs from just passing over a shortened
+string and setting <link linkend="G-REGEX-MATCH-NOTBOL:CAPS"><type>G_REGEX_MATCH_NOTBOL</type></link> in the case of a pattern
+that begins with any kind of lookbehind assertion, such as "\b".</para>
+<refsect3 id="g-regex-split-full.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>regex</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GRegex"><type>GRegex</type></link> structure</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>string</para></entry>
+<entry role="parameter_description"><para>the string to split with the pattern. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>array</acronym> length=string_len]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>string_len</para></entry>
+<entry role="parameter_description"><para>the length of <parameter>string</parameter>
+, in bytes, or -1 if <parameter>string</parameter>
+is nul-terminated</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>start_position</para></entry>
+<entry role="parameter_description"><para>starting index of the string to match, in bytes</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>match_options</para></entry>
+<entry role="parameter_description"><para>match time option flags</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>max_tokens</para></entry>
+<entry role="parameter_description"><para>the maximum number of tokens to split <parameter>string</parameter>
+into.
+If this is less than 1, the string is split completely</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para>return location for a <link linkend="GError"><type>GError</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-regex-split-full.returns" role="returns">
+<title>Returns</title>
+<para>a <link linkend="NULL:CAPS"><literal>NULL</literal></link>-terminated gchar ** array. Free
+it using <link linkend="g-strfreev"><function>g_strfreev()</function></link>. </para>
+<para><emphasis role="annotation">[<acronym>transfer full</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.14">2.14</link></para></refsect2>
+<refsect2 id="g-regex-replace" role="function" condition="since:2.14">
+<title>g_regex_replace&#160;()</title>
+<indexterm zone="g-regex-replace" role="2.14"><primary sortas="regex_replace">g_regex_replace</primary></indexterm>
+<programlisting language="C"><link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+g_regex_replace (<parameter>const <link linkend="GRegex"><type>GRegex</type></link> *regex</parameter>,
+                 <parameter>const <link linkend="gchar"><type>gchar</type></link> *string</parameter>,
+                 <parameter><link linkend="gssize"><type>gssize</type></link> string_len</parameter>,
+                 <parameter><link linkend="gint"><type>gint</type></link> start_position</parameter>,
+                 <parameter>const <link linkend="gchar"><type>gchar</type></link> *replacement</parameter>,
+                 <parameter><link linkend="GRegexMatchFlags"><type>GRegexMatchFlags</type></link> match_options</parameter>,
+                 <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para>Replaces all occurrences of the pattern in <parameter>regex</parameter>
+ with the
+replacement text. Backreferences of the form '\number' or
+'\g&lt;number>' in the replacement text are interpolated by the
+number-th captured subexpression of the match, '\g&lt;name>' refers
+to the captured subexpression with the given name. '\0' refers
+to the complete match, but '\0' followed by a number is the octal
+representation of a character. To include a literal '\' in the
+replacement, write '\\'.</para>
+<para>There are also escapes that changes the case of the following text:</para>
+<itemizedlist>
+<listitem><para>\l: Convert to lower case the next character</para></listitem>
+<listitem><para>\u: Convert to upper case the next character</para></listitem>
+<listitem><para>\L: Convert to lower case till \E</para></listitem>
+<listitem><para>\U: Convert to upper case till \E</para></listitem>
+<listitem>
+<para>\E: End case modification</para>
+</listitem>
+</itemizedlist>
+<para>If you do not need to use backreferences use <link linkend="g-regex-replace-literal"><function>g_regex_replace_literal()</function></link>.</para>
+<para>The <parameter>replacement</parameter>
+ string must be UTF-8 encoded even if <link linkend="G-REGEX-RAW:CAPS"><type>G_REGEX_RAW</type></link> was
+passed to <link linkend="g-regex-new"><function>g_regex_new()</function></link>. If you want to use not UTF-8 encoded stings
+you can use <link linkend="g-regex-replace-literal"><function>g_regex_replace_literal()</function></link>.</para>
+<para>Setting <parameter>start_position</parameter>
+ differs from just passing over a shortened
+string and setting <link linkend="G-REGEX-MATCH-NOTBOL:CAPS"><type>G_REGEX_MATCH_NOTBOL</type></link> in the case of a pattern that
+begins with any kind of lookbehind assertion, such as "\b".</para>
+<refsect3 id="g-regex-replace.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>regex</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GRegex"><type>GRegex</type></link> structure</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>string</para></entry>
+<entry role="parameter_description"><para>the string to perform matches against. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>array</acronym> length=string_len]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>string_len</para></entry>
+<entry role="parameter_description"><para>the length of <parameter>string</parameter>
+, in bytes, or -1 if <parameter>string</parameter>
+is nul-terminated</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>start_position</para></entry>
+<entry role="parameter_description"><para>starting index of the string to match, in bytes</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>replacement</para></entry>
+<entry role="parameter_description"><para>text to replace each match with</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>match_options</para></entry>
+<entry role="parameter_description"><para>options for the match</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para>location to store the error occurring, or <link linkend="NULL:CAPS"><literal>NULL</literal></link> to ignore errors</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-regex-replace.returns" role="returns">
+<title>Returns</title>
+<para> a newly allocated string containing the replacements</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.14">2.14</link></para></refsect2>
+<refsect2 id="g-regex-replace-literal" role="function" condition="since:2.14">
+<title>g_regex_replace_literal&#160;()</title>
+<indexterm zone="g-regex-replace-literal" role="2.14"><primary sortas="regex_replace_literal">g_regex_replace_literal</primary></indexterm>
+<programlisting language="C"><link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+g_regex_replace_literal (<parameter>const <link linkend="GRegex"><type>GRegex</type></link> *regex</parameter>,
+                         <parameter>const <link linkend="gchar"><type>gchar</type></link> *string</parameter>,
+                         <parameter><link linkend="gssize"><type>gssize</type></link> string_len</parameter>,
+                         <parameter><link linkend="gint"><type>gint</type></link> start_position</parameter>,
+                         <parameter>const <link linkend="gchar"><type>gchar</type></link> *replacement</parameter>,
+                         <parameter><link linkend="GRegexMatchFlags"><type>GRegexMatchFlags</type></link> match_options</parameter>,
+                         <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para>Replaces all occurrences of the pattern in <parameter>regex</parameter>
+ with the
+replacement text. <parameter>replacement</parameter>
+ is replaced literally, to
+include backreferences use <link linkend="g-regex-replace"><function>g_regex_replace()</function></link>.</para>
+<para>Setting <parameter>start_position</parameter>
+ differs from just passing over a
+shortened string and setting <link linkend="G-REGEX-MATCH-NOTBOL:CAPS"><type>G_REGEX_MATCH_NOTBOL</type></link> in the
+case of a pattern that begins with any kind of lookbehind
+assertion, such as "\b".</para>
+<refsect3 id="g-regex-replace-literal.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>regex</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GRegex"><type>GRegex</type></link> structure</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>string</para></entry>
+<entry role="parameter_description"><para>the string to perform matches against. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>array</acronym> length=string_len]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>string_len</para></entry>
+<entry role="parameter_description"><para>the length of <parameter>string</parameter>
+, in bytes, or -1 if <parameter>string</parameter>
+is nul-terminated</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>start_position</para></entry>
+<entry role="parameter_description"><para>starting index of the string to match, in bytes</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>replacement</para></entry>
+<entry role="parameter_description"><para>text to replace each match with</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>match_options</para></entry>
+<entry role="parameter_description"><para>options for the match</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para>location to store the error occurring, or <link linkend="NULL:CAPS"><literal>NULL</literal></link> to ignore errors</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-regex-replace-literal.returns" role="returns">
+<title>Returns</title>
+<para> a newly allocated string containing the replacements</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.14">2.14</link></para></refsect2>
+<refsect2 id="g-regex-replace-eval" role="function" condition="since:2.14">
+<title>g_regex_replace_eval&#160;()</title>
+<indexterm zone="g-regex-replace-eval" role="2.14"><primary sortas="regex_replace_eval">g_regex_replace_eval</primary></indexterm>
+<programlisting language="C"><link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+g_regex_replace_eval (<parameter>const <link linkend="GRegex"><type>GRegex</type></link> *regex</parameter>,
+                      <parameter>const <link linkend="gchar"><type>gchar</type></link> *string</parameter>,
+                      <parameter><link linkend="gssize"><type>gssize</type></link> string_len</parameter>,
+                      <parameter><link linkend="gint"><type>gint</type></link> start_position</parameter>,
+                      <parameter><link linkend="GRegexMatchFlags"><type>GRegexMatchFlags</type></link> match_options</parameter>,
+                      <parameter><link linkend="GRegexEvalCallback"><type>GRegexEvalCallback</type></link> eval</parameter>,
+                      <parameter><link linkend="gpointer"><type>gpointer</type></link> user_data</parameter>,
+                      <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para>Replaces occurrences of the pattern in regex with the output of
+<parameter>eval</parameter>
+ for that occurrence.</para>
+<para>Setting <parameter>start_position</parameter>
+ differs from just passing over a shortened
+string and setting <link linkend="G-REGEX-MATCH-NOTBOL:CAPS"><type>G_REGEX_MATCH_NOTBOL</type></link> in the case of a pattern
+that begins with any kind of lookbehind assertion, such as "\b".</para>
+<para>The following example uses <link linkend="g-regex-replace-eval"><function>g_regex_replace_eval()</function></link> to replace multiple
+strings at once:</para>
+<informalexample><programlisting role="example"><![CDATA[
+static gboolean
+eval_cb (const GMatchInfo *info,
+         GString          *res,
+         gpointer          data)
+{
+  gchar *match;
+  gchar *r;
+
+   match = g_match_info_fetch (info, 0);
+   r = g_hash_table_lookup ((GHashTable *)data, match);
+   g_string_append (res, r);
+   g_free (match);
+
+   return FALSE;
+}
+
+...
+
+GRegex *reg;
+GHashTable *h;
+gchar *res;
+
+h = g_hash_table_new (g_str_hash, g_str_equal);
+
+g_hash_table_insert (h, "1", "ONE");
+g_hash_table_insert (h, "2", "TWO");
+g_hash_table_insert (h, "3", "THREE");
+g_hash_table_insert (h, "4", "FOUR");
+
+reg = g_regex_new ("1|2|3|4", 0, 0, NULL);
+res = g_regex_replace_eval (reg, text, -1, 0, 0, eval_cb, h, NULL);
+g_hash_table_destroy (h);
+
+...
+]]></programlisting></informalexample>
+<para></para>
+<refsect3 id="g-regex-replace-eval.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>regex</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GRegex"><type>GRegex</type></link> structure from <link linkend="g-regex-new"><function>g_regex_new()</function></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>string</para></entry>
+<entry role="parameter_description"><para>string to perform matches against. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>array</acronym> length=string_len]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>string_len</para></entry>
+<entry role="parameter_description"><para>the length of <parameter>string</parameter>
+, in bytes, or -1 if <parameter>string</parameter>
+is nul-terminated</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>start_position</para></entry>
+<entry role="parameter_description"><para>starting index of the string to match, in bytes</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>match_options</para></entry>
+<entry role="parameter_description"><para>options for the match</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>eval</para></entry>
+<entry role="parameter_description"><para>a function to call for each match</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>user_data</para></entry>
+<entry role="parameter_description"><para>user data to pass to the function</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para>location to store the error occurring, or <link linkend="NULL:CAPS"><literal>NULL</literal></link> to ignore errors</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-regex-replace-eval.returns" role="returns">
+<title>Returns</title>
+<para> a newly allocated string containing the replacements</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.14">2.14</link></para></refsect2>
+<refsect2 id="g-regex-check-replacement" role="function" condition="since:2.14">
+<title>g_regex_check_replacement&#160;()</title>
+<indexterm zone="g-regex-check-replacement" role="2.14"><primary sortas="regex_check_replacement">g_regex_check_replacement</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_regex_check_replacement (<parameter>const <link linkend="gchar"><type>gchar</type></link> *replacement</parameter>,
+                           <parameter><link linkend="gboolean"><type>gboolean</type></link> *has_references</parameter>,
+                           <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para>Checks whether <parameter>replacement</parameter>
+ is a valid replacement string
+(see <link linkend="g-regex-replace"><function>g_regex_replace()</function></link>), i.e. that all escape sequences in
+it are valid.</para>
+<para>If <parameter>has_references</parameter>
+ is not <link linkend="NULL:CAPS"><literal>NULL</literal></link> then <parameter>replacement</parameter>
+ is checked
+for pattern references. For instance, replacement text 'foo\n'
+does not contain references and may be evaluated without information
+about actual match, but '\0\1' (whole match followed by first
+subpattern) requires valid <link linkend="GMatchInfo"><type>GMatchInfo</type></link> object.</para>
+<refsect3 id="g-regex-check-replacement.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>replacement</para></entry>
+<entry role="parameter_description"><para>the replacement string</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>has_references</para></entry>
+<entry role="parameter_description"><para>location to store information about
+references in <parameter>replacement</parameter>
+or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>out</acronym>][<acronym>optional</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para>location to store error</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-regex-check-replacement.returns" role="returns">
+<title>Returns</title>
+<para> whether <parameter>replacement</parameter>
+is a valid replacement string</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.14">2.14</link></para></refsect2>
+<refsect2 id="g-match-info-get-regex" role="function" condition="since:2.14">
+<title>g_match_info_get_regex&#160;()</title>
+<indexterm zone="g-match-info-get-regex" role="2.14"><primary sortas="match_info_get_regex">g_match_info_get_regex</primary></indexterm>
+<programlisting language="C"><link linkend="GRegex"><returnvalue>GRegex</returnvalue></link>&#160;*
+g_match_info_get_regex (<parameter>const <link linkend="GMatchInfo"><type>GMatchInfo</type></link> *match_info</parameter>);</programlisting>
+<para>Returns <link linkend="GRegex"><type>GRegex</type></link> object used in <parameter>match_info</parameter>
+. It belongs to Glib
+and must not be freed. Use <link linkend="g-regex-ref"><function>g_regex_ref()</function></link> if you need to keep it
+after you free <parameter>match_info</parameter>
+ object.</para>
+<refsect3 id="g-match-info-get-regex.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>match_info</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GMatchInfo"><type>GMatchInfo</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-match-info-get-regex.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="GRegex"><type>GRegex</type></link> object used in <parameter>match_info</parameter>
+</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.14">2.14</link></para></refsect2>
+<refsect2 id="g-match-info-get-string" role="function" condition="since:2.14">
+<title>g_match_info_get_string&#160;()</title>
+<indexterm zone="g-match-info-get-string" role="2.14"><primary sortas="match_info_get_string">g_match_info_get_string</primary></indexterm>
+<programlisting language="C">const <link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+g_match_info_get_string (<parameter>const <link linkend="GMatchInfo"><type>GMatchInfo</type></link> *match_info</parameter>);</programlisting>
+<para>Returns the string searched with <parameter>match_info</parameter>
+. This is the
+string passed to <link linkend="g-regex-match"><function>g_regex_match()</function></link> or <link linkend="g-regex-replace"><function>g_regex_replace()</function></link> so
+you may not free it before calling this function.</para>
+<refsect3 id="g-match-info-get-string.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>match_info</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GMatchInfo"><type>GMatchInfo</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-match-info-get-string.returns" role="returns">
+<title>Returns</title>
+<para> the string searched with <parameter>match_info</parameter>
+</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.14">2.14</link></para></refsect2>
+<refsect2 id="g-match-info-ref" role="function" condition="since:2.30">
+<title>g_match_info_ref&#160;()</title>
+<indexterm zone="g-match-info-ref" role="2.30"><primary sortas="match_info_ref">g_match_info_ref</primary></indexterm>
+<programlisting language="C"><link linkend="GMatchInfo"><returnvalue>GMatchInfo</returnvalue></link>&#160;*
+g_match_info_ref (<parameter><link linkend="GMatchInfo"><type>GMatchInfo</type></link> *match_info</parameter>);</programlisting>
+<para>Increases reference count of <parameter>match_info</parameter>
+ by 1.</para>
+<refsect3 id="g-match-info-ref.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>match_info</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GMatchInfo"><type>GMatchInfo</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-match-info-ref.returns" role="returns">
+<title>Returns</title>
+<para> <parameter>match_info</parameter>
+</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.30">2.30</link></para></refsect2>
+<refsect2 id="g-match-info-unref" role="function" condition="since:2.30">
+<title>g_match_info_unref&#160;()</title>
+<indexterm zone="g-match-info-unref" role="2.30"><primary sortas="match_info_unref">g_match_info_unref</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_match_info_unref (<parameter><link linkend="GMatchInfo"><type>GMatchInfo</type></link> *match_info</parameter>);</programlisting>
+<para>Decreases reference count of <parameter>match_info</parameter>
+ by 1. When reference count drops
+to zero, it frees all the memory associated with the match_info structure.</para>
+<refsect3 id="g-match-info-unref.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>match_info</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GMatchInfo"><type>GMatchInfo</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.30">2.30</link></para></refsect2>
+<refsect2 id="g-match-info-free" role="function" condition="since:2.14">
+<title>g_match_info_free&#160;()</title>
+<indexterm zone="g-match-info-free" role="2.14"><primary sortas="match_info_free">g_match_info_free</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_match_info_free (<parameter><link linkend="GMatchInfo"><type>GMatchInfo</type></link> *match_info</parameter>);</programlisting>
+<para>If <parameter>match_info</parameter>
+ is not <link linkend="NULL:CAPS"><literal>NULL</literal></link>, calls <link linkend="g-match-info-unref"><function>g_match_info_unref()</function></link>; otherwise does
+nothing.</para>
+<refsect3 id="g-match-info-free.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>match_info</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GMatchInfo"><type>GMatchInfo</type></link>, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.14">2.14</link></para></refsect2>
+<refsect2 id="g-match-info-matches" role="function" condition="since:2.14">
+<title>g_match_info_matches&#160;()</title>
+<indexterm zone="g-match-info-matches" role="2.14"><primary sortas="match_info_matches">g_match_info_matches</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_match_info_matches (<parameter>const <link linkend="GMatchInfo"><type>GMatchInfo</type></link> *match_info</parameter>);</programlisting>
+<para>Returns whether the previous match operation succeeded.</para>
+<refsect3 id="g-match-info-matches.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>match_info</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GMatchInfo"><type>GMatchInfo</type></link> structure</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-match-info-matches.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if the previous match operation succeeded,
+<link linkend="FALSE:CAPS"><literal>FALSE</literal></link> otherwise</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.14">2.14</link></para></refsect2>
+<refsect2 id="g-match-info-next" role="function" condition="since:2.14">
+<title>g_match_info_next&#160;()</title>
+<indexterm zone="g-match-info-next" role="2.14"><primary sortas="match_info_next">g_match_info_next</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_match_info_next (<parameter><link linkend="GMatchInfo"><type>GMatchInfo</type></link> *match_info</parameter>,
+                   <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para>Scans for the next match using the same parameters of the previous
+call to <link linkend="g-regex-match-full"><function>g_regex_match_full()</function></link> or <link linkend="g-regex-match"><function>g_regex_match()</function></link> that returned
+<parameter>match_info</parameter>
+.</para>
+<para>The match is done on the string passed to the match function, so you
+cannot free it before calling this function.</para>
+<refsect3 id="g-match-info-next.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>match_info</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GMatchInfo"><type>GMatchInfo</type></link> structure</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para>location to store the error occurring, or <link linkend="NULL:CAPS"><literal>NULL</literal></link> to ignore errors</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-match-info-next.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> is the string matched, <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> otherwise</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.14">2.14</link></para></refsect2>
+<refsect2 id="g-match-info-get-match-count" role="function" condition="since:2.14">
+<title>g_match_info_get_match_count&#160;()</title>
+<indexterm zone="g-match-info-get-match-count" role="2.14"><primary sortas="match_info_get_match_count">g_match_info_get_match_count</primary></indexterm>
+<programlisting language="C"><link linkend="gint"><returnvalue>gint</returnvalue></link>
+g_match_info_get_match_count (<parameter>const <link linkend="GMatchInfo"><type>GMatchInfo</type></link> *match_info</parameter>);</programlisting>
+<para>Retrieves the number of matched substrings (including substring 0,
+that is the whole matched text), so 1 is returned if the pattern
+has no substrings in it and 0 is returned if the match failed.</para>
+<para>If the last match was obtained using the DFA algorithm, that is
+using <link linkend="g-regex-match-all"><function>g_regex_match_all()</function></link> or <link linkend="g-regex-match-all-full"><function>g_regex_match_all_full()</function></link>, the retrieved
+count is not that of the number of capturing parentheses but that of
+the number of matched substrings.</para>
+<refsect3 id="g-match-info-get-match-count.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>match_info</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GMatchInfo"><type>GMatchInfo</type></link> structure</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-match-info-get-match-count.returns" role="returns">
+<title>Returns</title>
+<para> Number of matched substrings, or -1 if an error occurred</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.14">2.14</link></para></refsect2>
+<refsect2 id="g-match-info-is-partial-match" role="function" condition="since:2.14">
+<title>g_match_info_is_partial_match&#160;()</title>
+<indexterm zone="g-match-info-is-partial-match" role="2.14"><primary sortas="match_info_is_partial_match">g_match_info_is_partial_match</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_match_info_is_partial_match (<parameter>const <link linkend="GMatchInfo"><type>GMatchInfo</type></link> *match_info</parameter>);</programlisting>
+<para>Usually if the string passed to g_regex_match*() matches as far as
+it goes, but is too short to match the entire pattern, <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> is
+returned. There are circumstances where it might be helpful to
+distinguish this case from other cases in which there is no match.</para>
+<para>Consider, for example, an application where a human is required to
+type in data for a field with specific formatting requirements. An
+example might be a date in the form ddmmmyy, defined by the pattern
+"^\d?\d(jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)\d\d$".
+If the application sees the user’s keystrokes one by one, and can
+check that what has been typed so far is potentially valid, it is
+able to raise an error as soon as a mistake is made.</para>
+<para>GRegex supports the concept of partial matching by means of the
+<link linkend="G-REGEX-MATCH-PARTIAL-SOFT:CAPS"><type>G_REGEX_MATCH_PARTIAL_SOFT</type></link> and <link linkend="G-REGEX-MATCH-PARTIAL-HARD:CAPS"><type>G_REGEX_MATCH_PARTIAL_HARD</type></link> flags.
+When they are used, the return code for
+<link linkend="g-regex-match"><function>g_regex_match()</function></link> or <link linkend="g-regex-match-full"><function>g_regex_match_full()</function></link> is, as usual, <link linkend="TRUE:CAPS"><literal>TRUE</literal></link>
+for a complete match, <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> otherwise. But, when these functions
+return <link linkend="FALSE:CAPS"><literal>FALSE</literal></link>, you can check if the match was partial calling
+<link linkend="g-match-info-is-partial-match"><function>g_match_info_is_partial_match()</function></link>.</para>
+<para>The difference between <link linkend="G-REGEX-MATCH-PARTIAL-SOFT:CAPS"><type>G_REGEX_MATCH_PARTIAL_SOFT</type></link> and 
+<link linkend="G-REGEX-MATCH-PARTIAL-HARD:CAPS"><type>G_REGEX_MATCH_PARTIAL_HARD</type></link> is that when a partial match is encountered
+with <link linkend="G-REGEX-MATCH-PARTIAL-SOFT:CAPS"><type>G_REGEX_MATCH_PARTIAL_SOFT</type></link>, matching continues to search for a
+possible complete match, while with <link linkend="G-REGEX-MATCH-PARTIAL-HARD:CAPS"><type>G_REGEX_MATCH_PARTIAL_HARD</type></link> matching
+stops at the partial match.
+When both <link linkend="G-REGEX-MATCH-PARTIAL-SOFT:CAPS"><type>G_REGEX_MATCH_PARTIAL_SOFT</type></link> and <link linkend="G-REGEX-MATCH-PARTIAL-HARD:CAPS"><type>G_REGEX_MATCH_PARTIAL_HARD</type></link>
+are set, the latter takes precedence.</para>
+<para>There were formerly some restrictions on the pattern for partial matching.
+The restrictions no longer apply.</para>
+<para>See pcrepartial(3) for more information on partial matching.</para>
+<refsect3 id="g-match-info-is-partial-match.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>match_info</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GMatchInfo"><type>GMatchInfo</type></link> structure</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-match-info-is-partial-match.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if the match was partial, <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> otherwise</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.14">2.14</link></para></refsect2>
+<refsect2 id="g-match-info-expand-references" role="function" condition="since:2.14">
+<title>g_match_info_expand_references&#160;()</title>
+<indexterm zone="g-match-info-expand-references" role="2.14"><primary sortas="match_info_expand_references">g_match_info_expand_references</primary></indexterm>
+<programlisting language="C"><link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+g_match_info_expand_references (<parameter>const <link linkend="GMatchInfo"><type>GMatchInfo</type></link> *match_info</parameter>,
+                                <parameter>const <link linkend="gchar"><type>gchar</type></link> *string_to_expand</parameter>,
+                                <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para>Returns a new string containing the text in <parameter>string_to_expand</parameter>
+ with
+references and escape sequences expanded. References refer to the last
+match done with <parameter>string</parameter>
+ against <parameter>regex</parameter>
+ and have the same syntax used by
+<link linkend="g-regex-replace"><function>g_regex_replace()</function></link>.</para>
+<para>The <parameter>string_to_expand</parameter>
+ must be UTF-8 encoded even if <link linkend="G-REGEX-RAW:CAPS"><type>G_REGEX_RAW</type></link> was
+passed to <link linkend="g-regex-new"><function>g_regex_new()</function></link>.</para>
+<para>The backreferences are extracted from the string passed to the match
+function, so you cannot call this function after freeing the string.</para>
+<para><parameter>match_info</parameter>
+ may be <link linkend="NULL:CAPS"><literal>NULL</literal></link> in which case <parameter>string_to_expand</parameter>
+ must not
+contain references. For instance "foo\n" does not refer to an actual
+pattern and '\n' merely will be replaced with \n character,
+while to expand "\0" (whole match) one needs the result of a match.
+Use <link linkend="g-regex-check-replacement"><function>g_regex_check_replacement()</function></link> to find out whether <parameter>string_to_expand</parameter>
+
+contains references.</para>
+<refsect3 id="g-match-info-expand-references.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>match_info</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GMatchInfo"><type>GMatchInfo</type></link> or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>string_to_expand</para></entry>
+<entry role="parameter_description"><para>the string to expand</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para>location to store the error occurring, or <link linkend="NULL:CAPS"><literal>NULL</literal></link> to ignore errors</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-match-info-expand-references.returns" role="returns">
+<title>Returns</title>
+<para>the expanded string, or <link linkend="NULL:CAPS"><literal>NULL</literal></link> if an error occurred. </para>
+<para><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.14">2.14</link></para></refsect2>
+<refsect2 id="g-match-info-fetch" role="function" condition="since:2.14">
+<title>g_match_info_fetch&#160;()</title>
+<indexterm zone="g-match-info-fetch" role="2.14"><primary sortas="match_info_fetch">g_match_info_fetch</primary></indexterm>
+<programlisting language="C"><link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+g_match_info_fetch (<parameter>const <link linkend="GMatchInfo"><type>GMatchInfo</type></link> *match_info</parameter>,
+                    <parameter><link linkend="gint"><type>gint</type></link> match_num</parameter>);</programlisting>
+<para>Retrieves the text matching the <parameter>match_num</parameter>
+'th capturing
+parentheses. 0 is the full text of the match, 1 is the first paren
+set, 2 the second, and so on.</para>
+<para>If <parameter>match_num</parameter>
+ is a valid sub pattern but it didn't match anything
+(e.g. sub pattern 1, matching "b" against "(a)?b") then an empty
+string is returned.</para>
+<para>If the match was obtained using the DFA algorithm, that is using
+<link linkend="g-regex-match-all"><function>g_regex_match_all()</function></link> or <link linkend="g-regex-match-all-full"><function>g_regex_match_all_full()</function></link>, the retrieved
+string is not that of a set of parentheses but that of a matched
+substring. Substrings are matched in reverse order of length, so
+0 is the longest match.</para>
+<para>The string is fetched from the string passed to the match function,
+so you cannot call this function after freeing the string.</para>
+<refsect3 id="g-match-info-fetch.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>match_info</para></entry>
+<entry role="parameter_description"><para><link linkend="GMatchInfo"><type>GMatchInfo</type></link> structure</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>match_num</para></entry>
+<entry role="parameter_description"><para>number of the sub expression</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-match-info-fetch.returns" role="returns">
+<title>Returns</title>
+<para>The matched substring, or <link linkend="NULL:CAPS"><literal>NULL</literal></link> if an error
+occurred. You have to free the string yourself. </para>
+<para><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.14">2.14</link></para></refsect2>
+<refsect2 id="g-match-info-fetch-pos" role="function" condition="since:2.14">
+<title>g_match_info_fetch_pos&#160;()</title>
+<indexterm zone="g-match-info-fetch-pos" role="2.14"><primary sortas="match_info_fetch_pos">g_match_info_fetch_pos</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_match_info_fetch_pos (<parameter>const <link linkend="GMatchInfo"><type>GMatchInfo</type></link> *match_info</parameter>,
+                        <parameter><link linkend="gint"><type>gint</type></link> match_num</parameter>,
+                        <parameter><link linkend="gint"><type>gint</type></link> *start_pos</parameter>,
+                        <parameter><link linkend="gint"><type>gint</type></link> *end_pos</parameter>);</programlisting>
+<para>Retrieves the position in bytes of the <parameter>match_num</parameter>
+'th capturing
+parentheses. 0 is the full text of the match, 1 is the first
+paren set, 2 the second, and so on.</para>
+<para>If <parameter>match_num</parameter>
+ is a valid sub pattern but it didn't match anything
+(e.g. sub pattern 1, matching "b" against "(a)?b") then <parameter>start_pos</parameter>
+
+and <parameter>end_pos</parameter>
+ are set to -1 and <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> is returned.</para>
+<para>If the match was obtained using the DFA algorithm, that is using
+<link linkend="g-regex-match-all"><function>g_regex_match_all()</function></link> or <link linkend="g-regex-match-all-full"><function>g_regex_match_all_full()</function></link>, the retrieved
+position is not that of a set of parentheses but that of a matched
+substring. Substrings are matched in reverse order of length, so
+0 is the longest match.</para>
+<refsect3 id="g-match-info-fetch-pos.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>match_info</para></entry>
+<entry role="parameter_description"><para><link linkend="GMatchInfo"><type>GMatchInfo</type></link> structure</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>match_num</para></entry>
+<entry role="parameter_description"><para>number of the sub expression</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>start_pos</para></entry>
+<entry role="parameter_description"><para>pointer to location where to store
+the start position, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>out</acronym>][<acronym>optional</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>end_pos</para></entry>
+<entry role="parameter_description"><para>pointer to location where to store
+the end position, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>out</acronym>][<acronym>optional</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-match-info-fetch-pos.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if the position was fetched, <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> otherwise. If
+the position cannot be fetched, <parameter>start_pos</parameter>
+and <parameter>end_pos</parameter>
+are left
+unchanged</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.14">2.14</link></para></refsect2>
+<refsect2 id="g-match-info-fetch-named" role="function" condition="since:2.14">
+<title>g_match_info_fetch_named&#160;()</title>
+<indexterm zone="g-match-info-fetch-named" role="2.14"><primary sortas="match_info_fetch_named">g_match_info_fetch_named</primary></indexterm>
+<programlisting language="C"><link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+g_match_info_fetch_named (<parameter>const <link linkend="GMatchInfo"><type>GMatchInfo</type></link> *match_info</parameter>,
+                          <parameter>const <link linkend="gchar"><type>gchar</type></link> *name</parameter>);</programlisting>
+<para>Retrieves the text matching the capturing parentheses named <parameter>name</parameter>
+.</para>
+<para>If <parameter>name</parameter>
+ is a valid sub pattern name but it didn't match anything
+(e.g. sub pattern "X", matching "b" against "(?P&lt;X>a)?b")
+then an empty string is returned.</para>
+<para>The string is fetched from the string passed to the match function,
+so you cannot call this function after freeing the string.</para>
+<refsect3 id="g-match-info-fetch-named.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>match_info</para></entry>
+<entry role="parameter_description"><para><link linkend="GMatchInfo"><type>GMatchInfo</type></link> structure</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>name</para></entry>
+<entry role="parameter_description"><para>name of the subexpression</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-match-info-fetch-named.returns" role="returns">
+<title>Returns</title>
+<para>The matched substring, or <link linkend="NULL:CAPS"><literal>NULL</literal></link> if an error
+occurred. You have to free the string yourself. </para>
+<para><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.14">2.14</link></para></refsect2>
+<refsect2 id="g-match-info-fetch-named-pos" role="function" condition="since:2.14">
+<title>g_match_info_fetch_named_pos&#160;()</title>
+<indexterm zone="g-match-info-fetch-named-pos" role="2.14"><primary sortas="match_info_fetch_named_pos">g_match_info_fetch_named_pos</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_match_info_fetch_named_pos (<parameter>const <link linkend="GMatchInfo"><type>GMatchInfo</type></link> *match_info</parameter>,
+                              <parameter>const <link linkend="gchar"><type>gchar</type></link> *name</parameter>,
+                              <parameter><link linkend="gint"><type>gint</type></link> *start_pos</parameter>,
+                              <parameter><link linkend="gint"><type>gint</type></link> *end_pos</parameter>);</programlisting>
+<para>Retrieves the position in bytes of the capturing parentheses named <parameter>name</parameter>
+.</para>
+<para>If <parameter>name</parameter>
+ is a valid sub pattern name but it didn't match anything
+(e.g. sub pattern "X", matching "b" against "(?P&lt;X>a)?b")
+then <parameter>start_pos</parameter>
+ and <parameter>end_pos</parameter>
+ are set to -1 and <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> is returned.</para>
+<refsect3 id="g-match-info-fetch-named-pos.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>match_info</para></entry>
+<entry role="parameter_description"><para><link linkend="GMatchInfo"><type>GMatchInfo</type></link> structure</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>name</para></entry>
+<entry role="parameter_description"><para>name of the subexpression</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>start_pos</para></entry>
+<entry role="parameter_description"><para>pointer to location where to store
+the start position, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>out</acronym>][<acronym>optional</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>end_pos</para></entry>
+<entry role="parameter_description"><para>pointer to location where to store
+the end position, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>out</acronym>][<acronym>optional</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-match-info-fetch-named-pos.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if the position was fetched, <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> otherwise.
+If the position cannot be fetched, <parameter>start_pos</parameter>
+and <parameter>end_pos</parameter>
+are left unchanged.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.14">2.14</link></para></refsect2>
+<refsect2 id="g-match-info-fetch-all" role="function" condition="since:2.14">
+<title>g_match_info_fetch_all&#160;()</title>
+<indexterm zone="g-match-info-fetch-all" role="2.14"><primary sortas="match_info_fetch_all">g_match_info_fetch_all</primary></indexterm>
+<programlisting language="C"><link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;**
+g_match_info_fetch_all (<parameter>const <link linkend="GMatchInfo"><type>GMatchInfo</type></link> *match_info</parameter>);</programlisting>
+<para>Bundles up pointers to each of the matching substrings from a match
+and stores them in an array of gchar pointers. The first element in
+the returned array is the match number 0, i.e. the entire matched
+text.</para>
+<para>If a sub pattern didn't match anything (e.g. sub pattern 1, matching
+"b" against "(a)?b") then an empty string is inserted.</para>
+<para>If the last match was obtained using the DFA algorithm, that is using
+<link linkend="g-regex-match-all"><function>g_regex_match_all()</function></link> or <link linkend="g-regex-match-all-full"><function>g_regex_match_all_full()</function></link>, the retrieved
+strings are not that matched by sets of parentheses but that of the
+matched substring. Substrings are matched in reverse order of length,
+so the first one is the longest match.</para>
+<para>The strings are fetched from the string passed to the match function,
+so you cannot call this function after freeing the string.</para>
+<refsect3 id="g-match-info-fetch-all.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>match_info</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GMatchInfo"><type>GMatchInfo</type></link> structure</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-match-info-fetch-all.returns" role="returns">
+<title>Returns</title>
+<para>a <link linkend="NULL:CAPS"><literal>NULL</literal></link>-terminated array of gchar *
+pointers.  It must be freed using <link linkend="g-strfreev"><function>g_strfreev()</function></link>. If the previous
+match failed <link linkend="NULL:CAPS"><literal>NULL</literal></link> is returned. </para>
+<para><emphasis role="annotation">[<acronym>transfer full</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.14">2.14</link></para></refsect2>
+
+</refsect1>
+<refsect1 id="glib-Perl-compatible-regular-expressions.other_details" role="details">
+<title role="details.title">Types and Values</title>
+<refsect2 id="GRegexError" role="enum" condition="since:2.14">
+<title>enum GRegexError</title>
+<indexterm zone="GRegexError" role="2.14"><primary sortas="RegexError">GRegexError</primary></indexterm>
+<para>Error codes returned by regular expressions functions.</para>
+<refsect3 id="GRegexError.members" role="enum_members">
+<title>Members</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="enum_members_name" colwidth="300px"/>
+<colspec colname="enum_members_description"/>
+<colspec colname="enum_members_annotations" colwidth="200px"/>
+<tbody>
+<row role="constant"><entry role="enum_member_name"><para id="G-REGEX-ERROR-COMPILE:CAPS">G_REGEX_ERROR_COMPILE</para></entry>
+<entry role="enum_member_description"><para>Compilation of the regular expression failed.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-REGEX-ERROR-OPTIMIZE:CAPS">G_REGEX_ERROR_OPTIMIZE</para></entry>
+<entry role="enum_member_description"><para>Optimization of the regular expression failed.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-REGEX-ERROR-REPLACE:CAPS">G_REGEX_ERROR_REPLACE</para></entry>
+<entry role="enum_member_description"><para>Replacement failed due to an ill-formed replacement
+    string.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-REGEX-ERROR-MATCH:CAPS">G_REGEX_ERROR_MATCH</para></entry>
+<entry role="enum_member_description"><para>The match process failed.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-REGEX-ERROR-INTERNAL:CAPS">G_REGEX_ERROR_INTERNAL</para></entry>
+<entry role="enum_member_description"><para>Internal error of the regular expression engine.
+    Since 2.16</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-REGEX-ERROR-STRAY-BACKSLASH:CAPS">G_REGEX_ERROR_STRAY_BACKSLASH</para></entry>
+<entry role="enum_member_description"><para>"\" at end of pattern. Since 2.16</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-REGEX-ERROR-MISSING-CONTROL-CHAR:CAPS">G_REGEX_ERROR_MISSING_CONTROL_CHAR</para></entry>
+<entry role="enum_member_description"><para>"\c" at end of pattern. Since 2.16</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-REGEX-ERROR-UNRECOGNIZED-ESCAPE:CAPS">G_REGEX_ERROR_UNRECOGNIZED_ESCAPE</para></entry>
+<entry role="enum_member_description"><para>Unrecognized character follows "\".
+    Since 2.16</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-REGEX-ERROR-QUANTIFIERS-OUT-OF-ORDER:CAPS">G_REGEX_ERROR_QUANTIFIERS_OUT_OF_ORDER</para></entry>
+<entry role="enum_member_description"><para>Numbers out of order in "{}"
+    quantifier. Since 2.16</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-REGEX-ERROR-QUANTIFIER-TOO-BIG:CAPS">G_REGEX_ERROR_QUANTIFIER_TOO_BIG</para></entry>
+<entry role="enum_member_description"><para>Number too big in "{}" quantifier.
+    Since 2.16</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-REGEX-ERROR-UNTERMINATED-CHARACTER-CLASS:CAPS">G_REGEX_ERROR_UNTERMINATED_CHARACTER_CLASS</para></entry>
+<entry role="enum_member_description"><para>Missing terminating "]" for
+    character class. Since 2.16</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-REGEX-ERROR-INVALID-ESCAPE-IN-CHARACTER-CLASS:CAPS">G_REGEX_ERROR_INVALID_ESCAPE_IN_CHARACTER_CLASS</para></entry>
+<entry role="enum_member_description"><para>Invalid escape sequence
+    in character class. Since 2.16</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-REGEX-ERROR-RANGE-OUT-OF-ORDER:CAPS">G_REGEX_ERROR_RANGE_OUT_OF_ORDER</para></entry>
+<entry role="enum_member_description"><para>Range out of order in character class.
+    Since 2.16</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-REGEX-ERROR-NOTHING-TO-REPEAT:CAPS">G_REGEX_ERROR_NOTHING_TO_REPEAT</para></entry>
+<entry role="enum_member_description"><para>Nothing to repeat. Since 2.16</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-REGEX-ERROR-UNRECOGNIZED-CHARACTER:CAPS">G_REGEX_ERROR_UNRECOGNIZED_CHARACTER</para></entry>
+<entry role="enum_member_description"><para>Unrecognized character after "(?",
+    "(?&lt;" or "(?P". Since 2.16</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-REGEX-ERROR-POSIX-NAMED-CLASS-OUTSIDE-CLASS:CAPS">G_REGEX_ERROR_POSIX_NAMED_CLASS_OUTSIDE_CLASS</para></entry>
+<entry role="enum_member_description"><para>POSIX named classes are
+    supported only within a class. Since 2.16</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-REGEX-ERROR-UNMATCHED-PARENTHESIS:CAPS">G_REGEX_ERROR_UNMATCHED_PARENTHESIS</para></entry>
+<entry role="enum_member_description"><para>Missing terminating ")" or ")"
+    without opening "(". Since 2.16</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-REGEX-ERROR-INEXISTENT-SUBPATTERN-REFERENCE:CAPS">G_REGEX_ERROR_INEXISTENT_SUBPATTERN_REFERENCE</para></entry>
+<entry role="enum_member_description"><para>Reference to non-existent
+    subpattern. Since 2.16</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-REGEX-ERROR-UNTERMINATED-COMMENT:CAPS">G_REGEX_ERROR_UNTERMINATED_COMMENT</para></entry>
+<entry role="enum_member_description"><para>Missing terminating ")" after comment.
+    Since 2.16</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-REGEX-ERROR-EXPRESSION-TOO-LARGE:CAPS">G_REGEX_ERROR_EXPRESSION_TOO_LARGE</para></entry>
+<entry role="enum_member_description"><para>Regular expression too large.
+    Since 2.16</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-REGEX-ERROR-MEMORY-ERROR:CAPS">G_REGEX_ERROR_MEMORY_ERROR</para></entry>
+<entry role="enum_member_description"><para>Failed to get memory. Since 2.16</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-REGEX-ERROR-VARIABLE-LENGTH-LOOKBEHIND:CAPS">G_REGEX_ERROR_VARIABLE_LENGTH_LOOKBEHIND</para></entry>
+<entry role="enum_member_description"><para>Lookbehind assertion is not
+    fixed length. Since 2.16</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-REGEX-ERROR-MALFORMED-CONDITION:CAPS">G_REGEX_ERROR_MALFORMED_CONDITION</para></entry>
+<entry role="enum_member_description"><para>Malformed number or name after "(?(".
+    Since 2.16</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-REGEX-ERROR-TOO-MANY-CONDITIONAL-BRANCHES:CAPS">G_REGEX_ERROR_TOO_MANY_CONDITIONAL_BRANCHES</para></entry>
+<entry role="enum_member_description"><para>Conditional group contains
+    more than two branches. Since 2.16</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-REGEX-ERROR-ASSERTION-EXPECTED:CAPS">G_REGEX_ERROR_ASSERTION_EXPECTED</para></entry>
+<entry role="enum_member_description"><para>Assertion expected after "(?(".
+    Since 2.16</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-REGEX-ERROR-UNKNOWN-POSIX-CLASS-NAME:CAPS">G_REGEX_ERROR_UNKNOWN_POSIX_CLASS_NAME</para></entry>
+<entry role="enum_member_description"><para>Unknown POSIX class name.
+    Since 2.16</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-REGEX-ERROR-POSIX-COLLATING-ELEMENTS-NOT-SUPPORTED:CAPS">G_REGEX_ERROR_POSIX_COLLATING_ELEMENTS_NOT_SUPPORTED</para></entry>
+<entry role="enum_member_description"><para>POSIX collating
+    elements are not supported. Since 2.16</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-REGEX-ERROR-HEX-CODE-TOO-LARGE:CAPS">G_REGEX_ERROR_HEX_CODE_TOO_LARGE</para></entry>
+<entry role="enum_member_description"><para>Character value in "\x{...}" sequence
+    is too large. Since 2.16</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-REGEX-ERROR-INVALID-CONDITION:CAPS">G_REGEX_ERROR_INVALID_CONDITION</para></entry>
+<entry role="enum_member_description"><para>Invalid condition "(?(0)". Since 2.16</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-REGEX-ERROR-SINGLE-BYTE-MATCH-IN-LOOKBEHIND:CAPS">G_REGEX_ERROR_SINGLE_BYTE_MATCH_IN_LOOKBEHIND</para></entry>
+<entry role="enum_member_description"><para>\C not allowed in
+    lookbehind assertion. Since 2.16</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-REGEX-ERROR-INFINITE-LOOP:CAPS">G_REGEX_ERROR_INFINITE_LOOP</para></entry>
+<entry role="enum_member_description"><para>Recursive call could loop indefinitely.
+    Since 2.16</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-REGEX-ERROR-MISSING-SUBPATTERN-NAME-TERMINATOR:CAPS">G_REGEX_ERROR_MISSING_SUBPATTERN_NAME_TERMINATOR</para></entry>
+<entry role="enum_member_description"><para>Missing terminator
+    in subpattern name. Since 2.16</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-REGEX-ERROR-DUPLICATE-SUBPATTERN-NAME:CAPS">G_REGEX_ERROR_DUPLICATE_SUBPATTERN_NAME</para></entry>
+<entry role="enum_member_description"><para>Two named subpatterns have
+    the same name. Since 2.16</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-REGEX-ERROR-MALFORMED-PROPERTY:CAPS">G_REGEX_ERROR_MALFORMED_PROPERTY</para></entry>
+<entry role="enum_member_description"><para>Malformed "\P" or "\p" sequence.
+    Since 2.16</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-REGEX-ERROR-UNKNOWN-PROPERTY:CAPS">G_REGEX_ERROR_UNKNOWN_PROPERTY</para></entry>
+<entry role="enum_member_description"><para>Unknown property name after "\P" or
+    "\p". Since 2.16</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-REGEX-ERROR-SUBPATTERN-NAME-TOO-LONG:CAPS">G_REGEX_ERROR_SUBPATTERN_NAME_TOO_LONG</para></entry>
+<entry role="enum_member_description"><para>Subpattern name is too long
+    (maximum 32 characters). Since 2.16</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-REGEX-ERROR-TOO-MANY-SUBPATTERNS:CAPS">G_REGEX_ERROR_TOO_MANY_SUBPATTERNS</para></entry>
+<entry role="enum_member_description"><para>Too many named subpatterns (maximum
+    10,000). Since 2.16</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-REGEX-ERROR-INVALID-OCTAL-VALUE:CAPS">G_REGEX_ERROR_INVALID_OCTAL_VALUE</para></entry>
+<entry role="enum_member_description"><para>Octal value is greater than "\377".
+    Since 2.16</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-REGEX-ERROR-TOO-MANY-BRANCHES-IN-DEFINE:CAPS">G_REGEX_ERROR_TOO_MANY_BRANCHES_IN_DEFINE</para></entry>
+<entry role="enum_member_description"><para>"DEFINE" group contains more
+    than one branch. Since 2.16</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-REGEX-ERROR-DEFINE-REPETION:CAPS">G_REGEX_ERROR_DEFINE_REPETION</para></entry>
+<entry role="enum_member_description"><para>Repeating a "DEFINE" group is not allowed.
+    This error is never raised. Since: 2.16 Deprecated: 2.34</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-REGEX-ERROR-INCONSISTENT-NEWLINE-OPTIONS:CAPS">G_REGEX_ERROR_INCONSISTENT_NEWLINE_OPTIONS</para></entry>
+<entry role="enum_member_description"><para>Inconsistent newline options.
+    Since 2.16</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-REGEX-ERROR-MISSING-BACK-REFERENCE:CAPS">G_REGEX_ERROR_MISSING_BACK_REFERENCE</para></entry>
+<entry role="enum_member_description"><para>"\g" is not followed by a braced,
+     angle-bracketed, or quoted name or number, or by a plain number. Since: 2.16</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-REGEX-ERROR-INVALID-RELATIVE-REFERENCE:CAPS">G_REGEX_ERROR_INVALID_RELATIVE_REFERENCE</para></entry>
+<entry role="enum_member_description"><para>relative reference must not be zero. Since: 2.34</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-REGEX-ERROR-BACKTRACKING-CONTROL-VERB-ARGUMENT-FORBIDDEN:CAPS">G_REGEX_ERROR_BACKTRACKING_CONTROL_VERB_ARGUMENT_FORBIDDEN</para></entry>
+<entry role="enum_member_description"><para>the backtracing
+    control verb used does not allow an argument. Since: 2.34</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-REGEX-ERROR-UNKNOWN-BACKTRACKING-CONTROL-VERB:CAPS">G_REGEX_ERROR_UNKNOWN_BACKTRACKING_CONTROL_VERB</para></entry>
+<entry role="enum_member_description"><para>unknown backtracing 
+    control verb. Since: 2.34</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-REGEX-ERROR-NUMBER-TOO-BIG:CAPS">G_REGEX_ERROR_NUMBER_TOO_BIG</para></entry>
+<entry role="enum_member_description"><para>number is too big in escape sequence. Since: 2.34</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-REGEX-ERROR-MISSING-SUBPATTERN-NAME:CAPS">G_REGEX_ERROR_MISSING_SUBPATTERN_NAME</para></entry>
+<entry role="enum_member_description"><para>Missing subpattern name. Since: 2.34</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-REGEX-ERROR-MISSING-DIGIT:CAPS">G_REGEX_ERROR_MISSING_DIGIT</para></entry>
+<entry role="enum_member_description"><para>Missing digit. Since 2.34</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-REGEX-ERROR-INVALID-DATA-CHARACTER:CAPS">G_REGEX_ERROR_INVALID_DATA_CHARACTER</para></entry>
+<entry role="enum_member_description"><para>In JavaScript compatibility mode,
+    "[" is an invalid data character. Since: 2.34</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-REGEX-ERROR-EXTRA-SUBPATTERN-NAME:CAPS">G_REGEX_ERROR_EXTRA_SUBPATTERN_NAME</para></entry>
+<entry role="enum_member_description"><para>different names for subpatterns of the 
+    same number are not allowed. Since: 2.34</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-REGEX-ERROR-BACKTRACKING-CONTROL-VERB-ARGUMENT-REQUIRED:CAPS">G_REGEX_ERROR_BACKTRACKING_CONTROL_VERB_ARGUMENT_REQUIRED</para></entry>
+<entry role="enum_member_description"><para>the backtracing control
+    verb requires an argument. Since: 2.34</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-REGEX-ERROR-INVALID-CONTROL-CHAR:CAPS">G_REGEX_ERROR_INVALID_CONTROL_CHAR</para></entry>
+<entry role="enum_member_description"><para>"\c" must be followed by an ASCII 
+    character. Since: 2.34</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-REGEX-ERROR-MISSING-NAME:CAPS">G_REGEX_ERROR_MISSING_NAME</para></entry>
+<entry role="enum_member_description"><para>"\k" is not followed by a braced, angle-bracketed, or 
+    quoted name. Since: 2.34</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-REGEX-ERROR-NOT-SUPPORTED-IN-CLASS:CAPS">G_REGEX_ERROR_NOT_SUPPORTED_IN_CLASS</para></entry>
+<entry role="enum_member_description"><para>"\N" is not supported in a class. Since: 2.34</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-REGEX-ERROR-TOO-MANY-FORWARD-REFERENCES:CAPS">G_REGEX_ERROR_TOO_MANY_FORWARD_REFERENCES</para></entry>
+<entry role="enum_member_description"><para>too many forward references. Since: 2.34</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-REGEX-ERROR-NAME-TOO-LONG:CAPS">G_REGEX_ERROR_NAME_TOO_LONG</para></entry>
+<entry role="enum_member_description"><para>the name is too long in "(*MARK)", "(*PRUNE)", 
+    "(*SKIP)", or "(*THEN)". Since: 2.34</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-REGEX-ERROR-CHARACTER-VALUE-TOO-LARGE:CAPS">G_REGEX_ERROR_CHARACTER_VALUE_TOO_LARGE</para></entry>
+<entry role="enum_member_description"><para>the character value in the \u sequence is
+    too large. Since: 2.34</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.14">2.14</link></para></refsect2>
+<refsect2 id="G-REGEX-ERROR:CAPS" role="macro" condition="since:2.14">
+<title>G_REGEX_ERROR</title>
+<indexterm zone="G-REGEX-ERROR:CAPS" role="2.14"><primary sortas="REGEX_ERROR">G_REGEX_ERROR</primary></indexterm>
+<programlisting language="C">#define G_REGEX_ERROR g_regex_error_quark ()
+</programlisting>
+<para>Error domain for regular expressions. Errors in this domain will be
+from the <link linkend="GRegexError"><type>GRegexError</type></link> enumeration. See <link linkend="GError"><type>GError</type></link> for information on
+error domains.</para>
+<para role="since">Since: <link linkend="api-index-2.14">2.14</link></para></refsect2>
+<refsect2 id="GRegexCompileFlags" role="enum" condition="since:2.14">
+<title>enum GRegexCompileFlags</title>
+<indexterm zone="GRegexCompileFlags" role="2.14"><primary sortas="RegexCompileFlags">GRegexCompileFlags</primary></indexterm>
+<para>Flags specifying compile-time options.</para>
+<refsect3 id="GRegexCompileFlags.members" role="enum_members">
+<title>Members</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="enum_members_name" colwidth="300px"/>
+<colspec colname="enum_members_description"/>
+<colspec colname="enum_members_annotations" colwidth="200px"/>
+<tbody>
+<row role="constant"><entry role="enum_member_name"><para id="G-REGEX-CASELESS:CAPS">G_REGEX_CASELESS</para></entry>
+<entry role="enum_member_description"><para>Letters in the pattern match both upper- and
+    lowercase letters. This option can be changed within a pattern
+    by a "(?i)" option setting.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-REGEX-MULTILINE:CAPS">G_REGEX_MULTILINE</para></entry>
+<entry role="enum_member_description"><para>By default, GRegex treats the strings as consisting
+    of a single line of characters (even if it actually contains
+    newlines). The "start of line" metacharacter ("^") matches only
+    at the start of the string, while the "end of line" metacharacter
+    ("$") matches only at the end of the string, or before a terminating
+    newline (unless <link linkend="G-REGEX-DOLLAR-ENDONLY:CAPS"><type>G_REGEX_DOLLAR_ENDONLY</type></link> is set). When
+    <link linkend="G-REGEX-MULTILINE:CAPS"><type>G_REGEX_MULTILINE</type></link> is set, the "start of line" and "end of line"
+    constructs match immediately following or immediately before any
+    newline in the string, respectively, as well as at the very start
+    and end. This can be changed within a pattern by a "(?m)" option
+    setting.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-REGEX-DOTALL:CAPS">G_REGEX_DOTALL</para></entry>
+<entry role="enum_member_description"><para>A dot metacharacter (".") in the pattern matches all
+    characters, including newlines. Without it, newlines are excluded.
+    This option can be changed within a pattern by a ("?s") option setting.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-REGEX-EXTENDED:CAPS">G_REGEX_EXTENDED</para></entry>
+<entry role="enum_member_description"><para>Whitespace data characters in the pattern are
+    totally ignored except when escaped or inside a character class.
+    Whitespace does not include the VT character (code 11). In addition,
+    characters between an unescaped "#" outside a character class and
+    the next newline character, inclusive, are also ignored. This can
+    be changed within a pattern by a "(?x)" option setting.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-REGEX-ANCHORED:CAPS">G_REGEX_ANCHORED</para></entry>
+<entry role="enum_member_description"><para>The pattern is forced to be "anchored", that is,
+    it is constrained to match only at the first matching point in the
+    string that is being searched. This effect can also be achieved by
+    appropriate constructs in the pattern itself such as the "^"
+    metacharacter.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-REGEX-DOLLAR-ENDONLY:CAPS">G_REGEX_DOLLAR_ENDONLY</para></entry>
+<entry role="enum_member_description"><para>A dollar metacharacter ("$") in the pattern
+    matches only at the end of the string. Without this option, a
+    dollar also matches immediately before the final character if
+    it is a newline (but not before any other newlines). This option
+    is ignored if <link linkend="G-REGEX-MULTILINE:CAPS"><type>G_REGEX_MULTILINE</type></link> is set.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-REGEX-UNGREEDY:CAPS">G_REGEX_UNGREEDY</para></entry>
+<entry role="enum_member_description"><para>Inverts the "greediness" of the quantifiers so that
+    they are not greedy by default, but become greedy if followed by "?".
+    It can also be set by a "(?U)" option setting within the pattern.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-REGEX-RAW:CAPS">G_REGEX_RAW</para></entry>
+<entry role="enum_member_description"><para>Usually strings must be valid UTF-8 strings, using this
+    flag they are considered as a raw sequence of bytes.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-REGEX-NO-AUTO-CAPTURE:CAPS">G_REGEX_NO_AUTO_CAPTURE</para></entry>
+<entry role="enum_member_description"><para>Disables the use of numbered capturing
+    parentheses in the pattern. Any opening parenthesis that is not
+    followed by "?" behaves as if it were followed by "?:" but named
+    parentheses can still be used for capturing (and they acquire numbers
+    in the usual way).</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-REGEX-OPTIMIZE:CAPS">G_REGEX_OPTIMIZE</para></entry>
+<entry role="enum_member_description"><para>Optimize the regular expression. If the pattern will
+    be used many times, then it may be worth the effort to optimize it
+    to improve the speed of matches.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-REGEX-FIRSTLINE:CAPS">G_REGEX_FIRSTLINE</para></entry>
+<entry role="enum_member_description"><para>Limits an unanchored pattern to match before (or at) the
+    first newline. Since: 2.34</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-REGEX-DUPNAMES:CAPS">G_REGEX_DUPNAMES</para></entry>
+<entry role="enum_member_description"><para>Names used to identify capturing subpatterns need not
+    be unique. This can be helpful for certain types of pattern when it
+    is known that only one instance of the named subpattern can ever be
+    matched.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-REGEX-NEWLINE-CR:CAPS">G_REGEX_NEWLINE_CR</para></entry>
+<entry role="enum_member_description"><para>Usually any newline character or character sequence is
+    recognized. If this option is set, the only recognized newline character
+    is '\r'.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-REGEX-NEWLINE-LF:CAPS">G_REGEX_NEWLINE_LF</para></entry>
+<entry role="enum_member_description"><para>Usually any newline character or character sequence is
+    recognized. If this option is set, the only recognized newline character
+    is '\n'.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-REGEX-NEWLINE-CRLF:CAPS">G_REGEX_NEWLINE_CRLF</para></entry>
+<entry role="enum_member_description"><para>Usually any newline character or character sequence is
+    recognized. If this option is set, the only recognized newline character
+    sequence is '\r\n'.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-REGEX-NEWLINE-ANYCRLF:CAPS">G_REGEX_NEWLINE_ANYCRLF</para></entry>
+<entry role="enum_member_description"><para>Usually any newline character or character sequence
+    is recognized. If this option is set, the only recognized newline character
+    sequences are '\r', '\n', and '\r\n'. Since: 2.34</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-REGEX-BSR-ANYCRLF:CAPS">G_REGEX_BSR_ANYCRLF</para></entry>
+<entry role="enum_member_description"><para>Usually any newline character or character sequence
+    is recognised. If this option is set, then "\R" only recognizes the newline
+   characters '\r', '\n' and '\r\n'. Since: 2.34</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-REGEX-JAVASCRIPT-COMPAT:CAPS">G_REGEX_JAVASCRIPT_COMPAT</para></entry>
+<entry role="enum_member_description"><para>Changes behaviour so that it is compatible with
+    JavaScript rather than PCRE. Since: 2.34</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.14">2.14</link></para></refsect2>
+<refsect2 id="GRegexMatchFlags" role="enum" condition="since:2.14">
+<title>enum GRegexMatchFlags</title>
+<indexterm zone="GRegexMatchFlags" role="2.14"><primary sortas="RegexMatchFlags">GRegexMatchFlags</primary></indexterm>
+<para>Flags specifying match-time options.</para>
+<refsect3 id="GRegexMatchFlags.members" role="enum_members">
+<title>Members</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="enum_members_name" colwidth="300px"/>
+<colspec colname="enum_members_description"/>
+<colspec colname="enum_members_annotations" colwidth="200px"/>
+<tbody>
+<row role="constant"><entry role="enum_member_name"><para id="G-REGEX-MATCH-ANCHORED:CAPS">G_REGEX_MATCH_ANCHORED</para></entry>
+<entry role="enum_member_description"><para>The pattern is forced to be "anchored", that is,
+    it is constrained to match only at the first matching point in the
+    string that is being searched. This effect can also be achieved by
+    appropriate constructs in the pattern itself such as the "^"
+    metacharacter.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-REGEX-MATCH-NOTBOL:CAPS">G_REGEX_MATCH_NOTBOL</para></entry>
+<entry role="enum_member_description"><para>Specifies that first character of the string is
+    not the beginning of a line, so the circumflex metacharacter should
+    not match before it. Setting this without <link linkend="G-REGEX-MULTILINE:CAPS"><type>G_REGEX_MULTILINE</type></link> (at
+    compile time) causes circumflex never to match. This option affects
+    only the behaviour of the circumflex metacharacter, it does not
+    affect "\A".</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-REGEX-MATCH-NOTEOL:CAPS">G_REGEX_MATCH_NOTEOL</para></entry>
+<entry role="enum_member_description"><para>Specifies that the end of the subject string is
+    not the end of a line, so the dollar metacharacter should not match
+    it nor (except in multiline mode) a newline immediately before it.
+    Setting this without <link linkend="G-REGEX-MULTILINE:CAPS"><type>G_REGEX_MULTILINE</type></link> (at compile time) causes
+    dollar never to match. This option affects only the behaviour of
+    the dollar metacharacter, it does not affect "\Z" or "\z".</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-REGEX-MATCH-NOTEMPTY:CAPS">G_REGEX_MATCH_NOTEMPTY</para></entry>
+<entry role="enum_member_description"><para>An empty string is not considered to be a valid
+    match if this option is set. If there are alternatives in the pattern,
+    they are tried. If all the alternatives match the empty string, the
+    entire match fails. For example, if the pattern "a?b?" is applied to
+    a string not beginning with "a" or "b", it matches the empty string
+    at the start of the string. With this flag set, this match is not
+    valid, so GRegex searches further into the string for occurrences
+    of "a" or "b".</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-REGEX-MATCH-PARTIAL:CAPS">G_REGEX_MATCH_PARTIAL</para></entry>
+<entry role="enum_member_description"><para>Turns on the partial matching feature, for more
+    documentation on partial matching see <link linkend="g-match-info-is-partial-match"><function>g_match_info_is_partial_match()</function></link>.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-REGEX-MATCH-NEWLINE-CR:CAPS">G_REGEX_MATCH_NEWLINE_CR</para></entry>
+<entry role="enum_member_description"><para>Overrides the newline definition set when
+    creating a new <link linkend="GRegex"><type>GRegex</type></link>, setting the '\r' character as line terminator.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-REGEX-MATCH-NEWLINE-LF:CAPS">G_REGEX_MATCH_NEWLINE_LF</para></entry>
+<entry role="enum_member_description"><para>Overrides the newline definition set when
+    creating a new <link linkend="GRegex"><type>GRegex</type></link>, setting the '\n' character as line terminator.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-REGEX-MATCH-NEWLINE-CRLF:CAPS">G_REGEX_MATCH_NEWLINE_CRLF</para></entry>
+<entry role="enum_member_description"><para>Overrides the newline definition set when
+    creating a new <link linkend="GRegex"><type>GRegex</type></link>, setting the '\r\n' characters sequence as line terminator.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-REGEX-MATCH-NEWLINE-ANY:CAPS">G_REGEX_MATCH_NEWLINE_ANY</para></entry>
+<entry role="enum_member_description"><para>Overrides the newline definition set when
+    creating a new <link linkend="GRegex"><type>GRegex</type></link>, any Unicode newline sequence
+    is recognised as a newline. These are '\r', '\n' and '\rn', and the
+    single characters U+000B LINE TABULATION, U+000C FORM FEED (FF),
+    U+0085 NEXT LINE (NEL), U+2028 LINE SEPARATOR and
+    U+2029 PARAGRAPH SEPARATOR.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-REGEX-MATCH-NEWLINE-ANYCRLF:CAPS">G_REGEX_MATCH_NEWLINE_ANYCRLF</para></entry>
+<entry role="enum_member_description"><para>Overrides the newline definition set when
+    creating a new <link linkend="GRegex"><type>GRegex</type></link>; any '\r', '\n', or '\r\n' character sequence
+    is recognized as a newline. Since: 2.34</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-REGEX-MATCH-BSR-ANYCRLF:CAPS">G_REGEX_MATCH_BSR_ANYCRLF</para></entry>
+<entry role="enum_member_description"><para>Overrides the newline definition for "\R" set when
+    creating a new <link linkend="GRegex"><type>GRegex</type></link>; only '\r', '\n', or '\r\n' character sequences
+    are recognized as a newline by "\R". Since: 2.34</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-REGEX-MATCH-BSR-ANY:CAPS">G_REGEX_MATCH_BSR_ANY</para></entry>
+<entry role="enum_member_description"><para>Overrides the newline definition for "\R" set when
+    creating a new <link linkend="GRegex"><type>GRegex</type></link>; any Unicode newline character or character sequence
+    are recognized as a newline by "\R". These are '\r', '\n' and '\rn', and the
+    single characters U+000B LINE TABULATION, U+000C FORM FEED (FF),
+    U+0085 NEXT LINE (NEL), U+2028 LINE SEPARATOR and
+    U+2029 PARAGRAPH SEPARATOR. Since: 2.34</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-REGEX-MATCH-PARTIAL-SOFT:CAPS">G_REGEX_MATCH_PARTIAL_SOFT</para></entry>
+<entry role="enum_member_description"><para>An alias for <link linkend="G-REGEX-MATCH-PARTIAL:CAPS"><type>G_REGEX_MATCH_PARTIAL</type></link>. Since: 2.34</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-REGEX-MATCH-PARTIAL-HARD:CAPS">G_REGEX_MATCH_PARTIAL_HARD</para></entry>
+<entry role="enum_member_description"><para>Turns on the partial matching feature. In contrast to
+    to <link linkend="G-REGEX-MATCH-PARTIAL-SOFT:CAPS"><type>G_REGEX_MATCH_PARTIAL_SOFT</type></link>, this stops matching as soon as a partial match
+    is found, without continuing to search for a possible complete match. See
+    <link linkend="g-match-info-is-partial-match"><function>g_match_info_is_partial_match()</function></link> for more information. Since: 2.34</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-REGEX-MATCH-NOTEMPTY-ATSTART:CAPS">G_REGEX_MATCH_NOTEMPTY_ATSTART</para></entry>
+<entry role="enum_member_description"><para>Like <link linkend="G-REGEX-MATCH-NOTEMPTY:CAPS"><type>G_REGEX_MATCH_NOTEMPTY</type></link>, but only applied to
+    the start of the matched string. For anchored
+    patterns this can only happen for pattern containing "\K". Since: 2.34</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.14">2.14</link></para></refsect2>
+<refsect2 id="GRegex" role="struct" condition="since:2.14">
+<title>GRegex</title>
+<indexterm zone="GRegex" role="2.14"><primary sortas="Regex">GRegex</primary></indexterm>
+<programlisting language="C">typedef struct _GRegex GRegex;</programlisting>
+<para>A GRegex is the "compiled" form of a regular expression pattern.
+This structure is opaque and its fields cannot be accessed directly.</para>
+<para role="since">Since: <link linkend="api-index-2.14">2.14</link></para></refsect2>
+<refsect2 id="GMatchInfo" role="struct">
+<title>GMatchInfo</title>
+<indexterm zone="GMatchInfo"><primary sortas="MatchInfo">GMatchInfo</primary></indexterm>
+<programlisting language="C">typedef struct _GMatchInfo GMatchInfo;</programlisting>
+<para>A GMatchInfo is an opaque struct used to return information about
+matches.</para>
+</refsect2>
+
+</refsect1>
+<refsect1 id="glib-Perl-compatible-regular-expressions.see-also">
+<title>See Also</title>
+<para><link linkend="glib-regex-syntax">Regular expression syntax</link></para>
+
+</refsect1>
+
+</refentry>

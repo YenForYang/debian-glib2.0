@@ -1,0 +1,601 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC '-//OASIS//DTD DocBook XML V4.5//EN'
+                      'http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd' [
+
+<!ENTITY % local.common.attrib "xmlns:xi  CDATA  #FIXED 'http://www.w3.org/2003/XInclude'">
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="GTypeModule">
+<refmeta>
+<refentrytitle role="top_of_page" id="GTypeModule.top_of_page">GTypeModule</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>GOBJECT Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>GTypeModule</refname>
+<refpurpose>Type loading modules</refpurpose>
+</refnamediv>
+
+<refsect1 id="GTypeModule.functions" role="functions_proto">
+<title role="functions_proto.title">Functions</title>
+<informaltable pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="functions_return" colwidth="150px"/>
+<colspec colname="functions_name"/>
+<tbody>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-type-module-use">g_type_module_use</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-type-module-unuse">g_type_module_unuse</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-type-module-set-name">g_type_module_set_name</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GType"><returnvalue>GType</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-type-module-register-type">g_type_module_register_type</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-type-module-add-interface">g_type_module_add_interface</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GType"><returnvalue>GType</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-type-module-register-enum">g_type_module_register_enum</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GType"><returnvalue>GType</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-type-module-register-flags">g_type_module_register_flags</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="G-DEFINE-DYNAMIC-TYPE:CAPS">G_DEFINE_DYNAMIC_TYPE</link><phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="G-DEFINE-DYNAMIC-TYPE-EXTENDED:CAPS">G_DEFINE_DYNAMIC_TYPE_EXTENDED</link><phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="G-IMPLEMENT-INTERFACE-DYNAMIC:CAPS">G_IMPLEMENT_INTERFACE_DYNAMIC</link><phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="G-ADD-PRIVATE-DYNAMIC:CAPS">G_ADD_PRIVATE_DYNAMIC</link><phrase role="c_punctuation">()</phrase></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GTypeModule.other" role="other_proto">
+<title role="other_proto.title">Types and Values</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="name" colwidth="150px"/>
+<colspec colname="description"/>
+<tbody>
+<row><entry role="datatype_keyword">struct</entry><entry role="function_name"><link linkend="GTypeModule-struct">GTypeModule</link></entry></row>
+<row><entry role="datatype_keyword">struct</entry><entry role="function_name"><link linkend="GTypeModuleClass">GTypeModuleClass</link></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GTypeModule.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<screen>    <link linkend="GObject">GObject</link>
+    <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> GTypeModule
+</screen>
+</refsect1>
+<refsect1 id="GTypeModule.implemented-interfaces" role="impl_interfaces">
+<title role="impl_interfaces.title">Implemented Interfaces</title>
+<para>
+GTypeModule implements
+ <link linkend="GTypePlugin">GTypePlugin</link>.</para>
+
+</refsect1>
+
+<refsect1 id="GTypeModule.includes"><title>Includes</title><synopsis>#include &lt;glib-object.h&gt;
+</synopsis></refsect1>
+
+<refsect1 id="GTypeModule.description" role="desc">
+<title role="desc.title">Description</title>
+<para><link linkend="GTypeModule"><type>GTypeModule</type></link> provides a simple implementation of the <link linkend="GTypePlugin"><type>GTypePlugin</type></link>
+interface. The model of <link linkend="GTypeModule"><type>GTypeModule</type></link> is a dynamically loaded module
+which implements some number of types and interface implementations.
+When the module is loaded, it registers its types and interfaces
+using <link linkend="g-type-module-register-type"><function>g_type_module_register_type()</function></link> and <link linkend="g-type-module-add-interface"><function>g_type_module_add_interface()</function></link>.
+As long as any instances of these types and interface implementations
+are in use, the module is kept loaded. When the types and interfaces
+are gone, the module may be unloaded. If the types and interfaces
+become used again, the module will be reloaded. Note that the last
+unref cannot happen in module code, since that would lead to the
+caller's code being unloaded before <link linkend="g-object-unref"><function>g_object_unref()</function></link> returns to it.</para>
+<para>Keeping track of whether the module should be loaded or not is done by
+using a use count - it starts at zero, and whenever it is greater than
+zero, the module is loaded. The use count is maintained internally by
+the type system, but also can be explicitly controlled by
+<link linkend="g-type-module-use"><function>g_type_module_use()</function></link> and <link linkend="g-type-module-unuse"><function>g_type_module_unuse()</function></link>. Typically, when loading
+a module for the first type, <link linkend="g-type-module-use"><function>g_type_module_use()</function></link> will be used to load
+it so that it can initialize its types. At some later point, when the
+module no longer needs to be loaded except for the type
+implementations it contains, <link linkend="g-type-module-unuse"><function>g_type_module_unuse()</function></link> is called.</para>
+<para><link linkend="GTypeModule"><type>GTypeModule</type></link> does not actually provide any implementation of module
+loading and unloading. To create a particular module type you must
+derive from <link linkend="GTypeModule"><type>GTypeModule</type></link> and implement the load and unload functions
+in <link linkend="GTypeModuleClass"><type>GTypeModuleClass</type></link>.</para>
+
+</refsect1>
+<refsect1 id="GTypeModule.functions_details" role="details">
+<title role="details.title">Functions</title>
+<refsect2 id="g-type-module-use" role="function">
+<title>g_type_module_use&#160;()</title>
+<indexterm zone="g-type-module-use"><primary sortas="type_module_use">g_type_module_use</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_type_module_use (<parameter><link linkend="GTypeModule"><type>GTypeModule</type></link> *module</parameter>);</programlisting>
+<para>Increases the use count of a <link linkend="GTypeModule"><type>GTypeModule</type></link> by one. If the
+use count was zero before, the plugin will be loaded.
+If loading the plugin fails, the use count is reset to 
+its prior value.</para>
+<refsect3 id="g-type-module-use.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>module</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GTypeModule"><type>GTypeModule</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-type-module-use.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> if the plugin needed to be loaded and
+loading the plugin failed.</para>
+</refsect3></refsect2>
+<refsect2 id="g-type-module-unuse" role="function">
+<title>g_type_module_unuse&#160;()</title>
+<indexterm zone="g-type-module-unuse"><primary sortas="type_module_unuse">g_type_module_unuse</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_type_module_unuse (<parameter><link linkend="GTypeModule"><type>GTypeModule</type></link> *module</parameter>);</programlisting>
+<para>Decreases the use count of a <link linkend="GTypeModule"><type>GTypeModule</type></link> by one. If the
+result is zero, the module will be unloaded. (However, the
+<link linkend="GTypeModule"><type>GTypeModule</type></link> will not be freed, and types associated with the
+<link linkend="GTypeModule"><type>GTypeModule</type></link> are not unregistered. Once a <link linkend="GTypeModule"><type>GTypeModule</type></link> is
+initialized, it must exist forever.)</para>
+<refsect3 id="g-type-module-unuse.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>module</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GTypeModule"><type>GTypeModule</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-type-module-set-name" role="function">
+<title>g_type_module_set_name&#160;()</title>
+<indexterm zone="g-type-module-set-name"><primary sortas="type_module_set_name">g_type_module_set_name</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_type_module_set_name (<parameter><link linkend="GTypeModule"><type>GTypeModule</type></link> *module</parameter>,
+                        <parameter>const <link linkend="gchar"><type>gchar</type></link> *name</parameter>);</programlisting>
+<para>Sets the name for a <link linkend="GTypeModule"><type>GTypeModule</type></link></para>
+<refsect3 id="g-type-module-set-name.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>module</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GTypeModule"><type>GTypeModule</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>name</para></entry>
+<entry role="parameter_description"><para>a human-readable name to use in error messages.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-type-module-register-type" role="function">
+<title>g_type_module_register_type&#160;()</title>
+<indexterm zone="g-type-module-register-type"><primary sortas="type_module_register_type">g_type_module_register_type</primary></indexterm>
+<programlisting language="C"><link linkend="GType"><returnvalue>GType</returnvalue></link>
+g_type_module_register_type (<parameter><link linkend="GTypeModule"><type>GTypeModule</type></link> *module</parameter>,
+                             <parameter><link linkend="GType"><type>GType</type></link> parent_type</parameter>,
+                             <parameter>const <link linkend="gchar"><type>gchar</type></link> *type_name</parameter>,
+                             <parameter>const <link linkend="GTypeInfo"><type>GTypeInfo</type></link> *type_info</parameter>,
+                             <parameter><link linkend="GTypeFlags"><type>GTypeFlags</type></link> flags</parameter>);</programlisting>
+<para>Looks up or registers a type that is implemented with a particular
+type plugin. If a type with name <parameter>type_name</parameter>
+ was previously registered,
+the <link linkend="GType"><type>GType</type></link> identifier for the type is returned, otherwise the type
+is newly registered, and the resulting <link linkend="GType"><type>GType</type></link> identifier returned.</para>
+<para>When reregistering a type (typically because a module is unloaded
+then reloaded, and reinitialized), <parameter>module</parameter>
+ and <parameter>parent_type</parameter>
+ must
+be the same as they were previously.</para>
+<para>As long as any instances of the type exist, the type plugin will
+not be unloaded.</para>
+<para>Since 2.56 if <parameter>module</parameter>
+ is <link linkend="NULL:CAPS"><literal>NULL</literal></link> this will call <link linkend="g-type-register-static"><function>g_type_register_static()</function></link>
+instead. This can be used when making a static build of the module.</para>
+<refsect3 id="g-type-module-register-type.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>module</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GTypeModule"><type>GTypeModule</type></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>parent_type</para></entry>
+<entry role="parameter_description"><para>the type for the parent class</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>type_name</para></entry>
+<entry role="parameter_description"><para>name for the type</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>type_info</para></entry>
+<entry role="parameter_description"><para>type information structure</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>flags</para></entry>
+<entry role="parameter_description"><para>flags field providing details about the type</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-type-module-register-type.returns" role="returns">
+<title>Returns</title>
+<para> the new or existing type ID</para>
+</refsect3></refsect2>
+<refsect2 id="g-type-module-add-interface" role="function">
+<title>g_type_module_add_interface&#160;()</title>
+<indexterm zone="g-type-module-add-interface"><primary sortas="type_module_add_interface">g_type_module_add_interface</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_type_module_add_interface (<parameter><link linkend="GTypeModule"><type>GTypeModule</type></link> *module</parameter>,
+                             <parameter><link linkend="GType"><type>GType</type></link> instance_type</parameter>,
+                             <parameter><link linkend="GType"><type>GType</type></link> interface_type</parameter>,
+                             <parameter>const <link linkend="GInterfaceInfo"><type>GInterfaceInfo</type></link> *interface_info</parameter>);</programlisting>
+<para>Registers an additional interface for a type, whose interface lives
+in the given type plugin. If the interface was already registered
+for the type in this plugin, nothing will be done.</para>
+<para>As long as any instances of the type exist, the type plugin will
+not be unloaded.</para>
+<para>Since 2.56 if <parameter>module</parameter>
+ is <link linkend="NULL:CAPS"><literal>NULL</literal></link> this will call <link linkend="g-type-add-interface-static"><function>g_type_add_interface_static()</function></link>
+instead. This can be used when making a static build of the module.</para>
+<refsect3 id="g-type-module-add-interface.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>module</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GTypeModule"><type>GTypeModule</type></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>instance_type</para></entry>
+<entry role="parameter_description"><para>type to which to add the interface.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>interface_type</para></entry>
+<entry role="parameter_description"><para>interface type to add</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>interface_info</para></entry>
+<entry role="parameter_description"><para>type information structure</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-type-module-register-enum" role="function" condition="since:2.6">
+<title>g_type_module_register_enum&#160;()</title>
+<indexterm zone="g-type-module-register-enum" role="2.6"><primary sortas="type_module_register_enum">g_type_module_register_enum</primary></indexterm>
+<programlisting language="C"><link linkend="GType"><returnvalue>GType</returnvalue></link>
+g_type_module_register_enum (<parameter><link linkend="GTypeModule"><type>GTypeModule</type></link> *module</parameter>,
+                             <parameter>const <link linkend="gchar"><type>gchar</type></link> *name</parameter>,
+                             <parameter>const <link linkend="GEnumValue"><type>GEnumValue</type></link> *const_static_values</parameter>);</programlisting>
+<para>Looks up or registers an enumeration that is implemented with a particular
+type plugin. If a type with name <parameter>type_name</parameter>
+ was previously registered,
+the <link linkend="GType"><type>GType</type></link> identifier for the type is returned, otherwise the type
+is newly registered, and the resulting <link linkend="GType"><type>GType</type></link> identifier returned.</para>
+<para>As long as any instances of the type exist, the type plugin will
+not be unloaded.</para>
+<para>Since 2.56 if <parameter>module</parameter>
+ is <link linkend="NULL:CAPS"><literal>NULL</literal></link> this will call <link linkend="g-type-register-static"><function>g_type_register_static()</function></link>
+instead. This can be used when making a static build of the module.</para>
+<refsect3 id="g-type-module-register-enum.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>module</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GTypeModule"><type>GTypeModule</type></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>name</para></entry>
+<entry role="parameter_description"><para>name for the type</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>const_static_values</para></entry>
+<entry role="parameter_description"><para>an array of <link linkend="GEnumValue"><type>GEnumValue</type></link> structs for the
+possible enumeration values. The array is
+terminated by a struct with all members being
+0.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-type-module-register-enum.returns" role="returns">
+<title>Returns</title>
+<para> the new or existing type ID</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.6">2.6</link></para></refsect2>
+<refsect2 id="g-type-module-register-flags" role="function" condition="since:2.6">
+<title>g_type_module_register_flags&#160;()</title>
+<indexterm zone="g-type-module-register-flags" role="2.6"><primary sortas="type_module_register_flags">g_type_module_register_flags</primary></indexterm>
+<programlisting language="C"><link linkend="GType"><returnvalue>GType</returnvalue></link>
+g_type_module_register_flags (<parameter><link linkend="GTypeModule"><type>GTypeModule</type></link> *module</parameter>,
+                              <parameter>const <link linkend="gchar"><type>gchar</type></link> *name</parameter>,
+                              <parameter>const <link linkend="GFlagsValue"><type>GFlagsValue</type></link> *const_static_values</parameter>);</programlisting>
+<para>Looks up or registers a flags type that is implemented with a particular
+type plugin. If a type with name <parameter>type_name</parameter>
+ was previously registered,
+the <link linkend="GType"><type>GType</type></link> identifier for the type is returned, otherwise the type
+is newly registered, and the resulting <link linkend="GType"><type>GType</type></link> identifier returned.</para>
+<para>As long as any instances of the type exist, the type plugin will
+not be unloaded.</para>
+<para>Since 2.56 if <parameter>module</parameter>
+ is <link linkend="NULL:CAPS"><literal>NULL</literal></link> this will call <link linkend="g-type-register-static"><function>g_type_register_static()</function></link>
+instead. This can be used when making a static build of the module.</para>
+<refsect3 id="g-type-module-register-flags.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>module</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GTypeModule"><type>GTypeModule</type></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>name</para></entry>
+<entry role="parameter_description"><para>name for the type</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>const_static_values</para></entry>
+<entry role="parameter_description"><para>an array of <link linkend="GFlagsValue"><type>GFlagsValue</type></link> structs for the
+possible flags values. The array is
+terminated by a struct with all members being
+0.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-type-module-register-flags.returns" role="returns">
+<title>Returns</title>
+<para> the new or existing type ID</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.6">2.6</link></para></refsect2>
+<refsect2 id="G-DEFINE-DYNAMIC-TYPE:CAPS" role="macro" condition="since:2.14">
+<title>G_DEFINE_DYNAMIC_TYPE()</title>
+<indexterm zone="G-DEFINE-DYNAMIC-TYPE:CAPS" role="2.14"><primary sortas="DEFINE_DYNAMIC_TYPE">G_DEFINE_DYNAMIC_TYPE</primary></indexterm>
+<programlisting language="C">#define G_DEFINE_DYNAMIC_TYPE(TN, t_n, T_P)          G_DEFINE_DYNAMIC_TYPE_EXTENDED (TN, t_n, T_P, 0, {})
+</programlisting>
+<para>A convenience macro for dynamic type implementations, which declares a
+class initialization function, an instance initialization function (see 
+<link linkend="GTypeInfo"><type>GTypeInfo</type></link> for information about these) and a static variable named 
+<literal>t_n</literal>_parent_class pointing to the parent class. Furthermore,
+it defines a <literal>*_get_type()</literal> and a static <literal>*_register_type()</literal> functions
+for use in your <literal><link linkend="module-init"><function>module_init()</function></link></literal>.</para>
+<para>See <link linkend="G-DEFINE-DYNAMIC-TYPE-EXTENDED:CAPS"><function>G_DEFINE_DYNAMIC_TYPE_EXTENDED()</function></link> for an example.</para>
+<refsect3 id="G-DEFINE-DYNAMIC-TYPE.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>TN</para></entry>
+<entry role="parameter_description"><para>The name of the new type, in Camel case.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>t_n</para></entry>
+<entry role="parameter_description"><para>The name of the new type, in lowercase, with words
+separated by '_'.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>T_P</para></entry>
+<entry role="parameter_description"><para>The <link linkend="GType"><type>GType</type></link> of the parent type.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.14">2.14</link></para></refsect2>
+<refsect2 id="G-DEFINE-DYNAMIC-TYPE-EXTENDED:CAPS" role="macro" condition="since:2.14">
+<title>G_DEFINE_DYNAMIC_TYPE_EXTENDED()</title>
+<indexterm zone="G-DEFINE-DYNAMIC-TYPE-EXTENDED:CAPS" role="2.14"><primary sortas="DEFINE_DYNAMIC_TYPE_EXTENDED">G_DEFINE_DYNAMIC_TYPE_EXTENDED</primary></indexterm>
+<programlisting language="C">#define             G_DEFINE_DYNAMIC_TYPE_EXTENDED(TypeName, type_name, TYPE_PARENT, flags, CODE)</programlisting>
+<para>A more general version of <link linkend="G-DEFINE-DYNAMIC-TYPE:CAPS"><function>G_DEFINE_DYNAMIC_TYPE()</function></link> which
+allows to specify <link linkend="GTypeFlags"><type>GTypeFlags</type></link> and custom code.</para>
+<informalexample><programlisting role="example"><![CDATA[
+G_DEFINE_DYNAMIC_TYPE_EXTENDED (GtkGadget,
+                                gtk_gadget,
+                                GTK_TYPE_THING,
+                                0,
+                                G_IMPLEMENT_INTERFACE_DYNAMIC (TYPE_GIZMO,
+                                                               gtk_gadget_gizmo_init));
+]]></programlisting></informalexample>
+<para>
+expands to</para>
+<informalexample><programlisting role="example"><![CDATA[
+static void     gtk_gadget_init              (GtkGadget      *self);
+static void     gtk_gadget_class_init        (GtkGadgetClass *klass);
+static void     gtk_gadget_class_finalize    (GtkGadgetClass *klass);
+
+static gpointer gtk_gadget_parent_class = NULL;
+static GType    gtk_gadget_type_id = 0;
+
+static void     gtk_gadget_class_intern_init (gpointer klass)
+{
+  gtk_gadget_parent_class = g_type_class_peek_parent (klass); 
+  gtk_gadget_class_init ((GtkGadgetClass*) klass); 
+}
+
+GType
+gtk_gadget_get_type (void)
+{
+  return gtk_gadget_type_id;
+}
+
+static void
+gtk_gadget_register_type (GTypeModule *type_module)
+{
+  const GTypeInfo g_define_type_info = {
+    sizeof (GtkGadgetClass),
+    (GBaseInitFunc) NULL,
+    (GBaseFinalizeFunc) NULL,
+    (GClassInitFunc) gtk_gadget_class_intern_init,
+    (GClassFinalizeFunc) gtk_gadget_class_finalize,
+    NULL,   // class_data
+    sizeof (GtkGadget),
+    0,      // n_preallocs
+    (GInstanceInitFunc) gtk_gadget_init, 
+    NULL    // value_table
+  };
+  gtk_gadget_type_id = g_type_module_register_type (type_module,
+                                                    GTK_TYPE_THING,
+                                                    "GtkGadget",
+                                                    &g_define_type_info,
+                                                    (GTypeFlags) flags);
+  {
+    const GInterfaceInfo g_implement_interface_info = {
+      (GInterfaceInitFunc) gtk_gadget_gizmo_init
+    };
+    g_type_module_add_interface (type_module, g_define_type_id, TYPE_GIZMO, &g_implement_interface_info);
+  }
+}
+]]></programlisting></informalexample>
+<para></para>
+<refsect3 id="G-DEFINE-DYNAMIC-TYPE-EXTENDED.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>TypeName</para></entry>
+<entry role="parameter_description"><para>The name of the new type, in Camel case.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>type_name</para></entry>
+<entry role="parameter_description"><para>The name of the new type, in lowercase, with words
+separated by '_'.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>TYPE_PARENT</para></entry>
+<entry role="parameter_description"><para>The <link linkend="GType"><type>GType</type></link> of the parent type.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>flags</para></entry>
+<entry role="parameter_description"><para><link linkend="GTypeFlags"><type>GTypeFlags</type></link> to pass to <link linkend="g-type-module-register-type"><function>g_type_module_register_type()</function></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>CODE</para></entry>
+<entry role="parameter_description"><para>Custom code that gets inserted in the *_get_type() function.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.14">2.14</link></para></refsect2>
+<refsect2 id="G-IMPLEMENT-INTERFACE-DYNAMIC:CAPS" role="macro" condition="since:2.24">
+<title>G_IMPLEMENT_INTERFACE_DYNAMIC()</title>
+<indexterm zone="G-IMPLEMENT-INTERFACE-DYNAMIC:CAPS" role="2.24"><primary sortas="IMPLEMENT_INTERFACE_DYNAMIC">G_IMPLEMENT_INTERFACE_DYNAMIC</primary></indexterm>
+<programlisting language="C">#define             G_IMPLEMENT_INTERFACE_DYNAMIC(TYPE_IFACE, iface_init)</programlisting>
+<para>A convenience macro to ease interface addition in the <parameter>_C_</parameter>
+ section
+of <link linkend="G-DEFINE-DYNAMIC-TYPE-EXTENDED:CAPS"><function>G_DEFINE_DYNAMIC_TYPE_EXTENDED()</function></link>. See <link linkend="G-DEFINE-DYNAMIC-TYPE-EXTENDED:CAPS"><function>G_DEFINE_DYNAMIC_TYPE_EXTENDED()</function></link>
+for an example.</para>
+<para>Note that this macro can only be used together with the
+G_DEFINE_DYNAMIC_TYPE_EXTENDED macros, since it depends on variable
+names from that macro.</para>
+<refsect3 id="G-IMPLEMENT-INTERFACE-DYNAMIC.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>TYPE_IFACE</para></entry>
+<entry role="parameter_description"><para>The <link linkend="GType"><type>GType</type></link> of the interface to add</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>iface_init</para></entry>
+<entry role="parameter_description"><para>The interface init function</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.24">2.24</link></para></refsect2>
+<refsect2 id="G-ADD-PRIVATE-DYNAMIC:CAPS" role="macro" condition="since:2.38">
+<title>G_ADD_PRIVATE_DYNAMIC()</title>
+<indexterm zone="G-ADD-PRIVATE-DYNAMIC:CAPS" role="2.38"><primary sortas="ADD_PRIVATE_DYNAMIC">G_ADD_PRIVATE_DYNAMIC</primary></indexterm>
+<programlisting language="C">#define             G_ADD_PRIVATE_DYNAMIC(TypeName)</programlisting>
+<para>A convenience macro to ease adding private data to instances of a new dynamic
+type in the <parameter>_C_</parameter>
+ section of <link linkend="G-DEFINE-DYNAMIC-TYPE-EXTENDED:CAPS"><function>G_DEFINE_DYNAMIC_TYPE_EXTENDED()</function></link>. See
+<link linkend="G-ADD-PRIVATE:CAPS"><function>G_ADD_PRIVATE()</function></link> for details, it is similar but for static types.</para>
+<para>Note that this macro can only be used together with the
+G_DEFINE_DYNAMIC_TYPE_EXTENDED macros, since it depends on variable
+names from that macro.</para>
+<refsect3 id="G-ADD-PRIVATE-DYNAMIC.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>TypeName</para></entry>
+<entry role="parameter_description"><para>the name of the type in CamelCase</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.38">2.38</link></para></refsect2>
+
+</refsect1>
+<refsect1 id="GTypeModule.other_details" role="details">
+<title role="details.title">Types and Values</title>
+<refsect2 id="GTypeModule-struct" role="struct">
+<title>struct GTypeModule</title>
+<indexterm zone="GTypeModule-struct"><primary sortas="TypeModule">GTypeModule</primary></indexterm>
+<programlisting language="C">struct GTypeModule {
+  gchar *name;
+};
+</programlisting>
+<para>The members of the GTypeModule structure should not 
+be accessed directly, except for the <parameter>name</parameter>
+ field.</para>
+<refsect3 id="GTypeModule.members" role="struct_members">
+<title>Members</title>
+<informaltable role="struct_members_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="struct_members_name" colwidth="300px"/>
+<colspec colname="struct_members_description"/>
+<colspec colname="struct_members_annotations" colwidth="200px"/>
+<tbody>
+<row role="member"><entry role="struct_member_name"><para><link linkend="gchar"><type>gchar</type></link>&#160;*<structfield id="GTypeModule-struct.name">name</structfield>;</para></entry>
+<entry role="struct_member_description"><para>the name of the module</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+</tbody></tgroup></informaltable>
+</refsect3>
+</refsect2>
+<refsect2 id="GTypeModuleClass" role="struct">
+<title>struct GTypeModuleClass</title>
+<indexterm zone="GTypeModuleClass"><primary sortas="TypeModuleClass">GTypeModuleClass</primary></indexterm>
+<programlisting language="C">struct GTypeModuleClass {
+  GObjectClass parent_class;
+
+  gboolean (* load)   (GTypeModule *module);
+  void     (* unload) (GTypeModule *module);
+};
+</programlisting>
+<para>In order to implement dynamic loading of types based on <link linkend="GTypeModule"><type>GTypeModule</type></link>, 
+the <parameter>load</parameter>
+ and <parameter>unload</parameter>
+ functions in <link linkend="GTypeModuleClass"><type>GTypeModuleClass</type></link> must be implemented.</para>
+<refsect3 id="GTypeModuleClass.members" role="struct_members">
+<title>Members</title>
+<informaltable role="struct_members_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="struct_members_name" colwidth="300px"/>
+<colspec colname="struct_members_description"/>
+<colspec colname="struct_members_annotations" colwidth="200px"/>
+<tbody>
+<row role="member"><entry role="struct_member_name"><para><structfield id="GTypeModuleClass.load">load</structfield>&#160;()</para></entry>
+<entry role="struct_member_description"><para>loads the module and registers one or more types using
+<link linkend="g-type-module-register-type"><function>g_type_module_register_type()</function></link>.</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><structfield id="GTypeModuleClass.unload">unload</structfield>&#160;()</para></entry>
+<entry role="struct_member_description"><para>unloads the module</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+</tbody></tgroup></informaltable>
+</refsect3>
+</refsect2>
+
+</refsect1>
+<refsect1 id="GTypeModule.see-also">
+<title>See Also</title>
+<para><link linkend="GTypePlugin"><type>GTypePlugin</type></link>, <link linkend="GModule"><type>GModule</type></link></para>
+
+</refsect1>
+
+</refentry>

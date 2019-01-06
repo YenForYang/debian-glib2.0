@@ -1,0 +1,473 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC '-//OASIS//DTD DocBook XML V4.5//EN'
+                      'http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd' [
+<!ENTITY % local.common.attrib "xmlns:xi  CDATA  #FIXED 'http://www.w3.org/2003/XInclude'">
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="glib-Dynamic-Loading-of-Modules">
+<refmeta>
+<refentrytitle role="top_of_page" id="glib-Dynamic-Loading-of-Modules.top_of_page">Dynamic Loading of Modules</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>GLIB Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>Dynamic Loading of Modules</refname>
+<refpurpose>portable method for dynamically loading 'plug-ins'</refpurpose>
+</refnamediv>
+
+<refsect1 id="glib-Dynamic-Loading-of-Modules.functions" role="functions_proto">
+<title role="functions_proto.title">Functions</title>
+<informaltable pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="functions_return" colwidth="150px"/>
+<colspec colname="functions_name"/>
+<tbody>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-module-supported">g_module_supported</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-module-build-path">g_module_build_path</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GModule"><returnvalue>GModule</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-module-open">g_module_open</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-module-symbol">g_module_symbol</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type">const <link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-module-name">g_module_name</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-module-make-resident">g_module_make_resident</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-module-close">g_module_close</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type">const <link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-module-error">g_module_error</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+<row><entry role="function_type">const <link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+</entry><entry role="function_name"><phrase role="c_punctuation">(</phrase><link linkend="GModuleCheckInit">*GModuleCheckInit</link><phrase role="c_punctuation">)</phrase>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><phrase role="c_punctuation">(</phrase><link linkend="GModuleUnload">*GModuleUnload</link><phrase role="c_punctuation">)</phrase>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="glib-Dynamic-Loading-of-Modules.other" role="other_proto">
+<title role="other_proto.title">Types and Values</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="name" colwidth="150px"/>
+<colspec colname="description"/>
+<tbody>
+<row><entry role="datatype_keyword"></entry><entry role="function_name"><link linkend="GModule">GModule</link></entry></row>
+<row><entry role="datatype_keyword">enum</entry><entry role="function_name"><link linkend="GModuleFlags">GModuleFlags</link></entry></row>
+
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="G-MODULE-SUFFIX:CAPS">G_MODULE_SUFFIX</link></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="G-MODULE-EXPORT:CAPS">G_MODULE_EXPORT</link></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="G-MODULE-IMPORT:CAPS">G_MODULE_IMPORT</link></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+
+<refsect1 id="glib-Dynamic-Loading-of-Modules.includes"><title>Includes</title><synopsis>#include &lt;gmodule.h&gt;
+</synopsis></refsect1>
+
+<refsect1 id="glib-Dynamic-Loading-of-Modules.description" role="desc">
+<title role="desc.title">Description</title>
+<para>These functions provide a portable way to dynamically load object files
+(commonly known as 'plug-ins'). The current implementation supports all
+systems that provide an implementation of <link linkend="dlopen"><function>dlopen()</function></link> (e.g. Linux/Sun), as
+well as Windows platforms via DLLs.</para>
+<para>A program which wants to use these functions must be linked to the
+libraries output by the command <literal>pkg-config --libs gmodule-2.0</literal>.</para>
+<para>To use them you must first determine whether dynamic loading
+is supported on the platform by calling <link linkend="g-module-supported"><function>g_module_supported()</function></link>.
+If it is, you can open a module with <link linkend="g-module-open"><function>g_module_open()</function></link>,
+find the module's symbols (e.g. function names) with <link linkend="g-module-symbol"><function>g_module_symbol()</function></link>,
+and later close the module with <link linkend="g-module-close"><function>g_module_close()</function></link>.
+<link linkend="g-module-name"><function>g_module_name()</function></link> will return the file name of a currently opened module.</para>
+<para>If any of the above functions fail, the error status can be found with
+<link linkend="g-module-error"><function>g_module_error()</function></link>.</para>
+<para>The <link linkend="GModule"><type>GModule</type></link> implementation features reference counting for opened modules,
+and supports hook functions within a module which are called when the
+module is loaded and unloaded (see <link linkend="GModuleCheckInit"><type>GModuleCheckInit</type></link> and <link linkend="GModuleUnload"><type>GModuleUnload</type></link>).</para>
+<para>If your module introduces static data to common subsystems in the running
+program, e.g. through calling
+<literal>g_quark_from_static_string ("my-module-stuff")</literal>,
+it must ensure that it is never unloaded, by calling <link linkend="g-module-make-resident"><function>g_module_make_resident()</function></link>.</para>
+<para>Example: Calling a function defined in a GModule</para>
+<informalexample><programlisting role="example"><![CDATA[
+// the function signature for 'say_hello'
+typedef void (* SayHelloFunc) (const char *message);
+
+gboolean
+just_say_hello (const char *filename, GError **error)
+{
+  SayHelloFunc  say_hello;
+  GModule      *module;
+
+  module = g_module_open (filename, G_MODULE_BIND_LAZY);
+  if (!module)
+    {
+      g_set_error (error, FOO_ERROR, FOO_ERROR_BLAH,
+                   "%s", g_module_error ());
+      return FALSE;
+    }
+
+  if (!g_module_symbol (module, "say_hello", (gpointer *)&say_hello))
+    {
+      g_set_error (error, SAY_ERROR, SAY_ERROR_OPEN,
+                   "%s: %s", filename, g_module_error ());
+      if (!g_module_close (module))
+        g_warning ("%s: %s", filename, g_module_error ());
+      return FALSE;
+    }
+
+  if (say_hello == NULL)
+    {
+      g_set_error (error, SAY_ERROR, SAY_ERROR_OPEN,
+                   "symbol say_hello is NULL");
+      if (!g_module_close (module))
+        g_warning ("%s: %s", filename, g_module_error ());
+      return FALSE;
+    }
+
+  // call our function in the module
+  say_hello ("Hello world!");
+
+  if (!g_module_close (module))
+    g_warning ("%s: %s", filename, g_module_error ());
+  return TRUE;
+ }
+]]></programlisting></informalexample>
+<para></para>
+
+</refsect1>
+<refsect1 id="glib-Dynamic-Loading-of-Modules.functions_details" role="details">
+<title role="details.title">Functions</title>
+<refsect2 id="g-module-supported" role="function">
+<title>g_module_supported&#160;()</title>
+<indexterm zone="g-module-supported"><primary sortas="module_supported">g_module_supported</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_module_supported (<parameter><type>void</type></parameter>);</programlisting>
+<para>Checks if modules are supported on the current platform.</para>
+<refsect3 id="g-module-supported.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if modules are supported</para>
+</refsect3></refsect2>
+<refsect2 id="g-module-build-path" role="function">
+<title>g_module_build_path&#160;()</title>
+<indexterm zone="g-module-build-path"><primary sortas="module_build_path">g_module_build_path</primary></indexterm>
+<programlisting language="C"><link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+g_module_build_path (<parameter>const <link linkend="gchar"><type>gchar</type></link> *directory</parameter>,
+                     <parameter>const <link linkend="gchar"><type>gchar</type></link> *module_name</parameter>);</programlisting>
+<para>A portable way to build the filename of a module. The platform-specific
+prefix and suffix are added to the filename, if needed, and the result
+is added to the directory, using the correct separator character.</para>
+<para>The directory should specify the directory where the module can be found.
+It can be <link linkend="NULL:CAPS"><literal>NULL</literal></link> or an empty string to indicate that the module is in a
+standard platform-specific directory, though this is not recommended
+since the wrong module may be found.</para>
+<para>For example, calling <link linkend="g-module-build-path"><function>g_module_build_path()</function></link> on a Linux system with a
+<parameter>directory</parameter>
+ of <literal>/lib</literal> and a <parameter>module_name</parameter>
+ of "mylibrary" will return
+<literal>/lib/libmylibrary.so</literal>. On a Windows system, using <literal>\Windows</literal> as the
+directory it will return <literal>\Windows\mylibrary.dll</literal>.</para>
+<refsect3 id="g-module-build-path.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>directory</para></entry>
+<entry role="parameter_description"><para>the directory where the module is. This can be
+<link linkend="NULL:CAPS"><literal>NULL</literal></link> or the empty string to indicate that the standard platform-specific
+directories will be used, though that is not recommended. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>module_name</para></entry>
+<entry role="parameter_description"><para>the name of the module</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-module-build-path.returns" role="returns">
+<title>Returns</title>
+<para> the complete path of the module, including the standard library
+prefix and suffix. This should be freed when no longer needed</para>
+</refsect3></refsect2>
+<refsect2 id="g-module-open" role="function">
+<title>g_module_open&#160;()</title>
+<indexterm zone="g-module-open"><primary sortas="module_open">g_module_open</primary></indexterm>
+<programlisting language="C"><link linkend="GModule"><returnvalue>GModule</returnvalue></link>&#160;*
+g_module_open (<parameter>const <link linkend="gchar"><type>gchar</type></link> *file_name</parameter>,
+               <parameter><link linkend="GModuleFlags"><type>GModuleFlags</type></link> flags</parameter>);</programlisting>
+<para>Opens a module. If the module has already been opened,
+its reference count is incremented.</para>
+<para>First of all <link linkend="g-module-open"><function>g_module_open()</function></link> tries to open <parameter>file_name</parameter>
+ as a module.
+If that fails and <parameter>file_name</parameter>
+ has the ".la"-suffix (and is a libtool
+archive) it tries to open the corresponding module. If that fails
+and it doesn't have the proper module suffix for the platform
+(<link linkend="G-MODULE-SUFFIX:CAPS"><type>G_MODULE_SUFFIX</type></link>), this suffix will be appended and the corresponding
+module will be opended. If that fails and <parameter>file_name</parameter>
+ doesn't have the
+".la"-suffix, this suffix is appended and <link linkend="g-module-open"><function>g_module_open()</function></link> tries to open
+the corresponding module. If eventually that fails as well, <link linkend="NULL:CAPS"><literal>NULL</literal></link> is
+returned.</para>
+<refsect3 id="g-module-open.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>file_name</para></entry>
+<entry role="parameter_description"><para>the name of the file containing the module, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>
+to obtain a <link linkend="GModule"><type>GModule</type></link> representing the main program itself. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>flags</para></entry>
+<entry role="parameter_description"><para>the flags used for opening the module. This can be the
+logical OR of any of the <link linkend="GModuleFlags"><type>GModuleFlags</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-module-open.returns" role="returns">
+<title>Returns</title>
+<para> a <link linkend="GModule"><type>GModule</type></link> on success, or <link linkend="NULL:CAPS"><literal>NULL</literal></link> on failure</para>
+</refsect3></refsect2>
+<refsect2 id="g-module-symbol" role="function">
+<title>g_module_symbol&#160;()</title>
+<indexterm zone="g-module-symbol"><primary sortas="module_symbol">g_module_symbol</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_module_symbol (<parameter><link linkend="GModule"><type>GModule</type></link> *module</parameter>,
+                 <parameter>const <link linkend="gchar"><type>gchar</type></link> *symbol_name</parameter>,
+                 <parameter><link linkend="gpointer"><type>gpointer</type></link> *symbol</parameter>);</programlisting>
+<para>Gets a symbol pointer from a module, such as one exported
+by <link linkend="G-MODULE-EXPORT:CAPS"><type>G_MODULE_EXPORT</type></link>. Note that a valid symbol can be <link linkend="NULL:CAPS"><literal>NULL</literal></link>.</para>
+<refsect3 id="g-module-symbol.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>module</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GModule"><type>GModule</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>symbol_name</para></entry>
+<entry role="parameter_description"><para>the name of the symbol to find</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>symbol</para></entry>
+<entry role="parameter_description"><para>returns the pointer to the symbol value. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>out</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-module-symbol.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> on success</para>
+</refsect3></refsect2>
+<refsect2 id="g-module-name" role="function">
+<title>g_module_name&#160;()</title>
+<indexterm zone="g-module-name"><primary sortas="module_name">g_module_name</primary></indexterm>
+<programlisting language="C">const <link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+g_module_name (<parameter><link linkend="GModule"><type>GModule</type></link> *module</parameter>);</programlisting>
+<para>Returns the filename that the module was opened with.</para>
+<para>If <parameter>module</parameter>
+ refers to the application itself, "main" is returned.</para>
+<refsect3 id="g-module-name.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>module</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GModule"><type>GModule</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-module-name.returns" role="returns">
+<title>Returns</title>
+<para>the filename of the module. </para>
+<para><emphasis role="annotation">[<acronym>transfer none</acronym>]</emphasis></para>
+</refsect3></refsect2>
+<refsect2 id="g-module-make-resident" role="function">
+<title>g_module_make_resident&#160;()</title>
+<indexterm zone="g-module-make-resident"><primary sortas="module_make_resident">g_module_make_resident</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_module_make_resident (<parameter><link linkend="GModule"><type>GModule</type></link> *module</parameter>);</programlisting>
+<para>Ensures that a module will never be unloaded.
+Any future <link linkend="g-module-close"><function>g_module_close()</function></link> calls on the module will be ignored.</para>
+<refsect3 id="g-module-make-resident.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>module</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GModule"><type>GModule</type></link> to make permanently resident</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-module-close" role="function">
+<title>g_module_close&#160;()</title>
+<indexterm zone="g-module-close"><primary sortas="module_close">g_module_close</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_module_close (<parameter><link linkend="GModule"><type>GModule</type></link> *module</parameter>);</programlisting>
+<para>Closes a module.</para>
+<refsect3 id="g-module-close.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>module</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GModule"><type>GModule</type></link> to close</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-module-close.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> on success</para>
+</refsect3></refsect2>
+<refsect2 id="g-module-error" role="function">
+<title>g_module_error&#160;()</title>
+<indexterm zone="g-module-error"><primary sortas="module_error">g_module_error</primary></indexterm>
+<programlisting language="C">const <link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+g_module_error (<parameter><type>void</type></parameter>);</programlisting>
+<para>Gets a string describing the last module error.</para>
+<refsect3 id="g-module-error.returns" role="returns">
+<title>Returns</title>
+<para> a string describing the last module error</para>
+</refsect3></refsect2>
+<refsect2 id="GModuleCheckInit" role="function">
+<title>GModuleCheckInit&#160;()</title>
+<indexterm zone="GModuleCheckInit"><primary sortas="ModuleCheckInit">GModuleCheckInit</primary></indexterm>
+<programlisting language="C">const <link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+<phrase role="c_punctuation">(</phrase>*GModuleCheckInit<phrase role="c_punctuation">)</phrase> (<parameter><link linkend="GModule"><type>GModule</type></link> *module</parameter>);</programlisting>
+<para>Specifies the type of the module initialization function.
+If a module contains a function named <link linkend="g-module-check-init"><function>g_module_check_init()</function></link> it is called
+automatically when the module is loaded. It is passed the <link linkend="GModule"><type>GModule</type></link> structure
+and should return <link linkend="NULL:CAPS"><literal>NULL</literal></link> on success or a string describing the initialization
+error.</para>
+<refsect3 id="GModuleCheckInit.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>module</para></entry>
+<entry role="parameter_description"><para>the <link linkend="GModule"><type>GModule</type></link> corresponding to the module which has just been loaded</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="GModuleCheckInit.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="NULL:CAPS"><literal>NULL</literal></link> on success, or a string describing the initialization error</para>
+</refsect3></refsect2>
+<refsect2 id="GModuleUnload" role="function">
+<title>GModuleUnload&#160;()</title>
+<indexterm zone="GModuleUnload"><primary sortas="ModuleUnload">GModuleUnload</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+<phrase role="c_punctuation">(</phrase>*GModuleUnload<phrase role="c_punctuation">)</phrase> (<parameter><link linkend="GModule"><type>GModule</type></link> *module</parameter>);</programlisting>
+<para>Specifies the type of the module function called when it is unloaded.
+If a module contains a function named <link linkend="g-module-unload"><function>g_module_unload()</function></link> it is called
+automatically when the module is unloaded.
+It is passed the <link linkend="GModule"><type>GModule</type></link> structure.</para>
+<refsect3 id="GModuleUnload.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>module</para></entry>
+<entry role="parameter_description"><para>the <link linkend="GModule"><type>GModule</type></link> about to be unloaded</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+
+</refsect1>
+<refsect1 id="glib-Dynamic-Loading-of-Modules.other_details" role="details">
+<title role="details.title">Types and Values</title>
+<refsect2 id="GModule" role="struct">
+<title>GModule</title>
+<indexterm zone="GModule"><primary sortas="Module">GModule</primary></indexterm>
+<programlisting language="C">typedef struct _GModule GModule;</programlisting>
+<para>The <link linkend="GModule"><type>GModule</type></link> struct is an opaque data structure to represent a
+<link linkend="glib-Dynamic-Loading-of-Modules">dynamically-loaded module</link>.
+It should only be accessed via the following functions.</para>
+</refsect2>
+<refsect2 id="GModuleFlags" role="enum">
+<title>enum GModuleFlags</title>
+<indexterm zone="GModuleFlags"><primary sortas="ModuleFlags">GModuleFlags</primary></indexterm>
+<para>Flags passed to <link linkend="g-module-open"><function>g_module_open()</function></link>.
+Note that these flags are not supported on all platforms.</para>
+<refsect3 id="GModuleFlags.members" role="enum_members">
+<title>Members</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="enum_members_name" colwidth="300px"/>
+<colspec colname="enum_members_description"/>
+<colspec colname="enum_members_annotations" colwidth="200px"/>
+<tbody>
+<row role="constant"><entry role="enum_member_name"><para id="G-MODULE-BIND-LAZY:CAPS">G_MODULE_BIND_LAZY</para></entry>
+<entry role="enum_member_description"><para>specifies that symbols are only resolved when
+    needed. The default action is to bind all symbols when the module
+    is loaded.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-MODULE-BIND-LOCAL:CAPS">G_MODULE_BIND_LOCAL</para></entry>
+<entry role="enum_member_description"><para>specifies that symbols in the module should
+    not be added to the global name space. The default action on most
+    platforms is to place symbols in the module in the global name space,
+    which may cause conflicts with existing symbols.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-MODULE-BIND-MASK:CAPS">G_MODULE_BIND_MASK</para></entry>
+<entry role="enum_member_description"><para>mask for all flags.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="G-MODULE-SUFFIX:CAPS" role="macro">
+<title>G_MODULE_SUFFIX</title>
+<indexterm zone="G-MODULE-SUFFIX:CAPS"><primary sortas="MODULE_SUFFIX">G_MODULE_SUFFIX</primary></indexterm>
+<programlisting language="C">#define G_MODULE_SUFFIX "so"
+</programlisting>
+<para>Expands to the proper shared library suffix for the current platform
+without the leading dot. For most Unices and Linux this is "so", and
+for Windows this is "dll".</para>
+</refsect2>
+<refsect2 id="G-MODULE-EXPORT:CAPS" role="macro">
+<title>G_MODULE_EXPORT</title>
+<indexterm zone="G-MODULE-EXPORT:CAPS"><primary sortas="MODULE_EXPORT">G_MODULE_EXPORT</primary></indexterm>
+<programlisting language="C">#  define&#160;G_MODULE_EXPORT		__declspec(dllexport)
+</programlisting>
+<para>Used to declare functions exported by libraries or modules.</para>
+<para>When compiling for Windows, it marks the symbol as <literal>dllexport</literal>.</para>
+<para>When compiling for Linux and Unices, it marks the symbol as having <literal>default</literal>
+visibility. This is no-op unless the code is being compiled with a
+non-default
+<ulink url="https://gcc.gnu.org/onlinedocs/gcc/Code-Gen-Options.html#index-fvisibility-1260">visibility flag</ulink>
+such as <literal>hidden</literal>.</para>
+</refsect2>
+<refsect2 id="G-MODULE-IMPORT:CAPS" role="macro">
+<title>G_MODULE_IMPORT</title>
+<indexterm zone="G-MODULE-IMPORT:CAPS"><primary sortas="MODULE_IMPORT">G_MODULE_IMPORT</primary></indexterm>
+<programlisting language="C">#define&#160;G_MODULE_IMPORT		extern
+</programlisting>
+<para>Used to declare functions imported from modules.</para>
+</refsect2>
+
+</refsect1>
+
+</refentry>

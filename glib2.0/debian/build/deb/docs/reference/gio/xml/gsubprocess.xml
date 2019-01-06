@@ -1,0 +1,1151 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC '-//OASIS//DTD DocBook XML V4.5//EN'
+                      'http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd' [
+<!ENTITY % local.common.attrib "xmlns:xi  CDATA  #FIXED 'http://www.w3.org/2003/XInclude'">
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="GSubprocess">
+<refmeta>
+<refentrytitle role="top_of_page" id="GSubprocess.top_of_page">GSubprocess</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>GIO Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>GSubprocess</refname>
+<refpurpose>Child processes</refpurpose>
+</refnamediv>
+
+<refsect1 id="GSubprocess.functions" role="functions_proto">
+<title role="functions_proto.title">Functions</title>
+<informaltable pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="functions_return" colwidth="150px"/>
+<colspec colname="functions_name"/>
+<tbody>
+<row><entry role="function_type"><link linkend="GSubprocess"><returnvalue>GSubprocess</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-subprocess-new">g_subprocess_new</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GSubprocess"><returnvalue>GSubprocess</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-subprocess-newv">g_subprocess_newv</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type">const <link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-subprocess-get-identifier">g_subprocess_get_identifier</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+<row><entry role="function_type"><link linkend="GOutputStream"><returnvalue>GOutputStream</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-subprocess-get-stdin-pipe">g_subprocess_get_stdin_pipe</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GInputStream"><returnvalue>GInputStream</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-subprocess-get-stdout-pipe">g_subprocess_get_stdout_pipe</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GInputStream"><returnvalue>GInputStream</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-subprocess-get-stderr-pipe">g_subprocess_get_stderr_pipe</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-subprocess-wait">g_subprocess_wait</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-subprocess-wait-async">g_subprocess_wait_async</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-subprocess-wait-finish">g_subprocess_wait_finish</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-subprocess-wait-check">g_subprocess_wait_check</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-subprocess-wait-check-async">g_subprocess_wait_check_async</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-subprocess-wait-check-finish">g_subprocess_wait_check_finish</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-subprocess-get-successful">g_subprocess_get_successful</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-subprocess-get-if-exited">g_subprocess_get_if_exited</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gint"><returnvalue>gint</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-subprocess-get-exit-status">g_subprocess_get_exit_status</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-subprocess-get-if-signaled">g_subprocess_get_if_signaled</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gint"><returnvalue>gint</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-subprocess-get-term-sig">g_subprocess_get_term_sig</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gint"><returnvalue>gint</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-subprocess-get-status">g_subprocess_get_status</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-subprocess-send-signal">g_subprocess_send_signal</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-subprocess-force-exit">g_subprocess_force_exit</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-subprocess-communicate">g_subprocess_communicate</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-subprocess-communicate-async">g_subprocess_communicate_async</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-subprocess-communicate-finish">g_subprocess_communicate_finish</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-subprocess-communicate-utf8">g_subprocess_communicate_utf8</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-subprocess-communicate-utf8-async">g_subprocess_communicate_utf8_async</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-subprocess-communicate-utf8-finish">g_subprocess_communicate_utf8_finish</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GSubprocess.properties" role="properties">
+<title role="properties.title">Properties</title>
+<informaltable frame="none">
+<tgroup cols="3">
+<colspec colname="properties_type" colwidth="150px"/>
+<colspec colname="properties_name" colwidth="300px"/>
+<colspec colname="properties_flags" colwidth="200px"/>
+<tbody>
+<row><entry role="property_type"><link linkend="GStrv"><type>GStrv</type></link></entry><entry role="property_name"><link linkend="GSubprocess--argv">argv</link></entry><entry role="property_flags">Write / Construct Only</entry></row>
+<row><entry role="property_type"><link linkend="GSubprocessFlags"><type>GSubprocessFlags</type></link></entry><entry role="property_name"><link linkend="GSubprocess--flags">flags</link></entry><entry role="property_flags">Write / Construct Only</entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GSubprocess.other" role="other_proto">
+<title role="other_proto.title">Types and Values</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="name" colwidth="150px"/>
+<colspec colname="description"/>
+<tbody>
+<row><entry role="datatype_keyword"></entry><entry role="function_name"><link linkend="GSubprocess-struct">GSubprocess</link></entry></row>
+<row><entry role="datatype_keyword">enum</entry><entry role="function_name"><link linkend="GSubprocessFlags">GSubprocessFlags</link></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GSubprocess.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<screen>    <link linkend="GFlags">GFlags</link>
+    <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> GSubprocessFlags
+    <link linkend="GObject">GObject</link>
+    <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> GSubprocess
+</screen>
+</refsect1>
+<refsect1 id="GSubprocess.implemented-interfaces" role="impl_interfaces">
+<title role="impl_interfaces.title">Implemented Interfaces</title>
+<para>
+GSubprocess implements
+ <link linkend="GInitable">GInitable</link>.</para>
+
+</refsect1>
+
+<refsect1 id="GSubprocess.includes"><title>Includes</title><synopsis>#include &lt;gio/gio.h&gt;
+</synopsis></refsect1>
+
+<refsect1 id="GSubprocess.description" role="desc">
+<title role="desc.title">Description</title>
+<para><link linkend="GSubprocess"><type>GSubprocess</type></link> allows the creation of and interaction with child
+processes.</para>
+<para>Processes can be communicated with using standard GIO-style APIs (ie:
+<link linkend="GInputStream"><type>GInputStream</type></link>, <link linkend="GOutputStream"><type>GOutputStream</type></link>).  There are GIO-style APIs to wait for
+process termination (ie: cancellable and with an asynchronous
+variant).</para>
+<para>There is an API to force a process to terminate, as well as a
+race-free API for sending UNIX signals to a subprocess.</para>
+<para>One major advantage that GIO brings over the core GLib library is
+comprehensive API for asynchronous I/O, such
+<link linkend="g-output-stream-splice-async"><function>g_output_stream_splice_async()</function></link>.  This makes GSubprocess
+significantly more powerful and flexible than equivalent APIs in
+some other languages such as the <literal>subprocess.py</literal>
+included with Python.  For example, using <link linkend="GSubprocess"><type>GSubprocess</type></link> one could
+create two child processes, reading standard output from the first,
+processing it, and writing to the input stream of the second, all
+without blocking the main loop.</para>
+<para>A powerful <link linkend="g-subprocess-communicate"><function>g_subprocess_communicate()</function></link> API is provided similar to the
+<literal><link linkend="communicate"><function>communicate()</function></link></literal> method of <literal>subprocess.py</literal>. This enables very easy
+interaction with a subprocess that has been opened with pipes.</para>
+<para><link linkend="GSubprocess"><type>GSubprocess</type></link> defaults to tight control over the file descriptors open
+in the child process, avoiding dangling-fd issues that are caused by
+a simple <link linkend="fork"><function>fork()</function></link>/<link linkend="exec"><function>exec()</function></link>.  The only open file descriptors in the
+spawned process are ones that were explicitly specified by the
+<link linkend="GSubprocess"><type>GSubprocess</type></link> API (unless <link linkend="G-SUBPROCESS-FLAGS-INHERIT-FDS:CAPS"><literal>G_SUBPROCESS_FLAGS_INHERIT_FDS</literal></link> was
+specified).</para>
+<para><link linkend="GSubprocess"><type>GSubprocess</type></link> will quickly reap all child processes as they exit,
+avoiding "zombie processes" remaining around for long periods of
+time.  <link linkend="g-subprocess-wait"><function>g_subprocess_wait()</function></link> can be used to wait for this to happen,
+but it will happen even without the call being explicitly made.</para>
+<para>As a matter of principle, <link linkend="GSubprocess"><type>GSubprocess</type></link> has no API that accepts
+shell-style space-separated strings.  It will, however, match the
+typical shell behaviour of searching the PATH for executables that do
+not contain a directory separator in their name.</para>
+<para><link linkend="GSubprocess"><type>GSubprocess</type></link> attempts to have a very simple API for most uses (ie:
+spawning a subprocess with arguments and support for most typical
+kinds of input and output redirection).  See <link linkend="g-subprocess-new"><function>g_subprocess_new()</function></link>. The
+<link linkend="GSubprocessLauncher"><type>GSubprocessLauncher</type></link> API is provided for more complicated cases
+(advanced types of redirection, environment variable manipulation,
+change of working directory, child setup functions, etc).</para>
+<para>A typical use of <link linkend="GSubprocess"><type>GSubprocess</type></link> will involve calling
+<link linkend="g-subprocess-new"><function>g_subprocess_new()</function></link>, followed by <link linkend="g-subprocess-wait-async"><function>g_subprocess_wait_async()</function></link> or
+<link linkend="g-subprocess-wait"><function>g_subprocess_wait()</function></link>.  After the process exits, the status can be
+checked using functions such as <link linkend="g-subprocess-get-if-exited"><function>g_subprocess_get_if_exited()</function></link> (which
+are similar to the familiar WIFEXITED-style POSIX macros).</para>
+
+</refsect1>
+<refsect1 id="GSubprocess.functions_details" role="details">
+<title role="details.title">Functions</title>
+<refsect2 id="g-subprocess-new" role="function" condition="since:2.40">
+<title>g_subprocess_new&#160;()</title>
+<indexterm zone="g-subprocess-new" role="2.40"><primary sortas="subprocess_new">g_subprocess_new</primary></indexterm>
+<programlisting language="C"><link linkend="GSubprocess"><returnvalue>GSubprocess</returnvalue></link>&#160;*
+g_subprocess_new (<parameter><link linkend="GSubprocessFlags"><type>GSubprocessFlags</type></link> flags</parameter>,
+                  <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>,
+                  <parameter>const <link linkend="gchar"><type>gchar</type></link> *argv0</parameter>,
+                  <parameter>...</parameter>);</programlisting>
+<para>Create a new process with the given flags and varargs argument
+list.  By default, matching the <link linkend="g-spawn-async"><function>g_spawn_async()</function></link> defaults, the
+child's stdin will be set to the system null device, and
+stdout/stderr will be inherited from the parent.  You can use
+<parameter>flags</parameter>
+ to control this behavior.</para>
+<para>The argument list must be terminated with <link linkend="NULL:CAPS"><literal>NULL</literal></link>.</para>
+
+<para><emphasis role="annotation">[<acronym>skip</acronym>]</emphasis></para><refsect3 id="g-subprocess-new.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>flags</para></entry>
+<entry role="parameter_description"><para>flags that define the behaviour of the subprocess</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para>return location for an error, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>argv0</para></entry>
+<entry role="parameter_description"><para>first commandline argument to pass to the subprocess</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>...</para></entry>
+<entry role="parameter_description"><para>more commandline arguments, followed by <link linkend="NULL:CAPS"><literal>NULL</literal></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-subprocess-new.returns" role="returns">
+<title>Returns</title>
+<para> A newly created <link linkend="GSubprocess"><type>GSubprocess</type></link>, or <link linkend="NULL:CAPS"><literal>NULL</literal></link> on error (and <parameter>error</parameter>
+will be set)</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.40">2.40</link></para></refsect2>
+<refsect2 id="g-subprocess-newv" role="function" condition="since:2.40">
+<title>g_subprocess_newv&#160;()</title>
+<indexterm zone="g-subprocess-newv" role="2.40"><primary sortas="subprocess_newv">g_subprocess_newv</primary></indexterm>
+<programlisting language="C"><link linkend="GSubprocess"><returnvalue>GSubprocess</returnvalue></link>&#160;*
+g_subprocess_newv (<parameter>const <link linkend="gchar"><type>gchar</type></link> * const *argv</parameter>,
+                   <parameter><link linkend="GSubprocessFlags"><type>GSubprocessFlags</type></link> flags</parameter>,
+                   <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para>Create a new process with the given flags and argument list.</para>
+<para>The argument list is expected to be <link linkend="NULL:CAPS"><literal>NULL</literal></link>-terminated.</para>
+
+<para><emphasis role="annotation">[<acronym>rename-to</acronym> g_subprocess_new]</emphasis></para><refsect3 id="g-subprocess-newv.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>argv</para></entry>
+<entry role="parameter_description"><para>commandline arguments for the subprocess. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>array</acronym> zero-terminated=1][<acronym>element-type</acronym> filename]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>flags</para></entry>
+<entry role="parameter_description"><para>flags that define the behaviour of the subprocess</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para>return location for an error, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-subprocess-newv.returns" role="returns">
+<title>Returns</title>
+<para> A newly created <link linkend="GSubprocess"><type>GSubprocess</type></link>, or <link linkend="NULL:CAPS"><literal>NULL</literal></link> on error (and <parameter>error</parameter>
+will be set)</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.40">2.40</link></para></refsect2>
+<refsect2 id="g-subprocess-get-identifier" role="function">
+<title>g_subprocess_get_identifier&#160;()</title>
+<indexterm zone="g-subprocess-get-identifier"><primary sortas="subprocess_get_identifier">g_subprocess_get_identifier</primary></indexterm>
+<programlisting language="C">const <link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+g_subprocess_get_identifier (<parameter><link linkend="GSubprocess"><type>GSubprocess</type></link> *subprocess</parameter>);</programlisting>
+<para>On UNIX, returns the process ID as a decimal string.
+On Windows, returns the result of <link linkend="GetProcessId"><function>GetProcessId()</function></link> also as a string.</para>
+<refsect3 id="g-subprocess-get-identifier.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>subprocess</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSubprocess"><type>GSubprocess</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-subprocess-get-stdin-pipe" role="function" condition="since:2.40">
+<title>g_subprocess_get_stdin_pipe&#160;()</title>
+<indexterm zone="g-subprocess-get-stdin-pipe" role="2.40"><primary sortas="subprocess_get_stdin_pipe">g_subprocess_get_stdin_pipe</primary></indexterm>
+<programlisting language="C"><link linkend="GOutputStream"><returnvalue>GOutputStream</returnvalue></link>&#160;*
+g_subprocess_get_stdin_pipe (<parameter><link linkend="GSubprocess"><type>GSubprocess</type></link> *subprocess</parameter>);</programlisting>
+<para>Gets the <link linkend="GOutputStream"><type>GOutputStream</type></link> that you can write to in order to give data
+to the stdin of <parameter>subprocess</parameter>
+.</para>
+<para>The process must have been created with
+<link linkend="G-SUBPROCESS-FLAGS-STDIN-PIPE:CAPS"><literal>G_SUBPROCESS_FLAGS_STDIN_PIPE</literal></link>.</para>
+<refsect3 id="g-subprocess-get-stdin-pipe.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>subprocess</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSubprocess"><type>GSubprocess</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-subprocess-get-stdin-pipe.returns" role="returns">
+<title>Returns</title>
+<para>the stdout pipe. </para>
+<para><emphasis role="annotation">[<acronym>transfer none</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.40">2.40</link></para></refsect2>
+<refsect2 id="g-subprocess-get-stdout-pipe" role="function" condition="since:2.40">
+<title>g_subprocess_get_stdout_pipe&#160;()</title>
+<indexterm zone="g-subprocess-get-stdout-pipe" role="2.40"><primary sortas="subprocess_get_stdout_pipe">g_subprocess_get_stdout_pipe</primary></indexterm>
+<programlisting language="C"><link linkend="GInputStream"><returnvalue>GInputStream</returnvalue></link>&#160;*
+g_subprocess_get_stdout_pipe (<parameter><link linkend="GSubprocess"><type>GSubprocess</type></link> *subprocess</parameter>);</programlisting>
+<para>Gets the <link linkend="GInputStream"><type>GInputStream</type></link> from which to read the stdout output of
+<parameter>subprocess</parameter>
+.</para>
+<para>The process must have been created with
+<link linkend="G-SUBPROCESS-FLAGS-STDOUT-PIPE:CAPS"><literal>G_SUBPROCESS_FLAGS_STDOUT_PIPE</literal></link>.</para>
+<refsect3 id="g-subprocess-get-stdout-pipe.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>subprocess</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSubprocess"><type>GSubprocess</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-subprocess-get-stdout-pipe.returns" role="returns">
+<title>Returns</title>
+<para>the stdout pipe. </para>
+<para><emphasis role="annotation">[<acronym>transfer none</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.40">2.40</link></para></refsect2>
+<refsect2 id="g-subprocess-get-stderr-pipe" role="function" condition="since:2.40">
+<title>g_subprocess_get_stderr_pipe&#160;()</title>
+<indexterm zone="g-subprocess-get-stderr-pipe" role="2.40"><primary sortas="subprocess_get_stderr_pipe">g_subprocess_get_stderr_pipe</primary></indexterm>
+<programlisting language="C"><link linkend="GInputStream"><returnvalue>GInputStream</returnvalue></link>&#160;*
+g_subprocess_get_stderr_pipe (<parameter><link linkend="GSubprocess"><type>GSubprocess</type></link> *subprocess</parameter>);</programlisting>
+<para>Gets the <link linkend="GInputStream"><type>GInputStream</type></link> from which to read the stderr output of
+<parameter>subprocess</parameter>
+.</para>
+<para>The process must have been created with
+<link linkend="G-SUBPROCESS-FLAGS-STDERR-PIPE:CAPS"><literal>G_SUBPROCESS_FLAGS_STDERR_PIPE</literal></link>.</para>
+<refsect3 id="g-subprocess-get-stderr-pipe.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>subprocess</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSubprocess"><type>GSubprocess</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-subprocess-get-stderr-pipe.returns" role="returns">
+<title>Returns</title>
+<para>the stderr pipe. </para>
+<para><emphasis role="annotation">[<acronym>transfer none</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.40">2.40</link></para></refsect2>
+<refsect2 id="g-subprocess-wait" role="function" condition="since:2.40">
+<title>g_subprocess_wait&#160;()</title>
+<indexterm zone="g-subprocess-wait" role="2.40"><primary sortas="subprocess_wait">g_subprocess_wait</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_subprocess_wait (<parameter><link linkend="GSubprocess"><type>GSubprocess</type></link> *subprocess</parameter>,
+                   <parameter><link linkend="GCancellable"><type>GCancellable</type></link> *cancellable</parameter>,
+                   <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para>Synchronously wait for the subprocess to terminate.</para>
+<para>After the process terminates you can query its exit status with
+functions such as <link linkend="g-subprocess-get-if-exited"><function>g_subprocess_get_if_exited()</function></link> and
+<link linkend="g-subprocess-get-exit-status"><function>g_subprocess_get_exit_status()</function></link>.</para>
+<para>This function does not fail in the case of the subprocess having
+abnormal termination.  See <link linkend="g-subprocess-wait-check"><function>g_subprocess_wait_check()</function></link> for that.</para>
+<para>Cancelling <parameter>cancellable</parameter>
+ doesn't kill the subprocess.  Call
+<link linkend="g-subprocess-force-exit"><function>g_subprocess_force_exit()</function></link> if it is desirable.</para>
+<refsect3 id="g-subprocess-wait.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>subprocess</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSubprocess"><type>GSubprocess</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>cancellable</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GCancellable"><type>GCancellable</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GError"><type>GError</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-subprocess-wait.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> on success, <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> if <parameter>cancellable</parameter>
+was cancelled</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.40">2.40</link></para></refsect2>
+<refsect2 id="g-subprocess-wait-async" role="function" condition="since:2.40">
+<title>g_subprocess_wait_async&#160;()</title>
+<indexterm zone="g-subprocess-wait-async" role="2.40"><primary sortas="subprocess_wait_async">g_subprocess_wait_async</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_subprocess_wait_async (<parameter><link linkend="GSubprocess"><type>GSubprocess</type></link> *subprocess</parameter>,
+                         <parameter><link linkend="GCancellable"><type>GCancellable</type></link> *cancellable</parameter>,
+                         <parameter><link linkend="GAsyncReadyCallback"><type>GAsyncReadyCallback</type></link> callback</parameter>,
+                         <parameter><link linkend="gpointer"><type>gpointer</type></link> user_data</parameter>);</programlisting>
+<para>Wait for the subprocess to terminate.</para>
+<para>This is the asynchronous version of <link linkend="g-subprocess-wait"><function>g_subprocess_wait()</function></link>.</para>
+<refsect3 id="g-subprocess-wait-async.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>subprocess</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSubprocess"><type>GSubprocess</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>cancellable</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GCancellable"><type>GCancellable</type></link>, or <link linkend="NULL:CAPS"><literal>NULL</literal></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>callback</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GAsyncReadyCallback"><type>GAsyncReadyCallback</type></link> to call when the operation is complete</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>user_data</para></entry>
+<entry role="parameter_description"><para>user_data for <parameter>callback</parameter>
+</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.40">2.40</link></para></refsect2>
+<refsect2 id="g-subprocess-wait-finish" role="function" condition="since:2.40">
+<title>g_subprocess_wait_finish&#160;()</title>
+<indexterm zone="g-subprocess-wait-finish" role="2.40"><primary sortas="subprocess_wait_finish">g_subprocess_wait_finish</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_subprocess_wait_finish (<parameter><link linkend="GSubprocess"><type>GSubprocess</type></link> *subprocess</parameter>,
+                          <parameter><link linkend="GAsyncResult"><type>GAsyncResult</type></link> *result</parameter>,
+                          <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para>Collects the result of a previous call to
+<link linkend="g-subprocess-wait-async"><function>g_subprocess_wait_async()</function></link>.</para>
+<refsect3 id="g-subprocess-wait-finish.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>subprocess</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSubprocess"><type>GSubprocess</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>result</para></entry>
+<entry role="parameter_description"><para>the <link linkend="GAsyncResult"><type>GAsyncResult</type></link> passed to your <link linkend="GAsyncReadyCallback"><type>GAsyncReadyCallback</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para>a pointer to a <link linkend="NULL:CAPS"><literal>NULL</literal></link> <link linkend="GError"><type>GError</type></link>, or <link linkend="NULL:CAPS"><literal>NULL</literal></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-subprocess-wait-finish.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if successful, or <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> with <parameter>error</parameter>
+set</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.40">2.40</link></para></refsect2>
+<refsect2 id="g-subprocess-wait-check" role="function" condition="since:2.40">
+<title>g_subprocess_wait_check&#160;()</title>
+<indexterm zone="g-subprocess-wait-check" role="2.40"><primary sortas="subprocess_wait_check">g_subprocess_wait_check</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_subprocess_wait_check (<parameter><link linkend="GSubprocess"><type>GSubprocess</type></link> *subprocess</parameter>,
+                         <parameter><link linkend="GCancellable"><type>GCancellable</type></link> *cancellable</parameter>,
+                         <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para>Combines <link linkend="g-subprocess-wait"><function>g_subprocess_wait()</function></link> with <link linkend="g-spawn-check-exit-status"><function>g_spawn_check_exit_status()</function></link>.</para>
+<refsect3 id="g-subprocess-wait-check.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>subprocess</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSubprocess"><type>GSubprocess</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>cancellable</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GCancellable"><type>GCancellable</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GError"><type>GError</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-subprocess-wait-check.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> on success, <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> if process exited abnormally, or
+<parameter>cancellable</parameter>
+was cancelled</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.40">2.40</link></para></refsect2>
+<refsect2 id="g-subprocess-wait-check-async" role="function" condition="since:2.40">
+<title>g_subprocess_wait_check_async&#160;()</title>
+<indexterm zone="g-subprocess-wait-check-async" role="2.40"><primary sortas="subprocess_wait_check_async">g_subprocess_wait_check_async</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_subprocess_wait_check_async (<parameter><link linkend="GSubprocess"><type>GSubprocess</type></link> *subprocess</parameter>,
+                               <parameter><link linkend="GCancellable"><type>GCancellable</type></link> *cancellable</parameter>,
+                               <parameter><link linkend="GAsyncReadyCallback"><type>GAsyncReadyCallback</type></link> callback</parameter>,
+                               <parameter><link linkend="gpointer"><type>gpointer</type></link> user_data</parameter>);</programlisting>
+<para>Combines <link linkend="g-subprocess-wait-async"><function>g_subprocess_wait_async()</function></link> with <link linkend="g-spawn-check-exit-status"><function>g_spawn_check_exit_status()</function></link>.</para>
+<para>This is the asynchronous version of <link linkend="g-subprocess-wait-check"><function>g_subprocess_wait_check()</function></link>.</para>
+<refsect3 id="g-subprocess-wait-check-async.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>subprocess</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSubprocess"><type>GSubprocess</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>cancellable</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GCancellable"><type>GCancellable</type></link>, or <link linkend="NULL:CAPS"><literal>NULL</literal></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>callback</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GAsyncReadyCallback"><type>GAsyncReadyCallback</type></link> to call when the operation is complete</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>user_data</para></entry>
+<entry role="parameter_description"><para>user_data for <parameter>callback</parameter>
+</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.40">2.40</link></para></refsect2>
+<refsect2 id="g-subprocess-wait-check-finish" role="function" condition="since:2.40">
+<title>g_subprocess_wait_check_finish&#160;()</title>
+<indexterm zone="g-subprocess-wait-check-finish" role="2.40"><primary sortas="subprocess_wait_check_finish">g_subprocess_wait_check_finish</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_subprocess_wait_check_finish (<parameter><link linkend="GSubprocess"><type>GSubprocess</type></link> *subprocess</parameter>,
+                                <parameter><link linkend="GAsyncResult"><type>GAsyncResult</type></link> *result</parameter>,
+                                <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para>Collects the result of a previous call to
+<link linkend="g-subprocess-wait-check-async"><function>g_subprocess_wait_check_async()</function></link>.</para>
+<refsect3 id="g-subprocess-wait-check-finish.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>subprocess</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSubprocess"><type>GSubprocess</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>result</para></entry>
+<entry role="parameter_description"><para>the <link linkend="GAsyncResult"><type>GAsyncResult</type></link> passed to your <link linkend="GAsyncReadyCallback"><type>GAsyncReadyCallback</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para>a pointer to a <link linkend="NULL:CAPS"><literal>NULL</literal></link> <link linkend="GError"><type>GError</type></link>, or <link linkend="NULL:CAPS"><literal>NULL</literal></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-subprocess-wait-check-finish.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if successful, or <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> with <parameter>error</parameter>
+set</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.40">2.40</link></para></refsect2>
+<refsect2 id="g-subprocess-get-successful" role="function" condition="since:2.40">
+<title>g_subprocess_get_successful&#160;()</title>
+<indexterm zone="g-subprocess-get-successful" role="2.40"><primary sortas="subprocess_get_successful">g_subprocess_get_successful</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_subprocess_get_successful (<parameter><link linkend="GSubprocess"><type>GSubprocess</type></link> *subprocess</parameter>);</programlisting>
+<para>Checks if the process was "successful".  A process is considered
+successful if it exited cleanly with an exit status of 0, either by
+way of the <link linkend="exit"><function>exit()</function></link> system call or return from <link linkend="main"><function>main()</function></link>.</para>
+<para>It is an error to call this function before <link linkend="g-subprocess-wait"><function>g_subprocess_wait()</function></link> has
+returned.</para>
+<refsect3 id="g-subprocess-get-successful.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>subprocess</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSubprocess"><type>GSubprocess</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-subprocess-get-successful.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if the process exited cleanly with a exit status of 0</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.40">2.40</link></para></refsect2>
+<refsect2 id="g-subprocess-get-if-exited" role="function" condition="since:2.40">
+<title>g_subprocess_get_if_exited&#160;()</title>
+<indexterm zone="g-subprocess-get-if-exited" role="2.40"><primary sortas="subprocess_get_if_exited">g_subprocess_get_if_exited</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_subprocess_get_if_exited (<parameter><link linkend="GSubprocess"><type>GSubprocess</type></link> *subprocess</parameter>);</programlisting>
+<para>Check if the given subprocess exited normally (ie: by way of <link linkend="exit"><function>exit()</function></link>
+or return from <link linkend="main"><function>main()</function></link>).</para>
+<para>This is equivalent to the system WIFEXITED macro.</para>
+<para>It is an error to call this function before <link linkend="g-subprocess-wait"><function>g_subprocess_wait()</function></link> has
+returned.</para>
+<refsect3 id="g-subprocess-get-if-exited.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>subprocess</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSubprocess"><type>GSubprocess</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-subprocess-get-if-exited.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if the case of a normal exit</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.40">2.40</link></para></refsect2>
+<refsect2 id="g-subprocess-get-exit-status" role="function" condition="since:2.40">
+<title>g_subprocess_get_exit_status&#160;()</title>
+<indexterm zone="g-subprocess-get-exit-status" role="2.40"><primary sortas="subprocess_get_exit_status">g_subprocess_get_exit_status</primary></indexterm>
+<programlisting language="C"><link linkend="gint"><returnvalue>gint</returnvalue></link>
+g_subprocess_get_exit_status (<parameter><link linkend="GSubprocess"><type>GSubprocess</type></link> *subprocess</parameter>);</programlisting>
+<para>Check the exit status of the subprocess, given that it exited
+normally.  This is the value passed to the <link linkend="exit"><function>exit()</function></link> system call or the
+return value from main.</para>
+<para>This is equivalent to the system WEXITSTATUS macro.</para>
+<para>It is an error to call this function before <link linkend="g-subprocess-wait"><function>g_subprocess_wait()</function></link> and
+unless <link linkend="g-subprocess-get-if-exited"><function>g_subprocess_get_if_exited()</function></link> returned <link linkend="TRUE:CAPS"><literal>TRUE</literal></link>.</para>
+<refsect3 id="g-subprocess-get-exit-status.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>subprocess</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSubprocess"><type>GSubprocess</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-subprocess-get-exit-status.returns" role="returns">
+<title>Returns</title>
+<para> the exit status</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.40">2.40</link></para></refsect2>
+<refsect2 id="g-subprocess-get-if-signaled" role="function" condition="since:2.40">
+<title>g_subprocess_get_if_signaled&#160;()</title>
+<indexterm zone="g-subprocess-get-if-signaled" role="2.40"><primary sortas="subprocess_get_if_signaled">g_subprocess_get_if_signaled</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_subprocess_get_if_signaled (<parameter><link linkend="GSubprocess"><type>GSubprocess</type></link> *subprocess</parameter>);</programlisting>
+<para>Check if the given subprocess terminated in response to a signal.</para>
+<para>This is equivalent to the system WIFSIGNALED macro.</para>
+<para>It is an error to call this function before <link linkend="g-subprocess-wait"><function>g_subprocess_wait()</function></link> has
+returned.</para>
+<refsect3 id="g-subprocess-get-if-signaled.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>subprocess</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSubprocess"><type>GSubprocess</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-subprocess-get-if-signaled.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if the case of termination due to a signal</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.40">2.40</link></para></refsect2>
+<refsect2 id="g-subprocess-get-term-sig" role="function" condition="since:2.40">
+<title>g_subprocess_get_term_sig&#160;()</title>
+<indexterm zone="g-subprocess-get-term-sig" role="2.40"><primary sortas="subprocess_get_term_sig">g_subprocess_get_term_sig</primary></indexterm>
+<programlisting language="C"><link linkend="gint"><returnvalue>gint</returnvalue></link>
+g_subprocess_get_term_sig (<parameter><link linkend="GSubprocess"><type>GSubprocess</type></link> *subprocess</parameter>);</programlisting>
+<para>Get the signal number that caused the subprocess to terminate, given
+that it terminated due to a signal.</para>
+<para>This is equivalent to the system WTERMSIG macro.</para>
+<para>It is an error to call this function before <link linkend="g-subprocess-wait"><function>g_subprocess_wait()</function></link> and
+unless <link linkend="g-subprocess-get-if-signaled"><function>g_subprocess_get_if_signaled()</function></link> returned <link linkend="TRUE:CAPS"><literal>TRUE</literal></link>.</para>
+<refsect3 id="g-subprocess-get-term-sig.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>subprocess</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSubprocess"><type>GSubprocess</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-subprocess-get-term-sig.returns" role="returns">
+<title>Returns</title>
+<para> the signal causing termination</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.40">2.40</link></para></refsect2>
+<refsect2 id="g-subprocess-get-status" role="function" condition="since:2.40">
+<title>g_subprocess_get_status&#160;()</title>
+<indexterm zone="g-subprocess-get-status" role="2.40"><primary sortas="subprocess_get_status">g_subprocess_get_status</primary></indexterm>
+<programlisting language="C"><link linkend="gint"><returnvalue>gint</returnvalue></link>
+g_subprocess_get_status (<parameter><link linkend="GSubprocess"><type>GSubprocess</type></link> *subprocess</parameter>);</programlisting>
+<para>Gets the raw status code of the process, as from <link linkend="waitpid"><function>waitpid()</function></link>.</para>
+<para>This value has no particular meaning, but it can be used with the
+macros defined by the system headers such as WIFEXITED.  It can also
+be used with <link linkend="g-spawn-check-exit-status"><function>g_spawn_check_exit_status()</function></link>.</para>
+<para>It is more likely that you want to use <link linkend="g-subprocess-get-if-exited"><function>g_subprocess_get_if_exited()</function></link>
+followed by <link linkend="g-subprocess-get-exit-status"><function>g_subprocess_get_exit_status()</function></link>.</para>
+<para>It is an error to call this function before <link linkend="g-subprocess-wait"><function>g_subprocess_wait()</function></link> has
+returned.</para>
+<refsect3 id="g-subprocess-get-status.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>subprocess</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSubprocess"><type>GSubprocess</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-subprocess-get-status.returns" role="returns">
+<title>Returns</title>
+<para> the (meaningless) <link linkend="waitpid"><function>waitpid()</function></link> exit status from the kernel</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.40">2.40</link></para></refsect2>
+<refsect2 id="g-subprocess-send-signal" role="function" condition="since:2.40">
+<title>g_subprocess_send_signal&#160;()</title>
+<indexterm zone="g-subprocess-send-signal" role="2.40"><primary sortas="subprocess_send_signal">g_subprocess_send_signal</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_subprocess_send_signal (<parameter><link linkend="GSubprocess"><type>GSubprocess</type></link> *subprocess</parameter>,
+                          <parameter><link linkend="gint"><type>gint</type></link> signal_num</parameter>);</programlisting>
+<para>Sends the UNIX signal <parameter>signal_num</parameter>
+ to the subprocess, if it is still
+running.</para>
+<para>This API is race-free.  If the subprocess has terminated, it will not
+be signalled.</para>
+<para>This API is not available on Windows.</para>
+<refsect3 id="g-subprocess-send-signal.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>subprocess</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSubprocess"><type>GSubprocess</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>signal_num</para></entry>
+<entry role="parameter_description"><para>the signal number to send</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.40">2.40</link></para></refsect2>
+<refsect2 id="g-subprocess-force-exit" role="function" condition="since:2.40">
+<title>g_subprocess_force_exit&#160;()</title>
+<indexterm zone="g-subprocess-force-exit" role="2.40"><primary sortas="subprocess_force_exit">g_subprocess_force_exit</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_subprocess_force_exit (<parameter><link linkend="GSubprocess"><type>GSubprocess</type></link> *subprocess</parameter>);</programlisting>
+<para>Use an operating-system specific method to attempt an immediate,
+forceful termination of the process.  There is no mechanism to
+determine whether or not the request itself was successful;
+however, you can use <link linkend="g-subprocess-wait"><function>g_subprocess_wait()</function></link> to monitor the status of
+the process after calling this function.</para>
+<para>On Unix, this function sends <link linkend="SIGKILL:CAPS"><literal>SIGKILL</literal></link>.</para>
+<refsect3 id="g-subprocess-force-exit.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>subprocess</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSubprocess"><type>GSubprocess</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.40">2.40</link></para></refsect2>
+<refsect2 id="g-subprocess-communicate" role="function" condition="since:2.40">
+<title>g_subprocess_communicate&#160;()</title>
+<indexterm zone="g-subprocess-communicate" role="2.40"><primary sortas="subprocess_communicate">g_subprocess_communicate</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_subprocess_communicate (<parameter><link linkend="GSubprocess"><type>GSubprocess</type></link> *subprocess</parameter>,
+                          <parameter><link linkend="GBytes"><type>GBytes</type></link> *stdin_buf</parameter>,
+                          <parameter><link linkend="GCancellable"><type>GCancellable</type></link> *cancellable</parameter>,
+                          <parameter><link linkend="GBytes"><type>GBytes</type></link> **stdout_buf</parameter>,
+                          <parameter><link linkend="GBytes"><type>GBytes</type></link> **stderr_buf</parameter>,
+                          <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para>Communicate with the subprocess until it terminates, and all input
+and output has been completed.</para>
+<para>If <parameter>stdin_buf</parameter>
+ is given, the subprocess must have been created with
+<link linkend="G-SUBPROCESS-FLAGS-STDIN-PIPE:CAPS"><literal>G_SUBPROCESS_FLAGS_STDIN_PIPE</literal></link>.  The given data is fed to the
+stdin of the subprocess and the pipe is closed (ie: EOF).</para>
+<para>At the same time (as not to cause blocking when dealing with large
+amounts of data), if <link linkend="G-SUBPROCESS-FLAGS-STDOUT-PIPE:CAPS"><literal>G_SUBPROCESS_FLAGS_STDOUT_PIPE</literal></link> or
+<link linkend="G-SUBPROCESS-FLAGS-STDERR-PIPE:CAPS"><literal>G_SUBPROCESS_FLAGS_STDERR_PIPE</literal></link> were used, reads from those
+streams.  The data that was read is returned in <parameter>stdout</parameter>
+ and/or
+the <parameter>stderr</parameter>
+.</para>
+<para>If the subprocess was created with <link linkend="G-SUBPROCESS-FLAGS-STDOUT-PIPE:CAPS"><literal>G_SUBPROCESS_FLAGS_STDOUT_PIPE</literal></link>,
+<parameter>stdout_buf</parameter>
+ will contain the data read from stdout.  Otherwise, for
+subprocesses not created with <link linkend="G-SUBPROCESS-FLAGS-STDOUT-PIPE:CAPS"><literal>G_SUBPROCESS_FLAGS_STDOUT_PIPE</literal></link>,
+<parameter>stdout_buf</parameter>
+ will be set to <link linkend="NULL:CAPS"><literal>NULL</literal></link>.  Similar provisions apply to
+<parameter>stderr_buf</parameter>
+ and <link linkend="G-SUBPROCESS-FLAGS-STDERR-PIPE:CAPS"><literal>G_SUBPROCESS_FLAGS_STDERR_PIPE</literal></link>.</para>
+<para>As usual, any output variable may be given as <link linkend="NULL:CAPS"><literal>NULL</literal></link> to ignore it.</para>
+<para>If you desire the stdout and stderr data to be interleaved, create
+the subprocess with <link linkend="G-SUBPROCESS-FLAGS-STDOUT-PIPE:CAPS"><literal>G_SUBPROCESS_FLAGS_STDOUT_PIPE</literal></link> and
+<link linkend="G-SUBPROCESS-FLAGS-STDERR-MERGE:CAPS"><literal>G_SUBPROCESS_FLAGS_STDERR_MERGE</literal></link>.  The merged result will be returned
+in <parameter>stdout_buf</parameter>
+ and <parameter>stderr_buf</parameter>
+ will be set to <link linkend="NULL:CAPS"><literal>NULL</literal></link>.</para>
+<para>In case of any error (including cancellation), <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> will be
+returned with <parameter>error</parameter>
+ set.  Some or all of the stdin data may have
+been written.  Any stdout or stderr data that has been read will be
+discarded. None of the out variables (aside from <parameter>error</parameter>
+) will have
+been set to anything in particular and should not be inspected.</para>
+<para>In the case that <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> is returned, the subprocess has exited and the
+exit status inspection APIs (eg: <link linkend="g-subprocess-get-if-exited"><function>g_subprocess_get_if_exited()</function></link>,
+<link linkend="g-subprocess-get-exit-status"><function>g_subprocess_get_exit_status()</function></link>) may be used.</para>
+<para>You should not attempt to use any of the subprocess pipes after
+starting this function, since they may be left in strange states,
+even if the operation was cancelled.  You should especially not
+attempt to interact with the pipes while the operation is in progress
+(either from another thread or if using the asynchronous version).</para>
+<refsect3 id="g-subprocess-communicate.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>subprocess</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSubprocess"><type>GSubprocess</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>stdin_buf</para></entry>
+<entry role="parameter_description"><para>data to send to the stdin of the subprocess, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>cancellable</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GCancellable"><type>GCancellable</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>stdout_buf</para></entry>
+<entry role="parameter_description"><para>data read from the subprocess stdout. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>out</acronym>][<acronym>nullable</acronym>][<acronym>optional</acronym>][<acronym>transfer full</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>stderr_buf</para></entry>
+<entry role="parameter_description"><para>data read from the subprocess stderr. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>out</acronym>][<acronym>nullable</acronym>][<acronym>optional</acronym>][<acronym>transfer full</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para>a pointer to a <link linkend="NULL:CAPS"><literal>NULL</literal></link> <link linkend="GError"><type>GError</type></link> pointer, or <link linkend="NULL:CAPS"><literal>NULL</literal></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-subprocess-communicate.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if successful</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.40">2.40</link></para></refsect2>
+<refsect2 id="g-subprocess-communicate-async" role="function">
+<title>g_subprocess_communicate_async&#160;()</title>
+<indexterm zone="g-subprocess-communicate-async"><primary sortas="subprocess_communicate_async">g_subprocess_communicate_async</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_subprocess_communicate_async (<parameter><link linkend="GSubprocess"><type>GSubprocess</type></link> *subprocess</parameter>,
+                                <parameter><link linkend="GBytes"><type>GBytes</type></link> *stdin_buf</parameter>,
+                                <parameter><link linkend="GCancellable"><type>GCancellable</type></link> *cancellable</parameter>,
+                                <parameter><link linkend="GAsyncReadyCallback"><type>GAsyncReadyCallback</type></link> callback</parameter>,
+                                <parameter><link linkend="gpointer"><type>gpointer</type></link> user_data</parameter>);</programlisting>
+<para>Asynchronous version of <link linkend="g-subprocess-communicate"><function>g_subprocess_communicate()</function></link>.  Complete
+invocation with <link linkend="g-subprocess-communicate-finish"><function>g_subprocess_communicate_finish()</function></link>.</para>
+<refsect3 id="g-subprocess-communicate-async.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>subprocess</para></entry>
+<entry role="parameter_description"><para>Self</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>stdin_buf</para></entry>
+<entry role="parameter_description"><para>Input data, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>cancellable</para></entry>
+<entry role="parameter_description"><para>Cancellable. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>callback</para></entry>
+<entry role="parameter_description"><para>Callback</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>user_data</para></entry>
+<entry role="parameter_description"><para>User data</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-subprocess-communicate-finish" role="function">
+<title>g_subprocess_communicate_finish&#160;()</title>
+<indexterm zone="g-subprocess-communicate-finish"><primary sortas="subprocess_communicate_finish">g_subprocess_communicate_finish</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_subprocess_communicate_finish (<parameter><link linkend="GSubprocess"><type>GSubprocess</type></link> *subprocess</parameter>,
+                                 <parameter><link linkend="GAsyncResult"><type>GAsyncResult</type></link> *result</parameter>,
+                                 <parameter><link linkend="GBytes"><type>GBytes</type></link> **stdout_buf</parameter>,
+                                 <parameter><link linkend="GBytes"><type>GBytes</type></link> **stderr_buf</parameter>,
+                                 <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para>Complete an invocation of <link linkend="g-subprocess-communicate-async"><function>g_subprocess_communicate_async()</function></link>.</para>
+<refsect3 id="g-subprocess-communicate-finish.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>subprocess</para></entry>
+<entry role="parameter_description"><para>Self</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>result</para></entry>
+<entry role="parameter_description"><para>Result</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>stdout_buf</para></entry>
+<entry role="parameter_description"><para>Return location for stdout data. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>out</acronym>][<acronym>nullable</acronym>][<acronym>optional</acronym>][<acronym>transfer full</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>stderr_buf</para></entry>
+<entry role="parameter_description"><para>Return location for stderr data. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>out</acronym>][<acronym>nullable</acronym>][<acronym>optional</acronym>][<acronym>transfer full</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para>Error</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-subprocess-communicate-utf8" role="function">
+<title>g_subprocess_communicate_utf8&#160;()</title>
+<indexterm zone="g-subprocess-communicate-utf8"><primary sortas="subprocess_communicate_utf8">g_subprocess_communicate_utf8</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_subprocess_communicate_utf8 (<parameter><link linkend="GSubprocess"><type>GSubprocess</type></link> *subprocess</parameter>,
+                               <parameter>const <link linkend="char"><type>char</type></link> *stdin_buf</parameter>,
+                               <parameter><link linkend="GCancellable"><type>GCancellable</type></link> *cancellable</parameter>,
+                               <parameter><link linkend="char"><type>char</type></link> **stdout_buf</parameter>,
+                               <parameter><link linkend="char"><type>char</type></link> **stderr_buf</parameter>,
+                               <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para>Like <link linkend="g-subprocess-communicate"><function>g_subprocess_communicate()</function></link>, but validates the output of the
+process as UTF-8, and returns it as a regular NUL terminated string.</para>
+<refsect3 id="g-subprocess-communicate-utf8.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>subprocess</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSubprocess"><type>GSubprocess</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>stdin_buf</para></entry>
+<entry role="parameter_description"><para>data to send to the stdin of the subprocess, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>cancellable</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GCancellable"><type>GCancellable</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>stdout_buf</para></entry>
+<entry role="parameter_description"><para>data read from the subprocess stdout. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>out</acronym>][<acronym>nullable</acronym>][<acronym>optional</acronym>][<acronym>transfer full</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>stderr_buf</para></entry>
+<entry role="parameter_description"><para>data read from the subprocess stderr. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>out</acronym>][<acronym>nullable</acronym>][<acronym>optional</acronym>][<acronym>transfer full</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para>a pointer to a <link linkend="NULL:CAPS"><literal>NULL</literal></link> <link linkend="GError"><type>GError</type></link> pointer, or <link linkend="NULL:CAPS"><literal>NULL</literal></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-subprocess-communicate-utf8-async" role="function">
+<title>g_subprocess_communicate_utf8_async&#160;()</title>
+<indexterm zone="g-subprocess-communicate-utf8-async"><primary sortas="subprocess_communicate_utf8_async">g_subprocess_communicate_utf8_async</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_subprocess_communicate_utf8_async (<parameter><link linkend="GSubprocess"><type>GSubprocess</type></link> *subprocess</parameter>,
+                                     <parameter>const <link linkend="char"><type>char</type></link> *stdin_buf</parameter>,
+                                     <parameter><link linkend="GCancellable"><type>GCancellable</type></link> *cancellable</parameter>,
+                                     <parameter><link linkend="GAsyncReadyCallback"><type>GAsyncReadyCallback</type></link> callback</parameter>,
+                                     <parameter><link linkend="gpointer"><type>gpointer</type></link> user_data</parameter>);</programlisting>
+<para>Asynchronous version of <link linkend="g-subprocess-communicate-utf8"><function>g_subprocess_communicate_utf8()</function></link>.  Complete
+invocation with <link linkend="g-subprocess-communicate-utf8-finish"><function>g_subprocess_communicate_utf8_finish()</function></link>.</para>
+<refsect3 id="g-subprocess-communicate-utf8-async.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>subprocess</para></entry>
+<entry role="parameter_description"><para>Self</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>stdin_buf</para></entry>
+<entry role="parameter_description"><para>Input data, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>cancellable</para></entry>
+<entry role="parameter_description"><para>Cancellable</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>callback</para></entry>
+<entry role="parameter_description"><para>Callback</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>user_data</para></entry>
+<entry role="parameter_description"><para>User data</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-subprocess-communicate-utf8-finish" role="function">
+<title>g_subprocess_communicate_utf8_finish&#160;()</title>
+<indexterm zone="g-subprocess-communicate-utf8-finish"><primary sortas="subprocess_communicate_utf8_finish">g_subprocess_communicate_utf8_finish</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_subprocess_communicate_utf8_finish (<parameter><link linkend="GSubprocess"><type>GSubprocess</type></link> *subprocess</parameter>,
+                                      <parameter><link linkend="GAsyncResult"><type>GAsyncResult</type></link> *result</parameter>,
+                                      <parameter><link linkend="char"><type>char</type></link> **stdout_buf</parameter>,
+                                      <parameter><link linkend="char"><type>char</type></link> **stderr_buf</parameter>,
+                                      <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para>Complete an invocation of <link linkend="g-subprocess-communicate-utf8-async"><function>g_subprocess_communicate_utf8_async()</function></link>.</para>
+<refsect3 id="g-subprocess-communicate-utf8-finish.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>subprocess</para></entry>
+<entry role="parameter_description"><para>Self</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>result</para></entry>
+<entry role="parameter_description"><para>Result</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>stdout_buf</para></entry>
+<entry role="parameter_description"><para>Return location for stdout data. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>out</acronym>][<acronym>nullable</acronym>][<acronym>optional</acronym>][<acronym>transfer full</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>stderr_buf</para></entry>
+<entry role="parameter_description"><para>Return location for stderr data. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>out</acronym>][<acronym>nullable</acronym>][<acronym>optional</acronym>][<acronym>transfer full</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para>Error</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+
+</refsect1>
+<refsect1 id="GSubprocess.other_details" role="details">
+<title role="details.title">Types and Values</title>
+<refsect2 id="GSubprocess-struct" role="struct">
+<title>GSubprocess</title>
+<indexterm zone="GSubprocess-struct" role="2.40"><primary sortas="Subprocess">GSubprocess</primary></indexterm>
+<programlisting language="C">typedef struct _GSubprocess GSubprocess;</programlisting>
+<para>A child process.</para>
+<para role="since">Since: <link linkend="api-index-2.40">2.40</link></para></refsect2>
+<refsect2 id="GSubprocessFlags" role="enum" condition="since:2.40">
+<title>enum GSubprocessFlags</title>
+<indexterm zone="GSubprocessFlags" role="2.40"><primary sortas="SubprocessFlags">GSubprocessFlags</primary></indexterm>
+<para>Flags to define the behaviour of a <link linkend="GSubprocess"><type>GSubprocess</type></link>.</para>
+<para>Note that the default for stdin is to redirect from <literal>/dev/null</literal>.  For
+stdout and stderr the default are for them to inherit the
+corresponding descriptor from the calling process.</para>
+<para>Note that it is a programmer error to mix 'incompatible' flags.  For
+example, you may not request both <link linkend="G-SUBPROCESS-FLAGS-STDOUT-PIPE:CAPS"><literal>G_SUBPROCESS_FLAGS_STDOUT_PIPE</literal></link> and
+<link linkend="G-SUBPROCESS-FLAGS-STDOUT-SILENCE:CAPS"><literal>G_SUBPROCESS_FLAGS_STDOUT_SILENCE</literal></link>.</para>
+<refsect3 id="GSubprocessFlags.members" role="enum_members">
+<title>Members</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="enum_members_name" colwidth="300px"/>
+<colspec colname="enum_members_description"/>
+<colspec colname="enum_members_annotations" colwidth="200px"/>
+<tbody>
+<row role="constant"><entry role="enum_member_name"><para id="G-SUBPROCESS-FLAGS-NONE:CAPS">G_SUBPROCESS_FLAGS_NONE</para></entry>
+<entry role="enum_member_description"><para>No flags.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-SUBPROCESS-FLAGS-STDIN-PIPE:CAPS">G_SUBPROCESS_FLAGS_STDIN_PIPE</para></entry>
+<entry role="enum_member_description"><para>create a pipe for the stdin of the
+  spawned process that can be accessed with
+  <link linkend="g-subprocess-get-stdin-pipe"><function>g_subprocess_get_stdin_pipe()</function></link>.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-SUBPROCESS-FLAGS-STDIN-INHERIT:CAPS">G_SUBPROCESS_FLAGS_STDIN_INHERIT</para></entry>
+<entry role="enum_member_description"><para>stdin is inherited from the
+  calling process.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-SUBPROCESS-FLAGS-STDOUT-PIPE:CAPS">G_SUBPROCESS_FLAGS_STDOUT_PIPE</para></entry>
+<entry role="enum_member_description"><para>create a pipe for the stdout of the
+  spawned process that can be accessed with
+  <link linkend="g-subprocess-get-stdout-pipe"><function>g_subprocess_get_stdout_pipe()</function></link>.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-SUBPROCESS-FLAGS-STDOUT-SILENCE:CAPS">G_SUBPROCESS_FLAGS_STDOUT_SILENCE</para></entry>
+<entry role="enum_member_description"><para>silence the stdout of the spawned
+  process (ie: redirect to <literal>/dev/null</literal>).</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-SUBPROCESS-FLAGS-STDERR-PIPE:CAPS">G_SUBPROCESS_FLAGS_STDERR_PIPE</para></entry>
+<entry role="enum_member_description"><para>create a pipe for the stderr of the
+  spawned process that can be accessed with
+  <link linkend="g-subprocess-get-stderr-pipe"><function>g_subprocess_get_stderr_pipe()</function></link>.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-SUBPROCESS-FLAGS-STDERR-SILENCE:CAPS">G_SUBPROCESS_FLAGS_STDERR_SILENCE</para></entry>
+<entry role="enum_member_description"><para>silence the stderr of the spawned
+  process (ie: redirect to <literal>/dev/null</literal>).</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-SUBPROCESS-FLAGS-STDERR-MERGE:CAPS">G_SUBPROCESS_FLAGS_STDERR_MERGE</para></entry>
+<entry role="enum_member_description"><para>merge the stderr of the spawned
+  process with whatever the stdout happens to be.  This is a good way
+  of directing both streams to a common log file, for example.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-SUBPROCESS-FLAGS-INHERIT-FDS:CAPS">G_SUBPROCESS_FLAGS_INHERIT_FDS</para></entry>
+<entry role="enum_member_description"><para>spawned processes will inherit the
+  file descriptors of their parent, unless those descriptors have
+  been explicitly marked as close-on-exec.  This flag has no effect
+  over the "standard" file descriptors (stdin, stdout, stderr).</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.40">2.40</link></para></refsect2>
+
+</refsect1>
+<refsect1 id="GSubprocess.property-details" role="property_details">
+<title role="property_details.title">Property Details</title>
+<refsect2 id="GSubprocess--argv" role="property"><title>The <literal>“argv”</literal> property</title>
+<indexterm zone="GSubprocess--argv"><primary sortas="Subprocess:argv">GSubprocess:argv</primary></indexterm>
+<programlisting>  “argv”                     <link linkend="GStrv"><type>GStrv</type></link></programlisting>
+<para>Argument vector.</para><para>Flags: Write / Construct Only</para>
+</refsect2>
+<refsect2 id="GSubprocess--flags" role="property"><title>The <literal>“flags”</literal> property</title>
+<indexterm zone="GSubprocess--flags"><primary sortas="Subprocess:flags">GSubprocess:flags</primary></indexterm>
+<programlisting>  “flags”                    <link linkend="GSubprocessFlags"><type>GSubprocessFlags</type></link></programlisting>
+<para>Subprocess flags.</para><para>Flags: Write / Construct Only</para>
+</refsect2>
+
+</refsect1>
+<refsect1 id="GSubprocess.see-also">
+<title>See Also</title>
+<para><link linkend="GSubprocessLauncher"><type>GSubprocessLauncher</type></link></para>
+
+</refsect1>
+
+</refentry>

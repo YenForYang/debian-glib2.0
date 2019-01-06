@@ -1,0 +1,244 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC '-//OASIS//DTD DocBook XML V4.5//EN'
+                      'http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd' [
+<!ENTITY % local.common.attrib "xmlns:xi  CDATA  #FIXED 'http://www.w3.org/2003/XInclude'">
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="gio-TLS-Overview">
+<refmeta>
+<refentrytitle role="top_of_page" id="gio-TLS-Overview.top_of_page">TLS Overview</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>GIO Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>TLS Overview</refname>
+<refpurpose>TLS (aka SSL) support for GSocketConnection</refpurpose>
+</refnamediv>
+
+<refsect1 id="gio-TLS-Overview.other" role="other_proto">
+<title role="other_proto.title">Types and Values</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="name" colwidth="150px"/>
+<colspec colname="description"/>
+<tbody>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="G-TLS-ERROR:CAPS">G_TLS_ERROR</link></entry></row>
+<row><entry role="datatype_keyword">enum</entry><entry role="function_name"><link linkend="GTlsError">GTlsError</link></entry></row>
+
+<row><entry role="datatype_keyword">enum</entry><entry role="function_name"><link linkend="GTlsAuthenticationMode">GTlsAuthenticationMode</link></entry></row>
+<row><entry role="datatype_keyword">enum</entry><entry role="function_name"><link linkend="GTlsCertificateFlags">GTlsCertificateFlags</link></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="gio-TLS-Overview.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<screen>    <link linkend="GEnum">GEnum</link>
+    <phrase role="lineart">&#9500;&#9472;&#9472;</phrase> GTlsAuthenticationMode
+    <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> GTlsError
+    <link linkend="GFlags">GFlags</link>
+    <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> GTlsCertificateFlags
+</screen>
+</refsect1>
+
+<refsect1 id="gio-TLS-Overview.includes"><title>Includes</title><synopsis>#include &lt;gio/gio.h&gt;
+</synopsis></refsect1>
+
+<refsect1 id="gio-TLS-Overview.description" role="desc">
+<title role="desc.title">Description</title>
+<para><link linkend="GTlsConnection"><type>GTlsConnection</type></link> and related classes provide TLS (Transport Layer
+Security, previously known as SSL, Secure Sockets Layer) support for
+gio-based network streams.</para>
+<para><link linkend="GDtlsConnection"><type>GDtlsConnection</type></link> and related classes provide DTLS (Datagram TLS) support for
+GIO-based network sockets, using the <link linkend="GDatagramBased"><type>GDatagramBased</type></link> interface. The TLS and
+DTLS APIs are almost identical, except TLS is stream-based and DTLS is
+datagram-based. They share certificate and backend infrastructure.</para>
+<para>In the simplest case, for a client TLS connection, you can just set the
+<link linkend="GSocketClient--tls"><type>“tls”</type></link> flag on a <link linkend="GSocketClient"><type>GSocketClient</type></link>, and then any
+connections created by that client will have TLS negotiated
+automatically, using appropriate default settings, and rejecting
+any invalid or self-signed certificates (unless you change that
+default by setting the <link linkend="GSocketClient--tls-validation-flags"><type>“tls-validation-flags”</type></link>
+property). The returned object will be a <link linkend="GTcpWrapperConnection"><type>GTcpWrapperConnection</type></link>,
+which wraps the underlying <link linkend="GTlsClientConnection"><type>GTlsClientConnection</type></link>.</para>
+<para>For greater control, you can create your own <link linkend="GTlsClientConnection"><type>GTlsClientConnection</type></link>,
+wrapping a <link linkend="GSocketConnection"><type>GSocketConnection</type></link> (or an arbitrary <link linkend="GIOStream"><type>GIOStream</type></link> with
+pollable input and output streams) and then connect to its signals,
+such as <link linkend="GTlsConnection-accept-certificate"><type>“accept-certificate”</type></link>, before starting the
+handshake.</para>
+<para>Server-side TLS is similar, using <link linkend="GTlsServerConnection"><type>GTlsServerConnection</type></link>. At the
+moment, there is no support for automatically wrapping server-side
+connections in the way <link linkend="GSocketClient"><type>GSocketClient</type></link> does for client-side
+connections.</para>
+
+</refsect1>
+<refsect1 id="gio-TLS-Overview.functions_details" role="details">
+<title role="details.title">Functions</title>
+<para />
+</refsect1>
+<refsect1 id="gio-TLS-Overview.other_details" role="details">
+<title role="details.title">Types and Values</title>
+<refsect2 id="G-TLS-ERROR:CAPS" role="macro">
+<title>G_TLS_ERROR</title>
+<indexterm zone="G-TLS-ERROR:CAPS"><primary sortas="TLS_ERROR">G_TLS_ERROR</primary></indexterm>
+<programlisting language="C">#define G_TLS_ERROR (g_tls_error_quark ())
+</programlisting>
+<para>Error domain for TLS. Errors in this domain will be from the
+<link linkend="GTlsError"><type>GTlsError</type></link> enumeration. See <link linkend="GError"><type>GError</type></link> for more information on error
+domains.</para>
+</refsect2>
+<refsect2 id="GTlsError" role="enum" condition="since:2.28">
+<title>enum GTlsError</title>
+<indexterm zone="GTlsError" role="2.28"><primary sortas="TlsError">GTlsError</primary></indexterm>
+<para>An error code used with <link linkend="G-TLS-ERROR:CAPS"><literal>G_TLS_ERROR</literal></link> in a <link linkend="GError"><type>GError</type></link> returned from a
+TLS-related routine.</para>
+<refsect3 id="GTlsError.members" role="enum_members">
+<title>Members</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="enum_members_name" colwidth="300px"/>
+<colspec colname="enum_members_description"/>
+<colspec colname="enum_members_annotations" colwidth="200px"/>
+<tbody>
+<row role="constant"><entry role="enum_member_name"><para id="G-TLS-ERROR-UNAVAILABLE:CAPS">G_TLS_ERROR_UNAVAILABLE</para></entry>
+<entry role="enum_member_description"><para>No TLS provider is available</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-TLS-ERROR-MISC:CAPS">G_TLS_ERROR_MISC</para></entry>
+<entry role="enum_member_description"><para>Miscellaneous TLS error</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-TLS-ERROR-BAD-CERTIFICATE:CAPS">G_TLS_ERROR_BAD_CERTIFICATE</para></entry>
+<entry role="enum_member_description"><para>A certificate could not be parsed</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-TLS-ERROR-NOT-TLS:CAPS">G_TLS_ERROR_NOT_TLS</para></entry>
+<entry role="enum_member_description"><para>The TLS handshake failed because the
+  peer does not seem to be a TLS server.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-TLS-ERROR-HANDSHAKE:CAPS">G_TLS_ERROR_HANDSHAKE</para></entry>
+<entry role="enum_member_description"><para>The TLS handshake failed because the
+  peer's certificate was not acceptable.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-TLS-ERROR-CERTIFICATE-REQUIRED:CAPS">G_TLS_ERROR_CERTIFICATE_REQUIRED</para></entry>
+<entry role="enum_member_description"><para>The TLS handshake failed because
+  the server requested a client-side certificate, but none was
+  provided. See <link linkend="g-tls-connection-set-certificate"><function>g_tls_connection_set_certificate()</function></link>.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-TLS-ERROR-EOF:CAPS">G_TLS_ERROR_EOF</para></entry>
+<entry role="enum_member_description"><para>The TLS connection was closed without proper
+  notice, which may indicate an attack. See
+  <link linkend="g-tls-connection-set-require-close-notify"><function>g_tls_connection_set_require_close_notify()</function></link>.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.28">2.28</link></para></refsect2>
+<refsect2 id="GTlsAuthenticationMode" role="enum" condition="since:2.28">
+<title>enum GTlsAuthenticationMode</title>
+<indexterm zone="GTlsAuthenticationMode" role="2.28"><primary sortas="TlsAuthenticationMode">GTlsAuthenticationMode</primary></indexterm>
+<para>The client authentication mode for a <link linkend="GTlsServerConnection"><type>GTlsServerConnection</type></link>.</para>
+<refsect3 id="GTlsAuthenticationMode.members" role="enum_members">
+<title>Members</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="enum_members_name" colwidth="300px"/>
+<colspec colname="enum_members_description"/>
+<colspec colname="enum_members_annotations" colwidth="200px"/>
+<tbody>
+<row role="constant"><entry role="enum_member_name"><para id="G-TLS-AUTHENTICATION-NONE:CAPS">G_TLS_AUTHENTICATION_NONE</para></entry>
+<entry role="enum_member_description"><para>client authentication not required</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-TLS-AUTHENTICATION-REQUESTED:CAPS">G_TLS_AUTHENTICATION_REQUESTED</para></entry>
+<entry role="enum_member_description"><para>client authentication is requested</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-TLS-AUTHENTICATION-REQUIRED:CAPS">G_TLS_AUTHENTICATION_REQUIRED</para></entry>
+<entry role="enum_member_description"><para>client authentication is required</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.28">2.28</link></para></refsect2>
+<refsect2 id="GTlsCertificateFlags" role="enum" condition="since:2.28">
+<title>enum GTlsCertificateFlags</title>
+<indexterm zone="GTlsCertificateFlags" role="2.28"><primary sortas="TlsCertificateFlags">GTlsCertificateFlags</primary></indexterm>
+<para>A set of flags describing TLS certification validation. This can be
+used to set which validation steps to perform (eg, with
+<link linkend="g-tls-client-connection-set-validation-flags"><function>g_tls_client_connection_set_validation_flags()</function></link>), or to describe why
+a particular certificate was rejected (eg, in
+<link linkend="GTlsConnection-accept-certificate"><type>“accept-certificate”</type></link>).</para>
+<refsect3 id="GTlsCertificateFlags.members" role="enum_members">
+<title>Members</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="enum_members_name" colwidth="300px"/>
+<colspec colname="enum_members_description"/>
+<colspec colname="enum_members_annotations" colwidth="200px"/>
+<tbody>
+<row role="constant"><entry role="enum_member_name"><para id="G-TLS-CERTIFICATE-UNKNOWN-CA:CAPS">G_TLS_CERTIFICATE_UNKNOWN_CA</para></entry>
+<entry role="enum_member_description"><para>The signing certificate authority is
+  not known.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-TLS-CERTIFICATE-BAD-IDENTITY:CAPS">G_TLS_CERTIFICATE_BAD_IDENTITY</para></entry>
+<entry role="enum_member_description"><para>The certificate does not match the
+  expected identity of the site that it was retrieved from.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-TLS-CERTIFICATE-NOT-ACTIVATED:CAPS">G_TLS_CERTIFICATE_NOT_ACTIVATED</para></entry>
+<entry role="enum_member_description"><para>The certificate's activation time
+  is still in the future</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-TLS-CERTIFICATE-EXPIRED:CAPS">G_TLS_CERTIFICATE_EXPIRED</para></entry>
+<entry role="enum_member_description"><para>The certificate has expired</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-TLS-CERTIFICATE-REVOKED:CAPS">G_TLS_CERTIFICATE_REVOKED</para></entry>
+<entry role="enum_member_description"><para>The certificate has been revoked
+  according to the <link linkend="GTlsConnection"><type>GTlsConnection</type></link>'s certificate revocation list.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-TLS-CERTIFICATE-INSECURE:CAPS">G_TLS_CERTIFICATE_INSECURE</para></entry>
+<entry role="enum_member_description"><para>The certificate's algorithm is
+  considered insecure.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-TLS-CERTIFICATE-GENERIC-ERROR:CAPS">G_TLS_CERTIFICATE_GENERIC_ERROR</para></entry>
+<entry role="enum_member_description"><para>Some other error occurred validating
+  the certificate</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-TLS-CERTIFICATE-VALIDATE-ALL:CAPS">G_TLS_CERTIFICATE_VALIDATE_ALL</para></entry>
+<entry role="enum_member_description"><para>the combination of all of the above
+  flags</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.28">2.28</link></para></refsect2>
+
+</refsect1>
+
+</refentry>

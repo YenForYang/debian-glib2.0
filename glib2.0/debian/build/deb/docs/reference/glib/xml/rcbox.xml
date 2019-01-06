@@ -1,0 +1,422 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC '-//OASIS//DTD DocBook XML V4.5//EN'
+                      'http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd' [
+<!ENTITY % local.common.attrib "xmlns:xi  CDATA  #FIXED 'http://www.w3.org/2003/XInclude'">
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="glib-Reference-counted-data">
+<refmeta>
+<refentrytitle role="top_of_page" id="glib-Reference-counted-data.top_of_page">Reference counted data</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>GLIB Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>Reference counted data</refname>
+<refpurpose>Allocated memory with reference counting semantics</refpurpose>
+</refnamediv>
+
+<refsect1 id="glib-Reference-counted-data.functions" role="functions_proto">
+<title role="functions_proto.title">Functions</title>
+<informaltable pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="functions_return" colwidth="150px"/>
+<colspec colname="functions_name"/>
+<tbody>
+<row><entry role="function_type"><link linkend="gpointer"><returnvalue>gpointer</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-rc-box-alloc">g_rc_box_alloc</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gpointer"><returnvalue>gpointer</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-rc-box-alloc0">g_rc_box_alloc0</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="g-rc-box-new">g_rc_box_new</link><phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="g-rc-box-new0">g_rc_box_new0</link><phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gpointer"><returnvalue>gpointer</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-rc-box-dup">g_rc_box_dup</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gpointer"><returnvalue>gpointer</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-rc-box-acquire">g_rc_box_acquire</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-rc-box-release">g_rc_box_release</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-rc-box-release-full">g_rc_box_release_full</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gsize"><returnvalue>gsize</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-rc-box-get-size">g_rc_box_get_size</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+
+<refsect1 id="glib-Reference-counted-data.includes"><title>Includes</title><synopsis>#include &lt;glib.h&gt;
+#include &lt;glib/gi18n.h&gt;
+</synopsis></refsect1>
+
+<refsect1 id="glib-Reference-counted-data.description" role="desc">
+<title role="desc.title">Description</title>
+<para>A "reference counted box", or "RcBox", is an opaque wrapper data type
+that is guaranteed to be as big as the size of a given data type, and
+which augments the given data type with reference counting semantics
+for its memory management.</para>
+<para>RcBox is useful if you have a plain old data type, like a structure
+typically placed on the stack, and you wish to provide additional API
+to use it on the heap; or if you want to implement a new type to be
+passed around by reference without necessarily implementing copy/free
+semantics or your own reference counting.</para>
+<para>The typical use is:</para>
+<informalexample><programlisting role="example"><![CDATA[
+typedef struct {
+  char *name;
+  char *address;
+  char *city;
+  char *state;
+  int age;
+} Person;
+
+Person *
+person_new (void)
+{
+  return g_rc_box_new0 (Person);
+}
+]]></programlisting></informalexample>
+<para></para>
+<para>Every time you wish to acquire a reference on the memory, you should
+call <link linkend="g-rc-box-acquire"><function>g_rc_box_acquire()</function></link>; similarly, when you wish to release a reference
+you should call <link linkend="g-rc-box-release"><function>g_rc_box_release()</function></link>:</para>
+<informalexample><programlisting role="example"><![CDATA[
+// Add a Person to the Database; the Database acquires ownership
+// of the Person instance
+void
+add_person_to_database (Database *db, Person *p)
+{
+  db->persons = g_list_prepend (db->persons, g_rc_box_acquire (p));
+}
+
+// Removes a Person from the Database; the reference acquired by
+// add_person_to_database() is released here
+void
+remove_person_from_database (Database *db, Person *p)
+{
+  db->persons = g_list_remove (db->persons, p);
+  g_rc_box_release (p);
+}
+]]></programlisting></informalexample>
+<para></para>
+<para>If you have additional memory allocated inside the structure, you can
+use <link linkend="g-rc-box-release-full"><function>g_rc_box_release_full()</function></link>, which takes a function pointer, which
+will be called if the reference released was the last:</para>
+<informalexample><programlisting role="example"><![CDATA[
+void
+person_clear (Person *p)
+{
+  g_free (p->name);
+  g_free (p->address);
+  g_free (p->city);
+  g_free (p->state);
+}
+
+void
+remove_person_from_database (Database *db, Person *p)
+{
+  db->persons = g_list_remove (db->persons, p);
+  g_rc_box_release_full (p, (GDestroyNotify) person_clear);
+}
+]]></programlisting></informalexample>
+<para></para>
+<para>If you wish to transfer the ownership of a reference counted data
+type without increasing the reference count, you can use <link linkend="g-steal-pointer"><function>g_steal_pointer()</function></link>:</para>
+<informalexample><programlisting role="example"><![CDATA[
+  Person *p = g_rc_box_new (Person);
+
+  // fill_person_details() is defined elsewhere
+  fill_person_details (p);
+
+  // add_person_to_database_no_ref() is defined elsewhere; it adds
+  // a Person to the Database without taking a reference
+  add_person_to_database_no_ref (db, g_steal_pointer (&p));
+]]></programlisting></informalexample>
+<para></para>
+<refsect3><title>Thread safety</title><para>The reference counting operations on data allocated using <link linkend="g-rc-box-alloc"><function>g_rc_box_alloc()</function></link>,
+<link linkend="g-rc-box-new"><function>g_rc_box_new()</function></link>, and <link linkend="g-rc-box-dup"><function>g_rc_box_dup()</function></link> are not thread safe; it is your code's
+responsibility to ensure that references are acquired are released on the
+same thread.</para>
+<para>If you need thread safe reference counting, see the <link linkend="arcbox">atomic reference counted
+data</link> API.</para>
+</refsect3>
+<refsect3><title>Automatic pointer clean up</title><para>If you want to add <link linkend="g-autoptr"><function>g_autoptr()</function></link> support to your plain old data type through
+reference counting, you can use the <link linkend="G-DEFINE-AUTOPTR-CLEANUP-FUNC:CAPS"><function>G_DEFINE_AUTOPTR_CLEANUP_FUNC()</function></link> and
+<link linkend="g-rc-box-release"><function>g_rc_box_release()</function></link>:</para>
+<informalexample><programlisting role="example"><![CDATA[
+G_DEFINE_AUTOPTR_CLEANUP_FUNC (MyDataStruct, g_rc_box_release)
+]]></programlisting></informalexample>
+<para></para>
+<para>If you need to clear the contents of the data, you will need to use an
+ancillary function that calls <link linkend="g-rc-box-release-full"><function>g_rc_box_release_full()</function></link>:</para>
+<informalexample><programlisting role="example"><![CDATA[
+static void
+my_data_struct_release (MyDataStruct *data)
+{
+  // my_data_struct_clear() is defined elsewhere
+  g_rc_box_release_full (data, (GDestroyNotify) my_data_struct_clear);
+}
+
+G_DEFINE_AUTOPTR_CLEANUP_FUNC (MyDataStruct, my_data_struct_clear)
+]]></programlisting></informalexample>
+<para></para>
+</refsect3>
+
+</refsect1>
+<refsect1 id="glib-Reference-counted-data.functions_details" role="details">
+<title role="details.title">Functions</title>
+<refsect2 id="g-rc-box-alloc" role="function" condition="since:2.58">
+<title>g_rc_box_alloc&#160;()</title>
+<indexterm zone="g-rc-box-alloc" role="2.58"><primary sortas="rc_box_alloc">g_rc_box_alloc</primary></indexterm>
+<programlisting language="C"><link linkend="gpointer"><returnvalue>gpointer</returnvalue></link>
+g_rc_box_alloc (<parameter><link linkend="gsize"><type>gsize</type></link> block_size</parameter>);</programlisting>
+<para>Allocates <parameter>block_size</parameter>
+ bytes of memory, and adds reference
+counting semantics to it.</para>
+<para>The data will be freed when its reference count drops to
+zero.</para>
+<refsect3 id="g-rc-box-alloc.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>block_size</para></entry>
+<entry role="parameter_description"><para>the size of the allocation, must be greater than 0</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-rc-box-alloc.returns" role="returns">
+<title>Returns</title>
+<para>a pointer to the allocated memory. </para>
+<para><emphasis role="annotation">[<acronym>transfer full</acronym>][<acronym>not nullable</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.58">2.58</link></para></refsect2>
+<refsect2 id="g-rc-box-alloc0" role="function" condition="since:2.58">
+<title>g_rc_box_alloc0&#160;()</title>
+<indexterm zone="g-rc-box-alloc0" role="2.58"><primary sortas="rc_box_alloc0">g_rc_box_alloc0</primary></indexterm>
+<programlisting language="C"><link linkend="gpointer"><returnvalue>gpointer</returnvalue></link>
+g_rc_box_alloc0 (<parameter><link linkend="gsize"><type>gsize</type></link> block_size</parameter>);</programlisting>
+<para>Allocates <parameter>block_size</parameter>
+ bytes of memory, and adds reference
+counting semantics to it.</para>
+<para>The contents of the returned data is set to zero.</para>
+<para>The data will be freed when its reference count drops to
+zero.</para>
+<refsect3 id="g-rc-box-alloc0.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>block_size</para></entry>
+<entry role="parameter_description"><para>the size of the allocation, must be greater than 0</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-rc-box-alloc0.returns" role="returns">
+<title>Returns</title>
+<para>a pointer to the allocated memory. </para>
+<para><emphasis role="annotation">[<acronym>transfer full</acronym>][<acronym>not nullable</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.58">2.58</link></para></refsect2>
+<refsect2 id="g-rc-box-new" role="macro" condition="since:2.58">
+<title>g_rc_box_new()</title>
+<indexterm zone="g-rc-box-new" role="2.58"><primary sortas="rc_box_new">g_rc_box_new</primary></indexterm>
+<programlisting language="C">#define             g_rc_box_new(type)</programlisting>
+<para>A convenience macro to allocate reference counted data with
+the size of the given <parameter>type</parameter>
+.</para>
+<para>This macro calls <link linkend="g-rc-box-alloc"><function>g_rc_box_alloc()</function></link> with <literal>sizeof (@type)</literal> and
+casts the returned pointer to a pointer of the given <parameter>type</parameter>
+,
+avoiding a type cast in the source code.</para>
+<refsect3 id="g-rc-box-new.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>type</para></entry>
+<entry role="parameter_description"><para>the type to allocate, typically a structure name</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-rc-box-new.returns" role="returns">
+<title>Returns</title>
+<para>a pointer to the
+allocated memory, cast to a pointer for the given <parameter>type</parameter>
+. </para>
+<para><emphasis role="annotation">[<acronym>transfer full</acronym>][<acronym>not nullable</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.58">2.58</link></para></refsect2>
+<refsect2 id="g-rc-box-new0" role="macro" condition="since:2.58">
+<title>g_rc_box_new0()</title>
+<indexterm zone="g-rc-box-new0" role="2.58"><primary sortas="rc_box_new0">g_rc_box_new0</primary></indexterm>
+<programlisting language="C">#define             g_rc_box_new0(type)</programlisting>
+<para>A convenience macro to allocate reference counted data with
+the size of the given <parameter>type</parameter>
+, and set its contents to zero.</para>
+<para>This macro calls <link linkend="g-rc-box-alloc0"><function>g_rc_box_alloc0()</function></link> with <literal>sizeof (@type)</literal> and
+casts the returned pointer to a pointer of the given <parameter>type</parameter>
+,
+avoiding a type cast in the source code.</para>
+<refsect3 id="g-rc-box-new0.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>type</para></entry>
+<entry role="parameter_description"><para>the type to allocate, typically a structure name</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-rc-box-new0.returns" role="returns">
+<title>Returns</title>
+<para>a pointer to the
+allocated memory, cast to a pointer for the given <parameter>type</parameter>
+. </para>
+<para><emphasis role="annotation">[<acronym>transfer full</acronym>][<acronym>not nullable</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.58">2.58</link></para></refsect2>
+<refsect2 id="g-rc-box-dup" role="function" condition="since:2.58">
+<title>g_rc_box_dup&#160;()</title>
+<indexterm zone="g-rc-box-dup" role="2.58"><primary sortas="rc_box_dup">g_rc_box_dup</primary></indexterm>
+<programlisting language="C"><link linkend="gpointer"><returnvalue>gpointer</returnvalue></link>
+g_rc_box_dup (<parameter><link linkend="gsize"><type>gsize</type></link> block_size</parameter>,
+              <parameter><link linkend="gconstpointer"><type>gconstpointer</type></link> mem_block</parameter>);</programlisting>
+<para>Allocates a new block of data with reference counting
+semantics, and copies <parameter>block_size</parameter>
+ bytes of <parameter>mem_block</parameter>
+
+into it.</para>
+<refsect3 id="g-rc-box-dup.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>block_size</para></entry>
+<entry role="parameter_description"><para>the number of bytes to copy, must be greater than 0</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>mem_block</para></entry>
+<entry role="parameter_description"><para>the memory to copy. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>not nullable</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-rc-box-dup.returns" role="returns">
+<title>Returns</title>
+<para>a pointer to the allocated
+memory. </para>
+<para><emphasis role="annotation">[<acronym>transfer full</acronym>][<acronym>not nullable</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.58">2.58</link></para></refsect2>
+<refsect2 id="g-rc-box-acquire" role="function" condition="since:2.58">
+<title>g_rc_box_acquire&#160;()</title>
+<indexterm zone="g-rc-box-acquire" role="2.58"><primary sortas="rc_box_acquire">g_rc_box_acquire</primary></indexterm>
+<programlisting language="C"><link linkend="gpointer"><returnvalue>gpointer</returnvalue></link>
+g_rc_box_acquire (<parameter><link linkend="gpointer"><type>gpointer</type></link> mem_block</parameter>);</programlisting>
+<para>Acquires a reference on the data pointed by <parameter>mem_block</parameter>
+.</para>
+<refsect3 id="g-rc-box-acquire.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>mem_block</para></entry>
+<entry role="parameter_description"><para>a pointer to reference counted data. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>not nullable</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-rc-box-acquire.returns" role="returns">
+<title>Returns</title>
+<para>a pointer to the data,
+with its reference count increased. </para>
+<para><emphasis role="annotation">[<acronym>transfer full</acronym>][<acronym>not nullable</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.58">2.58</link></para></refsect2>
+<refsect2 id="g-rc-box-release" role="function" condition="since:2.58">
+<title>g_rc_box_release&#160;()</title>
+<indexterm zone="g-rc-box-release" role="2.58"><primary sortas="rc_box_release">g_rc_box_release</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_rc_box_release (<parameter><link linkend="gpointer"><type>gpointer</type></link> mem_block</parameter>);</programlisting>
+<para>Releases a reference on the data pointed by <parameter>mem_block</parameter>
+.</para>
+<para>If the reference was the last one, it will free the
+resources allocated for <parameter>mem_block</parameter>
+.</para>
+<refsect3 id="g-rc-box-release.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>mem_block</para></entry>
+<entry role="parameter_description"><para>a pointer to reference counted data. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>transfer full</acronym>][<acronym>not nullable</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.58">2.58</link></para></refsect2>
+<refsect2 id="g-rc-box-release-full" role="function" condition="since:2.58">
+<title>g_rc_box_release_full&#160;()</title>
+<indexterm zone="g-rc-box-release-full" role="2.58"><primary sortas="rc_box_release_full">g_rc_box_release_full</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_rc_box_release_full (<parameter><link linkend="gpointer"><type>gpointer</type></link> mem_block</parameter>,
+                       <parameter><link linkend="GDestroyNotify"><type>GDestroyNotify</type></link> clear_func</parameter>);</programlisting>
+<para>Releases a reference on the data pointed by <parameter>mem_block</parameter>
+.</para>
+<para>If the reference was the last one, it will call <parameter>clear_func</parameter>
+
+to clear the contents of <parameter>mem_block</parameter>
+, and then will free the
+resources allocated for <parameter>mem_block</parameter>
+.</para>
+<refsect3 id="g-rc-box-release-full.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>mem_block</para></entry>
+<entry role="parameter_description"><para>a pointer to reference counted data. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>transfer full</acronym>][<acronym>not nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>clear_func</para></entry>
+<entry role="parameter_description"><para>a function to call when clearing the data. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>not nullable</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.58">2.58</link></para></refsect2>
+<refsect2 id="g-rc-box-get-size" role="function" condition="since:2.58">
+<title>g_rc_box_get_size&#160;()</title>
+<indexterm zone="g-rc-box-get-size" role="2.58"><primary sortas="rc_box_get_size">g_rc_box_get_size</primary></indexterm>
+<programlisting language="C"><link linkend="gsize"><returnvalue>gsize</returnvalue></link>
+g_rc_box_get_size (<parameter><link linkend="gpointer"><type>gpointer</type></link> mem_block</parameter>);</programlisting>
+<para>Retrieves the size of the reference counted data pointed by <parameter>mem_block</parameter>
+.</para>
+<refsect3 id="g-rc-box-get-size.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>mem_block</para></entry>
+<entry role="parameter_description"><para>a pointer to reference counted data. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>not nullable</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-rc-box-get-size.returns" role="returns">
+<title>Returns</title>
+<para> the size of the data, in bytes</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.58">2.58</link></para></refsect2>
+
+</refsect1>
+<refsect1 id="glib-Reference-counted-data.other_details" role="details">
+<title role="details.title">Types and Values</title>
+
+</refsect1>
+
+</refentry>

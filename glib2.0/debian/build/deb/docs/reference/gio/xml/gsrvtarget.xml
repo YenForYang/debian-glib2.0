@@ -1,0 +1,309 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC '-//OASIS//DTD DocBook XML V4.5//EN'
+                      'http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd' [
+<!ENTITY % local.common.attrib "xmlns:xi  CDATA  #FIXED 'http://www.w3.org/2003/XInclude'">
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="GSrvTarget">
+<refmeta>
+<refentrytitle role="top_of_page" id="GSrvTarget.top_of_page">GSrvTarget</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>GIO Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>GSrvTarget</refname>
+<refpurpose>DNS SRV record target</refpurpose>
+</refnamediv>
+
+<refsect1 id="GSrvTarget.functions" role="functions_proto">
+<title role="functions_proto.title">Functions</title>
+<informaltable pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="functions_return" colwidth="150px"/>
+<colspec colname="functions_name"/>
+<tbody>
+<row><entry role="function_type"><link linkend="GSrvTarget"><returnvalue>GSrvTarget</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-srv-target-new">g_srv_target_new</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GSrvTarget"><returnvalue>GSrvTarget</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-srv-target-copy">g_srv_target_copy</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-srv-target-free">g_srv_target_free</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type">const <link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-srv-target-get-hostname">g_srv_target_get_hostname</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="guint16"><returnvalue>guint16</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-srv-target-get-port">g_srv_target_get_port</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="guint16"><returnvalue>guint16</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-srv-target-get-priority">g_srv_target_get_priority</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="guint16"><returnvalue>guint16</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-srv-target-get-weight">g_srv_target_get_weight</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GList"><returnvalue>GList</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-srv-target-list-sort">g_srv_target_list_sort</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GSrvTarget.other" role="other_proto">
+<title role="other_proto.title">Types and Values</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="name" colwidth="150px"/>
+<colspec colname="description"/>
+<tbody>
+<row><entry role="datatype_keyword"></entry><entry role="function_name"><link linkend="GSrvTarget-struct">GSrvTarget</link></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GSrvTarget.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<screen>    <link linkend="GBoxed">GBoxed</link>
+    <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> GSrvTarget
+</screen>
+</refsect1>
+
+<refsect1 id="GSrvTarget.includes"><title>Includes</title><synopsis>#include &lt;gio/gio.h&gt;
+</synopsis></refsect1>
+
+<refsect1 id="GSrvTarget.description" role="desc">
+<title role="desc.title">Description</title>
+<para>SRV (service) records are used by some network protocols to provide
+service-specific aliasing and load-balancing. For example, XMPP
+(Jabber) uses SRV records to locate the XMPP server for a domain;
+rather than connecting directly to "example.com" or assuming a
+specific server hostname like "xmpp.example.com", an XMPP client
+would look up the "xmpp-client" SRV record for "example.com", and
+then connect to whatever host was pointed to by that record.</para>
+<para>You can use <link linkend="g-resolver-lookup-service"><function>g_resolver_lookup_service()</function></link> or
+<link linkend="g-resolver-lookup-service-async"><function>g_resolver_lookup_service_async()</function></link> to find the <link linkend="GSrvTargets"><type>GSrvTargets</type></link>
+for a given service. However, if you are simply planning to connect
+to the remote service, you can use <link linkend="GNetworkService"><type>GNetworkService</type></link>'s
+<link linkend="GSocketConnectable"><type>GSocketConnectable</type></link> interface and not need to worry about
+<link linkend="GSrvTarget"><type>GSrvTarget</type></link> at all.</para>
+
+</refsect1>
+<refsect1 id="GSrvTarget.functions_details" role="details">
+<title role="details.title">Functions</title>
+<refsect2 id="g-srv-target-new" role="function" condition="since:2.22">
+<title>g_srv_target_new&#160;()</title>
+<indexterm zone="g-srv-target-new" role="2.22"><primary sortas="srv_target_new">g_srv_target_new</primary></indexterm>
+<programlisting language="C"><link linkend="GSrvTarget"><returnvalue>GSrvTarget</returnvalue></link>&#160;*
+g_srv_target_new (<parameter>const <link linkend="gchar"><type>gchar</type></link> *hostname</parameter>,
+                  <parameter><link linkend="guint16"><type>guint16</type></link> port</parameter>,
+                  <parameter><link linkend="guint16"><type>guint16</type></link> priority</parameter>,
+                  <parameter><link linkend="guint16"><type>guint16</type></link> weight</parameter>);</programlisting>
+<para>Creates a new <link linkend="GSrvTarget"><type>GSrvTarget</type></link> with the given parameters.</para>
+<para>You should not need to use this; normally <link linkend="GSrvTargets"><type>GSrvTargets</type></link> are
+created by <link linkend="GResolver"><type>GResolver</type></link>.</para>
+<refsect3 id="g-srv-target-new.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>hostname</para></entry>
+<entry role="parameter_description"><para>the host that the service is running on</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>port</para></entry>
+<entry role="parameter_description"><para>the port that the service is running on</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>priority</para></entry>
+<entry role="parameter_description"><para>the target's priority</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>weight</para></entry>
+<entry role="parameter_description"><para>the target's weight</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-srv-target-new.returns" role="returns">
+<title>Returns</title>
+<para> a new <link linkend="GSrvTarget"><type>GSrvTarget</type></link>.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.22">2.22</link></para></refsect2>
+<refsect2 id="g-srv-target-copy" role="function" condition="since:2.22">
+<title>g_srv_target_copy&#160;()</title>
+<indexterm zone="g-srv-target-copy" role="2.22"><primary sortas="srv_target_copy">g_srv_target_copy</primary></indexterm>
+<programlisting language="C"><link linkend="GSrvTarget"><returnvalue>GSrvTarget</returnvalue></link>&#160;*
+g_srv_target_copy (<parameter><link linkend="GSrvTarget"><type>GSrvTarget</type></link> *target</parameter>);</programlisting>
+<para>Copies <parameter>target</parameter>
+</para>
+<refsect3 id="g-srv-target-copy.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>target</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSrvTarget"><type>GSrvTarget</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-srv-target-copy.returns" role="returns">
+<title>Returns</title>
+<para> a copy of <parameter>target</parameter>
+</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.22">2.22</link></para></refsect2>
+<refsect2 id="g-srv-target-free" role="function" condition="since:2.22">
+<title>g_srv_target_free&#160;()</title>
+<indexterm zone="g-srv-target-free" role="2.22"><primary sortas="srv_target_free">g_srv_target_free</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_srv_target_free (<parameter><link linkend="GSrvTarget"><type>GSrvTarget</type></link> *target</parameter>);</programlisting>
+<para>Frees <parameter>target</parameter>
+</para>
+<refsect3 id="g-srv-target-free.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>target</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSrvTarget"><type>GSrvTarget</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.22">2.22</link></para></refsect2>
+<refsect2 id="g-srv-target-get-hostname" role="function" condition="since:2.22">
+<title>g_srv_target_get_hostname&#160;()</title>
+<indexterm zone="g-srv-target-get-hostname" role="2.22"><primary sortas="srv_target_get_hostname">g_srv_target_get_hostname</primary></indexterm>
+<programlisting language="C">const <link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+g_srv_target_get_hostname (<parameter><link linkend="GSrvTarget"><type>GSrvTarget</type></link> *target</parameter>);</programlisting>
+<para>Gets <parameter>target</parameter>
+'s hostname (in ASCII form; if you are going to present
+this to the user, you should use <link linkend="g-hostname-is-ascii-encoded"><function>g_hostname_is_ascii_encoded()</function></link> to
+check if it contains encoded Unicode segments, and use
+<link linkend="g-hostname-to-unicode"><function>g_hostname_to_unicode()</function></link> to convert it if it does.)</para>
+<refsect3 id="g-srv-target-get-hostname.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>target</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSrvTarget"><type>GSrvTarget</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-srv-target-get-hostname.returns" role="returns">
+<title>Returns</title>
+<para> <parameter>target</parameter>
+'s hostname</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.22">2.22</link></para></refsect2>
+<refsect2 id="g-srv-target-get-port" role="function" condition="since:2.22">
+<title>g_srv_target_get_port&#160;()</title>
+<indexterm zone="g-srv-target-get-port" role="2.22"><primary sortas="srv_target_get_port">g_srv_target_get_port</primary></indexterm>
+<programlisting language="C"><link linkend="guint16"><returnvalue>guint16</returnvalue></link>
+g_srv_target_get_port (<parameter><link linkend="GSrvTarget"><type>GSrvTarget</type></link> *target</parameter>);</programlisting>
+<para>Gets <parameter>target</parameter>
+'s port</para>
+<refsect3 id="g-srv-target-get-port.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>target</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSrvTarget"><type>GSrvTarget</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-srv-target-get-port.returns" role="returns">
+<title>Returns</title>
+<para> <parameter>target</parameter>
+'s port</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.22">2.22</link></para></refsect2>
+<refsect2 id="g-srv-target-get-priority" role="function" condition="since:2.22">
+<title>g_srv_target_get_priority&#160;()</title>
+<indexterm zone="g-srv-target-get-priority" role="2.22"><primary sortas="srv_target_get_priority">g_srv_target_get_priority</primary></indexterm>
+<programlisting language="C"><link linkend="guint16"><returnvalue>guint16</returnvalue></link>
+g_srv_target_get_priority (<parameter><link linkend="GSrvTarget"><type>GSrvTarget</type></link> *target</parameter>);</programlisting>
+<para>Gets <parameter>target</parameter>
+'s priority. You should not need to look at this;
+<link linkend="GResolver"><type>GResolver</type></link> already sorts the targets according to the algorithm in
+RFC 2782.</para>
+<refsect3 id="g-srv-target-get-priority.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>target</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSrvTarget"><type>GSrvTarget</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-srv-target-get-priority.returns" role="returns">
+<title>Returns</title>
+<para> <parameter>target</parameter>
+'s priority</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.22">2.22</link></para></refsect2>
+<refsect2 id="g-srv-target-get-weight" role="function" condition="since:2.22">
+<title>g_srv_target_get_weight&#160;()</title>
+<indexterm zone="g-srv-target-get-weight" role="2.22"><primary sortas="srv_target_get_weight">g_srv_target_get_weight</primary></indexterm>
+<programlisting language="C"><link linkend="guint16"><returnvalue>guint16</returnvalue></link>
+g_srv_target_get_weight (<parameter><link linkend="GSrvTarget"><type>GSrvTarget</type></link> *target</parameter>);</programlisting>
+<para>Gets <parameter>target</parameter>
+'s weight. You should not need to look at this;
+<link linkend="GResolver"><type>GResolver</type></link> already sorts the targets according to the algorithm in
+RFC 2782.</para>
+<refsect3 id="g-srv-target-get-weight.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>target</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSrvTarget"><type>GSrvTarget</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-srv-target-get-weight.returns" role="returns">
+<title>Returns</title>
+<para> <parameter>target</parameter>
+'s weight</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.22">2.22</link></para></refsect2>
+<refsect2 id="g-srv-target-list-sort" role="function" condition="since:2.22">
+<title>g_srv_target_list_sort&#160;()</title>
+<indexterm zone="g-srv-target-list-sort" role="2.22"><primary sortas="srv_target_list_sort">g_srv_target_list_sort</primary></indexterm>
+<programlisting language="C"><link linkend="GList"><returnvalue>GList</returnvalue></link>&#160;*
+g_srv_target_list_sort (<parameter><link linkend="GList"><type>GList</type></link> *targets</parameter>);</programlisting>
+<para>Sorts <parameter>targets</parameter>
+ in place according to the algorithm in RFC 2782.</para>
+
+<para><emphasis role="annotation">[<acronym>skip</acronym>]</emphasis></para><refsect3 id="g-srv-target-list-sort.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>targets</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GList"><type>GList</type></link> of <link linkend="GSrvTarget"><type>GSrvTarget</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-srv-target-list-sort.returns" role="returns">
+<title>Returns</title>
+<para>the head of the sorted list. </para>
+<para><emphasis role="annotation">[<acronym>transfer full</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.22">2.22</link></para></refsect2>
+
+</refsect1>
+<refsect1 id="GSrvTarget.other_details" role="details">
+<title role="details.title">Types and Values</title>
+<refsect2 id="GSrvTarget-struct" role="struct">
+<title>GSrvTarget</title>
+<indexterm zone="GSrvTarget-struct"><primary sortas="SrvTarget">GSrvTarget</primary></indexterm>
+<programlisting language="C">typedef struct _GSrvTarget GSrvTarget;</programlisting>
+<para>A single target host/port that a network service is running on.</para>
+</refsect2>
+
+</refsect1>
+
+</refentry>

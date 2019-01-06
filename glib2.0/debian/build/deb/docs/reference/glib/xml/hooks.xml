@@ -1,0 +1,1276 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC '-//OASIS//DTD DocBook XML V4.5//EN'
+                      'http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd' [
+<!ENTITY % local.common.attrib "xmlns:xi  CDATA  #FIXED 'http://www.w3.org/2003/XInclude'">
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="glib-Hook-Functions">
+<refmeta>
+<refentrytitle role="top_of_page" id="glib-Hook-Functions.top_of_page">Hook Functions</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>GLIB Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>Hook Functions</refname>
+<refpurpose>support for manipulating lists of hook functions</refpurpose>
+</refnamediv>
+
+<refsect1 id="glib-Hook-Functions.functions" role="functions_proto">
+<title role="functions_proto.title">Functions</title>
+<informaltable pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="functions_return" colwidth="150px"/>
+<colspec colname="functions_name"/>
+<tbody>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><phrase role="c_punctuation">(</phrase><link linkend="GHookFinalizeFunc">*GHookFinalizeFunc</link><phrase role="c_punctuation">)</phrase>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><phrase role="c_punctuation">(</phrase><link linkend="GHookFunc">*GHookFunc</link><phrase role="c_punctuation">)</phrase>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><phrase role="c_punctuation">(</phrase><link linkend="GHookCheckFunc">*GHookCheckFunc</link><phrase role="c_punctuation">)</phrase>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-hook-list-init">g_hook_list_init</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-hook-list-invoke">g_hook_list_invoke</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-hook-list-invoke-check">g_hook_list_invoke_check</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-hook-list-marshal">g_hook_list_marshal</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><phrase role="c_punctuation">(</phrase><link linkend="GHookMarshaller">*GHookMarshaller</link><phrase role="c_punctuation">)</phrase>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-hook-list-marshal-check">g_hook_list_marshal_check</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><phrase role="c_punctuation">(</phrase><link linkend="GHookCheckMarshaller">*GHookCheckMarshaller</link><phrase role="c_punctuation">)</phrase>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-hook-list-clear">g_hook_list_clear</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+<row><entry role="function_type"><link linkend="GHook"><returnvalue>GHook</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-hook-alloc">g_hook_alloc</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="g-hook-append">g_hook_append</link><phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-hook-prepend">g_hook_prepend</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-hook-insert-before">g_hook_insert_before</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-hook-insert-sorted">g_hook_insert_sorted</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gint"><returnvalue>gint</returnvalue></link>
+</entry><entry role="function_name"><phrase role="c_punctuation">(</phrase><link linkend="GHookCompareFunc">*GHookCompareFunc</link><phrase role="c_punctuation">)</phrase>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gint"><returnvalue>gint</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-hook-compare-ids">g_hook_compare_ids</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+<row><entry role="function_type"><link linkend="GHook"><returnvalue>GHook</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-hook-get">g_hook_get</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GHook"><returnvalue>GHook</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-hook-find">g_hook_find</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><phrase role="c_punctuation">(</phrase><link linkend="GHookFindFunc">*GHookFindFunc</link><phrase role="c_punctuation">)</phrase>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GHook"><returnvalue>GHook</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-hook-find-data">g_hook_find_data</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GHook"><returnvalue>GHook</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-hook-find-func">g_hook_find_func</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GHook"><returnvalue>GHook</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-hook-find-func-data">g_hook_find_func_data</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+<row><entry role="function_type"><link linkend="GHook"><returnvalue>GHook</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-hook-first-valid">g_hook_first_valid</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GHook"><returnvalue>GHook</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-hook-next-valid">g_hook_next_valid</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="G-HOOK-FLAGS:CAPS">G_HOOK_FLAGS</link><phrase role="c_punctuation">()</phrase></entry></row>
+
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="G-HOOK:CAPS">G_HOOK</link><phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="G-HOOK-IS-VALID:CAPS">G_HOOK_IS_VALID</link><phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="G-HOOK-ACTIVE:CAPS">G_HOOK_ACTIVE</link><phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="G-HOOK-IN-CALL:CAPS">G_HOOK_IN_CALL</link><phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="G-HOOK-IS-UNLINKED:CAPS">G_HOOK_IS_UNLINKED</link><phrase role="c_punctuation">()</phrase></entry></row>
+
+<row><entry role="function_type"><link linkend="GHook"><returnvalue>GHook</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-hook-ref">g_hook_ref</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-hook-unref">g_hook_unref</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-hook-free">g_hook_free</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-hook-destroy">g_hook_destroy</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-hook-destroy-link">g_hook_destroy_link</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="glib-Hook-Functions.other" role="other_proto">
+<title role="other_proto.title">Types and Values</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="name" colwidth="150px"/>
+<colspec colname="description"/>
+<tbody>
+<row><entry role="datatype_keyword">struct</entry><entry role="function_name"><link linkend="GHookList">GHookList</link></entry></row>
+<row><entry role="datatype_keyword">struct</entry><entry role="function_name"><link linkend="GHook">GHook</link></entry></row>
+
+
+
+
+<row><entry role="datatype_keyword">enum</entry><entry role="function_name"><link linkend="GHookFlagMask">GHookFlagMask</link></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="G-HOOK-FLAG-USER-SHIFT:CAPS">G_HOOK_FLAG_USER_SHIFT</link></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+
+<refsect1 id="glib-Hook-Functions.includes"><title>Includes</title><synopsis>#include &lt;glib.h&gt;
+#include &lt;glib/gprintf.h&gt;
+</synopsis></refsect1>
+
+<refsect1 id="glib-Hook-Functions.description" role="desc">
+<title role="desc.title">Description</title>
+<para>The <link linkend="GHookList"><type>GHookList</type></link>, <link linkend="GHook"><type>GHook</type></link> and their related functions provide support for
+lists of hook functions. Functions can be added and removed from the lists,
+and the list of hook functions can be invoked.</para>
+
+</refsect1>
+<refsect1 id="glib-Hook-Functions.functions_details" role="details">
+<title role="details.title">Functions</title>
+<refsect2 id="GHookFinalizeFunc" role="function">
+<title>GHookFinalizeFunc&#160;()</title>
+<indexterm zone="GHookFinalizeFunc"><primary sortas="HookFinalizeFunc">GHookFinalizeFunc</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+<phrase role="c_punctuation">(</phrase>*GHookFinalizeFunc<phrase role="c_punctuation">)</phrase> (<parameter><link linkend="GHookList"><type>GHookList</type></link> *hook_list</parameter>,
+                      <parameter><link linkend="GHook"><type>GHook</type></link> *hook</parameter>);</programlisting>
+<para>Defines the type of function to be called when a hook in a
+list of hooks gets finalized.</para>
+<refsect3 id="GHookFinalizeFunc.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>hook_list</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GHookList"><type>GHookList</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>hook</para></entry>
+<entry role="parameter_description"><para>the hook in <parameter>hook_list</parameter>
+that gets finalized</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="GHookFunc" role="function">
+<title>GHookFunc&#160;()</title>
+<indexterm zone="GHookFunc"><primary sortas="HookFunc">GHookFunc</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+<phrase role="c_punctuation">(</phrase>*GHookFunc<phrase role="c_punctuation">)</phrase> (<parameter><link linkend="gpointer"><type>gpointer</type></link> data</parameter>);</programlisting>
+<para>Defines the type of a hook function that can be invoked
+by <link linkend="g-hook-list-invoke"><function>g_hook_list_invoke()</function></link>.</para>
+<refsect3 id="GHookFunc.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>data</para></entry>
+<entry role="parameter_description"><para>the data field of the <link linkend="GHook"><type>GHook</type></link> is passed to the hook function here</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="GHookCheckFunc" role="function">
+<title>GHookCheckFunc&#160;()</title>
+<indexterm zone="GHookCheckFunc"><primary sortas="HookCheckFunc">GHookCheckFunc</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+<phrase role="c_punctuation">(</phrase>*GHookCheckFunc<phrase role="c_punctuation">)</phrase> (<parameter><link linkend="gpointer"><type>gpointer</type></link> data</parameter>);</programlisting>
+<para>Defines the type of a hook function that can be invoked
+by <link linkend="g-hook-list-invoke-check"><function>g_hook_list_invoke_check()</function></link>.</para>
+<refsect3 id="GHookCheckFunc.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>data</para></entry>
+<entry role="parameter_description"><para>the data field of the <link linkend="GHook"><type>GHook</type></link> is passed to the hook function here</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="GHookCheckFunc.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> if the <link linkend="GHook"><type>GHook</type></link> should be destroyed</para>
+</refsect3></refsect2>
+<refsect2 id="g-hook-list-init" role="function">
+<title>g_hook_list_init&#160;()</title>
+<indexterm zone="g-hook-list-init"><primary sortas="hook_list_init">g_hook_list_init</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_hook_list_init (<parameter><link linkend="GHookList"><type>GHookList</type></link> *hook_list</parameter>,
+                  <parameter><link linkend="guint"><type>guint</type></link> hook_size</parameter>);</programlisting>
+<para>Initializes a <link linkend="GHookList"><type>GHookList</type></link>.
+This must be called before the <link linkend="GHookList"><type>GHookList</type></link> is used.</para>
+<refsect3 id="g-hook-list-init.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>hook_list</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GHookList"><type>GHookList</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>hook_size</para></entry>
+<entry role="parameter_description"><para>the size of each element in the <link linkend="GHookList"><type>GHookList</type></link>,
+typically <literal>sizeof (GHook)</literal>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-hook-list-invoke" role="function">
+<title>g_hook_list_invoke&#160;()</title>
+<indexterm zone="g-hook-list-invoke"><primary sortas="hook_list_invoke">g_hook_list_invoke</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_hook_list_invoke (<parameter><link linkend="GHookList"><type>GHookList</type></link> *hook_list</parameter>,
+                    <parameter><link linkend="gboolean"><type>gboolean</type></link> may_recurse</parameter>);</programlisting>
+<para>Calls all of the <link linkend="GHook"><type>GHook</type></link> functions in a <link linkend="GHookList"><type>GHookList</type></link>.</para>
+<refsect3 id="g-hook-list-invoke.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>hook_list</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GHookList"><type>GHookList</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>may_recurse</para></entry>
+<entry role="parameter_description"><para><link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if functions which are already running
+(e.g. in another thread) can be called. If set to <link linkend="FALSE:CAPS"><literal>FALSE</literal></link>,
+these are skipped</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-hook-list-invoke-check" role="function">
+<title>g_hook_list_invoke_check&#160;()</title>
+<indexterm zone="g-hook-list-invoke-check"><primary sortas="hook_list_invoke_check">g_hook_list_invoke_check</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_hook_list_invoke_check (<parameter><link linkend="GHookList"><type>GHookList</type></link> *hook_list</parameter>,
+                          <parameter><link linkend="gboolean"><type>gboolean</type></link> may_recurse</parameter>);</programlisting>
+<para>Calls all of the <link linkend="GHook"><type>GHook</type></link> functions in a <link linkend="GHookList"><type>GHookList</type></link>.
+Any function which returns <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> is removed from the <link linkend="GHookList"><type>GHookList</type></link>.</para>
+<refsect3 id="g-hook-list-invoke-check.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>hook_list</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GHookList"><type>GHookList</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>may_recurse</para></entry>
+<entry role="parameter_description"><para><link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if functions which are already running
+(e.g. in another thread) can be called. If set to <link linkend="FALSE:CAPS"><literal>FALSE</literal></link>,
+these are skipped</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-hook-list-marshal" role="function">
+<title>g_hook_list_marshal&#160;()</title>
+<indexterm zone="g-hook-list-marshal"><primary sortas="hook_list_marshal">g_hook_list_marshal</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_hook_list_marshal (<parameter><link linkend="GHookList"><type>GHookList</type></link> *hook_list</parameter>,
+                     <parameter><link linkend="gboolean"><type>gboolean</type></link> may_recurse</parameter>,
+                     <parameter><link linkend="GHookMarshaller"><type>GHookMarshaller</type></link> marshaller</parameter>,
+                     <parameter><link linkend="gpointer"><type>gpointer</type></link> marshal_data</parameter>);</programlisting>
+<para>Calls a function on each valid <link linkend="GHook"><type>GHook</type></link>.</para>
+<refsect3 id="g-hook-list-marshal.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>hook_list</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GHookList"><type>GHookList</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>may_recurse</para></entry>
+<entry role="parameter_description"><para><link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if hooks which are currently running
+(e.g. in another thread) are considered valid. If set to <link linkend="FALSE:CAPS"><literal>FALSE</literal></link>,
+these are skipped</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>marshaller</para></entry>
+<entry role="parameter_description"><para>the function to call for each <link linkend="GHook"><type>GHook</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>marshal_data</para></entry>
+<entry role="parameter_description"><para>data to pass to <parameter>marshaller</parameter>
+</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="GHookMarshaller" role="function">
+<title>GHookMarshaller&#160;()</title>
+<indexterm zone="GHookMarshaller"><primary sortas="HookMarshaller">GHookMarshaller</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+<phrase role="c_punctuation">(</phrase>*GHookMarshaller<phrase role="c_punctuation">)</phrase> (<parameter><link linkend="GHook"><type>GHook</type></link> *hook</parameter>,
+                    <parameter><link linkend="gpointer"><type>gpointer</type></link> marshal_data</parameter>);</programlisting>
+<para>Defines the type of function used by <link linkend="g-hook-list-marshal"><function>g_hook_list_marshal()</function></link>.</para>
+<refsect3 id="GHookMarshaller.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>hook</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GHook"><type>GHook</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>marshal_data</para></entry>
+<entry role="parameter_description"><para>user data</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-hook-list-marshal-check" role="function">
+<title>g_hook_list_marshal_check&#160;()</title>
+<indexterm zone="g-hook-list-marshal-check"><primary sortas="hook_list_marshal_check">g_hook_list_marshal_check</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_hook_list_marshal_check (<parameter><link linkend="GHookList"><type>GHookList</type></link> *hook_list</parameter>,
+                           <parameter><link linkend="gboolean"><type>gboolean</type></link> may_recurse</parameter>,
+                           <parameter><link linkend="GHookCheckMarshaller"><type>GHookCheckMarshaller</type></link> marshaller</parameter>,
+                           <parameter><link linkend="gpointer"><type>gpointer</type></link> marshal_data</parameter>);</programlisting>
+<para>Calls a function on each valid <link linkend="GHook"><type>GHook</type></link> and destroys it if the
+function returns <link linkend="FALSE:CAPS"><literal>FALSE</literal></link>.</para>
+<refsect3 id="g-hook-list-marshal-check.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>hook_list</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GHookList"><type>GHookList</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>may_recurse</para></entry>
+<entry role="parameter_description"><para><link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if hooks which are currently running
+(e.g. in another thread) are considered valid. If set to <link linkend="FALSE:CAPS"><literal>FALSE</literal></link>,
+these are skipped</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>marshaller</para></entry>
+<entry role="parameter_description"><para>the function to call for each <link linkend="GHook"><type>GHook</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>marshal_data</para></entry>
+<entry role="parameter_description"><para>data to pass to <parameter>marshaller</parameter>
+</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="GHookCheckMarshaller" role="function">
+<title>GHookCheckMarshaller&#160;()</title>
+<indexterm zone="GHookCheckMarshaller"><primary sortas="HookCheckMarshaller">GHookCheckMarshaller</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+<phrase role="c_punctuation">(</phrase>*GHookCheckMarshaller<phrase role="c_punctuation">)</phrase> (<parameter><link linkend="GHook"><type>GHook</type></link> *hook</parameter>,
+                         <parameter><link linkend="gpointer"><type>gpointer</type></link> marshal_data</parameter>);</programlisting>
+<para>Defines the type of function used by <link linkend="g-hook-list-marshal-check"><function>g_hook_list_marshal_check()</function></link>.</para>
+<refsect3 id="GHookCheckMarshaller.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>hook</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GHook"><type>GHook</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>marshal_data</para></entry>
+<entry role="parameter_description"><para>user data</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="GHookCheckMarshaller.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> if <parameter>hook</parameter>
+should be destroyed</para>
+</refsect3></refsect2>
+<refsect2 id="g-hook-list-clear" role="function">
+<title>g_hook_list_clear&#160;()</title>
+<indexterm zone="g-hook-list-clear"><primary sortas="hook_list_clear">g_hook_list_clear</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_hook_list_clear (<parameter><link linkend="GHookList"><type>GHookList</type></link> *hook_list</parameter>);</programlisting>
+<para>Removes all the <link linkend="GHook"><type>GHook</type></link> elements from a <link linkend="GHookList"><type>GHookList</type></link>.</para>
+<refsect3 id="g-hook-list-clear.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>hook_list</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GHookList"><type>GHookList</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-hook-alloc" role="function">
+<title>g_hook_alloc&#160;()</title>
+<indexterm zone="g-hook-alloc"><primary sortas="hook_alloc">g_hook_alloc</primary></indexterm>
+<programlisting language="C"><link linkend="GHook"><returnvalue>GHook</returnvalue></link>&#160;*
+g_hook_alloc (<parameter><link linkend="GHookList"><type>GHookList</type></link> *hook_list</parameter>);</programlisting>
+<para>Allocates space for a <link linkend="GHook"><type>GHook</type></link> and initializes it.</para>
+<refsect3 id="g-hook-alloc.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>hook_list</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GHookList"><type>GHookList</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-hook-alloc.returns" role="returns">
+<title>Returns</title>
+<para> a new <link linkend="GHook"><type>GHook</type></link></para>
+</refsect3></refsect2>
+<refsect2 id="g-hook-append" role="macro">
+<title>g_hook_append()</title>
+<indexterm zone="g-hook-append"><primary sortas="hook_append">g_hook_append</primary></indexterm>
+<programlisting language="C">#define             g_hook_append( hook_list, hook )</programlisting>
+<para>Appends a <link linkend="GHook"><type>GHook</type></link> onto the end of a <link linkend="GHookList"><type>GHookList</type></link>.</para>
+<refsect3 id="g-hook-append.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>hook_list</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GHookList"><type>GHookList</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>hook</para></entry>
+<entry role="parameter_description"><para>the <link linkend="GHook"><type>GHook</type></link> to add to the end of <parameter>hook_list</parameter>
+</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-hook-prepend" role="function">
+<title>g_hook_prepend&#160;()</title>
+<indexterm zone="g-hook-prepend"><primary sortas="hook_prepend">g_hook_prepend</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_hook_prepend (<parameter><link linkend="GHookList"><type>GHookList</type></link> *hook_list</parameter>,
+                <parameter><link linkend="GHook"><type>GHook</type></link> *hook</parameter>);</programlisting>
+<para>Prepends a <link linkend="GHook"><type>GHook</type></link> on the start of a <link linkend="GHookList"><type>GHookList</type></link>.</para>
+<refsect3 id="g-hook-prepend.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>hook_list</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GHookList"><type>GHookList</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>hook</para></entry>
+<entry role="parameter_description"><para>the <link linkend="GHook"><type>GHook</type></link> to add to the start of <parameter>hook_list</parameter>
+</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-hook-insert-before" role="function">
+<title>g_hook_insert_before&#160;()</title>
+<indexterm zone="g-hook-insert-before"><primary sortas="hook_insert_before">g_hook_insert_before</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_hook_insert_before (<parameter><link linkend="GHookList"><type>GHookList</type></link> *hook_list</parameter>,
+                      <parameter><link linkend="GHook"><type>GHook</type></link> *sibling</parameter>,
+                      <parameter><link linkend="GHook"><type>GHook</type></link> *hook</parameter>);</programlisting>
+<para>Inserts a <link linkend="GHook"><type>GHook</type></link> into a <link linkend="GHookList"><type>GHookList</type></link>, before a given <link linkend="GHook"><type>GHook</type></link>.</para>
+<refsect3 id="g-hook-insert-before.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>hook_list</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GHookList"><type>GHookList</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>sibling</para></entry>
+<entry role="parameter_description"><para>the <link linkend="GHook"><type>GHook</type></link> to insert the new <link linkend="GHook"><type>GHook</type></link> before. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>hook</para></entry>
+<entry role="parameter_description"><para>the <link linkend="GHook"><type>GHook</type></link> to insert</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-hook-insert-sorted" role="function">
+<title>g_hook_insert_sorted&#160;()</title>
+<indexterm zone="g-hook-insert-sorted"><primary sortas="hook_insert_sorted">g_hook_insert_sorted</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_hook_insert_sorted (<parameter><link linkend="GHookList"><type>GHookList</type></link> *hook_list</parameter>,
+                      <parameter><link linkend="GHook"><type>GHook</type></link> *hook</parameter>,
+                      <parameter><link linkend="GHookCompareFunc"><type>GHookCompareFunc</type></link> func</parameter>);</programlisting>
+<para>Inserts a <link linkend="GHook"><type>GHook</type></link> into a <link linkend="GHookList"><type>GHookList</type></link>, sorted by the given function.</para>
+<refsect3 id="g-hook-insert-sorted.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>hook_list</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GHookList"><type>GHookList</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>hook</para></entry>
+<entry role="parameter_description"><para>the <link linkend="GHook"><type>GHook</type></link> to insert</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>func</para></entry>
+<entry role="parameter_description"><para>the comparison function used to sort the <link linkend="GHook"><type>GHook</type></link> elements</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="GHookCompareFunc" role="function">
+<title>GHookCompareFunc&#160;()</title>
+<indexterm zone="GHookCompareFunc"><primary sortas="HookCompareFunc">GHookCompareFunc</primary></indexterm>
+<programlisting language="C"><link linkend="gint"><returnvalue>gint</returnvalue></link>
+<phrase role="c_punctuation">(</phrase>*GHookCompareFunc<phrase role="c_punctuation">)</phrase> (<parameter><link linkend="GHook"><type>GHook</type></link> *new_hook</parameter>,
+                     <parameter><link linkend="GHook"><type>GHook</type></link> *sibling</parameter>);</programlisting>
+<para>Defines the type of function used to compare <link linkend="GHook"><type>GHook</type></link> elements in
+<link linkend="g-hook-insert-sorted"><function>g_hook_insert_sorted()</function></link>.</para>
+<refsect3 id="GHookCompareFunc.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>new_hook</para></entry>
+<entry role="parameter_description"><para>the <link linkend="GHook"><type>GHook</type></link> being inserted</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>sibling</para></entry>
+<entry role="parameter_description"><para>the <link linkend="GHook"><type>GHook</type></link> to compare with <parameter>new_hook</parameter>
+</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="GHookCompareFunc.returns" role="returns">
+<title>Returns</title>
+<para> a value &lt;= 0 if <parameter>new_hook</parameter>
+should be before <parameter>sibling</parameter>
+</para>
+</refsect3></refsect2>
+<refsect2 id="g-hook-compare-ids" role="function">
+<title>g_hook_compare_ids&#160;()</title>
+<indexterm zone="g-hook-compare-ids"><primary sortas="hook_compare_ids">g_hook_compare_ids</primary></indexterm>
+<programlisting language="C"><link linkend="gint"><returnvalue>gint</returnvalue></link>
+g_hook_compare_ids (<parameter><link linkend="GHook"><type>GHook</type></link> *new_hook</parameter>,
+                    <parameter><link linkend="GHook"><type>GHook</type></link> *sibling</parameter>);</programlisting>
+<para>Compares the ids of two <link linkend="GHook"><type>GHook</type></link> elements, returning a negative value
+if the second id is greater than the first.</para>
+<refsect3 id="g-hook-compare-ids.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>new_hook</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GHook"><type>GHook</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>sibling</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GHook"><type>GHook</type></link> to compare with <parameter>new_hook</parameter>
+</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-hook-compare-ids.returns" role="returns">
+<title>Returns</title>
+<para> a value &lt;= 0 if the id of <parameter>sibling</parameter>
+is &gt;= the id of <parameter>new_hook</parameter>
+</para>
+</refsect3></refsect2>
+<refsect2 id="g-hook-get" role="function">
+<title>g_hook_get&#160;()</title>
+<indexterm zone="g-hook-get"><primary sortas="hook_get">g_hook_get</primary></indexterm>
+<programlisting language="C"><link linkend="GHook"><returnvalue>GHook</returnvalue></link>&#160;*
+g_hook_get (<parameter><link linkend="GHookList"><type>GHookList</type></link> *hook_list</parameter>,
+            <parameter><link linkend="gulong"><type>gulong</type></link> hook_id</parameter>);</programlisting>
+<para>Returns the <link linkend="GHook"><type>GHook</type></link> with the given id, or <link linkend="NULL:CAPS"><literal>NULL</literal></link> if it is not found.</para>
+<refsect3 id="g-hook-get.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>hook_list</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GHookList"><type>GHookList</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>hook_id</para></entry>
+<entry role="parameter_description"><para>a hook id</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-hook-get.returns" role="returns">
+<title>Returns</title>
+<para> the <link linkend="GHook"><type>GHook</type></link> with the given id, or <link linkend="NULL:CAPS"><literal>NULL</literal></link> if it is not found</para>
+</refsect3></refsect2>
+<refsect2 id="g-hook-find" role="function">
+<title>g_hook_find&#160;()</title>
+<indexterm zone="g-hook-find"><primary sortas="hook_find">g_hook_find</primary></indexterm>
+<programlisting language="C"><link linkend="GHook"><returnvalue>GHook</returnvalue></link>&#160;*
+g_hook_find (<parameter><link linkend="GHookList"><type>GHookList</type></link> *hook_list</parameter>,
+             <parameter><link linkend="gboolean"><type>gboolean</type></link> need_valids</parameter>,
+             <parameter><link linkend="GHookFindFunc"><type>GHookFindFunc</type></link> func</parameter>,
+             <parameter><link linkend="gpointer"><type>gpointer</type></link> data</parameter>);</programlisting>
+<para>Finds a <link linkend="GHook"><type>GHook</type></link> in a <link linkend="GHookList"><type>GHookList</type></link> using the given function to
+test for a match.</para>
+<refsect3 id="g-hook-find.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>hook_list</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GHookList"><type>GHookList</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>need_valids</para></entry>
+<entry role="parameter_description"><para><link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if <link linkend="GHook"><type>GHook</type></link> elements which have been destroyed
+should be skipped</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>func</para></entry>
+<entry role="parameter_description"><para>the function to call for each <link linkend="GHook"><type>GHook</type></link>, which should return
+<link linkend="TRUE:CAPS"><literal>TRUE</literal></link> when the <link linkend="GHook"><type>GHook</type></link> has been found</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>data</para></entry>
+<entry role="parameter_description"><para>the data to pass to <parameter>func</parameter>
+</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-hook-find.returns" role="returns">
+<title>Returns</title>
+<para> the found <link linkend="GHook"><type>GHook</type></link> or <link linkend="NULL:CAPS"><literal>NULL</literal></link> if no matching <link linkend="GHook"><type>GHook</type></link> is found</para>
+</refsect3></refsect2>
+<refsect2 id="GHookFindFunc" role="function">
+<title>GHookFindFunc&#160;()</title>
+<indexterm zone="GHookFindFunc"><primary sortas="HookFindFunc">GHookFindFunc</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+<phrase role="c_punctuation">(</phrase>*GHookFindFunc<phrase role="c_punctuation">)</phrase> (<parameter><link linkend="GHook"><type>GHook</type></link> *hook</parameter>,
+                  <parameter><link linkend="gpointer"><type>gpointer</type></link> data</parameter>);</programlisting>
+<para>Defines the type of the function passed to <link linkend="g-hook-find"><function>g_hook_find()</function></link>.</para>
+<refsect3 id="GHookFindFunc.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>hook</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GHook"><type>GHook</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>data</para></entry>
+<entry role="parameter_description"><para>user data passed to <link linkend="g-hook-find-func"><function>g_hook_find_func()</function></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="GHookFindFunc.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if the required <link linkend="GHook"><type>GHook</type></link> has been found</para>
+</refsect3></refsect2>
+<refsect2 id="g-hook-find-data" role="function">
+<title>g_hook_find_data&#160;()</title>
+<indexterm zone="g-hook-find-data"><primary sortas="hook_find_data">g_hook_find_data</primary></indexterm>
+<programlisting language="C"><link linkend="GHook"><returnvalue>GHook</returnvalue></link>&#160;*
+g_hook_find_data (<parameter><link linkend="GHookList"><type>GHookList</type></link> *hook_list</parameter>,
+                  <parameter><link linkend="gboolean"><type>gboolean</type></link> need_valids</parameter>,
+                  <parameter><link linkend="gpointer"><type>gpointer</type></link> data</parameter>);</programlisting>
+<para>Finds a <link linkend="GHook"><type>GHook</type></link> in a <link linkend="GHookList"><type>GHookList</type></link> with the given data.</para>
+<refsect3 id="g-hook-find-data.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>hook_list</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GHookList"><type>GHookList</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>need_valids</para></entry>
+<entry role="parameter_description"><para><link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if <link linkend="GHook"><type>GHook</type></link> elements which have been destroyed
+should be skipped</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>data</para></entry>
+<entry role="parameter_description"><para>the data to find</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-hook-find-data.returns" role="returns">
+<title>Returns</title>
+<para> the <link linkend="GHook"><type>GHook</type></link> with the given <parameter>data</parameter>
+or <link linkend="NULL:CAPS"><literal>NULL</literal></link> if no matching
+<link linkend="GHook"><type>GHook</type></link> is found</para>
+</refsect3></refsect2>
+<refsect2 id="g-hook-find-func" role="function">
+<title>g_hook_find_func&#160;()</title>
+<indexterm zone="g-hook-find-func"><primary sortas="hook_find_func">g_hook_find_func</primary></indexterm>
+<programlisting language="C"><link linkend="GHook"><returnvalue>GHook</returnvalue></link>&#160;*
+g_hook_find_func (<parameter><link linkend="GHookList"><type>GHookList</type></link> *hook_list</parameter>,
+                  <parameter><link linkend="gboolean"><type>gboolean</type></link> need_valids</parameter>,
+                  <parameter><link linkend="gpointer"><type>gpointer</type></link> func</parameter>);</programlisting>
+<para>Finds a <link linkend="GHook"><type>GHook</type></link> in a <link linkend="GHookList"><type>GHookList</type></link> with the given function.</para>
+<refsect3 id="g-hook-find-func.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>hook_list</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GHookList"><type>GHookList</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>need_valids</para></entry>
+<entry role="parameter_description"><para><link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if <link linkend="GHook"><type>GHook</type></link> elements which have been destroyed
+should be skipped</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>func</para></entry>
+<entry role="parameter_description"><para>the function to find</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-hook-find-func.returns" role="returns">
+<title>Returns</title>
+<para> the <link linkend="GHook"><type>GHook</type></link> with the given <parameter>func</parameter>
+or <link linkend="NULL:CAPS"><literal>NULL</literal></link> if no matching
+<link linkend="GHook"><type>GHook</type></link> is found</para>
+</refsect3></refsect2>
+<refsect2 id="g-hook-find-func-data" role="function">
+<title>g_hook_find_func_data&#160;()</title>
+<indexterm zone="g-hook-find-func-data"><primary sortas="hook_find_func_data">g_hook_find_func_data</primary></indexterm>
+<programlisting language="C"><link linkend="GHook"><returnvalue>GHook</returnvalue></link>&#160;*
+g_hook_find_func_data (<parameter><link linkend="GHookList"><type>GHookList</type></link> *hook_list</parameter>,
+                       <parameter><link linkend="gboolean"><type>gboolean</type></link> need_valids</parameter>,
+                       <parameter><link linkend="gpointer"><type>gpointer</type></link> func</parameter>,
+                       <parameter><link linkend="gpointer"><type>gpointer</type></link> data</parameter>);</programlisting>
+<para>Finds a <link linkend="GHook"><type>GHook</type></link> in a <link linkend="GHookList"><type>GHookList</type></link> with the given function and data.</para>
+<refsect3 id="g-hook-find-func-data.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>hook_list</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GHookList"><type>GHookList</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>need_valids</para></entry>
+<entry role="parameter_description"><para><link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if <link linkend="GHook"><type>GHook</type></link> elements which have been destroyed
+should be skipped</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>func</para></entry>
+<entry role="parameter_description"><para>the function to find. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>not nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>data</para></entry>
+<entry role="parameter_description"><para>the data to find</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-hook-find-func-data.returns" role="returns">
+<title>Returns</title>
+<para> the <link linkend="GHook"><type>GHook</type></link> with the given <parameter>func</parameter>
+and <parameter>data</parameter>
+or <link linkend="NULL:CAPS"><literal>NULL</literal></link> if
+no matching <link linkend="GHook"><type>GHook</type></link> is found</para>
+</refsect3></refsect2>
+<refsect2 id="g-hook-first-valid" role="function">
+<title>g_hook_first_valid&#160;()</title>
+<indexterm zone="g-hook-first-valid"><primary sortas="hook_first_valid">g_hook_first_valid</primary></indexterm>
+<programlisting language="C"><link linkend="GHook"><returnvalue>GHook</returnvalue></link>&#160;*
+g_hook_first_valid (<parameter><link linkend="GHookList"><type>GHookList</type></link> *hook_list</parameter>,
+                    <parameter><link linkend="gboolean"><type>gboolean</type></link> may_be_in_call</parameter>);</programlisting>
+<para>Returns the first <link linkend="GHook"><type>GHook</type></link> in a <link linkend="GHookList"><type>GHookList</type></link> which has not been destroyed.
+The reference count for the <link linkend="GHook"><type>GHook</type></link> is incremented, so you must call
+<link linkend="g-hook-unref"><function>g_hook_unref()</function></link> to restore it when no longer needed. (Or call
+<link linkend="g-hook-next-valid"><function>g_hook_next_valid()</function></link> if you are stepping through the <link linkend="GHookList"><type>GHookList</type></link>.)</para>
+<refsect3 id="g-hook-first-valid.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>hook_list</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GHookList"><type>GHookList</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>may_be_in_call</para></entry>
+<entry role="parameter_description"><para><link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if hooks which are currently running
+(e.g. in another thread) are considered valid. If set to <link linkend="FALSE:CAPS"><literal>FALSE</literal></link>,
+these are skipped</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-hook-first-valid.returns" role="returns">
+<title>Returns</title>
+<para> the first valid <link linkend="GHook"><type>GHook</type></link>, or <link linkend="NULL:CAPS"><literal>NULL</literal></link> if none are valid</para>
+</refsect3></refsect2>
+<refsect2 id="g-hook-next-valid" role="function">
+<title>g_hook_next_valid&#160;()</title>
+<indexterm zone="g-hook-next-valid"><primary sortas="hook_next_valid">g_hook_next_valid</primary></indexterm>
+<programlisting language="C"><link linkend="GHook"><returnvalue>GHook</returnvalue></link>&#160;*
+g_hook_next_valid (<parameter><link linkend="GHookList"><type>GHookList</type></link> *hook_list</parameter>,
+                   <parameter><link linkend="GHook"><type>GHook</type></link> *hook</parameter>,
+                   <parameter><link linkend="gboolean"><type>gboolean</type></link> may_be_in_call</parameter>);</programlisting>
+<para>Returns the next <link linkend="GHook"><type>GHook</type></link> in a <link linkend="GHookList"><type>GHookList</type></link> which has not been destroyed.
+The reference count for the <link linkend="GHook"><type>GHook</type></link> is incremented, so you must call
+<link linkend="g-hook-unref"><function>g_hook_unref()</function></link> to restore it when no longer needed. (Or continue to call
+<link linkend="g-hook-next-valid"><function>g_hook_next_valid()</function></link> until <link linkend="NULL:CAPS"><literal>NULL</literal></link> is returned.)</para>
+<refsect3 id="g-hook-next-valid.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>hook_list</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GHookList"><type>GHookList</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>hook</para></entry>
+<entry role="parameter_description"><para>the current <link linkend="GHook"><type>GHook</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>may_be_in_call</para></entry>
+<entry role="parameter_description"><para><link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if hooks which are currently running
+(e.g. in another thread) are considered valid. If set to <link linkend="FALSE:CAPS"><literal>FALSE</literal></link>,
+these are skipped</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-hook-next-valid.returns" role="returns">
+<title>Returns</title>
+<para> the next valid <link linkend="GHook"><type>GHook</type></link>, or <link linkend="NULL:CAPS"><literal>NULL</literal></link> if none are valid</para>
+</refsect3></refsect2>
+<refsect2 id="G-HOOK-FLAGS:CAPS" role="macro">
+<title>G_HOOK_FLAGS()</title>
+<indexterm zone="G-HOOK-FLAGS:CAPS"><primary sortas="HOOK_FLAGS">G_HOOK_FLAGS</primary></indexterm>
+<programlisting language="C">#define&#160;G_HOOK_FLAGS(hook)		(G_HOOK (hook)-&gt;flags)
+</programlisting>
+<para>Gets the flags of a hook.</para>
+<refsect3 id="G-HOOK-FLAGS.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>hook</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GHook"><type>GHook</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="G-HOOK:CAPS" role="macro">
+<title>G_HOOK()</title>
+<indexterm zone="G-HOOK:CAPS"><primary sortas="HOOK">G_HOOK</primary></indexterm>
+<programlisting language="C">#define&#160;G_HOOK(hook)			((GHook*) (hook))
+</programlisting>
+<para>Casts a pointer to a <literal>GHook*</literal>.</para>
+<refsect3 id="G-HOOK.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>hook</para></entry>
+<entry role="parameter_description"><para>a pointer</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="G-HOOK-IS-VALID:CAPS" role="macro">
+<title>G_HOOK_IS_VALID()</title>
+<indexterm zone="G-HOOK-IS-VALID:CAPS"><primary sortas="HOOK_IS_VALID">G_HOOK_IS_VALID</primary></indexterm>
+<programlisting language="C">#define             G_HOOK_IS_VALID(hook)</programlisting>
+<para>Returns <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if the <link linkend="GHook"><type>GHook</type></link> is valid, i.e. it is in a <link linkend="GHookList"><type>GHookList</type></link>,
+it is active and it has not been destroyed.</para>
+<refsect3 id="G-HOOK-IS-VALID.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>hook</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GHook"><type>GHook</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="G-HOOK-IS-VALID.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if the <link linkend="GHook"><type>GHook</type></link> is valid</para>
+</refsect3></refsect2>
+<refsect2 id="G-HOOK-ACTIVE:CAPS" role="macro">
+<title>G_HOOK_ACTIVE()</title>
+<indexterm zone="G-HOOK-ACTIVE:CAPS"><primary sortas="HOOK_ACTIVE">G_HOOK_ACTIVE</primary></indexterm>
+<programlisting language="C">#define             G_HOOK_ACTIVE(hook)</programlisting>
+<para>Returns <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if the <link linkend="GHook"><type>GHook</type></link> is active, which is normally the case
+until the <link linkend="GHook"><type>GHook</type></link> is destroyed.</para>
+<refsect3 id="G-HOOK-ACTIVE.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>hook</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GHook"><type>GHook</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="G-HOOK-ACTIVE.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if the <link linkend="GHook"><type>GHook</type></link> is active</para>
+</refsect3></refsect2>
+<refsect2 id="G-HOOK-IN-CALL:CAPS" role="macro">
+<title>G_HOOK_IN_CALL()</title>
+<indexterm zone="G-HOOK-IN-CALL:CAPS"><primary sortas="HOOK_IN_CALL">G_HOOK_IN_CALL</primary></indexterm>
+<programlisting language="C">#define             G_HOOK_IN_CALL(hook)</programlisting>
+<para>Returns <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if the <link linkend="GHook"><type>GHook</type></link> function is currently executing.</para>
+<refsect3 id="G-HOOK-IN-CALL.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>hook</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GHook"><type>GHook</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="G-HOOK-IN-CALL.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if the <link linkend="GHook"><type>GHook</type></link> function is currently executing</para>
+</refsect3></refsect2>
+<refsect2 id="G-HOOK-IS-UNLINKED:CAPS" role="macro">
+<title>G_HOOK_IS_UNLINKED()</title>
+<indexterm zone="G-HOOK-IS-UNLINKED:CAPS"><primary sortas="HOOK_IS_UNLINKED">G_HOOK_IS_UNLINKED</primary></indexterm>
+<programlisting language="C">#define             G_HOOK_IS_UNLINKED(hook)</programlisting>
+<para>Returns <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if the <link linkend="GHook"><type>GHook</type></link> is not in a <link linkend="GHookList"><type>GHookList</type></link>.</para>
+<refsect3 id="G-HOOK-IS-UNLINKED.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>hook</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GHook"><type>GHook</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="G-HOOK-IS-UNLINKED.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if the <link linkend="GHook"><type>GHook</type></link> is not in a <link linkend="GHookList"><type>GHookList</type></link></para>
+</refsect3></refsect2>
+<refsect2 id="g-hook-ref" role="function">
+<title>g_hook_ref&#160;()</title>
+<indexterm zone="g-hook-ref"><primary sortas="hook_ref">g_hook_ref</primary></indexterm>
+<programlisting language="C"><link linkend="GHook"><returnvalue>GHook</returnvalue></link>&#160;*
+g_hook_ref (<parameter><link linkend="GHookList"><type>GHookList</type></link> *hook_list</parameter>,
+            <parameter><link linkend="GHook"><type>GHook</type></link> *hook</parameter>);</programlisting>
+<para>Increments the reference count for a <link linkend="GHook"><type>GHook</type></link>.</para>
+<refsect3 id="g-hook-ref.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>hook_list</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GHookList"><type>GHookList</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>hook</para></entry>
+<entry role="parameter_description"><para>the <link linkend="GHook"><type>GHook</type></link> to increment the reference count of</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-hook-ref.returns" role="returns">
+<title>Returns</title>
+<para> the <parameter>hook</parameter>
+that was passed in (since 2.6)</para>
+</refsect3></refsect2>
+<refsect2 id="g-hook-unref" role="function">
+<title>g_hook_unref&#160;()</title>
+<indexterm zone="g-hook-unref"><primary sortas="hook_unref">g_hook_unref</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_hook_unref (<parameter><link linkend="GHookList"><type>GHookList</type></link> *hook_list</parameter>,
+              <parameter><link linkend="GHook"><type>GHook</type></link> *hook</parameter>);</programlisting>
+<para>Decrements the reference count of a <link linkend="GHook"><type>GHook</type></link>.
+If the reference count falls to 0, the <link linkend="GHook"><type>GHook</type></link> is removed
+from the <link linkend="GHookList"><type>GHookList</type></link> and <link linkend="g-hook-free"><function>g_hook_free()</function></link> is called to free it.</para>
+<refsect3 id="g-hook-unref.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>hook_list</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GHookList"><type>GHookList</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>hook</para></entry>
+<entry role="parameter_description"><para>the <link linkend="GHook"><type>GHook</type></link> to unref</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-hook-free" role="function">
+<title>g_hook_free&#160;()</title>
+<indexterm zone="g-hook-free"><primary sortas="hook_free">g_hook_free</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_hook_free (<parameter><link linkend="GHookList"><type>GHookList</type></link> *hook_list</parameter>,
+             <parameter><link linkend="GHook"><type>GHook</type></link> *hook</parameter>);</programlisting>
+<para>Calls the <link linkend="GHookList"><type>GHookList</type></link> <parameter>finalize_hook</parameter>
+ function if it exists,
+and frees the memory allocated for the <link linkend="GHook"><type>GHook</type></link>.</para>
+<refsect3 id="g-hook-free.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>hook_list</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GHookList"><type>GHookList</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>hook</para></entry>
+<entry role="parameter_description"><para>the <link linkend="GHook"><type>GHook</type></link> to free</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-hook-destroy" role="function">
+<title>g_hook_destroy&#160;()</title>
+<indexterm zone="g-hook-destroy"><primary sortas="hook_destroy">g_hook_destroy</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_hook_destroy (<parameter><link linkend="GHookList"><type>GHookList</type></link> *hook_list</parameter>,
+                <parameter><link linkend="gulong"><type>gulong</type></link> hook_id</parameter>);</programlisting>
+<para>Destroys a <link linkend="GHook"><type>GHook</type></link>, given its ID.</para>
+<refsect3 id="g-hook-destroy.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>hook_list</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GHookList"><type>GHookList</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>hook_id</para></entry>
+<entry role="parameter_description"><para>a hook ID</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-hook-destroy.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if the <link linkend="GHook"><type>GHook</type></link> was found in the <link linkend="GHookList"><type>GHookList</type></link> and destroyed</para>
+</refsect3></refsect2>
+<refsect2 id="g-hook-destroy-link" role="function">
+<title>g_hook_destroy_link&#160;()</title>
+<indexterm zone="g-hook-destroy-link"><primary sortas="hook_destroy_link">g_hook_destroy_link</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_hook_destroy_link (<parameter><link linkend="GHookList"><type>GHookList</type></link> *hook_list</parameter>,
+                     <parameter><link linkend="GHook"><type>GHook</type></link> *hook</parameter>);</programlisting>
+<para>Removes one <link linkend="GHook"><type>GHook</type></link> from a <link linkend="GHookList"><type>GHookList</type></link>, marking it
+inactive and calling <link linkend="g-hook-unref"><function>g_hook_unref()</function></link> on it.</para>
+<refsect3 id="g-hook-destroy-link.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>hook_list</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GHookList"><type>GHookList</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>hook</para></entry>
+<entry role="parameter_description"><para>the <link linkend="GHook"><type>GHook</type></link> to remove</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+
+</refsect1>
+<refsect1 id="glib-Hook-Functions.other_details" role="details">
+<title role="details.title">Types and Values</title>
+<refsect2 id="GHookList" role="struct">
+<title>struct GHookList</title>
+<indexterm zone="GHookList"><primary sortas="HookList">GHookList</primary></indexterm>
+<programlisting language="C">struct GHookList {
+  gulong	    seq_id;
+  guint		    hook_size : 16;
+  guint		    is_setup : 1;
+  GHook		   *hooks;
+  gpointer	    dummy3;
+  GHookFinalizeFunc finalize_hook;
+  gpointer	    dummy[2];
+};
+</programlisting>
+<para>The <link linkend="GHookList"><type>GHookList</type></link> struct represents a list of hook functions.</para>
+<refsect3 id="GHookList.members" role="struct_members">
+<title>Members</title>
+<informaltable role="struct_members_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="struct_members_name" colwidth="300px"/>
+<colspec colname="struct_members_description"/>
+<colspec colname="struct_members_annotations" colwidth="200px"/>
+<tbody>
+<row role="member"><entry role="struct_member_name"><para><link linkend="gulong"><type>gulong</type></link>&#160;<structfield id="GHookList.seq-id">seq_id</structfield>;</para></entry>
+<entry role="struct_member_description"><para>the next free <link linkend="GHook"><type>GHook</type></link> id</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><link linkend="guint"><type>guint</type></link>&#160;<structfield id="GHookList.hook-size">hook_size</structfield>&#160;:&#160;16;</para></entry>
+<entry role="struct_member_description"><para>the size of the <link linkend="GHookList"><type>GHookList</type></link> elements, in bytes</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><link linkend="guint"><type>guint</type></link>&#160;<structfield id="GHookList.is-setup">is_setup</structfield>&#160;:&#160;1;</para></entry>
+<entry role="struct_member_description"><para>1 if the <link linkend="GHookList"><type>GHookList</type></link> has been initialized</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><link linkend="GHook"><type>GHook</type></link>&#160;*<structfield id="GHookList.hooks">hooks</structfield>;</para></entry>
+<entry role="struct_member_description"><para>the first <link linkend="GHook"><type>GHook</type></link> element in the list</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><link linkend="gpointer"><type>gpointer</type></link>&#160;<structfield id="GHookList.dummy3">dummy3</structfield>;</para></entry>
+<entry role="struct_member_description"><para>unused</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><link linkend="GHookFinalizeFunc"><type>GHookFinalizeFunc</type></link>&#160;<structfield id="GHookList.finalize-hook">finalize_hook</structfield>;</para></entry>
+<entry role="struct_member_description"><para>the function to call to finalize a <link linkend="GHook"><type>GHook</type></link> element.
+The default behaviour is to call the hooks <parameter>destroy</parameter>
+function</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><link linkend="gpointer"><type>gpointer</type></link>&#160;<structfield id="GHookList.dummy">dummy</structfield>[2];</para></entry>
+<entry role="struct_member_description"><para>unused</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+</tbody></tgroup></informaltable>
+</refsect3>
+</refsect2>
+<refsect2 id="GHook" role="struct">
+<title>struct GHook</title>
+<indexterm zone="GHook"><primary sortas="Hook">GHook</primary></indexterm>
+<programlisting language="C">struct GHook {
+  gpointer	 data;
+  GHook		*next;
+  GHook		*prev;
+  guint		 ref_count;
+  gulong	 hook_id;
+  guint		 flags;
+  gpointer	 func;
+  GDestroyNotify destroy;
+};
+</programlisting>
+<para>The <link linkend="GHook"><type>GHook</type></link> struct represents a single hook function in a <link linkend="GHookList"><type>GHookList</type></link>.</para>
+<refsect3 id="GHook.members" role="struct_members">
+<title>Members</title>
+<informaltable role="struct_members_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="struct_members_name" colwidth="300px"/>
+<colspec colname="struct_members_description"/>
+<colspec colname="struct_members_annotations" colwidth="200px"/>
+<tbody>
+<row role="member"><entry role="struct_member_name"><para><link linkend="gpointer"><type>gpointer</type></link>&#160;<structfield id="GHook.data">data</structfield>;</para></entry>
+<entry role="struct_member_description"><para>data which is passed to func when this hook is invoked</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><link linkend="GHook"><type>GHook</type></link>&#160;*<structfield id="GHook.next">next</structfield>;</para></entry>
+<entry role="struct_member_description"><para>pointer to the next hook in the list</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><link linkend="GHook"><type>GHook</type></link>&#160;*<structfield id="GHook.prev">prev</structfield>;</para></entry>
+<entry role="struct_member_description"><para>pointer to the previous hook in the list</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><link linkend="guint"><type>guint</type></link>&#160;<structfield id="GHook.ref-count">ref_count</structfield>;</para></entry>
+<entry role="struct_member_description"><para>the reference count of this hook</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><link linkend="gulong"><type>gulong</type></link>&#160;<structfield id="GHook.hook-id">hook_id</structfield>;</para></entry>
+<entry role="struct_member_description"><para>the id of this hook, which is unique within its list</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><link linkend="guint"><type>guint</type></link>&#160;<structfield id="GHook.flags">flags</structfield>;</para></entry>
+<entry role="struct_member_description"><para>flags which are set for this hook. See <link linkend="GHookFlagMask"><type>GHookFlagMask</type></link> for
+predefined flags</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><link linkend="gpointer"><type>gpointer</type></link>&#160;<structfield id="GHook.func">func</structfield>;</para></entry>
+<entry role="struct_member_description"><para>the function to call when this hook is invoked. The possible
+signatures for this function are <link linkend="GHookFunc"><type>GHookFunc</type></link> and <link linkend="GHookCheckFunc"><type>GHookCheckFunc</type></link></para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><link linkend="GDestroyNotify"><type>GDestroyNotify</type></link>&#160;<structfield id="GHook.destroy">destroy</structfield>;</para></entry>
+<entry role="struct_member_description"><para>the default <parameter>finalize_hook</parameter>
+function of a <link linkend="GHookList"><type>GHookList</type></link> calls
+this member of the hook that is being finalized</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+</tbody></tgroup></informaltable>
+</refsect3>
+</refsect2>
+<refsect2 id="GHookFlagMask" role="enum">
+<title>enum GHookFlagMask</title>
+<indexterm zone="GHookFlagMask"><primary sortas="HookFlagMask">GHookFlagMask</primary></indexterm>
+<para>Flags used internally in the <link linkend="GHook"><type>GHook</type></link> implementation.</para>
+<refsect3 id="GHookFlagMask.members" role="enum_members">
+<title>Members</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="enum_members_name" colwidth="300px"/>
+<colspec colname="enum_members_description"/>
+<colspec colname="enum_members_annotations" colwidth="200px"/>
+<tbody>
+<row role="constant"><entry role="enum_member_name"><para id="G-HOOK-FLAG-ACTIVE:CAPS">G_HOOK_FLAG_ACTIVE</para></entry>
+<entry role="enum_member_description"><para>set if the hook has not been destroyed</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-HOOK-FLAG-IN-CALL:CAPS">G_HOOK_FLAG_IN_CALL</para></entry>
+<entry role="enum_member_description"><para>set if the hook is currently being run</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-HOOK-FLAG-MASK:CAPS">G_HOOK_FLAG_MASK</para></entry>
+<entry role="enum_member_description"><para>A mask covering all bits reserved for
+  hook flags; see <link linkend="G-HOOK-FLAG-USER-SHIFT:CAPS"><literal>G_HOOK_FLAG_USER_SHIFT</literal></link></para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="G-HOOK-FLAG-USER-SHIFT:CAPS" role="macro">
+<title>G_HOOK_FLAG_USER_SHIFT</title>
+<indexterm zone="G-HOOK-FLAG-USER-SHIFT:CAPS"><primary sortas="HOOK_FLAG_USER_SHIFT">G_HOOK_FLAG_USER_SHIFT</primary></indexterm>
+<programlisting language="C">#define G_HOOK_FLAG_USER_SHIFT&#160;(4)
+</programlisting>
+<para>The position of the first bit which is not reserved for internal
+use be the <link linkend="GHook"><type>GHook</type></link> implementation, i.e.
+<literal>1 &amp;lt;&amp;lt; G_HOOK_FLAG_USER_SHIFT</literal> is the first
+bit which can be used for application-defined flags.</para>
+</refsect2>
+
+</refsect1>
+
+</refentry>

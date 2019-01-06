@@ -1,0 +1,376 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC '-//OASIS//DTD DocBook XML V4.5//EN'
+                      'http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd' [
+<!ENTITY % local.common.attrib "xmlns:xi  CDATA  #FIXED 'http://www.w3.org/2003/XInclude'">
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="GAsyncResult">
+<refmeta>
+<refentrytitle role="top_of_page" id="GAsyncResult.top_of_page">GAsyncResult</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>GIO Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>GAsyncResult</refname>
+<refpurpose>Asynchronous Function Results</refpurpose>
+</refnamediv>
+
+<refsect1 id="GAsyncResult.functions" role="functions_proto">
+<title role="functions_proto.title">Functions</title>
+<informaltable pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="functions_return" colwidth="150px"/>
+<colspec colname="functions_name"/>
+<tbody>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><phrase role="c_punctuation">(</phrase><link linkend="GAsyncReadyCallback">*GAsyncReadyCallback</link><phrase role="c_punctuation">)</phrase>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gpointer"><returnvalue>gpointer</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-async-result-get-user-data">g_async_result_get_user_data</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GObject"><returnvalue>GObject</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-async-result-get-source-object">g_async_result_get_source_object</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-async-result-is-tagged">g_async_result_is_tagged</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-async-result-legacy-propagate-error">g_async_result_legacy_propagate_error</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GAsyncResult.other" role="other_proto">
+<title role="other_proto.title">Types and Values</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="name" colwidth="150px"/>
+<colspec colname="description"/>
+<tbody>
+<row><entry role="datatype_keyword"></entry><entry role="function_name"><link linkend="GAsyncResult-struct">GAsyncResult</link></entry></row>
+<row><entry role="datatype_keyword">struct</entry><entry role="function_name"><link linkend="GAsyncResultIface">GAsyncResultIface</link></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GAsyncResult.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<screen>    <link linkend="GInterface">GInterface</link>
+    <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> GAsyncResult
+</screen>
+</refsect1>
+<refsect1 id="GAsyncResult.prerequisites" role="prerequisites">
+<title role="prerequisites.title">Prerequisites</title>
+<para>
+GAsyncResult requires
+ <link linkend="GObject">GObject</link>.</para>
+
+</refsect1>
+<refsect1 id="GAsyncResult.implementations" role="implementations">
+<title role="implementations.title">Known Implementations</title>
+<para>
+GAsyncResult is implemented by
+ <link linkend="GSimpleAsyncResult">GSimpleAsyncResult</link> and  <link linkend="GTask">GTask</link>.</para>
+
+</refsect1>
+
+<refsect1 id="GAsyncResult.includes"><title>Includes</title><synopsis>#include &lt;gio/gio.h&gt;
+</synopsis></refsect1>
+
+<refsect1 id="GAsyncResult.description" role="desc">
+<title role="desc.title">Description</title>
+<para>Provides a base class for implementing asynchronous function results.</para>
+<para>Asynchronous operations are broken up into two separate operations
+which are chained together by a <link linkend="GAsyncReadyCallback"><type>GAsyncReadyCallback</type></link>. To begin
+an asynchronous operation, provide a <link linkend="GAsyncReadyCallback"><type>GAsyncReadyCallback</type></link> to the
+asynchronous function. This callback will be triggered when the
+operation has completed, and must be run in a later iteration of
+the <link linkend="g-main-context-push-thread-default">thread-default main context</link>
+from where the operation was initiated. It will be passed a
+<link linkend="GAsyncResult"><type>GAsyncResult</type></link> instance filled with the details of the operation's
+success or failure, the object the asynchronous function was
+started for and any error codes returned. The asynchronous callback
+function is then expected to call the corresponding "<link linkend="finish"><function>_finish()</function></link>"
+function, passing the object the function was called for, the
+<link linkend="GAsyncResult"><type>GAsyncResult</type></link> instance, and (optionally) an <parameter>error</parameter>
+ to grab any
+error conditions that may have occurred.</para>
+<para>The "<link linkend="finish"><function>_finish()</function></link>" function for an operation takes the generic result
+(of type <link linkend="GAsyncResult"><type>GAsyncResult</type></link>) and returns the specific result that the
+operation in question yields (e.g. a <link linkend="GFileEnumerator"><type>GFileEnumerator</type></link> for a
+"enumerate children" operation). If the result or error status of the
+operation is not needed, there is no need to call the "<link linkend="finish"><function>_finish()</function></link>"
+function; GIO will take care of cleaning up the result and error
+information after the <link linkend="GAsyncReadyCallback"><type>GAsyncReadyCallback</type></link> returns. You can pass
+<link linkend="NULL:CAPS"><literal>NULL</literal></link> for the <link linkend="GAsyncReadyCallback"><type>GAsyncReadyCallback</type></link> if you don't need to take any
+action at all after the operation completes. Applications may also
+take a reference to the <link linkend="GAsyncResult"><type>GAsyncResult</type></link> and call "<link linkend="finish"><function>_finish()</function></link>" later;
+however, the "<link linkend="finish"><function>_finish()</function></link>" function may be called at most once.</para>
+<para>Example of a typical asynchronous operation flow:</para>
+<informalexample><programlisting role="example"><![CDATA[
+void _theoretical_frobnitz_async (Theoretical         *t,
+                                  GCancellable        *c,
+                                  GAsyncReadyCallback  cb,
+                                  gpointer             u);
+
+gboolean _theoretical_frobnitz_finish (Theoretical   *t,
+                                       GAsyncResult  *res,
+                                       GError       **e);
+
+static void
+frobnitz_result_func (GObject      *source_object,
+		 GAsyncResult *res,
+		 gpointer      user_data)
+{
+  gboolean success = FALSE;
+
+  success = _theoretical_frobnitz_finish (source_object, res, NULL);
+
+  if (success)
+    g_printf ("Hurray!\n");
+  else
+    g_printf ("Uh oh!\n");
+
+  ...
+
+}
+
+int main (int argc, void *argv[])
+{
+   ...
+
+   _theoretical_frobnitz_async (theoretical_data,
+                                NULL,
+                                frobnitz_result_func,
+                                NULL);
+
+   ...
+}
+]]></programlisting></informalexample>
+<para></para>
+<para>The callback for an asynchronous operation is called only once, and is
+always called, even in the case of a cancelled operation. On cancellation
+the result is a <link linkend="G-IO-ERROR-CANCELLED:CAPS"><literal>G_IO_ERROR_CANCELLED</literal></link> error.</para>
+<refsect3 id="io-priority"><title>I/O Priority</title><para>Many I/O-related asynchronous operations have a priority parameter,
+which is used in certain cases to determine the order in which
+operations are executed. They are not used to determine system-wide
+I/O scheduling. Priorities are integers, with lower numbers indicating
+higher priority. It is recommended to choose priorities between
+<link linkend="G-PRIORITY-LOW:CAPS"><literal>G_PRIORITY_LOW</literal></link> and <link linkend="G-PRIORITY-HIGH:CAPS"><literal>G_PRIORITY_HIGH</literal></link>, with <link linkend="G-PRIORITY-DEFAULT:CAPS"><literal>G_PRIORITY_DEFAULT</literal></link>
+as a default.</para>
+</refsect3>
+
+</refsect1>
+<refsect1 id="GAsyncResult.functions_details" role="details">
+<title role="details.title">Functions</title>
+<refsect2 id="GAsyncReadyCallback" role="function">
+<title>GAsyncReadyCallback&#160;()</title>
+<indexterm zone="GAsyncReadyCallback"><primary sortas="AsyncReadyCallback">GAsyncReadyCallback</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+<phrase role="c_punctuation">(</phrase>*GAsyncReadyCallback<phrase role="c_punctuation">)</phrase> (<parameter><link linkend="GObject"><type>GObject</type></link> *source_object</parameter>,
+                        <parameter><link linkend="GAsyncResult"><type>GAsyncResult</type></link> *res</parameter>,
+                        <parameter><link linkend="gpointer"><type>gpointer</type></link> user_data</parameter>);</programlisting>
+<para>Type definition for a function that will be called back when an asynchronous
+operation within GIO has been completed. <link linkend="GAsyncReadyCallback"><type>GAsyncReadyCallback</type></link>
+callbacks from <link linkend="GTask"><type>GTask</type></link> are guaranteed to be invoked in a later
+iteration of the
+<link linkend="g-main-context-push-thread-default">thread-default main context</link>
+where the <link linkend="GTask"><type>GTask</type></link> was created. All other users of
+<link linkend="GAsyncReadyCallback"><type>GAsyncReadyCallback</type></link> must likewise call it asynchronously in a
+later iteration of the main context.</para>
+<refsect3 id="GAsyncReadyCallback.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>source_object</para></entry>
+<entry role="parameter_description"><para>the object the asynchronous operation was started with. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>res</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GAsyncResult"><type>GAsyncResult</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>user_data</para></entry>
+<entry role="parameter_description"><para>user data passed to the callback.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-async-result-get-user-data" role="function">
+<title>g_async_result_get_user_data&#160;()</title>
+<indexterm zone="g-async-result-get-user-data"><primary sortas="async_result_get_user_data">g_async_result_get_user_data</primary></indexterm>
+<programlisting language="C"><link linkend="gpointer"><returnvalue>gpointer</returnvalue></link>
+g_async_result_get_user_data (<parameter><link linkend="GAsyncResult"><type>GAsyncResult</type></link> *res</parameter>);</programlisting>
+<para>Gets the user data from a <link linkend="GAsyncResult"><type>GAsyncResult</type></link>.</para>
+<refsect3 id="g-async-result-get-user-data.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>res</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GAsyncResult"><type>GAsyncResult</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-async-result-get-user-data.returns" role="returns">
+<title>Returns</title>
+<para>the user data for <parameter>res</parameter>
+. </para>
+<para><emphasis role="annotation">[<acronym>transfer full</acronym>]</emphasis></para>
+</refsect3></refsect2>
+<refsect2 id="g-async-result-get-source-object" role="function">
+<title>g_async_result_get_source_object&#160;()</title>
+<indexterm zone="g-async-result-get-source-object"><primary sortas="async_result_get_source_object">g_async_result_get_source_object</primary></indexterm>
+<programlisting language="C"><link linkend="GObject"><returnvalue>GObject</returnvalue></link>&#160;*
+g_async_result_get_source_object (<parameter><link linkend="GAsyncResult"><type>GAsyncResult</type></link> *res</parameter>);</programlisting>
+<para>Gets the source object from a <link linkend="GAsyncResult"><type>GAsyncResult</type></link>.</para>
+<refsect3 id="g-async-result-get-source-object.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>res</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GAsyncResult"><type>GAsyncResult</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-async-result-get-source-object.returns" role="returns">
+<title>Returns</title>
+<para>a new reference to the source
+object for the <parameter>res</parameter>
+, or <link linkend="NULL:CAPS"><literal>NULL</literal></link> if there is none. </para>
+<para><emphasis role="annotation">[<acronym>transfer full</acronym>][<acronym>nullable</acronym>]</emphasis></para>
+</refsect3></refsect2>
+<refsect2 id="g-async-result-is-tagged" role="function" condition="since:2.34">
+<title>g_async_result_is_tagged&#160;()</title>
+<indexterm zone="g-async-result-is-tagged" role="2.34"><primary sortas="async_result_is_tagged">g_async_result_is_tagged</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_async_result_is_tagged (<parameter><link linkend="GAsyncResult"><type>GAsyncResult</type></link> *res</parameter>,
+                          <parameter><link linkend="gpointer"><type>gpointer</type></link> source_tag</parameter>);</programlisting>
+<para>Checks if <parameter>res</parameter>
+ has the given <parameter>source_tag</parameter>
+ (generally a function
+pointer indicating the function <parameter>res</parameter>
+ was created by).</para>
+<refsect3 id="g-async-result-is-tagged.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>res</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GAsyncResult"><type>GAsyncResult</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>source_tag</para></entry>
+<entry role="parameter_description"><para>an application-defined tag</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-async-result-is-tagged.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if <parameter>res</parameter>
+has the indicated <parameter>source_tag</parameter>
+, <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> if
+not.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.34">2.34</link></para></refsect2>
+<refsect2 id="g-async-result-legacy-propagate-error" role="function" condition="since:2.34">
+<title>g_async_result_legacy_propagate_error&#160;()</title>
+<indexterm zone="g-async-result-legacy-propagate-error" role="2.34"><primary sortas="async_result_legacy_propagate_error">g_async_result_legacy_propagate_error</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_async_result_legacy_propagate_error (<parameter><link linkend="GAsyncResult"><type>GAsyncResult</type></link> *res</parameter>,
+                                       <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para>If <parameter>res</parameter>
+ is a <link linkend="GSimpleAsyncResult"><type>GSimpleAsyncResult</type></link>, this is equivalent to
+<link linkend="g-simple-async-result-propagate-error"><function>g_simple_async_result_propagate_error()</function></link>. Otherwise it returns
+<link linkend="FALSE:CAPS"><literal>FALSE</literal></link>.</para>
+<para>This can be used for legacy error handling in async *_finish()
+wrapper functions that traditionally handled <link linkend="GSimpleAsyncResult"><type>GSimpleAsyncResult</type></link>
+error returns themselves rather than calling into the virtual method.
+This should not be used in new code; <link linkend="GAsyncResult"><type>GAsyncResult</type></link> errors that are
+set by virtual methods should also be extracted by virtual methods,
+to enable subclasses to chain up correctly.</para>
+<refsect3 id="g-async-result-legacy-propagate-error.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>res</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GAsyncResult"><type>GAsyncResult</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para>a location to propagate the error to. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>out</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-async-result-legacy-propagate-error.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if <parameter>error</parameter>
+is has been filled in with an error from
+<parameter>res</parameter>
+, <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> if not.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.34">2.34</link></para></refsect2>
+
+</refsect1>
+<refsect1 id="GAsyncResult.other_details" role="details">
+<title role="details.title">Types and Values</title>
+<refsect2 id="GAsyncResult-struct" role="struct">
+<title>GAsyncResult</title>
+<indexterm zone="GAsyncResult-struct"><primary sortas="AsyncResult">GAsyncResult</primary></indexterm>
+<programlisting language="C">typedef struct _GAsyncResult GAsyncResult;</programlisting>
+<para>Holds results information for an asynchronous operation,
+usually passed directly to a asynchronous <link linkend="finish"><function>_finish()</function></link> operation.</para>
+</refsect2>
+<refsect2 id="GAsyncResultIface" role="struct">
+<title>struct GAsyncResultIface</title>
+<indexterm zone="GAsyncResultIface"><primary sortas="AsyncResultIface">GAsyncResultIface</primary></indexterm>
+<programlisting language="C">struct GAsyncResultIface {
+  GTypeInterface g_iface;
+
+  /* Virtual Table */
+
+  gpointer  (* get_user_data)     (GAsyncResult *res);
+  GObject * (* get_source_object) (GAsyncResult *res);
+
+  gboolean  (* is_tagged)         (GAsyncResult *res,
+				   gpointer      source_tag);
+};
+</programlisting>
+<para>Interface definition for <link linkend="GAsyncResult"><type>GAsyncResult</type></link>.</para>
+<refsect3 id="GAsyncResultIface.members" role="struct_members">
+<title>Members</title>
+<informaltable role="struct_members_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="struct_members_name" colwidth="300px"/>
+<colspec colname="struct_members_description"/>
+<colspec colname="struct_members_annotations" colwidth="200px"/>
+<tbody>
+<row role="member"><entry role="struct_member_name"><para><structfield id="GAsyncResultIface.get-user-data">get_user_data</structfield>&#160;()</para></entry>
+<entry role="struct_member_description"><para>Gets the user data passed to the callback.</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><structfield id="GAsyncResultIface.get-source-object">get_source_object</structfield>&#160;()</para></entry>
+<entry role="struct_member_description"><para>Gets the source object that issued the asynchronous operation.</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><structfield id="GAsyncResultIface.is-tagged">is_tagged</structfield>&#160;()</para></entry>
+<entry role="struct_member_description"><para>Checks if a result is tagged with a particular source.</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+</tbody></tgroup></informaltable>
+</refsect3>
+</refsect2>
+
+</refsect1>
+<refsect1 id="GAsyncResult.see-also">
+<title>See Also</title>
+<para><link linkend="GTask"><type>GTask</type></link></para>
+
+</refsect1>
+
+</refentry>

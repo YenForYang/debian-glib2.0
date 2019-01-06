@@ -1,0 +1,927 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC '-//OASIS//DTD DocBook XML V4.5//EN'
+                      'http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd' [
+<!ENTITY % local.common.attrib "xmlns:xi  CDATA  #FIXED 'http://www.w3.org/2003/XInclude'">
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="gio-GSettingsSchema-GSettingsSchemaSource">
+<refmeta>
+<refentrytitle role="top_of_page" id="gio-GSettingsSchema-GSettingsSchemaSource.top_of_page">GSettingsSchema, GSettingsSchemaSource</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>GIO Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>GSettingsSchema, GSettingsSchemaSource</refname>
+<refpurpose>Introspecting and controlling the loading
+    of GSettings schemas</refpurpose>
+</refnamediv>
+
+<refsect1 id="gio-GSettingsSchema-GSettingsSchemaSource.functions" role="functions_proto">
+<title role="functions_proto.title">Functions</title>
+<informaltable pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="functions_return" colwidth="150px"/>
+<colspec colname="functions_name"/>
+<tbody>
+<row><entry role="function_type"><link linkend="GSettingsSchemaSource"><returnvalue>GSettingsSchemaSource</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-settings-schema-source-get-default">g_settings_schema_source_get_default</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GSettingsSchemaSource"><returnvalue>GSettingsSchemaSource</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-settings-schema-source-ref">g_settings_schema_source_ref</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-settings-schema-source-unref">g_settings_schema_source_unref</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+<row><entry role="function_type"><link linkend="GSettingsSchemaSource"><returnvalue>GSettingsSchemaSource</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-settings-schema-source-new-from-directory">g_settings_schema_source_new_from_directory</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-settings-schema-source-list-schemas">g_settings_schema_source_list_schemas</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GSettingsSchema"><returnvalue>GSettingsSchema</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-settings-schema-source-lookup">g_settings_schema_source_lookup</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+<row><entry role="function_type"><link linkend="GSettingsSchema"><returnvalue>GSettingsSchema</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-settings-schema-ref">g_settings_schema_ref</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-settings-schema-unref">g_settings_schema_unref</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+<row><entry role="function_type">const <link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-settings-schema-get-id">g_settings_schema_get_id</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type">const <link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-settings-schema-get-path">g_settings_schema_get_path</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-settings-schema-has-key">g_settings_schema_has_key</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GSettingsSchemaKey"><returnvalue>GSettingsSchemaKey</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-settings-schema-get-key">g_settings_schema_get_key</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GSettingsSchemaKey"><returnvalue>GSettingsSchemaKey</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-settings-schema-key-ref">g_settings_schema_key_ref</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-settings-schema-key-unref">g_settings_schema_key_unref</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;**
+</entry><entry role="function_name"><link linkend="g-settings-schema-list-children">g_settings_schema_list_children</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;**
+</entry><entry role="function_name"><link linkend="g-settings-schema-list-keys">g_settings_schema_list_keys</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+<row><entry role="function_type">const <link linkend="GVariantType"><returnvalue>GVariantType</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-settings-schema-key-get-value-type">g_settings_schema_key_get_value_type</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GVariant"><returnvalue>GVariant</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-settings-schema-key-get-default-value">g_settings_schema_key_get_default_value</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GVariant"><returnvalue>GVariant</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-settings-schema-key-get-range">g_settings_schema_key_get_range</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-settings-schema-key-range-check">g_settings_schema_key_range_check</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+<row><entry role="function_type">const <link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-settings-schema-key-get-name">g_settings_schema_key_get_name</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type">const <link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-settings-schema-key-get-summary">g_settings_schema_key_get_summary</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type">const <link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-settings-schema-key-get-description">g_settings_schema_key_get_description</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<anchor id="GSettingsSchemaSource"/><anchor id="GSettingsSchema"/><anchor id="GSettingsSchemaKey"/><refsect1 id="gio-GSettingsSchema-GSettingsSchemaSource.other" role="other_proto">
+<title role="other_proto.title">Types and Values</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="name" colwidth="150px"/>
+<colspec colname="description"/>
+<tbody>
+<row><entry role="datatype_keyword"></entry><entry role="function_name"><link linkend="GSettingsSchemaSource-struct">GSettingsSchemaSource</link></entry></row>
+
+
+
+<row><entry role="datatype_keyword"></entry><entry role="function_name"><link linkend="GSettingsSchema-struct">GSettingsSchema</link></entry></row>
+
+
+<row><entry role="datatype_keyword"></entry><entry role="function_name"><link linkend="GSettingsSchemaKey-struct">GSettingsSchemaKey</link></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="gio-GSettingsSchema-GSettingsSchemaSource.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<screen>    <link linkend="GBoxed">GBoxed</link>
+    <phrase role="lineart">&#9500;&#9472;&#9472;</phrase> GSettingsSchema
+    <phrase role="lineart">&#9500;&#9472;&#9472;</phrase> GSettingsSchemaKey
+    <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> GSettingsSchemaSource
+</screen>
+</refsect1>
+
+<refsect1 id="gio-GSettingsSchema-GSettingsSchemaSource.includes"><title>Includes</title><synopsis>#include &lt;gio/gio.h&gt;
+</synopsis></refsect1>
+
+<refsect1 id="gio-GSettingsSchema-GSettingsSchemaSource.description" role="desc">
+<title role="desc.title">Description</title>
+<para>The <link linkend="GSettingsSchemaSource"><type>GSettingsSchemaSource</type></link> and <link linkend="GSettingsSchema"><type>GSettingsSchema</type></link> APIs provide a
+mechanism for advanced control over the loading of schemas and a
+mechanism for introspecting their content.</para>
+<para>Plugin loading systems that wish to provide plugins a way to access
+settings face the problem of how to make the schemas for these
+settings visible to GSettings.  Typically, a plugin will want to ship
+the schema along with itself and it won't be installed into the
+standard system directories for schemas.</para>
+<para><link linkend="GSettingsSchemaSource"><type>GSettingsSchemaSource</type></link> provides a mechanism for dealing with this by
+allowing the creation of a new 'schema source' from which schemas can
+be acquired.  This schema source can then become part of the metadata
+associated with the plugin and queried whenever the plugin requires
+access to some settings.</para>
+<para>Consider the following example:</para>
+<informalexample><programlisting role="example"><![CDATA[
+typedef struct
+{
+   ...
+   GSettingsSchemaSource *schema_source;
+   ...
+} Plugin;
+
+Plugin *
+initialise_plugin (const gchar *dir)
+{
+  Plugin *plugin;
+
+  ...
+
+  plugin->schema_source =
+    g_settings_schema_source_new_from_directory (dir,
+      g_settings_schema_source_get_default (), FALSE, NULL);
+
+  ...
+
+  return plugin;
+}
+
+...
+
+GSettings *
+plugin_get_settings (Plugin      *plugin,
+                     const gchar *schema_id)
+{
+  GSettingsSchema *schema;
+
+  if (schema_id == NULL)
+    schema_id = plugin->identifier;
+
+  schema = g_settings_schema_source_lookup (plugin->schema_source,
+                                            schema_id, FALSE);
+
+  if (schema == NULL)
+    {
+      ... disable the plugin or abort, etc ...
+    }
+
+  return g_settings_new_full (schema, NULL, NULL);
+}
+]]></programlisting></informalexample>
+<para></para>
+<para>The code above shows how hooks should be added to the code that
+initialises (or enables) the plugin to create the schema source and
+how an API can be added to the plugin system to provide a convenient
+way for the plugin to access its settings, using the schemas that it
+ships.</para>
+<para>From the standpoint of the plugin, it would need to ensure that it
+ships a gschemas.compiled file as part of itself, and then simply do
+the following:</para>
+<informalexample><programlisting role="example"><![CDATA[
+{
+  GSettings *settings;
+  gint some_value;
+
+  settings = plugin_get_settings (self, NULL);
+  some_value = g_settings_get_int (settings, "some-value");
+  ...
+}
+]]></programlisting></informalexample>
+<para></para>
+<para>It's also possible that the plugin system expects the schema source
+files (ie: .gschema.xml files) instead of a gschemas.compiled file.
+In that case, the plugin loading system must compile the schemas for
+itself before attempting to create the settings source.</para>
+
+</refsect1>
+<refsect1 id="gio-GSettingsSchema-GSettingsSchemaSource.functions_details" role="details">
+<title role="details.title">Functions</title>
+<refsect2 id="g-settings-schema-source-get-default" role="function" condition="since:2.32">
+<title>g_settings_schema_source_get_default&#160;()</title>
+<indexterm zone="g-settings-schema-source-get-default" role="2.32"><primary sortas="settings_schema_source_get_default">g_settings_schema_source_get_default</primary></indexterm>
+<programlisting language="C"><link linkend="GSettingsSchemaSource"><returnvalue>GSettingsSchemaSource</returnvalue></link>&#160;*
+g_settings_schema_source_get_default (<parameter><type>void</type></parameter>);</programlisting>
+<para>Gets the default system schema source.</para>
+<para>This function is not required for normal uses of <link linkend="GSettings"><type>GSettings</type></link> but it
+may be useful to authors of plugin management systems or to those who
+want to introspect the content of schemas.</para>
+<para>If no schemas are installed, <link linkend="NULL:CAPS"><literal>NULL</literal></link> will be returned.</para>
+<para>The returned source may actually consist of multiple schema sources
+from different directories, depending on which directories were given
+in <literal>XDG_DATA_DIRS</literal> and <literal>GSETTINGS_SCHEMA_DIR</literal>. For this reason, all
+lookups performed against the default source should probably be done
+recursively.</para>
+<refsect3 id="g-settings-schema-source-get-default.returns" role="returns">
+<title>Returns</title>
+<para>the default schema source. </para>
+<para><emphasis role="annotation">[<acronym>transfer none</acronym>][<acronym>nullable</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.32">2.32</link></para></refsect2>
+<refsect2 id="g-settings-schema-source-ref" role="function" condition="since:2.32">
+<title>g_settings_schema_source_ref&#160;()</title>
+<indexterm zone="g-settings-schema-source-ref" role="2.32"><primary sortas="settings_schema_source_ref">g_settings_schema_source_ref</primary></indexterm>
+<programlisting language="C"><link linkend="GSettingsSchemaSource"><returnvalue>GSettingsSchemaSource</returnvalue></link>&#160;*
+g_settings_schema_source_ref (<parameter><link linkend="GSettingsSchemaSource"><type>GSettingsSchemaSource</type></link> *source</parameter>);</programlisting>
+<para>Increase the reference count of <parameter>source</parameter>
+, returning a new reference.</para>
+<refsect3 id="g-settings-schema-source-ref.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>source</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSettingsSchemaSource"><type>GSettingsSchemaSource</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-settings-schema-source-ref.returns" role="returns">
+<title>Returns</title>
+<para> a new reference to <parameter>source</parameter>
+</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.32">2.32</link></para></refsect2>
+<refsect2 id="g-settings-schema-source-unref" role="function" condition="since:2.32">
+<title>g_settings_schema_source_unref&#160;()</title>
+<indexterm zone="g-settings-schema-source-unref" role="2.32"><primary sortas="settings_schema_source_unref">g_settings_schema_source_unref</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_settings_schema_source_unref (<parameter><link linkend="GSettingsSchemaSource"><type>GSettingsSchemaSource</type></link> *source</parameter>);</programlisting>
+<para>Decrease the reference count of <parameter>source</parameter>
+, possibly freeing it.</para>
+<refsect3 id="g-settings-schema-source-unref.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>source</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSettingsSchemaSource"><type>GSettingsSchemaSource</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.32">2.32</link></para></refsect2>
+<refsect2 id="g-settings-schema-source-new-from-directory" role="function" condition="since:2.32">
+<title>g_settings_schema_source_new_from_directory&#160;()</title>
+<indexterm zone="g-settings-schema-source-new-from-directory" role="2.32"><primary sortas="settings_schema_source_new_from_directory">g_settings_schema_source_new_from_directory</primary></indexterm>
+<programlisting language="C"><link linkend="GSettingsSchemaSource"><returnvalue>GSettingsSchemaSource</returnvalue></link>&#160;*
+g_settings_schema_source_new_from_directory
+                               (<parameter>const <link linkend="gchar"><type>gchar</type></link> *directory</parameter>,
+                                <parameter><link linkend="GSettingsSchemaSource"><type>GSettingsSchemaSource</type></link> *parent</parameter>,
+                                <parameter><link linkend="gboolean"><type>gboolean</type></link> trusted</parameter>,
+                                <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para>Attempts to create a new schema source corresponding to the contents
+of the given directory.</para>
+<para>This function is not required for normal uses of <link linkend="GSettings"><type>GSettings</type></link> but it
+may be useful to authors of plugin management systems.</para>
+<para>The directory should contain a file called <literal>gschemas.compiled</literal> as
+produced by the <link linkend="glib-compile-schemas">glib-compile-schemas</link> tool.</para>
+<para>If <parameter>trusted</parameter>
+ is <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> then <literal>gschemas.compiled</literal> is trusted not to be
+corrupted. This assumption has a performance advantage, but can result
+in crashes or inconsistent behaviour in the case of a corrupted file.
+Generally, you should set <parameter>trusted</parameter>
+ to <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> for files installed by the
+system and to <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> for files in the home directory.</para>
+<para>In either case, an empty file or some types of corruption in the file will
+result in <link linkend="G-FILE-ERROR-INVAL:CAPS"><literal>G_FILE_ERROR_INVAL</literal></link> being returned.</para>
+<para>If <parameter>parent</parameter>
+ is non-<link linkend="NULL:CAPS"><literal>NULL</literal></link> then there are two effects.</para>
+<para>First, if <link linkend="g-settings-schema-source-lookup"><function>g_settings_schema_source_lookup()</function></link> is called with the
+<parameter>recursive</parameter>
+ flag set to <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> and the schema can not be found in the
+source, the lookup will recurse to the parent.</para>
+<para>Second, any references to other schemas specified within this
+source (ie: <literal>child</literal> or <literal>extends</literal>) references may be resolved
+from the <parameter>parent</parameter>
+.</para>
+<para>For this second reason, except in very unusual situations, the
+<parameter>parent</parameter>
+ should probably be given as the default schema source, as
+returned by <link linkend="g-settings-schema-source-get-default"><function>g_settings_schema_source_get_default()</function></link>.</para>
+<refsect3 id="g-settings-schema-source-new-from-directory.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>directory</para></entry>
+<entry role="parameter_description"><para>the filename of a directory. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>type</acronym> filename]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>parent</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSettingsSchemaSource"><type>GSettingsSchemaSource</type></link>, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>trusted</para></entry>
+<entry role="parameter_description"><para><link linkend="TRUE:CAPS"><literal>TRUE</literal></link>, if the directory is trusted</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para>a pointer to a <link linkend="GError"><type>GError</type></link> pointer set to <link linkend="NULL:CAPS"><literal>NULL</literal></link>, or <link linkend="NULL:CAPS"><literal>NULL</literal></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.32">2.32</link></para></refsect2>
+<refsect2 id="g-settings-schema-source-list-schemas" role="function" condition="since:2.40">
+<title>g_settings_schema_source_list_schemas&#160;()</title>
+<indexterm zone="g-settings-schema-source-list-schemas" role="2.40"><primary sortas="settings_schema_source_list_schemas">g_settings_schema_source_list_schemas</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_settings_schema_source_list_schemas (<parameter><link linkend="GSettingsSchemaSource"><type>GSettingsSchemaSource</type></link> *source</parameter>,
+                                       <parameter><link linkend="gboolean"><type>gboolean</type></link> recursive</parameter>,
+                                       <parameter><link linkend="gchar"><type>gchar</type></link> ***non_relocatable</parameter>,
+                                       <parameter><link linkend="gchar"><type>gchar</type></link> ***relocatable</parameter>);</programlisting>
+<para>Lists the schemas in a given source.</para>
+<para>If <parameter>recursive</parameter>
+ is <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> then include parent sources.  If <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> then
+only include the schemas from one source (ie: one directory).  You
+probably want <link linkend="TRUE:CAPS"><literal>TRUE</literal></link>.</para>
+<para>Non-relocatable schemas are those for which you can call
+<link linkend="g-settings-new"><function>g_settings_new()</function></link>.  Relocatable schemas are those for which you must
+use <link linkend="g-settings-new-with-path"><function>g_settings_new_with_path()</function></link>.</para>
+<para>Do not call this function from normal programs.  This is designed for
+use by database editors, commandline tools, etc.</para>
+<refsect3 id="g-settings-schema-source-list-schemas.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>source</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSettingsSchemaSource"><type>GSettingsSchemaSource</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>recursive</para></entry>
+<entry role="parameter_description"><para>if we should recurse</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>non_relocatable</para></entry>
+<entry role="parameter_description"><para>the
+list of non-relocatable schemas. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>out</acronym>][<acronym>transfer full</acronym>][<acronym>array</acronym> zero-terminated=1]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>relocatable</para></entry>
+<entry role="parameter_description"><para>the list
+of relocatable schemas. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>out</acronym>][<acronym>transfer full</acronym>][<acronym>array</acronym> zero-terminated=1]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.40">2.40</link></para></refsect2>
+<refsect2 id="g-settings-schema-source-lookup" role="function" condition="since:2.32">
+<title>g_settings_schema_source_lookup&#160;()</title>
+<indexterm zone="g-settings-schema-source-lookup" role="2.32"><primary sortas="settings_schema_source_lookup">g_settings_schema_source_lookup</primary></indexterm>
+<programlisting language="C"><link linkend="GSettingsSchema"><returnvalue>GSettingsSchema</returnvalue></link>&#160;*
+g_settings_schema_source_lookup (<parameter><link linkend="GSettingsSchemaSource"><type>GSettingsSchemaSource</type></link> *source</parameter>,
+                                 <parameter>const <link linkend="gchar"><type>gchar</type></link> *schema_id</parameter>,
+                                 <parameter><link linkend="gboolean"><type>gboolean</type></link> recursive</parameter>);</programlisting>
+<para>Looks up a schema with the identifier <parameter>schema_id</parameter>
+ in <parameter>source</parameter>
+.</para>
+<para>This function is not required for normal uses of <link linkend="GSettings"><type>GSettings</type></link> but it
+may be useful to authors of plugin management systems or to those who
+want to introspect the content of schemas.</para>
+<para>If the schema isn't found directly in <parameter>source</parameter>
+ and <parameter>recursive</parameter>
+ is <link linkend="TRUE:CAPS"><literal>TRUE</literal></link>
+then the parent sources will also be checked.</para>
+<para>If the schema isn't found, <link linkend="NULL:CAPS"><literal>NULL</literal></link> is returned.</para>
+<refsect3 id="g-settings-schema-source-lookup.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>source</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSettingsSchemaSource"><type>GSettingsSchemaSource</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>schema_id</para></entry>
+<entry role="parameter_description"><para>a schema ID</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>recursive</para></entry>
+<entry role="parameter_description"><para><link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if the lookup should be recursive</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-settings-schema-source-lookup.returns" role="returns">
+<title>Returns</title>
+<para>a new <link linkend="GSettingsSchema"><type>GSettingsSchema</type></link>. </para>
+<para><emphasis role="annotation">[<acronym>nullable</acronym>][<acronym>transfer full</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.32">2.32</link></para></refsect2>
+<refsect2 id="g-settings-schema-ref" role="function" condition="since:2.32">
+<title>g_settings_schema_ref&#160;()</title>
+<indexterm zone="g-settings-schema-ref" role="2.32"><primary sortas="settings_schema_ref">g_settings_schema_ref</primary></indexterm>
+<programlisting language="C"><link linkend="GSettingsSchema"><returnvalue>GSettingsSchema</returnvalue></link>&#160;*
+g_settings_schema_ref (<parameter><link linkend="GSettingsSchema"><type>GSettingsSchema</type></link> *schema</parameter>);</programlisting>
+<para>Increase the reference count of <parameter>schema</parameter>
+, returning a new reference.</para>
+<refsect3 id="g-settings-schema-ref.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>schema</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSettingsSchema"><type>GSettingsSchema</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-settings-schema-ref.returns" role="returns">
+<title>Returns</title>
+<para> a new reference to <parameter>schema</parameter>
+</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.32">2.32</link></para></refsect2>
+<refsect2 id="g-settings-schema-unref" role="function" condition="since:2.32">
+<title>g_settings_schema_unref&#160;()</title>
+<indexterm zone="g-settings-schema-unref" role="2.32"><primary sortas="settings_schema_unref">g_settings_schema_unref</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_settings_schema_unref (<parameter><link linkend="GSettingsSchema"><type>GSettingsSchema</type></link> *schema</parameter>);</programlisting>
+<para>Decrease the reference count of <parameter>schema</parameter>
+, possibly freeing it.</para>
+<refsect3 id="g-settings-schema-unref.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>schema</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSettingsSchema"><type>GSettingsSchema</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.32">2.32</link></para></refsect2>
+<refsect2 id="g-settings-schema-get-id" role="function">
+<title>g_settings_schema_get_id&#160;()</title>
+<indexterm zone="g-settings-schema-get-id"><primary sortas="settings_schema_get_id">g_settings_schema_get_id</primary></indexterm>
+<programlisting language="C">const <link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+g_settings_schema_get_id (<parameter><link linkend="GSettingsSchema"><type>GSettingsSchema</type></link> *schema</parameter>);</programlisting>
+<para>Get the ID of <parameter>schema</parameter>
+.</para>
+<refsect3 id="g-settings-schema-get-id.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>schema</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSettingsSchema"><type>GSettingsSchema</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-settings-schema-get-id.returns" role="returns">
+<title>Returns</title>
+<para>the ID. </para>
+<para><emphasis role="annotation">[<acronym>transfer none</acronym>]</emphasis></para>
+</refsect3></refsect2>
+<refsect2 id="g-settings-schema-get-path" role="function" condition="since:2.32">
+<title>g_settings_schema_get_path&#160;()</title>
+<indexterm zone="g-settings-schema-get-path" role="2.32"><primary sortas="settings_schema_get_path">g_settings_schema_get_path</primary></indexterm>
+<programlisting language="C">const <link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+g_settings_schema_get_path (<parameter><link linkend="GSettingsSchema"><type>GSettingsSchema</type></link> *schema</parameter>);</programlisting>
+<para>Gets the path associated with <parameter>schema</parameter>
+, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>.</para>
+<para>Schemas may be single-instance or relocatable.  Single-instance
+schemas correspond to exactly one set of keys in the backend
+database: those located at the path returned by this function.</para>
+<para>Relocatable schemas can be referenced by other schemas and can
+threfore describe multiple sets of keys at different locations.  For
+relocatable schemas, this function will return <link linkend="NULL:CAPS"><literal>NULL</literal></link>.</para>
+<refsect3 id="g-settings-schema-get-path.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>schema</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSettingsSchema"><type>GSettingsSchema</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-settings-schema-get-path.returns" role="returns">
+<title>Returns</title>
+<para>the path of the schema, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para>
+<para><emphasis role="annotation">[<acronym>transfer none</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.32">2.32</link></para></refsect2>
+<refsect2 id="g-settings-schema-has-key" role="function" condition="since:2.40">
+<title>g_settings_schema_has_key&#160;()</title>
+<indexterm zone="g-settings-schema-has-key" role="2.40"><primary sortas="settings_schema_has_key">g_settings_schema_has_key</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_settings_schema_has_key (<parameter><link linkend="GSettingsSchema"><type>GSettingsSchema</type></link> *schema</parameter>,
+                           <parameter>const <link linkend="gchar"><type>gchar</type></link> *name</parameter>);</programlisting>
+<para>Checks if <parameter>schema</parameter>
+ has a key named <parameter>name</parameter>
+.</para>
+<refsect3 id="g-settings-schema-has-key.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>schema</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSettingsSchema"><type>GSettingsSchema</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>name</para></entry>
+<entry role="parameter_description"><para>the name of a key</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-settings-schema-has-key.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if such a key exists</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.40">2.40</link></para></refsect2>
+<refsect2 id="g-settings-schema-get-key" role="function" condition="since:2.40">
+<title>g_settings_schema_get_key&#160;()</title>
+<indexterm zone="g-settings-schema-get-key" role="2.40"><primary sortas="settings_schema_get_key">g_settings_schema_get_key</primary></indexterm>
+<programlisting language="C"><link linkend="GSettingsSchemaKey"><returnvalue>GSettingsSchemaKey</returnvalue></link>&#160;*
+g_settings_schema_get_key (<parameter><link linkend="GSettingsSchema"><type>GSettingsSchema</type></link> *schema</parameter>,
+                           <parameter>const <link linkend="gchar"><type>gchar</type></link> *name</parameter>);</programlisting>
+<para>Gets the key named <parameter>name</parameter>
+ from <parameter>schema</parameter>
+.</para>
+<para>It is a programmer error to request a key that does not exist.  See
+<link linkend="g-settings-schema-list-keys"><function>g_settings_schema_list_keys()</function></link>.</para>
+<refsect3 id="g-settings-schema-get-key.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>schema</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSettingsSchema"><type>GSettingsSchema</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>name</para></entry>
+<entry role="parameter_description"><para>the name of a key</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-settings-schema-get-key.returns" role="returns">
+<title>Returns</title>
+<para>the <link linkend="GSettingsSchemaKey"><type>GSettingsSchemaKey</type></link> for <parameter>name</parameter>
+. </para>
+<para><emphasis role="annotation">[<acronym>transfer full</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.40">2.40</link></para></refsect2>
+<refsect2 id="g-settings-schema-key-ref" role="function" condition="since:2.40">
+<title>g_settings_schema_key_ref&#160;()</title>
+<indexterm zone="g-settings-schema-key-ref" role="2.40"><primary sortas="settings_schema_key_ref">g_settings_schema_key_ref</primary></indexterm>
+<programlisting language="C"><link linkend="GSettingsSchemaKey"><returnvalue>GSettingsSchemaKey</returnvalue></link>&#160;*
+g_settings_schema_key_ref (<parameter><link linkend="GSettingsSchemaKey"><type>GSettingsSchemaKey</type></link> *key</parameter>);</programlisting>
+<para>Increase the reference count of <parameter>key</parameter>
+, returning a new reference.</para>
+<refsect3 id="g-settings-schema-key-ref.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>key</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSettingsSchemaKey"><type>GSettingsSchemaKey</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-settings-schema-key-ref.returns" role="returns">
+<title>Returns</title>
+<para> a new reference to <parameter>key</parameter>
+</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.40">2.40</link></para></refsect2>
+<refsect2 id="g-settings-schema-key-unref" role="function" condition="since:2.40">
+<title>g_settings_schema_key_unref&#160;()</title>
+<indexterm zone="g-settings-schema-key-unref" role="2.40"><primary sortas="settings_schema_key_unref">g_settings_schema_key_unref</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_settings_schema_key_unref (<parameter><link linkend="GSettingsSchemaKey"><type>GSettingsSchemaKey</type></link> *key</parameter>);</programlisting>
+<para>Decrease the reference count of <parameter>key</parameter>
+, possibly freeing it.</para>
+<refsect3 id="g-settings-schema-key-unref.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>key</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSettingsSchemaKey"><type>GSettingsSchemaKey</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.40">2.40</link></para></refsect2>
+<refsect2 id="g-settings-schema-list-children" role="function" condition="since:2.44">
+<title>g_settings_schema_list_children&#160;()</title>
+<indexterm zone="g-settings-schema-list-children" role="2.44"><primary sortas="settings_schema_list_children">g_settings_schema_list_children</primary></indexterm>
+<programlisting language="C"><link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;**
+g_settings_schema_list_children (<parameter><link linkend="GSettingsSchema"><type>GSettingsSchema</type></link> *schema</parameter>);</programlisting>
+<para>Gets the list of children in <parameter>schema</parameter>
+.</para>
+<para>You should free the return value with <link linkend="g-strfreev"><function>g_strfreev()</function></link> when you are done
+with it.</para>
+<refsect3 id="g-settings-schema-list-children.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>schema</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSettingsSchema"><type>GSettingsSchema</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-settings-schema-list-children.returns" role="returns">
+<title>Returns</title>
+<para>a list of the children on <parameter>settings</parameter>
+. </para>
+<para><emphasis role="annotation">[<acronym>transfer full</acronym>][<acronym>element-type</acronym> utf8]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.44">2.44</link></para></refsect2>
+<refsect2 id="g-settings-schema-list-keys" role="function" condition="since:2.46">
+<title>g_settings_schema_list_keys&#160;()</title>
+<indexterm zone="g-settings-schema-list-keys" role="2.46"><primary sortas="settings_schema_list_keys">g_settings_schema_list_keys</primary></indexterm>
+<programlisting language="C"><link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;**
+g_settings_schema_list_keys (<parameter><link linkend="GSettingsSchema"><type>GSettingsSchema</type></link> *schema</parameter>);</programlisting>
+<para>Introspects the list of keys on <parameter>schema</parameter>
+.</para>
+<para>You should probably not be calling this function from "normal" code
+(since you should already know what keys are in your schema).  This
+function is intended for introspection reasons.</para>
+<refsect3 id="g-settings-schema-list-keys.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>schema</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSettingsSchema"><type>GSettingsSchema</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-settings-schema-list-keys.returns" role="returns">
+<title>Returns</title>
+<para>a list of the keys on
+<parameter>schema</parameter>
+. </para>
+<para><emphasis role="annotation">[<acronym>transfer full</acronym>][<acronym>element-type</acronym> utf8]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.46">2.46</link></para></refsect2>
+<refsect2 id="g-settings-schema-key-get-value-type" role="function" condition="since:2.40">
+<title>g_settings_schema_key_get_value_type&#160;()</title>
+<indexterm zone="g-settings-schema-key-get-value-type" role="2.40"><primary sortas="settings_schema_key_get_value_type">g_settings_schema_key_get_value_type</primary></indexterm>
+<programlisting language="C">const <link linkend="GVariantType"><returnvalue>GVariantType</returnvalue></link>&#160;*
+g_settings_schema_key_get_value_type (<parameter><link linkend="GSettingsSchemaKey"><type>GSettingsSchemaKey</type></link> *key</parameter>);</programlisting>
+<para>Gets the <link linkend="GVariantType"><type>GVariantType</type></link> of <parameter>key</parameter>
+.</para>
+<refsect3 id="g-settings-schema-key-get-value-type.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>key</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSettingsSchemaKey"><type>GSettingsSchemaKey</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-settings-schema-key-get-value-type.returns" role="returns">
+<title>Returns</title>
+<para>the type of <parameter>key</parameter>
+. </para>
+<para><emphasis role="annotation">[<acronym>transfer none</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.40">2.40</link></para></refsect2>
+<refsect2 id="g-settings-schema-key-get-default-value" role="function" condition="since:2.40">
+<title>g_settings_schema_key_get_default_value&#160;()</title>
+<indexterm zone="g-settings-schema-key-get-default-value" role="2.40"><primary sortas="settings_schema_key_get_default_value">g_settings_schema_key_get_default_value</primary></indexterm>
+<programlisting language="C"><link linkend="GVariant"><returnvalue>GVariant</returnvalue></link>&#160;*
+g_settings_schema_key_get_default_value
+                               (<parameter><link linkend="GSettingsSchemaKey"><type>GSettingsSchemaKey</type></link> *key</parameter>);</programlisting>
+<para>Gets the default value for <parameter>key</parameter>
+.</para>
+<para>Note that this is the default value according to the schema.  System
+administrator defaults and lockdown are not visible via this API.</para>
+<refsect3 id="g-settings-schema-key-get-default-value.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>key</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSettingsSchemaKey"><type>GSettingsSchemaKey</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-settings-schema-key-get-default-value.returns" role="returns">
+<title>Returns</title>
+<para>the default value for the key. </para>
+<para><emphasis role="annotation">[<acronym>transfer full</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.40">2.40</link></para></refsect2>
+<refsect2 id="g-settings-schema-key-get-range" role="function" condition="since:2.40">
+<title>g_settings_schema_key_get_range&#160;()</title>
+<indexterm zone="g-settings-schema-key-get-range" role="2.40"><primary sortas="settings_schema_key_get_range">g_settings_schema_key_get_range</primary></indexterm>
+<programlisting language="C"><link linkend="GVariant"><returnvalue>GVariant</returnvalue></link>&#160;*
+g_settings_schema_key_get_range (<parameter><link linkend="GSettingsSchemaKey"><type>GSettingsSchemaKey</type></link> *key</parameter>);</programlisting>
+<para>Queries the range of a key.</para>
+<para>This function will return a <link linkend="GVariant"><type>GVariant</type></link> that fully describes the range
+of values that are valid for <parameter>key</parameter>
+.</para>
+<para>The type of <link linkend="GVariant"><type>GVariant</type></link> returned is <literal>(sv)</literal>. The string describes
+the type of range restriction in effect. The type and meaning of
+the value contained in the variant depends on the string.</para>
+<para>If the string is <literal>'type'</literal> then the variant contains an empty array.
+The element type of that empty array is the expected type of value
+and all values of that type are valid.</para>
+<para>If the string is <literal>'enum'</literal> then the variant contains an array
+enumerating the possible values. Each item in the array is
+a possible valid value and no other values are valid.</para>
+<para>If the string is <literal>'flags'</literal> then the variant contains an array. Each
+item in the array is a value that may appear zero or one times in an
+array to be used as the value for this key. For example, if the
+variant contained the array <literal>['x', 'y']</literal> then the valid values for
+the key would be <literal>[]</literal>, <literal>['x']</literal>, <literal>['y']</literal>, <literal>['x', 'y']</literal> and
+<literal>['y', 'x']</literal>.</para>
+<para>Finally, if the string is <literal>'range'</literal> then the variant contains a pair
+of like-typed values -- the minimum and maximum permissible values
+for this key.</para>
+<para>This information should not be used by normal programs.  It is
+considered to be a hint for introspection purposes.  Normal programs
+should already know what is permitted by their own schema.  The
+format may change in any way in the future -- but particularly, new
+forms may be added to the possibilities described above.</para>
+<para>You should free the returned value with <link linkend="g-variant-unref"><function>g_variant_unref()</function></link> when it is
+no longer needed.</para>
+<refsect3 id="g-settings-schema-key-get-range.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>key</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSettingsSchemaKey"><type>GSettingsSchemaKey</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-settings-schema-key-get-range.returns" role="returns">
+<title>Returns</title>
+<para>a <link linkend="GVariant"><type>GVariant</type></link> describing the range. </para>
+<para><emphasis role="annotation">[<acronym>transfer full</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.40">2.40</link></para></refsect2>
+<refsect2 id="g-settings-schema-key-range-check" role="function" condition="since:2.40">
+<title>g_settings_schema_key_range_check&#160;()</title>
+<indexterm zone="g-settings-schema-key-range-check" role="2.40"><primary sortas="settings_schema_key_range_check">g_settings_schema_key_range_check</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_settings_schema_key_range_check (<parameter><link linkend="GSettingsSchemaKey"><type>GSettingsSchemaKey</type></link> *key</parameter>,
+                                   <parameter><link linkend="GVariant"><type>GVariant</type></link> *value</parameter>);</programlisting>
+<para>Checks if the given <parameter>value</parameter>
+ is of the correct type and within the
+permitted range for <parameter>key</parameter>
+.</para>
+<para>It is a programmer error if <parameter>value</parameter>
+ is not of the correct type -- you
+must check for this first.</para>
+<refsect3 id="g-settings-schema-key-range-check.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>key</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSettingsSchemaKey"><type>GSettingsSchemaKey</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>value</para></entry>
+<entry role="parameter_description"><para>the value to check</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-settings-schema-key-range-check.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if <parameter>value</parameter>
+is valid for <parameter>key</parameter>
+</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.40">2.40</link></para></refsect2>
+<refsect2 id="g-settings-schema-key-get-name" role="function" condition="since:2.44">
+<title>g_settings_schema_key_get_name&#160;()</title>
+<indexterm zone="g-settings-schema-key-get-name" role="2.44"><primary sortas="settings_schema_key_get_name">g_settings_schema_key_get_name</primary></indexterm>
+<programlisting language="C">const <link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+g_settings_schema_key_get_name (<parameter><link linkend="GSettingsSchemaKey"><type>GSettingsSchemaKey</type></link> *key</parameter>);</programlisting>
+<para>Gets the name of <parameter>key</parameter>
+.</para>
+<refsect3 id="g-settings-schema-key-get-name.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>key</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSettingsSchemaKey"><type>GSettingsSchemaKey</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-settings-schema-key-get-name.returns" role="returns">
+<title>Returns</title>
+<para> the name of <parameter>key</parameter>
+.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.44">2.44</link></para></refsect2>
+<refsect2 id="g-settings-schema-key-get-summary" role="function" condition="since:2.34">
+<title>g_settings_schema_key_get_summary&#160;()</title>
+<indexterm zone="g-settings-schema-key-get-summary" role="2.34"><primary sortas="settings_schema_key_get_summary">g_settings_schema_key_get_summary</primary></indexterm>
+<programlisting language="C">const <link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+g_settings_schema_key_get_summary (<parameter><link linkend="GSettingsSchemaKey"><type>GSettingsSchemaKey</type></link> *key</parameter>);</programlisting>
+<para>Gets the summary for <parameter>key</parameter>
+.</para>
+<para>If no summary has been provided in the schema for <parameter>key</parameter>
+, returns
+<link linkend="NULL:CAPS"><literal>NULL</literal></link>.</para>
+<para>The summary is a short description of the purpose of the key; usually
+one short sentence.  Summaries can be translated and the value
+returned from this function is is the current locale.</para>
+<para>This function is slow.  The summary and description information for
+the schemas is not stored in the compiled schema database so this
+function has to parse all of the source XML files in the schema
+directory.</para>
+<refsect3 id="g-settings-schema-key-get-summary.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>key</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSettingsSchemaKey"><type>GSettingsSchemaKey</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-settings-schema-key-get-summary.returns" role="returns">
+<title>Returns</title>
+<para> the summary for <parameter>key</parameter>
+, or <link linkend="NULL:CAPS"><literal>NULL</literal></link></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.34">2.34</link></para></refsect2>
+<refsect2 id="g-settings-schema-key-get-description" role="function" condition="since:2.34">
+<title>g_settings_schema_key_get_description&#160;()</title>
+<indexterm zone="g-settings-schema-key-get-description" role="2.34"><primary sortas="settings_schema_key_get_description">g_settings_schema_key_get_description</primary></indexterm>
+<programlisting language="C">const <link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+g_settings_schema_key_get_description (<parameter><link linkend="GSettingsSchemaKey"><type>GSettingsSchemaKey</type></link> *key</parameter>);</programlisting>
+<para>Gets the description for <parameter>key</parameter>
+.</para>
+<para>If no description has been provided in the schema for <parameter>key</parameter>
+, returns
+<link linkend="NULL:CAPS"><literal>NULL</literal></link>.</para>
+<para>The description can be one sentence to several paragraphs in length.
+Paragraphs are delimited with a double newline.  Descriptions can be
+translated and the value returned from this function is is the
+current locale.</para>
+<para>This function is slow.  The summary and description information for
+the schemas is not stored in the compiled schema database so this
+function has to parse all of the source XML files in the schema
+directory.</para>
+<refsect3 id="g-settings-schema-key-get-description.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>key</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSettingsSchemaKey"><type>GSettingsSchemaKey</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-settings-schema-key-get-description.returns" role="returns">
+<title>Returns</title>
+<para> the description for <parameter>key</parameter>
+, or <link linkend="NULL:CAPS"><literal>NULL</literal></link></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.34">2.34</link></para></refsect2>
+
+</refsect1>
+<refsect1 id="gio-GSettingsSchema-GSettingsSchemaSource.other_details" role="details">
+<title role="details.title">Types and Values</title>
+<refsect2 id="GSettingsSchemaSource-struct" role="struct">
+<title>GSettingsSchemaSource</title>
+<indexterm zone="GSettingsSchemaSource-struct" role="2.32"><primary sortas="SettingsSchemaSource">GSettingsSchemaSource</primary></indexterm>
+<programlisting language="C">typedef struct _GSettingsSchemaSource GSettingsSchemaSource;</programlisting>
+<para>This is an opaque structure type.  You may not access it directly.</para>
+<para role="since">Since: <link linkend="api-index-2.32">2.32</link></para></refsect2>
+<refsect2 id="GSettingsSchema-struct" role="struct">
+<title>GSettingsSchema</title>
+<indexterm zone="GSettingsSchema-struct" role="2.32"><primary sortas="SettingsSchema">GSettingsSchema</primary></indexterm>
+<programlisting language="C">typedef struct _GSettingsSchema GSettingsSchema;</programlisting>
+<para>This is an opaque structure type.  You may not access it directly.</para>
+<para role="since">Since: <link linkend="api-index-2.32">2.32</link></para></refsect2>
+<refsect2 id="GSettingsSchemaKey-struct" role="struct">
+<title>GSettingsSchemaKey</title>
+<indexterm zone="GSettingsSchemaKey-struct"><primary sortas="SettingsSchemaKey">GSettingsSchemaKey</primary></indexterm>
+<programlisting language="C">typedef struct _GSettingsSchemaKey GSettingsSchemaKey;</programlisting>
+<para><link linkend="GSettingsSchemaKey"><type>GSettingsSchemaKey</type></link> is an opaque data structure and can only be accessed
+using the following functions.</para>
+</refsect2>
+
+</refsect1>
+
+</refentry>

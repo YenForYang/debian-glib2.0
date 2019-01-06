@@ -1,0 +1,246 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC '-//OASIS//DTD DocBook XML V4.5//EN'
+                      'http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd' [
+<!ENTITY % local.common.attrib "xmlns:xi  CDATA  #FIXED 'http://www.w3.org/2003/XInclude'">
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="GEmblemedIcon">
+<refmeta>
+<refentrytitle role="top_of_page" id="GEmblemedIcon.top_of_page">GEmblemedIcon</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>GIO Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>GEmblemedIcon</refname>
+<refpurpose>Icon with emblems</refpurpose>
+</refnamediv>
+
+<refsect1 id="GEmblemedIcon.functions" role="functions_proto">
+<title role="functions_proto.title">Functions</title>
+<informaltable pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="functions_return" colwidth="150px"/>
+<colspec colname="functions_name"/>
+<tbody>
+<row><entry role="function_type"><link linkend="GIcon"><returnvalue>GIcon</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-emblemed-icon-new">g_emblemed_icon_new</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GIcon"><returnvalue>GIcon</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-emblemed-icon-get-icon">g_emblemed_icon_get_icon</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GList"><returnvalue>GList</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-emblemed-icon-get-emblems">g_emblemed_icon_get_emblems</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-emblemed-icon-add-emblem">g_emblemed_icon_add_emblem</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-emblemed-icon-clear-emblems">g_emblemed_icon_clear_emblems</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GEmblemedIcon.properties" role="properties">
+<title role="properties.title">Properties</title>
+<informaltable frame="none">
+<tgroup cols="3">
+<colspec colname="properties_type" colwidth="150px"/>
+<colspec colname="properties_name" colwidth="300px"/>
+<colspec colname="properties_flags" colwidth="200px"/>
+<tbody>
+<row><entry role="property_type"><link linkend="GIcon"><type>GIcon</type></link>&#160;*</entry><entry role="property_name"><link linkend="GEmblemedIcon--gicon">gicon</link></entry><entry role="property_flags">Read / Write / Construct Only</entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GEmblemedIcon.other" role="other_proto">
+<title role="other_proto.title">Types and Values</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="name" colwidth="150px"/>
+<colspec colname="description"/>
+<tbody>
+<row><entry role="datatype_keyword">struct</entry><entry role="function_name"><link linkend="GEmblemedIcon-struct">GEmblemedIcon</link></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GEmblemedIcon.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<screen>    <link linkend="GObject">GObject</link>
+    <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> GEmblemedIcon
+</screen>
+</refsect1>
+<refsect1 id="GEmblemedIcon.implemented-interfaces" role="impl_interfaces">
+<title role="impl_interfaces.title">Implemented Interfaces</title>
+<para>
+GEmblemedIcon implements
+ <link linkend="GIcon">GIcon</link>.</para>
+
+</refsect1>
+
+<refsect1 id="GEmblemedIcon.includes"><title>Includes</title><synopsis>#include &lt;gio/gio.h&gt;
+</synopsis></refsect1>
+
+<refsect1 id="GEmblemedIcon.description" role="desc">
+<title role="desc.title">Description</title>
+<para><link linkend="GEmblemedIcon"><type>GEmblemedIcon</type></link> is an implementation of <link linkend="GIcon"><type>GIcon</type></link> that supports
+adding an emblem to an icon. Adding multiple emblems to an
+icon is ensured via <link linkend="g-emblemed-icon-add-emblem"><function>g_emblemed_icon_add_emblem()</function></link>. </para>
+<para>Note that <link linkend="GEmblemedIcon"><type>GEmblemedIcon</type></link> allows no control over the position
+of the emblems. See also <link linkend="GEmblem"><type>GEmblem</type></link> for more information.</para>
+
+</refsect1>
+<refsect1 id="GEmblemedIcon.functions_details" role="details">
+<title role="details.title">Functions</title>
+<refsect2 id="g-emblemed-icon-new" role="function" condition="since:2.18">
+<title>g_emblemed_icon_new&#160;()</title>
+<indexterm zone="g-emblemed-icon-new" role="2.18"><primary sortas="emblemed_icon_new">g_emblemed_icon_new</primary></indexterm>
+<programlisting language="C"><link linkend="GIcon"><returnvalue>GIcon</returnvalue></link>&#160;*
+g_emblemed_icon_new (<parameter><link linkend="GIcon"><type>GIcon</type></link> *icon</parameter>,
+                     <parameter><link linkend="GEmblem"><type>GEmblem</type></link> *emblem</parameter>);</programlisting>
+<para>Creates a new emblemed icon for <parameter>icon</parameter>
+ with the emblem <parameter>emblem</parameter>
+.</para>
+<refsect3 id="g-emblemed-icon-new.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>icon</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GIcon"><type>GIcon</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>emblem</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GEmblem"><type>GEmblem</type></link>, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-emblemed-icon-new.returns" role="returns">
+<title>Returns</title>
+<para>a new <link linkend="GIcon"><type>GIcon</type></link>. </para>
+<para><emphasis role="annotation">[<acronym>transfer full</acronym>][<acronym>type</acronym> GEmblemedIcon]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.18">2.18</link></para></refsect2>
+<refsect2 id="g-emblemed-icon-get-icon" role="function" condition="since:2.18">
+<title>g_emblemed_icon_get_icon&#160;()</title>
+<indexterm zone="g-emblemed-icon-get-icon" role="2.18"><primary sortas="emblemed_icon_get_icon">g_emblemed_icon_get_icon</primary></indexterm>
+<programlisting language="C"><link linkend="GIcon"><returnvalue>GIcon</returnvalue></link>&#160;*
+g_emblemed_icon_get_icon (<parameter><link linkend="GEmblemedIcon"><type>GEmblemedIcon</type></link> *emblemed</parameter>);</programlisting>
+<para>Gets the main icon for <parameter>emblemed</parameter>
+.</para>
+<refsect3 id="g-emblemed-icon-get-icon.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>emblemed</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GEmblemedIcon"><type>GEmblemedIcon</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-emblemed-icon-get-icon.returns" role="returns">
+<title>Returns</title>
+<para>a <link linkend="GIcon"><type>GIcon</type></link> that is owned by <parameter>emblemed</parameter>
+. </para>
+<para><emphasis role="annotation">[<acronym>transfer none</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.18">2.18</link></para></refsect2>
+<refsect2 id="g-emblemed-icon-get-emblems" role="function" condition="since:2.18">
+<title>g_emblemed_icon_get_emblems&#160;()</title>
+<indexterm zone="g-emblemed-icon-get-emblems" role="2.18"><primary sortas="emblemed_icon_get_emblems">g_emblemed_icon_get_emblems</primary></indexterm>
+<programlisting language="C"><link linkend="GList"><returnvalue>GList</returnvalue></link>&#160;*
+g_emblemed_icon_get_emblems (<parameter><link linkend="GEmblemedIcon"><type>GEmblemedIcon</type></link> *emblemed</parameter>);</programlisting>
+<para>Gets the list of emblems for the <parameter>icon</parameter>
+.</para>
+<refsect3 id="g-emblemed-icon-get-emblems.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>emblemed</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GEmblemedIcon"><type>GEmblemedIcon</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-emblemed-icon-get-emblems.returns" role="returns">
+<title>Returns</title>
+<para>a <link linkend="GList"><type>GList</type></link> of
+<link linkend="GEmblems"><type>GEmblems</type></link> that is owned by <parameter>emblemed</parameter>
+. </para>
+<para><emphasis role="annotation">[<acronym>element-type</acronym> Gio.Emblem][<acronym>transfer none</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.18">2.18</link></para></refsect2>
+<refsect2 id="g-emblemed-icon-add-emblem" role="function" condition="since:2.18">
+<title>g_emblemed_icon_add_emblem&#160;()</title>
+<indexterm zone="g-emblemed-icon-add-emblem" role="2.18"><primary sortas="emblemed_icon_add_emblem">g_emblemed_icon_add_emblem</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_emblemed_icon_add_emblem (<parameter><link linkend="GEmblemedIcon"><type>GEmblemedIcon</type></link> *emblemed</parameter>,
+                            <parameter><link linkend="GEmblem"><type>GEmblem</type></link> *emblem</parameter>);</programlisting>
+<para>Adds <parameter>emblem</parameter>
+ to the <link linkend="GList"><type>GList</type></link> of <link linkend="GEmblems"><type>GEmblems</type></link>.</para>
+<refsect3 id="g-emblemed-icon-add-emblem.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>emblemed</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GEmblemedIcon"><type>GEmblemedIcon</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>emblem</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GEmblem"><type>GEmblem</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.18">2.18</link></para></refsect2>
+<refsect2 id="g-emblemed-icon-clear-emblems" role="function" condition="since:2.28">
+<title>g_emblemed_icon_clear_emblems&#160;()</title>
+<indexterm zone="g-emblemed-icon-clear-emblems" role="2.28"><primary sortas="emblemed_icon_clear_emblems">g_emblemed_icon_clear_emblems</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_emblemed_icon_clear_emblems (<parameter><link linkend="GEmblemedIcon"><type>GEmblemedIcon</type></link> *emblemed</parameter>);</programlisting>
+<para>Removes all the emblems from <parameter>icon</parameter>
+.</para>
+<refsect3 id="g-emblemed-icon-clear-emblems.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>emblemed</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GEmblemedIcon"><type>GEmblemedIcon</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.28">2.28</link></para></refsect2>
+
+</refsect1>
+<refsect1 id="GEmblemedIcon.other_details" role="details">
+<title role="details.title">Types and Values</title>
+<refsect2 id="GEmblemedIcon-struct" role="struct">
+<title>struct GEmblemedIcon</title>
+<indexterm zone="GEmblemedIcon-struct"><primary sortas="EmblemedIcon">GEmblemedIcon</primary></indexterm>
+<programlisting language="C">struct GEmblemedIcon;</programlisting>
+<para>An implementation of <link linkend="GIcon"><type>GIcon</type></link> for icons with emblems.</para>
+</refsect2>
+
+</refsect1>
+<refsect1 id="GEmblemedIcon.property-details" role="property_details">
+<title role="property_details.title">Property Details</title>
+<refsect2 id="GEmblemedIcon--gicon" role="property"><title>The <literal>“gicon”</literal> property</title>
+<indexterm zone="GEmblemedIcon--gicon"><primary sortas="EmblemedIcon:gicon">GEmblemedIcon:gicon</primary></indexterm>
+<programlisting>  “gicon”                    <link linkend="GIcon"><type>GIcon</type></link>&#160;*</programlisting>
+<para>The GIcon to attach emblems to.</para><para>Flags: Read / Write / Construct Only</para>
+</refsect2>
+
+</refsect1>
+<refsect1 id="GEmblemedIcon.see-also">
+<title>See Also</title>
+<para><link linkend="GIcon"><type>GIcon</type></link>, <link linkend="GLoadableIcon"><type>GLoadableIcon</type></link>, <link linkend="GThemedIcon"><type>GThemedIcon</type></link>, <link linkend="GEmblem"><type>GEmblem</type></link></para>
+
+</refsect1>
+
+</refentry>

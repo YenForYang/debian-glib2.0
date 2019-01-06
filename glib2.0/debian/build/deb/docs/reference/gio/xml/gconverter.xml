@@ -1,0 +1,373 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC '-//OASIS//DTD DocBook XML V4.5//EN'
+                      'http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd' [
+<!ENTITY % local.common.attrib "xmlns:xi  CDATA  #FIXED 'http://www.w3.org/2003/XInclude'">
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="GConverter">
+<refmeta>
+<refentrytitle role="top_of_page" id="GConverter.top_of_page">GConverter</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>GIO Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>GConverter</refname>
+<refpurpose>Data conversion interface</refpurpose>
+</refnamediv>
+
+<refsect1 id="GConverter.functions" role="functions_proto">
+<title role="functions_proto.title">Functions</title>
+<informaltable pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="functions_return" colwidth="150px"/>
+<colspec colname="functions_name"/>
+<tbody>
+<row><entry role="function_type"><link linkend="GConverterResult"><returnvalue>GConverterResult</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-converter-convert">g_converter_convert</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-converter-reset">g_converter_reset</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GConverter.other" role="other_proto">
+<title role="other_proto.title">Types and Values</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="name" colwidth="150px"/>
+<colspec colname="description"/>
+<tbody>
+<row><entry role="datatype_keyword"></entry><entry role="function_name"><link linkend="GConverter-struct">GConverter</link></entry></row>
+<row><entry role="datatype_keyword">struct</entry><entry role="function_name"><link linkend="GConverterIface">GConverterIface</link></entry></row>
+<row><entry role="datatype_keyword">enum</entry><entry role="function_name"><link linkend="GConverterResult">GConverterResult</link></entry></row>
+<row><entry role="datatype_keyword">enum</entry><entry role="function_name"><link linkend="GConverterFlags">GConverterFlags</link></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GConverter.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<screen>    <link linkend="GEnum">GEnum</link>
+    <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> GConverterResult
+    <link linkend="GFlags">GFlags</link>
+    <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> GConverterFlags
+    <link linkend="GInterface">GInterface</link>
+    <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> GConverter
+</screen>
+</refsect1>
+<refsect1 id="GConverter.prerequisites" role="prerequisites">
+<title role="prerequisites.title">Prerequisites</title>
+<para>
+GConverter requires
+ <link linkend="GObject">GObject</link>.</para>
+
+</refsect1>
+<refsect1 id="GConverter.implementations" role="implementations">
+<title role="implementations.title">Known Implementations</title>
+<para>
+GConverter is implemented by
+ <link linkend="GCharsetConverter">GCharsetConverter</link>,  <link linkend="GZlibCompressor">GZlibCompressor</link> and  <link linkend="GZlibDecompressor">GZlibDecompressor</link>.</para>
+
+</refsect1>
+
+<refsect1 id="GConverter.includes"><title>Includes</title><synopsis>#include &lt;gio/gio.h&gt;
+</synopsis></refsect1>
+
+<refsect1 id="GConverter.description" role="desc">
+<title role="desc.title">Description</title>
+<para><link linkend="GConverter"><type>GConverter</type></link> is implemented by objects that convert
+binary data in various ways. The conversion can be
+stateful and may fail at any place.</para>
+<para>Some example conversions are: character set conversion,
+compression, decompression and regular expression
+replace.</para>
+
+</refsect1>
+<refsect1 id="GConverter.functions_details" role="details">
+<title role="details.title">Functions</title>
+<refsect2 id="g-converter-convert" role="function" condition="since:2.24">
+<title>g_converter_convert&#160;()</title>
+<indexterm zone="g-converter-convert" role="2.24"><primary sortas="converter_convert">g_converter_convert</primary></indexterm>
+<programlisting language="C"><link linkend="GConverterResult"><returnvalue>GConverterResult</returnvalue></link>
+g_converter_convert (<parameter><link linkend="GConverter"><type>GConverter</type></link> *converter</parameter>,
+                     <parameter>const <link linkend="void"><type>void</type></link> *inbuf</parameter>,
+                     <parameter><link linkend="gsize"><type>gsize</type></link> inbuf_size</parameter>,
+                     <parameter><link linkend="void"><type>void</type></link> *outbuf</parameter>,
+                     <parameter><link linkend="gsize"><type>gsize</type></link> outbuf_size</parameter>,
+                     <parameter><link linkend="GConverterFlags"><type>GConverterFlags</type></link> flags</parameter>,
+                     <parameter><link linkend="gsize"><type>gsize</type></link> *bytes_read</parameter>,
+                     <parameter><link linkend="gsize"><type>gsize</type></link> *bytes_written</parameter>,
+                     <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para>This is the main operation used when converting data. It is to be called
+multiple times in a loop, and each time it will do some work, i.e.
+producing some output (in <parameter>outbuf</parameter>
+) or consuming some input (from <parameter>inbuf</parameter>
+) or
+both. If its not possible to do any work an error is returned.</para>
+<para>Note that a single call may not consume all input (or any input at all).
+Also a call may produce output even if given no input, due to state stored
+in the converter producing output.</para>
+<para>If any data was either produced or consumed, and then an error happens, then
+only the successful conversion is reported and the error is returned on the
+next call.</para>
+<para>A full conversion loop involves calling this method repeatedly, each time
+giving it new input and space output space. When there is no more input
+data after the data in <parameter>inbuf</parameter>
+, the flag <link linkend="G-CONVERTER-INPUT-AT-END:CAPS"><literal>G_CONVERTER_INPUT_AT_END</literal></link> must be set.
+The loop will be (unless some error happens) returning <link linkend="G-CONVERTER-CONVERTED:CAPS"><literal>G_CONVERTER_CONVERTED</literal></link>
+each time until all data is consumed and all output is produced, then
+<link linkend="G-CONVERTER-FINISHED:CAPS"><literal>G_CONVERTER_FINISHED</literal></link> is returned instead. Note, that <link linkend="G-CONVERTER-FINISHED:CAPS"><literal>G_CONVERTER_FINISHED</literal></link>
+may be returned even if <link linkend="G-CONVERTER-INPUT-AT-END:CAPS"><literal>G_CONVERTER_INPUT_AT_END</literal></link> is not set, for instance
+in a decompression converter where the end of data is detectable from the
+data (and there might even be other data after the end of the compressed data).</para>
+<para>When some data has successfully been converted <parameter>bytes_read</parameter>
+ and is set to
+the number of bytes read from <parameter>inbuf</parameter>
+, and <parameter>bytes_written</parameter>
+ is set to indicate
+how many bytes was written to <parameter>outbuf</parameter>
+. If there are more data to output
+or consume (i.e. unless the <link linkend="G-CONVERTER-INPUT-AT-END:CAPS"><literal>G_CONVERTER_INPUT_AT_END</literal></link> is specified) then
+<link linkend="G-CONVERTER-CONVERTED:CAPS"><literal>G_CONVERTER_CONVERTED</literal></link> is returned, and if no more data is to be output
+then <link linkend="G-CONVERTER-FINISHED:CAPS"><literal>G_CONVERTER_FINISHED</literal></link> is returned.</para>
+<para>On error <link linkend="G-CONVERTER-ERROR:CAPS"><literal>G_CONVERTER_ERROR</literal></link> is returned and <parameter>error</parameter>
+ is set accordingly.
+Some errors need special handling:</para>
+<para><link linkend="G-IO-ERROR-NO-SPACE:CAPS"><literal>G_IO_ERROR_NO_SPACE</literal></link> is returned if there is not enough space
+to write the resulting converted data, the application should
+call the function again with a larger <parameter>outbuf</parameter>
+ to continue.</para>
+<para><link linkend="G-IO-ERROR-PARTIAL-INPUT:CAPS"><literal>G_IO_ERROR_PARTIAL_INPUT</literal></link> is returned if there is not enough
+input to fully determine what the conversion should produce,
+and the <link linkend="G-CONVERTER-INPUT-AT-END:CAPS"><literal>G_CONVERTER_INPUT_AT_END</literal></link> flag is not set. This happens for
+example with an incomplete multibyte sequence when converting text,
+or when a regexp matches up to the end of the input (and may match
+further input). It may also happen when <parameter>inbuf_size</parameter>
+ is zero and
+there is no more data to produce.</para>
+<para>When this happens the application should read more input and then
+call the function again. If further input shows that there is no
+more data call the function again with the same data but with
+the <link linkend="G-CONVERTER-INPUT-AT-END:CAPS"><literal>G_CONVERTER_INPUT_AT_END</literal></link> flag set. This may cause the conversion
+to finish as e.g. in the regexp match case (or, to fail again with
+<link linkend="G-IO-ERROR-PARTIAL-INPUT:CAPS"><literal>G_IO_ERROR_PARTIAL_INPUT</literal></link> in e.g. a charset conversion where the
+input is actually partial).</para>
+<para>After <link linkend="g-converter-convert"><function>g_converter_convert()</function></link> has returned <link linkend="G-CONVERTER-FINISHED:CAPS"><literal>G_CONVERTER_FINISHED</literal></link> the
+converter object is in an invalid state where its not allowed
+to call <link linkend="g-converter-convert"><function>g_converter_convert()</function></link> anymore. At this time you can only
+free the object or call <link linkend="g-converter-reset"><function>g_converter_reset()</function></link> to reset it to the
+initial state.</para>
+<para>If the flag <link linkend="G-CONVERTER-FLUSH:CAPS"><literal>G_CONVERTER_FLUSH</literal></link> is set then conversion is modified
+to try to write out all internal state to the output. The application
+has to call the function multiple times with the flag set, and when
+the available input has been consumed and all internal state has
+been produced then <link linkend="G-CONVERTER-FLUSHED:CAPS"><literal>G_CONVERTER_FLUSHED</literal></link> (or <link linkend="G-CONVERTER-FINISHED:CAPS"><literal>G_CONVERTER_FINISHED</literal></link> if
+really at the end) is returned instead of <link linkend="G-CONVERTER-CONVERTED:CAPS"><literal>G_CONVERTER_CONVERTED</literal></link>.
+This is somewhat similar to what happens at the end of the input stream,
+but done in the middle of the data.</para>
+<para>This has different meanings for different conversions. For instance
+in a compression converter it would mean that we flush all the
+compression state into output such that if you uncompress the
+compressed data you get back all the input data. Doing this may
+make the final file larger due to padding though. Another example
+is a regexp conversion, where if you at the end of the flushed data
+have a match, but there is also a potential longer match. In the
+non-flushed case we would ask for more input, but when flushing we
+treat this as the end of input and do the match.</para>
+<para>Flushing is not always possible (like if a charset converter flushes
+at a partial multibyte sequence). Converters are supposed to try
+to produce as much output as possible and then return an error
+(typically <link linkend="G-IO-ERROR-PARTIAL-INPUT:CAPS"><literal>G_IO_ERROR_PARTIAL_INPUT</literal></link>).</para>
+<refsect3 id="g-converter-convert.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>converter</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GConverter"><type>GConverter</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>inbuf</para></entry>
+<entry role="parameter_description"><para>the buffer
+containing the data to convert. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>array</acronym> length=inbuf_size][<acronym>element-type</acronym> guint8]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>inbuf_size</para></entry>
+<entry role="parameter_description"><para>the number of bytes in <parameter>inbuf</parameter>
+</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>outbuf</para></entry>
+<entry role="parameter_description"><para>a buffer to write
+converted data in. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>element-type</acronym> guint8][<acronym>array</acronym> length=outbuf_size]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>outbuf_size</para></entry>
+<entry role="parameter_description"><para>the number of bytes in <parameter>outbuf</parameter>
+, must be at least one</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>flags</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GConverterFlags"><type>GConverterFlags</type></link> controlling the conversion details</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>bytes_read</para></entry>
+<entry role="parameter_description"><para>will be set to the number of bytes read from <parameter>inbuf</parameter>
+on success. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>out</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>bytes_written</para></entry>
+<entry role="parameter_description"><para>will be set to the number of bytes written to <parameter>outbuf</parameter>
+on success. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>out</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para>location to store the error occurring, or <link linkend="NULL:CAPS"><literal>NULL</literal></link> to ignore</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-converter-convert.returns" role="returns">
+<title>Returns</title>
+<para> a <link linkend="GConverterResult"><type>GConverterResult</type></link>, <link linkend="G-CONVERTER-ERROR:CAPS"><literal>G_CONVERTER_ERROR</literal></link> on error.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.24">2.24</link></para></refsect2>
+<refsect2 id="g-converter-reset" role="function" condition="since:2.24">
+<title>g_converter_reset&#160;()</title>
+<indexterm zone="g-converter-reset" role="2.24"><primary sortas="converter_reset">g_converter_reset</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_converter_reset (<parameter><link linkend="GConverter"><type>GConverter</type></link> *converter</parameter>);</programlisting>
+<para>Resets all internal state in the converter, making it behave
+as if it was just created. If the converter has any internal
+state that would produce output then that output is lost.</para>
+<refsect3 id="g-converter-reset.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>converter</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GConverter"><type>GConverter</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.24">2.24</link></para></refsect2>
+
+</refsect1>
+<refsect1 id="GConverter.other_details" role="details">
+<title role="details.title">Types and Values</title>
+<refsect2 id="GConverter-struct" role="struct">
+<title>GConverter</title>
+<indexterm zone="GConverter-struct" role="2.24"><primary sortas="Converter">GConverter</primary></indexterm>
+<programlisting language="C">typedef struct _GConverter GConverter;</programlisting>
+<para>Seek object for streaming operations.</para>
+<para role="since">Since: <link linkend="api-index-2.24">2.24</link></para></refsect2>
+<refsect2 id="GConverterIface" role="struct" condition="since:2.24">
+<title>struct GConverterIface</title>
+<indexterm zone="GConverterIface" role="2.24"><primary sortas="ConverterIface">GConverterIface</primary></indexterm>
+<programlisting language="C">struct GConverterIface {
+  GTypeInterface g_iface;
+
+  /* Virtual Table */
+
+  GConverterResult (* convert) (GConverter *converter,
+				const void *inbuf,
+				gsize       inbuf_size,
+				void       *outbuf,
+				gsize       outbuf_size,
+				GConverterFlags flags,
+				gsize      *bytes_read,
+				gsize      *bytes_written,
+				GError    **error);
+  void  (* reset)   (GConverter *converter);
+};
+</programlisting>
+<para>Provides an interface for converting data from one type
+to another type. The conversion can be stateful
+and may fail at any place.</para>
+<refsect3 id="GConverterIface.members" role="struct_members">
+<title>Members</title>
+<informaltable role="struct_members_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="struct_members_name" colwidth="300px"/>
+<colspec colname="struct_members_description"/>
+<colspec colname="struct_members_annotations" colwidth="200px"/>
+<tbody>
+<row role="member"><entry role="struct_member_name"><para><structfield id="GConverterIface.convert">convert</structfield>&#160;()</para></entry>
+<entry role="struct_member_description"><para>Converts data.</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><structfield id="GConverterIface.reset">reset</structfield>&#160;()</para></entry>
+<entry role="struct_member_description"><para>Reverts the internal state of the converter to its initial state.</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+</tbody></tgroup></informaltable>
+</refsect3>
+<para role="since">Since: <link linkend="api-index-2.24">2.24</link></para></refsect2>
+<refsect2 id="GConverterResult" role="enum" condition="since:2.24">
+<title>enum GConverterResult</title>
+<indexterm zone="GConverterResult" role="2.24"><primary sortas="ConverterResult">GConverterResult</primary></indexterm>
+<para>Results returned from <link linkend="g-converter-convert"><function>g_converter_convert()</function></link>.</para>
+<refsect3 id="GConverterResult.members" role="enum_members">
+<title>Members</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="enum_members_name" colwidth="300px"/>
+<colspec colname="enum_members_description"/>
+<colspec colname="enum_members_annotations" colwidth="200px"/>
+<tbody>
+<row role="constant"><entry role="enum_member_name"><para id="G-CONVERTER-ERROR:CAPS">G_CONVERTER_ERROR</para></entry>
+<entry role="enum_member_description"><para>There was an error during conversion.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-CONVERTER-CONVERTED:CAPS">G_CONVERTER_CONVERTED</para></entry>
+<entry role="enum_member_description"><para>Some data was consumed or produced</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-CONVERTER-FINISHED:CAPS">G_CONVERTER_FINISHED</para></entry>
+<entry role="enum_member_description"><para>The conversion is finished</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-CONVERTER-FLUSHED:CAPS">G_CONVERTER_FLUSHED</para></entry>
+<entry role="enum_member_description"><para>Flushing is finished</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.24">2.24</link></para></refsect2>
+<refsect2 id="GConverterFlags" role="enum" condition="since:2.24">
+<title>enum GConverterFlags</title>
+<indexterm zone="GConverterFlags" role="2.24"><primary sortas="ConverterFlags">GConverterFlags</primary></indexterm>
+<para>Flags used when calling a <link linkend="g-converter-convert"><function>g_converter_convert()</function></link>.</para>
+<refsect3 id="GConverterFlags.members" role="enum_members">
+<title>Members</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="enum_members_name" colwidth="300px"/>
+<colspec colname="enum_members_description"/>
+<colspec colname="enum_members_annotations" colwidth="200px"/>
+<tbody>
+<row role="constant"><entry role="enum_member_name"><para id="G-CONVERTER-NO-FLAGS:CAPS">G_CONVERTER_NO_FLAGS</para></entry>
+<entry role="enum_member_description"><para>No flags.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-CONVERTER-INPUT-AT-END:CAPS">G_CONVERTER_INPUT_AT_END</para></entry>
+<entry role="enum_member_description"><para>At end of input data</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-CONVERTER-FLUSH:CAPS">G_CONVERTER_FLUSH</para></entry>
+<entry role="enum_member_description"><para>Flush data</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.24">2.24</link></para></refsect2>
+
+</refsect1>
+<refsect1 id="GConverter.see-also">
+<title>See Also</title>
+<para><link linkend="GInputStream"><type>GInputStream</type></link>, <link linkend="GOutputStream"><type>GOutputStream</type></link></para>
+
+</refsect1>
+
+</refentry>

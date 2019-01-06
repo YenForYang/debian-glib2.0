@@ -1,0 +1,229 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC '-//OASIS//DTD DocBook XML V4.5//EN'
+                      'http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd' [
+<!ENTITY % local.common.attrib "xmlns:xi  CDATA  #FIXED 'http://www.w3.org/2003/XInclude'">
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="glib-Shell-related-Utilities">
+<refmeta>
+<refentrytitle role="top_of_page" id="glib-Shell-related-Utilities.top_of_page">Shell-related Utilities</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>GLIB Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>Shell-related Utilities</refname>
+<refpurpose>shell-like commandline handling</refpurpose>
+</refnamediv>
+
+<refsect1 id="glib-Shell-related-Utilities.functions" role="functions_proto">
+<title role="functions_proto.title">Functions</title>
+<informaltable pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="functions_return" colwidth="150px"/>
+<colspec colname="functions_name"/>
+<tbody>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-shell-parse-argv">g_shell_parse_argv</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-shell-quote">g_shell_quote</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-shell-unquote">g_shell_unquote</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="glib-Shell-related-Utilities.other" role="other_proto">
+<title role="other_proto.title">Types and Values</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="name" colwidth="150px"/>
+<colspec colname="description"/>
+<tbody>
+<row><entry role="datatype_keyword">enum</entry><entry role="function_name"><link linkend="GShellError">GShellError</link></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="G-SHELL-ERROR:CAPS">G_SHELL_ERROR</link></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+
+<refsect1 id="glib-Shell-related-Utilities.includes"><title>Includes</title><synopsis>#include &lt;glib.h&gt;
+</synopsis></refsect1>
+
+<refsect1 id="glib-Shell-related-Utilities.description" role="desc">
+<title role="desc.title">Description</title>
+<para>GLib provides the functions <link linkend="g-shell-quote"><function>g_shell_quote()</function></link> and <link linkend="g-shell-unquote"><function>g_shell_unquote()</function></link>
+to handle shell-like quoting in strings. The function <link linkend="g-shell-parse-argv"><function>g_shell_parse_argv()</function></link>
+parses a string similar to the way a POSIX shell (/bin/sh) would.</para>
+<para>Note that string handling in shells has many obscure and historical
+corner-cases which these functions do not necessarily reproduce. They
+are good enough in practice, though.</para>
+
+</refsect1>
+<refsect1 id="glib-Shell-related-Utilities.functions_details" role="details">
+<title role="details.title">Functions</title>
+<refsect2 id="g-shell-parse-argv" role="function">
+<title>g_shell_parse_argv&#160;()</title>
+<indexterm zone="g-shell-parse-argv"><primary sortas="shell_parse_argv">g_shell_parse_argv</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_shell_parse_argv (<parameter>const <link linkend="gchar"><type>gchar</type></link> *command_line</parameter>,
+                    <parameter><link linkend="gint"><type>gint</type></link> *argcp</parameter>,
+                    <parameter><link linkend="gchar"><type>gchar</type></link> ***argvp</parameter>,
+                    <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para>Parses a command line into an argument vector, in much the same way
+the shell would, but without many of the expansions the shell would
+perform (variable expansion, globs, operators, filename expansion,
+etc. are not supported). The results are defined to be the same as
+those you would get from a UNIX98 /bin/sh, as long as the input
+contains none of the unsupported shell expansions. If the input
+does contain such expansions, they are passed through
+literally. Possible errors are those from the <link linkend="G-SHELL-ERROR:CAPS"><type>G_SHELL_ERROR</type></link>
+domain. Free the returned vector with <link linkend="g-strfreev"><function>g_strfreev()</function></link>.</para>
+<refsect3 id="g-shell-parse-argv.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>command_line</para></entry>
+<entry role="parameter_description"><para>command line to parse. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>type</acronym> filename]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>argcp</para></entry>
+<entry role="parameter_description"><para>return location for number of args. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>out</acronym>][<acronym>optional</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>argvp</para></entry>
+<entry role="parameter_description"><para>return location for array of args. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>out</acronym>][<acronym>optional</acronym>][<acronym>array</acronym> length=argcp zero-terminated=1][<acronym>element-type</acronym> filename]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para>return location for error. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>optional</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-shell-parse-argv.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> on success, <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> if error set</para>
+</refsect3></refsect2>
+<refsect2 id="g-shell-quote" role="function">
+<title>g_shell_quote&#160;()</title>
+<indexterm zone="g-shell-quote"><primary sortas="shell_quote">g_shell_quote</primary></indexterm>
+<programlisting language="C"><link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+g_shell_quote (<parameter>const <link linkend="gchar"><type>gchar</type></link> *unquoted_string</parameter>);</programlisting>
+<para>Quotes a string so that the shell (/bin/sh) will interpret the
+quoted string to mean <parameter>unquoted_string</parameter>
+. If you pass a filename to
+the shell, for example, you should first quote it with this
+function.  The return value must be freed with <link linkend="g-free"><function>g_free()</function></link>. The
+quoting style used is undefined (single or double quotes may be
+used).</para>
+<refsect3 id="g-shell-quote.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>unquoted_string</para></entry>
+<entry role="parameter_description"><para>a literal string. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>type</acronym> filename]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-shell-quote.returns" role="returns">
+<title>Returns</title>
+<para>quoted string. </para>
+<para><emphasis role="annotation">[<acronym>type</acronym> filename]</emphasis></para>
+</refsect3></refsect2>
+<refsect2 id="g-shell-unquote" role="function">
+<title>g_shell_unquote&#160;()</title>
+<indexterm zone="g-shell-unquote"><primary sortas="shell_unquote">g_shell_unquote</primary></indexterm>
+<programlisting language="C"><link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+g_shell_unquote (<parameter>const <link linkend="gchar"><type>gchar</type></link> *quoted_string</parameter>,
+                 <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para>Unquotes a string as the shell (/bin/sh) would. Only handles
+quotes; if a string contains file globs, arithmetic operators,
+variables, backticks, redirections, or other special-to-the-shell
+features, the result will be different from the result a real shell
+would produce (the variables, backticks, etc. will be passed
+through literally instead of being expanded). This function is
+guaranteed to succeed if applied to the result of
+<link linkend="g-shell-quote"><function>g_shell_quote()</function></link>. If it fails, it returns <link linkend="NULL:CAPS"><literal>NULL</literal></link> and sets the
+error. The <parameter>quoted_string</parameter>
+ need not actually contain quoted or
+escaped text; <link linkend="g-shell-unquote"><function>g_shell_unquote()</function></link> simply goes through the string and
+unquotes/unescapes anything that the shell would. Both single and
+double quotes are handled, as are escapes including escaped
+newlines. The return value must be freed with <link linkend="g-free"><function>g_free()</function></link>. Possible
+errors are in the <link linkend="G-SHELL-ERROR:CAPS"><type>G_SHELL_ERROR</type></link> domain.</para>
+<para>Shell quoting rules are a bit strange. Single quotes preserve the
+literal string exactly. escape sequences are not allowed; not even
+\' - if you want a ' in the quoted text, you have to do something
+like 'foo'\''bar'.  Double quotes allow $, `, ", \, and newline to
+be escaped with backslash. Otherwise double quotes preserve things
+literally.</para>
+<refsect3 id="g-shell-unquote.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>quoted_string</para></entry>
+<entry role="parameter_description"><para>shell-quoted string. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>type</acronym> filename]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para>error return location or NULL</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-shell-unquote.returns" role="returns">
+<title>Returns</title>
+<para>an unquoted string. </para>
+<para><emphasis role="annotation">[<acronym>type</acronym> filename]</emphasis></para>
+</refsect3></refsect2>
+
+</refsect1>
+<refsect1 id="glib-Shell-related-Utilities.other_details" role="details">
+<title role="details.title">Types and Values</title>
+<refsect2 id="GShellError" role="enum">
+<title>enum GShellError</title>
+<indexterm zone="GShellError"><primary sortas="ShellError">GShellError</primary></indexterm>
+<para>Error codes returned by shell functions.</para>
+<refsect3 id="GShellError.members" role="enum_members">
+<title>Members</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="enum_members_name" colwidth="300px"/>
+<colspec colname="enum_members_description"/>
+<colspec colname="enum_members_annotations" colwidth="200px"/>
+<tbody>
+<row role="constant"><entry role="enum_member_name"><para id="G-SHELL-ERROR-BAD-QUOTING:CAPS">G_SHELL_ERROR_BAD_QUOTING</para></entry>
+<entry role="enum_member_description"><para>Mismatched or otherwise mangled quoting.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-SHELL-ERROR-EMPTY-STRING:CAPS">G_SHELL_ERROR_EMPTY_STRING</para></entry>
+<entry role="enum_member_description"><para>String to be parsed was empty.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-SHELL-ERROR-FAILED:CAPS">G_SHELL_ERROR_FAILED</para></entry>
+<entry role="enum_member_description"><para>Some other error.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="G-SHELL-ERROR:CAPS" role="macro">
+<title>G_SHELL_ERROR</title>
+<indexterm zone="G-SHELL-ERROR:CAPS"><primary sortas="SHELL_ERROR">G_SHELL_ERROR</primary></indexterm>
+<programlisting language="C">#define G_SHELL_ERROR g_shell_error_quark ()
+</programlisting>
+<para>Error domain for shell functions. Errors in this domain will be from
+the <link linkend="GShellError"><type>GShellError</type></link> enumeration. See <link linkend="GError"><type>GError</type></link> for information on error
+domains.</para>
+</refsect2>
+
+</refsect1>
+
+</refentry>

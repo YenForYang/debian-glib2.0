@@ -1,0 +1,169 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC '-//OASIS//DTD DocBook XML V4.5//EN'
+                      'http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd' [
+<!ENTITY % local.common.attrib "xmlns:xi  CDATA  #FIXED 'http://www.w3.org/2003/XInclude'">
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="GTlsServerConnection">
+<refmeta>
+<refentrytitle role="top_of_page" id="GTlsServerConnection.top_of_page">GTlsServerConnection</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>GIO Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>GTlsServerConnection</refname>
+<refpurpose>TLS server-side connection</refpurpose>
+</refnamediv>
+
+<refsect1 id="GTlsServerConnection.functions" role="functions_proto">
+<title role="functions_proto.title">Functions</title>
+<informaltable pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="functions_return" colwidth="150px"/>
+<colspec colname="functions_name"/>
+<tbody>
+<row><entry role="function_type"><link linkend="GIOStream"><returnvalue>GIOStream</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-tls-server-connection-new">g_tls_server_connection_new</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GTlsServerConnection.properties" role="properties">
+<title role="properties.title">Properties</title>
+<informaltable frame="none">
+<tgroup cols="3">
+<colspec colname="properties_type" colwidth="150px"/>
+<colspec colname="properties_name" colwidth="300px"/>
+<colspec colname="properties_flags" colwidth="200px"/>
+<tbody>
+<row><entry role="property_type"><link linkend="GTlsAuthenticationMode"><type>GTlsAuthenticationMode</type></link></entry><entry role="property_name"><link linkend="GTlsServerConnection--authentication-mode">authentication-mode</link></entry><entry role="property_flags">Read / Write</entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GTlsServerConnection.other" role="other_proto">
+<title role="other_proto.title">Types and Values</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="name" colwidth="150px"/>
+<colspec colname="description"/>
+<tbody>
+<row><entry role="datatype_keyword"></entry><entry role="function_name"><link linkend="GTlsServerConnection-struct">GTlsServerConnection</link></entry></row>
+<row><entry role="datatype_keyword">struct</entry><entry role="function_name"><link linkend="GTlsServerConnectionInterface">GTlsServerConnectionInterface</link></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GTlsServerConnection.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<screen>    <link linkend="GInterface">GInterface</link>
+    <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> GTlsServerConnection
+</screen>
+</refsect1>
+<refsect1 id="GTlsServerConnection.prerequisites" role="prerequisites">
+<title role="prerequisites.title">Prerequisites</title>
+<para>
+GTlsServerConnection requires
+ <link linkend="GTlsConnection">GTlsConnection</link>.</para>
+
+</refsect1>
+
+<refsect1 id="GTlsServerConnection.includes"><title>Includes</title><synopsis>#include &lt;gio/gio.h&gt;
+</synopsis></refsect1>
+
+<refsect1 id="GTlsServerConnection.description" role="desc">
+<title role="desc.title">Description</title>
+<para><link linkend="GTlsServerConnection"><type>GTlsServerConnection</type></link> is the server-side subclass of <link linkend="GTlsConnection"><type>GTlsConnection</type></link>,
+representing a server-side TLS connection.</para>
+
+</refsect1>
+<refsect1 id="GTlsServerConnection.functions_details" role="details">
+<title role="details.title">Functions</title>
+<refsect2 id="g-tls-server-connection-new" role="function" condition="since:2.28">
+<title>g_tls_server_connection_new&#160;()</title>
+<indexterm zone="g-tls-server-connection-new" role="2.28"><primary sortas="tls_server_connection_new">g_tls_server_connection_new</primary></indexterm>
+<programlisting language="C"><link linkend="GIOStream"><returnvalue>GIOStream</returnvalue></link>&#160;*
+g_tls_server_connection_new (<parameter><link linkend="GIOStream"><type>GIOStream</type></link> *base_io_stream</parameter>,
+                             <parameter><link linkend="GTlsCertificate"><type>GTlsCertificate</type></link> *certificate</parameter>,
+                             <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para>Creates a new <link linkend="GTlsServerConnection"><type>GTlsServerConnection</type></link> wrapping <parameter>base_io_stream</parameter>
+ (which
+must have pollable input and output streams).</para>
+<para>See the documentation for <link linkend="GTlsConnection--base-io-stream"><type>“base-io-stream”</type></link> for restrictions
+on when application code can run operations on the <parameter>base_io_stream</parameter>
+ after
+this function has returned.</para>
+<refsect3 id="g-tls-server-connection-new.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>base_io_stream</para></entry>
+<entry role="parameter_description"><para>the <link linkend="GIOStream"><type>GIOStream</type></link> to wrap</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>certificate</para></entry>
+<entry role="parameter_description"><para>the default server certificate, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para><link linkend="GError"><type>GError</type></link> for error reporting, or <link linkend="NULL:CAPS"><literal>NULL</literal></link> to ignore.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-tls-server-connection-new.returns" role="returns">
+<title>Returns</title>
+<para>the new
+<link linkend="GTlsServerConnection"><type>GTlsServerConnection</type></link>, or <link linkend="NULL:CAPS"><literal>NULL</literal></link> on error. </para>
+<para><emphasis role="annotation">[<acronym>transfer full</acronym>][<acronym>type</acronym> GTlsServerConnection]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.28">2.28</link></para></refsect2>
+
+</refsect1>
+<refsect1 id="GTlsServerConnection.other_details" role="details">
+<title role="details.title">Types and Values</title>
+<refsect2 id="GTlsServerConnection-struct" role="struct">
+<title>GTlsServerConnection</title>
+<indexterm zone="GTlsServerConnection-struct" role="2.28"><primary sortas="TlsServerConnection">GTlsServerConnection</primary></indexterm>
+<programlisting language="C">typedef struct _GTlsServerConnection GTlsServerConnection;</programlisting>
+<para>TLS server-side connection. This is the server-side implementation
+of a <link linkend="GTlsConnection"><type>GTlsConnection</type></link>.</para>
+<para role="since">Since: <link linkend="api-index-2.28">2.28</link></para></refsect2>
+<refsect2 id="GTlsServerConnectionInterface" role="struct" condition="since:2.26">
+<title>struct GTlsServerConnectionInterface</title>
+<indexterm zone="GTlsServerConnectionInterface" role="2.26"><primary sortas="TlsServerConnectionInterface">GTlsServerConnectionInterface</primary></indexterm>
+<programlisting language="C">struct GTlsServerConnectionInterface {
+  GTypeInterface g_iface;
+};
+</programlisting>
+<para>vtable for a <link linkend="GTlsServerConnection"><type>GTlsServerConnection</type></link> implementation.</para>
+<refsect3 id="GTlsServerConnectionInterface.members" role="struct_members">
+<title>Members</title>
+<informaltable role="struct_members_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="struct_members_name" colwidth="300px"/>
+<colspec colname="struct_members_description"/>
+<colspec colname="struct_members_annotations" colwidth="200px"/>
+<tbody>
+</tbody></tgroup></informaltable>
+</refsect3>
+<para role="since">Since: <link linkend="api-index-2.26">2.26</link></para></refsect2>
+
+</refsect1>
+<refsect1 id="GTlsServerConnection.property-details" role="property_details">
+<title role="property_details.title">Property Details</title>
+<refsect2 id="GTlsServerConnection--authentication-mode" role="property"><title>The <literal>“authentication-mode”</literal> property</title>
+<indexterm zone="GTlsServerConnection--authentication-mode" role="2.28"><primary sortas="TlsServerConnection:authentication-mode">GTlsServerConnection:authentication-mode</primary></indexterm>
+<programlisting>  “authentication-mode”      <link linkend="GTlsAuthenticationMode"><type>GTlsAuthenticationMode</type></link></programlisting>
+<para>The <link linkend="GTlsAuthenticationMode"><type>GTlsAuthenticationMode</type></link> for the server. This can be changed
+before calling <link linkend="g-tls-connection-handshake"><function>g_tls_connection_handshake()</function></link> if you want to
+rehandshake with a different mode from the initial handshake.</para>
+<para>Flags: Read / Write</para>
+<para>Default value: G_TLS_AUTHENTICATION_NONE</para>
+<para role="since">Since: <link linkend="api-index-2.28">2.28</link></para></refsect2>
+
+</refsect1>
+
+</refentry>

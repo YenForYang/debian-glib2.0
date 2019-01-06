@@ -1,0 +1,2350 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC '-//OASIS//DTD DocBook XML V4.5//EN'
+                      'http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd' [
+<!ENTITY % local.common.attrib "xmlns:xi  CDATA  #FIXED 'http://www.w3.org/2003/XInclude'">
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="glib-Threads">
+<refmeta>
+<refentrytitle role="top_of_page" id="glib-Threads.top_of_page">Threads</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>GLIB Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>Threads</refname>
+<refpurpose>portable support for threads, mutexes, locks,
+    conditions and thread private data</refpurpose>
+</refnamediv>
+
+<refsect1 id="glib-Threads.functions" role="functions_proto">
+<title role="functions_proto.title">Functions</title>
+<informaltable pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="functions_return" colwidth="150px"/>
+<colspec colname="functions_name"/>
+<tbody>
+<row><entry role="function_type"><link linkend="gpointer"><returnvalue>gpointer</returnvalue></link>
+</entry><entry role="function_name"><phrase role="c_punctuation">(</phrase><link linkend="GThreadFunc">*GThreadFunc</link><phrase role="c_punctuation">)</phrase>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GThread"><returnvalue>GThread</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-thread-new">g_thread_new</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GThread"><returnvalue>GThread</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-thread-try-new">g_thread_try_new</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GThread"><returnvalue>GThread</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-thread-ref">g_thread_ref</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-thread-unref">g_thread_unref</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gpointer"><returnvalue>gpointer</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-thread-join">g_thread_join</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-thread-yield">g_thread_yield</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-thread-exit">g_thread_exit</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GThread"><returnvalue>GThread</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-thread-self">g_thread_self</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-mutex-init">g_mutex_init</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-mutex-clear">g_mutex_clear</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-mutex-lock">g_mutex_lock</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-mutex-trylock">g_mutex_trylock</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-mutex-unlock">g_mutex_unlock</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+<row><entry role="function_type"><link linkend="GMutexLocker"><returnvalue>GMutexLocker</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-mutex-locker-new">g_mutex_locker_new</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-mutex-locker-free">g_mutex_locker_free</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="G-LOCK-DEFINE:CAPS">G_LOCK_DEFINE</link><phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="G-LOCK-DEFINE-STATIC:CAPS">G_LOCK_DEFINE_STATIC</link><phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="G-LOCK-EXTERN:CAPS">G_LOCK_EXTERN</link><phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="G-LOCK:CAPS">G_LOCK</link><phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="G-TRYLOCK:CAPS">G_TRYLOCK</link><phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="G-UNLOCK:CAPS">G_UNLOCK</link><phrase role="c_punctuation">()</phrase></entry></row>
+
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-rec-mutex-init">g_rec_mutex_init</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-rec-mutex-clear">g_rec_mutex_clear</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-rec-mutex-lock">g_rec_mutex_lock</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-rec-mutex-trylock">g_rec_mutex_trylock</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-rec-mutex-unlock">g_rec_mutex_unlock</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-rw-lock-init">g_rw_lock_init</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-rw-lock-clear">g_rw_lock_clear</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-rw-lock-writer-lock">g_rw_lock_writer_lock</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-rw-lock-writer-trylock">g_rw_lock_writer_trylock</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-rw-lock-writer-unlock">g_rw_lock_writer_unlock</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-rw-lock-reader-lock">g_rw_lock_reader_lock</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-rw-lock-reader-trylock">g_rw_lock_reader_trylock</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-rw-lock-reader-unlock">g_rw_lock_reader_unlock</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-cond-init">g_cond_init</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-cond-clear">g_cond_clear</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-cond-wait">g_cond_wait</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-cond-timed-wait">g_cond_timed_wait</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-cond-wait-until">g_cond_wait_until</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-cond-signal">g_cond_signal</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-cond-broadcast">g_cond_broadcast</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="G-PRIVATE-INIT:CAPS">G_PRIVATE_INIT</link><phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gpointer"><returnvalue>gpointer</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-private-get">g_private_get</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-private-set">g_private_set</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-private-replace">g_private_replace</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="g-once">g_once</link><phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-once-init-enter">g_once_init_enter</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-once-init-leave">g_once_init_leave</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-bit-lock">g_bit_lock</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-bit-trylock">g_bit_trylock</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-bit-unlock">g_bit_unlock</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-pointer-bit-lock">g_pointer_bit_lock</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-pointer-bit-trylock">g_pointer_bit_trylock</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-pointer-bit-unlock">g_pointer_bit_unlock</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+<row><entry role="function_type"><link linkend="guint"><returnvalue>guint</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-get-num-processors">g_get_num_processors</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="glib-Threads.other" role="other_proto">
+<title role="other_proto.title">Types and Values</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="name" colwidth="150px"/>
+<colspec colname="description"/>
+<tbody>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="G-THREAD-ERROR:CAPS">G_THREAD_ERROR</link></entry></row>
+<row><entry role="datatype_keyword">enum</entry><entry role="function_name"><link linkend="GThreadError">GThreadError</link></entry></row>
+
+<row><entry role="datatype_keyword"></entry><entry role="function_name"><link linkend="GThread">GThread</link></entry></row>
+
+<row><entry role="datatype_keyword">union</entry><entry role="function_name"><link linkend="GMutex">GMutex</link></entry></row>
+
+<row><entry role="typedef_keyword">typedef</entry><entry role="function_name"><link linkend="GMutexLocker">GMutexLocker</link></entry></row>
+
+
+<row><entry role="datatype_keyword">struct</entry><entry role="function_name"><link linkend="GRecMutex">GRecMutex</link></entry></row>
+
+<row><entry role="datatype_keyword">struct</entry><entry role="function_name"><link linkend="GRWLock">GRWLock</link></entry></row>
+
+<row><entry role="datatype_keyword">struct</entry><entry role="function_name"><link linkend="GCond">GCond</link></entry></row>
+
+<row><entry role="datatype_keyword">struct</entry><entry role="function_name"><link linkend="GPrivate">GPrivate</link></entry></row>
+
+<row><entry role="datatype_keyword">struct</entry><entry role="function_name"><link linkend="GOnce">GOnce</link></entry></row>
+<row><entry role="datatype_keyword">enum</entry><entry role="function_name"><link linkend="GOnceStatus">GOnceStatus</link></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="G-ONCE-INIT:CAPS">G_ONCE_INIT</link></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+
+<refsect1 id="glib-Threads.includes"><title>Includes</title><synopsis>#include &lt;glib.h&gt;
+</synopsis></refsect1>
+
+<refsect1 id="glib-Threads.description" role="desc">
+<title role="desc.title">Description</title>
+<para>Threads act almost like processes, but unlike processes all threads
+of one process share the same memory. This is good, as it provides
+easy communication between the involved threads via this shared
+memory, and it is bad, because strange things (so called
+"Heisenbugs") might happen if the program is not carefully designed.
+In particular, due to the concurrent nature of threads, no
+assumptions on the order of execution of code running in different
+threads can be made, unless order is explicitly forced by the
+programmer through synchronization primitives.</para>
+<para>The aim of the thread-related functions in GLib is to provide a
+portable means for writing multi-threaded software. There are
+primitives for mutexes to protect the access to portions of memory
+(<link linkend="GMutex"><type>GMutex</type></link>, <link linkend="GRecMutex"><type>GRecMutex</type></link> and <link linkend="GRWLock"><type>GRWLock</type></link>). There is a facility to use
+individual bits for locks (<link linkend="g-bit-lock"><function>g_bit_lock()</function></link>). There are primitives
+for condition variables to allow synchronization of threads (<link linkend="GCond"><type>GCond</type></link>).
+There are primitives for thread-private data - data that every
+thread has a private instance of (<link linkend="GPrivate"><type>GPrivate</type></link>). There are facilities
+for one-time initialization (<link linkend="GOnce"><type>GOnce</type></link>, <link linkend="g-once-init-enter"><function>g_once_init_enter()</function></link>). Finally,
+there are primitives to create and manage threads (<link linkend="GThread"><type>GThread</type></link>).</para>
+<para>The GLib threading system used to be initialized with <link linkend="g-thread-init"><function>g_thread_init()</function></link>.
+This is no longer necessary. Since version 2.32, the GLib threading
+system is automatically initialized at the start of your program,
+and all thread-creation functions and synchronization primitives
+are available right away.</para>
+<para>Note that it is not safe to assume that your program has no threads
+even if you don't call <link linkend="g-thread-new"><function>g_thread_new()</function></link> yourself. GLib and GIO can
+and will create threads for their own purposes in some cases, such
+as when using <link linkend="g-unix-signal-source-new"><function>g_unix_signal_source_new()</function></link> or when using GDBus.</para>
+<para>Originally, UNIX did not have threads, and therefore some traditional
+UNIX APIs are problematic in threaded programs. Some notable examples
+are</para>
+<itemizedlist>
+<listitem>
+<para>C library functions that return data in statically allocated
+buffers, such as <link linkend="strtok"><function>strtok()</function></link> or <link linkend="strerror"><function>strerror()</function></link>. For many of these,
+there are thread-safe variants with a _r suffix, or you can
+look at corresponding GLib APIs (like <link linkend="g-strsplit"><function>g_strsplit()</function></link> or <link linkend="g-strerror"><function>g_strerror()</function></link>).</para>
+</listitem>
+<listitem>
+<para>The functions <link linkend="setenv"><function>setenv()</function></link> and <link linkend="unsetenv"><function>unsetenv()</function></link> manipulate the process
+environment in a not thread-safe way, and may interfere with <link linkend="getenv"><function>getenv()</function></link>
+calls in other threads. Note that <link linkend="getenv"><function>getenv()</function></link> calls may be hidden behind
+other APIs. For example, GNU <link linkend="gettext"><function>gettext()</function></link> calls <link linkend="getenv"><function>getenv()</function></link> under the
+covers. In general, it is best to treat the environment as readonly.
+If you absolutely have to modify the environment, do it early in
+<link linkend="main"><function>main()</function></link>, when no other threads are around yet.</para>
+</listitem>
+<listitem>
+<para>The <link linkend="setlocale"><function>setlocale()</function></link> function changes the locale for the entire process,
+affecting all threads. Temporary changes to the locale are often made
+to change the behavior of string scanning or formatting functions
+like <link linkend="scanf"><function>scanf()</function></link> or <link linkend="printf"><function>printf()</function></link>. GLib offers a number of string APIs
+(like <link linkend="g-ascii-formatd"><function>g_ascii_formatd()</function></link> or <link linkend="g-ascii-strtod"><function>g_ascii_strtod()</function></link>) that can often be
+used as an alternative. Or you can use the <link linkend="uselocale"><function>uselocale()</function></link> function
+to change the locale only for the current thread.</para>
+</listitem>
+<listitem>
+<para>The <link linkend="fork"><function>fork()</function></link> function only takes the calling thread into the child's
+copy of the process image. If other threads were executing in critical
+sections they could have left mutexes locked which could easily
+cause deadlocks in the new child. For this reason, you should
+call <link linkend="exit"><function>exit()</function></link> or <link linkend="exec"><function>exec()</function></link> as soon as possible in the child and only
+make signal-safe library calls before that.</para>
+</listitem>
+<listitem>
+<para>The <link linkend="daemon"><function>daemon()</function></link> function uses <link linkend="fork"><function>fork()</function></link> in a way contrary to what is
+described above. It should not be used with GLib programs.</para>
+</listitem>
+</itemizedlist>
+<para>GLib itself is internally completely thread-safe (all global data is
+automatically locked), but individual data structure instances are
+not automatically locked for performance reasons. For example,
+you must coordinate accesses to the same <link linkend="GHashTable"><type>GHashTable</type></link> from multiple
+threads. The two notable exceptions from this rule are <link linkend="GMainLoop"><type>GMainLoop</type></link>
+and <link linkend="GAsyncQueue"><type>GAsyncQueue</type></link>, which are thread-safe and need no further
+application-level locking to be accessed from multiple threads.
+Most refcounting functions such as <link linkend="g-object-ref"><function>g_object_ref()</function></link> are also thread-safe.</para>
+<para>A common use for <link linkend="GThreads"><type>GThreads</type></link> is to move a long-running blocking operation out
+of the main thread and into a worker thread. For GLib functions, such as
+single GIO operations, this is not necessary, and complicates the code.
+Instead, the <literal>…<link linkend="async"><function>_async()</function></link></literal> version of the function should be used from the main
+thread, eliminating the need for locking and synchronisation between multiple
+threads. If an operation does need to be moved to a worker thread, consider
+using <link linkend="g-task-run-in-thread"><function>g_task_run_in_thread()</function></link>, or a <link linkend="GThreadPool"><type>GThreadPool</type></link>. <link linkend="GThreadPool"><type>GThreadPool</type></link> is often a
+better choice than <link linkend="GThread"><type>GThread</type></link>, as it handles thread reuse and task queueing;
+<link linkend="GTask"><type>GTask</type></link> uses this internally.</para>
+<para>However, if multiple blocking operations need to be performed in sequence,
+and it is not possible to use <link linkend="GTask"><type>GTask</type></link> for them, moving them to a worker thread
+can clarify the code.</para>
+
+</refsect1>
+<refsect1 id="glib-Threads.functions_details" role="details">
+<title role="details.title">Functions</title>
+<refsect2 id="GThreadFunc" role="function">
+<title>GThreadFunc&#160;()</title>
+<indexterm zone="GThreadFunc"><primary sortas="ThreadFunc">GThreadFunc</primary></indexterm>
+<programlisting language="C"><link linkend="gpointer"><returnvalue>gpointer</returnvalue></link>
+<phrase role="c_punctuation">(</phrase>*GThreadFunc<phrase role="c_punctuation">)</phrase> (<parameter><link linkend="gpointer"><type>gpointer</type></link> data</parameter>);</programlisting>
+<para>Specifies the type of the <parameter>func</parameter>
+ functions passed to <link linkend="g-thread-new"><function>g_thread_new()</function></link>
+or <link linkend="g-thread-try-new"><function>g_thread_try_new()</function></link>.</para>
+<refsect3 id="GThreadFunc.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>data</para></entry>
+<entry role="parameter_description"><para>data passed to the thread</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="GThreadFunc.returns" role="returns">
+<title>Returns</title>
+<para> the return value of the thread</para>
+</refsect3></refsect2>
+<refsect2 id="g-thread-new" role="function" condition="since:2.32">
+<title>g_thread_new&#160;()</title>
+<indexterm zone="g-thread-new" role="2.32"><primary sortas="thread_new">g_thread_new</primary></indexterm>
+<programlisting language="C"><link linkend="GThread"><returnvalue>GThread</returnvalue></link>&#160;*
+g_thread_new (<parameter>const <link linkend="gchar"><type>gchar</type></link> *name</parameter>,
+              <parameter><link linkend="GThreadFunc"><type>GThreadFunc</type></link> func</parameter>,
+              <parameter><link linkend="gpointer"><type>gpointer</type></link> data</parameter>);</programlisting>
+<para>This function creates a new thread. The new thread starts by invoking
+<parameter>func</parameter>
+ with the argument data. The thread will run until <parameter>func</parameter>
+ returns
+or until <link linkend="g-thread-exit"><function>g_thread_exit()</function></link> is called from the new thread. The return value
+of <parameter>func</parameter>
+ becomes the return value of the thread, which can be obtained
+with <link linkend="g-thread-join"><function>g_thread_join()</function></link>.</para>
+<para>The <parameter>name</parameter>
+ can be useful for discriminating threads in a debugger.
+It is not used for other purposes and does not have to be unique.
+Some systems restrict the length of <parameter>name</parameter>
+ to 16 bytes.</para>
+<para>If the thread can not be created the program aborts. See
+<link linkend="g-thread-try-new"><function>g_thread_try_new()</function></link> if you want to attempt to deal with failures.</para>
+<para>If you are using threads to offload (potentially many) short-lived tasks,
+<link linkend="GThreadPool"><type>GThreadPool</type></link> may be more appropriate than manually spawning and tracking
+multiple <link linkend="GThreads"><type>GThreads</type></link>.</para>
+<para>To free the struct returned by this function, use <link linkend="g-thread-unref"><function>g_thread_unref()</function></link>.
+Note that <link linkend="g-thread-join"><function>g_thread_join()</function></link> implicitly unrefs the <link linkend="GThread"><type>GThread</type></link> as well.</para>
+<refsect3 id="g-thread-new.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>name</para></entry>
+<entry role="parameter_description"><para>an (optional) name for the new thread. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>func</para></entry>
+<entry role="parameter_description"><para>a function to execute in the new thread</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>data</para></entry>
+<entry role="parameter_description"><para>an argument to supply to the new thread</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-thread-new.returns" role="returns">
+<title>Returns</title>
+<para> the new <link linkend="GThread"><type>GThread</type></link></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.32">2.32</link></para></refsect2>
+<refsect2 id="g-thread-try-new" role="function" condition="since:2.32">
+<title>g_thread_try_new&#160;()</title>
+<indexterm zone="g-thread-try-new" role="2.32"><primary sortas="thread_try_new">g_thread_try_new</primary></indexterm>
+<programlisting language="C"><link linkend="GThread"><returnvalue>GThread</returnvalue></link>&#160;*
+g_thread_try_new (<parameter>const <link linkend="gchar"><type>gchar</type></link> *name</parameter>,
+                  <parameter><link linkend="GThreadFunc"><type>GThreadFunc</type></link> func</parameter>,
+                  <parameter><link linkend="gpointer"><type>gpointer</type></link> data</parameter>,
+                  <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para>This function is the same as <link linkend="g-thread-new"><function>g_thread_new()</function></link> except that
+it allows for the possibility of failure.</para>
+<para>If a thread can not be created (due to resource limits),
+<parameter>error</parameter>
+ is set and <link linkend="NULL:CAPS"><literal>NULL</literal></link> is returned.</para>
+<refsect3 id="g-thread-try-new.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>name</para></entry>
+<entry role="parameter_description"><para>an (optional) name for the new thread. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>func</para></entry>
+<entry role="parameter_description"><para>a function to execute in the new thread</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>data</para></entry>
+<entry role="parameter_description"><para>an argument to supply to the new thread</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para>return location for error, or <link linkend="NULL:CAPS"><literal>NULL</literal></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-thread-try-new.returns" role="returns">
+<title>Returns</title>
+<para> the new <link linkend="GThread"><type>GThread</type></link>, or <link linkend="NULL:CAPS"><literal>NULL</literal></link> if an error occurred</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.32">2.32</link></para></refsect2>
+<refsect2 id="g-thread-ref" role="function" condition="since:2.32">
+<title>g_thread_ref&#160;()</title>
+<indexterm zone="g-thread-ref" role="2.32"><primary sortas="thread_ref">g_thread_ref</primary></indexterm>
+<programlisting language="C"><link linkend="GThread"><returnvalue>GThread</returnvalue></link>&#160;*
+g_thread_ref (<parameter><link linkend="GThread"><type>GThread</type></link> *thread</parameter>);</programlisting>
+<para>Increase the reference count on <parameter>thread</parameter>
+.</para>
+<refsect3 id="g-thread-ref.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>thread</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GThread"><type>GThread</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-thread-ref.returns" role="returns">
+<title>Returns</title>
+<para> a new reference to <parameter>thread</parameter>
+</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.32">2.32</link></para></refsect2>
+<refsect2 id="g-thread-unref" role="function" condition="since:2.32">
+<title>g_thread_unref&#160;()</title>
+<indexterm zone="g-thread-unref" role="2.32"><primary sortas="thread_unref">g_thread_unref</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_thread_unref (<parameter><link linkend="GThread"><type>GThread</type></link> *thread</parameter>);</programlisting>
+<para>Decrease the reference count on <parameter>thread</parameter>
+, possibly freeing all
+resources associated with it.</para>
+<para>Note that each thread holds a reference to its <link linkend="GThread"><type>GThread</type></link> while
+it is running, so it is safe to drop your own reference to it
+if you don't need it anymore.</para>
+<refsect3 id="g-thread-unref.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>thread</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GThread"><type>GThread</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.32">2.32</link></para></refsect2>
+<refsect2 id="g-thread-join" role="function">
+<title>g_thread_join&#160;()</title>
+<indexterm zone="g-thread-join"><primary sortas="thread_join">g_thread_join</primary></indexterm>
+<programlisting language="C"><link linkend="gpointer"><returnvalue>gpointer</returnvalue></link>
+g_thread_join (<parameter><link linkend="GThread"><type>GThread</type></link> *thread</parameter>);</programlisting>
+<para>Waits until <parameter>thread</parameter>
+ finishes, i.e. the function <parameter>func</parameter>
+, as
+given to <link linkend="g-thread-new"><function>g_thread_new()</function></link>, returns or <link linkend="g-thread-exit"><function>g_thread_exit()</function></link> is called.
+If <parameter>thread</parameter>
+ has already terminated, then <link linkend="g-thread-join"><function>g_thread_join()</function></link>
+returns immediately.</para>
+<para>Any thread can wait for any other thread by calling <link linkend="g-thread-join"><function>g_thread_join()</function></link>,
+not just its 'creator'. Calling <link linkend="g-thread-join"><function>g_thread_join()</function></link> from multiple threads
+for the same <parameter>thread</parameter>
+ leads to undefined behaviour.</para>
+<para>The value returned by <parameter>func</parameter>
+ or given to <link linkend="g-thread-exit"><function>g_thread_exit()</function></link> is
+returned by this function.</para>
+<para>g_thread_join() consumes the reference to the passed-in <parameter>thread</parameter>
+.
+This will usually cause the <link linkend="GThread"><type>GThread</type></link> struct and associated resources
+to be freed. Use <link linkend="g-thread-ref"><function>g_thread_ref()</function></link> to obtain an extra reference if you
+want to keep the GThread alive beyond the <link linkend="g-thread-join"><function>g_thread_join()</function></link> call.</para>
+<refsect3 id="g-thread-join.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>thread</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GThread"><type>GThread</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-thread-join.returns" role="returns">
+<title>Returns</title>
+<para> the return value of the thread</para>
+</refsect3></refsect2>
+<refsect2 id="g-thread-yield" role="function">
+<title>g_thread_yield&#160;()</title>
+<indexterm zone="g-thread-yield"><primary sortas="thread_yield">g_thread_yield</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_thread_yield ();</programlisting>
+<para>Causes the calling thread to voluntarily relinquish the CPU, so
+that other threads can run.</para>
+<para>This function is often used as a method to make busy wait less evil.</para>
+</refsect2>
+<refsect2 id="g-thread-exit" role="function">
+<title>g_thread_exit&#160;()</title>
+<indexterm zone="g-thread-exit"><primary sortas="thread_exit">g_thread_exit</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_thread_exit (<parameter><link linkend="gpointer"><type>gpointer</type></link> retval</parameter>);</programlisting>
+<para>Terminates the current thread.</para>
+<para>If another thread is waiting for us using <link linkend="g-thread-join"><function>g_thread_join()</function></link> then the
+waiting thread will be woken up and get <parameter>retval</parameter>
+ as the return value
+of <link linkend="g-thread-join"><function>g_thread_join()</function></link>.</para>
+<para>Calling <link linkend="g-thread-exit"><function>g_thread_exit()</function></link> with a parameter <parameter>retval</parameter>
+ is equivalent to
+returning <parameter>retval</parameter>
+ from the function <parameter>func</parameter>
+, as given to <link linkend="g-thread-new"><function>g_thread_new()</function></link>.</para>
+<para>You must only call <link linkend="g-thread-exit"><function>g_thread_exit()</function></link> from a thread that you created
+yourself with <link linkend="g-thread-new"><function>g_thread_new()</function></link> or related APIs. You must not call
+this function from a thread created with another threading library
+or or from within a <link linkend="GThreadPool"><type>GThreadPool</type></link>.</para>
+<refsect3 id="g-thread-exit.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>retval</para></entry>
+<entry role="parameter_description"><para>the return value of this thread</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-thread-self" role="function">
+<title>g_thread_self&#160;()</title>
+<indexterm zone="g-thread-self"><primary sortas="thread_self">g_thread_self</primary></indexterm>
+<programlisting language="C"><link linkend="GThread"><returnvalue>GThread</returnvalue></link>&#160;*
+g_thread_self (<parameter><type>void</type></parameter>);</programlisting>
+<para>This function returns the <link linkend="GThread"><type>GThread</type></link> corresponding to the
+current thread. Note that this function does not increase
+the reference count of the returned struct.</para>
+<para>This function will return a <link linkend="GThread"><type>GThread</type></link> even for threads that
+were not created by GLib (i.e. those created by other threading
+APIs). This may be useful for thread identification purposes
+(i.e. comparisons) but you must not use GLib functions (such
+as <link linkend="g-thread-join"><function>g_thread_join()</function></link>) on these threads.</para>
+<refsect3 id="g-thread-self.returns" role="returns">
+<title>Returns</title>
+<para> the <link linkend="GThread"><type>GThread</type></link> representing the current thread</para>
+</refsect3></refsect2>
+<refsect2 id="g-mutex-init" role="function" condition="since:2.32">
+<title>g_mutex_init&#160;()</title>
+<indexterm zone="g-mutex-init" role="2.32"><primary sortas="mutex_init">g_mutex_init</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_mutex_init (<parameter><link linkend="GMutex"><type>GMutex</type></link> *mutex</parameter>);</programlisting>
+<para>Initializes a <link linkend="GMutex"><type>GMutex</type></link> so that it can be used.</para>
+<para>This function is useful to initialize a mutex that has been
+allocated on the stack, or as part of a larger structure.
+It is not necessary to initialize a mutex that has been
+statically allocated.</para>
+<informalexample><programlisting role="example"><![CDATA[
+  typedef struct {
+    GMutex m;
+    ...
+  } Blob;
+
+Blob *b;
+
+b = g_new (Blob, 1);
+g_mutex_init (&b->m);
+]]></programlisting></informalexample>
+<para></para>
+<para>To undo the effect of <link linkend="g-mutex-init"><function>g_mutex_init()</function></link> when a mutex is no longer
+needed, use <link linkend="g-mutex-clear"><function>g_mutex_clear()</function></link>.</para>
+<para>Calling <link linkend="g-mutex-init"><function>g_mutex_init()</function></link> on an already initialized <link linkend="GMutex"><type>GMutex</type></link> leads
+to undefined behaviour.</para>
+<refsect3 id="g-mutex-init.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>mutex</para></entry>
+<entry role="parameter_description"><para>an uninitialized <link linkend="GMutex"><type>GMutex</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.32">2.32</link></para></refsect2>
+<refsect2 id="g-mutex-clear" role="function">
+<title>g_mutex_clear&#160;()</title>
+<indexterm zone="g-mutex-clear"><primary sortas="mutex_clear">g_mutex_clear</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_mutex_clear (<parameter><link linkend="GMutex"><type>GMutex</type></link> *mutex</parameter>);</programlisting>
+<para>Frees the resources allocated to a mutex with <link linkend="g-mutex-init"><function>g_mutex_init()</function></link>.</para>
+<para>This function should not be used with a <link linkend="GMutex"><type>GMutex</type></link> that has been
+statically allocated.</para>
+<para>Calling <link linkend="g-mutex-clear"><function>g_mutex_clear()</function></link> on a locked mutex leads to undefined
+behaviour.</para>
+<para>Sine: 2.32</para>
+<refsect3 id="g-mutex-clear.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>mutex</para></entry>
+<entry role="parameter_description"><para>an initialized <link linkend="GMutex"><type>GMutex</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-mutex-lock" role="function">
+<title>g_mutex_lock&#160;()</title>
+<indexterm zone="g-mutex-lock"><primary sortas="mutex_lock">g_mutex_lock</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_mutex_lock (<parameter><link linkend="GMutex"><type>GMutex</type></link> *mutex</parameter>);</programlisting>
+<para>Locks <parameter>mutex</parameter>
+. If <parameter>mutex</parameter>
+ is already locked by another thread, the
+current thread will block until <parameter>mutex</parameter>
+ is unlocked by the other
+thread.</para>
+<para><link linkend="GMutex"><type>GMutex</type></link> is neither guaranteed to be recursive nor to be
+non-recursive.  As such, calling <link linkend="g-mutex-lock"><function>g_mutex_lock()</function></link> on a <link linkend="GMutex"><type>GMutex</type></link> that has
+already been locked by the same thread results in undefined behaviour
+(including but not limited to deadlocks).</para>
+<refsect3 id="g-mutex-lock.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>mutex</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GMutex"><type>GMutex</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-mutex-trylock" role="function">
+<title>g_mutex_trylock&#160;()</title>
+<indexterm zone="g-mutex-trylock"><primary sortas="mutex_trylock">g_mutex_trylock</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_mutex_trylock (<parameter><link linkend="GMutex"><type>GMutex</type></link> *mutex</parameter>);</programlisting>
+<para>Tries to lock <parameter>mutex</parameter>
+. If <parameter>mutex</parameter>
+ is already locked by another thread,
+it immediately returns <link linkend="FALSE:CAPS"><literal>FALSE</literal></link>. Otherwise it locks <parameter>mutex</parameter>
+ and returns
+<link linkend="TRUE:CAPS"><literal>TRUE</literal></link>.</para>
+<para><link linkend="GMutex"><type>GMutex</type></link> is neither guaranteed to be recursive nor to be
+non-recursive.  As such, calling <link linkend="g-mutex-lock"><function>g_mutex_lock()</function></link> on a <link linkend="GMutex"><type>GMutex</type></link> that has
+already been locked by the same thread results in undefined behaviour
+(including but not limited to deadlocks or arbitrary return values).</para>
+<refsect3 id="g-mutex-trylock.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>mutex</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GMutex"><type>GMutex</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-mutex-trylock.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if <parameter>mutex</parameter>
+could be locked</para>
+</refsect3></refsect2>
+<refsect2 id="g-mutex-unlock" role="function">
+<title>g_mutex_unlock&#160;()</title>
+<indexterm zone="g-mutex-unlock"><primary sortas="mutex_unlock">g_mutex_unlock</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_mutex_unlock (<parameter><link linkend="GMutex"><type>GMutex</type></link> *mutex</parameter>);</programlisting>
+<para>Unlocks <parameter>mutex</parameter>
+. If another thread is blocked in a <link linkend="g-mutex-lock"><function>g_mutex_lock()</function></link>
+call for <parameter>mutex</parameter>
+, it will become unblocked and can lock <parameter>mutex</parameter>
+ itself.</para>
+<para>Calling <link linkend="g-mutex-unlock"><function>g_mutex_unlock()</function></link> on a mutex that is not locked by the
+current thread leads to undefined behaviour.</para>
+<refsect3 id="g-mutex-unlock.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>mutex</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GMutex"><type>GMutex</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-mutex-locker-new" role="function" condition="since:2.44">
+<title>g_mutex_locker_new&#160;()</title>
+<indexterm zone="g-mutex-locker-new" role="2.44"><primary sortas="mutex_locker_new">g_mutex_locker_new</primary></indexterm>
+<programlisting language="C"><link linkend="GMutexLocker"><returnvalue>GMutexLocker</returnvalue></link>&#160;*
+g_mutex_locker_new (<parameter><link linkend="GMutex"><type>GMutex</type></link> *mutex</parameter>);</programlisting>
+<para>Lock <parameter>mutex</parameter>
+ and return a new <link linkend="GMutexLocker"><type>GMutexLocker</type></link>. Unlock with
+<link linkend="g-mutex-locker-free"><function>g_mutex_locker_free()</function></link>. Using <link linkend="g-mutex-unlock"><function>g_mutex_unlock()</function></link> on <parameter>mutex</parameter>
+
+while a <link linkend="GMutexLocker"><type>GMutexLocker</type></link> exists can lead to undefined behaviour.</para>
+<para>This is intended to be used with <link linkend="g-autoptr"><function>g_autoptr()</function></link>.  Note that <link linkend="g-autoptr"><function>g_autoptr()</function></link>
+is only available when using GCC or clang, so the following example
+will only work with those compilers:</para>
+<informalexample><programlisting role="example"><![CDATA[
+typedef struct
+{
+  ...
+  GMutex mutex;
+  ...
+} MyObject;
+
+static void
+my_object_do_stuff (MyObject *self)
+{
+  g_autoptr(GMutexLocker) locker = g_mutex_locker_new (&self->mutex);
+
+  // Code with mutex locked here
+
+  if (cond)
+    // No need to unlock
+    return;
+
+  // Optionally early unlock
+  g_clear_pointer (&locker, g_mutex_locker_free);
+
+  // Code with mutex unlocked here
+}
+]]></programlisting></informalexample>
+<para></para>
+<refsect3 id="g-mutex-locker-new.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>mutex</para></entry>
+<entry role="parameter_description"><para>a mutex to lock</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-mutex-locker-new.returns" role="returns">
+<title>Returns</title>
+<para> a <link linkend="GMutexLocker"><type>GMutexLocker</type></link></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.44">2.44</link></para></refsect2>
+<refsect2 id="g-mutex-locker-free" role="function" condition="since:2.44">
+<title>g_mutex_locker_free&#160;()</title>
+<indexterm zone="g-mutex-locker-free" role="2.44"><primary sortas="mutex_locker_free">g_mutex_locker_free</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_mutex_locker_free (<parameter><link linkend="GMutexLocker"><type>GMutexLocker</type></link> *locker</parameter>);</programlisting>
+<para>Unlock <parameter>locker</parameter>
+'s mutex. See <link linkend="g-mutex-locker-new"><function>g_mutex_locker_new()</function></link> for details.</para>
+<refsect3 id="g-mutex-locker-free.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>locker</para></entry>
+<entry role="parameter_description"><para>a GMutexLocker</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.44">2.44</link></para></refsect2>
+<refsect2 id="G-LOCK-DEFINE:CAPS" role="macro">
+<title>G_LOCK_DEFINE()</title>
+<indexterm zone="G-LOCK-DEFINE:CAPS"><primary sortas="LOCK_DEFINE">G_LOCK_DEFINE</primary></indexterm>
+<programlisting language="C">#define G_LOCK_DEFINE(name)    
+</programlisting>
+<para>The <link linkend="G-LOCK-:CAPS"><type>G_LOCK_</type></link> macros provide a convenient interface to <link linkend="GMutex"><type>GMutex</type></link>.
+<link linkend="G-LOCK-DEFINE:CAPS"><type>G_LOCK_DEFINE</type></link> defines a lock. It can appear in any place where
+variable definitions may appear in programs, i.e. in the first block
+of a function or outside of functions. The <parameter>name</parameter>
+ parameter will be
+mangled to get the name of the <link linkend="GMutex"><type>GMutex</type></link>. This means that you
+can use names of existing variables as the parameter - e.g. the name
+of the variable you intend to protect with the lock. Look at our
+<link linkend="give-me-next-number"><function>give_me_next_number()</function></link> example using the <link linkend="G-LOCK:CAPS"><type>G_LOCK</type></link> macros:</para>
+<para>Here is an example for using the <link linkend="G-LOCK:CAPS"><type>G_LOCK</type></link> convenience macros:</para>
+<informalexample><programlisting role="example"><![CDATA[
+  G_LOCK_DEFINE (current_number);
+
+  int
+  give_me_next_number (void)
+  {
+    static int current_number = 0;
+    int ret_val;
+
+    G_LOCK (current_number);
+    ret_val = current_number = calc_next_number (current_number);
+    G_UNLOCK (current_number);
+
+    return ret_val;
+  }
+]]></programlisting></informalexample>
+<para></para>
+<refsect3 id="G-LOCK-DEFINE.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>name</para></entry>
+<entry role="parameter_description"><para>the name of the lock</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="G-LOCK-DEFINE-STATIC:CAPS" role="macro">
+<title>G_LOCK_DEFINE_STATIC()</title>
+<indexterm zone="G-LOCK-DEFINE-STATIC:CAPS"><primary sortas="LOCK_DEFINE_STATIC">G_LOCK_DEFINE_STATIC</primary></indexterm>
+<programlisting language="C">#define G_LOCK_DEFINE_STATIC(name)
+</programlisting>
+<para>This works like <link linkend="G-LOCK-DEFINE:CAPS"><type>G_LOCK_DEFINE</type></link>, but it creates a static object.</para>
+<refsect3 id="G-LOCK-DEFINE-STATIC.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>name</para></entry>
+<entry role="parameter_description"><para>the name of the lock</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="G-LOCK-EXTERN:CAPS" role="macro">
+<title>G_LOCK_EXTERN()</title>
+<indexterm zone="G-LOCK-EXTERN:CAPS"><primary sortas="LOCK_EXTERN">G_LOCK_EXTERN</primary></indexterm>
+<programlisting language="C">#define G_LOCK_EXTERN(name)    
+</programlisting>
+<para>This declares a lock, that is defined with <link linkend="G-LOCK-DEFINE:CAPS"><type>G_LOCK_DEFINE</type></link> in another
+module.</para>
+<refsect3 id="G-LOCK-EXTERN.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>name</para></entry>
+<entry role="parameter_description"><para>the name of the lock</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="G-LOCK:CAPS" role="macro">
+<title>G_LOCK()</title>
+<indexterm zone="G-LOCK:CAPS"><primary sortas="LOCK">G_LOCK</primary></indexterm>
+<programlisting language="C">#define G_LOCK(name)
+</programlisting>
+<para>Works like <link linkend="g-mutex-lock"><function>g_mutex_lock()</function></link>, but for a lock defined with
+<link linkend="G-LOCK-DEFINE:CAPS"><type>G_LOCK_DEFINE</type></link>.</para>
+<refsect3 id="G-LOCK.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>name</para></entry>
+<entry role="parameter_description"><para>the name of the lock</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="G-TRYLOCK:CAPS" role="macro">
+<title>G_TRYLOCK()</title>
+<indexterm zone="G-TRYLOCK:CAPS"><primary sortas="TRYLOCK">G_TRYLOCK</primary></indexterm>
+<programlisting language="C">#define G_TRYLOCK(name)
+</programlisting>
+<para>Works like <link linkend="g-mutex-trylock"><function>g_mutex_trylock()</function></link>, but for a lock defined with
+<link linkend="G-LOCK-DEFINE:CAPS"><type>G_LOCK_DEFINE</type></link>.</para>
+<refsect3 id="G-TRYLOCK.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>name</para></entry>
+<entry role="parameter_description"><para>the name of the lock</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="G-TRYLOCK.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link>, if the lock could be locked.</para>
+</refsect3></refsect2>
+<refsect2 id="G-UNLOCK:CAPS" role="macro">
+<title>G_UNLOCK()</title>
+<indexterm zone="G-UNLOCK:CAPS"><primary sortas="UNLOCK">G_UNLOCK</primary></indexterm>
+<programlisting language="C">#define G_UNLOCK(name)
+</programlisting>
+<para>Works like <link linkend="g-mutex-unlock"><function>g_mutex_unlock()</function></link>, but for a lock defined with
+<link linkend="G-LOCK-DEFINE:CAPS"><type>G_LOCK_DEFINE</type></link>.</para>
+<refsect3 id="G-UNLOCK.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>name</para></entry>
+<entry role="parameter_description"><para>the name of the lock</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-rec-mutex-init" role="function" condition="since:2.32">
+<title>g_rec_mutex_init&#160;()</title>
+<indexterm zone="g-rec-mutex-init" role="2.32"><primary sortas="rec_mutex_init">g_rec_mutex_init</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_rec_mutex_init (<parameter><link linkend="GRecMutex"><type>GRecMutex</type></link> *rec_mutex</parameter>);</programlisting>
+<para>Initializes a <link linkend="GRecMutex"><type>GRecMutex</type></link> so that it can be used.</para>
+<para>This function is useful to initialize a recursive mutex
+that has been allocated on the stack, or as part of a larger
+structure.</para>
+<para>It is not necessary to initialise a recursive mutex that has been
+statically allocated.</para>
+<informalexample><programlisting role="example"><![CDATA[
+  typedef struct {
+    GRecMutex m;
+    ...
+  } Blob;
+
+Blob *b;
+
+b = g_new (Blob, 1);
+g_rec_mutex_init (&b->m);
+]]></programlisting></informalexample>
+<para></para>
+<para>Calling <link linkend="g-rec-mutex-init"><function>g_rec_mutex_init()</function></link> on an already initialized <link linkend="GRecMutex"><type>GRecMutex</type></link>
+leads to undefined behaviour.</para>
+<para>To undo the effect of <link linkend="g-rec-mutex-init"><function>g_rec_mutex_init()</function></link> when a recursive mutex
+is no longer needed, use <link linkend="g-rec-mutex-clear"><function>g_rec_mutex_clear()</function></link>.</para>
+<refsect3 id="g-rec-mutex-init.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>rec_mutex</para></entry>
+<entry role="parameter_description"><para>an uninitialized <link linkend="GRecMutex"><type>GRecMutex</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.32">2.32</link></para></refsect2>
+<refsect2 id="g-rec-mutex-clear" role="function">
+<title>g_rec_mutex_clear&#160;()</title>
+<indexterm zone="g-rec-mutex-clear"><primary sortas="rec_mutex_clear">g_rec_mutex_clear</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_rec_mutex_clear (<parameter><link linkend="GRecMutex"><type>GRecMutex</type></link> *rec_mutex</parameter>);</programlisting>
+<para>Frees the resources allocated to a recursive mutex with
+<link linkend="g-rec-mutex-init"><function>g_rec_mutex_init()</function></link>.</para>
+<para>This function should not be used with a <link linkend="GRecMutex"><type>GRecMutex</type></link> that has been
+statically allocated.</para>
+<para>Calling <link linkend="g-rec-mutex-clear"><function>g_rec_mutex_clear()</function></link> on a locked recursive mutex leads
+to undefined behaviour.</para>
+<para>Sine: 2.32</para>
+<refsect3 id="g-rec-mutex-clear.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>rec_mutex</para></entry>
+<entry role="parameter_description"><para>an initialized <link linkend="GRecMutex"><type>GRecMutex</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-rec-mutex-lock" role="function" condition="since:2.32">
+<title>g_rec_mutex_lock&#160;()</title>
+<indexterm zone="g-rec-mutex-lock" role="2.32"><primary sortas="rec_mutex_lock">g_rec_mutex_lock</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_rec_mutex_lock (<parameter><link linkend="GRecMutex"><type>GRecMutex</type></link> *rec_mutex</parameter>);</programlisting>
+<para>Locks <parameter>rec_mutex</parameter>
+. If <parameter>rec_mutex</parameter>
+ is already locked by another
+thread, the current thread will block until <parameter>rec_mutex</parameter>
+ is
+unlocked by the other thread. If <parameter>rec_mutex</parameter>
+ is already locked
+by the current thread, the 'lock count' of <parameter>rec_mutex</parameter>
+ is increased.
+The mutex will only become available again when it is unlocked
+as many times as it has been locked.</para>
+<refsect3 id="g-rec-mutex-lock.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>rec_mutex</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GRecMutex"><type>GRecMutex</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.32">2.32</link></para></refsect2>
+<refsect2 id="g-rec-mutex-trylock" role="function" condition="since:2.32">
+<title>g_rec_mutex_trylock&#160;()</title>
+<indexterm zone="g-rec-mutex-trylock" role="2.32"><primary sortas="rec_mutex_trylock">g_rec_mutex_trylock</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_rec_mutex_trylock (<parameter><link linkend="GRecMutex"><type>GRecMutex</type></link> *rec_mutex</parameter>);</programlisting>
+<para>Tries to lock <parameter>rec_mutex</parameter>
+. If <parameter>rec_mutex</parameter>
+ is already locked
+by another thread, it immediately returns <link linkend="FALSE:CAPS"><literal>FALSE</literal></link>. Otherwise
+it locks <parameter>rec_mutex</parameter>
+ and returns <link linkend="TRUE:CAPS"><literal>TRUE</literal></link>.</para>
+<refsect3 id="g-rec-mutex-trylock.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>rec_mutex</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GRecMutex"><type>GRecMutex</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-rec-mutex-trylock.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if <parameter>rec_mutex</parameter>
+could be locked</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.32">2.32</link></para></refsect2>
+<refsect2 id="g-rec-mutex-unlock" role="function" condition="since:2.32">
+<title>g_rec_mutex_unlock&#160;()</title>
+<indexterm zone="g-rec-mutex-unlock" role="2.32"><primary sortas="rec_mutex_unlock">g_rec_mutex_unlock</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_rec_mutex_unlock (<parameter><link linkend="GRecMutex"><type>GRecMutex</type></link> *rec_mutex</parameter>);</programlisting>
+<para>Unlocks <parameter>rec_mutex</parameter>
+. If another thread is blocked in a
+<link linkend="g-rec-mutex-lock"><function>g_rec_mutex_lock()</function></link> call for <parameter>rec_mutex</parameter>
+, it will become unblocked
+and can lock <parameter>rec_mutex</parameter>
+ itself.</para>
+<para>Calling <link linkend="g-rec-mutex-unlock"><function>g_rec_mutex_unlock()</function></link> on a recursive mutex that is not
+locked by the current thread leads to undefined behaviour.</para>
+<refsect3 id="g-rec-mutex-unlock.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>rec_mutex</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GRecMutex"><type>GRecMutex</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.32">2.32</link></para></refsect2>
+<refsect2 id="g-rw-lock-init" role="function" condition="since:2.32">
+<title>g_rw_lock_init&#160;()</title>
+<indexterm zone="g-rw-lock-init" role="2.32"><primary sortas="rw_lock_init">g_rw_lock_init</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_rw_lock_init (<parameter><link linkend="GRWLock"><type>GRWLock</type></link> *rw_lock</parameter>);</programlisting>
+<para>Initializes a <link linkend="GRWLock"><type>GRWLock</type></link> so that it can be used.</para>
+<para>This function is useful to initialize a lock that has been
+allocated on the stack, or as part of a larger structure.  It is not
+necessary to initialise a reader-writer lock that has been statically
+allocated.</para>
+<informalexample><programlisting role="example"><![CDATA[
+  typedef struct {
+    GRWLock l;
+    ...
+  } Blob;
+
+Blob *b;
+
+b = g_new (Blob, 1);
+g_rw_lock_init (&b->l);
+]]></programlisting></informalexample>
+<para></para>
+<para>To undo the effect of <link linkend="g-rw-lock-init"><function>g_rw_lock_init()</function></link> when a lock is no longer
+needed, use <link linkend="g-rw-lock-clear"><function>g_rw_lock_clear()</function></link>.</para>
+<para>Calling <link linkend="g-rw-lock-init"><function>g_rw_lock_init()</function></link> on an already initialized <link linkend="GRWLock"><type>GRWLock</type></link> leads
+to undefined behaviour.</para>
+<refsect3 id="g-rw-lock-init.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>rw_lock</para></entry>
+<entry role="parameter_description"><para>an uninitialized <link linkend="GRWLock"><type>GRWLock</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.32">2.32</link></para></refsect2>
+<refsect2 id="g-rw-lock-clear" role="function">
+<title>g_rw_lock_clear&#160;()</title>
+<indexterm zone="g-rw-lock-clear"><primary sortas="rw_lock_clear">g_rw_lock_clear</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_rw_lock_clear (<parameter><link linkend="GRWLock"><type>GRWLock</type></link> *rw_lock</parameter>);</programlisting>
+<para>Frees the resources allocated to a lock with <link linkend="g-rw-lock-init"><function>g_rw_lock_init()</function></link>.</para>
+<para>This function should not be used with a <link linkend="GRWLock"><type>GRWLock</type></link> that has been
+statically allocated.</para>
+<para>Calling <link linkend="g-rw-lock-clear"><function>g_rw_lock_clear()</function></link> when any thread holds the lock
+leads to undefined behaviour.</para>
+<para>Sine: 2.32</para>
+<refsect3 id="g-rw-lock-clear.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>rw_lock</para></entry>
+<entry role="parameter_description"><para>an initialized <link linkend="GRWLock"><type>GRWLock</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-rw-lock-writer-lock" role="function" condition="since:2.32">
+<title>g_rw_lock_writer_lock&#160;()</title>
+<indexterm zone="g-rw-lock-writer-lock" role="2.32"><primary sortas="rw_lock_writer_lock">g_rw_lock_writer_lock</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_rw_lock_writer_lock (<parameter><link linkend="GRWLock"><type>GRWLock</type></link> *rw_lock</parameter>);</programlisting>
+<para>Obtain a write lock on <parameter>rw_lock</parameter>
+. If any thread already holds
+a read or write lock on <parameter>rw_lock</parameter>
+, the current thread will block
+until all other threads have dropped their locks on <parameter>rw_lock</parameter>
+.</para>
+<refsect3 id="g-rw-lock-writer-lock.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>rw_lock</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GRWLock"><type>GRWLock</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.32">2.32</link></para></refsect2>
+<refsect2 id="g-rw-lock-writer-trylock" role="function" condition="since:2.32">
+<title>g_rw_lock_writer_trylock&#160;()</title>
+<indexterm zone="g-rw-lock-writer-trylock" role="2.32"><primary sortas="rw_lock_writer_trylock">g_rw_lock_writer_trylock</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_rw_lock_writer_trylock (<parameter><link linkend="GRWLock"><type>GRWLock</type></link> *rw_lock</parameter>);</programlisting>
+<para>Tries to obtain a write lock on <parameter>rw_lock</parameter>
+. If any other thread holds
+a read or write lock on <parameter>rw_lock</parameter>
+, it immediately returns <link linkend="FALSE:CAPS"><literal>FALSE</literal></link>.
+Otherwise it locks <parameter>rw_lock</parameter>
+ and returns <link linkend="TRUE:CAPS"><literal>TRUE</literal></link>.</para>
+<refsect3 id="g-rw-lock-writer-trylock.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>rw_lock</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GRWLock"><type>GRWLock</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-rw-lock-writer-trylock.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if <parameter>rw_lock</parameter>
+could be locked</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.32">2.32</link></para></refsect2>
+<refsect2 id="g-rw-lock-writer-unlock" role="function" condition="since:2.32">
+<title>g_rw_lock_writer_unlock&#160;()</title>
+<indexterm zone="g-rw-lock-writer-unlock" role="2.32"><primary sortas="rw_lock_writer_unlock">g_rw_lock_writer_unlock</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_rw_lock_writer_unlock (<parameter><link linkend="GRWLock"><type>GRWLock</type></link> *rw_lock</parameter>);</programlisting>
+<para>Release a write lock on <parameter>rw_lock</parameter>
+.</para>
+<para>Calling <link linkend="g-rw-lock-writer-unlock"><function>g_rw_lock_writer_unlock()</function></link> on a lock that is not held
+by the current thread leads to undefined behaviour.</para>
+<refsect3 id="g-rw-lock-writer-unlock.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>rw_lock</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GRWLock"><type>GRWLock</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.32">2.32</link></para></refsect2>
+<refsect2 id="g-rw-lock-reader-lock" role="function" condition="since:2.32">
+<title>g_rw_lock_reader_lock&#160;()</title>
+<indexterm zone="g-rw-lock-reader-lock" role="2.32"><primary sortas="rw_lock_reader_lock">g_rw_lock_reader_lock</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_rw_lock_reader_lock (<parameter><link linkend="GRWLock"><type>GRWLock</type></link> *rw_lock</parameter>);</programlisting>
+<para>Obtain a read lock on <parameter>rw_lock</parameter>
+. If another thread currently holds
+the write lock on <parameter>rw_lock</parameter>
+ or blocks waiting for it, the current
+thread will block. Read locks can be taken recursively.</para>
+<para>It is implementation-defined how many threads are allowed to
+hold read locks on the same lock simultaneously. If the limit is hit,
+or if a deadlock is detected, a critical warning will be emitted.</para>
+<refsect3 id="g-rw-lock-reader-lock.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>rw_lock</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GRWLock"><type>GRWLock</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.32">2.32</link></para></refsect2>
+<refsect2 id="g-rw-lock-reader-trylock" role="function" condition="since:2.32">
+<title>g_rw_lock_reader_trylock&#160;()</title>
+<indexterm zone="g-rw-lock-reader-trylock" role="2.32"><primary sortas="rw_lock_reader_trylock">g_rw_lock_reader_trylock</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_rw_lock_reader_trylock (<parameter><link linkend="GRWLock"><type>GRWLock</type></link> *rw_lock</parameter>);</programlisting>
+<para>Tries to obtain a read lock on <parameter>rw_lock</parameter>
+ and returns <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if
+the read lock was successfully obtained. Otherwise it
+returns <link linkend="FALSE:CAPS"><literal>FALSE</literal></link>.</para>
+<refsect3 id="g-rw-lock-reader-trylock.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>rw_lock</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GRWLock"><type>GRWLock</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-rw-lock-reader-trylock.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if <parameter>rw_lock</parameter>
+could be locked</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.32">2.32</link></para></refsect2>
+<refsect2 id="g-rw-lock-reader-unlock" role="function" condition="since:2.32">
+<title>g_rw_lock_reader_unlock&#160;()</title>
+<indexterm zone="g-rw-lock-reader-unlock" role="2.32"><primary sortas="rw_lock_reader_unlock">g_rw_lock_reader_unlock</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_rw_lock_reader_unlock (<parameter><link linkend="GRWLock"><type>GRWLock</type></link> *rw_lock</parameter>);</programlisting>
+<para>Release a read lock on <parameter>rw_lock</parameter>
+.</para>
+<para>Calling <link linkend="g-rw-lock-reader-unlock"><function>g_rw_lock_reader_unlock()</function></link> on a lock that is not held
+by the current thread leads to undefined behaviour.</para>
+<refsect3 id="g-rw-lock-reader-unlock.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>rw_lock</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GRWLock"><type>GRWLock</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.32">2.32</link></para></refsect2>
+<refsect2 id="g-cond-init" role="function" condition="since:2.32">
+<title>g_cond_init&#160;()</title>
+<indexterm zone="g-cond-init" role="2.32"><primary sortas="cond_init">g_cond_init</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_cond_init (<parameter><link linkend="GCond"><type>GCond</type></link> *cond</parameter>);</programlisting>
+<para>Initialises a <link linkend="GCond"><type>GCond</type></link> so that it can be used.</para>
+<para>This function is useful to initialise a <link linkend="GCond"><type>GCond</type></link> that has been
+allocated as part of a larger structure.  It is not necessary to
+initialise a <link linkend="GCond"><type>GCond</type></link> that has been statically allocated.</para>
+<para>To undo the effect of <link linkend="g-cond-init"><function>g_cond_init()</function></link> when a <link linkend="GCond"><type>GCond</type></link> is no longer
+needed, use <link linkend="g-cond-clear"><function>g_cond_clear()</function></link>.</para>
+<para>Calling <link linkend="g-cond-init"><function>g_cond_init()</function></link> on an already-initialised <link linkend="GCond"><type>GCond</type></link> leads
+to undefined behaviour.</para>
+<refsect3 id="g-cond-init.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>cond</para></entry>
+<entry role="parameter_description"><para>an uninitialized <link linkend="GCond"><type>GCond</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.32">2.32</link></para></refsect2>
+<refsect2 id="g-cond-clear" role="function" condition="since:2.32">
+<title>g_cond_clear&#160;()</title>
+<indexterm zone="g-cond-clear" role="2.32"><primary sortas="cond_clear">g_cond_clear</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_cond_clear (<parameter><link linkend="GCond"><type>GCond</type></link> *cond</parameter>);</programlisting>
+<para>Frees the resources allocated to a <link linkend="GCond"><type>GCond</type></link> with <link linkend="g-cond-init"><function>g_cond_init()</function></link>.</para>
+<para>This function should not be used with a <link linkend="GCond"><type>GCond</type></link> that has been
+statically allocated.</para>
+<para>Calling <link linkend="g-cond-clear"><function>g_cond_clear()</function></link> for a <link linkend="GCond"><type>GCond</type></link> on which threads are
+blocking leads to undefined behaviour.</para>
+<refsect3 id="g-cond-clear.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>cond</para></entry>
+<entry role="parameter_description"><para>an initialised <link linkend="GCond"><type>GCond</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.32">2.32</link></para></refsect2>
+<refsect2 id="g-cond-wait" role="function">
+<title>g_cond_wait&#160;()</title>
+<indexterm zone="g-cond-wait"><primary sortas="cond_wait">g_cond_wait</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_cond_wait (<parameter><link linkend="GCond"><type>GCond</type></link> *cond</parameter>,
+             <parameter><link linkend="GMutex"><type>GMutex</type></link> *mutex</parameter>);</programlisting>
+<para>Atomically releases <parameter>mutex</parameter>
+ and waits until <parameter>cond</parameter>
+ is signalled.
+When this function returns, <parameter>mutex</parameter>
+ is locked again and owned by the
+calling thread.</para>
+<para>When using condition variables, it is possible that a spurious wakeup
+may occur (ie: <link linkend="g-cond-wait"><function>g_cond_wait()</function></link> returns even though <link linkend="g-cond-signal"><function>g_cond_signal()</function></link> was
+not called).  It's also possible that a stolen wakeup may occur.
+This is when <link linkend="g-cond-signal"><function>g_cond_signal()</function></link> is called, but another thread acquires
+<parameter>mutex</parameter>
+ before this thread and modifies the state of the program in
+such a way that when <link linkend="g-cond-wait"><function>g_cond_wait()</function></link> is able to return, the expected
+condition is no longer met.</para>
+<para>For this reason, <link linkend="g-cond-wait"><function>g_cond_wait()</function></link> must always be used in a loop.  See
+the documentation for <link linkend="GCond"><type>GCond</type></link> for a complete example.</para>
+<refsect3 id="g-cond-wait.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>cond</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GCond"><type>GCond</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>mutex</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GMutex"><type>GMutex</type></link> that is currently locked</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-cond-timed-wait" role="function" condition="deprecated:2.32: Use g_cond_wait_until() instead.">
+<title>g_cond_timed_wait&#160;()</title>
+<indexterm zone="g-cond-timed-wait" role="deprecated"><primary sortas="cond_timed_wait">g_cond_timed_wait</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_cond_timed_wait (<parameter><link linkend="GCond"><type>GCond</type></link> *cond</parameter>,
+                   <parameter><link linkend="GMutex"><type>GMutex</type></link> *mutex</parameter>,
+                   <parameter><link linkend="GTimeVal"><type>GTimeVal</type></link> *abs_time</parameter>);</programlisting>
+<warning><para><literal>g_cond_timed_wait</literal> has been deprecated since version 2.32 and should not be used in newly-written code.</para> <para>Use <link linkend="g-cond-wait-until"><function>g_cond_wait_until()</function></link> instead.</para>
+</warning>
+<para>Waits until this thread is woken up on <parameter>cond</parameter>
+, but not longer than
+until the time specified by <parameter>abs_time</parameter>
+. The <parameter>mutex</parameter>
+ is unlocked before
+falling asleep and locked again before resuming.</para>
+<para>If <parameter>abs_time</parameter>
+ is <link linkend="NULL:CAPS"><literal>NULL</literal></link>, <link linkend="g-cond-timed-wait"><function>g_cond_timed_wait()</function></link> acts like <link linkend="g-cond-wait"><function>g_cond_wait()</function></link>.</para>
+<para>This function can be used even if <link linkend="g-thread-init"><function>g_thread_init()</function></link> has not yet been
+called, and, in that case, will immediately return <link linkend="TRUE:CAPS"><literal>TRUE</literal></link>.</para>
+<para>To easily calculate <parameter>abs_time</parameter>
+ a combination of <link linkend="g-get-current-time"><function>g_get_current_time()</function></link>
+and <link linkend="g-time-val-add"><function>g_time_val_add()</function></link> can be used.</para>
+<refsect3 id="g-cond-timed-wait.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>cond</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GCond"><type>GCond</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>mutex</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GMutex"><type>GMutex</type></link> that is currently locked</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>abs_time</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GTimeVal"><type>GTimeVal</type></link>, determining the final time</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-cond-timed-wait.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if <parameter>cond</parameter>
+was signalled, or <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> on timeout</para>
+</refsect3></refsect2>
+<refsect2 id="g-cond-wait-until" role="function" condition="since:2.32">
+<title>g_cond_wait_until&#160;()</title>
+<indexterm zone="g-cond-wait-until" role="2.32"><primary sortas="cond_wait_until">g_cond_wait_until</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_cond_wait_until (<parameter><link linkend="GCond"><type>GCond</type></link> *cond</parameter>,
+                   <parameter><link linkend="GMutex"><type>GMutex</type></link> *mutex</parameter>,
+                   <parameter><link linkend="gint64"><type>gint64</type></link> end_time</parameter>);</programlisting>
+<para>Waits until either <parameter>cond</parameter>
+ is signalled or <parameter>end_time</parameter>
+ has passed.</para>
+<para>As with <link linkend="g-cond-wait"><function>g_cond_wait()</function></link> it is possible that a spurious or stolen wakeup
+could occur.  For that reason, waiting on a condition variable should
+always be in a loop, based on an explicitly-checked predicate.</para>
+<para><link linkend="TRUE:CAPS"><literal>TRUE</literal></link> is returned if the condition variable was signalled (or in the
+case of a spurious wakeup).  <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> is returned if <parameter>end_time</parameter>
+ has
+passed.</para>
+<para>The following code shows how to correctly perform a timed wait on a
+condition variable (extending the example presented in the
+documentation for <link linkend="GCond"><type>GCond</type></link>):</para>
+<informalexample><programlisting role="example"><![CDATA[
+gpointer
+pop_data_timed (void)
+{
+  gint64 end_time;
+  gpointer data;
+
+  g_mutex_lock (&data_mutex);
+
+  end_time = g_get_monotonic_time () + 5 * G_TIME_SPAN_SECOND;
+  while (!current_data)
+    if (!g_cond_wait_until (&data_cond, &data_mutex, end_time))
+      {
+        // timeout has passed.
+        g_mutex_unlock (&data_mutex);
+        return NULL;
+      }
+
+  // there is data for us
+  data = current_data;
+  current_data = NULL;
+
+  g_mutex_unlock (&data_mutex);
+
+  return data;
+}
+]]></programlisting></informalexample>
+<para></para>
+<para>Notice that the end time is calculated once, before entering the
+loop and reused.  This is the motivation behind the use of absolute
+time on this API -- if a relative time of 5 seconds were passed
+directly to the call and a spurious wakeup occurred, the program would
+have to start over waiting again (which would lead to a total wait
+time of more than 5 seconds).</para>
+<refsect3 id="g-cond-wait-until.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>cond</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GCond"><type>GCond</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>mutex</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GMutex"><type>GMutex</type></link> that is currently locked</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>end_time</para></entry>
+<entry role="parameter_description"><para>the monotonic time to wait until</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-cond-wait-until.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> on a signal, <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> on a timeout</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.32">2.32</link></para></refsect2>
+<refsect2 id="g-cond-signal" role="function">
+<title>g_cond_signal&#160;()</title>
+<indexterm zone="g-cond-signal"><primary sortas="cond_signal">g_cond_signal</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_cond_signal (<parameter><link linkend="GCond"><type>GCond</type></link> *cond</parameter>);</programlisting>
+<para>If threads are waiting for <parameter>cond</parameter>
+, at least one of them is unblocked.
+If no threads are waiting for <parameter>cond</parameter>
+, this function has no effect.
+It is good practice to hold the same lock as the waiting thread
+while calling this function, though not required.</para>
+<refsect3 id="g-cond-signal.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>cond</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GCond"><type>GCond</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-cond-broadcast" role="function">
+<title>g_cond_broadcast&#160;()</title>
+<indexterm zone="g-cond-broadcast"><primary sortas="cond_broadcast">g_cond_broadcast</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_cond_broadcast (<parameter><link linkend="GCond"><type>GCond</type></link> *cond</parameter>);</programlisting>
+<para>If threads are waiting for <parameter>cond</parameter>
+, all of them are unblocked.
+If no threads are waiting for <parameter>cond</parameter>
+, this function has no effect.
+It is good practice to lock the same mutex as the waiting threads
+while calling this function, though not required.</para>
+<refsect3 id="g-cond-broadcast.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>cond</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GCond"><type>GCond</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="G-PRIVATE-INIT:CAPS" role="macro" condition="since:2.32">
+<title>G_PRIVATE_INIT()</title>
+<indexterm zone="G-PRIVATE-INIT:CAPS" role="2.32"><primary sortas="PRIVATE_INIT">G_PRIVATE_INIT</primary></indexterm>
+<programlisting language="C">#define G_PRIVATE_INIT(notify)
+</programlisting>
+<para>A macro to assist with the static initialisation of a <link linkend="GPrivate"><type>GPrivate</type></link>.</para>
+<para>This macro is useful for the case that a <link linkend="GDestroyNotify"><type>GDestroyNotify</type></link> function
+should be associated with the key.  This is needed when the key will be
+used to point at memory that should be deallocated when the thread
+exits.</para>
+<para>Additionally, the <link linkend="GDestroyNotify"><type>GDestroyNotify</type></link> will also be called on the previous
+value stored in the key when <link linkend="g-private-replace"><function>g_private_replace()</function></link> is used.</para>
+<para>If no <link linkend="GDestroyNotify"><type>GDestroyNotify</type></link> is needed, then use of this macro is not
+required -- if the <link linkend="GPrivate"><type>GPrivate</type></link> is declared in static scope then it will
+be properly initialised by default (ie: to all zeros).  See the
+examples below.</para>
+<informalexample><programlisting role="example"><![CDATA[
+static GPrivate name_key = G_PRIVATE_INIT (g_free);
+
+// return value should not be freed
+const gchar *
+get_local_name (void)
+{
+  return g_private_get (&name_key);
+}
+
+void
+set_local_name (const gchar *name)
+{
+  g_private_replace (&name_key, g_strdup (name));
+}
+
+
+static GPrivate count_key;   // no free function
+
+gint
+get_local_count (void)
+{
+  return GPOINTER_TO_INT (g_private_get (&count_key));
+}
+
+void
+set_local_count (gint count)
+{
+  g_private_set (&count_key, GINT_TO_POINTER (count));
+}
+]]></programlisting></informalexample>
+<para></para>
+<refsect3 id="G-PRIVATE-INIT.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>notify</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GDestroyNotify"><type>GDestroyNotify</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.32">2.32</link></para></refsect2>
+<refsect2 id="g-private-get" role="function">
+<title>g_private_get&#160;()</title>
+<indexterm zone="g-private-get"><primary sortas="private_get">g_private_get</primary></indexterm>
+<programlisting language="C"><link linkend="gpointer"><returnvalue>gpointer</returnvalue></link>
+g_private_get (<parameter><link linkend="GPrivate"><type>GPrivate</type></link> *key</parameter>);</programlisting>
+<para>Returns the current value of the thread local variable <parameter>key</parameter>
+.</para>
+<para>If the value has not yet been set in this thread, <link linkend="NULL:CAPS"><literal>NULL</literal></link> is returned.
+Values are never copied between threads (when a new thread is
+created, for example).</para>
+<refsect3 id="g-private-get.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>key</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GPrivate"><type>GPrivate</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-private-get.returns" role="returns">
+<title>Returns</title>
+<para> the thread-local value</para>
+</refsect3></refsect2>
+<refsect2 id="g-private-set" role="function">
+<title>g_private_set&#160;()</title>
+<indexterm zone="g-private-set"><primary sortas="private_set">g_private_set</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_private_set (<parameter><link linkend="GPrivate"><type>GPrivate</type></link> *key</parameter>,
+               <parameter><link linkend="gpointer"><type>gpointer</type></link> value</parameter>);</programlisting>
+<para>Sets the thread local variable <parameter>key</parameter>
+ to have the value <parameter>value</parameter>
+ in the
+current thread.</para>
+<para>This function differs from <link linkend="g-private-replace"><function>g_private_replace()</function></link> in the following way:
+the <link linkend="GDestroyNotify"><type>GDestroyNotify</type></link> for <parameter>key</parameter>
+ is not called on the old value.</para>
+<refsect3 id="g-private-set.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>key</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GPrivate"><type>GPrivate</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>value</para></entry>
+<entry role="parameter_description"><para>the new value</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-private-replace" role="function" condition="since:2.32">
+<title>g_private_replace&#160;()</title>
+<indexterm zone="g-private-replace" role="2.32"><primary sortas="private_replace">g_private_replace</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_private_replace (<parameter><link linkend="GPrivate"><type>GPrivate</type></link> *key</parameter>,
+                   <parameter><link linkend="gpointer"><type>gpointer</type></link> value</parameter>);</programlisting>
+<para>Sets the thread local variable <parameter>key</parameter>
+ to have the value <parameter>value</parameter>
+ in the
+current thread.</para>
+<para>This function differs from <link linkend="g-private-set"><function>g_private_set()</function></link> in the following way: if
+the previous value was non-<link linkend="NULL:CAPS"><literal>NULL</literal></link> then the <link linkend="GDestroyNotify"><type>GDestroyNotify</type></link> handler for
+<parameter>key</parameter>
+ is run on it.</para>
+<refsect3 id="g-private-replace.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>key</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GPrivate"><type>GPrivate</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>value</para></entry>
+<entry role="parameter_description"><para>the new value</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.32">2.32</link></para></refsect2>
+<refsect2 id="g-once" role="macro" condition="since:2.4">
+<title>g_once()</title>
+<indexterm zone="g-once" role="2.4"><primary sortas="once">g_once</primary></indexterm>
+<programlisting language="C">#define             g_once(once, func, arg)</programlisting>
+<para>The first call to this routine by a process with a given <link linkend="GOnce"><type>GOnce</type></link>
+struct calls <parameter>func</parameter>
+ with the given argument. Thereafter, subsequent
+calls to <link linkend="g-once"><function>g_once()</function></link>  with the same <link linkend="GOnce"><type>GOnce</type></link> struct do not call <parameter>func</parameter>
+
+again, but return the stored result of the first call. On return
+from <link linkend="g-once"><function>g_once()</function></link>, the status of <parameter>once</parameter>
+ will be <link linkend="G-ONCE-STATUS-READY:CAPS"><literal>G_ONCE_STATUS_READY</literal></link>.</para>
+<para>For example, a mutex or a thread-specific data key must be created
+exactly once. In a threaded environment, calling <link linkend="g-once"><function>g_once()</function></link> ensures
+that the initialization is serialized across multiple threads.</para>
+<para>Calling <link linkend="g-once"><function>g_once()</function></link> recursively on the same <link linkend="GOnce"><type>GOnce</type></link> struct in
+<parameter>func</parameter>
+ will lead to a deadlock.</para>
+<informalexample><programlisting role="example"><![CDATA[
+  gpointer
+  get_debug_flags (void)
+  {
+    static GOnce my_once = G_ONCE_INIT;
+
+    g_once (&my_once, parse_debug_flags, NULL);
+
+    return my_once.retval;
+  }
+]]></programlisting></informalexample>
+<para></para>
+<refsect3 id="g-once.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>once</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GOnce"><type>GOnce</type></link> structure</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>func</para></entry>
+<entry role="parameter_description"><para>the <link linkend="GThreadFunc"><type>GThreadFunc</type></link> function associated to <parameter>once</parameter>
+. This function
+is called only once, regardless of the number of times it and
+its associated <link linkend="GOnce"><type>GOnce</type></link> struct are passed to <link linkend="g-once"><function>g_once()</function></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>arg</para></entry>
+<entry role="parameter_description"><para>data to be passed to <parameter>func</parameter>
+</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.4">2.4</link></para></refsect2>
+<refsect2 id="g-once-init-enter" role="function" condition="since:2.14">
+<title>g_once_init_enter&#160;()</title>
+<indexterm zone="g-once-init-enter" role="2.14"><primary sortas="once_init_enter">g_once_init_enter</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_once_init_enter (<parameter>volatile <link linkend="void"><type>void</type></link> *location</parameter>);</programlisting>
+<para>Function to be called when starting a critical initialization
+section. The argument <parameter>location</parameter>
+ must point to a static
+0-initialized variable that will be set to a value other than 0 at
+the end of the initialization section. In combination with
+<link linkend="g-once-init-leave"><function>g_once_init_leave()</function></link> and the unique address <parameter>value_location</parameter>
+, it can
+be ensured that an initialization section will be executed only once
+during a program's life time, and that concurrent threads are
+blocked until initialization completed. To be used in constructs
+like this:</para>
+<informalexample><programlisting role="example"><![CDATA[
+  static gsize initialization_value = 0;
+
+  if (g_once_init_enter (&initialization_value))
+    {
+      gsize setup_value = 42; // initialization code here
+
+      g_once_init_leave (&initialization_value, setup_value);
+    }
+
+  // use initialization_value here
+]]></programlisting></informalexample>
+<para></para>
+<refsect3 id="g-once-init-enter.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>location</para></entry>
+<entry role="parameter_description"><para>location of a static initializable variable
+containing 0. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>not nullable</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-once-init-enter.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if the initialization section should be entered,
+<link linkend="FALSE:CAPS"><literal>FALSE</literal></link> and blocks otherwise</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.14">2.14</link></para></refsect2>
+<refsect2 id="g-once-init-leave" role="function" condition="since:2.14">
+<title>g_once_init_leave&#160;()</title>
+<indexterm zone="g-once-init-leave" role="2.14"><primary sortas="once_init_leave">g_once_init_leave</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_once_init_leave (<parameter>volatile <link linkend="void"><type>void</type></link> *location</parameter>,
+                   <parameter><link linkend="gsize"><type>gsize</type></link> result</parameter>);</programlisting>
+<para>Counterpart to <link linkend="g-once-init-enter"><function>g_once_init_enter()</function></link>. Expects a location of a static
+0-initialized initialization variable, and an initialization value
+other than 0. Sets the variable to the initialization value, and
+releases concurrent threads blocking in <link linkend="g-once-init-enter"><function>g_once_init_enter()</function></link> on this
+initialization variable.</para>
+<refsect3 id="g-once-init-leave.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>location</para></entry>
+<entry role="parameter_description"><para>location of a static initializable variable
+containing 0. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>not nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>result</para></entry>
+<entry role="parameter_description"><para>new non-0 value for *<parameter>value_location</parameter>
+</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.14">2.14</link></para></refsect2>
+<refsect2 id="g-bit-lock" role="function" condition="since:2.24">
+<title>g_bit_lock&#160;()</title>
+<indexterm zone="g-bit-lock" role="2.24"><primary sortas="bit_lock">g_bit_lock</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_bit_lock (<parameter>volatile <link linkend="gint"><type>gint</type></link> *address</parameter>,
+            <parameter><link linkend="gint"><type>gint</type></link> lock_bit</parameter>);</programlisting>
+<para>Sets the indicated <parameter>lock_bit</parameter>
+ in <parameter>address</parameter>
+.  If the bit is already
+set, this call will block until <link linkend="g-bit-unlock"><function>g_bit_unlock()</function></link> unsets the
+corresponding bit.</para>
+<para>Attempting to lock on two different bits within the same integer is
+not supported and will very probably cause deadlocks.</para>
+<para>The value of the bit that is set is (1u &lt;&lt; <parameter>bit</parameter>
+).  If <parameter>bit</parameter>
+ is not
+between 0 and 31 then the result is undefined.</para>
+<para>This function accesses <parameter>address</parameter>
+ atomically.  All other accesses to
+<parameter>address</parameter>
+ must be atomic in order for this function to work
+reliably.</para>
+<refsect3 id="g-bit-lock.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>address</para></entry>
+<entry role="parameter_description"><para>a pointer to an integer</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>lock_bit</para></entry>
+<entry role="parameter_description"><para>a bit value between 0 and 31</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.24">2.24</link></para></refsect2>
+<refsect2 id="g-bit-trylock" role="function" condition="since:2.24">
+<title>g_bit_trylock&#160;()</title>
+<indexterm zone="g-bit-trylock" role="2.24"><primary sortas="bit_trylock">g_bit_trylock</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_bit_trylock (<parameter>volatile <link linkend="gint"><type>gint</type></link> *address</parameter>,
+               <parameter><link linkend="gint"><type>gint</type></link> lock_bit</parameter>);</programlisting>
+<para>Sets the indicated <parameter>lock_bit</parameter>
+ in <parameter>address</parameter>
+, returning <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if
+successful.  If the bit is already set, returns <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> immediately.</para>
+<para>Attempting to lock on two different bits within the same integer is
+not supported.</para>
+<para>The value of the bit that is set is (1u &lt;&lt; <parameter>bit</parameter>
+).  If <parameter>bit</parameter>
+ is not
+between 0 and 31 then the result is undefined.</para>
+<para>This function accesses <parameter>address</parameter>
+ atomically.  All other accesses to
+<parameter>address</parameter>
+ must be atomic in order for this function to work
+reliably.</para>
+<refsect3 id="g-bit-trylock.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>address</para></entry>
+<entry role="parameter_description"><para>a pointer to an integer</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>lock_bit</para></entry>
+<entry role="parameter_description"><para>a bit value between 0 and 31</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-bit-trylock.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if the lock was acquired</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.24">2.24</link></para></refsect2>
+<refsect2 id="g-bit-unlock" role="function" condition="since:2.24">
+<title>g_bit_unlock&#160;()</title>
+<indexterm zone="g-bit-unlock" role="2.24"><primary sortas="bit_unlock">g_bit_unlock</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_bit_unlock (<parameter>volatile <link linkend="gint"><type>gint</type></link> *address</parameter>,
+              <parameter><link linkend="gint"><type>gint</type></link> lock_bit</parameter>);</programlisting>
+<para>Clears the indicated <parameter>lock_bit</parameter>
+ in <parameter>address</parameter>
+.  If another thread is
+currently blocked in <link linkend="g-bit-lock"><function>g_bit_lock()</function></link> on this same bit then it will be
+woken up.</para>
+<para>This function accesses <parameter>address</parameter>
+ atomically.  All other accesses to
+<parameter>address</parameter>
+ must be atomic in order for this function to work
+reliably.</para>
+<refsect3 id="g-bit-unlock.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>address</para></entry>
+<entry role="parameter_description"><para>a pointer to an integer</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>lock_bit</para></entry>
+<entry role="parameter_description"><para>a bit value between 0 and 31</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.24">2.24</link></para></refsect2>
+<refsect2 id="g-pointer-bit-lock" role="function" condition="since:2.30">
+<title>g_pointer_bit_lock&#160;()</title>
+<indexterm zone="g-pointer-bit-lock" role="2.30"><primary sortas="pointer_bit_lock">g_pointer_bit_lock</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_pointer_bit_lock (<parameter>volatile <link linkend="void"><type>void</type></link> *address</parameter>,
+                    <parameter><link linkend="gint"><type>gint</type></link> lock_bit</parameter>);</programlisting>
+<para>This is equivalent to g_bit_lock, but working on pointers (or other
+pointer-sized values).</para>
+<para>For portability reasons, you may only lock on the bottom 32 bits of
+the pointer.</para>
+<refsect3 id="g-pointer-bit-lock.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>address</para></entry>
+<entry role="parameter_description"><para>a pointer to a <link linkend="gpointer-sized"><type>gpointer-sized</type></link> value. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>not nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>lock_bit</para></entry>
+<entry role="parameter_description"><para>a bit value between 0 and 31</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.30">2.30</link></para></refsect2>
+<refsect2 id="g-pointer-bit-trylock" role="function" condition="since:2.30">
+<title>g_pointer_bit_trylock&#160;()</title>
+<indexterm zone="g-pointer-bit-trylock" role="2.30"><primary sortas="pointer_bit_trylock">g_pointer_bit_trylock</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_pointer_bit_trylock (<parameter>volatile <link linkend="void"><type>void</type></link> *address</parameter>,
+                       <parameter><link linkend="gint"><type>gint</type></link> lock_bit</parameter>);</programlisting>
+<para>This is equivalent to g_bit_trylock, but working on pointers (or
+other pointer-sized values).</para>
+<para>For portability reasons, you may only lock on the bottom 32 bits of
+the pointer.</para>
+<refsect3 id="g-pointer-bit-trylock.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>address</para></entry>
+<entry role="parameter_description"><para>a pointer to a <link linkend="gpointer-sized"><type>gpointer-sized</type></link> value. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>not nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>lock_bit</para></entry>
+<entry role="parameter_description"><para>a bit value between 0 and 31</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-pointer-bit-trylock.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if the lock was acquired</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.30">2.30</link></para></refsect2>
+<refsect2 id="g-pointer-bit-unlock" role="function" condition="since:2.30">
+<title>g_pointer_bit_unlock&#160;()</title>
+<indexterm zone="g-pointer-bit-unlock" role="2.30"><primary sortas="pointer_bit_unlock">g_pointer_bit_unlock</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_pointer_bit_unlock (<parameter>volatile <link linkend="void"><type>void</type></link> *address</parameter>,
+                      <parameter><link linkend="gint"><type>gint</type></link> lock_bit</parameter>);</programlisting>
+<para>This is equivalent to g_bit_unlock, but working on pointers (or other
+pointer-sized values).</para>
+<para>For portability reasons, you may only lock on the bottom 32 bits of
+the pointer.</para>
+<refsect3 id="g-pointer-bit-unlock.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>address</para></entry>
+<entry role="parameter_description"><para>a pointer to a <link linkend="gpointer-sized"><type>gpointer-sized</type></link> value. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>not nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>lock_bit</para></entry>
+<entry role="parameter_description"><para>a bit value between 0 and 31</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.30">2.30</link></para></refsect2>
+<refsect2 id="g-get-num-processors" role="function" condition="since:2.36">
+<title>g_get_num_processors&#160;()</title>
+<indexterm zone="g-get-num-processors" role="2.36"><primary sortas="get_num_processors">g_get_num_processors</primary></indexterm>
+<programlisting language="C"><link linkend="guint"><returnvalue>guint</returnvalue></link>
+g_get_num_processors (<parameter><type>void</type></parameter>);</programlisting>
+<para>Determine the approximate number of threads that the system will
+schedule simultaneously for this process.  This is intended to be
+used as a parameter to <link linkend="g-thread-pool-new"><function>g_thread_pool_new()</function></link> for CPU bound tasks and
+similar cases.</para>
+<refsect3 id="g-get-num-processors.returns" role="returns">
+<title>Returns</title>
+<para> Number of schedulable threads, always greater than 0</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.36">2.36</link></para></refsect2>
+
+</refsect1>
+<refsect1 id="glib-Threads.other_details" role="details">
+<title role="details.title">Types and Values</title>
+<refsect2 id="G-THREAD-ERROR:CAPS" role="macro">
+<title>G_THREAD_ERROR</title>
+<indexterm zone="G-THREAD-ERROR:CAPS"><primary sortas="THREAD_ERROR">G_THREAD_ERROR</primary></indexterm>
+<programlisting language="C">#define G_THREAD_ERROR g_thread_error_quark ()
+</programlisting>
+<para>The error domain of the GLib thread subsystem.</para>
+</refsect2>
+<refsect2 id="GThreadError" role="enum">
+<title>enum GThreadError</title>
+<indexterm zone="GThreadError"><primary sortas="ThreadError">GThreadError</primary></indexterm>
+<para>Possible errors of thread related functions.</para>
+<refsect3 id="GThreadError.members" role="enum_members">
+<title>Members</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="enum_members_name" colwidth="300px"/>
+<colspec colname="enum_members_description"/>
+<colspec colname="enum_members_annotations" colwidth="200px"/>
+<tbody>
+<row role="constant"><entry role="enum_member_name"><para id="G-THREAD-ERROR-AGAIN:CAPS">G_THREAD_ERROR_AGAIN</para></entry>
+<entry role="enum_member_description"><para>a thread couldn't be created due to resource
+                       shortage. Try again later.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="GThread" role="struct">
+<title>GThread</title>
+<indexterm zone="GThread"><primary sortas="Thread">GThread</primary></indexterm>
+<programlisting language="C">typedef struct {
+} GThread;
+</programlisting>
+<para>The <link linkend="GThread"><type>GThread</type></link> struct represents a running thread. This struct
+is returned by <link linkend="g-thread-new"><function>g_thread_new()</function></link> or <link linkend="g-thread-try-new"><function>g_thread_try_new()</function></link>. You can
+obtain the <link linkend="GThread"><type>GThread</type></link> struct representing the current thread by
+calling <link linkend="g-thread-self"><function>g_thread_self()</function></link>.</para>
+<para>GThread is refcounted, see <link linkend="g-thread-ref"><function>g_thread_ref()</function></link> and <link linkend="g-thread-unref"><function>g_thread_unref()</function></link>.
+The thread represented by it holds a reference while it is running,
+and <link linkend="g-thread-join"><function>g_thread_join()</function></link> consumes the reference that it is given, so
+it is normally not necessary to manage GThread references
+explicitly.</para>
+<para>The structure is opaque -- none of its fields may be directly
+accessed.</para>
+</refsect2>
+<refsect2 id="GMutex" role="union">
+<title>union GMutex</title>
+<indexterm zone="GMutex"><primary sortas="Mutex">GMutex</primary></indexterm>
+<para>The <link linkend="GMutex"><type>GMutex</type></link> struct is an opaque data structure to represent a mutex
+(mutual exclusion). It can be used to protect data against shared
+access.</para>
+<para>Take for example the following function:</para>
+<informalexample><programlisting role="example"><![CDATA[
+  int
+  give_me_next_number (void)
+  {
+    static int current_number = 0;
+
+    // now do a very complicated calculation to calculate the new
+    // number, this might for example be a random number generator
+    current_number = calc_next_number (current_number);
+
+    return current_number;
+  }
+]]></programlisting></informalexample>
+<para>
+It is easy to see that this won't work in a multi-threaded
+application. There current_number must be protected against shared
+access. A <link linkend="GMutex"><type>GMutex</type></link> can be used as a solution to this problem:</para>
+<informalexample><programlisting role="example"><![CDATA[
+  int
+  give_me_next_number (void)
+  {
+    static GMutex mutex;
+    static int current_number = 0;
+    int ret_val;
+
+    g_mutex_lock (&mutex);
+    ret_val = current_number = calc_next_number (current_number);
+    g_mutex_unlock (&mutex);
+
+    return ret_val;
+  }
+]]></programlisting></informalexample>
+<para>
+Notice that the <link linkend="GMutex"><type>GMutex</type></link> is not initialised to any particular value.
+Its placement in static storage ensures that it will be initialised
+to all-zeros, which is appropriate.</para>
+<para>If a <link linkend="GMutex"><type>GMutex</type></link> is placed in other contexts (eg: embedded in a struct)
+then it must be explicitly initialised using <link linkend="g-mutex-init"><function>g_mutex_init()</function></link>.</para>
+<para>A <link linkend="GMutex"><type>GMutex</type></link> should only be accessed via g_mutex_ functions.</para>
+</refsect2>
+<refsect2 id="GMutexLocker" role="typedef" condition="since:2.44">
+<title>GMutexLocker</title>
+<indexterm zone="GMutexLocker" role="2.44"><primary sortas="MutexLocker">GMutexLocker</primary></indexterm>
+<programlisting language="C">typedef void GMutexLocker;
+</programlisting>
+<para>Opaque type. See <link linkend="g-mutex-locker-new"><function>g_mutex_locker_new()</function></link> for details.</para>
+<para role="since">Since: <link linkend="api-index-2.44">2.44</link></para></refsect2>
+<refsect2 id="GRecMutex" role="struct" condition="since:2.32">
+<title>struct GRecMutex</title>
+<indexterm zone="GRecMutex" role="2.32"><primary sortas="RecMutex">GRecMutex</primary></indexterm>
+<programlisting language="C">struct GRecMutex {
+};
+</programlisting>
+<para>The GRecMutex struct is an opaque data structure to represent a
+recursive mutex. It is similar to a <link linkend="GMutex"><type>GMutex</type></link> with the difference
+that it is possible to lock a GRecMutex multiple times in the same
+thread without deadlock. When doing so, care has to be taken to
+unlock the recursive mutex as often as it has been locked.</para>
+<para>If a <link linkend="GRecMutex"><type>GRecMutex</type></link> is allocated in static storage then it can be used
+without initialisation.  Otherwise, you should call
+<link linkend="g-rec-mutex-init"><function>g_rec_mutex_init()</function></link> on it and <link linkend="g-rec-mutex-clear"><function>g_rec_mutex_clear()</function></link> when done.</para>
+<para>A GRecMutex should only be accessed with the
+g_rec_mutex_ functions.</para>
+<para role="since">Since: <link linkend="api-index-2.32">2.32</link></para></refsect2>
+<refsect2 id="GRWLock" role="struct" condition="since:2.32">
+<title>struct GRWLock</title>
+<indexterm zone="GRWLock" role="2.32"><primary sortas="RWLock">GRWLock</primary></indexterm>
+<programlisting language="C">struct GRWLock {
+};
+</programlisting>
+<para>The GRWLock struct is an opaque data structure to represent a
+reader-writer lock. It is similar to a <link linkend="GMutex"><type>GMutex</type></link> in that it allows
+multiple threads to coordinate access to a shared resource.</para>
+<para>The difference to a mutex is that a reader-writer lock discriminates
+between read-only ('reader') and full ('writer') access. While only
+one thread at a time is allowed write access (by holding the 'writer'
+lock via <link linkend="g-rw-lock-writer-lock"><function>g_rw_lock_writer_lock()</function></link>), multiple threads can gain
+simultaneous read-only access (by holding the 'reader' lock via
+<link linkend="g-rw-lock-reader-lock"><function>g_rw_lock_reader_lock()</function></link>).</para>
+<para>Here is an example for an array with access functions:</para>
+<informalexample><programlisting role="example"><![CDATA[
+  GRWLock lock;
+  GPtrArray *array;
+
+  gpointer
+  my_array_get (guint index)
+  {
+    gpointer retval = NULL;
+
+    if (!array)
+      return NULL;
+
+    g_rw_lock_reader_lock (&lock);
+    if (index < array->len)
+      retval = g_ptr_array_index (array, index);
+    g_rw_lock_reader_unlock (&lock);
+
+    return retval;
+  }
+
+  void
+  my_array_set (guint index, gpointer data)
+  {
+    g_rw_lock_writer_lock (&lock);
+
+    if (!array)
+      array = g_ptr_array_new ();
+
+    if (index >= array->len)
+      g_ptr_array_set_size (array, index+1);
+    g_ptr_array_index (array, index) = data;
+
+    g_rw_lock_writer_unlock (&lock);
+  }
+]]></programlisting></informalexample>
+<para>
+This example shows an array which can be accessed by many readers
+(the <link linkend="my-array-get"><function>my_array_get()</function></link> function) simultaneously, whereas the writers
+(the <link linkend="my-array-set"><function>my_array_set()</function></link> function) will only be allowed one at a time
+and only if no readers currently access the array. This is because
+of the potentially dangerous resizing of the array. Using these
+functions is fully multi-thread safe now.</para>
+<para>If a <link linkend="GRWLock"><type>GRWLock</type></link> is allocated in static storage then it can be used
+without initialisation.  Otherwise, you should call
+<link linkend="g-rw-lock-init"><function>g_rw_lock_init()</function></link> on it and <link linkend="g-rw-lock-clear"><function>g_rw_lock_clear()</function></link> when done.</para>
+<para>A GRWLock should only be accessed with the g_rw_lock_ functions.</para>
+<para role="since">Since: <link linkend="api-index-2.32">2.32</link></para></refsect2>
+<refsect2 id="GCond" role="struct">
+<title>struct GCond</title>
+<indexterm zone="GCond"><primary sortas="Cond">GCond</primary></indexterm>
+<programlisting language="C">struct GCond {
+};
+</programlisting>
+<para>The <link linkend="GCond"><type>GCond</type></link> struct is an opaque data structure that represents a
+condition. Threads can block on a <link linkend="GCond"><type>GCond</type></link> if they find a certain
+condition to be false. If other threads change the state of this
+condition they signal the <link linkend="GCond"><type>GCond</type></link>, and that causes the waiting
+threads to be woken up.</para>
+<para>Consider the following example of a shared variable.  One or more
+threads can wait for data to be published to the variable and when
+another thread publishes the data, it can signal one of the waiting
+threads to wake up to collect the data.</para>
+<para>Here is an example for using GCond to block a thread until a condition
+is satisfied:</para>
+<informalexample><programlisting role="example"><![CDATA[
+  gpointer current_data = NULL;
+  GMutex data_mutex;
+  GCond data_cond;
+
+  void
+  push_data (gpointer data)
+  {
+    g_mutex_lock (&data_mutex);
+    current_data = data;
+    g_cond_signal (&data_cond);
+    g_mutex_unlock (&data_mutex);
+  }
+
+  gpointer
+  pop_data (void)
+  {
+    gpointer data;
+
+    g_mutex_lock (&data_mutex);
+    while (!current_data)
+      g_cond_wait (&data_cond, &data_mutex);
+    data = current_data;
+    current_data = NULL;
+    g_mutex_unlock (&data_mutex);
+
+    return data;
+  }
+]]></programlisting></informalexample>
+<para>
+Whenever a thread calls <link linkend="pop-data"><function>pop_data()</function></link> now, it will wait until
+current_data is non-<link linkend="NULL:CAPS"><literal>NULL</literal></link>, i.e. until some other thread
+has called <link linkend="push-data"><function>push_data()</function></link>.</para>
+<para>The example shows that use of a condition variable must always be
+paired with a mutex.  Without the use of a mutex, there would be a
+race between the check of <parameter>current_data</parameter>
+ by the while loop in
+<link linkend="pop-data"><function>pop_data()</function></link> and waiting. Specifically, another thread could set
+<parameter>current_data</parameter>
+ after the check, and signal the cond (with nobody
+waiting on it) before the first thread goes to sleep. <link linkend="GCond"><type>GCond</type></link> is
+specifically useful for its ability to release the mutex and go
+to sleep atomically.</para>
+<para>It is also important to use the <link linkend="g-cond-wait"><function>g_cond_wait()</function></link> and <link linkend="g-cond-wait-until"><function>g_cond_wait_until()</function></link>
+functions only inside a loop which checks for the condition to be
+true.  See <link linkend="g-cond-wait"><function>g_cond_wait()</function></link> for an explanation of why the condition may
+not be true even after it returns.</para>
+<para>If a <link linkend="GCond"><type>GCond</type></link> is allocated in static storage then it can be used
+without initialisation.  Otherwise, you should call <link linkend="g-cond-init"><function>g_cond_init()</function></link>
+on it and <link linkend="g-cond-clear"><function>g_cond_clear()</function></link> when done.</para>
+<para>A <link linkend="GCond"><type>GCond</type></link> should only be accessed via the g_cond_ functions.</para>
+</refsect2>
+<refsect2 id="GPrivate" role="struct">
+<title>struct GPrivate</title>
+<indexterm zone="GPrivate"><primary sortas="Private">GPrivate</primary></indexterm>
+<programlisting language="C">struct GPrivate {
+};
+</programlisting>
+<para>The <link linkend="GPrivate"><type>GPrivate</type></link> struct is an opaque data structure to represent a
+thread-local data key. It is approximately equivalent to the
+<link linkend="pthread-setspecific"><function>pthread_setspecific()</function></link>/<link linkend="pthread-getspecific"><function>pthread_getspecific()</function></link> APIs on POSIX and to
+<link linkend="TlsSetValue"><function>TlsSetValue()</function></link>/<link linkend="TlsGetValue"><function>TlsGetValue()</function></link> on Windows.</para>
+<para>If you don't already know why you might want this functionality,
+then you probably don't need it.</para>
+<para><link linkend="GPrivate"><type>GPrivate</type></link> is a very limited resource (as far as 128 per program,
+shared between all libraries). It is also not possible to destroy a
+<link linkend="GPrivate"><type>GPrivate</type></link> after it has been used. As such, it is only ever acceptable
+to use <link linkend="GPrivate"><type>GPrivate</type></link> in static scope, and even then sparingly so.</para>
+<para>See <link linkend="G-PRIVATE-INIT:CAPS"><function>G_PRIVATE_INIT()</function></link> for a couple of examples.</para>
+<para>The <link linkend="GPrivate"><type>GPrivate</type></link> structure should be considered opaque.  It should only
+be accessed via the g_private_ functions.</para>
+</refsect2>
+<refsect2 id="GOnce" role="struct" condition="since:2.4">
+<title>struct GOnce</title>
+<indexterm zone="GOnce" role="2.4"><primary sortas="Once">GOnce</primary></indexterm>
+<programlisting language="C">struct GOnce {
+  volatile GOnceStatus status;
+  volatile gpointer retval;
+};
+</programlisting>
+<para>A <link linkend="GOnce"><type>GOnce</type></link> struct controls a one-time initialization function. Any
+one-time initialization function must have its own unique <link linkend="GOnce"><type>GOnce</type></link>
+struct.</para>
+<refsect3 id="GOnce.members" role="struct_members">
+<title>Members</title>
+<informaltable role="struct_members_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="struct_members_name" colwidth="300px"/>
+<colspec colname="struct_members_description"/>
+<colspec colname="struct_members_annotations" colwidth="200px"/>
+<tbody>
+<row role="member"><entry role="struct_member_name"><para>volatile&#160;<link linkend="GOnceStatus"><type>GOnceStatus</type></link>&#160;<structfield id="GOnce.status">status</structfield>;</para></entry>
+<entry role="struct_member_description"><para>the status of the <link linkend="GOnce"><type>GOnce</type></link></para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para>volatile&#160;<link linkend="gpointer"><type>gpointer</type></link>&#160;<structfield id="GOnce.retval">retval</structfield>;</para></entry>
+<entry role="struct_member_description"><para>the value returned by the call to the function, if <parameter>status</parameter>
+is <link linkend="G-ONCE-STATUS-READY:CAPS"><literal>G_ONCE_STATUS_READY</literal></link></para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+</tbody></tgroup></informaltable>
+</refsect3>
+<para role="since">Since: <link linkend="api-index-2.4">2.4</link></para></refsect2>
+<refsect2 id="GOnceStatus" role="enum" condition="since:2.4">
+<title>enum GOnceStatus</title>
+<indexterm zone="GOnceStatus" role="2.4"><primary sortas="OnceStatus">GOnceStatus</primary></indexterm>
+<para>The possible statuses of a one-time initialization function
+controlled by a <link linkend="GOnce"><type>GOnce</type></link> struct.</para>
+<refsect3 id="GOnceStatus.members" role="enum_members">
+<title>Members</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="enum_members_name" colwidth="300px"/>
+<colspec colname="enum_members_description"/>
+<colspec colname="enum_members_annotations" colwidth="200px"/>
+<tbody>
+<row role="constant"><entry role="enum_member_name"><para id="G-ONCE-STATUS-NOTCALLED:CAPS">G_ONCE_STATUS_NOTCALLED</para></entry>
+<entry role="enum_member_description"><para>the function has not been called yet.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-ONCE-STATUS-PROGRESS:CAPS">G_ONCE_STATUS_PROGRESS</para></entry>
+<entry role="enum_member_description"><para>the function call is currently in progress.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-ONCE-STATUS-READY:CAPS">G_ONCE_STATUS_READY</para></entry>
+<entry role="enum_member_description"><para>the function has been called.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.4">2.4</link></para></refsect2>
+<refsect2 id="G-ONCE-INIT:CAPS" role="macro" condition="since:2.4">
+<title>G_ONCE_INIT</title>
+<indexterm zone="G-ONCE-INIT:CAPS" role="2.4"><primary sortas="ONCE_INIT">G_ONCE_INIT</primary></indexterm>
+<programlisting language="C">#define G_ONCE_INIT { G_ONCE_STATUS_NOTCALLED, NULL }
+</programlisting>
+<para>A <link linkend="GOnce"><type>GOnce</type></link> must be initialized with this macro before it can be used.</para>
+<informalexample><programlisting role="example"><![CDATA[
+  GOnce my_once = G_ONCE_INIT;
+]]></programlisting></informalexample>
+<para></para>
+<para role="since">Since: <link linkend="api-index-2.4">2.4</link></para></refsect2>
+
+</refsect1>
+<refsect1 id="glib-Threads.see-also">
+<title>See Also</title>
+<para><link linkend="GThreadPool"><type>GThreadPool</type></link>, <link linkend="GAsyncQueue"><type>GAsyncQueue</type></link></para>
+
+</refsect1>
+
+</refentry>

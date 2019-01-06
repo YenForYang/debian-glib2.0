@@ -1,0 +1,147 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC '-//OASIS//DTD DocBook XML V4.5//EN'
+                      'http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd' [
+<!ENTITY % local.common.attrib "xmlns:xi  CDATA  #FIXED 'http://www.w3.org/2003/XInclude'">
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="GFileDescriptorBased">
+<refmeta>
+<refentrytitle role="top_of_page" id="GFileDescriptorBased.top_of_page">GFileDescriptorBased</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>GIO Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>GFileDescriptorBased</refname>
+<refpurpose>Interface for file descriptor based IO</refpurpose>
+</refnamediv>
+
+<refsect1 id="GFileDescriptorBased.functions" role="functions_proto">
+<title role="functions_proto.title">Functions</title>
+<informaltable pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="functions_return" colwidth="150px"/>
+<colspec colname="functions_name"/>
+<tbody>
+<row><entry role="function_type"><link linkend="int"><returnvalue>int</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-file-descriptor-based-get-fd">g_file_descriptor_based_get_fd</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GFileDescriptorBased.other" role="other_proto">
+<title role="other_proto.title">Types and Values</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="name" colwidth="150px"/>
+<colspec colname="description"/>
+<tbody>
+<row><entry role="datatype_keyword"></entry><entry role="function_name"><link linkend="GFileDescriptorBased-struct">GFileDescriptorBased</link></entry></row>
+<row><entry role="datatype_keyword">struct</entry><entry role="function_name"><link linkend="GFileDescriptorBasedIface">GFileDescriptorBasedIface</link></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GFileDescriptorBased.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<screen>    <link linkend="GInterface">GInterface</link>
+    <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> GFileDescriptorBased
+</screen>
+</refsect1>
+<refsect1 id="GFileDescriptorBased.prerequisites" role="prerequisites">
+<title role="prerequisites.title">Prerequisites</title>
+<para>
+GFileDescriptorBased requires
+ <link linkend="GObject">GObject</link>.</para>
+
+</refsect1>
+<refsect1 id="GFileDescriptorBased.implementations" role="implementations">
+<title role="implementations.title">Known Implementations</title>
+<para>
+GFileDescriptorBased is implemented by
+ <link linkend="GUnixInputStream">GUnixInputStream</link> and  <link linkend="GUnixOutputStream">GUnixOutputStream</link>.</para>
+
+</refsect1>
+
+<refsect1 id="GFileDescriptorBased.includes"><title>Includes</title><synopsis>#include &lt;gio/gfiledescriptorbased.h&gt;
+</synopsis></refsect1>
+
+<refsect1 id="GFileDescriptorBased.description" role="desc">
+<title role="desc.title">Description</title>
+<para><link linkend="GFileDescriptorBased"><type>GFileDescriptorBased</type></link> is implemented by streams (implementations of
+<link linkend="GInputStream"><type>GInputStream</type></link> or <link linkend="GOutputStream"><type>GOutputStream</type></link>) that are based on file descriptors.</para>
+<para>Note that <literal>&amp;lt;gio/gfiledescriptorbased.h&gt;</literal> belongs to the UNIX-specific
+GIO interfaces, thus you have to use the <literal>gio-unix-2.0.pc</literal> pkg-config
+file when using it.</para>
+
+</refsect1>
+<refsect1 id="GFileDescriptorBased.functions_details" role="details">
+<title role="details.title">Functions</title>
+<refsect2 id="g-file-descriptor-based-get-fd" role="function" condition="since:2.24">
+<title>g_file_descriptor_based_get_fd&#160;()</title>
+<indexterm zone="g-file-descriptor-based-get-fd" role="2.24"><primary sortas="file_descriptor_based_get_fd">g_file_descriptor_based_get_fd</primary></indexterm>
+<programlisting language="C"><link linkend="int"><returnvalue>int</returnvalue></link>
+g_file_descriptor_based_get_fd (<parameter><link linkend="GFileDescriptorBased"><type>GFileDescriptorBased</type></link> *fd_based</parameter>);</programlisting>
+<para>Gets the underlying file descriptor.</para>
+<refsect3 id="g-file-descriptor-based-get-fd.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>fd_based</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GFileDescriptorBased"><type>GFileDescriptorBased</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-file-descriptor-based-get-fd.returns" role="returns">
+<title>Returns</title>
+<para> The file descriptor</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.24">2.24</link></para></refsect2>
+
+</refsect1>
+<refsect1 id="GFileDescriptorBased.other_details" role="details">
+<title role="details.title">Types and Values</title>
+<refsect2 id="GFileDescriptorBased-struct" role="struct">
+<title>GFileDescriptorBased</title>
+<indexterm zone="GFileDescriptorBased-struct"><primary sortas="FileDescriptorBased">GFileDescriptorBased</primary></indexterm>
+<programlisting language="C">typedef struct _GFileDescriptorBased GFileDescriptorBased;</programlisting>
+<para>An interface for file descriptor based io objects.</para>
+</refsect2>
+<refsect2 id="GFileDescriptorBasedIface" role="struct">
+<title>struct GFileDescriptorBasedIface</title>
+<indexterm zone="GFileDescriptorBasedIface"><primary sortas="FileDescriptorBasedIface">GFileDescriptorBasedIface</primary></indexterm>
+<programlisting language="C">struct GFileDescriptorBasedIface {
+  GTypeInterface g_iface;
+
+  /* Virtual Table */
+  int (*get_fd) (GFileDescriptorBased *fd_based);
+};
+</programlisting>
+<para>An interface for file descriptor based io objects.</para>
+<refsect3 id="GFileDescriptorBasedIface.members" role="struct_members">
+<title>Members</title>
+<informaltable role="struct_members_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="struct_members_name" colwidth="300px"/>
+<colspec colname="struct_members_description"/>
+<colspec colname="struct_members_annotations" colwidth="200px"/>
+<tbody>
+<row role="member"><entry role="struct_member_name"><para><structfield id="GFileDescriptorBasedIface.get-fd">get_fd</structfield>&#160;()</para></entry>
+<entry role="struct_member_description"><para>Gets the underlying file descriptor.</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+</tbody></tgroup></informaltable>
+</refsect3>
+</refsect2>
+
+</refsect1>
+<refsect1 id="GFileDescriptorBased.see-also">
+<title>See Also</title>
+<para><link linkend="GInputStream"><type>GInputStream</type></link>, <link linkend="GOutputStream"><type>GOutputStream</type></link></para>
+
+</refsect1>
+
+</refentry>

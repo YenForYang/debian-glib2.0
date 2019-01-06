@@ -1,0 +1,309 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC '-//OASIS//DTD DocBook XML V4.5//EN'
+                      'http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd' [
+<!ENTITY % local.common.attrib "xmlns:xi  CDATA  #FIXED 'http://www.w3.org/2003/XInclude'">
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="GDBusObject">
+<refmeta>
+<refentrytitle role="top_of_page" id="GDBusObject.top_of_page">GDBusObject</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>GIO Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>GDBusObject</refname>
+<refpurpose>Base type for D-Bus objects</refpurpose>
+</refnamediv>
+
+<refsect1 id="GDBusObject.functions" role="functions_proto">
+<title role="functions_proto.title">Functions</title>
+<informaltable pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="functions_return" colwidth="150px"/>
+<colspec colname="functions_name"/>
+<tbody>
+<row><entry role="function_type">const <link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-dbus-object-get-object-path">g_dbus_object_get_object_path</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GList"><returnvalue>GList</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-dbus-object-get-interfaces">g_dbus_object_get_interfaces</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GDBusInterface"><returnvalue>GDBusInterface</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-dbus-object-get-interface">g_dbus_object_get_interface</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GDBusObject.signals" role="signal_proto">
+<title role="signal_proto.title">Signals</title>
+<informaltable frame="none">
+<tgroup cols="3">
+<colspec colname="signals_return" colwidth="150px"/>
+<colspec colname="signals_name" colwidth="300px"/>
+<colspec colname="signals_flags" colwidth="200px"/>
+<tbody>
+<row><entry role="signal_type"><link linkend="void"><returnvalue>void</returnvalue></link></entry><entry role="signal_name"><link linkend="GDBusObject-interface-added">interface-added</link></entry><entry role="signal_flags"><link linkend="G-SIGNAL-RUN-LAST:CAPS">Run Last</link></entry></row>
+<row><entry role="signal_type"><link linkend="void"><returnvalue>void</returnvalue></link></entry><entry role="signal_name"><link linkend="GDBusObject-interface-removed">interface-removed</link></entry><entry role="signal_flags"><link linkend="G-SIGNAL-RUN-LAST:CAPS">Run Last</link></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GDBusObject.other" role="other_proto">
+<title role="other_proto.title">Types and Values</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="name" colwidth="150px"/>
+<colspec colname="description"/>
+<tbody>
+<row><entry role="datatype_keyword"></entry><entry role="function_name"><link linkend="GDBusObject-struct">GDBusObject</link></entry></row>
+<row><entry role="datatype_keyword">struct</entry><entry role="function_name"><link linkend="GDBusObjectIface">GDBusObjectIface</link></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GDBusObject.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<screen>    <link linkend="GInterface">GInterface</link>
+    <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> GDBusObject
+</screen>
+</refsect1>
+<refsect1 id="GDBusObject.prerequisites" role="prerequisites">
+<title role="prerequisites.title">Prerequisites</title>
+<para>
+GDBusObject requires
+ <link linkend="GObject">GObject</link>.</para>
+
+</refsect1>
+<refsect1 id="GDBusObject.implementations" role="implementations">
+<title role="implementations.title">Known Implementations</title>
+<para>
+GDBusObject is implemented by
+ <link linkend="GDBusObjectProxy">GDBusObjectProxy</link> and  <link linkend="GDBusObjectSkeleton">GDBusObjectSkeleton</link>.</para>
+
+</refsect1>
+
+<refsect1 id="GDBusObject.includes"><title>Includes</title><synopsis>#include &lt;gio/gio.h&gt;
+</synopsis></refsect1>
+
+<refsect1 id="GDBusObject.description" role="desc">
+<title role="desc.title">Description</title>
+<para>The <link linkend="GDBusObject"><type>GDBusObject</type></link> type is the base type for D-Bus objects on both
+the service side (see <link linkend="GDBusObjectSkeleton"><type>GDBusObjectSkeleton</type></link>) and the client side
+(see <link linkend="GDBusObjectProxy"><type>GDBusObjectProxy</type></link>). It is essentially just a container of
+interfaces.</para>
+
+</refsect1>
+<refsect1 id="GDBusObject.functions_details" role="details">
+<title role="details.title">Functions</title>
+<refsect2 id="g-dbus-object-get-object-path" role="function" condition="since:2.30">
+<title>g_dbus_object_get_object_path&#160;()</title>
+<indexterm zone="g-dbus-object-get-object-path" role="2.30"><primary sortas="dbus_object_get_object_path">g_dbus_object_get_object_path</primary></indexterm>
+<programlisting language="C">const <link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+g_dbus_object_get_object_path (<parameter><link linkend="GDBusObject"><type>GDBusObject</type></link> *object</parameter>);</programlisting>
+<para>Gets the object path for <parameter>object</parameter>
+.</para>
+<refsect3 id="g-dbus-object-get-object-path.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>object</para></entry>
+<entry role="parameter_description"><para>A <link linkend="GDBusObject"><type>GDBusObject</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-dbus-object-get-object-path.returns" role="returns">
+<title>Returns</title>
+<para> A string owned by <parameter>object</parameter>
+. Do not free.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.30">2.30</link></para></refsect2>
+<refsect2 id="g-dbus-object-get-interfaces" role="function" condition="since:2.30">
+<title>g_dbus_object_get_interfaces&#160;()</title>
+<indexterm zone="g-dbus-object-get-interfaces" role="2.30"><primary sortas="dbus_object_get_interfaces">g_dbus_object_get_interfaces</primary></indexterm>
+<programlisting language="C"><link linkend="GList"><returnvalue>GList</returnvalue></link>&#160;*
+g_dbus_object_get_interfaces (<parameter><link linkend="GDBusObject"><type>GDBusObject</type></link> *object</parameter>);</programlisting>
+<para>Gets the D-Bus interfaces associated with <parameter>object</parameter>
+.</para>
+<refsect3 id="g-dbus-object-get-interfaces.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>object</para></entry>
+<entry role="parameter_description"><para>A <link linkend="GDBusObject"><type>GDBusObject</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-dbus-object-get-interfaces.returns" role="returns">
+<title>Returns</title>
+<para>A list of <link linkend="GDBusInterface"><type>GDBusInterface</type></link> instances.
+The returned list must be freed by <link linkend="g-list-free"><function>g_list_free()</function></link> after each element has been freed
+with <link linkend="g-object-unref"><function>g_object_unref()</function></link>. </para>
+<para><emphasis role="annotation">[<acronym>element-type</acronym> GDBusInterface][<acronym>transfer full</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.30">2.30</link></para></refsect2>
+<refsect2 id="g-dbus-object-get-interface" role="function" condition="since:2.30">
+<title>g_dbus_object_get_interface&#160;()</title>
+<indexterm zone="g-dbus-object-get-interface" role="2.30"><primary sortas="dbus_object_get_interface">g_dbus_object_get_interface</primary></indexterm>
+<programlisting language="C"><link linkend="GDBusInterface"><returnvalue>GDBusInterface</returnvalue></link>&#160;*
+g_dbus_object_get_interface (<parameter><link linkend="GDBusObject"><type>GDBusObject</type></link> *object</parameter>,
+                             <parameter>const <link linkend="gchar"><type>gchar</type></link> *interface_name</parameter>);</programlisting>
+<para>Gets the D-Bus interface with name <parameter>interface_name</parameter>
+ associated with
+<parameter>object</parameter>
+, if any.</para>
+<refsect3 id="g-dbus-object-get-interface.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>object</para></entry>
+<entry role="parameter_description"><para>A <link linkend="GDBusObject"><type>GDBusObject</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>interface_name</para></entry>
+<entry role="parameter_description"><para>A D-Bus interface name.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-dbus-object-get-interface.returns" role="returns">
+<title>Returns</title>
+<para><link linkend="NULL:CAPS"><literal>NULL</literal></link> if not found, otherwise a
+<link linkend="GDBusInterface"><type>GDBusInterface</type></link> that must be freed with <link linkend="g-object-unref"><function>g_object_unref()</function></link>. </para>
+<para><emphasis role="annotation">[<acronym>transfer full</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.30">2.30</link></para></refsect2>
+
+</refsect1>
+<refsect1 id="GDBusObject.other_details" role="details">
+<title role="details.title">Types and Values</title>
+<refsect2 id="GDBusObject-struct" role="struct">
+<title>GDBusObject</title>
+<indexterm zone="GDBusObject-struct"><primary sortas="DBusObject">GDBusObject</primary></indexterm>
+<programlisting language="C">typedef struct _GDBusObject GDBusObject;</programlisting>
+<para><link linkend="GDBusObject"><type>GDBusObject</type></link> is an opaque data structure and can only be accessed
+using the following functions.</para>
+</refsect2>
+<refsect2 id="GDBusObjectIface" role="struct" condition="since:2.30">
+<title>struct GDBusObjectIface</title>
+<indexterm zone="GDBusObjectIface" role="2.30"><primary sortas="DBusObjectIface">GDBusObjectIface</primary></indexterm>
+<programlisting language="C">struct GDBusObjectIface {
+  GTypeInterface parent_iface;
+
+  /* Virtual Functions */
+  const gchar     *(*get_object_path) (GDBusObject  *object);
+  GList           *(*get_interfaces)  (GDBusObject  *object);
+  GDBusInterface  *(*get_interface)   (GDBusObject  *object,
+                                       const gchar  *interface_name);
+
+  /* Signals */
+  void (*interface_added)   (GDBusObject     *object,
+                             GDBusInterface  *interface_);
+  void (*interface_removed) (GDBusObject     *object,
+                             GDBusInterface  *interface_);
+};
+</programlisting>
+<para>Base object type for D-Bus objects.</para>
+<refsect3 id="GDBusObjectIface.members" role="struct_members">
+<title>Members</title>
+<informaltable role="struct_members_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="struct_members_name" colwidth="300px"/>
+<colspec colname="struct_members_description"/>
+<colspec colname="struct_members_annotations" colwidth="200px"/>
+<tbody>
+<row role="member"><entry role="struct_member_name"><para><link linkend="GTypeInterface"><type>GTypeInterface</type></link>&#160;<structfield id="GDBusObjectIface.parent-iface">parent_iface</structfield>;</para></entry>
+<entry role="struct_member_description"><para>The parent interface.</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><structfield id="GDBusObjectIface.get-object-path">get_object_path</structfield>&#160;()</para></entry>
+<entry role="struct_member_description"><para>Returns the object path. See <link linkend="g-dbus-object-get-object-path"><function>g_dbus_object_get_object_path()</function></link>.</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><structfield id="GDBusObjectIface.get-interfaces">get_interfaces</structfield>&#160;()</para></entry>
+<entry role="struct_member_description"><para>Returns all interfaces. See <link linkend="g-dbus-object-get-interfaces"><function>g_dbus_object_get_interfaces()</function></link>.</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><structfield id="GDBusObjectIface.get-interface">get_interface</structfield>&#160;()</para></entry>
+<entry role="struct_member_description"><para>Returns an interface by name. See <link linkend="g-dbus-object-get-interface"><function>g_dbus_object_get_interface()</function></link>.</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><structfield id="GDBusObjectIface.interface-added">interface_added</structfield>&#160;()</para></entry>
+<entry role="struct_member_description"><para>Signal handler for the <link linkend="GDBusObject-interface-added"><type>“interface-added”</type></link> signal.</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><structfield id="GDBusObjectIface.interface-removed">interface_removed</structfield>&#160;()</para></entry>
+<entry role="struct_member_description"><para>Signal handler for the <link linkend="GDBusObject-interface-removed"><type>“interface-removed”</type></link> signal.</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+</tbody></tgroup></informaltable>
+</refsect3>
+<para role="since">Since: <link linkend="api-index-2.30">2.30</link></para></refsect2>
+
+</refsect1>
+<refsect1 id="GDBusObject.signal-details" role="signals">
+<title role="signals.title">Signal Details</title>
+<refsect2 id="GDBusObject-interface-added" role="signal"><title>The <literal>“interface-added”</literal> signal</title>
+<indexterm zone="GDBusObject-interface-added" role="2.30"><primary sortas="DBusObject::interface-added">GDBusObject::interface-added</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+user_function (<link linkend="GDBusObject"><type>GDBusObject</type></link>    *object,
+               <link linkend="GDBusInterface"><type>GDBusInterface</type></link> *interface,
+               <link linkend="gpointer"><type>gpointer</type></link>        user_data)</programlisting>
+<para>Emitted when <parameter>interface</parameter>
+ is added to <parameter>object</parameter>
+.</para>
+<refsect3 id="GDBusObject-interface-added.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>object</para></entry>
+<entry role="parameter_description"><para>The <link linkend="GDBusObject"><type>GDBusObject</type></link> emitting the signal.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>interface</para></entry>
+<entry role="parameter_description"><para>The <link linkend="GDBusInterface"><type>GDBusInterface</type></link> that was added.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><simpara>user_data</simpara></entry>
+<entry role="parameter_description"><simpara>user data set when the signal handler was connected.</simpara></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para>Flags: <link linkend="G-SIGNAL-RUN-LAST:CAPS">Run Last</link></para>
+<para role="since">Since: <link linkend="api-index-2.30">2.30</link></para></refsect2><refsect2 id="GDBusObject-interface-removed" role="signal"><title>The <literal>“interface-removed”</literal> signal</title>
+<indexterm zone="GDBusObject-interface-removed" role="2.30"><primary sortas="DBusObject::interface-removed">GDBusObject::interface-removed</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+user_function (<link linkend="GDBusObject"><type>GDBusObject</type></link>    *object,
+               <link linkend="GDBusInterface"><type>GDBusInterface</type></link> *interface,
+               <link linkend="gpointer"><type>gpointer</type></link>        user_data)</programlisting>
+<para>Emitted when <parameter>interface</parameter>
+ is removed from <parameter>object</parameter>
+.</para>
+<refsect3 id="GDBusObject-interface-removed.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>object</para></entry>
+<entry role="parameter_description"><para>The <link linkend="GDBusObject"><type>GDBusObject</type></link> emitting the signal.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>interface</para></entry>
+<entry role="parameter_description"><para>The <link linkend="GDBusInterface"><type>GDBusInterface</type></link> that was removed.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><simpara>user_data</simpara></entry>
+<entry role="parameter_description"><simpara>user data set when the signal handler was connected.</simpara></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para>Flags: <link linkend="G-SIGNAL-RUN-LAST:CAPS">Run Last</link></para>
+<para role="since">Since: <link linkend="api-index-2.30">2.30</link></para></refsect2>
+</refsect1>
+
+</refentry>

@@ -1,0 +1,424 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC '-//OASIS//DTD DocBook XML V4.5//EN'
+                      'http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd' [
+<!ENTITY % local.common.attrib "xmlns:xi  CDATA  #FIXED 'http://www.w3.org/2003/XInclude'">
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="GVfs">
+<refmeta>
+<refentrytitle role="top_of_page" id="GVfs.top_of_page">GVfs</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>GIO Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>GVfs</refname>
+<refpurpose>Virtual File System</refpurpose>
+</refnamediv>
+
+<refsect1 id="GVfs.functions" role="functions_proto">
+<title role="functions_proto.title">Functions</title>
+<informaltable pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="functions_return" colwidth="150px"/>
+<colspec colname="functions_name"/>
+<tbody>
+<row><entry role="function_type"><link linkend="GFile"><returnvalue>GFile</returnvalue></link>&#160;*
+</entry><entry role="function_name"><phrase role="c_punctuation">(</phrase><link linkend="GVfsFileLookupFunc">*GVfsFileLookupFunc</link><phrase role="c_punctuation">)</phrase>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GFile"><returnvalue>GFile</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-vfs-get-file-for-path">g_vfs_get_file_for_path</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GFile"><returnvalue>GFile</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-vfs-get-file-for-uri">g_vfs_get_file_for_uri</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GFile"><returnvalue>GFile</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-vfs-parse-name">g_vfs_parse_name</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GVfs"><returnvalue>GVfs</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-vfs-get-default">g_vfs_get_default</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GVfs"><returnvalue>GVfs</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-vfs-get-local">g_vfs_get_local</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-vfs-is-active">g_vfs_is_active</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type">const <link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;* const *
+</entry><entry role="function_name"><link linkend="g-vfs-get-supported-uri-schemes">g_vfs_get_supported_uri_schemes</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-vfs-register-uri-scheme">g_vfs_register_uri_scheme</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-vfs-unregister-uri-scheme">g_vfs_unregister_uri_scheme</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GVfs.other" role="other_proto">
+<title role="other_proto.title">Types and Values</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="name" colwidth="150px"/>
+<colspec colname="description"/>
+<tbody>
+<row><entry role="datatype_keyword"></entry><entry role="function_name"><link linkend="GVfs-struct">GVfs</link></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="G-VFS-EXTENSION-POINT-NAME:CAPS">G_VFS_EXTENSION_POINT_NAME</link></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GVfs.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<screen>    <link linkend="GObject">GObject</link>
+    <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> GVfs
+</screen>
+</refsect1>
+
+<refsect1 id="GVfs.includes"><title>Includes</title><synopsis>#include &lt;gio/gio.h&gt;
+</synopsis></refsect1>
+
+<refsect1 id="GVfs.description" role="desc">
+<title role="desc.title">Description</title>
+<para>Entry point for using GIO functionality.</para>
+
+</refsect1>
+<refsect1 id="GVfs.functions_details" role="details">
+<title role="details.title">Functions</title>
+<refsect2 id="GVfsFileLookupFunc" role="function" condition="since:2.50">
+<title>GVfsFileLookupFunc&#160;()</title>
+<indexterm zone="GVfsFileLookupFunc" role="2.50"><primary sortas="VfsFileLookupFunc">GVfsFileLookupFunc</primary></indexterm>
+<programlisting language="C"><link linkend="GFile"><returnvalue>GFile</returnvalue></link>&#160;*
+<phrase role="c_punctuation">(</phrase>*GVfsFileLookupFunc<phrase role="c_punctuation">)</phrase> (<parameter><link linkend="GVfs"><type>GVfs</type></link> *vfs</parameter>,
+                       <parameter>const <link linkend="char"><type>char</type></link> *identifier</parameter>,
+                       <parameter><link linkend="gpointer"><type>gpointer</type></link> user_data</parameter>);</programlisting>
+<para>This function type is used by <link linkend="g-vfs-register-uri-scheme"><function>g_vfs_register_uri_scheme()</function></link> to make it
+possible for a client to associate an URI scheme to a different <link linkend="GFile"><type>GFile</type></link>
+implementation.</para>
+<para>The client should return a reference to the new file that has been
+created for <parameter>uri</parameter>
+, or <link linkend="NULL:CAPS"><literal>NULL</literal></link> to continue with the default implementation.</para>
+<refsect3 id="GVfsFileLookupFunc.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>vfs</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GVfs"><type>GVfs</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>identifier</para></entry>
+<entry role="parameter_description"><para>the identifier to lookup a <link linkend="GFile"><type>GFile</type></link> for. This can either
+be an URI or a parse name as returned by <link linkend="g-file-get-parse-name"><function>g_file_get_parse_name()</function></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>user_data</para></entry>
+<entry role="parameter_description"><para>user data passed to the function</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="GVfsFileLookupFunc.returns" role="returns">
+<title>Returns</title>
+<para>a <link linkend="GFile"><type>GFile</type></link> for <parameter>identifier</parameter>
+. </para>
+<para><emphasis role="annotation">[<acronym>transfer full</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.50">2.50</link></para></refsect2>
+<refsect2 id="g-vfs-get-file-for-path" role="function">
+<title>g_vfs_get_file_for_path&#160;()</title>
+<indexterm zone="g-vfs-get-file-for-path"><primary sortas="vfs_get_file_for_path">g_vfs_get_file_for_path</primary></indexterm>
+<programlisting language="C"><link linkend="GFile"><returnvalue>GFile</returnvalue></link>&#160;*
+g_vfs_get_file_for_path (<parameter><link linkend="GVfs"><type>GVfs</type></link> *vfs</parameter>,
+                         <parameter>const <link linkend="char"><type>char</type></link> *path</parameter>);</programlisting>
+<para>Gets a <link linkend="GFile"><type>GFile</type></link> for <parameter>path</parameter>
+.</para>
+<refsect3 id="g-vfs-get-file-for-path.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>vfs</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GVfs"><type>GVfs</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>path</para></entry>
+<entry role="parameter_description"><para>a string containing a VFS path.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-vfs-get-file-for-path.returns" role="returns">
+<title>Returns</title>
+<para>a <link linkend="GFile"><type>GFile</type></link>.
+Free the returned object with <link linkend="g-object-unref"><function>g_object_unref()</function></link>. </para>
+<para><emphasis role="annotation">[<acronym>transfer full</acronym>]</emphasis></para>
+</refsect3></refsect2>
+<refsect2 id="g-vfs-get-file-for-uri" role="function">
+<title>g_vfs_get_file_for_uri&#160;()</title>
+<indexterm zone="g-vfs-get-file-for-uri"><primary sortas="vfs_get_file_for_uri">g_vfs_get_file_for_uri</primary></indexterm>
+<programlisting language="C"><link linkend="GFile"><returnvalue>GFile</returnvalue></link>&#160;*
+g_vfs_get_file_for_uri (<parameter><link linkend="GVfs"><type>GVfs</type></link> *vfs</parameter>,
+                        <parameter>const <link linkend="char"><type>char</type></link> *uri</parameter>);</programlisting>
+<para>Gets a <link linkend="GFile"><type>GFile</type></link> for <parameter>uri</parameter>
+.</para>
+<para>This operation never fails, but the returned object
+might not support any I/O operation if the URI
+is malformed or if the URI scheme is not supported.</para>
+<refsect3 id="g-vfs-get-file-for-uri.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>vfs</para></entry>
+<entry role="parameter_description"><para>a<link linkend="GVfs"><type>GVfs</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>uri</para></entry>
+<entry role="parameter_description"><para>a string containing a URI</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-vfs-get-file-for-uri.returns" role="returns">
+<title>Returns</title>
+<para>a <link linkend="GFile"><type>GFile</type></link>.
+Free the returned object with <link linkend="g-object-unref"><function>g_object_unref()</function></link>. </para>
+<para><emphasis role="annotation">[<acronym>transfer full</acronym>]</emphasis></para>
+</refsect3></refsect2>
+<refsect2 id="g-vfs-parse-name" role="function">
+<title>g_vfs_parse_name&#160;()</title>
+<indexterm zone="g-vfs-parse-name"><primary sortas="vfs_parse_name">g_vfs_parse_name</primary></indexterm>
+<programlisting language="C"><link linkend="GFile"><returnvalue>GFile</returnvalue></link>&#160;*
+g_vfs_parse_name (<parameter><link linkend="GVfs"><type>GVfs</type></link> *vfs</parameter>,
+                  <parameter>const <link linkend="char"><type>char</type></link> *parse_name</parameter>);</programlisting>
+<para>This operation never fails, but the returned object might
+not support any I/O operations if the <parameter>parse_name</parameter>
+ cannot
+be parsed by the <link linkend="GVfs"><type>GVfs</type></link> module.</para>
+<refsect3 id="g-vfs-parse-name.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>vfs</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GVfs"><type>GVfs</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>parse_name</para></entry>
+<entry role="parameter_description"><para>a string to be parsed by the VFS module.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-vfs-parse-name.returns" role="returns">
+<title>Returns</title>
+<para>a <link linkend="GFile"><type>GFile</type></link> for the given <parameter>parse_name</parameter>
+.
+Free the returned object with <link linkend="g-object-unref"><function>g_object_unref()</function></link>. </para>
+<para><emphasis role="annotation">[<acronym>transfer full</acronym>]</emphasis></para>
+</refsect3></refsect2>
+<refsect2 id="g-vfs-get-default" role="function">
+<title>g_vfs_get_default&#160;()</title>
+<indexterm zone="g-vfs-get-default"><primary sortas="vfs_get_default">g_vfs_get_default</primary></indexterm>
+<programlisting language="C"><link linkend="GVfs"><returnvalue>GVfs</returnvalue></link>&#160;*
+g_vfs_get_default (<parameter><type>void</type></parameter>);</programlisting>
+<para>Gets the default <link linkend="GVfs"><type>GVfs</type></link> for the system.</para>
+<refsect3 id="g-vfs-get-default.returns" role="returns">
+<title>Returns</title>
+<para>a <link linkend="GVfs"><type>GVfs</type></link>. </para>
+<para><emphasis role="annotation">[<acronym>transfer none</acronym>]</emphasis></para>
+</refsect3></refsect2>
+<refsect2 id="g-vfs-get-local" role="function">
+<title>g_vfs_get_local&#160;()</title>
+<indexterm zone="g-vfs-get-local"><primary sortas="vfs_get_local">g_vfs_get_local</primary></indexterm>
+<programlisting language="C"><link linkend="GVfs"><returnvalue>GVfs</returnvalue></link>&#160;*
+g_vfs_get_local (<parameter><type>void</type></parameter>);</programlisting>
+<para>Gets the local <link linkend="GVfs"><type>GVfs</type></link> for the system.</para>
+<refsect3 id="g-vfs-get-local.returns" role="returns">
+<title>Returns</title>
+<para>a <link linkend="GVfs"><type>GVfs</type></link>. </para>
+<para><emphasis role="annotation">[<acronym>transfer none</acronym>]</emphasis></para>
+</refsect3></refsect2>
+<refsect2 id="g-vfs-is-active" role="function">
+<title>g_vfs_is_active&#160;()</title>
+<indexterm zone="g-vfs-is-active"><primary sortas="vfs_is_active">g_vfs_is_active</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_vfs_is_active (<parameter><link linkend="GVfs"><type>GVfs</type></link> *vfs</parameter>);</programlisting>
+<para>Checks if the VFS is active.</para>
+<refsect3 id="g-vfs-is-active.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>vfs</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GVfs"><type>GVfs</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-vfs-is-active.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if construction of the <parameter>vfs</parameter>
+was successful
+and it is now active.</para>
+</refsect3></refsect2>
+<refsect2 id="g-vfs-get-supported-uri-schemes" role="function">
+<title>g_vfs_get_supported_uri_schemes&#160;()</title>
+<indexterm zone="g-vfs-get-supported-uri-schemes"><primary sortas="vfs_get_supported_uri_schemes">g_vfs_get_supported_uri_schemes</primary></indexterm>
+<programlisting language="C">const <link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;* const *
+g_vfs_get_supported_uri_schemes (<parameter><link linkend="GVfs"><type>GVfs</type></link> *vfs</parameter>);</programlisting>
+<para>Gets a list of URI schemes supported by <parameter>vfs</parameter>
+.</para>
+<refsect3 id="g-vfs-get-supported-uri-schemes.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>vfs</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GVfs"><type>GVfs</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-vfs-get-supported-uri-schemes.returns" role="returns">
+<title>Returns</title>
+<para>a <link linkend="NULL:CAPS"><literal>NULL</literal></link>-terminated array of strings.
+The returned array belongs to GIO and must
+not be freed or modified. </para>
+<para><emphasis role="annotation">[<acronym>transfer none</acronym>]</emphasis></para>
+</refsect3></refsect2>
+<refsect2 id="g-vfs-register-uri-scheme" role="function" condition="since:2.50">
+<title>g_vfs_register_uri_scheme&#160;()</title>
+<indexterm zone="g-vfs-register-uri-scheme" role="2.50"><primary sortas="vfs_register_uri_scheme">g_vfs_register_uri_scheme</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_vfs_register_uri_scheme (<parameter><link linkend="GVfs"><type>GVfs</type></link> *vfs</parameter>,
+                           <parameter>const <link linkend="char"><type>char</type></link> *scheme</parameter>,
+                           <parameter><link linkend="GVfsFileLookupFunc"><type>GVfsFileLookupFunc</type></link> uri_func</parameter>,
+                           <parameter><link linkend="gpointer"><type>gpointer</type></link> uri_data</parameter>,
+                           <parameter><link linkend="GDestroyNotify"><type>GDestroyNotify</type></link> uri_destroy</parameter>,
+                           <parameter><link linkend="GVfsFileLookupFunc"><type>GVfsFileLookupFunc</type></link> parse_name_func</parameter>,
+                           <parameter><link linkend="gpointer"><type>gpointer</type></link> parse_name_data</parameter>,
+                           <parameter><link linkend="GDestroyNotify"><type>GDestroyNotify</type></link> parse_name_destroy</parameter>);</programlisting>
+<para>Registers <parameter>uri_func</parameter>
+ and <parameter>parse_name_func</parameter>
+ as the <link linkend="GFile"><type>GFile</type></link> URI and parse name
+lookup functions for URIs with a scheme matching <parameter>scheme</parameter>
+.
+Note that <parameter>scheme</parameter>
+ is registered only within the running application, as
+opposed to desktop-wide as it happens with GVfs backends.</para>
+<para>When a <link linkend="GFile"><type>GFile</type></link> is requested with an URI containing <parameter>scheme</parameter>
+ (e.g. through
+<link linkend="g-file-new-for-uri"><function>g_file_new_for_uri()</function></link>), <parameter>uri_func</parameter>
+ will be called to allow a custom
+constructor. The implementation of <parameter>uri_func</parameter>
+ should not be blocking, and
+must not call <link linkend="g-vfs-register-uri-scheme"><function>g_vfs_register_uri_scheme()</function></link> or <link linkend="g-vfs-unregister-uri-scheme"><function>g_vfs_unregister_uri_scheme()</function></link>.</para>
+<para>When <link linkend="g-file-parse-name"><function>g_file_parse_name()</function></link> is called with a parse name obtained from such file,
+<parameter>parse_name_func</parameter>
+ will be called to allow the <link linkend="GFile"><type>GFile</type></link> to be created again. In
+that case, it's responsibility of <parameter>parse_name_func</parameter>
+ to make sure the parse
+name matches what the custom <link linkend="GFile"><type>GFile</type></link> implementation returned when
+<link linkend="g-file-get-parse-name"><function>g_file_get_parse_name()</function></link> was previously called. The implementation of
+<parameter>parse_name_func</parameter>
+ should not be blocking, and must not call
+<link linkend="g-vfs-register-uri-scheme"><function>g_vfs_register_uri_scheme()</function></link> or <link linkend="g-vfs-unregister-uri-scheme"><function>g_vfs_unregister_uri_scheme()</function></link>.</para>
+<para>It's an error to call this function twice with the same scheme. To unregister
+a custom URI scheme, use <link linkend="g-vfs-unregister-uri-scheme"><function>g_vfs_unregister_uri_scheme()</function></link>.</para>
+<refsect3 id="g-vfs-register-uri-scheme.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>vfs</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GVfs"><type>GVfs</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>scheme</para></entry>
+<entry role="parameter_description"><para>an URI scheme, e.g. "http"</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>uri_func</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GVfsFileLookupFunc"><type>GVfsFileLookupFunc</type></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>scope notified</acronym>][<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>uri_data</para></entry>
+<entry role="parameter_description"><para>custom data passed to be passed to <parameter>uri_func</parameter>
+, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>uri_destroy</para></entry>
+<entry role="parameter_description"><para>function to be called when unregistering the
+URI scheme, or when <parameter>vfs</parameter>
+is disposed, to free the resources used
+by the URI lookup function. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>parse_name_func</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GVfsFileLookupFunc"><type>GVfsFileLookupFunc</type></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>scope notified</acronym>][<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>parse_name_data</para></entry>
+<entry role="parameter_description"><para>custom data passed to be passed to
+<parameter>parse_name_func</parameter>
+, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>parse_name_destroy</para></entry>
+<entry role="parameter_description"><para>function to be called when unregistering the
+URI scheme, or when <parameter>vfs</parameter>
+is disposed, to free the resources used
+by the parse name lookup function. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-vfs-register-uri-scheme.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if <parameter>scheme</parameter>
+was successfully registered, or <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> if a handler
+for <parameter>scheme</parameter>
+already exists.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.50">2.50</link></para></refsect2>
+<refsect2 id="g-vfs-unregister-uri-scheme" role="function" condition="since:2.50">
+<title>g_vfs_unregister_uri_scheme&#160;()</title>
+<indexterm zone="g-vfs-unregister-uri-scheme" role="2.50"><primary sortas="vfs_unregister_uri_scheme">g_vfs_unregister_uri_scheme</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_vfs_unregister_uri_scheme (<parameter><link linkend="GVfs"><type>GVfs</type></link> *vfs</parameter>,
+                             <parameter>const <link linkend="char"><type>char</type></link> *scheme</parameter>);</programlisting>
+<para>Unregisters the URI handler for <parameter>scheme</parameter>
+ previously registered with
+<link linkend="g-vfs-register-uri-scheme"><function>g_vfs_register_uri_scheme()</function></link>.</para>
+<refsect3 id="g-vfs-unregister-uri-scheme.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>vfs</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GVfs"><type>GVfs</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>scheme</para></entry>
+<entry role="parameter_description"><para>an URI scheme, e.g. "http"</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-vfs-unregister-uri-scheme.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if <parameter>scheme</parameter>
+was successfully unregistered, or <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> if a
+handler for <parameter>scheme</parameter>
+does not exist.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.50">2.50</link></para></refsect2>
+
+</refsect1>
+<refsect1 id="GVfs.other_details" role="details">
+<title role="details.title">Types and Values</title>
+<refsect2 id="GVfs-struct" role="struct">
+<title>GVfs</title>
+<indexterm zone="GVfs-struct"><primary sortas="Vfs">GVfs</primary></indexterm>
+<programlisting language="C">typedef struct _GVfs GVfs;</programlisting>
+<para>Virtual File System object.</para>
+</refsect2>
+<refsect2 id="G-VFS-EXTENSION-POINT-NAME:CAPS" role="macro">
+<title>G_VFS_EXTENSION_POINT_NAME</title>
+<indexterm zone="G-VFS-EXTENSION-POINT-NAME:CAPS"><primary sortas="VFS_EXTENSION_POINT_NAME">G_VFS_EXTENSION_POINT_NAME</primary></indexterm>
+<programlisting language="C">#define G_VFS_EXTENSION_POINT_NAME "gio-vfs"
+</programlisting>
+<para>Extension point for <link linkend="GVfs"><type>GVfs</type></link> functionality.
+See <link linkend="extending-gio">Extending GIO</link>.</para>
+</refsect2>
+
+</refsect1>
+
+</refentry>

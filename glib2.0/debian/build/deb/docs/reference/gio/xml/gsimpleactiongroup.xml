@@ -1,0 +1,226 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC '-//OASIS//DTD DocBook XML V4.5//EN'
+                      'http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd' [
+<!ENTITY % local.common.attrib "xmlns:xi  CDATA  #FIXED 'http://www.w3.org/2003/XInclude'">
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="GSimpleActionGroup">
+<refmeta>
+<refentrytitle role="top_of_page" id="GSimpleActionGroup.top_of_page">GSimpleActionGroup</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>GIO Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>GSimpleActionGroup</refname>
+<refpurpose>A simple GActionGroup implementation</refpurpose>
+</refnamediv>
+
+<refsect1 id="GSimpleActionGroup.functions" role="functions_proto">
+<title role="functions_proto.title">Functions</title>
+<informaltable pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="functions_return" colwidth="150px"/>
+<colspec colname="functions_name"/>
+<tbody>
+<row><entry role="function_type"><link linkend="GSimpleActionGroup"><returnvalue>GSimpleActionGroup</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-simple-action-group-new">g_simple_action_group_new</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+<row><entry role="function_type"><link linkend="GAction"><returnvalue>GAction</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-simple-action-group-lookup">g_simple_action_group_lookup</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-simple-action-group-insert">g_simple_action_group_insert</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-simple-action-group-remove">g_simple_action_group_remove</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-simple-action-group-add-entries">g_simple_action_group_add_entries</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GSimpleActionGroup.other" role="other_proto">
+<title role="other_proto.title">Types and Values</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="name" colwidth="150px"/>
+<colspec colname="description"/>
+<tbody>
+<row><entry role="datatype_keyword"></entry><entry role="function_name"><link linkend="GSimpleActionGroup-struct">GSimpleActionGroup</link></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GSimpleActionGroup.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<screen>    <link linkend="GObject">GObject</link>
+    <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> GSimpleActionGroup
+</screen>
+</refsect1>
+<refsect1 id="GSimpleActionGroup.implemented-interfaces" role="impl_interfaces">
+<title role="impl_interfaces.title">Implemented Interfaces</title>
+<para>
+GSimpleActionGroup implements
+ <link linkend="GActionGroup">GActionGroup</link> and  <link linkend="GActionMap">GActionMap</link>.</para>
+
+</refsect1>
+
+<refsect1 id="GSimpleActionGroup.includes"><title>Includes</title><synopsis>#include &lt;gio/gio.h&gt;
+</synopsis></refsect1>
+
+<refsect1 id="GSimpleActionGroup.description" role="desc">
+<title role="desc.title">Description</title>
+<para><link linkend="GSimpleActionGroup"><type>GSimpleActionGroup</type></link> is a hash table filled with <link linkend="GAction"><type>GAction</type></link> objects,
+implementing the <link linkend="GActionGroup"><type>GActionGroup</type></link> and <link linkend="GActionMap"><type>GActionMap</type></link> interfaces.</para>
+
+</refsect1>
+<refsect1 id="GSimpleActionGroup.functions_details" role="details">
+<title role="details.title">Functions</title>
+<refsect2 id="g-simple-action-group-new" role="function" condition="since:2.28">
+<title>g_simple_action_group_new&#160;()</title>
+<indexterm zone="g-simple-action-group-new" role="2.28"><primary sortas="simple_action_group_new">g_simple_action_group_new</primary></indexterm>
+<programlisting language="C"><link linkend="GSimpleActionGroup"><returnvalue>GSimpleActionGroup</returnvalue></link>&#160;*
+g_simple_action_group_new (<parameter><type>void</type></parameter>);</programlisting>
+<para>Creates a new, empty, <link linkend="GSimpleActionGroup"><type>GSimpleActionGroup</type></link>.</para>
+<refsect3 id="g-simple-action-group-new.returns" role="returns">
+<title>Returns</title>
+<para> a new <link linkend="GSimpleActionGroup"><type>GSimpleActionGroup</type></link></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.28">2.28</link></para></refsect2>
+<refsect2 id="g-simple-action-group-lookup" role="function" condition="deprecated:2.38: Use g_action_map_lookup_action()|since:2.28">
+<title>g_simple_action_group_lookup&#160;()</title>
+<indexterm zone="g-simple-action-group-lookup" role="deprecated"><primary sortas="simple_action_group_lookup">g_simple_action_group_lookup</primary></indexterm><indexterm zone="g-simple-action-group-lookup" role="2.28"><primary sortas="simple_action_group_lookup">g_simple_action_group_lookup</primary></indexterm>
+<programlisting language="C"><link linkend="GAction"><returnvalue>GAction</returnvalue></link>&#160;*
+g_simple_action_group_lookup (<parameter><link linkend="GSimpleActionGroup"><type>GSimpleActionGroup</type></link> *simple</parameter>,
+                              <parameter>const <link linkend="gchar"><type>gchar</type></link> *action_name</parameter>);</programlisting>
+<warning><para><literal>g_simple_action_group_lookup</literal> has been deprecated since version 2.38 and should not be used in newly-written code.</para> <para>Use <link linkend="g-action-map-lookup-action"><function>g_action_map_lookup_action()</function></link></para>
+</warning>
+<para>Looks up the action with the name <parameter>action_name</parameter>
+ in the group.</para>
+<para>If no such action exists, returns <link linkend="NULL:CAPS"><literal>NULL</literal></link>.</para>
+<refsect3 id="g-simple-action-group-lookup.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>simple</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSimpleActionGroup"><type>GSimpleActionGroup</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>action_name</para></entry>
+<entry role="parameter_description"><para>the name of an action</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-simple-action-group-lookup.returns" role="returns">
+<title>Returns</title>
+<para>a <link linkend="GAction"><type>GAction</type></link>, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para>
+<para><emphasis role="annotation">[<acronym>transfer none</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.28">2.28</link></para></refsect2>
+<refsect2 id="g-simple-action-group-insert" role="function" condition="deprecated:2.38: Use g_action_map_add_action()|since:2.28">
+<title>g_simple_action_group_insert&#160;()</title>
+<indexterm zone="g-simple-action-group-insert" role="deprecated"><primary sortas="simple_action_group_insert">g_simple_action_group_insert</primary></indexterm><indexterm zone="g-simple-action-group-insert" role="2.28"><primary sortas="simple_action_group_insert">g_simple_action_group_insert</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_simple_action_group_insert (<parameter><link linkend="GSimpleActionGroup"><type>GSimpleActionGroup</type></link> *simple</parameter>,
+                              <parameter><link linkend="GAction"><type>GAction</type></link> *action</parameter>);</programlisting>
+<warning><para><literal>g_simple_action_group_insert</literal> has been deprecated since version 2.38 and should not be used in newly-written code.</para> <para>Use <link linkend="g-action-map-add-action"><function>g_action_map_add_action()</function></link></para>
+</warning>
+<para>Adds an action to the action group.</para>
+<para>If the action group already contains an action with the same name as
+<parameter>action</parameter>
+ then the old action is dropped from the group.</para>
+<para>The action group takes its own reference on <parameter>action</parameter>
+.</para>
+<refsect3 id="g-simple-action-group-insert.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>simple</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSimpleActionGroup"><type>GSimpleActionGroup</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>action</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GAction"><type>GAction</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.28">2.28</link></para></refsect2>
+<refsect2 id="g-simple-action-group-remove" role="function" condition="deprecated:2.38: Use g_action_map_remove_action()|since:2.28">
+<title>g_simple_action_group_remove&#160;()</title>
+<indexterm zone="g-simple-action-group-remove" role="deprecated"><primary sortas="simple_action_group_remove">g_simple_action_group_remove</primary></indexterm><indexterm zone="g-simple-action-group-remove" role="2.28"><primary sortas="simple_action_group_remove">g_simple_action_group_remove</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_simple_action_group_remove (<parameter><link linkend="GSimpleActionGroup"><type>GSimpleActionGroup</type></link> *simple</parameter>,
+                              <parameter>const <link linkend="gchar"><type>gchar</type></link> *action_name</parameter>);</programlisting>
+<warning><para><literal>g_simple_action_group_remove</literal> has been deprecated since version 2.38 and should not be used in newly-written code.</para> <para>Use <link linkend="g-action-map-remove-action"><function>g_action_map_remove_action()</function></link></para>
+</warning>
+<para>Removes the named action from the action group.</para>
+<para>If no action of this name is in the group then nothing happens.</para>
+<refsect3 id="g-simple-action-group-remove.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>simple</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSimpleActionGroup"><type>GSimpleActionGroup</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>action_name</para></entry>
+<entry role="parameter_description"><para>the name of the action</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.28">2.28</link></para></refsect2>
+<refsect2 id="g-simple-action-group-add-entries" role="function" condition="deprecated:2.38: Use g_action_map_add_action_entries()|since:2.30">
+<title>g_simple_action_group_add_entries&#160;()</title>
+<indexterm zone="g-simple-action-group-add-entries" role="deprecated"><primary sortas="simple_action_group_add_entries">g_simple_action_group_add_entries</primary></indexterm><indexterm zone="g-simple-action-group-add-entries" role="2.30"><primary sortas="simple_action_group_add_entries">g_simple_action_group_add_entries</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_simple_action_group_add_entries (<parameter><link linkend="GSimpleActionGroup"><type>GSimpleActionGroup</type></link> *simple</parameter>,
+                                   <parameter>const <link linkend="GActionEntry"><type>GActionEntry</type></link> *entries</parameter>,
+                                   <parameter><link linkend="gint"><type>gint</type></link> n_entries</parameter>,
+                                   <parameter><link linkend="gpointer"><type>gpointer</type></link> user_data</parameter>);</programlisting>
+<warning><para><literal>g_simple_action_group_add_entries</literal> has been deprecated since version 2.38 and should not be used in newly-written code.</para> <para>Use <link linkend="g-action-map-add-action-entries"><function>g_action_map_add_action_entries()</function></link></para>
+</warning>
+<para>A convenience function for creating multiple <link linkend="GSimpleAction"><type>GSimpleAction</type></link> instances
+and adding them to the action group.</para>
+<refsect3 id="g-simple-action-group-add-entries.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>simple</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSimpleActionGroup"><type>GSimpleActionGroup</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>entries</para></entry>
+<entry role="parameter_description"><para>a pointer to the first item in
+an array of <link linkend="GActionEntry"><type>GActionEntry</type></link> structs. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>array</acronym> length=n_entries]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>n_entries</para></entry>
+<entry role="parameter_description"><para>the length of <parameter>entries</parameter>
+, or -1</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>user_data</para></entry>
+<entry role="parameter_description"><para>the user data for signal connections</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.30">2.30</link></para></refsect2>
+
+</refsect1>
+<refsect1 id="GSimpleActionGroup.other_details" role="details">
+<title role="details.title">Types and Values</title>
+<refsect2 id="GSimpleActionGroup-struct" role="struct">
+<title>GSimpleActionGroup</title>
+<indexterm zone="GSimpleActionGroup-struct" role="2.28"><primary sortas="SimpleActionGroup">GSimpleActionGroup</primary></indexterm>
+<programlisting language="C">typedef struct _GSimpleActionGroup GSimpleActionGroup;</programlisting>
+<para>The <link linkend="GSimpleActionGroup"><type>GSimpleActionGroup</type></link> structure contains private data and should only be accessed using the provided API.</para>
+<para role="since">Since: <link linkend="api-index-2.28">2.28</link></para></refsect2>
+
+</refsect1>
+
+</refentry>

@@ -1,0 +1,340 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC '-//OASIS//DTD DocBook XML V4.5//EN'
+                      'http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd' [
+<!ENTITY % local.common.attrib "xmlns:xi  CDATA  #FIXED 'http://www.w3.org/2003/XInclude'">
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="GUnixFDList">
+<refmeta>
+<refentrytitle role="top_of_page" id="GUnixFDList.top_of_page">GUnixFDList</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>GIO Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>GUnixFDList</refname>
+<refpurpose>An object containing a set of UNIX file descriptors</refpurpose>
+</refnamediv>
+
+<refsect1 id="GUnixFDList.functions" role="functions_proto">
+<title role="functions_proto.title">Functions</title>
+<informaltable pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="functions_return" colwidth="150px"/>
+<colspec colname="functions_name"/>
+<tbody>
+<row><entry role="function_type"><link linkend="GUnixFDList"><returnvalue>GUnixFDList</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-unix-fd-list-new-from-array">g_unix_fd_list_new_from_array</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GUnixFDList"><returnvalue>GUnixFDList</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-unix-fd-list-new">g_unix_fd_list_new</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gint"><returnvalue>gint</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-unix-fd-list-get-length">g_unix_fd_list_get_length</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gint"><returnvalue>gint</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-unix-fd-list-get">g_unix_fd_list_get</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type">const <link linkend="gint"><returnvalue>gint</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-unix-fd-list-peek-fds">g_unix_fd_list_peek_fds</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gint"><returnvalue>gint</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-unix-fd-list-steal-fds">g_unix_fd_list_steal_fds</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gint"><returnvalue>gint</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-unix-fd-list-append">g_unix_fd_list_append</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GUnixFDList.other" role="other_proto">
+<title role="other_proto.title">Types and Values</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="name" colwidth="150px"/>
+<colspec colname="description"/>
+<tbody>
+<row><entry role="datatype_keyword"></entry><entry role="function_name"><link linkend="GUnixFDList-struct">GUnixFDList</link></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GUnixFDList.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<screen>    <link linkend="GObject">GObject</link>
+    <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> GUnixFDList
+</screen>
+</refsect1>
+
+<refsect1 id="GUnixFDList.includes"><title>Includes</title><synopsis>#include &lt;gio/gunixfdlist.h&gt;
+</synopsis></refsect1>
+
+<refsect1 id="GUnixFDList.description" role="desc">
+<title role="desc.title">Description</title>
+<para>A <link linkend="GUnixFDList"><type>GUnixFDList</type></link> contains a list of file descriptors.  It owns the file
+descriptors that it contains, closing them when finalized.</para>
+<para>It may be wrapped in a <link linkend="GUnixFDMessage"><type>GUnixFDMessage</type></link> and sent over a <link linkend="GSocket"><type>GSocket</type></link> in
+the <link linkend="G-SOCKET-ADDRESS-UNIX:CAPS"><literal>G_SOCKET_ADDRESS_UNIX</literal></link> family by using <link linkend="g-socket-send-message"><function>g_socket_send_message()</function></link>
+and received using <link linkend="g-socket-receive-message"><function>g_socket_receive_message()</function></link>.</para>
+<para>Note that <literal>&amp;lt;gio/gunixfdlist.h&gt;</literal> belongs to the UNIX-specific GIO
+interfaces, thus you have to use the <literal>gio-unix-2.0.pc</literal> pkg-config
+file when using it.</para>
+
+</refsect1>
+<refsect1 id="GUnixFDList.functions_details" role="details">
+<title role="details.title">Functions</title>
+<refsect2 id="g-unix-fd-list-new-from-array" role="function" condition="since:2.24">
+<title>g_unix_fd_list_new_from_array&#160;()</title>
+<indexterm zone="g-unix-fd-list-new-from-array" role="2.24"><primary sortas="unix_fd_list_new_from_array">g_unix_fd_list_new_from_array</primary></indexterm>
+<programlisting language="C"><link linkend="GUnixFDList"><returnvalue>GUnixFDList</returnvalue></link>&#160;*
+g_unix_fd_list_new_from_array (<parameter>const <link linkend="gint"><type>gint</type></link> *fds</parameter>,
+                               <parameter><link linkend="gint"><type>gint</type></link> n_fds</parameter>);</programlisting>
+<para>Creates a new <link linkend="GUnixFDList"><type>GUnixFDList</type></link> containing the file descriptors given in
+<parameter>fds</parameter>
+.  The file descriptors become the property of the new list and
+may no longer be used by the caller.  The array itself is owned by
+the caller.</para>
+<para>Each file descriptor in the array should be set to close-on-exec.</para>
+<para>If <parameter>n_fds</parameter>
+ is -1 then <parameter>fds</parameter>
+ must be terminated with -1.</para>
+<refsect3 id="g-unix-fd-list-new-from-array.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>fds</para></entry>
+<entry role="parameter_description"><para>the initial list of file descriptors. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>array</acronym> length=n_fds]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>n_fds</para></entry>
+<entry role="parameter_description"><para>the length of <link linkend="fds"><type>fds</type></link>, or -1</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-unix-fd-list-new-from-array.returns" role="returns">
+<title>Returns</title>
+<para> a new <link linkend="GUnixFDList"><type>GUnixFDList</type></link></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.24">2.24</link></para></refsect2>
+<refsect2 id="g-unix-fd-list-new" role="function" condition="since:2.24">
+<title>g_unix_fd_list_new&#160;()</title>
+<indexterm zone="g-unix-fd-list-new" role="2.24"><primary sortas="unix_fd_list_new">g_unix_fd_list_new</primary></indexterm>
+<programlisting language="C"><link linkend="GUnixFDList"><returnvalue>GUnixFDList</returnvalue></link>&#160;*
+g_unix_fd_list_new (<parameter><type>void</type></parameter>);</programlisting>
+<para>Creates a new <link linkend="GUnixFDList"><type>GUnixFDList</type></link> containing no file descriptors.</para>
+<refsect3 id="g-unix-fd-list-new.returns" role="returns">
+<title>Returns</title>
+<para> a new <link linkend="GUnixFDList"><type>GUnixFDList</type></link></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.24">2.24</link></para></refsect2>
+<refsect2 id="g-unix-fd-list-get-length" role="function" condition="since:2.24">
+<title>g_unix_fd_list_get_length&#160;()</title>
+<indexterm zone="g-unix-fd-list-get-length" role="2.24"><primary sortas="unix_fd_list_get_length">g_unix_fd_list_get_length</primary></indexterm>
+<programlisting language="C"><link linkend="gint"><returnvalue>gint</returnvalue></link>
+g_unix_fd_list_get_length (<parameter><link linkend="GUnixFDList"><type>GUnixFDList</type></link> *list</parameter>);</programlisting>
+<para>Gets the length of <parameter>list</parameter>
+ (ie: the number of file descriptors
+contained within).</para>
+<refsect3 id="g-unix-fd-list-get-length.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>list</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GUnixFDList"><type>GUnixFDList</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-unix-fd-list-get-length.returns" role="returns">
+<title>Returns</title>
+<para> the length of <parameter>list</parameter>
+</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.24">2.24</link></para></refsect2>
+<refsect2 id="g-unix-fd-list-get" role="function" condition="since:2.24">
+<title>g_unix_fd_list_get&#160;()</title>
+<indexterm zone="g-unix-fd-list-get" role="2.24"><primary sortas="unix_fd_list_get">g_unix_fd_list_get</primary></indexterm>
+<programlisting language="C"><link linkend="gint"><returnvalue>gint</returnvalue></link>
+g_unix_fd_list_get (<parameter><link linkend="GUnixFDList"><type>GUnixFDList</type></link> *list</parameter>,
+                    <parameter><link linkend="gint"><type>gint</type></link> index_</parameter>,
+                    <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para>Gets a file descriptor out of <parameter>list</parameter>
+.</para>
+<para><parameter>index_</parameter>
+ specifies the index of the file descriptor to get.  It is a
+programmer error for <parameter>index_</parameter>
+ to be out of range; see
+<link linkend="g-unix-fd-list-get-length"><function>g_unix_fd_list_get_length()</function></link>.</para>
+<para>The file descriptor is duplicated using <link linkend="dup"><function>dup()</function></link> and set as
+close-on-exec before being returned.  You must call <link linkend="close"><function>close()</function></link> on it
+when you are done.</para>
+<para>A possible cause of failure is exceeding the per-process or
+system-wide file descriptor limit.</para>
+<refsect3 id="g-unix-fd-list-get.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>list</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GUnixFDList"><type>GUnixFDList</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>index_</para></entry>
+<entry role="parameter_description"><para>the index into the list</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GError"><type>GError</type></link> pointer</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-unix-fd-list-get.returns" role="returns">
+<title>Returns</title>
+<para> the file descriptor, or -1 in case of error</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.24">2.24</link></para></refsect2>
+<refsect2 id="g-unix-fd-list-peek-fds" role="function" condition="since:2.24">
+<title>g_unix_fd_list_peek_fds&#160;()</title>
+<indexterm zone="g-unix-fd-list-peek-fds" role="2.24"><primary sortas="unix_fd_list_peek_fds">g_unix_fd_list_peek_fds</primary></indexterm>
+<programlisting language="C">const <link linkend="gint"><returnvalue>gint</returnvalue></link>&#160;*
+g_unix_fd_list_peek_fds (<parameter><link linkend="GUnixFDList"><type>GUnixFDList</type></link> *list</parameter>,
+                         <parameter><link linkend="gint"><type>gint</type></link> *length</parameter>);</programlisting>
+<para>Returns the array of file descriptors that is contained in this
+object.</para>
+<para>After this call, the descriptors remain the property of <parameter>list</parameter>
+.  The
+caller must not close them and must not free the array.  The array is
+valid only until <parameter>list</parameter>
+ is changed in any way.</para>
+<para>If <parameter>length</parameter>
+ is non-<link linkend="NULL:CAPS"><literal>NULL</literal></link> then it is set to the number of file
+descriptors in the returned array. The returned array is also
+terminated with -1.</para>
+<para>This function never returns <link linkend="NULL:CAPS"><literal>NULL</literal></link>. In case there are no file
+descriptors contained in <parameter>list</parameter>
+, an empty array is returned.</para>
+<refsect3 id="g-unix-fd-list-peek-fds.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>list</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GUnixFDList"><type>GUnixFDList</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>length</para></entry>
+<entry role="parameter_description"><para>pointer to the length of the returned
+array, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>out</acronym>][<acronym>optional</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-unix-fd-list-peek-fds.returns" role="returns">
+<title>Returns</title>
+<para>an array of file
+descriptors. </para>
+<para><emphasis role="annotation">[<acronym>array</acronym> length=length][<acronym>transfer none</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.24">2.24</link></para></refsect2>
+<refsect2 id="g-unix-fd-list-steal-fds" role="function" condition="since:2.24">
+<title>g_unix_fd_list_steal_fds&#160;()</title>
+<indexterm zone="g-unix-fd-list-steal-fds" role="2.24"><primary sortas="unix_fd_list_steal_fds">g_unix_fd_list_steal_fds</primary></indexterm>
+<programlisting language="C"><link linkend="gint"><returnvalue>gint</returnvalue></link>&#160;*
+g_unix_fd_list_steal_fds (<parameter><link linkend="GUnixFDList"><type>GUnixFDList</type></link> *list</parameter>,
+                          <parameter><link linkend="gint"><type>gint</type></link> *length</parameter>);</programlisting>
+<para>Returns the array of file descriptors that is contained in this
+object.</para>
+<para>After this call, the descriptors are no longer contained in
+<parameter>list</parameter>
+. Further calls will return an empty list (unless more
+descriptors have been added).</para>
+<para>The return result of this function must be freed with <link linkend="g-free"><function>g_free()</function></link>.
+The caller is also responsible for closing all of the file
+descriptors.  The file descriptors in the array are set to
+close-on-exec.</para>
+<para>If <parameter>length</parameter>
+ is non-<link linkend="NULL:CAPS"><literal>NULL</literal></link> then it is set to the number of file
+descriptors in the returned array. The returned array is also
+terminated with -1.</para>
+<para>This function never returns <link linkend="NULL:CAPS"><literal>NULL</literal></link>. In case there are no file
+descriptors contained in <parameter>list</parameter>
+, an empty array is returned.</para>
+<refsect3 id="g-unix-fd-list-steal-fds.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>list</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GUnixFDList"><type>GUnixFDList</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>length</para></entry>
+<entry role="parameter_description"><para>pointer to the length of the returned
+array, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>out</acronym>][<acronym>optional</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-unix-fd-list-steal-fds.returns" role="returns">
+<title>Returns</title>
+<para>an array of file
+descriptors. </para>
+<para><emphasis role="annotation">[<acronym>array</acronym> length=length][<acronym>transfer full</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.24">2.24</link></para></refsect2>
+<refsect2 id="g-unix-fd-list-append" role="function" condition="since:2.24">
+<title>g_unix_fd_list_append&#160;()</title>
+<indexterm zone="g-unix-fd-list-append" role="2.24"><primary sortas="unix_fd_list_append">g_unix_fd_list_append</primary></indexterm>
+<programlisting language="C"><link linkend="gint"><returnvalue>gint</returnvalue></link>
+g_unix_fd_list_append (<parameter><link linkend="GUnixFDList"><type>GUnixFDList</type></link> *list</parameter>,
+                       <parameter><link linkend="gint"><type>gint</type></link> fd</parameter>,
+                       <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para>Adds a file descriptor to <parameter>list</parameter>
+.</para>
+<para>The file descriptor is duplicated using <link linkend="dup"><function>dup()</function></link>. You keep your copy
+of the descriptor and the copy contained in <parameter>list</parameter>
+ will be closed
+when <parameter>list</parameter>
+ is finalized.</para>
+<para>A possible cause of failure is exceeding the per-process or
+system-wide file descriptor limit.</para>
+<para>The index of the file descriptor in the list is returned.  If you use
+this index with <link linkend="g-unix-fd-list-get"><function>g_unix_fd_list_get()</function></link> then you will receive back a
+duplicated copy of the same file descriptor.</para>
+<refsect3 id="g-unix-fd-list-append.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>list</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GUnixFDList"><type>GUnixFDList</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>fd</para></entry>
+<entry role="parameter_description"><para>a valid open file descriptor</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GError"><type>GError</type></link> pointer</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-unix-fd-list-append.returns" role="returns">
+<title>Returns</title>
+<para> the index of the appended fd in case of success, else -1
+(and <parameter>error</parameter>
+is set)</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.24">2.24</link></para></refsect2>
+
+</refsect1>
+<refsect1 id="GUnixFDList.other_details" role="details">
+<title role="details.title">Types and Values</title>
+<refsect2 id="GUnixFDList-struct" role="struct">
+<title>GUnixFDList</title>
+<indexterm zone="GUnixFDList-struct"><primary sortas="UnixFDList">GUnixFDList</primary></indexterm>
+<programlisting language="C">typedef struct _GUnixFDList GUnixFDList;</programlisting>
+<para><link linkend="GUnixFDList"><type>GUnixFDList</type></link> is an opaque data structure and can only be accessed
+using the following functions.</para>
+</refsect2>
+
+</refsect1>
+<refsect1 id="GUnixFDList.see-also">
+<title>See Also</title>
+<para><link linkend="GUnixFDMessage"><type>GUnixFDMessage</type></link></para>
+
+</refsect1>
+
+</refentry>

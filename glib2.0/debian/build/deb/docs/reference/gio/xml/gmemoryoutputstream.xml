@@ -1,0 +1,427 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC '-//OASIS//DTD DocBook XML V4.5//EN'
+                      'http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd' [
+<!ENTITY % local.common.attrib "xmlns:xi  CDATA  #FIXED 'http://www.w3.org/2003/XInclude'">
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="GMemoryOutputStream">
+<refmeta>
+<refentrytitle role="top_of_page" id="GMemoryOutputStream.top_of_page">GMemoryOutputStream</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>GIO Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>GMemoryOutputStream</refname>
+<refpurpose>Streaming output operations on memory chunks</refpurpose>
+</refnamediv>
+
+<refsect1 id="GMemoryOutputStream.functions" role="functions_proto">
+<title role="functions_proto.title">Functions</title>
+<informaltable pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="functions_return" colwidth="150px"/>
+<colspec colname="functions_name"/>
+<tbody>
+<row><entry role="function_type"><link linkend="gpointer"><returnvalue>gpointer</returnvalue></link>
+</entry><entry role="function_name"><phrase role="c_punctuation">(</phrase><link linkend="GReallocFunc">*GReallocFunc</link><phrase role="c_punctuation">)</phrase>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GOutputStream"><returnvalue>GOutputStream</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-memory-output-stream-new">g_memory_output_stream_new</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GOutputStream"><returnvalue>GOutputStream</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-memory-output-stream-new-resizable">g_memory_output_stream_new_resizable</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gpointer"><returnvalue>gpointer</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-memory-output-stream-get-data">g_memory_output_stream_get_data</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gsize"><returnvalue>gsize</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-memory-output-stream-get-size">g_memory_output_stream_get_size</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gsize"><returnvalue>gsize</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-memory-output-stream-get-data-size">g_memory_output_stream_get_data_size</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gpointer"><returnvalue>gpointer</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-memory-output-stream-steal-data">g_memory_output_stream_steal_data</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GBytes"><returnvalue>GBytes</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-memory-output-stream-steal-as-bytes">g_memory_output_stream_steal_as_bytes</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GMemoryOutputStream.properties" role="properties">
+<title role="properties.title">Properties</title>
+<informaltable frame="none">
+<tgroup cols="3">
+<colspec colname="properties_type" colwidth="150px"/>
+<colspec colname="properties_name" colwidth="300px"/>
+<colspec colname="properties_flags" colwidth="200px"/>
+<tbody>
+<row><entry role="property_type"><link linkend="gpointer"><type>gpointer</type></link></entry><entry role="property_name"><link linkend="GMemoryOutputStream--data">data</link></entry><entry role="property_flags">Read / Write / Construct Only</entry></row>
+<row><entry role="property_type"><link linkend="gulong"><type>gulong</type></link></entry><entry role="property_name"><link linkend="GMemoryOutputStream--data-size">data-size</link></entry><entry role="property_flags">Read</entry></row>
+<row><entry role="property_type"><link linkend="gpointer"><type>gpointer</type></link></entry><entry role="property_name"><link linkend="GMemoryOutputStream--destroy-function">destroy-function</link></entry><entry role="property_flags">Read / Write / Construct Only</entry></row>
+<row><entry role="property_type"><link linkend="gpointer"><type>gpointer</type></link></entry><entry role="property_name"><link linkend="GMemoryOutputStream--realloc-function">realloc-function</link></entry><entry role="property_flags">Read / Write / Construct Only</entry></row>
+<row><entry role="property_type"><link linkend="gulong"><type>gulong</type></link></entry><entry role="property_name"><link linkend="GMemoryOutputStream--size">size</link></entry><entry role="property_flags">Read / Write / Construct Only</entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GMemoryOutputStream.other" role="other_proto">
+<title role="other_proto.title">Types and Values</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="name" colwidth="150px"/>
+<colspec colname="description"/>
+<tbody>
+<row><entry role="datatype_keyword"></entry><entry role="function_name"><link linkend="GMemoryOutputStream-struct">GMemoryOutputStream</link></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GMemoryOutputStream.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<screen>    <link linkend="GObject">GObject</link>
+    <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> <link linkend="GOutputStream">GOutputStream</link>
+        <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> GMemoryOutputStream
+</screen>
+</refsect1>
+<refsect1 id="GMemoryOutputStream.implemented-interfaces" role="impl_interfaces">
+<title role="impl_interfaces.title">Implemented Interfaces</title>
+<para>
+GMemoryOutputStream implements
+ <link linkend="GSeekable">GSeekable</link> and  <link linkend="GPollableOutputStream">GPollableOutputStream</link>.</para>
+
+</refsect1>
+
+<refsect1 id="GMemoryOutputStream.includes"><title>Includes</title><synopsis>#include &lt;gio/gio.h&gt;
+</synopsis></refsect1>
+
+<refsect1 id="GMemoryOutputStream.description" role="desc">
+<title role="desc.title">Description</title>
+<para><link linkend="GMemoryOutputStream"><type>GMemoryOutputStream</type></link> is a class for using arbitrary
+memory chunks as output for GIO streaming output operations.</para>
+<para>As of GLib 2.34, <link linkend="GMemoryOutputStream"><type>GMemoryOutputStream</type></link> trivially implements
+<link linkend="GPollableOutputStream"><type>GPollableOutputStream</type></link>: it always polls as ready.</para>
+
+</refsect1>
+<refsect1 id="GMemoryOutputStream.functions_details" role="details">
+<title role="details.title">Functions</title>
+<refsect2 id="GReallocFunc" role="function">
+<title>GReallocFunc&#160;()</title>
+<indexterm zone="GReallocFunc"><primary sortas="ReallocFunc">GReallocFunc</primary></indexterm>
+<programlisting language="C"><link linkend="gpointer"><returnvalue>gpointer</returnvalue></link>
+<phrase role="c_punctuation">(</phrase>*GReallocFunc<phrase role="c_punctuation">)</phrase> (<parameter><link linkend="gpointer"><type>gpointer</type></link> data</parameter>,
+                 <parameter><link linkend="gsize"><type>gsize</type></link> size</parameter>);</programlisting>
+<para>Changes the size of the memory block pointed to by <parameter>data</parameter>
+ to
+<parameter>size</parameter>
+ bytes.</para>
+<para>The function should have the same semantics as <link linkend="realloc"><function>realloc()</function></link>.</para>
+<refsect3 id="GReallocFunc.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>data</para></entry>
+<entry role="parameter_description"><para>memory block to reallocate</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>size</para></entry>
+<entry role="parameter_description"><para>size to reallocate <parameter>data</parameter>
+to</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="GReallocFunc.returns" role="returns">
+<title>Returns</title>
+<para> a pointer to the reallocated memory</para>
+</refsect3></refsect2>
+<refsect2 id="g-memory-output-stream-new" role="function">
+<title>g_memory_output_stream_new&#160;()</title>
+<indexterm zone="g-memory-output-stream-new"><primary sortas="memory_output_stream_new">g_memory_output_stream_new</primary></indexterm>
+<programlisting language="C"><link linkend="GOutputStream"><returnvalue>GOutputStream</returnvalue></link>&#160;*
+g_memory_output_stream_new (<parameter><link linkend="gpointer"><type>gpointer</type></link> data</parameter>,
+                            <parameter><link linkend="gsize"><type>gsize</type></link> size</parameter>,
+                            <parameter><link linkend="GReallocFunc"><type>GReallocFunc</type></link> realloc_function</parameter>,
+                            <parameter><link linkend="GDestroyNotify"><type>GDestroyNotify</type></link> destroy_function</parameter>);</programlisting>
+<para>Creates a new <link linkend="GMemoryOutputStream"><type>GMemoryOutputStream</type></link>.</para>
+<para>In most cases this is not the function you want.  See
+<link linkend="g-memory-output-stream-new-resizable"><function>g_memory_output_stream_new_resizable()</function></link> instead.</para>
+<para>If <parameter>data</parameter>
+ is non-<link linkend="NULL:CAPS"><literal>NULL</literal></link>, the stream will use that for its internal storage.</para>
+<para>If <parameter>realloc_fn</parameter>
+ is non-<link linkend="NULL:CAPS"><literal>NULL</literal></link>, it will be used for resizing the internal
+storage when necessary and the stream will be considered resizable.
+In that case, the stream will start out being (conceptually) empty.
+<parameter>size</parameter>
+ is used only as a hint for how big <parameter>data</parameter>
+ is.  Specifically,
+seeking to the end of a newly-created stream will seek to zero, not
+<parameter>size</parameter>
+.  Seeking past the end of the stream and then writing will
+introduce a zero-filled gap.</para>
+<para>If <parameter>realloc_fn</parameter>
+ is <link linkend="NULL:CAPS"><literal>NULL</literal></link> then the stream is fixed-sized.  Seeking to
+the end will seek to <parameter>size</parameter>
+ exactly.  Writing past the end will give
+an 'out of space' error.  Attempting to seek past the end will fail.
+Unlike the resizable case, seeking to an offset within the stream and
+writing will preserve the bytes passed in as <parameter>data</parameter>
+ before that point
+and will return them as part of <link linkend="g-memory-output-stream-steal-data"><function>g_memory_output_stream_steal_data()</function></link>.
+If you intend to seek you should probably therefore ensure that <parameter>data</parameter>
+
+is properly initialised.</para>
+<para>It is probably only meaningful to provide <parameter>data</parameter>
+ and <parameter>size</parameter>
+ in the case
+that you want a fixed-sized stream.  Put another way: if <parameter>realloc_fn</parameter>
+
+is non-<link linkend="NULL:CAPS"><literal>NULL</literal></link> then it makes most sense to give <parameter>data</parameter>
+ as <link linkend="NULL:CAPS"><literal>NULL</literal></link> and
+<parameter>size</parameter>
+ as 0 (allowing <link linkend="GMemoryOutputStream"><type>GMemoryOutputStream</type></link> to do the initial
+allocation for itself).</para>
+<informalexample><programlisting role="example"><![CDATA[
+// a stream that can grow
+stream = g_memory_output_stream_new (NULL, 0, realloc, free);
+
+// another stream that can grow
+stream2 = g_memory_output_stream_new (NULL, 0, g_realloc, g_free);
+
+// a fixed-size stream
+data = malloc (200);
+stream3 = g_memory_output_stream_new (data, 200, NULL, free);
+]]></programlisting></informalexample>
+<para></para>
+
+<para><emphasis role="annotation">[<acronym>skip</acronym>]</emphasis></para><refsect3 id="g-memory-output-stream-new.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>data</para></entry>
+<entry role="parameter_description"><para>pointer to a chunk of memory to use, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>size</para></entry>
+<entry role="parameter_description"><para>the size of <parameter>data</parameter>
+</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>realloc_function</para></entry>
+<entry role="parameter_description"><para>a function with <link linkend="realloc"><function>realloc()</function></link> semantics (like <link linkend="g-realloc"><function>g_realloc()</function></link>)
+to be called when <parameter>data</parameter>
+needs to be grown, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>destroy_function</para></entry>
+<entry role="parameter_description"><para>a function to be called on <parameter>data</parameter>
+when the stream is
+finalized, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-memory-output-stream-new.returns" role="returns">
+<title>Returns</title>
+<para> A newly created <link linkend="GMemoryOutputStream"><type>GMemoryOutputStream</type></link> object.</para>
+</refsect3></refsect2>
+<refsect2 id="g-memory-output-stream-new-resizable" role="function" condition="since:2.36">
+<title>g_memory_output_stream_new_resizable&#160;()</title>
+<indexterm zone="g-memory-output-stream-new-resizable" role="2.36"><primary sortas="memory_output_stream_new_resizable">g_memory_output_stream_new_resizable</primary></indexterm>
+<programlisting language="C"><link linkend="GOutputStream"><returnvalue>GOutputStream</returnvalue></link>&#160;*
+g_memory_output_stream_new_resizable (<parameter><type>void</type></parameter>);</programlisting>
+<para>Creates a new <link linkend="GMemoryOutputStream"><type>GMemoryOutputStream</type></link>, using <link linkend="g-realloc"><function>g_realloc()</function></link> and <link linkend="g-free"><function>g_free()</function></link>
+for memory allocation.</para>
+<para role="since">Since: <link linkend="api-index-2.36">2.36</link></para></refsect2>
+<refsect2 id="g-memory-output-stream-get-data" role="function">
+<title>g_memory_output_stream_get_data&#160;()</title>
+<indexterm zone="g-memory-output-stream-get-data"><primary sortas="memory_output_stream_get_data">g_memory_output_stream_get_data</primary></indexterm>
+<programlisting language="C"><link linkend="gpointer"><returnvalue>gpointer</returnvalue></link>
+g_memory_output_stream_get_data (<parameter><link linkend="GMemoryOutputStream"><type>GMemoryOutputStream</type></link> *ostream</parameter>);</programlisting>
+<para>Gets any loaded data from the <parameter>ostream</parameter>
+.</para>
+<para>Note that the returned pointer may become invalid on the next
+write or truncate operation on the stream.</para>
+<refsect3 id="g-memory-output-stream-get-data.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>ostream</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GMemoryOutputStream"><type>GMemoryOutputStream</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-memory-output-stream-get-data.returns" role="returns">
+<title>Returns</title>
+<para>pointer to the stream's data, or <link linkend="NULL:CAPS"><literal>NULL</literal></link> if the data
+has been stolen. </para>
+<para><emphasis role="annotation">[<acronym>transfer none</acronym>]</emphasis></para>
+</refsect3></refsect2>
+<refsect2 id="g-memory-output-stream-get-size" role="function">
+<title>g_memory_output_stream_get_size&#160;()</title>
+<indexterm zone="g-memory-output-stream-get-size"><primary sortas="memory_output_stream_get_size">g_memory_output_stream_get_size</primary></indexterm>
+<programlisting language="C"><link linkend="gsize"><returnvalue>gsize</returnvalue></link>
+g_memory_output_stream_get_size (<parameter><link linkend="GMemoryOutputStream"><type>GMemoryOutputStream</type></link> *ostream</parameter>);</programlisting>
+<para>Gets the size of the currently allocated data area (available from
+<link linkend="g-memory-output-stream-get-data"><function>g_memory_output_stream_get_data()</function></link>).</para>
+<para>You probably don't want to use this function on resizable streams.
+See <link linkend="g-memory-output-stream-get-data-size"><function>g_memory_output_stream_get_data_size()</function></link> instead.  For resizable
+streams the size returned by this function is an implementation
+detail and may be change at any time in response to operations on the
+stream.</para>
+<para>If the stream is fixed-sized (ie: no realloc was passed to
+<link linkend="g-memory-output-stream-new"><function>g_memory_output_stream_new()</function></link>) then this is the maximum size of the
+stream and further writes will return <link linkend="G-IO-ERROR-NO-SPACE:CAPS"><literal>G_IO_ERROR_NO_SPACE</literal></link>.</para>
+<para>In any case, if you want the number of bytes currently written to the
+stream, use <link linkend="g-memory-output-stream-get-data-size"><function>g_memory_output_stream_get_data_size()</function></link>.</para>
+<refsect3 id="g-memory-output-stream-get-size.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>ostream</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GMemoryOutputStream"><type>GMemoryOutputStream</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-memory-output-stream-get-size.returns" role="returns">
+<title>Returns</title>
+<para> the number of bytes allocated for the data buffer</para>
+</refsect3></refsect2>
+<refsect2 id="g-memory-output-stream-get-data-size" role="function" condition="since:2.18">
+<title>g_memory_output_stream_get_data_size&#160;()</title>
+<indexterm zone="g-memory-output-stream-get-data-size" role="2.18"><primary sortas="memory_output_stream_get_data_size">g_memory_output_stream_get_data_size</primary></indexterm>
+<programlisting language="C"><link linkend="gsize"><returnvalue>gsize</returnvalue></link>
+g_memory_output_stream_get_data_size (<parameter><link linkend="GMemoryOutputStream"><type>GMemoryOutputStream</type></link> *ostream</parameter>);</programlisting>
+<para>Returns the number of bytes from the start up to including the last
+byte written in the stream that has not been truncated away.</para>
+<refsect3 id="g-memory-output-stream-get-data-size.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>ostream</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GMemoryOutputStream"><type>GMemoryOutputStream</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-memory-output-stream-get-data-size.returns" role="returns">
+<title>Returns</title>
+<para> the number of bytes written to the stream</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.18">2.18</link></para></refsect2>
+<refsect2 id="g-memory-output-stream-steal-data" role="function" condition="since:2.26">
+<title>g_memory_output_stream_steal_data&#160;()</title>
+<indexterm zone="g-memory-output-stream-steal-data" role="2.26"><primary sortas="memory_output_stream_steal_data">g_memory_output_stream_steal_data</primary></indexterm>
+<programlisting language="C"><link linkend="gpointer"><returnvalue>gpointer</returnvalue></link>
+g_memory_output_stream_steal_data (<parameter><link linkend="GMemoryOutputStream"><type>GMemoryOutputStream</type></link> *ostream</parameter>);</programlisting>
+<para>Gets any loaded data from the <parameter>ostream</parameter>
+. Ownership of the data
+is transferred to the caller; when no longer needed it must be
+freed using the free function set in <parameter>ostream</parameter>
+'s
+<link linkend="GMemoryOutputStream--destroy-function"><type>“destroy-function”</type></link> property.</para>
+<para><parameter>ostream</parameter>
+ must be closed before calling this function.</para>
+<refsect3 id="g-memory-output-stream-steal-data.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>ostream</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GMemoryOutputStream"><type>GMemoryOutputStream</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-memory-output-stream-steal-data.returns" role="returns">
+<title>Returns</title>
+<para>the stream's data, or <link linkend="NULL:CAPS"><literal>NULL</literal></link> if it has previously
+been stolen. </para>
+<para><emphasis role="annotation">[<acronym>transfer full</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.26">2.26</link></para></refsect2>
+<refsect2 id="g-memory-output-stream-steal-as-bytes" role="function" condition="since:2.34">
+<title>g_memory_output_stream_steal_as_bytes&#160;()</title>
+<indexterm zone="g-memory-output-stream-steal-as-bytes" role="2.34"><primary sortas="memory_output_stream_steal_as_bytes">g_memory_output_stream_steal_as_bytes</primary></indexterm>
+<programlisting language="C"><link linkend="GBytes"><returnvalue>GBytes</returnvalue></link>&#160;*
+g_memory_output_stream_steal_as_bytes (<parameter><link linkend="GMemoryOutputStream"><type>GMemoryOutputStream</type></link> *ostream</parameter>);</programlisting>
+<para>Returns data from the <parameter>ostream</parameter>
+ as a <link linkend="GBytes"><type>GBytes</type></link>. <parameter>ostream</parameter>
+ must be
+closed before calling this function.</para>
+<refsect3 id="g-memory-output-stream-steal-as-bytes.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>ostream</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GMemoryOutputStream"><type>GMemoryOutputStream</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-memory-output-stream-steal-as-bytes.returns" role="returns">
+<title>Returns</title>
+<para>the stream's data. </para>
+<para><emphasis role="annotation">[<acronym>transfer full</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.34">2.34</link></para></refsect2>
+
+</refsect1>
+<refsect1 id="GMemoryOutputStream.other_details" role="details">
+<title role="details.title">Types and Values</title>
+<refsect2 id="GMemoryOutputStream-struct" role="struct">
+<title>GMemoryOutputStream</title>
+<indexterm zone="GMemoryOutputStream-struct"><primary sortas="MemoryOutputStream">GMemoryOutputStream</primary></indexterm>
+<programlisting language="C">typedef struct _GMemoryOutputStream GMemoryOutputStream;</programlisting>
+<para>Implements <link linkend="GOutputStream"><type>GOutputStream</type></link> for arbitrary memory chunks.</para>
+</refsect2>
+
+</refsect1>
+<refsect1 id="GMemoryOutputStream.property-details" role="property_details">
+<title role="property_details.title">Property Details</title>
+<refsect2 id="GMemoryOutputStream--data" role="property"><title>The <literal>“data”</literal> property</title>
+<indexterm zone="GMemoryOutputStream--data" role="2.24"><primary sortas="MemoryOutputStream:data">GMemoryOutputStream:data</primary></indexterm>
+<programlisting>  “data”                     <link linkend="gpointer"><type>gpointer</type></link></programlisting>
+<para>Pointer to buffer where data will be written.</para>
+<para>Flags: Read / Write / Construct Only</para>
+<para role="since">Since: <link linkend="api-index-2.24">2.24</link></para></refsect2>
+<refsect2 id="GMemoryOutputStream--data-size" role="property"><title>The <literal>“data-size”</literal> property</title>
+<indexterm zone="GMemoryOutputStream--data-size" role="2.24"><primary sortas="MemoryOutputStream:data-size">GMemoryOutputStream:data-size</primary></indexterm>
+<programlisting>  “data-size”                <link linkend="gulong"><type>gulong</type></link></programlisting>
+<para>Size of data written to the buffer.</para>
+<para>Flags: Read</para>
+<para role="since">Since: <link linkend="api-index-2.24">2.24</link></para></refsect2>
+<refsect2 id="GMemoryOutputStream--destroy-function" role="property"><title>The <literal>“destroy-function”</literal> property</title>
+<indexterm zone="GMemoryOutputStream--destroy-function" role="2.24"><primary sortas="MemoryOutputStream:destroy-function">GMemoryOutputStream:destroy-function</primary></indexterm>
+<programlisting>  “destroy-function”         <link linkend="gpointer"><type>gpointer</type></link></programlisting>
+<para>Function called with the buffer as argument when the stream is destroyed.</para>
+
+<para><emphasis role="annotation">[<acronym>skip</acronym>]</emphasis></para><para>Flags: Read / Write / Construct Only</para>
+<para role="since">Since: <link linkend="api-index-2.24">2.24</link></para></refsect2>
+<refsect2 id="GMemoryOutputStream--realloc-function" role="property"><title>The <literal>“realloc-function”</literal> property</title>
+<indexterm zone="GMemoryOutputStream--realloc-function" role="2.24"><primary sortas="MemoryOutputStream:realloc-function">GMemoryOutputStream:realloc-function</primary></indexterm>
+<programlisting>  “realloc-function”         <link linkend="gpointer"><type>gpointer</type></link></programlisting>
+<para>Function with realloc semantics called to enlarge the buffer.</para>
+
+<para><emphasis role="annotation">[<acronym>skip</acronym>]</emphasis></para><para>Flags: Read / Write / Construct Only</para>
+<para role="since">Since: <link linkend="api-index-2.24">2.24</link></para></refsect2>
+<refsect2 id="GMemoryOutputStream--size" role="property"><title>The <literal>“size”</literal> property</title>
+<indexterm zone="GMemoryOutputStream--size" role="2.24"><primary sortas="MemoryOutputStream:size">GMemoryOutputStream:size</primary></indexterm>
+<programlisting>  “size”                     <link linkend="gulong"><type>gulong</type></link></programlisting>
+<para>Current size of the data buffer.</para>
+<para>Flags: Read / Write / Construct Only</para>
+<para role="since">Since: <link linkend="api-index-2.24">2.24</link></para></refsect2>
+
+</refsect1>
+<refsect1 id="GMemoryOutputStream.see-also">
+<title>See Also</title>
+<para><link linkend="GMemoryInputStream"><type>GMemoryInputStream</type></link></para>
+
+</refsect1>
+
+</refentry>

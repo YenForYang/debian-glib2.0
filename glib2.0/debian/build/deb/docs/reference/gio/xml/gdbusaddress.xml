@@ -1,0 +1,320 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC '-//OASIS//DTD DocBook XML V4.5//EN'
+                      'http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd' [
+<!ENTITY % local.common.attrib "xmlns:xi  CDATA  #FIXED 'http://www.w3.org/2003/XInclude'">
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="gio-D-Bus-Addresses">
+<refmeta>
+<refentrytitle role="top_of_page" id="gio-D-Bus-Addresses.top_of_page">D-Bus Addresses</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>GIO Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>D-Bus Addresses</refname>
+<refpurpose>D-Bus connection endpoints</refpurpose>
+</refnamediv>
+
+<refsect1 id="gio-D-Bus-Addresses.functions" role="functions_proto">
+<title role="functions_proto.title">Functions</title>
+<informaltable pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="functions_return" colwidth="150px"/>
+<colspec colname="functions_name"/>
+<tbody>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-dbus-is-address">g_dbus_is_address</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-dbus-is-supported-address">g_dbus_is_supported_address</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-dbus-address-get-stream">g_dbus_address_get_stream</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GIOStream"><returnvalue>GIOStream</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-dbus-address-get-stream-finish">g_dbus_address_get_stream_finish</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GIOStream"><returnvalue>GIOStream</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-dbus-address-get-stream-sync">g_dbus_address_get_stream_sync</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-dbus-address-get-for-bus-sync">g_dbus_address_get_for_bus_sync</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-dbus-address-escape-value">g_dbus_address_escape_value</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+
+<refsect1 id="gio-D-Bus-Addresses.includes"><title>Includes</title><synopsis>#include &lt;gio/gio.h&gt;
+</synopsis></refsect1>
+
+<refsect1 id="gio-D-Bus-Addresses.description" role="desc">
+<title role="desc.title">Description</title>
+<para>Routines for working with D-Bus addresses. A D-Bus address is a string
+like <literal>unix:tmpdir=/tmp/my-app-name</literal>. The exact format of addresses
+is explained in detail in the
+<ulink url="http://dbus.freedesktop.org/doc/dbus-specification.html#addresses">D-Bus specification</ulink>.</para>
+<para>TCP D-Bus connections are supported, but accessing them via a proxy is
+currently not supported.</para>
+
+</refsect1>
+<refsect1 id="gio-D-Bus-Addresses.functions_details" role="details">
+<title role="details.title">Functions</title>
+<refsect2 id="g-dbus-is-address" role="function" condition="since:2.26">
+<title>g_dbus_is_address&#160;()</title>
+<indexterm zone="g-dbus-is-address" role="2.26"><primary sortas="dbus_is_address">g_dbus_is_address</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_dbus_is_address (<parameter>const <link linkend="gchar"><type>gchar</type></link> *string</parameter>);</programlisting>
+<para>Checks if <parameter>string</parameter>
+ is a
+<ulink url="https://dbus.freedesktop.org/doc/dbus-specification.html#addresses">D-Bus address</ulink>.</para>
+<para>This doesn't check if <parameter>string</parameter>
+ is actually supported by <link linkend="GDBusServer"><type>GDBusServer</type></link>
+or <link linkend="GDBusConnection"><type>GDBusConnection</type></link> - use <link linkend="g-dbus-is-supported-address"><function>g_dbus_is_supported_address()</function></link> to do more
+checks.</para>
+<refsect3 id="g-dbus-is-address.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>string</para></entry>
+<entry role="parameter_description"><para>A string.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-dbus-is-address.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if <parameter>string</parameter>
+is a valid D-Bus address, <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> otherwise.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.26">2.26</link></para></refsect2>
+<refsect2 id="g-dbus-is-supported-address" role="function" condition="since:2.26">
+<title>g_dbus_is_supported_address&#160;()</title>
+<indexterm zone="g-dbus-is-supported-address" role="2.26"><primary sortas="dbus_is_supported_address">g_dbus_is_supported_address</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_dbus_is_supported_address (<parameter>const <link linkend="gchar"><type>gchar</type></link> *string</parameter>,
+                             <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para>Like <link linkend="g-dbus-is-address"><function>g_dbus_is_address()</function></link> but also checks if the library supports the
+transports in <parameter>string</parameter>
+ and that key/value pairs for each transport
+are valid. See the specification of the
+<ulink url="https://dbus.freedesktop.org/doc/dbus-specification.html#addresses">D-Bus address format</ulink>.</para>
+<refsect3 id="g-dbus-is-supported-address.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>string</para></entry>
+<entry role="parameter_description"><para>A string.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para>Return location for error or <link linkend="NULL:CAPS"><literal>NULL</literal></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-dbus-is-supported-address.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if <parameter>string</parameter>
+is a valid D-Bus address that is
+supported by this library, <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> if <parameter>error</parameter>
+is set.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.26">2.26</link></para></refsect2>
+<refsect2 id="g-dbus-address-get-stream" role="function" condition="since:2.26">
+<title>g_dbus_address_get_stream&#160;()</title>
+<indexterm zone="g-dbus-address-get-stream" role="2.26"><primary sortas="dbus_address_get_stream">g_dbus_address_get_stream</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_dbus_address_get_stream (<parameter>const <link linkend="gchar"><type>gchar</type></link> *address</parameter>,
+                           <parameter><link linkend="GCancellable"><type>GCancellable</type></link> *cancellable</parameter>,
+                           <parameter><link linkend="GAsyncReadyCallback"><type>GAsyncReadyCallback</type></link> callback</parameter>,
+                           <parameter><link linkend="gpointer"><type>gpointer</type></link> user_data</parameter>);</programlisting>
+<para>Asynchronously connects to an endpoint specified by <parameter>address</parameter>
+ and
+sets up the connection so it is in a state to run the client-side
+of the D-Bus authentication conversation. <parameter>address</parameter>
+ must be in the
+<ulink url="https://dbus.freedesktop.org/doc/dbus-specification.html#addresses">D-Bus address format</ulink>.</para>
+<para>When the operation is finished, <parameter>callback</parameter>
+ will be invoked. You can
+then call <link linkend="g-dbus-address-get-stream-finish"><function>g_dbus_address_get_stream_finish()</function></link> to get the result of
+the operation.</para>
+<para>This is an asynchronous failable function. See
+<link linkend="g-dbus-address-get-stream-sync"><function>g_dbus_address_get_stream_sync()</function></link> for the synchronous version.</para>
+<refsect3 id="g-dbus-address-get-stream.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>address</para></entry>
+<entry role="parameter_description"><para>A valid D-Bus address.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>cancellable</para></entry>
+<entry role="parameter_description"><para>A <link linkend="GCancellable"><type>GCancellable</type></link> or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>callback</para></entry>
+<entry role="parameter_description"><para>A <link linkend="GAsyncReadyCallback"><type>GAsyncReadyCallback</type></link> to call when the request is satisfied.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>user_data</para></entry>
+<entry role="parameter_description"><para>Data to pass to <parameter>callback</parameter>
+.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.26">2.26</link></para></refsect2>
+<refsect2 id="g-dbus-address-get-stream-finish" role="function" condition="since:2.26">
+<title>g_dbus_address_get_stream_finish&#160;()</title>
+<indexterm zone="g-dbus-address-get-stream-finish" role="2.26"><primary sortas="dbus_address_get_stream_finish">g_dbus_address_get_stream_finish</primary></indexterm>
+<programlisting language="C"><link linkend="GIOStream"><returnvalue>GIOStream</returnvalue></link>&#160;*
+g_dbus_address_get_stream_finish (<parameter><link linkend="GAsyncResult"><type>GAsyncResult</type></link> *res</parameter>,
+                                  <parameter><link linkend="gchar"><type>gchar</type></link> **out_guid</parameter>,
+                                  <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para>Finishes an operation started with <link linkend="g-dbus-address-get-stream"><function>g_dbus_address_get_stream()</function></link>.</para>
+<refsect3 id="g-dbus-address-get-stream-finish.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>res</para></entry>
+<entry role="parameter_description"><para>A <link linkend="GAsyncResult"><type>GAsyncResult</type></link> obtained from the GAsyncReadyCallback passed to <link linkend="g-dbus-address-get-stream"><function>g_dbus_address_get_stream()</function></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>out_guid</para></entry>
+<entry role="parameter_description"><para><link linkend="NULL:CAPS"><literal>NULL</literal></link> or return location to store the GUID extracted from <parameter>address</parameter>
+, if any. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>optional</acronym>][<acronym>out</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para>Return location for error or <link linkend="NULL:CAPS"><literal>NULL</literal></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-dbus-address-get-stream-finish.returns" role="returns">
+<title>Returns</title>
+<para>A <link linkend="GIOStream"><type>GIOStream</type></link> or <link linkend="NULL:CAPS"><literal>NULL</literal></link> if <parameter>error</parameter>
+is set. </para>
+<para><emphasis role="annotation">[<acronym>transfer full</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.26">2.26</link></para></refsect2>
+<refsect2 id="g-dbus-address-get-stream-sync" role="function" condition="since:2.26">
+<title>g_dbus_address_get_stream_sync&#160;()</title>
+<indexterm zone="g-dbus-address-get-stream-sync" role="2.26"><primary sortas="dbus_address_get_stream_sync">g_dbus_address_get_stream_sync</primary></indexterm>
+<programlisting language="C"><link linkend="GIOStream"><returnvalue>GIOStream</returnvalue></link>&#160;*
+g_dbus_address_get_stream_sync (<parameter>const <link linkend="gchar"><type>gchar</type></link> *address</parameter>,
+                                <parameter><link linkend="gchar"><type>gchar</type></link> **out_guid</parameter>,
+                                <parameter><link linkend="GCancellable"><type>GCancellable</type></link> *cancellable</parameter>,
+                                <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para>Synchronously connects to an endpoint specified by <parameter>address</parameter>
+ and
+sets up the connection so it is in a state to run the client-side
+of the D-Bus authentication conversation. <parameter>address</parameter>
+ must be in the
+<ulink url="https://dbus.freedesktop.org/doc/dbus-specification.html#addresses">D-Bus address format</ulink>.</para>
+<para>This is a synchronous failable function. See
+<link linkend="g-dbus-address-get-stream"><function>g_dbus_address_get_stream()</function></link> for the asynchronous version.</para>
+<refsect3 id="g-dbus-address-get-stream-sync.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>address</para></entry>
+<entry role="parameter_description"><para>A valid D-Bus address.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>out_guid</para></entry>
+<entry role="parameter_description"><para><link linkend="NULL:CAPS"><literal>NULL</literal></link> or return location to store the GUID extracted from <parameter>address</parameter>
+, if any. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>optional</acronym>][<acronym>out</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>cancellable</para></entry>
+<entry role="parameter_description"><para>A <link linkend="GCancellable"><type>GCancellable</type></link> or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para>Return location for error or <link linkend="NULL:CAPS"><literal>NULL</literal></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-dbus-address-get-stream-sync.returns" role="returns">
+<title>Returns</title>
+<para>A <link linkend="GIOStream"><type>GIOStream</type></link> or <link linkend="NULL:CAPS"><literal>NULL</literal></link> if <parameter>error</parameter>
+is set. </para>
+<para><emphasis role="annotation">[<acronym>transfer full</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.26">2.26</link></para></refsect2>
+<refsect2 id="g-dbus-address-get-for-bus-sync" role="function" condition="since:2.26">
+<title>g_dbus_address_get_for_bus_sync&#160;()</title>
+<indexterm zone="g-dbus-address-get-for-bus-sync" role="2.26"><primary sortas="dbus_address_get_for_bus_sync">g_dbus_address_get_for_bus_sync</primary></indexterm>
+<programlisting language="C"><link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+g_dbus_address_get_for_bus_sync (<parameter><link linkend="GBusType"><type>GBusType</type></link> bus_type</parameter>,
+                                 <parameter><link linkend="GCancellable"><type>GCancellable</type></link> *cancellable</parameter>,
+                                 <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para>Synchronously looks up the D-Bus address for the well-known message
+bus instance specified by <parameter>bus_type</parameter>
+. This may involve using various
+platform specific mechanisms.</para>
+<para>The returned address will be in the
+<ulink url="https://dbus.freedesktop.org/doc/dbus-specification.html#addresses">D-Bus address format</ulink>.</para>
+<refsect3 id="g-dbus-address-get-for-bus-sync.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>bus_type</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GBusType"><type>GBusType</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>cancellable</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GCancellable"><type>GCancellable</type></link> or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para>return location for error or <link linkend="NULL:CAPS"><literal>NULL</literal></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-dbus-address-get-for-bus-sync.returns" role="returns">
+<title>Returns</title>
+<para> a valid D-Bus address string for <parameter>bus_type</parameter>
+or <link linkend="NULL:CAPS"><literal>NULL</literal></link> if
+<parameter>error</parameter>
+is set</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.26">2.26</link></para></refsect2>
+<refsect2 id="g-dbus-address-escape-value" role="function" condition="since:2.36">
+<title>g_dbus_address_escape_value&#160;()</title>
+<indexterm zone="g-dbus-address-escape-value" role="2.36"><primary sortas="dbus_address_escape_value">g_dbus_address_escape_value</primary></indexterm>
+<programlisting language="C"><link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+g_dbus_address_escape_value (<parameter>const <link linkend="gchar"><type>gchar</type></link> *string</parameter>);</programlisting>
+<para>Escape <parameter>string</parameter>
+ so it can appear in a D-Bus address as the value
+part of a key-value pair.</para>
+<para>For instance, if <parameter>string</parameter>
+ is <literal>/run/bus-for-:0</literal>,
+this function would return <literal>/run/bus-for-%3A0</literal>,
+which could be used in a D-Bus address like
+<literal>unix:nonce-tcp:host=127.0.0.1,port=42,noncefile=/run/bus-for-%3A0</literal>.</para>
+<refsect3 id="g-dbus-address-escape-value.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>string</para></entry>
+<entry role="parameter_description"><para>an unescaped string to be included in a D-Bus address
+as the value in a key-value pair</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-dbus-address-escape-value.returns" role="returns">
+<title>Returns</title>
+<para>a copy of <parameter>string</parameter>
+with all
+non-optionally-escaped bytes escaped. </para>
+<para><emphasis role="annotation">[<acronym>transfer full</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.36">2.36</link></para></refsect2>
+
+</refsect1>
+<refsect1 id="gio-D-Bus-Addresses.other_details" role="details">
+<title role="details.title">Types and Values</title>
+
+</refsect1>
+
+</refentry>

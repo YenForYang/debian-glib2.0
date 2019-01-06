@@ -1,0 +1,304 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC '-//OASIS//DTD DocBook XML V4.5//EN'
+                      'http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd' [
+<!ENTITY % local.common.attrib "xmlns:xi  CDATA  #FIXED 'http://www.w3.org/2003/XInclude'">
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="GNetworkService">
+<refmeta>
+<refentrytitle role="top_of_page" id="GNetworkService.top_of_page">GNetworkService</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>GIO Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>GNetworkService</refname>
+<refpurpose>A GSocketConnectable for resolving SRV records</refpurpose>
+</refnamediv>
+
+<refsect1 id="GNetworkService.functions" role="functions_proto">
+<title role="functions_proto.title">Functions</title>
+<informaltable pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="functions_return" colwidth="150px"/>
+<colspec colname="functions_name"/>
+<tbody>
+<row><entry role="function_type"><link linkend="GSocketConnectable"><returnvalue>GSocketConnectable</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-network-service-new">g_network_service_new</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type">const <link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-network-service-get-service">g_network_service_get_service</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type">const <link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-network-service-get-protocol">g_network_service_get_protocol</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type">const <link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-network-service-get-domain">g_network_service_get_domain</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type">const <link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-network-service-get-scheme">g_network_service_get_scheme</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-network-service-set-scheme">g_network_service_set_scheme</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GNetworkService.properties" role="properties">
+<title role="properties.title">Properties</title>
+<informaltable frame="none">
+<tgroup cols="3">
+<colspec colname="properties_type" colwidth="150px"/>
+<colspec colname="properties_name" colwidth="300px"/>
+<colspec colname="properties_flags" colwidth="200px"/>
+<tbody>
+<row><entry role="property_type"><link linkend="gchar"><type>gchar</type></link>&#160;*</entry><entry role="property_name"><link linkend="GNetworkService--domain">domain</link></entry><entry role="property_flags">Read / Write / Construct Only</entry></row>
+<row><entry role="property_type"><link linkend="gchar"><type>gchar</type></link>&#160;*</entry><entry role="property_name"><link linkend="GNetworkService--protocol">protocol</link></entry><entry role="property_flags">Read / Write / Construct Only</entry></row>
+<row><entry role="property_type"><link linkend="gchar"><type>gchar</type></link>&#160;*</entry><entry role="property_name"><link linkend="GNetworkService--scheme">scheme</link></entry><entry role="property_flags">Read / Write</entry></row>
+<row><entry role="property_type"><link linkend="gchar"><type>gchar</type></link>&#160;*</entry><entry role="property_name"><link linkend="GNetworkService--service">service</link></entry><entry role="property_flags">Read / Write / Construct Only</entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GNetworkService.other" role="other_proto">
+<title role="other_proto.title">Types and Values</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="name" colwidth="150px"/>
+<colspec colname="description"/>
+<tbody>
+<row><entry role="datatype_keyword"></entry><entry role="function_name"><link linkend="GNetworkService-struct">GNetworkService</link></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GNetworkService.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<screen>    <link linkend="GObject">GObject</link>
+    <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> GNetworkService
+</screen>
+</refsect1>
+<refsect1 id="GNetworkService.implemented-interfaces" role="impl_interfaces">
+<title role="impl_interfaces.title">Implemented Interfaces</title>
+<para>
+GNetworkService implements
+ <link linkend="GSocketConnectable">GSocketConnectable</link>.</para>
+
+</refsect1>
+
+<refsect1 id="GNetworkService.includes"><title>Includes</title><synopsis>#include &lt;gio/gio.h&gt;
+</synopsis></refsect1>
+
+<refsect1 id="GNetworkService.description" role="desc">
+<title role="desc.title">Description</title>
+<para>Like <link linkend="GNetworkAddress"><type>GNetworkAddress</type></link> does with hostnames, <link linkend="GNetworkService"><type>GNetworkService</type></link>
+provides an easy way to resolve a SRV record, and then attempt to
+connect to one of the hosts that implements that service, handling
+service priority/weighting, multiple IP addresses, and multiple
+address families.</para>
+<para>See <link linkend="GSrvTarget"><type>GSrvTarget</type></link> for more information about SRV records, and see
+<link linkend="GSocketConnectable"><type>GSocketConnectable</type></link> for and example of using the connectable
+interface.</para>
+
+</refsect1>
+<refsect1 id="GNetworkService.functions_details" role="details">
+<title role="details.title">Functions</title>
+<refsect2 id="g-network-service-new" role="function" condition="since:2.22">
+<title>g_network_service_new&#160;()</title>
+<indexterm zone="g-network-service-new" role="2.22"><primary sortas="network_service_new">g_network_service_new</primary></indexterm>
+<programlisting language="C"><link linkend="GSocketConnectable"><returnvalue>GSocketConnectable</returnvalue></link>&#160;*
+g_network_service_new (<parameter>const <link linkend="gchar"><type>gchar</type></link> *service</parameter>,
+                       <parameter>const <link linkend="gchar"><type>gchar</type></link> *protocol</parameter>,
+                       <parameter>const <link linkend="gchar"><type>gchar</type></link> *domain</parameter>);</programlisting>
+<para>Creates a new <link linkend="GNetworkService"><type>GNetworkService</type></link> representing the given <parameter>service</parameter>
+,
+<parameter>protocol</parameter>
+, and <parameter>domain</parameter>
+. This will initially be unresolved; use the
+<link linkend="GSocketConnectable"><type>GSocketConnectable</type></link> interface to resolve it.</para>
+<refsect3 id="g-network-service-new.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>service</para></entry>
+<entry role="parameter_description"><para>the service type to look up (eg, "ldap")</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>protocol</para></entry>
+<entry role="parameter_description"><para>the networking protocol to use for <parameter>service</parameter>
+(eg, "tcp")</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>domain</para></entry>
+<entry role="parameter_description"><para>the DNS domain to look up the service in</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-network-service-new.returns" role="returns">
+<title>Returns</title>
+<para>a new <link linkend="GNetworkService"><type>GNetworkService</type></link>. </para>
+<para><emphasis role="annotation">[<acronym>transfer full</acronym>][<acronym>type</acronym> GNetworkService]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.22">2.22</link></para></refsect2>
+<refsect2 id="g-network-service-get-service" role="function" condition="since:2.22">
+<title>g_network_service_get_service&#160;()</title>
+<indexterm zone="g-network-service-get-service" role="2.22"><primary sortas="network_service_get_service">g_network_service_get_service</primary></indexterm>
+<programlisting language="C">const <link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+g_network_service_get_service (<parameter><link linkend="GNetworkService"><type>GNetworkService</type></link> *srv</parameter>);</programlisting>
+<para>Gets <parameter>srv</parameter>
+'s service name (eg, "ldap").</para>
+<refsect3 id="g-network-service-get-service.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>srv</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GNetworkService"><type>GNetworkService</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-network-service-get-service.returns" role="returns">
+<title>Returns</title>
+<para> <parameter>srv</parameter>
+'s service name</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.22">2.22</link></para></refsect2>
+<refsect2 id="g-network-service-get-protocol" role="function" condition="since:2.22">
+<title>g_network_service_get_protocol&#160;()</title>
+<indexterm zone="g-network-service-get-protocol" role="2.22"><primary sortas="network_service_get_protocol">g_network_service_get_protocol</primary></indexterm>
+<programlisting language="C">const <link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+g_network_service_get_protocol (<parameter><link linkend="GNetworkService"><type>GNetworkService</type></link> *srv</parameter>);</programlisting>
+<para>Gets <parameter>srv</parameter>
+'s protocol name (eg, "tcp").</para>
+<refsect3 id="g-network-service-get-protocol.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>srv</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GNetworkService"><type>GNetworkService</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-network-service-get-protocol.returns" role="returns">
+<title>Returns</title>
+<para> <parameter>srv</parameter>
+'s protocol name</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.22">2.22</link></para></refsect2>
+<refsect2 id="g-network-service-get-domain" role="function" condition="since:2.22">
+<title>g_network_service_get_domain&#160;()</title>
+<indexterm zone="g-network-service-get-domain" role="2.22"><primary sortas="network_service_get_domain">g_network_service_get_domain</primary></indexterm>
+<programlisting language="C">const <link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+g_network_service_get_domain (<parameter><link linkend="GNetworkService"><type>GNetworkService</type></link> *srv</parameter>);</programlisting>
+<para>Gets the domain that <parameter>srv</parameter>
+ serves. This might be either UTF-8 or
+ASCII-encoded, depending on what <parameter>srv</parameter>
+ was created with.</para>
+<refsect3 id="g-network-service-get-domain.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>srv</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GNetworkService"><type>GNetworkService</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-network-service-get-domain.returns" role="returns">
+<title>Returns</title>
+<para> <parameter>srv</parameter>
+'s domain name</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.22">2.22</link></para></refsect2>
+<refsect2 id="g-network-service-get-scheme" role="function" condition="since:2.26">
+<title>g_network_service_get_scheme&#160;()</title>
+<indexterm zone="g-network-service-get-scheme" role="2.26"><primary sortas="network_service_get_scheme">g_network_service_get_scheme</primary></indexterm>
+<programlisting language="C">const <link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+g_network_service_get_scheme (<parameter><link linkend="GNetworkService"><type>GNetworkService</type></link> *srv</parameter>);</programlisting>
+<para>Get's the URI scheme used to resolve proxies. By default, the service name
+is used as scheme.</para>
+<refsect3 id="g-network-service-get-scheme.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>srv</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GNetworkService"><type>GNetworkService</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-network-service-get-scheme.returns" role="returns">
+<title>Returns</title>
+<para> <parameter>srv</parameter>
+'s scheme name</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.26">2.26</link></para></refsect2>
+<refsect2 id="g-network-service-set-scheme" role="function" condition="since:2.26">
+<title>g_network_service_set_scheme&#160;()</title>
+<indexterm zone="g-network-service-set-scheme" role="2.26"><primary sortas="network_service_set_scheme">g_network_service_set_scheme</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_network_service_set_scheme (<parameter><link linkend="GNetworkService"><type>GNetworkService</type></link> *srv</parameter>,
+                              <parameter>const <link linkend="gchar"><type>gchar</type></link> *scheme</parameter>);</programlisting>
+<para>Set's the URI scheme used to resolve proxies. By default, the service name
+is used as scheme.</para>
+<refsect3 id="g-network-service-set-scheme.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>srv</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GNetworkService"><type>GNetworkService</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>scheme</para></entry>
+<entry role="parameter_description"><para>a URI scheme</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.26">2.26</link></para></refsect2>
+
+</refsect1>
+<refsect1 id="GNetworkService.other_details" role="details">
+<title role="details.title">Types and Values</title>
+<refsect2 id="GNetworkService-struct" role="struct">
+<title>GNetworkService</title>
+<indexterm zone="GNetworkService-struct"><primary sortas="NetworkService">GNetworkService</primary></indexterm>
+<programlisting language="C">typedef struct _GNetworkService GNetworkService;</programlisting>
+<para>A <link linkend="GSocketConnectable"><type>GSocketConnectable</type></link> for resolving a SRV record and connecting to
+that service.</para>
+</refsect2>
+
+</refsect1>
+<refsect1 id="GNetworkService.property-details" role="property_details">
+<title role="property_details.title">Property Details</title>
+<refsect2 id="GNetworkService--domain" role="property"><title>The <literal>“domain”</literal> property</title>
+<indexterm zone="GNetworkService--domain"><primary sortas="NetworkService:domain">GNetworkService:domain</primary></indexterm>
+<programlisting>  “domain”                   <link linkend="gchar"><type>gchar</type></link>&#160;*</programlisting>
+<para>Network domain, eg, "example.com".</para><para>Flags: Read / Write / Construct Only</para>
+<para>Default value: NULL</para>
+</refsect2>
+<refsect2 id="GNetworkService--protocol" role="property"><title>The <literal>“protocol”</literal> property</title>
+<indexterm zone="GNetworkService--protocol"><primary sortas="NetworkService:protocol">GNetworkService:protocol</primary></indexterm>
+<programlisting>  “protocol”                 <link linkend="gchar"><type>gchar</type></link>&#160;*</programlisting>
+<para>Network protocol, eg "tcp".</para><para>Flags: Read / Write / Construct Only</para>
+<para>Default value: NULL</para>
+</refsect2>
+<refsect2 id="GNetworkService--scheme" role="property"><title>The <literal>“scheme”</literal> property</title>
+<indexterm zone="GNetworkService--scheme"><primary sortas="NetworkService:scheme">GNetworkService:scheme</primary></indexterm>
+<programlisting>  “scheme”                   <link linkend="gchar"><type>gchar</type></link>&#160;*</programlisting>
+<para>Network scheme (default is to use service).</para><para>Flags: Read / Write</para>
+<para>Default value: NULL</para>
+</refsect2>
+<refsect2 id="GNetworkService--service" role="property"><title>The <literal>“service”</literal> property</title>
+<indexterm zone="GNetworkService--service"><primary sortas="NetworkService:service">GNetworkService:service</primary></indexterm>
+<programlisting>  “service”                  <link linkend="gchar"><type>gchar</type></link>&#160;*</programlisting>
+<para>Service name, eg "ldap".</para><para>Flags: Read / Write / Construct Only</para>
+<para>Default value: NULL</para>
+</refsect2>
+
+</refsect1>
+
+</refentry>

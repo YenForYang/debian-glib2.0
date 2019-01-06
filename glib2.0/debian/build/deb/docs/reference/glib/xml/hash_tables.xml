@@ -1,0 +1,1688 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC '-//OASIS//DTD DocBook XML V4.5//EN'
+                      'http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd' [
+<!ENTITY % local.common.attrib "xmlns:xi  CDATA  #FIXED 'http://www.w3.org/2003/XInclude'">
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="glib-Hash-Tables">
+<refmeta>
+<refentrytitle role="top_of_page" id="glib-Hash-Tables.top_of_page">Hash Tables</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>GLIB Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>Hash Tables</refname>
+<refpurpose>associations between keys and values so that
+    given a key the value can be found quickly</refpurpose>
+</refnamediv>
+
+<refsect1 id="glib-Hash-Tables.functions" role="functions_proto">
+<title role="functions_proto.title">Functions</title>
+<informaltable pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="functions_return" colwidth="150px"/>
+<colspec colname="functions_name"/>
+<tbody>
+<row><entry role="function_type"><link linkend="GHashTable"><returnvalue>GHashTable</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-hash-table-new">g_hash_table_new</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GHashTable"><returnvalue>GHashTable</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-hash-table-new-full">g_hash_table_new_full</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="guint"><returnvalue>guint</returnvalue></link>
+</entry><entry role="function_name"><phrase role="c_punctuation">(</phrase><link linkend="GHashFunc">*GHashFunc</link><phrase role="c_punctuation">)</phrase>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><phrase role="c_punctuation">(</phrase><link linkend="GEqualFunc">*GEqualFunc</link><phrase role="c_punctuation">)</phrase>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-hash-table-insert">g_hash_table_insert</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-hash-table-replace">g_hash_table_replace</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-hash-table-add">g_hash_table_add</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-hash-table-contains">g_hash_table_contains</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="guint"><returnvalue>guint</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-hash-table-size">g_hash_table_size</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gpointer"><returnvalue>gpointer</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-hash-table-lookup">g_hash_table_lookup</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-hash-table-lookup-extended">g_hash_table_lookup_extended</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-hash-table-foreach">g_hash_table_foreach</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gpointer"><returnvalue>gpointer</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-hash-table-find">g_hash_table_find</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><phrase role="c_punctuation">(</phrase><link linkend="GHFunc">*GHFunc</link><phrase role="c_punctuation">)</phrase>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-hash-table-remove">g_hash_table_remove</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-hash-table-steal">g_hash_table_steal</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-hash-table-steal-extended">g_hash_table_steal_extended</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="guint"><returnvalue>guint</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-hash-table-foreach-remove">g_hash_table_foreach_remove</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="guint"><returnvalue>guint</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-hash-table-foreach-steal">g_hash_table_foreach_steal</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-hash-table-remove-all">g_hash_table_remove_all</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-hash-table-steal-all">g_hash_table_steal_all</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GList"><returnvalue>GList</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-hash-table-get-keys">g_hash_table_get_keys</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GList"><returnvalue>GList</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-hash-table-get-values">g_hash_table_get_values</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gpointer"><returnvalue>gpointer</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-hash-table-get-keys-as-array">g_hash_table_get_keys_as_array</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><phrase role="c_punctuation">(</phrase><link linkend="GHRFunc">*GHRFunc</link><phrase role="c_punctuation">)</phrase>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="g-hash-table-freeze">g_hash_table_freeze</link><phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="g-hash-table-thaw">g_hash_table_thaw</link><phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-hash-table-destroy">g_hash_table_destroy</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GHashTable"><returnvalue>GHashTable</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-hash-table-ref">g_hash_table_ref</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-hash-table-unref">g_hash_table_unref</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-hash-table-iter-init">g_hash_table_iter_init</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-hash-table-iter-next">g_hash_table_iter_next</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GHashTable"><returnvalue>GHashTable</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-hash-table-iter-get-hash-table">g_hash_table_iter_get_hash_table</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-hash-table-iter-replace">g_hash_table_iter_replace</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-hash-table-iter-remove">g_hash_table_iter_remove</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-hash-table-iter-steal">g_hash_table_iter_steal</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-direct-equal">g_direct_equal</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="guint"><returnvalue>guint</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-direct-hash">g_direct_hash</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-int-equal">g_int_equal</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="guint"><returnvalue>guint</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-int-hash">g_int_hash</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-int64-equal">g_int64_equal</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="guint"><returnvalue>guint</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-int64-hash">g_int64_hash</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-double-equal">g_double_equal</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="guint"><returnvalue>guint</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-double-hash">g_double_hash</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-str-equal">g_str_equal</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="guint"><returnvalue>guint</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-str-hash">g_str_hash</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="glib-Hash-Tables.other" role="other_proto">
+<title role="other_proto.title">Types and Values</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="name" colwidth="150px"/>
+<colspec colname="description"/>
+<tbody>
+<row><entry role="datatype_keyword"></entry><entry role="function_name"><link linkend="GHashTable">GHashTable</link></entry></row>
+<row><entry role="datatype_keyword">struct</entry><entry role="function_name"><link linkend="GHashTableIter">GHashTableIter</link></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+
+<refsect1 id="glib-Hash-Tables.includes"><title>Includes</title><synopsis>#include &lt;gmodule.h&gt;
+</synopsis></refsect1>
+
+<refsect1 id="glib-Hash-Tables.description" role="desc">
+<title role="desc.title">Description</title>
+<para>A <link linkend="GHashTable"><type>GHashTable</type></link> provides associations between keys and values which is
+optimized so that given a key, the associated value can be found
+very quickly.</para>
+<para>Note that neither keys nor values are copied when inserted into the
+<link linkend="GHashTable"><type>GHashTable</type></link>, so they must exist for the lifetime of the <link linkend="GHashTable"><type>GHashTable</type></link>.
+This means that the use of static strings is OK, but temporary
+strings (i.e. those created in buffers and those returned by GTK+
+widgets) should be copied with <link linkend="g-strdup"><function>g_strdup()</function></link> before being inserted.</para>
+<para>If keys or values are dynamically allocated, you must be careful to
+ensure that they are freed when they are removed from the
+<link linkend="GHashTable"><type>GHashTable</type></link>, and also when they are overwritten by new insertions
+into the <link linkend="GHashTable"><type>GHashTable</type></link>. It is also not advisable to mix static strings
+and dynamically-allocated strings in a <link linkend="GHashTable"><type>GHashTable</type></link>, because it then
+becomes difficult to determine whether the string should be freed.</para>
+<para>To create a <link linkend="GHashTable"><type>GHashTable</type></link>, use <link linkend="g-hash-table-new"><function>g_hash_table_new()</function></link>.</para>
+<para>To insert a key and value into a <link linkend="GHashTable"><type>GHashTable</type></link>, use
+<link linkend="g-hash-table-insert"><function>g_hash_table_insert()</function></link>.</para>
+<para>To lookup a value corresponding to a given key, use
+<link linkend="g-hash-table-lookup"><function>g_hash_table_lookup()</function></link> and <link linkend="g-hash-table-lookup-extended"><function>g_hash_table_lookup_extended()</function></link>.</para>
+<para>g_hash_table_lookup_extended() can also be used to simply
+check if a key is present in the hash table.</para>
+<para>To remove a key and value, use <link linkend="g-hash-table-remove"><function>g_hash_table_remove()</function></link>.</para>
+<para>To call a function for each key and value pair use
+<link linkend="g-hash-table-foreach"><function>g_hash_table_foreach()</function></link> or use a iterator to iterate over the
+key/value pairs in the hash table, see <link linkend="GHashTableIter"><type>GHashTableIter</type></link>.</para>
+<para>To destroy a <link linkend="GHashTable"><type>GHashTable</type></link> use <link linkend="g-hash-table-destroy"><function>g_hash_table_destroy()</function></link>.</para>
+<para>A common use-case for hash tables is to store information about a
+set of keys, without associating any particular value with each
+key. GHashTable optimizes one way of doing so: If you store only
+key-value pairs where key == value, then GHashTable does not
+allocate memory to store the values, which can be a considerable
+space saving, if your set is large. The functions
+<link linkend="g-hash-table-add"><function>g_hash_table_add()</function></link> and <link linkend="g-hash-table-contains"><function>g_hash_table_contains()</function></link> are designed to be
+used when using <link linkend="GHashTable"><type>GHashTable</type></link> this way.</para>
+<para><link linkend="GHashTable"><type>GHashTable</type></link> is not designed to be statically initialised with keys and
+values known at compile time. To build a static hash table, use a tool such
+as <ulink url="https://www.gnu.org/software/gperf/">gperf</ulink>.</para>
+
+</refsect1>
+<refsect1 id="glib-Hash-Tables.functions_details" role="details">
+<title role="details.title">Functions</title>
+<refsect2 id="g-hash-table-new" role="function">
+<title>g_hash_table_new&#160;()</title>
+<indexterm zone="g-hash-table-new"><primary sortas="hash_table_new">g_hash_table_new</primary></indexterm>
+<programlisting language="C"><link linkend="GHashTable"><returnvalue>GHashTable</returnvalue></link>&#160;*
+g_hash_table_new (<parameter><link linkend="GHashFunc"><type>GHashFunc</type></link> hash_func</parameter>,
+                  <parameter><link linkend="GEqualFunc"><type>GEqualFunc</type></link> key_equal_func</parameter>);</programlisting>
+<para>Creates a new <link linkend="GHashTable"><type>GHashTable</type></link> with a reference count of 1.</para>
+<para>Hash values returned by <parameter>hash_func</parameter>
+ are used to determine where keys
+are stored within the <link linkend="GHashTable"><type>GHashTable</type></link> data structure. The <link linkend="g-direct-hash"><function>g_direct_hash()</function></link>,
+<link linkend="g-int-hash"><function>g_int_hash()</function></link>, <link linkend="g-int64-hash"><function>g_int64_hash()</function></link>, <link linkend="g-double-hash"><function>g_double_hash()</function></link> and <link linkend="g-str-hash"><function>g_str_hash()</function></link>
+functions are provided for some common types of keys.
+If <parameter>hash_func</parameter>
+ is <link linkend="NULL:CAPS"><literal>NULL</literal></link>, <link linkend="g-direct-hash"><function>g_direct_hash()</function></link> is used.</para>
+<para><parameter>key_equal_func</parameter>
+ is used when looking up keys in the <link linkend="GHashTable"><type>GHashTable</type></link>.
+The <link linkend="g-direct-equal"><function>g_direct_equal()</function></link>, <link linkend="g-int-equal"><function>g_int_equal()</function></link>, <link linkend="g-int64-equal"><function>g_int64_equal()</function></link>, <link linkend="g-double-equal"><function>g_double_equal()</function></link>
+and <link linkend="g-str-equal"><function>g_str_equal()</function></link> functions are provided for the most common types
+of keys. If <parameter>key_equal_func</parameter>
+ is <link linkend="NULL:CAPS"><literal>NULL</literal></link>, keys are compared directly in
+a similar fashion to <link linkend="g-direct-equal"><function>g_direct_equal()</function></link>, but without the overhead of
+a function call. <parameter>key_equal_func</parameter>
+ is called with the key from the hash table
+as its first parameter, and the user-provided key to check against as
+its second.</para>
+<refsect3 id="g-hash-table-new.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>hash_func</para></entry>
+<entry role="parameter_description"><para>a function to create a hash value from a key</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>key_equal_func</para></entry>
+<entry role="parameter_description"><para>a function to check two keys for equality</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-hash-table-new.returns" role="returns">
+<title>Returns</title>
+<para> a new <link linkend="GHashTable"><type>GHashTable</type></link></para>
+</refsect3></refsect2>
+<refsect2 id="g-hash-table-new-full" role="function">
+<title>g_hash_table_new_full&#160;()</title>
+<indexterm zone="g-hash-table-new-full"><primary sortas="hash_table_new_full">g_hash_table_new_full</primary></indexterm>
+<programlisting language="C"><link linkend="GHashTable"><returnvalue>GHashTable</returnvalue></link>&#160;*
+g_hash_table_new_full (<parameter><link linkend="GHashFunc"><type>GHashFunc</type></link> hash_func</parameter>,
+                       <parameter><link linkend="GEqualFunc"><type>GEqualFunc</type></link> key_equal_func</parameter>,
+                       <parameter><link linkend="GDestroyNotify"><type>GDestroyNotify</type></link> key_destroy_func</parameter>,
+                       <parameter><link linkend="GDestroyNotify"><type>GDestroyNotify</type></link> value_destroy_func</parameter>);</programlisting>
+<para>Creates a new <link linkend="GHashTable"><type>GHashTable</type></link> like <link linkend="g-hash-table-new"><function>g_hash_table_new()</function></link> with a reference
+count of 1 and allows to specify functions to free the memory
+allocated for the key and value that get called when removing the
+entry from the <link linkend="GHashTable"><type>GHashTable</type></link>.</para>
+<para>Since version 2.42 it is permissible for destroy notify functions to
+recursively remove further items from the hash table. This is only
+permissible if the application still holds a reference to the hash table.
+This means that you may need to ensure that the hash table is empty by
+calling <link linkend="g-hash-table-remove-all"><function>g_hash_table_remove_all()</function></link> before releasing the last reference using
+<link linkend="g-hash-table-unref"><function>g_hash_table_unref()</function></link>.</para>
+<refsect3 id="g-hash-table-new-full.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>hash_func</para></entry>
+<entry role="parameter_description"><para>a function to create a hash value from a key</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>key_equal_func</para></entry>
+<entry role="parameter_description"><para>a function to check two keys for equality</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>key_destroy_func</para></entry>
+<entry role="parameter_description"><para>a function to free the memory allocated for the key
+used when removing the entry from the <link linkend="GHashTable"><type>GHashTable</type></link>, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>
+if you don't want to supply such a function. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>value_destroy_func</para></entry>
+<entry role="parameter_description"><para>a function to free the memory allocated for the
+value used when removing the entry from the <link linkend="GHashTable"><type>GHashTable</type></link>, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>
+if you don't want to supply such a function. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-hash-table-new-full.returns" role="returns">
+<title>Returns</title>
+<para> a new <link linkend="GHashTable"><type>GHashTable</type></link></para>
+</refsect3></refsect2>
+<refsect2 id="GHashFunc" role="function">
+<title>GHashFunc&#160;()</title>
+<indexterm zone="GHashFunc"><primary sortas="HashFunc">GHashFunc</primary></indexterm>
+<programlisting language="C"><link linkend="guint"><returnvalue>guint</returnvalue></link>
+<phrase role="c_punctuation">(</phrase>*GHashFunc<phrase role="c_punctuation">)</phrase> (<parameter><link linkend="gconstpointer"><type>gconstpointer</type></link> key</parameter>);</programlisting>
+<para>Specifies the type of the hash function which is passed to
+<link linkend="g-hash-table-new"><function>g_hash_table_new()</function></link> when a <link linkend="GHashTable"><type>GHashTable</type></link> is created.</para>
+<para>The function is passed a key and should return a <link linkend="guint"><type>guint</type></link> hash value.
+The functions <link linkend="g-direct-hash"><function>g_direct_hash()</function></link>, <link linkend="g-int-hash"><function>g_int_hash()</function></link> and <link linkend="g-str-hash"><function>g_str_hash()</function></link> provide
+hash functions which can be used when the key is a <link linkend="gpointer"><type>gpointer</type></link>, <link linkend="gint"><type>gint</type></link>*,
+and <link linkend="gchar"><type>gchar</type></link>* respectively.</para>
+<para>g_direct_hash() is also the appropriate hash function for keys
+of the form <literal>GINT_TO_POINTER (n)</literal> (or similar macros).</para>
+<para>A good hash functions should produce
+hash values that are evenly distributed over a fairly large range.
+The modulus is taken with the hash table size (a prime number) to
+find the 'bucket' to place each key into. The function should also
+be very fast, since it is called for each key lookup.</para>
+<para>Note that the hash functions provided by GLib have these qualities,
+but are not particularly robust against manufactured keys that
+cause hash collisions. Therefore, you should consider choosing
+a more secure hash function when using a GHashTable with keys
+that originate in untrusted data (such as HTTP requests).
+Using <link linkend="g-str-hash"><function>g_str_hash()</function></link> in that situation might make your application
+vulerable to
+<ulink url="https://lwn.net/Articles/474912/">Algorithmic Complexity Attacks</ulink>.</para>
+<para>The key to choosing a good hash is unpredictability.  Even
+cryptographic hashes are very easy to find collisions for when the
+remainder is taken modulo a somewhat predictable prime number.  There
+must be an element of randomness that an attacker is unable to guess.</para>
+<refsect3 id="GHashFunc.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>key</para></entry>
+<entry role="parameter_description"><para>a key</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="GHashFunc.returns" role="returns">
+<title>Returns</title>
+<para> the hash value corresponding to the key</para>
+</refsect3></refsect2>
+<refsect2 id="GEqualFunc" role="function">
+<title>GEqualFunc&#160;()</title>
+<indexterm zone="GEqualFunc"><primary sortas="EqualFunc">GEqualFunc</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+<phrase role="c_punctuation">(</phrase>*GEqualFunc<phrase role="c_punctuation">)</phrase> (<parameter><link linkend="gconstpointer"><type>gconstpointer</type></link> a</parameter>,
+               <parameter><link linkend="gconstpointer"><type>gconstpointer</type></link> b</parameter>);</programlisting>
+<para>Specifies the type of a function used to test two values for
+equality. The function should return <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if both values are equal
+and <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> otherwise.</para>
+<refsect3 id="GEqualFunc.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>a</para></entry>
+<entry role="parameter_description"><para>a value</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>b</para></entry>
+<entry role="parameter_description"><para>a value to compare with</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="GEqualFunc.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if <parameter>a</parameter>
+= <parameter>b</parameter>
+; <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> otherwise</para>
+</refsect3></refsect2>
+<refsect2 id="g-hash-table-insert" role="function">
+<title>g_hash_table_insert&#160;()</title>
+<indexterm zone="g-hash-table-insert"><primary sortas="hash_table_insert">g_hash_table_insert</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_hash_table_insert (<parameter><link linkend="GHashTable"><type>GHashTable</type></link> *hash_table</parameter>,
+                     <parameter><link linkend="gpointer"><type>gpointer</type></link> key</parameter>,
+                     <parameter><link linkend="gpointer"><type>gpointer</type></link> value</parameter>);</programlisting>
+<para>Inserts a new key and value into a <link linkend="GHashTable"><type>GHashTable</type></link>.</para>
+<para>If the key already exists in the <link linkend="GHashTable"><type>GHashTable</type></link> its current
+value is replaced with the new value. If you supplied a
+<parameter>value_destroy_func</parameter>
+ when creating the <link linkend="GHashTable"><type>GHashTable</type></link>, the old
+value is freed using that function. If you supplied a
+<parameter>key_destroy_func</parameter>
+ when creating the <link linkend="GHashTable"><type>GHashTable</type></link>, the passed
+key is freed using that function.</para>
+<para>Starting from GLib 2.40, this function returns a boolean value to
+indicate whether the newly added value was already in the hash table
+or not.</para>
+<refsect3 id="g-hash-table-insert.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>hash_table</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GHashTable"><type>GHashTable</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>key</para></entry>
+<entry role="parameter_description"><para>a key to insert</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>value</para></entry>
+<entry role="parameter_description"><para>the value to associate with the key</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-hash-table-insert.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if the key did not exist yet</para>
+</refsect3></refsect2>
+<refsect2 id="g-hash-table-replace" role="function">
+<title>g_hash_table_replace&#160;()</title>
+<indexterm zone="g-hash-table-replace"><primary sortas="hash_table_replace">g_hash_table_replace</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_hash_table_replace (<parameter><link linkend="GHashTable"><type>GHashTable</type></link> *hash_table</parameter>,
+                      <parameter><link linkend="gpointer"><type>gpointer</type></link> key</parameter>,
+                      <parameter><link linkend="gpointer"><type>gpointer</type></link> value</parameter>);</programlisting>
+<para>Inserts a new key and value into a <link linkend="GHashTable"><type>GHashTable</type></link> similar to
+<link linkend="g-hash-table-insert"><function>g_hash_table_insert()</function></link>. The difference is that if the key
+already exists in the <link linkend="GHashTable"><type>GHashTable</type></link>, it gets replaced by the
+new key. If you supplied a <parameter>value_destroy_func</parameter>
+ when creating
+the <link linkend="GHashTable"><type>GHashTable</type></link>, the old value is freed using that function.
+If you supplied a <parameter>key_destroy_func</parameter>
+ when creating the
+<link linkend="GHashTable"><type>GHashTable</type></link>, the old key is freed using that function.</para>
+<para>Starting from GLib 2.40, this function returns a boolean value to
+indicate whether the newly added value was already in the hash table
+or not.</para>
+<refsect3 id="g-hash-table-replace.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>hash_table</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GHashTable"><type>GHashTable</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>key</para></entry>
+<entry role="parameter_description"><para>a key to insert</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>value</para></entry>
+<entry role="parameter_description"><para>the value to associate with the key</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-hash-table-replace.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if the key did not exist yet</para>
+</refsect3></refsect2>
+<refsect2 id="g-hash-table-add" role="function" condition="since:2.32">
+<title>g_hash_table_add&#160;()</title>
+<indexterm zone="g-hash-table-add" role="2.32"><primary sortas="hash_table_add">g_hash_table_add</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_hash_table_add (<parameter><link linkend="GHashTable"><type>GHashTable</type></link> *hash_table</parameter>,
+                  <parameter><link linkend="gpointer"><type>gpointer</type></link> key</parameter>);</programlisting>
+<para>This is a convenience function for using a <link linkend="GHashTable"><type>GHashTable</type></link> as a set.  It
+is equivalent to calling <link linkend="g-hash-table-replace"><function>g_hash_table_replace()</function></link> with <parameter>key</parameter>
+ as both the
+key and the value.</para>
+<para>When a hash table only ever contains keys that have themselves as the
+corresponding value it is able to be stored more efficiently.  See
+the discussion in the section description.</para>
+<para>Starting from GLib 2.40, this function returns a boolean value to
+indicate whether the newly added value was already in the hash table
+or not.</para>
+<refsect3 id="g-hash-table-add.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>hash_table</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GHashTable"><type>GHashTable</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>key</para></entry>
+<entry role="parameter_description"><para>a key to insert</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-hash-table-add.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if the key did not exist yet</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.32">2.32</link></para></refsect2>
+<refsect2 id="g-hash-table-contains" role="function" condition="since:2.32">
+<title>g_hash_table_contains&#160;()</title>
+<indexterm zone="g-hash-table-contains" role="2.32"><primary sortas="hash_table_contains">g_hash_table_contains</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_hash_table_contains (<parameter><link linkend="GHashTable"><type>GHashTable</type></link> *hash_table</parameter>,
+                       <parameter><link linkend="gconstpointer"><type>gconstpointer</type></link> key</parameter>);</programlisting>
+<para>Checks if <parameter>key</parameter>
+ is in <parameter>hash_table</parameter>
+.</para>
+<refsect3 id="g-hash-table-contains.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>hash_table</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GHashTable"><type>GHashTable</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>key</para></entry>
+<entry role="parameter_description"><para>a key to check</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-hash-table-contains.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if <parameter>key</parameter>
+is in <parameter>hash_table</parameter>
+, <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> otherwise.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.32">2.32</link></para></refsect2>
+<refsect2 id="g-hash-table-size" role="function">
+<title>g_hash_table_size&#160;()</title>
+<indexterm zone="g-hash-table-size"><primary sortas="hash_table_size">g_hash_table_size</primary></indexterm>
+<programlisting language="C"><link linkend="guint"><returnvalue>guint</returnvalue></link>
+g_hash_table_size (<parameter><link linkend="GHashTable"><type>GHashTable</type></link> *hash_table</parameter>);</programlisting>
+<para>Returns the number of elements contained in the <link linkend="GHashTable"><type>GHashTable</type></link>.</para>
+<refsect3 id="g-hash-table-size.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>hash_table</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GHashTable"><type>GHashTable</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-hash-table-size.returns" role="returns">
+<title>Returns</title>
+<para> the number of key/value pairs in the <link linkend="GHashTable"><type>GHashTable</type></link>.</para>
+</refsect3></refsect2>
+<refsect2 id="g-hash-table-lookup" role="function">
+<title>g_hash_table_lookup&#160;()</title>
+<indexterm zone="g-hash-table-lookup"><primary sortas="hash_table_lookup">g_hash_table_lookup</primary></indexterm>
+<programlisting language="C"><link linkend="gpointer"><returnvalue>gpointer</returnvalue></link>
+g_hash_table_lookup (<parameter><link linkend="GHashTable"><type>GHashTable</type></link> *hash_table</parameter>,
+                     <parameter><link linkend="gconstpointer"><type>gconstpointer</type></link> key</parameter>);</programlisting>
+<para>Looks up a key in a <link linkend="GHashTable"><type>GHashTable</type></link>. Note that this function cannot
+distinguish between a key that is not present and one which is present
+and has the value <link linkend="NULL:CAPS"><literal>NULL</literal></link>. If you need this distinction, use
+<link linkend="g-hash-table-lookup-extended"><function>g_hash_table_lookup_extended()</function></link>.</para>
+<refsect3 id="g-hash-table-lookup.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>hash_table</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GHashTable"><type>GHashTable</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>key</para></entry>
+<entry role="parameter_description"><para>the key to look up</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-hash-table-lookup.returns" role="returns">
+<title>Returns</title>
+<para>the associated value, or <link linkend="NULL:CAPS"><literal>NULL</literal></link> if the key is not found. </para>
+<para><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></para>
+</refsect3></refsect2>
+<refsect2 id="g-hash-table-lookup-extended" role="function">
+<title>g_hash_table_lookup_extended&#160;()</title>
+<indexterm zone="g-hash-table-lookup-extended"><primary sortas="hash_table_lookup_extended">g_hash_table_lookup_extended</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_hash_table_lookup_extended (<parameter><link linkend="GHashTable"><type>GHashTable</type></link> *hash_table</parameter>,
+                              <parameter><link linkend="gconstpointer"><type>gconstpointer</type></link> lookup_key</parameter>,
+                              <parameter><link linkend="gpointer"><type>gpointer</type></link> *orig_key</parameter>,
+                              <parameter><link linkend="gpointer"><type>gpointer</type></link> *value</parameter>);</programlisting>
+<para>Looks up a key in the <link linkend="GHashTable"><type>GHashTable</type></link>, returning the original key and the
+associated value and a <link linkend="gboolean"><type>gboolean</type></link> which is <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if the key was found. This
+is useful if you need to free the memory allocated for the original key,
+for example before calling <link linkend="g-hash-table-remove"><function>g_hash_table_remove()</function></link>.</para>
+<para>You can actually pass <link linkend="NULL:CAPS"><literal>NULL</literal></link> for <parameter>lookup_key</parameter>
+ to test
+whether the <link linkend="NULL:CAPS"><literal>NULL</literal></link> key exists, provided the hash and equal functions
+of <parameter>hash_table</parameter>
+ are <link linkend="NULL:CAPS"><literal>NULL</literal></link>-safe.</para>
+<refsect3 id="g-hash-table-lookup-extended.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>hash_table</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GHashTable"><type>GHashTable</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>lookup_key</para></entry>
+<entry role="parameter_description"><para>the key to look up</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>orig_key</para></entry>
+<entry role="parameter_description"><para>return location for the original key. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>out</acronym>][<acronym>optional</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>value</para></entry>
+<entry role="parameter_description"><para>return location for the value associated
+with the key. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>out</acronym>][<acronym>optional</acronym>][<acronym>nullable</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-hash-table-lookup-extended.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if the key was found in the <link linkend="GHashTable"><type>GHashTable</type></link></para>
+</refsect3></refsect2>
+<refsect2 id="g-hash-table-foreach" role="function">
+<title>g_hash_table_foreach&#160;()</title>
+<indexterm zone="g-hash-table-foreach"><primary sortas="hash_table_foreach">g_hash_table_foreach</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_hash_table_foreach (<parameter><link linkend="GHashTable"><type>GHashTable</type></link> *hash_table</parameter>,
+                      <parameter><link linkend="GHFunc"><type>GHFunc</type></link> func</parameter>,
+                      <parameter><link linkend="gpointer"><type>gpointer</type></link> user_data</parameter>);</programlisting>
+<para>Calls the given function for each of the key/value pairs in the
+<link linkend="GHashTable"><type>GHashTable</type></link>.  The function is passed the key and value of each
+pair, and the given <parameter>user_data</parameter>
+ parameter.  The hash table may not
+be modified while iterating over it (you can't add/remove
+items). To remove all items matching a predicate, use
+<link linkend="g-hash-table-foreach-remove"><function>g_hash_table_foreach_remove()</function></link>.</para>
+<para>See <link linkend="g-hash-table-find"><function>g_hash_table_find()</function></link> for performance caveats for linear
+order searches in contrast to <link linkend="g-hash-table-lookup"><function>g_hash_table_lookup()</function></link>.</para>
+<refsect3 id="g-hash-table-foreach.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>hash_table</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GHashTable"><type>GHashTable</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>func</para></entry>
+<entry role="parameter_description"><para>the function to call for each key/value pair</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>user_data</para></entry>
+<entry role="parameter_description"><para>user data to pass to the function</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-hash-table-find" role="function" condition="since:2.4">
+<title>g_hash_table_find&#160;()</title>
+<indexterm zone="g-hash-table-find" role="2.4"><primary sortas="hash_table_find">g_hash_table_find</primary></indexterm>
+<programlisting language="C"><link linkend="gpointer"><returnvalue>gpointer</returnvalue></link>
+g_hash_table_find (<parameter><link linkend="GHashTable"><type>GHashTable</type></link> *hash_table</parameter>,
+                   <parameter><link linkend="GHRFunc"><type>GHRFunc</type></link> predicate</parameter>,
+                   <parameter><link linkend="gpointer"><type>gpointer</type></link> user_data</parameter>);</programlisting>
+<para>Calls the given function for key/value pairs in the <link linkend="GHashTable"><type>GHashTable</type></link>
+until <parameter>predicate</parameter>
+ returns <link linkend="TRUE:CAPS"><literal>TRUE</literal></link>. The function is passed the key
+and value of each pair, and the given <parameter>user_data</parameter>
+ parameter. The
+hash table may not be modified while iterating over it (you can't
+add/remove items).</para>
+<para>Note, that hash tables are really only optimized for forward
+lookups, i.e. <link linkend="g-hash-table-lookup"><function>g_hash_table_lookup()</function></link>. So code that frequently issues
+<link linkend="g-hash-table-find"><function>g_hash_table_find()</function></link> or <link linkend="g-hash-table-foreach"><function>g_hash_table_foreach()</function></link> (e.g. in the order of
+once per every entry in a hash table) should probably be reworked
+to use additional or different data structures for reverse lookups
+(keep in mind that an O(n) find/foreach operation issued for all n
+values in a hash table ends up needing O(n*n) operations).</para>
+<refsect3 id="g-hash-table-find.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>hash_table</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GHashTable"><type>GHashTable</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>predicate</para></entry>
+<entry role="parameter_description"><para>function to test the key/value pairs for a certain property</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>user_data</para></entry>
+<entry role="parameter_description"><para>user data to pass to the function</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-hash-table-find.returns" role="returns">
+<title>Returns</title>
+<para>The value of the first key/value pair is returned,
+for which <parameter>predicate</parameter>
+evaluates to <link linkend="TRUE:CAPS"><literal>TRUE</literal></link>. If no pair with the
+requested property is found, <link linkend="NULL:CAPS"><literal>NULL</literal></link> is returned. </para>
+<para><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.4">2.4</link></para></refsect2>
+<refsect2 id="GHFunc" role="function">
+<title>GHFunc&#160;()</title>
+<indexterm zone="GHFunc"><primary sortas="HFunc">GHFunc</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+<phrase role="c_punctuation">(</phrase>*GHFunc<phrase role="c_punctuation">)</phrase> (<parameter><link linkend="gpointer"><type>gpointer</type></link> key</parameter>,
+           <parameter><link linkend="gpointer"><type>gpointer</type></link> value</parameter>,
+           <parameter><link linkend="gpointer"><type>gpointer</type></link> user_data</parameter>);</programlisting>
+<para>Specifies the type of the function passed to <link linkend="g-hash-table-foreach"><function>g_hash_table_foreach()</function></link>.
+It is called with each key/value pair, together with the <parameter>user_data</parameter>
+
+parameter which is passed to <link linkend="g-hash-table-foreach"><function>g_hash_table_foreach()</function></link>.</para>
+<refsect3 id="GHFunc.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>key</para></entry>
+<entry role="parameter_description"><para>a key</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>value</para></entry>
+<entry role="parameter_description"><para>the value corresponding to the key</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>user_data</para></entry>
+<entry role="parameter_description"><para>user data passed to <link linkend="g-hash-table-foreach"><function>g_hash_table_foreach()</function></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-hash-table-remove" role="function">
+<title>g_hash_table_remove&#160;()</title>
+<indexterm zone="g-hash-table-remove"><primary sortas="hash_table_remove">g_hash_table_remove</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_hash_table_remove (<parameter><link linkend="GHashTable"><type>GHashTable</type></link> *hash_table</parameter>,
+                     <parameter><link linkend="gconstpointer"><type>gconstpointer</type></link> key</parameter>);</programlisting>
+<para>Removes a key and its associated value from a <link linkend="GHashTable"><type>GHashTable</type></link>.</para>
+<para>If the <link linkend="GHashTable"><type>GHashTable</type></link> was created using <link linkend="g-hash-table-new-full"><function>g_hash_table_new_full()</function></link>, the
+key and value are freed using the supplied destroy functions, otherwise
+you have to make sure that any dynamically allocated values are freed
+yourself.</para>
+<refsect3 id="g-hash-table-remove.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>hash_table</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GHashTable"><type>GHashTable</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>key</para></entry>
+<entry role="parameter_description"><para>the key to remove</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-hash-table-remove.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if the key was found and removed from the <link linkend="GHashTable"><type>GHashTable</type></link></para>
+</refsect3></refsect2>
+<refsect2 id="g-hash-table-steal" role="function">
+<title>g_hash_table_steal&#160;()</title>
+<indexterm zone="g-hash-table-steal"><primary sortas="hash_table_steal">g_hash_table_steal</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_hash_table_steal (<parameter><link linkend="GHashTable"><type>GHashTable</type></link> *hash_table</parameter>,
+                    <parameter><link linkend="gconstpointer"><type>gconstpointer</type></link> key</parameter>);</programlisting>
+<para>Removes a key and its associated value from a <link linkend="GHashTable"><type>GHashTable</type></link> without
+calling the key and value destroy functions.</para>
+<refsect3 id="g-hash-table-steal.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>hash_table</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GHashTable"><type>GHashTable</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>key</para></entry>
+<entry role="parameter_description"><para>the key to remove</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-hash-table-steal.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if the key was found and removed from the <link linkend="GHashTable"><type>GHashTable</type></link></para>
+</refsect3></refsect2>
+<refsect2 id="g-hash-table-steal-extended" role="function" condition="since:2.58">
+<title>g_hash_table_steal_extended&#160;()</title>
+<indexterm zone="g-hash-table-steal-extended" role="2.58"><primary sortas="hash_table_steal_extended">g_hash_table_steal_extended</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_hash_table_steal_extended (<parameter><link linkend="GHashTable"><type>GHashTable</type></link> *hash_table</parameter>,
+                             <parameter><link linkend="gconstpointer"><type>gconstpointer</type></link> lookup_key</parameter>,
+                             <parameter><link linkend="gpointer"><type>gpointer</type></link> *stolen_key</parameter>,
+                             <parameter><link linkend="gpointer"><type>gpointer</type></link> *stolen_value</parameter>);</programlisting>
+<para>Looks up a key in the <link linkend="GHashTable"><type>GHashTable</type></link>, stealing the original key and the
+associated value and returning <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if the key was found. If the key was
+not found, <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> is returned.</para>
+<para>If found, the stolen key and value are removed from the hash table without
+calling the key and value destroy functions, and ownership is transferred to
+the caller of this method; as with <link linkend="g-hash-table-steal"><function>g_hash_table_steal()</function></link>.</para>
+<para>You can pass <link linkend="NULL:CAPS"><literal>NULL</literal></link> for <parameter>lookup_key</parameter>
+, provided the hash and equal functions
+of <parameter>hash_table</parameter>
+ are <link linkend="NULL:CAPS"><literal>NULL</literal></link>-safe.</para>
+<refsect3 id="g-hash-table-steal-extended.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>hash_table</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GHashTable"><type>GHashTable</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>lookup_key</para></entry>
+<entry role="parameter_description"><para>the key to look up</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>stolen_key</para></entry>
+<entry role="parameter_description"><para>return location for the
+original key. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>out</acronym>][<acronym>optional</acronym>][<acronym>transfer full</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>stolen_value</para></entry>
+<entry role="parameter_description"><para>return location
+for the value associated with the key. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>out</acronym>][<acronym>optional</acronym>][<acronym>nullable</acronym>][<acronym>transfer full</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-hash-table-steal-extended.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if the key was found in the <link linkend="GHashTable"><type>GHashTable</type></link></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.58">2.58</link></para></refsect2>
+<refsect2 id="g-hash-table-foreach-remove" role="function">
+<title>g_hash_table_foreach_remove&#160;()</title>
+<indexterm zone="g-hash-table-foreach-remove"><primary sortas="hash_table_foreach_remove">g_hash_table_foreach_remove</primary></indexterm>
+<programlisting language="C"><link linkend="guint"><returnvalue>guint</returnvalue></link>
+g_hash_table_foreach_remove (<parameter><link linkend="GHashTable"><type>GHashTable</type></link> *hash_table</parameter>,
+                             <parameter><link linkend="GHRFunc"><type>GHRFunc</type></link> func</parameter>,
+                             <parameter><link linkend="gpointer"><type>gpointer</type></link> user_data</parameter>);</programlisting>
+<para>Calls the given function for each key/value pair in the
+<link linkend="GHashTable"><type>GHashTable</type></link>. If the function returns <link linkend="TRUE:CAPS"><literal>TRUE</literal></link>, then the key/value
+pair is removed from the <link linkend="GHashTable"><type>GHashTable</type></link>. If you supplied key or
+value destroy functions when creating the <link linkend="GHashTable"><type>GHashTable</type></link>, they are
+used to free the memory allocated for the removed keys and values.</para>
+<para>See <link linkend="GHashTableIter"><type>GHashTableIter</type></link> for an alternative way to loop over the
+key/value pairs in the hash table.</para>
+<refsect3 id="g-hash-table-foreach-remove.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>hash_table</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GHashTable"><type>GHashTable</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>func</para></entry>
+<entry role="parameter_description"><para>the function to call for each key/value pair</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>user_data</para></entry>
+<entry role="parameter_description"><para>user data to pass to the function</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-hash-table-foreach-remove.returns" role="returns">
+<title>Returns</title>
+<para> the number of key/value pairs removed</para>
+</refsect3></refsect2>
+<refsect2 id="g-hash-table-foreach-steal" role="function">
+<title>g_hash_table_foreach_steal&#160;()</title>
+<indexterm zone="g-hash-table-foreach-steal"><primary sortas="hash_table_foreach_steal">g_hash_table_foreach_steal</primary></indexterm>
+<programlisting language="C"><link linkend="guint"><returnvalue>guint</returnvalue></link>
+g_hash_table_foreach_steal (<parameter><link linkend="GHashTable"><type>GHashTable</type></link> *hash_table</parameter>,
+                            <parameter><link linkend="GHRFunc"><type>GHRFunc</type></link> func</parameter>,
+                            <parameter><link linkend="gpointer"><type>gpointer</type></link> user_data</parameter>);</programlisting>
+<para>Calls the given function for each key/value pair in the
+<link linkend="GHashTable"><type>GHashTable</type></link>. If the function returns <link linkend="TRUE:CAPS"><literal>TRUE</literal></link>, then the key/value
+pair is removed from the <link linkend="GHashTable"><type>GHashTable</type></link>, but no key or value
+destroy functions are called.</para>
+<para>See <link linkend="GHashTableIter"><type>GHashTableIter</type></link> for an alternative way to loop over the
+key/value pairs in the hash table.</para>
+<refsect3 id="g-hash-table-foreach-steal.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>hash_table</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GHashTable"><type>GHashTable</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>func</para></entry>
+<entry role="parameter_description"><para>the function to call for each key/value pair</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>user_data</para></entry>
+<entry role="parameter_description"><para>user data to pass to the function</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-hash-table-foreach-steal.returns" role="returns">
+<title>Returns</title>
+<para> the number of key/value pairs removed.</para>
+</refsect3></refsect2>
+<refsect2 id="g-hash-table-remove-all" role="function" condition="since:2.12">
+<title>g_hash_table_remove_all&#160;()</title>
+<indexterm zone="g-hash-table-remove-all" role="2.12"><primary sortas="hash_table_remove_all">g_hash_table_remove_all</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_hash_table_remove_all (<parameter><link linkend="GHashTable"><type>GHashTable</type></link> *hash_table</parameter>);</programlisting>
+<para>Removes all keys and their associated values from a <link linkend="GHashTable"><type>GHashTable</type></link>.</para>
+<para>If the <link linkend="GHashTable"><type>GHashTable</type></link> was created using <link linkend="g-hash-table-new-full"><function>g_hash_table_new_full()</function></link>,
+the keys and values are freed using the supplied destroy functions,
+otherwise you have to make sure that any dynamically allocated
+values are freed yourself.</para>
+<refsect3 id="g-hash-table-remove-all.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>hash_table</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GHashTable"><type>GHashTable</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.12">2.12</link></para></refsect2>
+<refsect2 id="g-hash-table-steal-all" role="function" condition="since:2.12">
+<title>g_hash_table_steal_all&#160;()</title>
+<indexterm zone="g-hash-table-steal-all" role="2.12"><primary sortas="hash_table_steal_all">g_hash_table_steal_all</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_hash_table_steal_all (<parameter><link linkend="GHashTable"><type>GHashTable</type></link> *hash_table</parameter>);</programlisting>
+<para>Removes all keys and their associated values from a <link linkend="GHashTable"><type>GHashTable</type></link>
+without calling the key and value destroy functions.</para>
+<refsect3 id="g-hash-table-steal-all.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>hash_table</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GHashTable"><type>GHashTable</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.12">2.12</link></para></refsect2>
+<refsect2 id="g-hash-table-get-keys" role="function" condition="since:2.14">
+<title>g_hash_table_get_keys&#160;()</title>
+<indexterm zone="g-hash-table-get-keys" role="2.14"><primary sortas="hash_table_get_keys">g_hash_table_get_keys</primary></indexterm>
+<programlisting language="C"><link linkend="GList"><returnvalue>GList</returnvalue></link>&#160;*
+g_hash_table_get_keys (<parameter><link linkend="GHashTable"><type>GHashTable</type></link> *hash_table</parameter>);</programlisting>
+<para>Retrieves every key inside <parameter>hash_table</parameter>
+. The returned data is valid
+until changes to the hash release those keys.</para>
+<para>This iterates over every entry in the hash table to build its return value.
+To iterate over the entries in a <link linkend="GHashTable"><type>GHashTable</type></link> more efficiently, use a
+<link linkend="GHashTableIter"><type>GHashTableIter</type></link>.</para>
+<refsect3 id="g-hash-table-get-keys.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>hash_table</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GHashTable"><type>GHashTable</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-hash-table-get-keys.returns" role="returns">
+<title>Returns</title>
+<para>a <link linkend="GList"><type>GList</type></link> containing all the keys
+inside the hash table. The content of the list is owned by the
+hash table and should not be modified or freed. Use <link linkend="g-list-free"><function>g_list_free()</function></link>
+when done using the list. </para>
+<para><emphasis role="annotation">[<acronym>transfer container</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.14">2.14</link></para></refsect2>
+<refsect2 id="g-hash-table-get-values" role="function" condition="since:2.14">
+<title>g_hash_table_get_values&#160;()</title>
+<indexterm zone="g-hash-table-get-values" role="2.14"><primary sortas="hash_table_get_values">g_hash_table_get_values</primary></indexterm>
+<programlisting language="C"><link linkend="GList"><returnvalue>GList</returnvalue></link>&#160;*
+g_hash_table_get_values (<parameter><link linkend="GHashTable"><type>GHashTable</type></link> *hash_table</parameter>);</programlisting>
+<para>Retrieves every value inside <parameter>hash_table</parameter>
+. The returned data
+is valid until <parameter>hash_table</parameter>
+ is modified.</para>
+<para>This iterates over every entry in the hash table to build its return value.
+To iterate over the entries in a <link linkend="GHashTable"><type>GHashTable</type></link> more efficiently, use a
+<link linkend="GHashTableIter"><type>GHashTableIter</type></link>.</para>
+<refsect3 id="g-hash-table-get-values.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>hash_table</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GHashTable"><type>GHashTable</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-hash-table-get-values.returns" role="returns">
+<title>Returns</title>
+<para>a <link linkend="GList"><type>GList</type></link> containing all the values
+inside the hash table. The content of the list is owned by the
+hash table and should not be modified or freed. Use <link linkend="g-list-free"><function>g_list_free()</function></link>
+when done using the list. </para>
+<para><emphasis role="annotation">[<acronym>transfer container</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.14">2.14</link></para></refsect2>
+<refsect2 id="g-hash-table-get-keys-as-array" role="function" condition="since:2.40">
+<title>g_hash_table_get_keys_as_array&#160;()</title>
+<indexterm zone="g-hash-table-get-keys-as-array" role="2.40"><primary sortas="hash_table_get_keys_as_array">g_hash_table_get_keys_as_array</primary></indexterm>
+<programlisting language="C"><link linkend="gpointer"><returnvalue>gpointer</returnvalue></link>&#160;*
+g_hash_table_get_keys_as_array (<parameter><link linkend="GHashTable"><type>GHashTable</type></link> *hash_table</parameter>,
+                                <parameter><link linkend="guint"><type>guint</type></link> *length</parameter>);</programlisting>
+<para>Retrieves every key inside <parameter>hash_table</parameter>
+, as an array.</para>
+<para>The returned array is <link linkend="NULL:CAPS"><literal>NULL</literal></link>-terminated but may contain <link linkend="NULL:CAPS"><literal>NULL</literal></link> as a
+key.  Use <parameter>length</parameter>
+ to determine the true length if it's possible that
+<link linkend="NULL:CAPS"><literal>NULL</literal></link> was used as the value for a key.</para>
+<para>Note: in the common case of a string-keyed <link linkend="GHashTable"><type>GHashTable</type></link>, the return
+value of this function can be conveniently cast to (const gchar **).</para>
+<para>This iterates over every entry in the hash table to build its return value.
+To iterate over the entries in a <link linkend="GHashTable"><type>GHashTable</type></link> more efficiently, use a
+<link linkend="GHashTableIter"><type>GHashTableIter</type></link>.</para>
+<para>You should always free the return result with <link linkend="g-free"><function>g_free()</function></link>.  In the
+above-mentioned case of a string-keyed hash table, it may be
+appropriate to use <link linkend="g-strfreev"><function>g_strfreev()</function></link> if you call <link linkend="g-hash-table-steal-all"><function>g_hash_table_steal_all()</function></link>
+first to transfer ownership of the keys.</para>
+<refsect3 id="g-hash-table-get-keys-as-array.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>hash_table</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GHashTable"><type>GHashTable</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>length</para></entry>
+<entry role="parameter_description"><para>the length of the returned array. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>out</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-hash-table-get-keys-as-array.returns" role="returns">
+<title>Returns</title>
+<para>a
+<link linkend="NULL:CAPS"><literal>NULL</literal></link>-terminated array containing each key from the table. </para>
+<para><emphasis role="annotation">[<acronym>array</acronym> length=length][<acronym>transfer container</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.40">2.40</link></para></refsect2>
+<refsect2 id="GHRFunc" role="function">
+<title>GHRFunc&#160;()</title>
+<indexterm zone="GHRFunc"><primary sortas="HRFunc">GHRFunc</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+<phrase role="c_punctuation">(</phrase>*GHRFunc<phrase role="c_punctuation">)</phrase> (<parameter><link linkend="gpointer"><type>gpointer</type></link> key</parameter>,
+            <parameter><link linkend="gpointer"><type>gpointer</type></link> value</parameter>,
+            <parameter><link linkend="gpointer"><type>gpointer</type></link> user_data</parameter>);</programlisting>
+<para>Specifies the type of the function passed to
+<link linkend="g-hash-table-foreach-remove"><function>g_hash_table_foreach_remove()</function></link>. It is called with each key/value
+pair, together with the <parameter>user_data</parameter>
+ parameter passed to
+<link linkend="g-hash-table-foreach-remove"><function>g_hash_table_foreach_remove()</function></link>. It should return <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if the
+key/value pair should be removed from the <link linkend="GHashTable"><type>GHashTable</type></link>.</para>
+<refsect3 id="GHRFunc.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>key</para></entry>
+<entry role="parameter_description"><para>a key</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>value</para></entry>
+<entry role="parameter_description"><para>the value associated with the key</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>user_data</para></entry>
+<entry role="parameter_description"><para>user data passed to <link linkend="g-hash-table-remove"><function>g_hash_table_remove()</function></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="GHRFunc.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if the key/value pair should be removed from the
+<link linkend="GHashTable"><type>GHashTable</type></link></para>
+</refsect3></refsect2>
+<refsect2 id="g-hash-table-freeze" role="macro" condition="deprecated:">
+<title>g_hash_table_freeze()</title>
+<indexterm zone="g-hash-table-freeze" role="deprecated"><primary sortas="hash_table_freeze">g_hash_table_freeze</primary></indexterm>
+<programlisting language="C">#define             g_hash_table_freeze(hash_table)</programlisting>
+<warning><para><literal>g_hash_table_freeze</literal> is deprecated and should not be used in newly-written code.</para></warning>
+<para>This function is deprecated and will be removed in the next major
+release of GLib. It does nothing.</para>
+<refsect3 id="g-hash-table-freeze.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>hash_table</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GHashTable"><type>GHashTable</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-hash-table-thaw" role="macro" condition="deprecated:">
+<title>g_hash_table_thaw()</title>
+<indexterm zone="g-hash-table-thaw" role="deprecated"><primary sortas="hash_table_thaw">g_hash_table_thaw</primary></indexterm>
+<programlisting language="C">#define             g_hash_table_thaw(hash_table)</programlisting>
+<warning><para><literal>g_hash_table_thaw</literal> is deprecated and should not be used in newly-written code.</para></warning>
+<para>This function is deprecated and will be removed in the next major
+release of GLib. It does nothing.</para>
+<refsect3 id="g-hash-table-thaw.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>hash_table</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GHashTable"><type>GHashTable</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-hash-table-destroy" role="function">
+<title>g_hash_table_destroy&#160;()</title>
+<indexterm zone="g-hash-table-destroy"><primary sortas="hash_table_destroy">g_hash_table_destroy</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_hash_table_destroy (<parameter><link linkend="GHashTable"><type>GHashTable</type></link> *hash_table</parameter>);</programlisting>
+<para>Destroys all keys and values in the <link linkend="GHashTable"><type>GHashTable</type></link> and decrements its
+reference count by 1. If keys and/or values are dynamically allocated,
+you should either free them first or create the <link linkend="GHashTable"><type>GHashTable</type></link> with destroy
+notifiers using <link linkend="g-hash-table-new-full"><function>g_hash_table_new_full()</function></link>. In the latter case the destroy
+functions you supplied will be called on all keys and values during the
+destruction phase.</para>
+<refsect3 id="g-hash-table-destroy.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>hash_table</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GHashTable"><type>GHashTable</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-hash-table-ref" role="function" condition="since:2.10">
+<title>g_hash_table_ref&#160;()</title>
+<indexterm zone="g-hash-table-ref" role="2.10"><primary sortas="hash_table_ref">g_hash_table_ref</primary></indexterm>
+<programlisting language="C"><link linkend="GHashTable"><returnvalue>GHashTable</returnvalue></link>&#160;*
+g_hash_table_ref (<parameter><link linkend="GHashTable"><type>GHashTable</type></link> *hash_table</parameter>);</programlisting>
+<para>Atomically increments the reference count of <parameter>hash_table</parameter>
+ by one.
+This function is MT-safe and may be called from any thread.</para>
+<refsect3 id="g-hash-table-ref.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>hash_table</para></entry>
+<entry role="parameter_description"><para>a valid <link linkend="GHashTable"><type>GHashTable</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-hash-table-ref.returns" role="returns">
+<title>Returns</title>
+<para> the passed in <link linkend="GHashTable"><type>GHashTable</type></link></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.10">2.10</link></para></refsect2>
+<refsect2 id="g-hash-table-unref" role="function" condition="since:2.10">
+<title>g_hash_table_unref&#160;()</title>
+<indexterm zone="g-hash-table-unref" role="2.10"><primary sortas="hash_table_unref">g_hash_table_unref</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_hash_table_unref (<parameter><link linkend="GHashTable"><type>GHashTable</type></link> *hash_table</parameter>);</programlisting>
+<para>Atomically decrements the reference count of <parameter>hash_table</parameter>
+ by one.
+If the reference count drops to 0, all keys and values will be
+destroyed, and all memory allocated by the hash table is released.
+This function is MT-safe and may be called from any thread.</para>
+<refsect3 id="g-hash-table-unref.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>hash_table</para></entry>
+<entry role="parameter_description"><para>a valid <link linkend="GHashTable"><type>GHashTable</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.10">2.10</link></para></refsect2>
+<refsect2 id="g-hash-table-iter-init" role="function" condition="since:2.16">
+<title>g_hash_table_iter_init&#160;()</title>
+<indexterm zone="g-hash-table-iter-init" role="2.16"><primary sortas="hash_table_iter_init">g_hash_table_iter_init</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_hash_table_iter_init (<parameter><link linkend="GHashTableIter"><type>GHashTableIter</type></link> *iter</parameter>,
+                        <parameter><link linkend="GHashTable"><type>GHashTable</type></link> *hash_table</parameter>);</programlisting>
+<para>Initializes a key/value pair iterator and associates it with
+<parameter>hash_table</parameter>
+. Modifying the hash table after calling this function
+invalidates the returned iterator.</para>
+<informalexample><programlisting role="example"><![CDATA[
+GHashTableIter iter;
+gpointer key, value;
+
+g_hash_table_iter_init (&iter, hash_table);
+while (g_hash_table_iter_next (&iter, &key, &value))
+  {
+    // do something with key and value
+  }
+]]></programlisting></informalexample>
+<para></para>
+<refsect3 id="g-hash-table-iter-init.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>iter</para></entry>
+<entry role="parameter_description"><para>an uninitialized <link linkend="GHashTableIter"><type>GHashTableIter</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>hash_table</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GHashTable"><type>GHashTable</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.16">2.16</link></para></refsect2>
+<refsect2 id="g-hash-table-iter-next" role="function" condition="since:2.16">
+<title>g_hash_table_iter_next&#160;()</title>
+<indexterm zone="g-hash-table-iter-next" role="2.16"><primary sortas="hash_table_iter_next">g_hash_table_iter_next</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_hash_table_iter_next (<parameter><link linkend="GHashTableIter"><type>GHashTableIter</type></link> *iter</parameter>,
+                        <parameter><link linkend="gpointer"><type>gpointer</type></link> *key</parameter>,
+                        <parameter><link linkend="gpointer"><type>gpointer</type></link> *value</parameter>);</programlisting>
+<para>Advances <parameter>iter</parameter>
+ and retrieves the key and/or value that are now
+pointed to as a result of this advancement. If <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> is returned,
+<parameter>key</parameter>
+ and <parameter>value</parameter>
+ are not set, and the iterator becomes invalid.</para>
+<refsect3 id="g-hash-table-iter-next.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>iter</para></entry>
+<entry role="parameter_description"><para>an initialized <link linkend="GHashTableIter"><type>GHashTableIter</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>key</para></entry>
+<entry role="parameter_description"><para>a location to store the key. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>out</acronym>][<acronym>optional</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>value</para></entry>
+<entry role="parameter_description"><para>a location to store the value. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>out</acronym>][<acronym>optional</acronym>][<acronym>nullable</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-hash-table-iter-next.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> if the end of the <link linkend="GHashTable"><type>GHashTable</type></link> has been reached.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.16">2.16</link></para></refsect2>
+<refsect2 id="g-hash-table-iter-get-hash-table" role="function" condition="since:2.16">
+<title>g_hash_table_iter_get_hash_table&#160;()</title>
+<indexterm zone="g-hash-table-iter-get-hash-table" role="2.16"><primary sortas="hash_table_iter_get_hash_table">g_hash_table_iter_get_hash_table</primary></indexterm>
+<programlisting language="C"><link linkend="GHashTable"><returnvalue>GHashTable</returnvalue></link>&#160;*
+g_hash_table_iter_get_hash_table (<parameter><link linkend="GHashTableIter"><type>GHashTableIter</type></link> *iter</parameter>);</programlisting>
+<para>Returns the <link linkend="GHashTable"><type>GHashTable</type></link> associated with <parameter>iter</parameter>
+.</para>
+<refsect3 id="g-hash-table-iter-get-hash-table.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>iter</para></entry>
+<entry role="parameter_description"><para>an initialized <link linkend="GHashTableIter"><type>GHashTableIter</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-hash-table-iter-get-hash-table.returns" role="returns">
+<title>Returns</title>
+<para> the <link linkend="GHashTable"><type>GHashTable</type></link> associated with <parameter>iter</parameter>
+.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.16">2.16</link></para></refsect2>
+<refsect2 id="g-hash-table-iter-replace" role="function" condition="since:2.30">
+<title>g_hash_table_iter_replace&#160;()</title>
+<indexterm zone="g-hash-table-iter-replace" role="2.30"><primary sortas="hash_table_iter_replace">g_hash_table_iter_replace</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_hash_table_iter_replace (<parameter><link linkend="GHashTableIter"><type>GHashTableIter</type></link> *iter</parameter>,
+                           <parameter><link linkend="gpointer"><type>gpointer</type></link> value</parameter>);</programlisting>
+<para>Replaces the value currently pointed to by the iterator
+from its associated <link linkend="GHashTable"><type>GHashTable</type></link>. Can only be called after
+<link linkend="g-hash-table-iter-next"><function>g_hash_table_iter_next()</function></link> returned <link linkend="TRUE:CAPS"><literal>TRUE</literal></link>.</para>
+<para>If you supplied a <parameter>value_destroy_func</parameter>
+ when creating the
+<link linkend="GHashTable"><type>GHashTable</type></link>, the old value is freed using that function.</para>
+<refsect3 id="g-hash-table-iter-replace.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>iter</para></entry>
+<entry role="parameter_description"><para>an initialized <link linkend="GHashTableIter"><type>GHashTableIter</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>value</para></entry>
+<entry role="parameter_description"><para>the value to replace with</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.30">2.30</link></para></refsect2>
+<refsect2 id="g-hash-table-iter-remove" role="function" condition="since:2.16">
+<title>g_hash_table_iter_remove&#160;()</title>
+<indexterm zone="g-hash-table-iter-remove" role="2.16"><primary sortas="hash_table_iter_remove">g_hash_table_iter_remove</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_hash_table_iter_remove (<parameter><link linkend="GHashTableIter"><type>GHashTableIter</type></link> *iter</parameter>);</programlisting>
+<para>Removes the key/value pair currently pointed to by the iterator
+from its associated <link linkend="GHashTable"><type>GHashTable</type></link>. Can only be called after
+<link linkend="g-hash-table-iter-next"><function>g_hash_table_iter_next()</function></link> returned <link linkend="TRUE:CAPS"><literal>TRUE</literal></link>, and cannot be called
+more than once for the same key/value pair.</para>
+<para>If the <link linkend="GHashTable"><type>GHashTable</type></link> was created using <link linkend="g-hash-table-new-full"><function>g_hash_table_new_full()</function></link>,
+the key and value are freed using the supplied destroy functions,
+otherwise you have to make sure that any dynamically allocated
+values are freed yourself.</para>
+<para>It is safe to continue iterating the <link linkend="GHashTable"><type>GHashTable</type></link> afterward:</para>
+<informalexample><programlisting role="example"><![CDATA[
+while (g_hash_table_iter_next (&iter, &key, &value))
+  {
+    if (condition)
+      g_hash_table_iter_remove (&iter);
+  }
+]]></programlisting></informalexample>
+<para></para>
+<refsect3 id="g-hash-table-iter-remove.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>iter</para></entry>
+<entry role="parameter_description"><para>an initialized <link linkend="GHashTableIter"><type>GHashTableIter</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.16">2.16</link></para></refsect2>
+<refsect2 id="g-hash-table-iter-steal" role="function" condition="since:2.16">
+<title>g_hash_table_iter_steal&#160;()</title>
+<indexterm zone="g-hash-table-iter-steal" role="2.16"><primary sortas="hash_table_iter_steal">g_hash_table_iter_steal</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_hash_table_iter_steal (<parameter><link linkend="GHashTableIter"><type>GHashTableIter</type></link> *iter</parameter>);</programlisting>
+<para>Removes the key/value pair currently pointed to by the
+iterator from its associated <link linkend="GHashTable"><type>GHashTable</type></link>, without calling
+the key and value destroy functions. Can only be called
+after <link linkend="g-hash-table-iter-next"><function>g_hash_table_iter_next()</function></link> returned <link linkend="TRUE:CAPS"><literal>TRUE</literal></link>, and cannot
+be called more than once for the same key/value pair.</para>
+<refsect3 id="g-hash-table-iter-steal.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>iter</para></entry>
+<entry role="parameter_description"><para>an initialized <link linkend="GHashTableIter"><type>GHashTableIter</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.16">2.16</link></para></refsect2>
+<refsect2 id="g-direct-equal" role="function">
+<title>g_direct_equal&#160;()</title>
+<indexterm zone="g-direct-equal"><primary sortas="direct_equal">g_direct_equal</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_direct_equal (<parameter><link linkend="gconstpointer"><type>gconstpointer</type></link> v1</parameter>,
+                <parameter><link linkend="gconstpointer"><type>gconstpointer</type></link> v2</parameter>);</programlisting>
+<para>Compares two <link linkend="gpointer"><type>gpointer</type></link> arguments and returns <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if they are equal.
+It can be passed to <link linkend="g-hash-table-new"><function>g_hash_table_new()</function></link> as the <parameter>key_equal_func</parameter>
+
+parameter, when using opaque pointers compared by pointer value as
+keys in a <link linkend="GHashTable"><type>GHashTable</type></link>.</para>
+<para>This equality function is also appropriate for keys that are integers
+stored in pointers, such as <literal>GINT_TO_POINTER (n)</literal>.</para>
+<refsect3 id="g-direct-equal.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>v1</para></entry>
+<entry role="parameter_description"><para>a key. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>v2</para></entry>
+<entry role="parameter_description"><para>a key to compare with <parameter>v1</parameter>
+. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-direct-equal.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if the two keys match.</para>
+</refsect3></refsect2>
+<refsect2 id="g-direct-hash" role="function">
+<title>g_direct_hash&#160;()</title>
+<indexterm zone="g-direct-hash"><primary sortas="direct_hash">g_direct_hash</primary></indexterm>
+<programlisting language="C"><link linkend="guint"><returnvalue>guint</returnvalue></link>
+g_direct_hash (<parameter><link linkend="gconstpointer"><type>gconstpointer</type></link> v</parameter>);</programlisting>
+<para>Converts a gpointer to a hash value.
+It can be passed to <link linkend="g-hash-table-new"><function>g_hash_table_new()</function></link> as the <parameter>hash_func</parameter>
+ parameter,
+when using opaque pointers compared by pointer value as keys in a
+<link linkend="GHashTable"><type>GHashTable</type></link>.</para>
+<para>This hash function is also appropriate for keys that are integers
+stored in pointers, such as <literal>GINT_TO_POINTER (n)</literal>.</para>
+<refsect3 id="g-direct-hash.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>v</para></entry>
+<entry role="parameter_description"><para>a <link linkend="gpointer"><type>gpointer</type></link> key. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-direct-hash.returns" role="returns">
+<title>Returns</title>
+<para> a hash value corresponding to the key.</para>
+</refsect3></refsect2>
+<refsect2 id="g-int-equal" role="function">
+<title>g_int_equal&#160;()</title>
+<indexterm zone="g-int-equal"><primary sortas="int_equal">g_int_equal</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_int_equal (<parameter><link linkend="gconstpointer"><type>gconstpointer</type></link> v1</parameter>,
+             <parameter><link linkend="gconstpointer"><type>gconstpointer</type></link> v2</parameter>);</programlisting>
+<para>Compares the two <link linkend="gint"><type>gint</type></link> values being pointed to and returns
+<link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if they are equal.
+It can be passed to <link linkend="g-hash-table-new"><function>g_hash_table_new()</function></link> as the <parameter>key_equal_func</parameter>
+
+parameter, when using non-<link linkend="NULL:CAPS"><literal>NULL</literal></link> pointers to integers as keys in a
+<link linkend="GHashTable"><type>GHashTable</type></link>.</para>
+<para>Note that this function acts on pointers to <link linkend="gint"><type>gint</type></link>, not on <link linkend="gint"><type>gint</type></link>
+directly: if your hash table's keys are of the form
+<literal>GINT_TO_POINTER (n)</literal>, use <link linkend="g-direct-equal"><function>g_direct_equal()</function></link> instead.</para>
+<refsect3 id="g-int-equal.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>v1</para></entry>
+<entry role="parameter_description"><para>a pointer to a <link linkend="gint"><type>gint</type></link> key. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>not nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>v2</para></entry>
+<entry role="parameter_description"><para>a pointer to a <link linkend="gint"><type>gint</type></link> key to compare with <parameter>v1</parameter>
+. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>not nullable</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-int-equal.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if the two keys match.</para>
+</refsect3></refsect2>
+<refsect2 id="g-int-hash" role="function">
+<title>g_int_hash&#160;()</title>
+<indexterm zone="g-int-hash"><primary sortas="int_hash">g_int_hash</primary></indexterm>
+<programlisting language="C"><link linkend="guint"><returnvalue>guint</returnvalue></link>
+g_int_hash (<parameter><link linkend="gconstpointer"><type>gconstpointer</type></link> v</parameter>);</programlisting>
+<para>Converts a pointer to a <link linkend="gint"><type>gint</type></link> to a hash value.
+It can be passed to <link linkend="g-hash-table-new"><function>g_hash_table_new()</function></link> as the <parameter>hash_func</parameter>
+ parameter,
+when using non-<link linkend="NULL:CAPS"><literal>NULL</literal></link> pointers to integer values as keys in a <link linkend="GHashTable"><type>GHashTable</type></link>.</para>
+<para>Note that this function acts on pointers to <link linkend="gint"><type>gint</type></link>, not on <link linkend="gint"><type>gint</type></link>
+directly: if your hash table's keys are of the form
+<literal>GINT_TO_POINTER (n)</literal>, use <link linkend="g-direct-hash"><function>g_direct_hash()</function></link> instead.</para>
+<refsect3 id="g-int-hash.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>v</para></entry>
+<entry role="parameter_description"><para>a pointer to a <link linkend="gint"><type>gint</type></link> key. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>not nullable</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-int-hash.returns" role="returns">
+<title>Returns</title>
+<para> a hash value corresponding to the key.</para>
+</refsect3></refsect2>
+<refsect2 id="g-int64-equal" role="function" condition="since:2.22">
+<title>g_int64_equal&#160;()</title>
+<indexterm zone="g-int64-equal" role="2.22"><primary sortas="int64_equal">g_int64_equal</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_int64_equal (<parameter><link linkend="gconstpointer"><type>gconstpointer</type></link> v1</parameter>,
+               <parameter><link linkend="gconstpointer"><type>gconstpointer</type></link> v2</parameter>);</programlisting>
+<para>Compares the two <link linkend="gint64"><type>gint64</type></link> values being pointed to and returns
+<link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if they are equal.
+It can be passed to <link linkend="g-hash-table-new"><function>g_hash_table_new()</function></link> as the <parameter>key_equal_func</parameter>
+
+parameter, when using non-<link linkend="NULL:CAPS"><literal>NULL</literal></link> pointers to 64-bit integers as keys in a
+<link linkend="GHashTable"><type>GHashTable</type></link>.</para>
+<refsect3 id="g-int64-equal.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>v1</para></entry>
+<entry role="parameter_description"><para>a pointer to a <link linkend="gint64"><type>gint64</type></link> key. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>not nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>v2</para></entry>
+<entry role="parameter_description"><para>a pointer to a <link linkend="gint64"><type>gint64</type></link> key to compare with <parameter>v1</parameter>
+. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>not nullable</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-int64-equal.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if the two keys match.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.22">2.22</link></para></refsect2>
+<refsect2 id="g-int64-hash" role="function" condition="since:2.22">
+<title>g_int64_hash&#160;()</title>
+<indexterm zone="g-int64-hash" role="2.22"><primary sortas="int64_hash">g_int64_hash</primary></indexterm>
+<programlisting language="C"><link linkend="guint"><returnvalue>guint</returnvalue></link>
+g_int64_hash (<parameter><link linkend="gconstpointer"><type>gconstpointer</type></link> v</parameter>);</programlisting>
+<para>Converts a pointer to a <link linkend="gint64"><type>gint64</type></link> to a hash value.</para>
+<para>It can be passed to <link linkend="g-hash-table-new"><function>g_hash_table_new()</function></link> as the <parameter>hash_func</parameter>
+ parameter,
+when using non-<link linkend="NULL:CAPS"><literal>NULL</literal></link> pointers to 64-bit integer values as keys in a
+<link linkend="GHashTable"><type>GHashTable</type></link>.</para>
+<refsect3 id="g-int64-hash.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>v</para></entry>
+<entry role="parameter_description"><para>a pointer to a <link linkend="gint64"><type>gint64</type></link> key. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>not nullable</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-int64-hash.returns" role="returns">
+<title>Returns</title>
+<para> a hash value corresponding to the key.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.22">2.22</link></para></refsect2>
+<refsect2 id="g-double-equal" role="function" condition="since:2.22">
+<title>g_double_equal&#160;()</title>
+<indexterm zone="g-double-equal" role="2.22"><primary sortas="double_equal">g_double_equal</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_double_equal (<parameter><link linkend="gconstpointer"><type>gconstpointer</type></link> v1</parameter>,
+                <parameter><link linkend="gconstpointer"><type>gconstpointer</type></link> v2</parameter>);</programlisting>
+<para>Compares the two <link linkend="gdouble"><type>gdouble</type></link> values being pointed to and returns
+<link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if they are equal.
+It can be passed to <link linkend="g-hash-table-new"><function>g_hash_table_new()</function></link> as the <parameter>key_equal_func</parameter>
+
+parameter, when using non-<link linkend="NULL:CAPS"><literal>NULL</literal></link> pointers to doubles as keys in a
+<link linkend="GHashTable"><type>GHashTable</type></link>.</para>
+<refsect3 id="g-double-equal.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>v1</para></entry>
+<entry role="parameter_description"><para>a pointer to a <link linkend="gdouble"><type>gdouble</type></link> key. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>not nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>v2</para></entry>
+<entry role="parameter_description"><para>a pointer to a <link linkend="gdouble"><type>gdouble</type></link> key to compare with <parameter>v1</parameter>
+. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>not nullable</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-double-equal.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if the two keys match.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.22">2.22</link></para></refsect2>
+<refsect2 id="g-double-hash" role="function" condition="since:2.22">
+<title>g_double_hash&#160;()</title>
+<indexterm zone="g-double-hash" role="2.22"><primary sortas="double_hash">g_double_hash</primary></indexterm>
+<programlisting language="C"><link linkend="guint"><returnvalue>guint</returnvalue></link>
+g_double_hash (<parameter><link linkend="gconstpointer"><type>gconstpointer</type></link> v</parameter>);</programlisting>
+<para>Converts a pointer to a <link linkend="gdouble"><type>gdouble</type></link> to a hash value.
+It can be passed to <link linkend="g-hash-table-new"><function>g_hash_table_new()</function></link> as the <parameter>hash_func</parameter>
+ parameter,
+It can be passed to <link linkend="g-hash-table-new"><function>g_hash_table_new()</function></link> as the <parameter>hash_func</parameter>
+ parameter,
+when using non-<link linkend="NULL:CAPS"><literal>NULL</literal></link> pointers to doubles as keys in a <link linkend="GHashTable"><type>GHashTable</type></link>.</para>
+<refsect3 id="g-double-hash.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>v</para></entry>
+<entry role="parameter_description"><para>a pointer to a <link linkend="gdouble"><type>gdouble</type></link> key. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>not nullable</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-double-hash.returns" role="returns">
+<title>Returns</title>
+<para> a hash value corresponding to the key.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.22">2.22</link></para></refsect2>
+<refsect2 id="g-str-equal" role="function">
+<title>g_str_equal&#160;()</title>
+<indexterm zone="g-str-equal"><primary sortas="str_equal">g_str_equal</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_str_equal (<parameter><link linkend="gconstpointer"><type>gconstpointer</type></link> v1</parameter>,
+             <parameter><link linkend="gconstpointer"><type>gconstpointer</type></link> v2</parameter>);</programlisting>
+<para>Compares two strings for byte-by-byte equality and returns <link linkend="TRUE:CAPS"><literal>TRUE</literal></link>
+if they are equal. It can be passed to <link linkend="g-hash-table-new"><function>g_hash_table_new()</function></link> as the
+<parameter>key_equal_func</parameter>
+ parameter, when using non-<link linkend="NULL:CAPS"><literal>NULL</literal></link> strings as keys in a
+<link linkend="GHashTable"><type>GHashTable</type></link>.</para>
+<para>This function is typically used for hash table comparisons, but can be used
+for general purpose comparisons of non-<link linkend="NULL:CAPS"><literal>NULL</literal></link> strings. For a <link linkend="NULL:CAPS"><literal>NULL</literal></link>-safe string
+comparison function, see <link linkend="g-strcmp0"><function>g_strcmp0()</function></link>.</para>
+<refsect3 id="g-str-equal.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>v1</para></entry>
+<entry role="parameter_description"><para>a key. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>not nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>v2</para></entry>
+<entry role="parameter_description"><para>a key to compare with <parameter>v1</parameter>
+. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>not nullable</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-str-equal.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if the two keys match</para>
+</refsect3></refsect2>
+<refsect2 id="g-str-hash" role="function">
+<title>g_str_hash&#160;()</title>
+<indexterm zone="g-str-hash"><primary sortas="str_hash">g_str_hash</primary></indexterm>
+<programlisting language="C"><link linkend="guint"><returnvalue>guint</returnvalue></link>
+g_str_hash (<parameter><link linkend="gconstpointer"><type>gconstpointer</type></link> v</parameter>);</programlisting>
+<para>Converts a string to a hash value.</para>
+<para>This function implements the widely used "djb" hash apparently
+posted by Daniel Bernstein to comp.lang.c some time ago.  The 32
+bit unsigned hash value starts at 5381 and for each byte 'c' in
+the string, is updated: <literal>hash = hash * 33 + c</literal>. This function
+uses the signed value of each byte.</para>
+<para>It can be passed to <link linkend="g-hash-table-new"><function>g_hash_table_new()</function></link> as the <parameter>hash_func</parameter>
+ parameter,
+when using non-<link linkend="NULL:CAPS"><literal>NULL</literal></link> strings as keys in a <link linkend="GHashTable"><type>GHashTable</type></link>.</para>
+<para>Note that this function may not be a perfect fit for all use cases.
+For example, it produces some hash collisions with strings as short
+as 2.</para>
+<refsect3 id="g-str-hash.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>v</para></entry>
+<entry role="parameter_description"><para>a string key. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>not nullable</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-str-hash.returns" role="returns">
+<title>Returns</title>
+<para> a hash value corresponding to the key</para>
+</refsect3></refsect2>
+
+</refsect1>
+<refsect1 id="glib-Hash-Tables.other_details" role="details">
+<title role="details.title">Types and Values</title>
+<refsect2 id="GHashTable" role="struct">
+<title>GHashTable</title>
+<indexterm zone="GHashTable"><primary sortas="HashTable">GHashTable</primary></indexterm>
+<programlisting language="C">typedef struct _GHashTable GHashTable;</programlisting>
+<para>The <link linkend="GHashTable"><type>GHashTable</type></link> struct is an opaque data structure to represent a
+<link linkend="glib-Hash-Tables">Hash Table</link>. It should only be accessed via the
+following functions.</para>
+</refsect2>
+<refsect2 id="GHashTableIter" role="struct">
+<title>struct GHashTableIter</title>
+<indexterm zone="GHashTableIter"><primary sortas="HashTableIter">GHashTableIter</primary></indexterm>
+<programlisting language="C">struct GHashTableIter {
+};
+</programlisting>
+<para>A GHashTableIter structure represents an iterator that can be used
+to iterate over the elements of a <link linkend="GHashTable"><type>GHashTable</type></link>. GHashTableIter
+structures are typically allocated on the stack and then initialized
+with <link linkend="g-hash-table-iter-init"><function>g_hash_table_iter_init()</function></link>.</para>
+</refsect2>
+
+</refsect1>
+
+</refentry>

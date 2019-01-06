@@ -1,0 +1,4645 @@
+<MACRO>
+<NAME>G_TYPE_BINDING_FLAGS</NAME>
+#define G_TYPE_BINDING_FLAGS    (g_binding_flags_get_type ())
+</MACRO>
+<MACRO>
+<NAME>G_TYPE_BINDING</NAME>
+#define G_TYPE_BINDING          (g_binding_get_type ())
+</MACRO>
+<MACRO>
+<NAME>G_BINDING</NAME>
+#define G_BINDING(obj)          (G_TYPE_CHECK_INSTANCE_CAST ((obj), G_TYPE_BINDING, GBinding))
+</MACRO>
+<MACRO>
+<NAME>G_IS_BINDING</NAME>
+#define G_IS_BINDING(obj)       (G_TYPE_CHECK_INSTANCE_TYPE ((obj), G_TYPE_BINDING))
+</MACRO>
+<USER_FUNCTION>
+<NAME>GBindingTransformFunc</NAME>
+<RETURNS>gboolean </RETURNS>
+GBinding     *binding,
+                                            const GValue *from_value,
+                                            GValue       *to_value,
+                                            gpointer      user_data
+</USER_FUNCTION>
+<ENUM>
+<NAME>GBindingFlags</NAME>
+typedef enum { /*< prefix=G_BINDING >*/
+  G_BINDING_DEFAULT        = 0,
+
+  G_BINDING_BIDIRECTIONAL  = 1 << 0,
+  G_BINDING_SYNC_CREATE    = 1 << 1,
+  G_BINDING_INVERT_BOOLEAN = 1 << 2
+} GBindingFlags;
+</ENUM>
+<FUNCTION>
+<NAME>g_binding_flags_get_type</NAME>
+<RETURNS>GType                  </RETURNS>
+void
+</FUNCTION>
+<FUNCTION>
+<NAME>g_binding_get_type</NAME>
+<RETURNS>GType                  </RETURNS>
+void
+</FUNCTION>
+<FUNCTION>
+<NAME>g_binding_get_flags</NAME>
+<RETURNS>GBindingFlags          </RETURNS>
+GBinding *binding
+</FUNCTION>
+<FUNCTION>
+<NAME>g_binding_get_source</NAME>
+<RETURNS>GObject  *             </RETURNS>
+GBinding *binding
+</FUNCTION>
+<FUNCTION>
+<NAME>g_binding_get_target</NAME>
+<RETURNS>GObject  *             </RETURNS>
+GBinding *binding
+</FUNCTION>
+<FUNCTION>
+<NAME>g_binding_get_source_property</NAME>
+<RETURNS>const gchar  *         </RETURNS>
+GBinding *binding
+</FUNCTION>
+<FUNCTION>
+<NAME>g_binding_get_target_property</NAME>
+<RETURNS>const gchar  *         </RETURNS>
+GBinding *binding
+</FUNCTION>
+<FUNCTION>
+<NAME>g_binding_unbind</NAME>
+<RETURNS>void                   </RETURNS>
+GBinding *binding
+</FUNCTION>
+<FUNCTION>
+<NAME>g_object_bind_property</NAME>
+<RETURNS>GBinding  *</RETURNS>
+gpointer               source, const gchar           *source_property, gpointer               target, const gchar           *target_property, GBindingFlags          flags
+</FUNCTION>
+<FUNCTION>
+<NAME>g_object_bind_property_full</NAME>
+<RETURNS>GBinding  *</RETURNS>
+gpointer               source, const gchar           *source_property, gpointer               target, const gchar           *target_property, GBindingFlags          flags, GBindingTransformFunc  transform_to, GBindingTransformFunc  transform_from, gpointer               user_data, GDestroyNotify         notify
+</FUNCTION>
+<FUNCTION>
+<NAME>g_object_bind_property_with_closures</NAME>
+<RETURNS>GBinding  *</RETURNS>
+gpointer               source, const gchar           *source_property, gpointer               target, const gchar           *target_property, GBindingFlags          flags, GClosure              *transform_to, GClosure              *transform_from
+</FUNCTION>
+<STRUCT>
+<NAME>GBinding</NAME>
+</STRUCT>
+<MACRO>
+<NAME>G_TYPE_IS_BOXED</NAME>
+#define G_TYPE_IS_BOXED(type)      (G_TYPE_FUNDAMENTAL (type) == G_TYPE_BOXED)
+</MACRO>
+<MACRO>
+<NAME>G_VALUE_HOLDS_BOXED</NAME>
+#define G_VALUE_HOLDS_BOXED(value) (G_TYPE_CHECK_VALUE_TYPE ((value), G_TYPE_BOXED))
+</MACRO>
+<USER_FUNCTION>
+<NAME>GBoxedCopyFunc</NAME>
+<RETURNS>gpointer </RETURNS>
+gpointer boxed
+</USER_FUNCTION>
+<USER_FUNCTION>
+<NAME>GBoxedFreeFunc</NAME>
+<RETURNS>void </RETURNS>
+gpointer boxed
+</USER_FUNCTION>
+<FUNCTION>
+<NAME>g_boxed_copy</NAME>
+<RETURNS>gpointer  </RETURNS>
+GType boxed_type, gconstpointer  src_boxed
+</FUNCTION>
+<FUNCTION>
+<NAME>g_boxed_free</NAME>
+<RETURNS>void      </RETURNS>
+GType          boxed_type, gpointer       boxed
+</FUNCTION>
+<FUNCTION>
+<NAME>g_value_set_boxed</NAME>
+<RETURNS>void      </RETURNS>
+GValue        *value, gconstpointer  v_boxed
+</FUNCTION>
+<FUNCTION>
+<NAME>g_value_set_static_boxed</NAME>
+<RETURNS>void      </RETURNS>
+GValue        *value, gconstpointer  v_boxed
+</FUNCTION>
+<FUNCTION>
+<NAME>g_value_take_boxed</NAME>
+<RETURNS>void      </RETURNS>
+GValue        *value, gconstpointer  v_boxed
+</FUNCTION>
+<FUNCTION>
+<NAME>g_value_set_boxed_take_ownership</NAME>
+<DEPRECATED/>
+<RETURNS>void      </RETURNS>
+GValue        *value, gconstpointer  v_boxed
+</FUNCTION>
+<FUNCTION>
+<NAME>g_value_get_boxed</NAME>
+<RETURNS>gpointer  </RETURNS>
+const GValue  *value
+</FUNCTION>
+<FUNCTION>
+<NAME>g_value_dup_boxed</NAME>
+<RETURNS>gpointer  </RETURNS>
+const GValue  *value
+</FUNCTION>
+<FUNCTION>
+<NAME>g_boxed_type_register_static</NAME>
+<RETURNS>GType     </RETURNS>
+const gchar   *name, GBoxedCopyFunc boxed_copy, GBoxedFreeFunc boxed_free
+</FUNCTION>
+<MACRO>
+<NAME>G_TYPE_CLOSURE</NAME>
+#define G_TYPE_CLOSURE (g_closure_get_type ())
+</MACRO>
+<MACRO>
+<NAME>G_TYPE_VALUE</NAME>
+#define G_TYPE_VALUE (g_value_get_type ())
+</MACRO>
+<FUNCTION>
+<NAME>g_closure_get_type</NAME>
+<RETURNS>GType    </RETURNS>
+void
+</FUNCTION>
+<FUNCTION>
+<NAME>g_value_get_type</NAME>
+<RETURNS>GType    </RETURNS>
+void
+</FUNCTION>
+<MACRO>
+<NAME>G_CLOSURE_NEEDS_MARSHAL</NAME>
+#define	G_CLOSURE_NEEDS_MARSHAL(closure) (((GClosure*) (closure))->marshal == NULL)
+</MACRO>
+<MACRO>
+<NAME>G_CLOSURE_N_NOTIFIERS</NAME>
+#define	G_CLOSURE_N_NOTIFIERS(cl)	 (((cl)->n_guards << 1L) + \
+                                          (cl)->n_fnotifiers + (cl)->n_inotifiers)
+</MACRO>
+<MACRO>
+<NAME>G_CCLOSURE_SWAP_DATA</NAME>
+#define	G_CCLOSURE_SWAP_DATA(cclosure)	 (((GClosure*) (cclosure))->derivative_flag)
+</MACRO>
+<MACRO>
+<NAME>G_CALLBACK</NAME>
+#define	G_CALLBACK(f)			 ((GCallback) (f))
+</MACRO>
+<USER_FUNCTION>
+<NAME>GCallback</NAME>
+<RETURNS>void </RETURNS>
+void
+</USER_FUNCTION>
+<USER_FUNCTION>
+<NAME>GClosureNotify</NAME>
+<RETURNS>void </RETURNS>
+gpointer	 data,
+					 GClosure	*closure
+</USER_FUNCTION>
+<USER_FUNCTION>
+<NAME>GClosureMarshal</NAME>
+<RETURNS>void </RETURNS>
+GClosure	*closure,
+					 GValue         *return_value,
+					 guint           n_param_values,
+					 const GValue   *param_values,
+					 gpointer        invocation_hint,
+					 gpointer	 marshal_data
+</USER_FUNCTION>
+<USER_FUNCTION>
+<NAME>GVaClosureMarshal</NAME>
+<RETURNS>void </RETURNS>
+GClosure *closure,
+				    GValue   *return_value,
+				    gpointer  instance,
+				    va_list   args,
+				    gpointer  marshal_data,
+				    int       n_params,
+				    GType    *param_types
+</USER_FUNCTION>
+<STRUCT>
+<NAME>GClosureNotifyData</NAME>
+struct _GClosureNotifyData
+{
+  gpointer       data;
+  GClosureNotify notify;
+};
+</STRUCT>
+<STRUCT>
+<NAME>GClosure</NAME>
+struct _GClosure
+{
+  /*< private >*/
+  volatile      	guint	 ref_count : 15;
+  /* meta_marshal is not used anymore but must be zero for historical reasons
+     as it was exposed in the G_CLOSURE_N_NOTIFIERS macro */
+  volatile       	guint	 meta_marshal_nouse : 1;
+  volatile       	guint	 n_guards : 1;
+  volatile       	guint	 n_fnotifiers : 2;	/* finalization notifiers */
+  volatile       	guint	 n_inotifiers : 8;	/* invalidation notifiers */
+  volatile       	guint	 in_inotify : 1;
+  volatile       	guint	 floating : 1;
+  /*< protected >*/
+  volatile         	guint	 derivative_flag : 1;
+  /*< public >*/
+  volatile       	guint	 in_marshal : 1;
+  volatile       	guint	 is_invalid : 1;
+
+  /*< private >*/	void   (*marshal)  (GClosure       *closure,
+					    GValue /*out*/ *return_value,
+					    guint           n_param_values,
+					    const GValue   *param_values,
+					    gpointer        invocation_hint,
+					    gpointer	    marshal_data);
+  /*< protected >*/	gpointer data;
+
+  /*< private >*/	GClosureNotifyData *notifiers;
+
+  /* invariants/constraints:
+   * - ->marshal and ->data are _invalid_ as soon as ->is_invalid==TRUE
+   * - invocation of all inotifiers occours prior to fnotifiers
+   * - order of inotifiers is random
+   *   inotifiers may _not_ free/invalidate parameter values (e.g. ->data)
+   * - order of fnotifiers is random
+   * - each notifier may only be removed before or during its invocation
+   * - reference counting may only happen prior to fnotify invocation
+   *   (in that sense, fnotifiers are really finalization handlers)
+   */
+};
+</STRUCT>
+<STRUCT>
+<NAME>GCClosure</NAME>
+struct _GCClosure
+{
+  GClosure	closure;
+  gpointer	callback;
+};
+</STRUCT>
+<FUNCTION>
+<NAME>g_cclosure_new</NAME>
+<RETURNS>GClosure * </RETURNS>
+GCallback	callback_func, gpointer	user_data, GClosureNotify destroy_data
+</FUNCTION>
+<FUNCTION>
+<NAME>g_cclosure_new_swap</NAME>
+<RETURNS>GClosure * </RETURNS>
+GCallback	callback_func, gpointer	user_data, GClosureNotify destroy_data
+</FUNCTION>
+<FUNCTION>
+<NAME>g_signal_type_cclosure_new</NAME>
+<RETURNS>GClosure * </RETURNS>
+GType          itype, guint          struct_offset
+</FUNCTION>
+<FUNCTION>
+<NAME>g_closure_ref</NAME>
+<RETURNS>GClosure * </RETURNS>
+GClosure	*closure
+</FUNCTION>
+<FUNCTION>
+<NAME>g_closure_sink</NAME>
+<RETURNS>void 	  </RETURNS>
+GClosure	*closure
+</FUNCTION>
+<FUNCTION>
+<NAME>g_closure_unref</NAME>
+<RETURNS>void 	  </RETURNS>
+GClosure	*closure
+</FUNCTION>
+<FUNCTION>
+<NAME>g_closure_new_simple</NAME>
+<RETURNS>GClosure * </RETURNS>
+guint		 sizeof_closure, gpointer	 data
+</FUNCTION>
+<FUNCTION>
+<NAME>g_closure_add_finalize_notifier</NAME>
+<RETURNS>void 	  </RETURNS>
+GClosure       *closure, gpointer	 notify_data, GClosureNotify	 notify_func
+</FUNCTION>
+<FUNCTION>
+<NAME>g_closure_remove_finalize_notifier</NAME>
+<RETURNS>void 	  </RETURNS>
+GClosure       *closure, gpointer	 notify_data, GClosureNotify	 notify_func
+</FUNCTION>
+<FUNCTION>
+<NAME>g_closure_add_invalidate_notifier</NAME>
+<RETURNS>void 	  </RETURNS>
+GClosure       *closure, gpointer	 notify_data, GClosureNotify	 notify_func
+</FUNCTION>
+<FUNCTION>
+<NAME>g_closure_remove_invalidate_notifier</NAME>
+<RETURNS>void 	  </RETURNS>
+GClosure       *closure, gpointer	 notify_data, GClosureNotify	 notify_func
+</FUNCTION>
+<FUNCTION>
+<NAME>g_closure_add_marshal_guards</NAME>
+<RETURNS>void 	  </RETURNS>
+GClosure	*closure, gpointer        pre_marshal_data, GClosureNotify	 pre_marshal_notify, gpointer        post_marshal_data, GClosureNotify	 post_marshal_notify
+</FUNCTION>
+<FUNCTION>
+<NAME>g_closure_set_marshal</NAME>
+<RETURNS>void 	  </RETURNS>
+GClosure	*closure, GClosureMarshal marshal
+</FUNCTION>
+<FUNCTION>
+<NAME>g_closure_set_meta_marshal</NAME>
+<RETURNS>void 	  </RETURNS>
+GClosure       *closure, gpointer	 marshal_data, GClosureMarshal meta_marshal
+</FUNCTION>
+<FUNCTION>
+<NAME>g_closure_invalidate</NAME>
+<RETURNS>void 	  </RETURNS>
+GClosure	*closure
+</FUNCTION>
+<FUNCTION>
+<NAME>g_closure_invoke</NAME>
+<RETURNS>void 	  </RETURNS>
+GClosure 	*closure, GValue		*return_value, guint		 n_param_values, const GValue	*param_values, gpointer	 invocation_hint
+</FUNCTION>
+<FUNCTION>
+<NAME>g_cclosure_marshal_generic</NAME>
+<RETURNS>void  </RETURNS>
+GClosure     *closure, GValue       *return_gvalue, guint         n_param_values, const GValue *param_values, gpointer      invocation_hint, gpointer      marshal_data
+</FUNCTION>
+<FUNCTION>
+<NAME>g_cclosure_marshal_generic_va</NAME>
+<RETURNS>void  </RETURNS>
+GClosure *closure, GValue   *return_value, gpointer  instance, va_list   args_list, gpointer  marshal_data, int       n_params, GType    *param_types
+</FUNCTION>
+<MACRO>
+<NAME>G_TYPE_IS_ENUM</NAME>
+#define G_TYPE_IS_ENUM(type)	       (G_TYPE_FUNDAMENTAL (type) == G_TYPE_ENUM)
+</MACRO>
+<MACRO>
+<NAME>G_ENUM_CLASS</NAME>
+#define G_ENUM_CLASS(class)	       (G_TYPE_CHECK_CLASS_CAST ((class), G_TYPE_ENUM, GEnumClass))
+</MACRO>
+<MACRO>
+<NAME>G_IS_ENUM_CLASS</NAME>
+#define G_IS_ENUM_CLASS(class)	       (G_TYPE_CHECK_CLASS_TYPE ((class), G_TYPE_ENUM))
+</MACRO>
+<MACRO>
+<NAME>G_ENUM_CLASS_TYPE</NAME>
+#define G_ENUM_CLASS_TYPE(class)       (G_TYPE_FROM_CLASS (class))
+</MACRO>
+<MACRO>
+<NAME>G_ENUM_CLASS_TYPE_NAME</NAME>
+#define G_ENUM_CLASS_TYPE_NAME(class)  (g_type_name (G_ENUM_CLASS_TYPE (class)))
+</MACRO>
+<MACRO>
+<NAME>G_TYPE_IS_FLAGS</NAME>
+#define G_TYPE_IS_FLAGS(type)	       (G_TYPE_FUNDAMENTAL (type) == G_TYPE_FLAGS)
+</MACRO>
+<MACRO>
+<NAME>G_FLAGS_CLASS</NAME>
+#define G_FLAGS_CLASS(class)	       (G_TYPE_CHECK_CLASS_CAST ((class), G_TYPE_FLAGS, GFlagsClass))
+</MACRO>
+<MACRO>
+<NAME>G_IS_FLAGS_CLASS</NAME>
+#define G_IS_FLAGS_CLASS(class)        (G_TYPE_CHECK_CLASS_TYPE ((class), G_TYPE_FLAGS))
+</MACRO>
+<MACRO>
+<NAME>G_FLAGS_CLASS_TYPE</NAME>
+#define G_FLAGS_CLASS_TYPE(class)      (G_TYPE_FROM_CLASS (class))
+</MACRO>
+<MACRO>
+<NAME>G_FLAGS_CLASS_TYPE_NAME</NAME>
+#define G_FLAGS_CLASS_TYPE_NAME(class) (g_type_name (G_FLAGS_CLASS_TYPE (class)))
+</MACRO>
+<MACRO>
+<NAME>G_VALUE_HOLDS_ENUM</NAME>
+#define G_VALUE_HOLDS_ENUM(value)      (G_TYPE_CHECK_VALUE_TYPE ((value), G_TYPE_ENUM))
+</MACRO>
+<MACRO>
+<NAME>G_VALUE_HOLDS_FLAGS</NAME>
+#define G_VALUE_HOLDS_FLAGS(value)     (G_TYPE_CHECK_VALUE_TYPE ((value), G_TYPE_FLAGS))
+</MACRO>
+<STRUCT>
+<NAME>GEnumClass</NAME>
+struct	_GEnumClass
+{
+  GTypeClass  g_type_class;
+
+  /*< public >*/  
+  gint	      minimum;
+  gint	      maximum;
+  guint	      n_values;
+  GEnumValue *values;
+};
+</STRUCT>
+<STRUCT>
+<NAME>GFlagsClass</NAME>
+struct	_GFlagsClass
+{
+  GTypeClass   g_type_class;
+  
+  /*< public >*/  
+  guint	       mask;
+  guint	       n_values;
+  GFlagsValue *values;
+};
+</STRUCT>
+<STRUCT>
+<NAME>GEnumValue</NAME>
+struct _GEnumValue
+{
+  gint	 value;
+  const gchar *value_name;
+  const gchar *value_nick;
+};
+</STRUCT>
+<STRUCT>
+<NAME>GFlagsValue</NAME>
+struct _GFlagsValue
+{
+  guint	 value;
+  const gchar *value_name;
+  const gchar *value_nick;
+};
+</STRUCT>
+<FUNCTION>
+<NAME>g_enum_get_value</NAME>
+<RETURNS>GEnumValue *	</RETURNS>
+GEnumClass	*enum_class, gint		 value
+</FUNCTION>
+<FUNCTION>
+<NAME>g_enum_get_value_by_name</NAME>
+<RETURNS>GEnumValue *	</RETURNS>
+GEnumClass	*enum_class, const gchar	*name
+</FUNCTION>
+<FUNCTION>
+<NAME>g_enum_get_value_by_nick</NAME>
+<RETURNS>GEnumValue *	</RETURNS>
+GEnumClass	*enum_class, const gchar	*nick
+</FUNCTION>
+<FUNCTION>
+<NAME>g_flags_get_first_value</NAME>
+<RETURNS>GFlagsValue *	</RETURNS>
+GFlagsClass	*flags_class, guint		 value
+</FUNCTION>
+<FUNCTION>
+<NAME>g_flags_get_value_by_name</NAME>
+<RETURNS>GFlagsValue *	</RETURNS>
+GFlagsClass	*flags_class, const gchar	*name
+</FUNCTION>
+<FUNCTION>
+<NAME>g_flags_get_value_by_nick</NAME>
+<RETURNS>GFlagsValue *	</RETURNS>
+GFlagsClass	*flags_class, const gchar	*nick
+</FUNCTION>
+<FUNCTION>
+<NAME>g_enum_to_string</NAME>
+<RETURNS>gchar           *</RETURNS>
+GType           g_enum_type, gint            value
+</FUNCTION>
+<FUNCTION>
+<NAME>g_flags_to_string</NAME>
+<RETURNS>gchar           *</RETURNS>
+GType           flags_type, guint           value
+</FUNCTION>
+<FUNCTION>
+<NAME>g_value_set_enum</NAME>
+<RETURNS>void             </RETURNS>
+GValue         *value, gint            v_enum
+</FUNCTION>
+<FUNCTION>
+<NAME>g_value_get_enum</NAME>
+<RETURNS>gint             </RETURNS>
+const GValue   *value
+</FUNCTION>
+<FUNCTION>
+<NAME>g_value_set_flags</NAME>
+<RETURNS>void             </RETURNS>
+GValue         *value, guint           v_flags
+</FUNCTION>
+<FUNCTION>
+<NAME>g_value_get_flags</NAME>
+<RETURNS>guint            </RETURNS>
+const GValue   *value
+</FUNCTION>
+<FUNCTION>
+<NAME>g_enum_register_static</NAME>
+<RETURNS>GType 	</RETURNS>
+const gchar	      *name, const GEnumValue  *const_static_values
+</FUNCTION>
+<FUNCTION>
+<NAME>g_flags_register_static</NAME>
+<RETURNS>GType 	</RETURNS>
+const gchar	      *name, const GFlagsValue *const_static_values
+</FUNCTION>
+<FUNCTION>
+<NAME>g_enum_complete_type_info</NAME>
+<RETURNS>void 	</RETURNS>
+GType	       g_enum_type, GTypeInfo	      *info, const GEnumValue  *const_values
+</FUNCTION>
+<FUNCTION>
+<NAME>g_flags_complete_type_info</NAME>
+<RETURNS>void 	</RETURNS>
+GType	       g_flags_type, GTypeInfo	      *info, const GFlagsValue *const_values
+</FUNCTION>
+<TYPEDEF>
+<NAME>GType</NAME>
+typedef gsize GType;
+</TYPEDEF>
+<MACRO>
+<NAME>G_TYPE_DATE</NAME>
+#define G_TYPE_DATE (g_date_get_type ())
+</MACRO>
+<MACRO>
+<NAME>G_TYPE_STRV</NAME>
+#define G_TYPE_STRV (g_strv_get_type ())
+</MACRO>
+<MACRO>
+<NAME>G_TYPE_GSTRING</NAME>
+#define G_TYPE_GSTRING (g_gstring_get_type ())
+</MACRO>
+<MACRO>
+<NAME>G_TYPE_HASH_TABLE</NAME>
+#define G_TYPE_HASH_TABLE (g_hash_table_get_type ())
+</MACRO>
+<MACRO>
+<NAME>G_TYPE_REGEX</NAME>
+#define G_TYPE_REGEX (g_regex_get_type ())
+</MACRO>
+<MACRO>
+<NAME>G_TYPE_MATCH_INFO</NAME>
+#define G_TYPE_MATCH_INFO (g_match_info_get_type ())
+</MACRO>
+<MACRO>
+<NAME>G_TYPE_ARRAY</NAME>
+#define G_TYPE_ARRAY (g_array_get_type ())
+</MACRO>
+<MACRO>
+<NAME>G_TYPE_BYTE_ARRAY</NAME>
+#define G_TYPE_BYTE_ARRAY (g_byte_array_get_type ())
+</MACRO>
+<MACRO>
+<NAME>G_TYPE_PTR_ARRAY</NAME>
+#define G_TYPE_PTR_ARRAY (g_ptr_array_get_type ())
+</MACRO>
+<MACRO>
+<NAME>G_TYPE_BYTES</NAME>
+#define G_TYPE_BYTES (g_bytes_get_type ())
+</MACRO>
+<MACRO>
+<NAME>G_TYPE_VARIANT_TYPE</NAME>
+#define G_TYPE_VARIANT_TYPE (g_variant_type_get_gtype ())
+</MACRO>
+<MACRO>
+<NAME>G_TYPE_ERROR</NAME>
+#define G_TYPE_ERROR (g_error_get_type ())
+</MACRO>
+<MACRO>
+<NAME>G_TYPE_DATE_TIME</NAME>
+#define G_TYPE_DATE_TIME (g_date_time_get_type ())
+</MACRO>
+<MACRO>
+<NAME>G_TYPE_TIME_ZONE</NAME>
+#define G_TYPE_TIME_ZONE (g_time_zone_get_type ())
+</MACRO>
+<MACRO>
+<NAME>G_TYPE_IO_CHANNEL</NAME>
+#define G_TYPE_IO_CHANNEL (g_io_channel_get_type ())
+</MACRO>
+<MACRO>
+<NAME>G_TYPE_IO_CONDITION</NAME>
+#define G_TYPE_IO_CONDITION (g_io_condition_get_type ())
+</MACRO>
+<MACRO>
+<NAME>G_TYPE_VARIANT_BUILDER</NAME>
+#define G_TYPE_VARIANT_BUILDER (g_variant_builder_get_type ())
+</MACRO>
+<MACRO>
+<NAME>G_TYPE_VARIANT_DICT</NAME>
+#define G_TYPE_VARIANT_DICT (g_variant_dict_get_type ())
+</MACRO>
+<MACRO>
+<NAME>G_TYPE_MAIN_LOOP</NAME>
+#define G_TYPE_MAIN_LOOP (g_main_loop_get_type ())
+</MACRO>
+<MACRO>
+<NAME>G_TYPE_MAIN_CONTEXT</NAME>
+#define G_TYPE_MAIN_CONTEXT (g_main_context_get_type ())
+</MACRO>
+<MACRO>
+<NAME>G_TYPE_SOURCE</NAME>
+#define G_TYPE_SOURCE (g_source_get_type ())
+</MACRO>
+<MACRO>
+<NAME>G_TYPE_POLLFD</NAME>
+#define G_TYPE_POLLFD (g_pollfd_get_type ())
+</MACRO>
+<MACRO>
+<NAME>G_TYPE_MARKUP_PARSE_CONTEXT</NAME>
+#define G_TYPE_MARKUP_PARSE_CONTEXT (g_markup_parse_context_get_type ())
+</MACRO>
+<MACRO>
+<NAME>G_TYPE_KEY_FILE</NAME>
+#define G_TYPE_KEY_FILE (g_key_file_get_type ())
+</MACRO>
+<MACRO>
+<NAME>G_TYPE_MAPPED_FILE</NAME>
+#define G_TYPE_MAPPED_FILE (g_mapped_file_get_type ())
+</MACRO>
+<MACRO>
+<NAME>G_TYPE_THREAD</NAME>
+#define G_TYPE_THREAD (g_thread_get_type ())
+</MACRO>
+<MACRO>
+<NAME>G_TYPE_CHECKSUM</NAME>
+#define G_TYPE_CHECKSUM (g_checksum_get_type ())
+</MACRO>
+<MACRO>
+<NAME>G_TYPE_OPTION_GROUP</NAME>
+#define G_TYPE_OPTION_GROUP (g_option_group_get_type ())
+</MACRO>
+<FUNCTION>
+<NAME>g_date_get_type</NAME>
+<RETURNS>GType    </RETURNS>
+void
+</FUNCTION>
+<FUNCTION>
+<NAME>g_strv_get_type</NAME>
+<RETURNS>GType    </RETURNS>
+void
+</FUNCTION>
+<FUNCTION>
+<NAME>g_gstring_get_type</NAME>
+<RETURNS>GType    </RETURNS>
+void
+</FUNCTION>
+<FUNCTION>
+<NAME>g_hash_table_get_type</NAME>
+<RETURNS>GType    </RETURNS>
+void
+</FUNCTION>
+<FUNCTION>
+<NAME>g_array_get_type</NAME>
+<RETURNS>GType    </RETURNS>
+void
+</FUNCTION>
+<FUNCTION>
+<NAME>g_byte_array_get_type</NAME>
+<RETURNS>GType    </RETURNS>
+void
+</FUNCTION>
+<FUNCTION>
+<NAME>g_ptr_array_get_type</NAME>
+<RETURNS>GType    </RETURNS>
+void
+</FUNCTION>
+<FUNCTION>
+<NAME>g_bytes_get_type</NAME>
+<RETURNS>GType    </RETURNS>
+void
+</FUNCTION>
+<FUNCTION>
+<NAME>g_variant_type_get_gtype</NAME>
+<RETURNS>GType    </RETURNS>
+void
+</FUNCTION>
+<FUNCTION>
+<NAME>g_regex_get_type</NAME>
+<RETURNS>GType    </RETURNS>
+void
+</FUNCTION>
+<FUNCTION>
+<NAME>g_match_info_get_type</NAME>
+<RETURNS>GType    </RETURNS>
+void
+</FUNCTION>
+<FUNCTION>
+<NAME>g_error_get_type</NAME>
+<RETURNS>GType    </RETURNS>
+void
+</FUNCTION>
+<FUNCTION>
+<NAME>g_date_time_get_type</NAME>
+<RETURNS>GType    </RETURNS>
+void
+</FUNCTION>
+<FUNCTION>
+<NAME>g_time_zone_get_type</NAME>
+<RETURNS>GType    </RETURNS>
+void
+</FUNCTION>
+<FUNCTION>
+<NAME>g_io_channel_get_type</NAME>
+<RETURNS>GType    </RETURNS>
+void
+</FUNCTION>
+<FUNCTION>
+<NAME>g_io_condition_get_type</NAME>
+<RETURNS>GType    </RETURNS>
+void
+</FUNCTION>
+<FUNCTION>
+<NAME>g_variant_builder_get_type</NAME>
+<RETURNS>GType    </RETURNS>
+void
+</FUNCTION>
+<FUNCTION>
+<NAME>g_variant_dict_get_type</NAME>
+<RETURNS>GType    </RETURNS>
+void
+</FUNCTION>
+<FUNCTION>
+<NAME>g_key_file_get_type</NAME>
+<RETURNS>GType    </RETURNS>
+void
+</FUNCTION>
+<FUNCTION>
+<NAME>g_main_loop_get_type</NAME>
+<RETURNS>GType    </RETURNS>
+void
+</FUNCTION>
+<FUNCTION>
+<NAME>g_main_context_get_type</NAME>
+<RETURNS>GType    </RETURNS>
+void
+</FUNCTION>
+<FUNCTION>
+<NAME>g_source_get_type</NAME>
+<RETURNS>GType    </RETURNS>
+void
+</FUNCTION>
+<FUNCTION>
+<NAME>g_pollfd_get_type</NAME>
+<RETURNS>GType    </RETURNS>
+void
+</FUNCTION>
+<FUNCTION>
+<NAME>g_thread_get_type</NAME>
+<RETURNS>GType    </RETURNS>
+void
+</FUNCTION>
+<FUNCTION>
+<NAME>g_checksum_get_type</NAME>
+<RETURNS>GType    </RETURNS>
+void
+</FUNCTION>
+<FUNCTION>
+<NAME>g_markup_parse_context_get_type</NAME>
+<RETURNS>GType    </RETURNS>
+void
+</FUNCTION>
+<FUNCTION>
+<NAME>g_mapped_file_get_type</NAME>
+<RETURNS>GType    </RETURNS>
+void
+</FUNCTION>
+<FUNCTION>
+<NAME>g_option_group_get_type</NAME>
+<RETURNS>GType    </RETURNS>
+void
+</FUNCTION>
+<FUNCTION>
+<NAME>g_variant_get_gtype</NAME>
+<DEPRECATED/>
+<RETURNS>GType    </RETURNS>
+void
+</FUNCTION>
+<FUNCTION>
+<NAME>g_cclosure_marshal_VOID__VOID</NAME>
+<RETURNS>void  </RETURNS>
+GClosure     *closure, GValue       *return_value, guint         n_param_values, const GValue *param_values, gpointer      invocation_hint, gpointer      marshal_data
+</FUNCTION>
+<FUNCTION>
+<NAME>g_cclosure_marshal_VOID__VOIDv</NAME>
+<RETURNS>void  </RETURNS>
+GClosure *closure, GValue   *return_value, gpointer  instance, va_list   args, gpointer  marshal_data, int       n_params, GType    *param_types
+</FUNCTION>
+<FUNCTION>
+<NAME>g_cclosure_marshal_VOID__BOOLEAN</NAME>
+<RETURNS>void  </RETURNS>
+GClosure     *closure, GValue       *return_value, guint         n_param_values, const GValue *param_values, gpointer      invocation_hint, gpointer      marshal_data
+</FUNCTION>
+<FUNCTION>
+<NAME>g_cclosure_marshal_VOID__BOOLEANv</NAME>
+<RETURNS>void  </RETURNS>
+GClosure *closure, GValue   *return_value, gpointer  instance, va_list   args, gpointer  marshal_data, int       n_params, GType    *param_types
+</FUNCTION>
+<FUNCTION>
+<NAME>g_cclosure_marshal_VOID__CHAR</NAME>
+<RETURNS>void  </RETURNS>
+GClosure     *closure, GValue       *return_value, guint         n_param_values, const GValue *param_values, gpointer      invocation_hint, gpointer      marshal_data
+</FUNCTION>
+<FUNCTION>
+<NAME>g_cclosure_marshal_VOID__CHARv</NAME>
+<RETURNS>void  </RETURNS>
+GClosure *closure, GValue   *return_value, gpointer  instance, va_list   args, gpointer  marshal_data, int       n_params, GType    *param_types
+</FUNCTION>
+<FUNCTION>
+<NAME>g_cclosure_marshal_VOID__UCHAR</NAME>
+<RETURNS>void  </RETURNS>
+GClosure     *closure, GValue       *return_value, guint         n_param_values, const GValue *param_values, gpointer      invocation_hint, gpointer      marshal_data
+</FUNCTION>
+<FUNCTION>
+<NAME>g_cclosure_marshal_VOID__UCHARv</NAME>
+<RETURNS>void  </RETURNS>
+GClosure *closure, GValue   *return_value, gpointer  instance, va_list   args, gpointer  marshal_data, int       n_params, GType    *param_types
+</FUNCTION>
+<FUNCTION>
+<NAME>g_cclosure_marshal_VOID__INT</NAME>
+<RETURNS>void  </RETURNS>
+GClosure     *closure, GValue       *return_value, guint         n_param_values, const GValue *param_values, gpointer      invocation_hint, gpointer      marshal_data
+</FUNCTION>
+<FUNCTION>
+<NAME>g_cclosure_marshal_VOID__INTv</NAME>
+<RETURNS>void  </RETURNS>
+GClosure *closure, GValue   *return_value, gpointer  instance, va_list   args, gpointer  marshal_data, int       n_params, GType    *param_types
+</FUNCTION>
+<FUNCTION>
+<NAME>g_cclosure_marshal_VOID__UINT</NAME>
+<RETURNS>void  </RETURNS>
+GClosure     *closure, GValue       *return_value, guint         n_param_values, const GValue *param_values, gpointer      invocation_hint, gpointer      marshal_data
+</FUNCTION>
+<FUNCTION>
+<NAME>g_cclosure_marshal_VOID__UINTv</NAME>
+<RETURNS>void  </RETURNS>
+GClosure *closure, GValue   *return_value, gpointer  instance, va_list   args, gpointer  marshal_data, int       n_params, GType    *param_types
+</FUNCTION>
+<FUNCTION>
+<NAME>g_cclosure_marshal_VOID__LONG</NAME>
+<RETURNS>void  </RETURNS>
+GClosure     *closure, GValue       *return_value, guint         n_param_values, const GValue *param_values, gpointer      invocation_hint, gpointer      marshal_data
+</FUNCTION>
+<FUNCTION>
+<NAME>g_cclosure_marshal_VOID__LONGv</NAME>
+<RETURNS>void  </RETURNS>
+GClosure *closure, GValue   *return_value, gpointer  instance, va_list   args, gpointer  marshal_data, int       n_params, GType    *param_types
+</FUNCTION>
+<FUNCTION>
+<NAME>g_cclosure_marshal_VOID__ULONG</NAME>
+<RETURNS>void  </RETURNS>
+GClosure     *closure, GValue       *return_value, guint         n_param_values, const GValue *param_values, gpointer      invocation_hint, gpointer      marshal_data
+</FUNCTION>
+<FUNCTION>
+<NAME>g_cclosure_marshal_VOID__ULONGv</NAME>
+<RETURNS>void  </RETURNS>
+GClosure *closure, GValue   *return_value, gpointer  instance, va_list   args, gpointer  marshal_data, int       n_params, GType    *param_types
+</FUNCTION>
+<FUNCTION>
+<NAME>g_cclosure_marshal_VOID__ENUM</NAME>
+<RETURNS>void  </RETURNS>
+GClosure     *closure, GValue       *return_value, guint         n_param_values, const GValue *param_values, gpointer      invocation_hint, gpointer      marshal_data
+</FUNCTION>
+<FUNCTION>
+<NAME>g_cclosure_marshal_VOID__ENUMv</NAME>
+<RETURNS>void  </RETURNS>
+GClosure *closure, GValue   *return_value, gpointer  instance, va_list   args, gpointer  marshal_data, int       n_params, GType    *param_types
+</FUNCTION>
+<FUNCTION>
+<NAME>g_cclosure_marshal_VOID__FLAGS</NAME>
+<RETURNS>void  </RETURNS>
+GClosure     *closure, GValue       *return_value, guint         n_param_values, const GValue *param_values, gpointer      invocation_hint, gpointer      marshal_data
+</FUNCTION>
+<FUNCTION>
+<NAME>g_cclosure_marshal_VOID__FLAGSv</NAME>
+<RETURNS>void  </RETURNS>
+GClosure *closure, GValue   *return_value, gpointer  instance, va_list   args, gpointer  marshal_data, int       n_params, GType    *param_types
+</FUNCTION>
+<FUNCTION>
+<NAME>g_cclosure_marshal_VOID__FLOAT</NAME>
+<RETURNS>void  </RETURNS>
+GClosure     *closure, GValue       *return_value, guint         n_param_values, const GValue *param_values, gpointer      invocation_hint, gpointer      marshal_data
+</FUNCTION>
+<FUNCTION>
+<NAME>g_cclosure_marshal_VOID__FLOATv</NAME>
+<RETURNS>void  </RETURNS>
+GClosure *closure, GValue   *return_value, gpointer  instance, va_list   args, gpointer  marshal_data, int       n_params, GType    *param_types
+</FUNCTION>
+<FUNCTION>
+<NAME>g_cclosure_marshal_VOID__DOUBLE</NAME>
+<RETURNS>void  </RETURNS>
+GClosure     *closure, GValue       *return_value, guint         n_param_values, const GValue *param_values, gpointer      invocation_hint, gpointer      marshal_data
+</FUNCTION>
+<FUNCTION>
+<NAME>g_cclosure_marshal_VOID__DOUBLEv</NAME>
+<RETURNS>void  </RETURNS>
+GClosure *closure, GValue   *return_value, gpointer  instance, va_list   args, gpointer  marshal_data, int       n_params, GType    *param_types
+</FUNCTION>
+<FUNCTION>
+<NAME>g_cclosure_marshal_VOID__STRING</NAME>
+<RETURNS>void  </RETURNS>
+GClosure     *closure, GValue       *return_value, guint         n_param_values, const GValue *param_values, gpointer      invocation_hint, gpointer      marshal_data
+</FUNCTION>
+<FUNCTION>
+<NAME>g_cclosure_marshal_VOID__STRINGv</NAME>
+<RETURNS>void  </RETURNS>
+GClosure *closure, GValue   *return_value, gpointer  instance, va_list   args, gpointer  marshal_data, int       n_params, GType    *param_types
+</FUNCTION>
+<FUNCTION>
+<NAME>g_cclosure_marshal_VOID__PARAM</NAME>
+<RETURNS>void  </RETURNS>
+GClosure     *closure, GValue       *return_value, guint         n_param_values, const GValue *param_values, gpointer      invocation_hint, gpointer      marshal_data
+</FUNCTION>
+<FUNCTION>
+<NAME>g_cclosure_marshal_VOID__PARAMv</NAME>
+<RETURNS>void  </RETURNS>
+GClosure *closure, GValue   *return_value, gpointer  instance, va_list   args, gpointer  marshal_data, int       n_params, GType    *param_types
+</FUNCTION>
+<FUNCTION>
+<NAME>g_cclosure_marshal_VOID__BOXED</NAME>
+<RETURNS>void  </RETURNS>
+GClosure     *closure, GValue       *return_value, guint         n_param_values, const GValue *param_values, gpointer      invocation_hint, gpointer      marshal_data
+</FUNCTION>
+<FUNCTION>
+<NAME>g_cclosure_marshal_VOID__BOXEDv</NAME>
+<RETURNS>void  </RETURNS>
+GClosure *closure, GValue   *return_value, gpointer  instance, va_list   args, gpointer  marshal_data, int       n_params, GType    *param_types
+</FUNCTION>
+<FUNCTION>
+<NAME>g_cclosure_marshal_VOID__POINTER</NAME>
+<RETURNS>void  </RETURNS>
+GClosure     *closure, GValue       *return_value, guint         n_param_values, const GValue *param_values, gpointer      invocation_hint, gpointer      marshal_data
+</FUNCTION>
+<FUNCTION>
+<NAME>g_cclosure_marshal_VOID__POINTERv</NAME>
+<RETURNS>void  </RETURNS>
+GClosure *closure, GValue   *return_value, gpointer  instance, va_list   args, gpointer  marshal_data, int       n_params, GType    *param_types
+</FUNCTION>
+<FUNCTION>
+<NAME>g_cclosure_marshal_VOID__OBJECT</NAME>
+<RETURNS>void  </RETURNS>
+GClosure     *closure, GValue       *return_value, guint         n_param_values, const GValue *param_values, gpointer      invocation_hint, gpointer      marshal_data
+</FUNCTION>
+<FUNCTION>
+<NAME>g_cclosure_marshal_VOID__OBJECTv</NAME>
+<RETURNS>void  </RETURNS>
+GClosure *closure, GValue   *return_value, gpointer  instance, va_list   args, gpointer  marshal_data, int       n_params, GType    *param_types
+</FUNCTION>
+<FUNCTION>
+<NAME>g_cclosure_marshal_VOID__VARIANT</NAME>
+<RETURNS>void  </RETURNS>
+GClosure     *closure, GValue       *return_value, guint         n_param_values, const GValue *param_values, gpointer      invocation_hint, gpointer      marshal_data
+</FUNCTION>
+<FUNCTION>
+<NAME>g_cclosure_marshal_VOID__VARIANTv</NAME>
+<RETURNS>void  </RETURNS>
+GClosure *closure, GValue   *return_value, gpointer  instance, va_list   args, gpointer  marshal_data, int       n_params, GType    *param_types
+</FUNCTION>
+<FUNCTION>
+<NAME>g_cclosure_marshal_VOID__UINT_POINTER</NAME>
+<RETURNS>void  </RETURNS>
+GClosure     *closure, GValue       *return_value, guint         n_param_values, const GValue *param_values, gpointer      invocation_hint, gpointer      marshal_data
+</FUNCTION>
+<FUNCTION>
+<NAME>g_cclosure_marshal_VOID__UINT_POINTERv</NAME>
+<RETURNS>void  </RETURNS>
+GClosure *closure, GValue   *return_value, gpointer  instance, va_list   args, gpointer  marshal_data, int       n_params, GType    *param_types
+</FUNCTION>
+<FUNCTION>
+<NAME>g_cclosure_marshal_BOOLEAN__FLAGS</NAME>
+<RETURNS>void  </RETURNS>
+GClosure     *closure, GValue       *return_value, guint         n_param_values, const GValue *param_values, gpointer      invocation_hint, gpointer      marshal_data
+</FUNCTION>
+<FUNCTION>
+<NAME>g_cclosure_marshal_BOOLEAN__FLAGSv</NAME>
+<RETURNS>void  </RETURNS>
+GClosure *closure, GValue   *return_value, gpointer  instance, va_list   args, gpointer  marshal_data, int       n_params, GType    *param_types
+</FUNCTION>
+<MACRO>
+<NAME>g_cclosure_marshal_BOOL__FLAGS</NAME>
+#define g_cclosure_marshal_BOOL__FLAGS	g_cclosure_marshal_BOOLEAN__FLAGS
+</MACRO>
+<FUNCTION>
+<NAME>g_cclosure_marshal_STRING__OBJECT_POINTER</NAME>
+<RETURNS>void  </RETURNS>
+GClosure     *closure, GValue       *return_value, guint         n_param_values, const GValue *param_values, gpointer      invocation_hint, gpointer      marshal_data
+</FUNCTION>
+<FUNCTION>
+<NAME>g_cclosure_marshal_STRING__OBJECT_POINTERv</NAME>
+<RETURNS>void  </RETURNS>
+GClosure *closure, GValue   *return_value, gpointer  instance, va_list   args, gpointer  marshal_data, int       n_params, GType    *param_types
+</FUNCTION>
+<FUNCTION>
+<NAME>g_cclosure_marshal_BOOLEAN__BOXED_BOXED</NAME>
+<RETURNS>void  </RETURNS>
+GClosure     *closure, GValue       *return_value, guint         n_param_values, const GValue *param_values, gpointer      invocation_hint, gpointer      marshal_data
+</FUNCTION>
+<FUNCTION>
+<NAME>g_cclosure_marshal_BOOLEAN__BOXED_BOXEDv</NAME>
+<RETURNS>void  </RETURNS>
+GClosure *closure, GValue   *return_value, gpointer  instance, va_list   args, gpointer  marshal_data, int       n_params, GType    *param_types
+</FUNCTION>
+<MACRO>
+<NAME>g_cclosure_marshal_BOOL__BOXED_BOXED</NAME>
+#define g_cclosure_marshal_BOOL__BOXED_BOXED	g_cclosure_marshal_BOOLEAN__BOXED_BOXED
+</MACRO>
+<MACRO>
+<NAME>G_TYPE_IS_OBJECT</NAME>
+#define G_TYPE_IS_OBJECT(type)      (G_TYPE_FUNDAMENTAL (type) == G_TYPE_OBJECT)
+</MACRO>
+<MACRO>
+<NAME>G_OBJECT</NAME>
+#define G_OBJECT(object)            (G_TYPE_CHECK_INSTANCE_CAST ((object), G_TYPE_OBJECT, GObject))
+</MACRO>
+<MACRO>
+<NAME>G_OBJECT_CLASS</NAME>
+#define G_OBJECT_CLASS(class)       (G_TYPE_CHECK_CLASS_CAST ((class), G_TYPE_OBJECT, GObjectClass))
+</MACRO>
+<MACRO>
+<NAME>G_IS_OBJECT</NAME>
+#define G_IS_OBJECT(object)         (G_TYPE_CHECK_INSTANCE_FUNDAMENTAL_TYPE ((object), G_TYPE_OBJECT))
+</MACRO>
+<MACRO>
+<NAME>G_IS_OBJECT_CLASS</NAME>
+#define G_IS_OBJECT_CLASS(class)    (G_TYPE_CHECK_CLASS_TYPE ((class), G_TYPE_OBJECT))
+</MACRO>
+<MACRO>
+<NAME>G_OBJECT_GET_CLASS</NAME>
+#define G_OBJECT_GET_CLASS(object)  (G_TYPE_INSTANCE_GET_CLASS ((object), G_TYPE_OBJECT, GObjectClass))
+</MACRO>
+<MACRO>
+<NAME>G_OBJECT_TYPE</NAME>
+#define G_OBJECT_TYPE(object)       (G_TYPE_FROM_INSTANCE (object))
+</MACRO>
+<MACRO>
+<NAME>G_OBJECT_TYPE_NAME</NAME>
+#define G_OBJECT_TYPE_NAME(object)  (g_type_name (G_OBJECT_TYPE (object)))
+</MACRO>
+<MACRO>
+<NAME>G_OBJECT_CLASS_TYPE</NAME>
+#define G_OBJECT_CLASS_TYPE(class)  (G_TYPE_FROM_CLASS (class))
+</MACRO>
+<MACRO>
+<NAME>G_OBJECT_CLASS_NAME</NAME>
+#define G_OBJECT_CLASS_NAME(class)  (g_type_name (G_OBJECT_CLASS_TYPE (class)))
+</MACRO>
+<MACRO>
+<NAME>G_VALUE_HOLDS_OBJECT</NAME>
+#define G_VALUE_HOLDS_OBJECT(value) (G_TYPE_CHECK_VALUE_TYPE ((value), G_TYPE_OBJECT))
+</MACRO>
+<MACRO>
+<NAME>G_TYPE_INITIALLY_UNOWNED</NAME>
+#define G_TYPE_INITIALLY_UNOWNED	      (g_initially_unowned_get_type())
+</MACRO>
+<MACRO>
+<NAME>G_INITIALLY_UNOWNED</NAME>
+#define G_INITIALLY_UNOWNED(object)           (G_TYPE_CHECK_INSTANCE_CAST ((object), G_TYPE_INITIALLY_UNOWNED, GInitiallyUnowned))
+</MACRO>
+<MACRO>
+<NAME>G_INITIALLY_UNOWNED_CLASS</NAME>
+#define G_INITIALLY_UNOWNED_CLASS(class)      (G_TYPE_CHECK_CLASS_CAST ((class), G_TYPE_INITIALLY_UNOWNED, GInitiallyUnownedClass))
+</MACRO>
+<MACRO>
+<NAME>G_IS_INITIALLY_UNOWNED</NAME>
+#define G_IS_INITIALLY_UNOWNED(object)        (G_TYPE_CHECK_INSTANCE_TYPE ((object), G_TYPE_INITIALLY_UNOWNED))
+</MACRO>
+<MACRO>
+<NAME>G_IS_INITIALLY_UNOWNED_CLASS</NAME>
+#define G_IS_INITIALLY_UNOWNED_CLASS(class)   (G_TYPE_CHECK_CLASS_TYPE ((class), G_TYPE_INITIALLY_UNOWNED))
+</MACRO>
+<MACRO>
+<NAME>G_INITIALLY_UNOWNED_GET_CLASS</NAME>
+#define G_INITIALLY_UNOWNED_GET_CLASS(object) (G_TYPE_INSTANCE_GET_CLASS ((object), G_TYPE_INITIALLY_UNOWNED, GInitiallyUnownedClass))
+</MACRO>
+<TYPEDEF>
+<NAME>GInitiallyUnowned</NAME>
+typedef struct _GObject                  GInitiallyUnowned;
+</TYPEDEF>
+<TYPEDEF>
+<NAME>GInitiallyUnownedClass</NAME>
+typedef struct _GObjectClass             GInitiallyUnownedClass;
+</TYPEDEF>
+<USER_FUNCTION>
+<NAME>GObjectGetPropertyFunc</NAME>
+<RETURNS>void </RETURNS>
+GObject      *object,
+                                         guint         property_id,
+                                         GValue       *value,
+                                         GParamSpec   *pspec
+</USER_FUNCTION>
+<USER_FUNCTION>
+<NAME>GObjectSetPropertyFunc</NAME>
+<RETURNS>void </RETURNS>
+GObject      *object,
+                                         guint         property_id,
+                                         const GValue *value,
+                                         GParamSpec   *pspec
+</USER_FUNCTION>
+<USER_FUNCTION>
+<NAME>GObjectFinalizeFunc</NAME>
+<RETURNS>void </RETURNS>
+GObject      *object
+</USER_FUNCTION>
+<USER_FUNCTION>
+<NAME>GWeakNotify</NAME>
+<RETURNS>void </RETURNS>
+gpointer      data,
+					 GObject      *where_the_object_was
+</USER_FUNCTION>
+<STRUCT>
+<NAME>GObject</NAME>
+struct  _GObject
+{
+  GTypeInstance  g_type_instance;
+  
+  /*< private >*/
+  volatile guint ref_count;
+  GData         *qdata;
+};
+</STRUCT>
+<STRUCT>
+<NAME>GObjectClass</NAME>
+struct  _GObjectClass
+{
+  GTypeClass   g_type_class;
+
+  /*< private >*/
+  GSList      *construct_properties;
+
+  /*< public >*/
+  /* seldom overidden */
+  GObject*   (*constructor)     (GType                  type,
+                                 guint                  n_construct_properties,
+                                 GObjectConstructParam *construct_properties);
+  /* overridable methods */
+  void       (*set_property)		(GObject        *object,
+                                         guint           property_id,
+                                         const GValue   *value,
+                                         GParamSpec     *pspec);
+  void       (*get_property)		(GObject        *object,
+                                         guint           property_id,
+                                         GValue         *value,
+                                         GParamSpec     *pspec);
+  void       (*dispose)			(GObject        *object);
+  void       (*finalize)		(GObject        *object);
+  /* seldom overidden */
+  void       (*dispatch_properties_changed) (GObject      *object,
+					     guint	   n_pspecs,
+					     GParamSpec  **pspecs);
+  /* signals */
+  void	     (*notify)			(GObject	*object,
+					 GParamSpec	*pspec);
+
+  /* called when done constructing */
+  void	     (*constructed)		(GObject	*object);
+
+  /*< private >*/
+  gsize		flags;
+
+  /* padding */
+  gpointer	pdummy[6];
+};
+</STRUCT>
+<STRUCT>
+<NAME>GObjectConstructParam</NAME>
+struct _GObjectConstructParam
+{
+  GParamSpec *pspec;
+  GValue     *value;
+};
+</STRUCT>
+<FUNCTION>
+<NAME>g_initially_unowned_get_type</NAME>
+<RETURNS>GType        </RETURNS>
+void
+</FUNCTION>
+<FUNCTION>
+<NAME>g_object_class_install_property</NAME>
+<RETURNS>void         </RETURNS>
+GObjectClass   *oclass, guint           property_id, GParamSpec     *pspec
+</FUNCTION>
+<FUNCTION>
+<NAME>g_object_class_find_property</NAME>
+<RETURNS>GParamSpec * </RETURNS>
+GObjectClass   *oclass, const gchar    *property_name
+</FUNCTION>
+<FUNCTION>
+<NAME>g_object_class_list_properties</NAME>
+<RETURNS>GParamSpec **</RETURNS>
+GObjectClass   *oclass, guint	      *n_properties
+</FUNCTION>
+<FUNCTION>
+<NAME>g_object_class_override_property</NAME>
+<RETURNS>void         </RETURNS>
+GObjectClass   *oclass, guint           property_id, const gchar    *name
+</FUNCTION>
+<FUNCTION>
+<NAME>g_object_class_install_properties</NAME>
+<RETURNS>void         </RETURNS>
+GObjectClass   *oclass, guint           n_pspecs, GParamSpec    **pspecs
+</FUNCTION>
+<FUNCTION>
+<NAME>g_object_interface_install_property</NAME>
+<RETURNS>void         </RETURNS>
+gpointer     g_iface, GParamSpec  *pspec
+</FUNCTION>
+<FUNCTION>
+<NAME>g_object_interface_find_property</NAME>
+<RETURNS>GParamSpec * </RETURNS>
+gpointer     g_iface, const gchar *property_name
+</FUNCTION>
+<FUNCTION>
+<NAME>g_object_interface_list_properties</NAME>
+<RETURNS>GParamSpec **</RETURNS>
+gpointer     g_iface, guint       *n_properties_p
+</FUNCTION>
+<FUNCTION>
+<NAME>g_object_get_type</NAME>
+<RETURNS>GType        </RETURNS>
+void
+</FUNCTION>
+<FUNCTION>
+<NAME>g_object_new</NAME>
+<RETURNS>gpointer     </RETURNS>
+GType           object_type, const gchar    *first_property_name, ...
+</FUNCTION>
+<FUNCTION>
+<NAME>g_object_new_with_properties</NAME>
+<RETURNS>GObject *    </RETURNS>
+GType           object_type, guint           n_properties, const char     *names[], const GValue    values[]
+</FUNCTION>
+<FUNCTION>
+<NAME>g_object_newv</NAME>
+<DEPRECATED/>
+<RETURNS>gpointer     </RETURNS>
+GType           object_type, guint	       n_parameters, GParameter     *parameters
+</FUNCTION>
+<FUNCTION>
+<NAME>g_object_new_valist</NAME>
+<RETURNS>GObject *    </RETURNS>
+GType           object_type, const gchar    *first_property_name, va_list         var_args
+</FUNCTION>
+<FUNCTION>
+<NAME>g_object_set</NAME>
+<RETURNS>void 	    </RETURNS>
+gpointer	       object, const gchar    *first_property_name, ...
+</FUNCTION>
+<FUNCTION>
+<NAME>g_object_get</NAME>
+<RETURNS>void         </RETURNS>
+gpointer        object, const gchar    *first_property_name, ...
+</FUNCTION>
+<FUNCTION>
+<NAME>g_object_connect</NAME>
+<RETURNS>gpointer     </RETURNS>
+gpointer	       object, const gchar    *signal_spec, ...
+</FUNCTION>
+<FUNCTION>
+<NAME>g_object_disconnect</NAME>
+<RETURNS>void 	    </RETURNS>
+gpointer	       object, const gchar    *signal_spec, ...
+</FUNCTION>
+<FUNCTION>
+<NAME>g_object_setv</NAME>
+<RETURNS>void         </RETURNS>
+GObject        *object, guint           n_properties, const gchar    *names[], const GValue    values[]
+</FUNCTION>
+<FUNCTION>
+<NAME>g_object_set_valist</NAME>
+<RETURNS>void         </RETURNS>
+GObject        *object, const gchar    *first_property_name, va_list         var_args
+</FUNCTION>
+<FUNCTION>
+<NAME>g_object_getv</NAME>
+<RETURNS>void         </RETURNS>
+GObject        *object, guint           n_properties, const gchar    *names[], GValue          values[]
+</FUNCTION>
+<FUNCTION>
+<NAME>g_object_get_valist</NAME>
+<RETURNS>void         </RETURNS>
+GObject        *object, const gchar    *first_property_name, va_list         var_args
+</FUNCTION>
+<FUNCTION>
+<NAME>g_object_set_property</NAME>
+<RETURNS>void         </RETURNS>
+GObject        *object, const gchar    *property_name, const GValue   *value
+</FUNCTION>
+<FUNCTION>
+<NAME>g_object_get_property</NAME>
+<RETURNS>void         </RETURNS>
+GObject        *object, const gchar    *property_name, GValue         *value
+</FUNCTION>
+<FUNCTION>
+<NAME>g_object_freeze_notify</NAME>
+<RETURNS>void         </RETURNS>
+GObject        *object
+</FUNCTION>
+<FUNCTION>
+<NAME>g_object_notify</NAME>
+<RETURNS>void         </RETURNS>
+GObject        *object, const gchar    *property_name
+</FUNCTION>
+<FUNCTION>
+<NAME>g_object_notify_by_pspec</NAME>
+<RETURNS>void         </RETURNS>
+GObject        *object, GParamSpec     *pspec
+</FUNCTION>
+<FUNCTION>
+<NAME>g_object_thaw_notify</NAME>
+<RETURNS>void         </RETURNS>
+GObject        *object
+</FUNCTION>
+<FUNCTION>
+<NAME>g_object_is_floating</NAME>
+<RETURNS>gboolean     </RETURNS>
+gpointer        object
+</FUNCTION>
+<FUNCTION>
+<NAME>g_object_ref_sink</NAME>
+<RETURNS>gpointer     </RETURNS>
+gpointer	       object
+</FUNCTION>
+<FUNCTION>
+<NAME>g_object_ref</NAME>
+<RETURNS>gpointer     </RETURNS>
+gpointer        object
+</FUNCTION>
+<FUNCTION>
+<NAME>g_object_unref</NAME>
+<RETURNS>void         </RETURNS>
+gpointer        object
+</FUNCTION>
+<FUNCTION>
+<NAME>g_object_weak_ref</NAME>
+<RETURNS>void 	    </RETURNS>
+GObject	      *object, GWeakNotify     notify, gpointer	       data
+</FUNCTION>
+<FUNCTION>
+<NAME>g_object_weak_unref</NAME>
+<RETURNS>void 	    </RETURNS>
+GObject	      *object, GWeakNotify     notify, gpointer	       data
+</FUNCTION>
+<FUNCTION>
+<NAME>g_object_add_weak_pointer</NAME>
+<RETURNS>void         </RETURNS>
+GObject        *object, gpointer       *weak_pointer_location
+</FUNCTION>
+<FUNCTION>
+<NAME>g_object_remove_weak_pointer</NAME>
+<RETURNS>void         </RETURNS>
+GObject        *object, gpointer       *weak_pointer_location
+</FUNCTION>
+<USER_FUNCTION>
+<NAME>GToggleNotify</NAME>
+<RETURNS>void </RETURNS>
+gpointer      data,
+			       GObject      *object,
+			       gboolean      is_last_ref
+</USER_FUNCTION>
+<FUNCTION>
+<NAME>g_object_add_toggle_ref</NAME>
+<RETURNS>void  </RETURNS>
+GObject       *object, GToggleNotify  notify, gpointer       data
+</FUNCTION>
+<FUNCTION>
+<NAME>g_object_remove_toggle_ref</NAME>
+<RETURNS>void  </RETURNS>
+GObject       *object, GToggleNotify  notify, gpointer       data
+</FUNCTION>
+<FUNCTION>
+<NAME>g_object_get_qdata</NAME>
+<RETURNS>gpointer     </RETURNS>
+GObject        *object, GQuark          quark
+</FUNCTION>
+<FUNCTION>
+<NAME>g_object_set_qdata</NAME>
+<RETURNS>void         </RETURNS>
+GObject        *object, GQuark          quark, gpointer        data
+</FUNCTION>
+<FUNCTION>
+<NAME>g_object_set_qdata_full</NAME>
+<RETURNS>void         </RETURNS>
+GObject        *object, GQuark          quark, gpointer        data, GDestroyNotify  destroy
+</FUNCTION>
+<FUNCTION>
+<NAME>g_object_steal_qdata</NAME>
+<RETURNS>gpointer     </RETURNS>
+GObject        *object, GQuark          quark
+</FUNCTION>
+<FUNCTION>
+<NAME>g_object_dup_qdata</NAME>
+<RETURNS>gpointer     </RETURNS>
+GObject        *object, GQuark          quark, GDuplicateFunc  dup_func, gpointer         user_data
+</FUNCTION>
+<FUNCTION>
+<NAME>g_object_replace_qdata</NAME>
+<RETURNS>gboolean     </RETURNS>
+GObject        *object, GQuark          quark, gpointer        oldval, gpointer        newval, GDestroyNotify  destroy, GDestroyNotify *old_destroy
+</FUNCTION>
+<FUNCTION>
+<NAME>g_object_get_data</NAME>
+<RETURNS>gpointer     </RETURNS>
+GObject        *object, const gchar    *key
+</FUNCTION>
+<FUNCTION>
+<NAME>g_object_set_data</NAME>
+<RETURNS>void         </RETURNS>
+GObject        *object, const gchar    *key, gpointer        data
+</FUNCTION>
+<FUNCTION>
+<NAME>g_object_set_data_full</NAME>
+<RETURNS>void         </RETURNS>
+GObject        *object, const gchar    *key, gpointer        data, GDestroyNotify  destroy
+</FUNCTION>
+<FUNCTION>
+<NAME>g_object_steal_data</NAME>
+<RETURNS>gpointer     </RETURNS>
+GObject        *object, const gchar    *key
+</FUNCTION>
+<FUNCTION>
+<NAME>g_object_dup_data</NAME>
+<RETURNS>gpointer     </RETURNS>
+GObject        *object, const gchar    *key, GDuplicateFunc  dup_func, gpointer         user_data
+</FUNCTION>
+<FUNCTION>
+<NAME>g_object_replace_data</NAME>
+<RETURNS>gboolean     </RETURNS>
+GObject        *object, const gchar    *key, gpointer        oldval, gpointer        newval, GDestroyNotify  destroy, GDestroyNotify *old_destroy
+</FUNCTION>
+<FUNCTION>
+<NAME>g_object_watch_closure</NAME>
+<RETURNS>void         </RETURNS>
+GObject        *object, GClosure       *closure
+</FUNCTION>
+<FUNCTION>
+<NAME>g_cclosure_new_object</NAME>
+<RETURNS>GClosure *   </RETURNS>
+GCallback       callback_func, GObject	      *object
+</FUNCTION>
+<FUNCTION>
+<NAME>g_cclosure_new_object_swap</NAME>
+<RETURNS>GClosure *   </RETURNS>
+GCallback       callback_func, GObject	      *object
+</FUNCTION>
+<FUNCTION>
+<NAME>g_closure_new_object</NAME>
+<RETURNS>GClosure *   </RETURNS>
+guint           sizeof_closure, GObject        *object
+</FUNCTION>
+<FUNCTION>
+<NAME>g_value_set_object</NAME>
+<RETURNS>void         </RETURNS>
+GValue         *value, gpointer        v_object
+</FUNCTION>
+<FUNCTION>
+<NAME>g_value_get_object</NAME>
+<RETURNS>gpointer     </RETURNS>
+const GValue   *value
+</FUNCTION>
+<FUNCTION>
+<NAME>g_value_dup_object</NAME>
+<RETURNS>gpointer     </RETURNS>
+const GValue   *value
+</FUNCTION>
+<FUNCTION>
+<NAME>g_signal_connect_object</NAME>
+<RETURNS>gulong 	    </RETURNS>
+gpointer	       instance, const gchar    *detailed_signal, GCallback       c_handler, gpointer	       gobject, GConnectFlags   connect_flags
+</FUNCTION>
+<FUNCTION>
+<NAME>g_object_force_floating</NAME>
+<RETURNS>void         </RETURNS>
+GObject        *object
+</FUNCTION>
+<FUNCTION>
+<NAME>g_object_run_dispose</NAME>
+<RETURNS>void         </RETURNS>
+GObject	      *object
+</FUNCTION>
+<FUNCTION>
+<NAME>g_value_take_object</NAME>
+<RETURNS>void         </RETURNS>
+GValue         *value, gpointer        v_object
+</FUNCTION>
+<FUNCTION>
+<NAME>g_value_set_object_take_ownership</NAME>
+<DEPRECATED/>
+<RETURNS>void         </RETURNS>
+GValue         *value, gpointer        v_object
+</FUNCTION>
+<FUNCTION>
+<NAME>g_object_compat_control</NAME>
+<DEPRECATED/>
+<RETURNS>gsize 	    </RETURNS>
+gsize	       what, gpointer	       data
+</FUNCTION>
+<MACRO>
+<NAME>G_OBJECT_WARN_INVALID_PSPEC</NAME>
+#define G_OBJECT_WARN_INVALID_PSPEC(object, pname, property_id, pspec) \
+G_STMT_START { \
+  GObject *_glib__object = (GObject*) (object); \
+  GParamSpec *_glib__pspec = (GParamSpec*) (pspec); \
+  guint _glib__property_id = (property_id); \
+  g_warning ("%s:%d: invalid %s id %u for \"%s\" of type '%s' in '%s'", \
+             __FILE__, __LINE__, \
+             (pname), \
+             _glib__property_id, \
+             _glib__pspec->name, \
+             g_type_name (G_PARAM_SPEC_TYPE (_glib__pspec)), \
+             G_OBJECT_TYPE_NAME (_glib__object)); \
+} G_STMT_END
+</MACRO>
+<MACRO>
+<NAME>G_OBJECT_WARN_INVALID_PROPERTY_ID</NAME>
+#define G_OBJECT_WARN_INVALID_PROPERTY_ID(object, property_id, pspec) \
+    G_OBJECT_WARN_INVALID_PSPEC ((object), "property", (property_id), (pspec))
+</MACRO>
+<FUNCTION>
+<NAME>g_clear_object</NAME>
+<RETURNS>void     </RETURNS>
+GObject **object_ptr
+</FUNCTION>
+<VARIABLE>
+<NAME>old_object</NAME>
+  GObject *old_object = *object_ptr;
+</VARIABLE>
+<MACRO>
+<NAME>g_set_object</NAME>
+#define g_set_object(object_ptr, new_object) \
+ (/* Check types match. */ \
+  0 ? *(object_ptr) = (new_object), FALSE : \
+  (g_set_object) ((GObject **) (object_ptr), (GObject *) (new_object)) \
+ )
+</MACRO>
+<VARIABLE>
+<NAME>object</NAME>
+  GObject *object = (GObject *) *weak_pointer_location;
+</VARIABLE>
+<MACRO>
+<NAME>g_clear_weak_pointer</NAME>
+#define g_clear_weak_pointer(weak_pointer_location) \
+ (/* Check types match. */ \
+  (g_clear_weak_pointer) ((gpointer *) (weak_pointer_location)) \
+ )
+</MACRO>
+<MACRO>
+<NAME>g_set_weak_pointer</NAME>
+#define g_set_weak_pointer(weak_pointer_location, new_object) \
+ (/* Check types match. */ \
+  0 ? *(weak_pointer_location) = (new_object), FALSE : \
+  (g_set_weak_pointer) ((gpointer *) (weak_pointer_location), (GObject *) (new_object)) \
+ )
+</MACRO>
+<STRUCT>
+<NAME>GWeakRef</NAME>
+typedef struct {
+    /*<private>*/
+    union { gpointer p; } priv;
+} GWeakRef;
+</STRUCT>
+<FUNCTION>
+<NAME>g_weak_ref_init</NAME>
+<RETURNS>void      </RETURNS>
+GWeakRef *weak_ref, gpointer  object
+</FUNCTION>
+<FUNCTION>
+<NAME>g_weak_ref_clear</NAME>
+<RETURNS>void      </RETURNS>
+GWeakRef *weak_ref
+</FUNCTION>
+<FUNCTION>
+<NAME>g_weak_ref_get</NAME>
+<RETURNS>gpointer  </RETURNS>
+GWeakRef *weak_ref
+</FUNCTION>
+<FUNCTION>
+<NAME>g_weak_ref_set</NAME>
+<RETURNS>void      </RETURNS>
+GWeakRef *weak_ref, gpointer  object
+</FUNCTION>
+<MACRO>
+<NAME>G_TYPE_IS_PARAM</NAME>
+#define G_TYPE_IS_PARAM(type)		(G_TYPE_FUNDAMENTAL (type) == G_TYPE_PARAM)
+</MACRO>
+<MACRO>
+<NAME>G_PARAM_SPEC</NAME>
+#define G_PARAM_SPEC(pspec)		(G_TYPE_CHECK_INSTANCE_CAST ((pspec), G_TYPE_PARAM, GParamSpec))
+</MACRO>
+<MACRO>
+<NAME>G_IS_PARAM_SPEC</NAME>
+#define G_IS_PARAM_SPEC(pspec)		(G_TYPE_CHECK_INSTANCE_FUNDAMENTAL_TYPE ((pspec), G_TYPE_PARAM))
+</MACRO>
+<MACRO>
+<NAME>G_PARAM_SPEC_CLASS</NAME>
+#define G_PARAM_SPEC_CLASS(pclass)      (G_TYPE_CHECK_CLASS_CAST ((pclass), G_TYPE_PARAM, GParamSpecClass))
+</MACRO>
+<MACRO>
+<NAME>G_IS_PARAM_SPEC_CLASS</NAME>
+#define G_IS_PARAM_SPEC_CLASS(pclass)   (G_TYPE_CHECK_CLASS_TYPE ((pclass), G_TYPE_PARAM))
+</MACRO>
+<MACRO>
+<NAME>G_PARAM_SPEC_GET_CLASS</NAME>
+#define G_PARAM_SPEC_GET_CLASS(pspec)	(G_TYPE_INSTANCE_GET_CLASS ((pspec), G_TYPE_PARAM, GParamSpecClass))
+</MACRO>
+<MACRO>
+<NAME>G_PARAM_SPEC_TYPE</NAME>
+#define G_PARAM_SPEC_TYPE(pspec)	(G_TYPE_FROM_INSTANCE (pspec))
+</MACRO>
+<MACRO>
+<NAME>G_PARAM_SPEC_TYPE_NAME</NAME>
+#define G_PARAM_SPEC_TYPE_NAME(pspec)	(g_type_name (G_PARAM_SPEC_TYPE (pspec)))
+</MACRO>
+<MACRO>
+<NAME>G_PARAM_SPEC_VALUE_TYPE</NAME>
+#define	G_PARAM_SPEC_VALUE_TYPE(pspec)	(G_PARAM_SPEC (pspec)->value_type)
+</MACRO>
+<MACRO>
+<NAME>G_VALUE_HOLDS_PARAM</NAME>
+#define G_VALUE_HOLDS_PARAM(value)	(G_TYPE_CHECK_VALUE_TYPE ((value), G_TYPE_PARAM))
+</MACRO>
+<ENUM>
+<NAME>GParamFlags</NAME>
+typedef enum
+{
+  G_PARAM_READABLE            = 1 << 0,
+  G_PARAM_WRITABLE            = 1 << 1,
+  G_PARAM_READWRITE           = (G_PARAM_READABLE | G_PARAM_WRITABLE),
+  G_PARAM_CONSTRUCT	      = 1 << 2,
+  G_PARAM_CONSTRUCT_ONLY      = 1 << 3,
+  G_PARAM_LAX_VALIDATION      = 1 << 4,
+  G_PARAM_STATIC_NAME	      = 1 << 5,
+#ifndef G_DISABLE_DEPRECATED
+  G_PARAM_PRIVATE	      = G_PARAM_STATIC_NAME,
+#endif
+  G_PARAM_STATIC_NICK	      = 1 << 6,
+  G_PARAM_STATIC_BLURB	      = 1 << 7,
+  /* User defined flags go here */
+  G_PARAM_EXPLICIT_NOTIFY     = 1 << 30,
+  /* Avoid warning with -Wpedantic for gcc6 */
+  G_PARAM_DEPRECATED          = (gint)(1u << 31)
+} GParamFlags;
+</ENUM>
+<MACRO>
+<NAME>G_PARAM_STATIC_STRINGS</NAME>
+#define	G_PARAM_STATIC_STRINGS (G_PARAM_STATIC_NAME | G_PARAM_STATIC_NICK | G_PARAM_STATIC_BLURB)
+</MACRO>
+<MACRO>
+<NAME>G_PARAM_MASK</NAME>
+#define	G_PARAM_MASK		(0x000000ff)
+</MACRO>
+<MACRO>
+<NAME>G_PARAM_USER_SHIFT</NAME>
+#define	G_PARAM_USER_SHIFT	(8)
+</MACRO>
+<STRUCT>
+<NAME>GParamSpec</NAME>
+struct _GParamSpec
+{
+  GTypeInstance  g_type_instance;
+
+  const gchar   *name;          /* interned string */
+  GParamFlags    flags;
+  GType		 value_type;
+  GType		 owner_type;	/* class or interface using this property */
+
+  /*< private >*/
+  gchar         *_nick;
+  gchar         *_blurb;
+  GData		*qdata;
+  guint          ref_count;
+  guint		 param_id;	/* sort-criteria */
+};
+</STRUCT>
+<STRUCT>
+<NAME>GParamSpecClass</NAME>
+struct _GParamSpecClass
+{
+  GTypeClass      g_type_class;
+
+  GType		  value_type;
+
+  void	        (*finalize)		(GParamSpec   *pspec);
+
+  /* GParam methods */
+  void          (*value_set_default)    (GParamSpec   *pspec,
+					 GValue       *value);
+  gboolean      (*value_validate)       (GParamSpec   *pspec,
+					 GValue       *value);
+  gint          (*values_cmp)           (GParamSpec   *pspec,
+					 const GValue *value1,
+					 const GValue *value2);
+  /*< private >*/
+  gpointer	  dummy[4];
+};
+</STRUCT>
+<STRUCT>
+<NAME>GParameter</NAME>
+struct _GParameter /* auxiliary structure for _setv() variants */
+{
+  const gchar *name;
+  GValue       value;
+};
+</STRUCT>
+<FUNCTION>
+<NAME>g_param_spec_ref</NAME>
+<RETURNS>GParamSpec *	</RETURNS>
+GParamSpec    *pspec
+</FUNCTION>
+<FUNCTION>
+<NAME>g_param_spec_unref</NAME>
+<RETURNS>void 		</RETURNS>
+GParamSpec    *pspec
+</FUNCTION>
+<FUNCTION>
+<NAME>g_param_spec_sink</NAME>
+<RETURNS>void 		</RETURNS>
+GParamSpec    *pspec
+</FUNCTION>
+<FUNCTION>
+<NAME>g_param_spec_ref_sink</NAME>
+<RETURNS>GParamSpec *	</RETURNS>
+GParamSpec    *pspec
+</FUNCTION>
+<FUNCTION>
+<NAME>g_param_spec_get_qdata</NAME>
+<RETURNS>gpointer         </RETURNS>
+GParamSpec    *pspec, GQuark         quark
+</FUNCTION>
+<FUNCTION>
+<NAME>g_param_spec_set_qdata</NAME>
+<RETURNS>void             </RETURNS>
+GParamSpec    *pspec, GQuark         quark, gpointer       data
+</FUNCTION>
+<FUNCTION>
+<NAME>g_param_spec_set_qdata_full</NAME>
+<RETURNS>void             </RETURNS>
+GParamSpec    *pspec, GQuark         quark, gpointer       data, GDestroyNotify destroy
+</FUNCTION>
+<FUNCTION>
+<NAME>g_param_spec_steal_qdata</NAME>
+<RETURNS>gpointer         </RETURNS>
+GParamSpec    *pspec, GQuark         quark
+</FUNCTION>
+<FUNCTION>
+<NAME>g_param_spec_get_redirect_target</NAME>
+<RETURNS>GParamSpec *     </RETURNS>
+GParamSpec   *pspec
+</FUNCTION>
+<FUNCTION>
+<NAME>g_param_value_set_default</NAME>
+<RETURNS>void 		</RETURNS>
+GParamSpec    *pspec, GValue	       *value
+</FUNCTION>
+<FUNCTION>
+<NAME>g_param_value_defaults</NAME>
+<RETURNS>gboolean 	</RETURNS>
+GParamSpec    *pspec, GValue	       *value
+</FUNCTION>
+<FUNCTION>
+<NAME>g_param_value_validate</NAME>
+<RETURNS>gboolean 	</RETURNS>
+GParamSpec    *pspec, GValue	       *value
+</FUNCTION>
+<FUNCTION>
+<NAME>g_param_value_convert</NAME>
+<RETURNS>gboolean 	</RETURNS>
+GParamSpec    *pspec, const GValue  *src_value, GValue	       *dest_value, gboolean	strict_validation
+</FUNCTION>
+<FUNCTION>
+<NAME>g_param_values_cmp</NAME>
+<RETURNS>gint 		</RETURNS>
+GParamSpec    *pspec, const GValue  *value1, const GValue  *value2
+</FUNCTION>
+<FUNCTION>
+<NAME>g_param_spec_get_name</NAME>
+<RETURNS>const gchar  *   </RETURNS>
+GParamSpec    *pspec
+</FUNCTION>
+<FUNCTION>
+<NAME>g_param_spec_get_nick</NAME>
+<RETURNS>const gchar  *   </RETURNS>
+GParamSpec    *pspec
+</FUNCTION>
+<FUNCTION>
+<NAME>g_param_spec_get_blurb</NAME>
+<RETURNS>const gchar  *   </RETURNS>
+GParamSpec    *pspec
+</FUNCTION>
+<FUNCTION>
+<NAME>g_value_set_param</NAME>
+<RETURNS>void             </RETURNS>
+GValue	       *value, GParamSpec    *param
+</FUNCTION>
+<FUNCTION>
+<NAME>g_value_get_param</NAME>
+<RETURNS>GParamSpec *     </RETURNS>
+const GValue  *value
+</FUNCTION>
+<FUNCTION>
+<NAME>g_value_dup_param</NAME>
+<RETURNS>GParamSpec *     </RETURNS>
+const GValue  *value
+</FUNCTION>
+<FUNCTION>
+<NAME>g_value_take_param</NAME>
+<RETURNS>void            </RETURNS>
+GValue        *value, GParamSpec    *param
+</FUNCTION>
+<FUNCTION>
+<NAME>g_value_set_param_take_ownership</NAME>
+<DEPRECATED/>
+<RETURNS>void            </RETURNS>
+GValue        *value, GParamSpec    *param
+</FUNCTION>
+<FUNCTION>
+<NAME>g_param_spec_get_default_value</NAME>
+<RETURNS>const GValue  *  </RETURNS>
+GParamSpec    *pspec
+</FUNCTION>
+<FUNCTION>
+<NAME>g_param_spec_get_name_quark</NAME>
+<RETURNS>GQuark           </RETURNS>
+GParamSpec    *pspec
+</FUNCTION>
+<STRUCT>
+<NAME>GParamSpecTypeInfo</NAME>
+struct _GParamSpecTypeInfo
+{
+  /* type system portion */
+  guint16         instance_size;                               /* obligatory */
+  guint16         n_preallocs;                                 /* optional */
+  void		(*instance_init)	(GParamSpec   *pspec); /* optional */
+
+  /* class portion */
+  GType           value_type;				       /* obligatory */
+  void          (*finalize)             (GParamSpec   *pspec); /* optional */
+  void          (*value_set_default)    (GParamSpec   *pspec,  /* recommended */
+					 GValue       *value);
+  gboolean      (*value_validate)       (GParamSpec   *pspec,  /* optional */
+					 GValue       *value);
+  gint          (*values_cmp)           (GParamSpec   *pspec,  /* recommended */
+					 const GValue *value1,
+					 const GValue *value2);
+};
+</STRUCT>
+<FUNCTION>
+<NAME>g_param_type_register_static</NAME>
+<RETURNS>GType 	</RETURNS>
+const gchar		  *name, const GParamSpecTypeInfo *pspec_info
+</FUNCTION>
+<FUNCTION>
+<NAME>g_param_spec_internal</NAME>
+<RETURNS>gpointer 	</RETURNS>
+GType	        param_type, const gchar   *name, const gchar   *nick, const gchar   *blurb, GParamFlags    flags
+</FUNCTION>
+<FUNCTION>
+<NAME>g_param_spec_pool_new</NAME>
+<RETURNS>GParamSpecPool * </RETURNS>
+gboolean	type_prefixing
+</FUNCTION>
+<FUNCTION>
+<NAME>g_param_spec_pool_insert</NAME>
+<RETURNS>void 		</RETURNS>
+GParamSpecPool	*pool, GParamSpec	*pspec, GType		 owner_type
+</FUNCTION>
+<FUNCTION>
+<NAME>g_param_spec_pool_remove</NAME>
+<RETURNS>void 		</RETURNS>
+GParamSpecPool	*pool, GParamSpec	*pspec
+</FUNCTION>
+<FUNCTION>
+<NAME>g_param_spec_pool_lookup</NAME>
+<RETURNS>GParamSpec *	</RETURNS>
+GParamSpecPool	*pool, const gchar	*param_name, GType		 owner_type, gboolean	 walk_ancestors
+</FUNCTION>
+<FUNCTION>
+<NAME>g_param_spec_pool_list_owned</NAME>
+<RETURNS>GList *		</RETURNS>
+GParamSpecPool	*pool, GType		 owner_type
+</FUNCTION>
+<FUNCTION>
+<NAME>g_param_spec_pool_list</NAME>
+<RETURNS>GParamSpec **	</RETURNS>
+GParamSpecPool	*pool, GType		 owner_type, guint		*n_pspecs_p
+</FUNCTION>
+<STRUCT>
+<NAME>GParamSpecPool</NAME>
+</STRUCT>
+<MACRO>
+<NAME>G_TYPE_PARAM_CHAR</NAME>
+#define	G_TYPE_PARAM_CHAR		   (g_param_spec_types[0])
+</MACRO>
+<MACRO>
+<NAME>G_IS_PARAM_SPEC_CHAR</NAME>
+#define G_IS_PARAM_SPEC_CHAR(pspec)        (G_TYPE_CHECK_INSTANCE_TYPE ((pspec), G_TYPE_PARAM_CHAR))
+</MACRO>
+<MACRO>
+<NAME>G_PARAM_SPEC_CHAR</NAME>
+#define G_PARAM_SPEC_CHAR(pspec)           (G_TYPE_CHECK_INSTANCE_CAST ((pspec), G_TYPE_PARAM_CHAR, GParamSpecChar))
+</MACRO>
+<MACRO>
+<NAME>G_TYPE_PARAM_UCHAR</NAME>
+#define	G_TYPE_PARAM_UCHAR		   (g_param_spec_types[1])
+</MACRO>
+<MACRO>
+<NAME>G_IS_PARAM_SPEC_UCHAR</NAME>
+#define G_IS_PARAM_SPEC_UCHAR(pspec)       (G_TYPE_CHECK_INSTANCE_TYPE ((pspec), G_TYPE_PARAM_UCHAR))
+</MACRO>
+<MACRO>
+<NAME>G_PARAM_SPEC_UCHAR</NAME>
+#define G_PARAM_SPEC_UCHAR(pspec)          (G_TYPE_CHECK_INSTANCE_CAST ((pspec), G_TYPE_PARAM_UCHAR, GParamSpecUChar))
+</MACRO>
+<MACRO>
+<NAME>G_TYPE_PARAM_BOOLEAN</NAME>
+#define	G_TYPE_PARAM_BOOLEAN		   (g_param_spec_types[2])
+</MACRO>
+<MACRO>
+<NAME>G_IS_PARAM_SPEC_BOOLEAN</NAME>
+#define G_IS_PARAM_SPEC_BOOLEAN(pspec)     (G_TYPE_CHECK_INSTANCE_TYPE ((pspec), G_TYPE_PARAM_BOOLEAN))
+</MACRO>
+<MACRO>
+<NAME>G_PARAM_SPEC_BOOLEAN</NAME>
+#define G_PARAM_SPEC_BOOLEAN(pspec)        (G_TYPE_CHECK_INSTANCE_CAST ((pspec), G_TYPE_PARAM_BOOLEAN, GParamSpecBoolean))
+</MACRO>
+<MACRO>
+<NAME>G_TYPE_PARAM_INT</NAME>
+#define	G_TYPE_PARAM_INT		   (g_param_spec_types[3])
+</MACRO>
+<MACRO>
+<NAME>G_IS_PARAM_SPEC_INT</NAME>
+#define G_IS_PARAM_SPEC_INT(pspec)         (G_TYPE_CHECK_INSTANCE_TYPE ((pspec), G_TYPE_PARAM_INT))
+</MACRO>
+<MACRO>
+<NAME>G_PARAM_SPEC_INT</NAME>
+#define G_PARAM_SPEC_INT(pspec)            (G_TYPE_CHECK_INSTANCE_CAST ((pspec), G_TYPE_PARAM_INT, GParamSpecInt))
+</MACRO>
+<MACRO>
+<NAME>G_TYPE_PARAM_UINT</NAME>
+#define	G_TYPE_PARAM_UINT		   (g_param_spec_types[4])
+</MACRO>
+<MACRO>
+<NAME>G_IS_PARAM_SPEC_UINT</NAME>
+#define G_IS_PARAM_SPEC_UINT(pspec)        (G_TYPE_CHECK_INSTANCE_TYPE ((pspec), G_TYPE_PARAM_UINT))
+</MACRO>
+<MACRO>
+<NAME>G_PARAM_SPEC_UINT</NAME>
+#define G_PARAM_SPEC_UINT(pspec)           (G_TYPE_CHECK_INSTANCE_CAST ((pspec), G_TYPE_PARAM_UINT, GParamSpecUInt))
+</MACRO>
+<MACRO>
+<NAME>G_TYPE_PARAM_LONG</NAME>
+#define	G_TYPE_PARAM_LONG		   (g_param_spec_types[5])
+</MACRO>
+<MACRO>
+<NAME>G_IS_PARAM_SPEC_LONG</NAME>
+#define G_IS_PARAM_SPEC_LONG(pspec)        (G_TYPE_CHECK_INSTANCE_TYPE ((pspec), G_TYPE_PARAM_LONG))
+</MACRO>
+<MACRO>
+<NAME>G_PARAM_SPEC_LONG</NAME>
+#define G_PARAM_SPEC_LONG(pspec)           (G_TYPE_CHECK_INSTANCE_CAST ((pspec), G_TYPE_PARAM_LONG, GParamSpecLong))
+</MACRO>
+<MACRO>
+<NAME>G_TYPE_PARAM_ULONG</NAME>
+#define	G_TYPE_PARAM_ULONG		   (g_param_spec_types[6])
+</MACRO>
+<MACRO>
+<NAME>G_IS_PARAM_SPEC_ULONG</NAME>
+#define G_IS_PARAM_SPEC_ULONG(pspec)       (G_TYPE_CHECK_INSTANCE_TYPE ((pspec), G_TYPE_PARAM_ULONG))
+</MACRO>
+<MACRO>
+<NAME>G_PARAM_SPEC_ULONG</NAME>
+#define G_PARAM_SPEC_ULONG(pspec)          (G_TYPE_CHECK_INSTANCE_CAST ((pspec), G_TYPE_PARAM_ULONG, GParamSpecULong))
+</MACRO>
+<MACRO>
+<NAME>G_TYPE_PARAM_INT64</NAME>
+#define	G_TYPE_PARAM_INT64		   (g_param_spec_types[7])
+</MACRO>
+<MACRO>
+<NAME>G_IS_PARAM_SPEC_INT64</NAME>
+#define G_IS_PARAM_SPEC_INT64(pspec)       (G_TYPE_CHECK_INSTANCE_TYPE ((pspec), G_TYPE_PARAM_INT64))
+</MACRO>
+<MACRO>
+<NAME>G_PARAM_SPEC_INT64</NAME>
+#define G_PARAM_SPEC_INT64(pspec)          (G_TYPE_CHECK_INSTANCE_CAST ((pspec), G_TYPE_PARAM_INT64, GParamSpecInt64))
+</MACRO>
+<MACRO>
+<NAME>G_TYPE_PARAM_UINT64</NAME>
+#define	G_TYPE_PARAM_UINT64		   (g_param_spec_types[8])
+</MACRO>
+<MACRO>
+<NAME>G_IS_PARAM_SPEC_UINT64</NAME>
+#define G_IS_PARAM_SPEC_UINT64(pspec)      (G_TYPE_CHECK_INSTANCE_TYPE ((pspec), G_TYPE_PARAM_UINT64))
+</MACRO>
+<MACRO>
+<NAME>G_PARAM_SPEC_UINT64</NAME>
+#define G_PARAM_SPEC_UINT64(pspec)         (G_TYPE_CHECK_INSTANCE_CAST ((pspec), G_TYPE_PARAM_UINT64, GParamSpecUInt64))
+</MACRO>
+<MACRO>
+<NAME>G_TYPE_PARAM_UNICHAR</NAME>
+#define	G_TYPE_PARAM_UNICHAR		   (g_param_spec_types[9])
+</MACRO>
+<MACRO>
+<NAME>G_PARAM_SPEC_UNICHAR</NAME>
+#define G_PARAM_SPEC_UNICHAR(pspec)        (G_TYPE_CHECK_INSTANCE_CAST ((pspec), G_TYPE_PARAM_UNICHAR, GParamSpecUnichar))
+</MACRO>
+<MACRO>
+<NAME>G_IS_PARAM_SPEC_UNICHAR</NAME>
+#define G_IS_PARAM_SPEC_UNICHAR(pspec)     (G_TYPE_CHECK_INSTANCE_TYPE ((pspec), G_TYPE_PARAM_UNICHAR))
+</MACRO>
+<MACRO>
+<NAME>G_TYPE_PARAM_ENUM</NAME>
+#define	G_TYPE_PARAM_ENUM		   (g_param_spec_types[10])
+</MACRO>
+<MACRO>
+<NAME>G_IS_PARAM_SPEC_ENUM</NAME>
+#define G_IS_PARAM_SPEC_ENUM(pspec)        (G_TYPE_CHECK_INSTANCE_TYPE ((pspec), G_TYPE_PARAM_ENUM))
+</MACRO>
+<MACRO>
+<NAME>G_PARAM_SPEC_ENUM</NAME>
+#define G_PARAM_SPEC_ENUM(pspec)           (G_TYPE_CHECK_INSTANCE_CAST ((pspec), G_TYPE_PARAM_ENUM, GParamSpecEnum))
+</MACRO>
+<MACRO>
+<NAME>G_TYPE_PARAM_FLAGS</NAME>
+#define	G_TYPE_PARAM_FLAGS		   (g_param_spec_types[11])
+</MACRO>
+<MACRO>
+<NAME>G_IS_PARAM_SPEC_FLAGS</NAME>
+#define G_IS_PARAM_SPEC_FLAGS(pspec)       (G_TYPE_CHECK_INSTANCE_TYPE ((pspec), G_TYPE_PARAM_FLAGS))
+</MACRO>
+<MACRO>
+<NAME>G_PARAM_SPEC_FLAGS</NAME>
+#define G_PARAM_SPEC_FLAGS(pspec)          (G_TYPE_CHECK_INSTANCE_CAST ((pspec), G_TYPE_PARAM_FLAGS, GParamSpecFlags))
+</MACRO>
+<MACRO>
+<NAME>G_TYPE_PARAM_FLOAT</NAME>
+#define	G_TYPE_PARAM_FLOAT		   (g_param_spec_types[12])
+</MACRO>
+<MACRO>
+<NAME>G_IS_PARAM_SPEC_FLOAT</NAME>
+#define G_IS_PARAM_SPEC_FLOAT(pspec)       (G_TYPE_CHECK_INSTANCE_TYPE ((pspec), G_TYPE_PARAM_FLOAT))
+</MACRO>
+<MACRO>
+<NAME>G_PARAM_SPEC_FLOAT</NAME>
+#define G_PARAM_SPEC_FLOAT(pspec)          (G_TYPE_CHECK_INSTANCE_CAST ((pspec), G_TYPE_PARAM_FLOAT, GParamSpecFloat))
+</MACRO>
+<MACRO>
+<NAME>G_TYPE_PARAM_DOUBLE</NAME>
+#define	G_TYPE_PARAM_DOUBLE		   (g_param_spec_types[13])
+</MACRO>
+<MACRO>
+<NAME>G_IS_PARAM_SPEC_DOUBLE</NAME>
+#define G_IS_PARAM_SPEC_DOUBLE(pspec)      (G_TYPE_CHECK_INSTANCE_TYPE ((pspec), G_TYPE_PARAM_DOUBLE))
+</MACRO>
+<MACRO>
+<NAME>G_PARAM_SPEC_DOUBLE</NAME>
+#define G_PARAM_SPEC_DOUBLE(pspec)         (G_TYPE_CHECK_INSTANCE_CAST ((pspec), G_TYPE_PARAM_DOUBLE, GParamSpecDouble))
+</MACRO>
+<MACRO>
+<NAME>G_TYPE_PARAM_STRING</NAME>
+#define	G_TYPE_PARAM_STRING		   (g_param_spec_types[14])
+</MACRO>
+<MACRO>
+<NAME>G_IS_PARAM_SPEC_STRING</NAME>
+#define G_IS_PARAM_SPEC_STRING(pspec)      (G_TYPE_CHECK_INSTANCE_TYPE ((pspec), G_TYPE_PARAM_STRING))
+</MACRO>
+<MACRO>
+<NAME>G_PARAM_SPEC_STRING</NAME>
+#define G_PARAM_SPEC_STRING(pspec)         (G_TYPE_CHECK_INSTANCE_CAST ((pspec), G_TYPE_PARAM_STRING, GParamSpecString))
+</MACRO>
+<MACRO>
+<NAME>G_TYPE_PARAM_PARAM</NAME>
+#define	G_TYPE_PARAM_PARAM		   (g_param_spec_types[15])
+</MACRO>
+<MACRO>
+<NAME>G_IS_PARAM_SPEC_PARAM</NAME>
+#define G_IS_PARAM_SPEC_PARAM(pspec)       (G_TYPE_CHECK_INSTANCE_TYPE ((pspec), G_TYPE_PARAM_PARAM))
+</MACRO>
+<MACRO>
+<NAME>G_PARAM_SPEC_PARAM</NAME>
+#define G_PARAM_SPEC_PARAM(pspec)          (G_TYPE_CHECK_INSTANCE_CAST ((pspec), G_TYPE_PARAM_PARAM, GParamSpecParam))
+</MACRO>
+<MACRO>
+<NAME>G_TYPE_PARAM_BOXED</NAME>
+#define	G_TYPE_PARAM_BOXED		   (g_param_spec_types[16])
+</MACRO>
+<MACRO>
+<NAME>G_IS_PARAM_SPEC_BOXED</NAME>
+#define G_IS_PARAM_SPEC_BOXED(pspec)       (G_TYPE_CHECK_INSTANCE_TYPE ((pspec), G_TYPE_PARAM_BOXED))
+</MACRO>
+<MACRO>
+<NAME>G_PARAM_SPEC_BOXED</NAME>
+#define G_PARAM_SPEC_BOXED(pspec)          (G_TYPE_CHECK_INSTANCE_CAST ((pspec), G_TYPE_PARAM_BOXED, GParamSpecBoxed))
+</MACRO>
+<MACRO>
+<NAME>G_TYPE_PARAM_POINTER</NAME>
+#define	G_TYPE_PARAM_POINTER		   (g_param_spec_types[17])
+</MACRO>
+<MACRO>
+<NAME>G_IS_PARAM_SPEC_POINTER</NAME>
+#define G_IS_PARAM_SPEC_POINTER(pspec)     (G_TYPE_CHECK_INSTANCE_TYPE ((pspec), G_TYPE_PARAM_POINTER))
+</MACRO>
+<MACRO>
+<NAME>G_PARAM_SPEC_POINTER</NAME>
+#define G_PARAM_SPEC_POINTER(pspec)        (G_TYPE_CHECK_INSTANCE_CAST ((pspec), G_TYPE_PARAM_POINTER, GParamSpecPointer))
+</MACRO>
+<MACRO>
+<NAME>G_TYPE_PARAM_VALUE_ARRAY</NAME>
+#define	G_TYPE_PARAM_VALUE_ARRAY	   (g_param_spec_types[18])
+</MACRO>
+<MACRO>
+<NAME>G_IS_PARAM_SPEC_VALUE_ARRAY</NAME>
+#define G_IS_PARAM_SPEC_VALUE_ARRAY(pspec) (G_TYPE_CHECK_INSTANCE_TYPE ((pspec), G_TYPE_PARAM_VALUE_ARRAY))
+</MACRO>
+<MACRO>
+<NAME>G_PARAM_SPEC_VALUE_ARRAY</NAME>
+#define G_PARAM_SPEC_VALUE_ARRAY(pspec)    (G_TYPE_CHECK_INSTANCE_CAST ((pspec), G_TYPE_PARAM_VALUE_ARRAY, GParamSpecValueArray))
+</MACRO>
+<MACRO>
+<NAME>G_TYPE_PARAM_OBJECT</NAME>
+#define	G_TYPE_PARAM_OBJECT		   (g_param_spec_types[19])
+</MACRO>
+<MACRO>
+<NAME>G_IS_PARAM_SPEC_OBJECT</NAME>
+#define G_IS_PARAM_SPEC_OBJECT(pspec)      (G_TYPE_CHECK_INSTANCE_TYPE ((pspec), G_TYPE_PARAM_OBJECT))
+</MACRO>
+<MACRO>
+<NAME>G_PARAM_SPEC_OBJECT</NAME>
+#define G_PARAM_SPEC_OBJECT(pspec)         (G_TYPE_CHECK_INSTANCE_CAST ((pspec), G_TYPE_PARAM_OBJECT, GParamSpecObject))
+</MACRO>
+<MACRO>
+<NAME>G_TYPE_PARAM_OVERRIDE</NAME>
+#define	G_TYPE_PARAM_OVERRIDE		   (g_param_spec_types[20])
+</MACRO>
+<MACRO>
+<NAME>G_IS_PARAM_SPEC_OVERRIDE</NAME>
+#define G_IS_PARAM_SPEC_OVERRIDE(pspec)    (G_TYPE_CHECK_INSTANCE_TYPE ((pspec), G_TYPE_PARAM_OVERRIDE))
+</MACRO>
+<MACRO>
+<NAME>G_PARAM_SPEC_OVERRIDE</NAME>
+#define G_PARAM_SPEC_OVERRIDE(pspec)       (G_TYPE_CHECK_INSTANCE_CAST ((pspec), G_TYPE_PARAM_OVERRIDE, GParamSpecOverride))
+</MACRO>
+<MACRO>
+<NAME>G_TYPE_PARAM_GTYPE</NAME>
+#define	G_TYPE_PARAM_GTYPE		   (g_param_spec_types[21])
+</MACRO>
+<MACRO>
+<NAME>G_IS_PARAM_SPEC_GTYPE</NAME>
+#define G_IS_PARAM_SPEC_GTYPE(pspec)       (G_TYPE_CHECK_INSTANCE_TYPE ((pspec), G_TYPE_PARAM_GTYPE))
+</MACRO>
+<MACRO>
+<NAME>G_PARAM_SPEC_GTYPE</NAME>
+#define G_PARAM_SPEC_GTYPE(pspec)          (G_TYPE_CHECK_INSTANCE_CAST ((pspec), G_TYPE_PARAM_GTYPE, GParamSpecGType))
+</MACRO>
+<MACRO>
+<NAME>G_TYPE_PARAM_VARIANT</NAME>
+#define G_TYPE_PARAM_VARIANT                (g_param_spec_types[22])
+</MACRO>
+<MACRO>
+<NAME>G_IS_PARAM_SPEC_VARIANT</NAME>
+#define G_IS_PARAM_SPEC_VARIANT(pspec)      (G_TYPE_CHECK_INSTANCE_TYPE ((pspec), G_TYPE_PARAM_VARIANT))
+</MACRO>
+<MACRO>
+<NAME>G_PARAM_SPEC_VARIANT</NAME>
+#define G_PARAM_SPEC_VARIANT(pspec)         (G_TYPE_CHECK_INSTANCE_CAST ((pspec), G_TYPE_PARAM_VARIANT, GParamSpecVariant))
+</MACRO>
+<STRUCT>
+<NAME>GParamSpecChar</NAME>
+struct _GParamSpecChar
+{
+  GParamSpec    parent_instance;
+  
+  gint8         minimum;
+  gint8         maximum;
+  gint8         default_value;
+};
+</STRUCT>
+<STRUCT>
+<NAME>GParamSpecUChar</NAME>
+struct _GParamSpecUChar
+{
+  GParamSpec    parent_instance;
+  
+  guint8        minimum;
+  guint8        maximum;
+  guint8        default_value;
+};
+</STRUCT>
+<STRUCT>
+<NAME>GParamSpecBoolean</NAME>
+struct _GParamSpecBoolean
+{
+  GParamSpec    parent_instance;
+  
+  gboolean      default_value;
+};
+</STRUCT>
+<STRUCT>
+<NAME>GParamSpecInt</NAME>
+struct _GParamSpecInt
+{
+  GParamSpec    parent_instance;
+  
+  gint          minimum;
+  gint          maximum;
+  gint          default_value;
+};
+</STRUCT>
+<STRUCT>
+<NAME>GParamSpecUInt</NAME>
+struct _GParamSpecUInt
+{
+  GParamSpec    parent_instance;
+  
+  guint         minimum;
+  guint         maximum;
+  guint         default_value;
+};
+</STRUCT>
+<STRUCT>
+<NAME>GParamSpecLong</NAME>
+struct _GParamSpecLong
+{
+  GParamSpec    parent_instance;
+  
+  glong         minimum;
+  glong         maximum;
+  glong         default_value;
+};
+</STRUCT>
+<STRUCT>
+<NAME>GParamSpecULong</NAME>
+struct _GParamSpecULong
+{
+  GParamSpec    parent_instance;
+  
+  gulong        minimum;
+  gulong        maximum;
+  gulong        default_value;
+};
+</STRUCT>
+<STRUCT>
+<NAME>GParamSpecInt64</NAME>
+struct _GParamSpecInt64
+{
+  GParamSpec    parent_instance;
+  
+  gint64        minimum;
+  gint64        maximum;
+  gint64        default_value;
+};
+</STRUCT>
+<STRUCT>
+<NAME>GParamSpecUInt64</NAME>
+struct _GParamSpecUInt64
+{
+  GParamSpec    parent_instance;
+  
+  guint64       minimum;
+  guint64       maximum;
+  guint64       default_value;
+};
+</STRUCT>
+<STRUCT>
+<NAME>GParamSpecUnichar</NAME>
+struct _GParamSpecUnichar
+{
+  GParamSpec    parent_instance;
+  
+  gunichar      default_value;
+};
+</STRUCT>
+<STRUCT>
+<NAME>GParamSpecEnum</NAME>
+struct _GParamSpecEnum
+{
+  GParamSpec    parent_instance;
+  
+  GEnumClass   *enum_class;
+  gint          default_value;
+};
+</STRUCT>
+<STRUCT>
+<NAME>GParamSpecFlags</NAME>
+struct _GParamSpecFlags
+{
+  GParamSpec    parent_instance;
+  
+  GFlagsClass  *flags_class;
+  guint         default_value;
+};
+</STRUCT>
+<STRUCT>
+<NAME>GParamSpecFloat</NAME>
+struct _GParamSpecFloat
+{
+  GParamSpec    parent_instance;
+  
+  gfloat        minimum;
+  gfloat        maximum;
+  gfloat        default_value;
+  gfloat        epsilon;
+};
+</STRUCT>
+<STRUCT>
+<NAME>GParamSpecDouble</NAME>
+struct _GParamSpecDouble
+{
+  GParamSpec    parent_instance;
+  
+  gdouble       minimum;
+  gdouble       maximum;
+  gdouble       default_value;
+  gdouble       epsilon;
+};
+</STRUCT>
+<STRUCT>
+<NAME>GParamSpecString</NAME>
+struct _GParamSpecString
+{
+  GParamSpec    parent_instance;
+  
+  gchar        *default_value;
+  gchar        *cset_first;
+  gchar        *cset_nth;
+  gchar         substitutor;
+  guint         null_fold_if_empty : 1;
+  guint         ensure_non_null : 1;
+};
+</STRUCT>
+<STRUCT>
+<NAME>GParamSpecParam</NAME>
+struct _GParamSpecParam
+{
+  GParamSpec    parent_instance;
+};
+</STRUCT>
+<STRUCT>
+<NAME>GParamSpecBoxed</NAME>
+struct _GParamSpecBoxed
+{
+  GParamSpec    parent_instance;
+};
+</STRUCT>
+<STRUCT>
+<NAME>GParamSpecPointer</NAME>
+struct _GParamSpecPointer
+{
+  GParamSpec    parent_instance;
+};
+</STRUCT>
+<STRUCT>
+<NAME>GParamSpecValueArray</NAME>
+struct _GParamSpecValueArray
+{
+  GParamSpec    parent_instance;
+  GParamSpec   *element_spec;
+  guint		fixed_n_elements;
+};
+</STRUCT>
+<STRUCT>
+<NAME>GParamSpecObject</NAME>
+struct _GParamSpecObject
+{
+  GParamSpec    parent_instance;
+};
+</STRUCT>
+<STRUCT>
+<NAME>GParamSpecOverride</NAME>
+struct _GParamSpecOverride
+{
+  /*< private >*/
+  GParamSpec    parent_instance;
+  GParamSpec   *overridden;
+};
+</STRUCT>
+<STRUCT>
+<NAME>GParamSpecGType</NAME>
+struct _GParamSpecGType
+{
+  GParamSpec    parent_instance;
+  GType         is_a_type;
+};
+</STRUCT>
+<STRUCT>
+<NAME>GParamSpecVariant</NAME>
+struct _GParamSpecVariant
+{
+  GParamSpec    parent_instance;
+  GVariantType *type;
+  GVariant     *default_value;
+
+  /*< private >*/
+  gpointer      padding[4];
+};
+</STRUCT>
+<FUNCTION>
+<NAME>g_param_spec_char</NAME>
+<RETURNS>GParamSpec *	</RETURNS>
+const gchar	 *name, const gchar	 *nick, const gchar	 *blurb, gint8		  minimum, gint8		  maximum, gint8		  default_value, GParamFlags	  flags
+</FUNCTION>
+<FUNCTION>
+<NAME>g_param_spec_uchar</NAME>
+<RETURNS>GParamSpec *	</RETURNS>
+const gchar	 *name, const gchar	 *nick, const gchar	 *blurb, guint8	  minimum, guint8	  maximum, guint8	  default_value, GParamFlags	  flags
+</FUNCTION>
+<FUNCTION>
+<NAME>g_param_spec_boolean</NAME>
+<RETURNS>GParamSpec *	</RETURNS>
+const gchar	 *name, const gchar	 *nick, const gchar	 *blurb, gboolean	  default_value, GParamFlags	  flags
+</FUNCTION>
+<FUNCTION>
+<NAME>g_param_spec_int</NAME>
+<RETURNS>GParamSpec *	</RETURNS>
+const gchar	 *name, const gchar	 *nick, const gchar	 *blurb, gint		  minimum, gint		  maximum, gint		  default_value, GParamFlags	  flags
+</FUNCTION>
+<FUNCTION>
+<NAME>g_param_spec_uint</NAME>
+<RETURNS>GParamSpec *	</RETURNS>
+const gchar	 *name, const gchar	 *nick, const gchar	 *blurb, guint		  minimum, guint		  maximum, guint		  default_value, GParamFlags	  flags
+</FUNCTION>
+<FUNCTION>
+<NAME>g_param_spec_long</NAME>
+<RETURNS>GParamSpec *	</RETURNS>
+const gchar	 *name, const gchar	 *nick, const gchar	 *blurb, glong		  minimum, glong		  maximum, glong		  default_value, GParamFlags	  flags
+</FUNCTION>
+<FUNCTION>
+<NAME>g_param_spec_ulong</NAME>
+<RETURNS>GParamSpec *	</RETURNS>
+const gchar	 *name, const gchar	 *nick, const gchar	 *blurb, gulong	  minimum, gulong	  maximum, gulong	  default_value, GParamFlags	  flags
+</FUNCTION>
+<FUNCTION>
+<NAME>g_param_spec_int64</NAME>
+<RETURNS>GParamSpec *	</RETURNS>
+const gchar	 *name, const gchar	 *nick, const gchar	 *blurb, gint64       	  minimum, gint64       	  maximum, gint64       	  default_value, GParamFlags	  flags
+</FUNCTION>
+<FUNCTION>
+<NAME>g_param_spec_uint64</NAME>
+<RETURNS>GParamSpec *	</RETURNS>
+const gchar	 *name, const gchar	 *nick, const gchar	 *blurb, guint64	  minimum, guint64	  maximum, guint64	  default_value, GParamFlags	  flags
+</FUNCTION>
+<FUNCTION>
+<NAME>g_param_spec_unichar</NAME>
+<RETURNS>GParamSpec *	</RETURNS>
+const gchar    *name, const gchar    *nick, const gchar    *blurb, gunichar	  default_value, GParamFlags     flags
+</FUNCTION>
+<FUNCTION>
+<NAME>g_param_spec_enum</NAME>
+<RETURNS>GParamSpec *	</RETURNS>
+const gchar	 *name, const gchar	 *nick, const gchar	 *blurb, GType		  enum_type, gint		  default_value, GParamFlags	  flags
+</FUNCTION>
+<FUNCTION>
+<NAME>g_param_spec_flags</NAME>
+<RETURNS>GParamSpec *	</RETURNS>
+const gchar	 *name, const gchar	 *nick, const gchar	 *blurb, GType		  flags_type, guint		  default_value, GParamFlags	  flags
+</FUNCTION>
+<FUNCTION>
+<NAME>g_param_spec_float</NAME>
+<RETURNS>GParamSpec *	</RETURNS>
+const gchar	 *name, const gchar	 *nick, const gchar	 *blurb, gfloat	  minimum, gfloat	  maximum, gfloat	  default_value, GParamFlags	  flags
+</FUNCTION>
+<FUNCTION>
+<NAME>g_param_spec_double</NAME>
+<RETURNS>GParamSpec *	</RETURNS>
+const gchar	 *name, const gchar	 *nick, const gchar	 *blurb, gdouble	  minimum, gdouble	  maximum, gdouble	  default_value, GParamFlags	  flags
+</FUNCTION>
+<FUNCTION>
+<NAME>g_param_spec_string</NAME>
+<RETURNS>GParamSpec *	</RETURNS>
+const gchar	 *name, const gchar	 *nick, const gchar	 *blurb, const gchar	 *default_value, GParamFlags	  flags
+</FUNCTION>
+<FUNCTION>
+<NAME>g_param_spec_param</NAME>
+<RETURNS>GParamSpec *	</RETURNS>
+const gchar	 *name, const gchar	 *nick, const gchar	 *blurb, GType		  param_type, GParamFlags	  flags
+</FUNCTION>
+<FUNCTION>
+<NAME>g_param_spec_boxed</NAME>
+<RETURNS>GParamSpec *	</RETURNS>
+const gchar	 *name, const gchar	 *nick, const gchar	 *blurb, GType		  boxed_type, GParamFlags	  flags
+</FUNCTION>
+<FUNCTION>
+<NAME>g_param_spec_pointer</NAME>
+<RETURNS>GParamSpec *	</RETURNS>
+const gchar	 *name, const gchar	 *nick, const gchar	 *blurb, GParamFlags	  flags
+</FUNCTION>
+<FUNCTION>
+<NAME>g_param_spec_value_array</NAME>
+<RETURNS>GParamSpec *	</RETURNS>
+const gchar	 *name, const gchar	 *nick, const gchar	 *blurb, GParamSpec	 *element_spec, GParamFlags	  flags
+</FUNCTION>
+<FUNCTION>
+<NAME>g_param_spec_object</NAME>
+<RETURNS>GParamSpec *	</RETURNS>
+const gchar	 *name, const gchar	 *nick, const gchar	 *blurb, GType		  object_type, GParamFlags	  flags
+</FUNCTION>
+<FUNCTION>
+<NAME>g_param_spec_override</NAME>
+<RETURNS>GParamSpec *	</RETURNS>
+const gchar    *name, GParamSpec     *overridden
+</FUNCTION>
+<FUNCTION>
+<NAME>g_param_spec_gtype</NAME>
+<RETURNS>GParamSpec *	</RETURNS>
+const gchar	 *name, const gchar	 *nick, const gchar	 *blurb, GType           is_a_type, GParamFlags	  flags
+</FUNCTION>
+<FUNCTION>
+<NAME>g_param_spec_variant</NAME>
+<RETURNS>GParamSpec *	</RETURNS>
+const gchar        *name, const gchar        *nick, const gchar	     *blurb, const GVariantType *type, GVariant           *default_value, GParamFlags         flags
+</FUNCTION>
+<MACRO>
+<NAME>GOBJECT_VAR</NAME>
+#      define GOBJECT_VAR extern
+</MACRO>
+<VARIABLE>
+<NAME>g_param_spec_types</NAME>
+extern GType *g_param_spec_types;
+</VARIABLE>
+<TYPEDEF>
+<NAME>GSignalCMarshaller</NAME>
+typedef GClosureMarshal			 GSignalCMarshaller;
+</TYPEDEF>
+<TYPEDEF>
+<NAME>GSignalCVaMarshaller</NAME>
+typedef GVaClosureMarshal		 GSignalCVaMarshaller;
+</TYPEDEF>
+<USER_FUNCTION>
+<NAME>GSignalEmissionHook</NAME>
+<RETURNS>gboolean </RETURNS>
+GSignalInvocationHint *ihint,
+					 guint			n_param_values,
+					 const GValue	       *param_values,
+					 gpointer		data
+</USER_FUNCTION>
+<USER_FUNCTION>
+<NAME>GSignalAccumulator</NAME>
+<RETURNS>gboolean </RETURNS>
+GSignalInvocationHint *ihint,
+					 GValue		       *return_accu,
+					 const GValue	       *handler_return,
+					 gpointer               data
+</USER_FUNCTION>
+<ENUM>
+<NAME>GSignalFlags</NAME>
+typedef enum
+{
+  G_SIGNAL_RUN_FIRST	= 1 << 0,
+  G_SIGNAL_RUN_LAST	= 1 << 1,
+  G_SIGNAL_RUN_CLEANUP	= 1 << 2,
+  G_SIGNAL_NO_RECURSE	= 1 << 3,
+  G_SIGNAL_DETAILED	= 1 << 4,
+  G_SIGNAL_ACTION	= 1 << 5,
+  G_SIGNAL_NO_HOOKS	= 1 << 6,
+  G_SIGNAL_MUST_COLLECT = 1 << 7,
+  G_SIGNAL_DEPRECATED   = 1 << 8
+} GSignalFlags;
+</ENUM>
+<MACRO>
+<NAME>G_SIGNAL_FLAGS_MASK</NAME>
+#define G_SIGNAL_FLAGS_MASK  0x1ff
+</MACRO>
+<ENUM>
+<NAME>GConnectFlags</NAME>
+typedef enum
+{
+  G_CONNECT_AFTER	= 1 << 0,
+  G_CONNECT_SWAPPED	= 1 << 1
+} GConnectFlags;
+</ENUM>
+<ENUM>
+<NAME>GSignalMatchType</NAME>
+typedef enum
+{
+  G_SIGNAL_MATCH_ID	   = 1 << 0,
+  G_SIGNAL_MATCH_DETAIL	   = 1 << 1,
+  G_SIGNAL_MATCH_CLOSURE   = 1 << 2,
+  G_SIGNAL_MATCH_FUNC	   = 1 << 3,
+  G_SIGNAL_MATCH_DATA	   = 1 << 4,
+  G_SIGNAL_MATCH_UNBLOCKED = 1 << 5
+} GSignalMatchType;
+</ENUM>
+<MACRO>
+<NAME>G_SIGNAL_MATCH_MASK</NAME>
+#define G_SIGNAL_MATCH_MASK  0x3f
+</MACRO>
+<MACRO>
+<NAME>G_SIGNAL_TYPE_STATIC_SCOPE</NAME>
+#define	G_SIGNAL_TYPE_STATIC_SCOPE (G_TYPE_FLAG_RESERVED_ID_BIT)
+</MACRO>
+<STRUCT>
+<NAME>GSignalInvocationHint</NAME>
+struct _GSignalInvocationHint
+{
+  guint		signal_id;
+  GQuark	detail;
+  GSignalFlags	run_type;
+};
+</STRUCT>
+<STRUCT>
+<NAME>GSignalQuery</NAME>
+struct _GSignalQuery
+{
+  guint		signal_id;
+  const gchar  *signal_name;
+  GType		itype;
+  GSignalFlags	signal_flags;
+  GType		return_type; /* mangled with G_SIGNAL_TYPE_STATIC_SCOPE flag */
+  guint		n_params;
+  const GType  *param_types; /* mangled with G_SIGNAL_TYPE_STATIC_SCOPE flag */
+};
+</STRUCT>
+<FUNCTION>
+<NAME>g_signal_newv</NAME>
+<RETURNS>guint                  </RETURNS>
+const gchar        *signal_name, GType               itype, GSignalFlags        signal_flags, GClosure           *class_closure, GSignalAccumulator	 accumulator, gpointer		 accu_data, GSignalCMarshaller  c_marshaller, GType               return_type, guint               n_params, GType              *param_types
+</FUNCTION>
+<FUNCTION>
+<NAME>g_signal_new_valist</NAME>
+<RETURNS>guint                  </RETURNS>
+const gchar        *signal_name, GType               itype, GSignalFlags        signal_flags, GClosure           *class_closure, GSignalAccumulator	 accumulator, gpointer		 accu_data, GSignalCMarshaller  c_marshaller, GType               return_type, guint               n_params, va_list             args
+</FUNCTION>
+<FUNCTION>
+<NAME>g_signal_new</NAME>
+<RETURNS>guint                  </RETURNS>
+const gchar        *signal_name, GType               itype, GSignalFlags        signal_flags, guint               class_offset, GSignalAccumulator	 accumulator, gpointer		 accu_data, GSignalCMarshaller  c_marshaller, GType               return_type, guint               n_params, ...
+</FUNCTION>
+<FUNCTION>
+<NAME>g_signal_new_class_handler</NAME>
+<RETURNS>guint             </RETURNS>
+const gchar        *signal_name, GType               itype, GSignalFlags        signal_flags, GCallback           class_handler, GSignalAccumulator  accumulator, gpointer            accu_data, GSignalCMarshaller  c_marshaller, GType               return_type, guint               n_params, ...
+</FUNCTION>
+<FUNCTION>
+<NAME>g_signal_set_va_marshaller</NAME>
+<RETURNS>void              </RETURNS>
+guint              signal_id, GType              instance_type, GSignalCVaMarshaller va_marshaller
+</FUNCTION>
+<FUNCTION>
+<NAME>g_signal_emitv</NAME>
+<RETURNS>void                   </RETURNS>
+const GValue       *instance_and_params, guint               signal_id, GQuark              detail, GValue             *return_value
+</FUNCTION>
+<FUNCTION>
+<NAME>g_signal_emit_valist</NAME>
+<RETURNS>void                   </RETURNS>
+gpointer            instance, guint               signal_id, GQuark              detail, va_list             var_args
+</FUNCTION>
+<FUNCTION>
+<NAME>g_signal_emit</NAME>
+<RETURNS>void                   </RETURNS>
+gpointer            instance, guint               signal_id, GQuark              detail, ...
+</FUNCTION>
+<FUNCTION>
+<NAME>g_signal_emit_by_name</NAME>
+<RETURNS>void                   </RETURNS>
+gpointer            instance, const gchar        *detailed_signal, ...
+</FUNCTION>
+<FUNCTION>
+<NAME>g_signal_lookup</NAME>
+<RETURNS>guint                  </RETURNS>
+const gchar        *name, GType               itype
+</FUNCTION>
+<FUNCTION>
+<NAME>g_signal_name</NAME>
+<RETURNS>const gchar  *         </RETURNS>
+guint               signal_id
+</FUNCTION>
+<FUNCTION>
+<NAME>g_signal_query</NAME>
+<RETURNS>void                   </RETURNS>
+guint               signal_id, GSignalQuery       *query
+</FUNCTION>
+<FUNCTION>
+<NAME>g_signal_list_ids</NAME>
+<RETURNS>guint *                </RETURNS>
+GType               itype, guint              *n_ids
+</FUNCTION>
+<FUNCTION>
+<NAME>g_signal_parse_name</NAME>
+<RETURNS>gboolean 	      </RETURNS>
+const gchar	*detailed_signal, GType		 itype, guint		*signal_id_p, GQuark		*detail_p, gboolean		 force_detail_quark
+</FUNCTION>
+<FUNCTION>
+<NAME>g_signal_get_invocation_hint</NAME>
+<RETURNS>GSignalInvocationHint * </RETURNS>
+gpointer    instance
+</FUNCTION>
+<FUNCTION>
+<NAME>g_signal_stop_emission</NAME>
+<RETURNS>void 	</RETURNS>
+gpointer		  instance, guint		  signal_id, GQuark		  detail
+</FUNCTION>
+<FUNCTION>
+<NAME>g_signal_stop_emission_by_name</NAME>
+<RETURNS>void 	</RETURNS>
+gpointer		  instance, const gchar	 *detailed_signal
+</FUNCTION>
+<FUNCTION>
+<NAME>g_signal_add_emission_hook</NAME>
+<RETURNS>gulong 	</RETURNS>
+guint		  signal_id, GQuark		  detail, GSignalEmissionHook  hook_func, gpointer	       	  hook_data, GDestroyNotify	  data_destroy
+</FUNCTION>
+<FUNCTION>
+<NAME>g_signal_remove_emission_hook</NAME>
+<RETURNS>void 	</RETURNS>
+guint		  signal_id, gulong		  hook_id
+</FUNCTION>
+<FUNCTION>
+<NAME>g_signal_has_handler_pending</NAME>
+<RETURNS>gboolean  </RETURNS>
+gpointer		  instance, guint		  signal_id, GQuark		  detail, gboolean		  may_be_blocked
+</FUNCTION>
+<FUNCTION>
+<NAME>g_signal_connect_closure_by_id</NAME>
+<RETURNS>gulong 	 </RETURNS>
+gpointer		  instance, guint		  signal_id, GQuark		  detail, GClosure		 *closure, gboolean		  after
+</FUNCTION>
+<FUNCTION>
+<NAME>g_signal_connect_closure</NAME>
+<RETURNS>gulong 	 </RETURNS>
+gpointer		  instance, const gchar       *detailed_signal, GClosure		 *closure, gboolean		  after
+</FUNCTION>
+<FUNCTION>
+<NAME>g_signal_connect_data</NAME>
+<RETURNS>gulong 	 </RETURNS>
+gpointer		  instance, const gchar	 *detailed_signal, GCallback	  c_handler, gpointer		  data, GClosureNotify	  destroy_data, GConnectFlags	  connect_flags
+</FUNCTION>
+<FUNCTION>
+<NAME>g_signal_handler_block</NAME>
+<RETURNS>void 	 </RETURNS>
+gpointer		  instance, gulong		  handler_id
+</FUNCTION>
+<FUNCTION>
+<NAME>g_signal_handler_unblock</NAME>
+<RETURNS>void 	 </RETURNS>
+gpointer		  instance, gulong		  handler_id
+</FUNCTION>
+<FUNCTION>
+<NAME>g_signal_handler_disconnect</NAME>
+<RETURNS>void 	 </RETURNS>
+gpointer		  instance, gulong		  handler_id
+</FUNCTION>
+<FUNCTION>
+<NAME>g_signal_handler_is_connected</NAME>
+<RETURNS>gboolean  </RETURNS>
+gpointer		  instance, gulong		  handler_id
+</FUNCTION>
+<FUNCTION>
+<NAME>g_signal_handler_find</NAME>
+<RETURNS>gulong 	 </RETURNS>
+gpointer		  instance, GSignalMatchType	  mask, guint		  signal_id, GQuark		  detail, GClosure		 *closure, gpointer		  func, gpointer		  data
+</FUNCTION>
+<FUNCTION>
+<NAME>g_signal_handlers_block_matched</NAME>
+<RETURNS>guint 	 </RETURNS>
+gpointer		  instance, GSignalMatchType	  mask, guint		  signal_id, GQuark		  detail, GClosure		 *closure, gpointer		  func, gpointer		  data
+</FUNCTION>
+<FUNCTION>
+<NAME>g_signal_handlers_unblock_matched</NAME>
+<RETURNS>guint 	 </RETURNS>
+gpointer		  instance, GSignalMatchType	  mask, guint		  signal_id, GQuark		  detail, GClosure		 *closure, gpointer		  func, gpointer		  data
+</FUNCTION>
+<FUNCTION>
+<NAME>g_signal_handlers_disconnect_matched</NAME>
+<RETURNS>guint 	 </RETURNS>
+gpointer		  instance, GSignalMatchType	  mask, guint		  signal_id, GQuark		  detail, GClosure		 *closure, gpointer		  func, gpointer		  data
+</FUNCTION>
+<FUNCTION>
+<NAME>g_signal_override_class_closure</NAME>
+<RETURNS>void     </RETURNS>
+guint              signal_id, GType              instance_type, GClosure          *class_closure
+</FUNCTION>
+<FUNCTION>
+<NAME>g_signal_override_class_handler</NAME>
+<RETURNS>void     </RETURNS>
+const gchar       *signal_name, GType              instance_type, GCallback          class_handler
+</FUNCTION>
+<FUNCTION>
+<NAME>g_signal_chain_from_overridden</NAME>
+<RETURNS>void     </RETURNS>
+const GValue      *instance_and_params, GValue            *return_value
+</FUNCTION>
+<FUNCTION>
+<NAME>g_signal_chain_from_overridden_handler</NAME>
+<RETURNS>void    </RETURNS>
+gpointer           instance, ...
+</FUNCTION>
+<MACRO>
+<NAME>g_signal_connect</NAME>
+#define g_signal_connect(instance, detailed_signal, c_handler, data) \
+    g_signal_connect_data ((instance), (detailed_signal), (c_handler), (data), NULL, (GConnectFlags) 0)
+</MACRO>
+<MACRO>
+<NAME>g_signal_connect_after</NAME>
+#define g_signal_connect_after(instance, detailed_signal, c_handler, data) \
+    g_signal_connect_data ((instance), (detailed_signal), (c_handler), (data), NULL, G_CONNECT_AFTER)
+</MACRO>
+<MACRO>
+<NAME>g_signal_connect_swapped</NAME>
+#define g_signal_connect_swapped(instance, detailed_signal, c_handler, data) \
+    g_signal_connect_data ((instance), (detailed_signal), (c_handler), (data), NULL, G_CONNECT_SWAPPED)
+</MACRO>
+<MACRO>
+<NAME>g_signal_handlers_disconnect_by_func</NAME>
+#define	g_signal_handlers_disconnect_by_func(instance, func, data)						\
+    g_signal_handlers_disconnect_matched ((instance),								\
+					  (GSignalMatchType) (G_SIGNAL_MATCH_FUNC | G_SIGNAL_MATCH_DATA),	\
+					  0, 0, NULL, (func), (data))
+</MACRO>
+<MACRO>
+<NAME>g_signal_handlers_disconnect_by_data</NAME>
+#define g_signal_handlers_disconnect_by_data(instance, data) \
+  g_signal_handlers_disconnect_matched ((instance), G_SIGNAL_MATCH_DATA, 0, 0, NULL, NULL, (data))
+</MACRO>
+<MACRO>
+<NAME>g_signal_handlers_block_by_func</NAME>
+#define	g_signal_handlers_block_by_func(instance, func, data)							\
+    g_signal_handlers_block_matched      ((instance),								\
+				          (GSignalMatchType) (G_SIGNAL_MATCH_FUNC | G_SIGNAL_MATCH_DATA),	\
+				          0, 0, NULL, (func), (data))
+</MACRO>
+<MACRO>
+<NAME>g_signal_handlers_unblock_by_func</NAME>
+#define	g_signal_handlers_unblock_by_func(instance, func, data)							\
+    g_signal_handlers_unblock_matched    ((instance),								\
+				          (GSignalMatchType) (G_SIGNAL_MATCH_FUNC | G_SIGNAL_MATCH_DATA),	\
+				          0, 0, NULL, (func), (data))
+</MACRO>
+<FUNCTION>
+<NAME>g_signal_accumulator_true_handled</NAME>
+<RETURNS>gboolean  </RETURNS>
+GSignalInvocationHint *ihint, GValue                *return_accu, const GValue          *handler_return, gpointer               dummy
+</FUNCTION>
+<FUNCTION>
+<NAME>g_signal_accumulator_first_wins</NAME>
+<RETURNS>gboolean  </RETURNS>
+GSignalInvocationHint *ihint, GValue                *return_accu, const GValue          *handler_return, gpointer               dummy
+</FUNCTION>
+<FUNCTION>
+<NAME>g_signal_handlers_destroy</NAME>
+<RETURNS>void 	 </RETURNS>
+gpointer		  instance
+</FUNCTION>
+<FUNCTION>
+<NAME>g_source_set_closure</NAME>
+<RETURNS>void  </RETURNS>
+GSource  *source, GClosure *closure
+</FUNCTION>
+<FUNCTION>
+<NAME>g_source_set_dummy_callback</NAME>
+<RETURNS>void  </RETURNS>
+GSource  *source
+</FUNCTION>
+<MACRO>
+<NAME>G_TYPE_FUNDAMENTAL</NAME>
+#define G_TYPE_FUNDAMENTAL(type)	(g_type_fundamental (type))
+</MACRO>
+<MACRO>
+<NAME>G_TYPE_FUNDAMENTAL_MAX</NAME>
+#define	G_TYPE_FUNDAMENTAL_MAX		(255 << G_TYPE_FUNDAMENTAL_SHIFT)
+</MACRO>
+<MACRO>
+<NAME>G_TYPE_INVALID</NAME>
+#define G_TYPE_INVALID			G_TYPE_MAKE_FUNDAMENTAL (0)
+</MACRO>
+<MACRO>
+<NAME>G_TYPE_NONE</NAME>
+#define G_TYPE_NONE			G_TYPE_MAKE_FUNDAMENTAL (1)
+</MACRO>
+<MACRO>
+<NAME>G_TYPE_INTERFACE</NAME>
+#define G_TYPE_INTERFACE		G_TYPE_MAKE_FUNDAMENTAL (2)
+</MACRO>
+<MACRO>
+<NAME>G_TYPE_CHAR</NAME>
+#define G_TYPE_CHAR			G_TYPE_MAKE_FUNDAMENTAL (3)
+</MACRO>
+<MACRO>
+<NAME>G_TYPE_UCHAR</NAME>
+#define G_TYPE_UCHAR			G_TYPE_MAKE_FUNDAMENTAL (4)
+</MACRO>
+<MACRO>
+<NAME>G_TYPE_BOOLEAN</NAME>
+#define G_TYPE_BOOLEAN			G_TYPE_MAKE_FUNDAMENTAL (5)
+</MACRO>
+<MACRO>
+<NAME>G_TYPE_INT</NAME>
+#define G_TYPE_INT			G_TYPE_MAKE_FUNDAMENTAL (6)
+</MACRO>
+<MACRO>
+<NAME>G_TYPE_UINT</NAME>
+#define G_TYPE_UINT			G_TYPE_MAKE_FUNDAMENTAL (7)
+</MACRO>
+<MACRO>
+<NAME>G_TYPE_LONG</NAME>
+#define G_TYPE_LONG			G_TYPE_MAKE_FUNDAMENTAL (8)
+</MACRO>
+<MACRO>
+<NAME>G_TYPE_ULONG</NAME>
+#define G_TYPE_ULONG			G_TYPE_MAKE_FUNDAMENTAL (9)
+</MACRO>
+<MACRO>
+<NAME>G_TYPE_INT64</NAME>
+#define G_TYPE_INT64			G_TYPE_MAKE_FUNDAMENTAL (10)
+</MACRO>
+<MACRO>
+<NAME>G_TYPE_UINT64</NAME>
+#define G_TYPE_UINT64			G_TYPE_MAKE_FUNDAMENTAL (11)
+</MACRO>
+<MACRO>
+<NAME>G_TYPE_ENUM</NAME>
+#define G_TYPE_ENUM			G_TYPE_MAKE_FUNDAMENTAL (12)
+</MACRO>
+<MACRO>
+<NAME>G_TYPE_FLAGS</NAME>
+#define G_TYPE_FLAGS			G_TYPE_MAKE_FUNDAMENTAL (13)
+</MACRO>
+<MACRO>
+<NAME>G_TYPE_FLOAT</NAME>
+#define G_TYPE_FLOAT			G_TYPE_MAKE_FUNDAMENTAL (14)
+</MACRO>
+<MACRO>
+<NAME>G_TYPE_DOUBLE</NAME>
+#define G_TYPE_DOUBLE			G_TYPE_MAKE_FUNDAMENTAL (15)
+</MACRO>
+<MACRO>
+<NAME>G_TYPE_STRING</NAME>
+#define G_TYPE_STRING			G_TYPE_MAKE_FUNDAMENTAL (16)
+</MACRO>
+<MACRO>
+<NAME>G_TYPE_POINTER</NAME>
+#define G_TYPE_POINTER			G_TYPE_MAKE_FUNDAMENTAL (17)
+</MACRO>
+<MACRO>
+<NAME>G_TYPE_BOXED</NAME>
+#define G_TYPE_BOXED			G_TYPE_MAKE_FUNDAMENTAL (18)
+</MACRO>
+<MACRO>
+<NAME>G_TYPE_PARAM</NAME>
+#define G_TYPE_PARAM			G_TYPE_MAKE_FUNDAMENTAL (19)
+</MACRO>
+<MACRO>
+<NAME>G_TYPE_OBJECT</NAME>
+#define G_TYPE_OBJECT			G_TYPE_MAKE_FUNDAMENTAL (20)
+</MACRO>
+<MACRO>
+<NAME>G_TYPE_VARIANT</NAME>
+#define	G_TYPE_VARIANT                  G_TYPE_MAKE_FUNDAMENTAL (21)
+</MACRO>
+<MACRO>
+<NAME>G_TYPE_FUNDAMENTAL_SHIFT</NAME>
+#define	G_TYPE_FUNDAMENTAL_SHIFT	(2)
+</MACRO>
+<MACRO>
+<NAME>G_TYPE_MAKE_FUNDAMENTAL</NAME>
+#define	G_TYPE_MAKE_FUNDAMENTAL(x)	((GType) ((x) << G_TYPE_FUNDAMENTAL_SHIFT))
+</MACRO>
+<MACRO>
+<NAME>G_TYPE_RESERVED_GLIB_FIRST</NAME>
+#define G_TYPE_RESERVED_GLIB_FIRST	(22)
+</MACRO>
+<MACRO>
+<NAME>G_TYPE_RESERVED_GLIB_LAST</NAME>
+#define G_TYPE_RESERVED_GLIB_LAST	(31)
+</MACRO>
+<MACRO>
+<NAME>G_TYPE_RESERVED_BSE_FIRST</NAME>
+#define G_TYPE_RESERVED_BSE_FIRST	(32)
+</MACRO>
+<MACRO>
+<NAME>G_TYPE_RESERVED_BSE_LAST</NAME>
+#define G_TYPE_RESERVED_BSE_LAST	(48)
+</MACRO>
+<MACRO>
+<NAME>G_TYPE_RESERVED_USER_FIRST</NAME>
+#define G_TYPE_RESERVED_USER_FIRST	(49)
+</MACRO>
+<MACRO>
+<NAME>G_TYPE_IS_FUNDAMENTAL</NAME>
+#define G_TYPE_IS_FUNDAMENTAL(type)             ((type) <= G_TYPE_FUNDAMENTAL_MAX)
+</MACRO>
+<MACRO>
+<NAME>G_TYPE_IS_DERIVED</NAME>
+#define G_TYPE_IS_DERIVED(type)                 ((type) > G_TYPE_FUNDAMENTAL_MAX)
+</MACRO>
+<MACRO>
+<NAME>G_TYPE_IS_INTERFACE</NAME>
+#define G_TYPE_IS_INTERFACE(type)               (G_TYPE_FUNDAMENTAL (type) == G_TYPE_INTERFACE)
+</MACRO>
+<MACRO>
+<NAME>G_TYPE_IS_CLASSED</NAME>
+#define G_TYPE_IS_CLASSED(type)                 (g_type_test_flags ((type), G_TYPE_FLAG_CLASSED))
+</MACRO>
+<MACRO>
+<NAME>G_TYPE_IS_INSTANTIATABLE</NAME>
+#define G_TYPE_IS_INSTANTIATABLE(type)          (g_type_test_flags ((type), G_TYPE_FLAG_INSTANTIATABLE))
+</MACRO>
+<MACRO>
+<NAME>G_TYPE_IS_DERIVABLE</NAME>
+#define G_TYPE_IS_DERIVABLE(type)               (g_type_test_flags ((type), G_TYPE_FLAG_DERIVABLE))
+</MACRO>
+<MACRO>
+<NAME>G_TYPE_IS_DEEP_DERIVABLE</NAME>
+#define G_TYPE_IS_DEEP_DERIVABLE(type)          (g_type_test_flags ((type), G_TYPE_FLAG_DEEP_DERIVABLE))
+</MACRO>
+<MACRO>
+<NAME>G_TYPE_IS_ABSTRACT</NAME>
+#define G_TYPE_IS_ABSTRACT(type)                (g_type_test_flags ((type), G_TYPE_FLAG_ABSTRACT))
+</MACRO>
+<MACRO>
+<NAME>G_TYPE_IS_VALUE_ABSTRACT</NAME>
+#define G_TYPE_IS_VALUE_ABSTRACT(type)          (g_type_test_flags ((type), G_TYPE_FLAG_VALUE_ABSTRACT))
+</MACRO>
+<MACRO>
+<NAME>G_TYPE_IS_VALUE_TYPE</NAME>
+#define G_TYPE_IS_VALUE_TYPE(type)              (g_type_check_is_value_type (type))
+</MACRO>
+<MACRO>
+<NAME>G_TYPE_HAS_VALUE_TABLE</NAME>
+#define G_TYPE_HAS_VALUE_TABLE(type)            (g_type_value_table_peek (type) != NULL)
+</MACRO>
+<TYPEDEF>
+<NAME>GType</NAME>
+typedef gsize                           GType;
+</TYPEDEF>
+<STRUCT>
+<NAME>GTypeClass</NAME>
+struct _GTypeClass
+{
+  /*< private >*/
+  GType g_type;
+};
+</STRUCT>
+<STRUCT>
+<NAME>GTypeInstance</NAME>
+struct _GTypeInstance
+{
+  /*< private >*/
+  GTypeClass *g_class;
+};
+</STRUCT>
+<STRUCT>
+<NAME>GTypeInterface</NAME>
+struct _GTypeInterface
+{
+  /*< private >*/
+  GType g_type;         /* iface type */
+  GType g_instance_type;
+};
+</STRUCT>
+<STRUCT>
+<NAME>GTypeQuery</NAME>
+struct _GTypeQuery
+{
+  GType		type;
+  const gchar  *type_name;
+  guint		class_size;
+  guint		instance_size;
+};
+</STRUCT>
+<MACRO>
+<NAME>G_TYPE_CHECK_INSTANCE</NAME>
+#define G_TYPE_CHECK_INSTANCE(instance)				(_G_TYPE_CHI ((GTypeInstance*) (instance)))
+</MACRO>
+<MACRO>
+<NAME>G_TYPE_CHECK_INSTANCE_CAST</NAME>
+#define G_TYPE_CHECK_INSTANCE_CAST(instance, g_type, c_type)    (_G_TYPE_CIC ((instance), (g_type), c_type))
+</MACRO>
+<MACRO>
+<NAME>G_TYPE_CHECK_INSTANCE_TYPE</NAME>
+#define G_TYPE_CHECK_INSTANCE_TYPE(instance, g_type)            (_G_TYPE_CIT ((instance), (g_type)))
+</MACRO>
+<MACRO>
+<NAME>G_TYPE_CHECK_INSTANCE_FUNDAMENTAL_TYPE</NAME>
+#define G_TYPE_CHECK_INSTANCE_FUNDAMENTAL_TYPE(instance, g_type)            (_G_TYPE_CIFT ((instance), (g_type)))
+</MACRO>
+<MACRO>
+<NAME>G_TYPE_INSTANCE_GET_CLASS</NAME>
+#define G_TYPE_INSTANCE_GET_CLASS(instance, g_type, c_type)     (_G_TYPE_IGC ((instance), (g_type), c_type))
+</MACRO>
+<MACRO>
+<NAME>G_TYPE_INSTANCE_GET_INTERFACE</NAME>
+#define G_TYPE_INSTANCE_GET_INTERFACE(instance, g_type, c_type) (_G_TYPE_IGI ((instance), (g_type), c_type))
+</MACRO>
+<MACRO>
+<NAME>G_TYPE_CHECK_CLASS_CAST</NAME>
+#define G_TYPE_CHECK_CLASS_CAST(g_class, g_type, c_type)        (_G_TYPE_CCC ((g_class), (g_type), c_type))
+</MACRO>
+<MACRO>
+<NAME>G_TYPE_CHECK_CLASS_TYPE</NAME>
+#define G_TYPE_CHECK_CLASS_TYPE(g_class, g_type)                (_G_TYPE_CCT ((g_class), (g_type)))
+</MACRO>
+<MACRO>
+<NAME>G_TYPE_CHECK_VALUE</NAME>
+#define G_TYPE_CHECK_VALUE(value)				(_G_TYPE_CHV ((value)))
+</MACRO>
+<MACRO>
+<NAME>G_TYPE_CHECK_VALUE_TYPE</NAME>
+#define G_TYPE_CHECK_VALUE_TYPE(value, g_type)			(_G_TYPE_CVH ((value), (g_type)))
+</MACRO>
+<MACRO>
+<NAME>G_TYPE_FROM_INSTANCE</NAME>
+#define G_TYPE_FROM_INSTANCE(instance)                          (G_TYPE_FROM_CLASS (((GTypeInstance*) (instance))->g_class))
+</MACRO>
+<MACRO>
+<NAME>G_TYPE_FROM_CLASS</NAME>
+#define G_TYPE_FROM_CLASS(g_class)                              (((GTypeClass*) (g_class))->g_type)
+</MACRO>
+<MACRO>
+<NAME>G_TYPE_FROM_INTERFACE</NAME>
+#define G_TYPE_FROM_INTERFACE(g_iface)                          (((GTypeInterface*) (g_iface))->g_type)
+</MACRO>
+<MACRO>
+<NAME>G_TYPE_INSTANCE_GET_PRIVATE</NAME>
+#define G_TYPE_INSTANCE_GET_PRIVATE(instance, g_type, c_type)   ((c_type*) g_type_instance_get_private ((GTypeInstance*) (instance), (g_type)))
+</MACRO>
+<MACRO>
+<NAME>G_TYPE_CLASS_GET_PRIVATE</NAME>
+#define G_TYPE_CLASS_GET_PRIVATE(klass, g_type, c_type)   ((c_type*) g_type_class_get_private ((GTypeClass*) (klass), (g_type)))
+</MACRO>
+<ENUM>
+<NAME>GTypeDebugFlags</NAME>
+typedef enum	/*< skip >*/
+{
+  G_TYPE_DEBUG_NONE	= 0,
+  G_TYPE_DEBUG_OBJECTS	= 1 << 0,
+  G_TYPE_DEBUG_SIGNALS	= 1 << 1,
+  G_TYPE_DEBUG_INSTANCE_COUNT = 1 << 2,
+  G_TYPE_DEBUG_MASK	= 0x07
+} GTypeDebugFlags;
+</ENUM>
+<FUNCTION>
+<NAME>g_type_init</NAME>
+<DEPRECATED/>
+<RETURNS>void                   </RETURNS>
+void
+</FUNCTION>
+<FUNCTION>
+<NAME>g_type_init_with_debug_flags</NAME>
+<DEPRECATED/>
+<RETURNS>void                   </RETURNS>
+GTypeDebugFlags  debug_flags
+</FUNCTION>
+<FUNCTION>
+<NAME>g_type_name</NAME>
+<RETURNS>const gchar  *         </RETURNS>
+GType            type
+</FUNCTION>
+<FUNCTION>
+<NAME>g_type_qname</NAME>
+<RETURNS>GQuark                 </RETURNS>
+GType            type
+</FUNCTION>
+<FUNCTION>
+<NAME>g_type_from_name</NAME>
+<RETURNS>GType                  </RETURNS>
+const gchar     *name
+</FUNCTION>
+<FUNCTION>
+<NAME>g_type_parent</NAME>
+<RETURNS>GType                  </RETURNS>
+GType            type
+</FUNCTION>
+<FUNCTION>
+<NAME>g_type_depth</NAME>
+<RETURNS>guint                  </RETURNS>
+GType            type
+</FUNCTION>
+<FUNCTION>
+<NAME>g_type_next_base</NAME>
+<RETURNS>GType                  </RETURNS>
+GType            leaf_type, GType            root_type
+</FUNCTION>
+<FUNCTION>
+<NAME>g_type_is_a</NAME>
+<RETURNS>gboolean               </RETURNS>
+GType            type, GType            is_a_type
+</FUNCTION>
+<FUNCTION>
+<NAME>g_type_class_ref</NAME>
+<RETURNS>gpointer               </RETURNS>
+GType            type
+</FUNCTION>
+<FUNCTION>
+<NAME>g_type_class_peek</NAME>
+<RETURNS>gpointer               </RETURNS>
+GType            type
+</FUNCTION>
+<FUNCTION>
+<NAME>g_type_class_peek_static</NAME>
+<RETURNS>gpointer               </RETURNS>
+GType            type
+</FUNCTION>
+<FUNCTION>
+<NAME>g_type_class_unref</NAME>
+<RETURNS>void                   </RETURNS>
+gpointer         g_class
+</FUNCTION>
+<FUNCTION>
+<NAME>g_type_class_peek_parent</NAME>
+<RETURNS>gpointer               </RETURNS>
+gpointer         g_class
+</FUNCTION>
+<FUNCTION>
+<NAME>g_type_interface_peek</NAME>
+<RETURNS>gpointer               </RETURNS>
+gpointer         instance_class, GType            iface_type
+</FUNCTION>
+<FUNCTION>
+<NAME>g_type_interface_peek_parent</NAME>
+<RETURNS>gpointer               </RETURNS>
+gpointer         g_iface
+</FUNCTION>
+<FUNCTION>
+<NAME>g_type_default_interface_ref</NAME>
+<RETURNS>gpointer               </RETURNS>
+GType            g_type
+</FUNCTION>
+<FUNCTION>
+<NAME>g_type_default_interface_peek</NAME>
+<RETURNS>gpointer               </RETURNS>
+GType            g_type
+</FUNCTION>
+<FUNCTION>
+<NAME>g_type_default_interface_unref</NAME>
+<RETURNS>void                   </RETURNS>
+gpointer         g_iface
+</FUNCTION>
+<FUNCTION>
+<NAME>g_type_children</NAME>
+<RETURNS>GType *                </RETURNS>
+GType            type, guint           *n_children
+</FUNCTION>
+<FUNCTION>
+<NAME>g_type_interfaces</NAME>
+<RETURNS>GType *                </RETURNS>
+GType            type, guint           *n_interfaces
+</FUNCTION>
+<FUNCTION>
+<NAME>g_type_set_qdata</NAME>
+<RETURNS>void                   </RETURNS>
+GType            type, GQuark           quark, gpointer         data
+</FUNCTION>
+<FUNCTION>
+<NAME>g_type_get_qdata</NAME>
+<RETURNS>gpointer               </RETURNS>
+GType            type, GQuark           quark
+</FUNCTION>
+<FUNCTION>
+<NAME>g_type_query</NAME>
+<RETURNS>void 		      </RETURNS>
+GType	       type, GTypeQuery      *query
+</FUNCTION>
+<FUNCTION>
+<NAME>g_type_get_instance_count</NAME>
+<RETURNS>int                    </RETURNS>
+GType            type
+</FUNCTION>
+<USER_FUNCTION>
+<NAME>GBaseInitFunc</NAME>
+<RETURNS>void </RETURNS>
+gpointer         g_class
+</USER_FUNCTION>
+<USER_FUNCTION>
+<NAME>GBaseFinalizeFunc</NAME>
+<RETURNS>void </RETURNS>
+gpointer         g_class
+</USER_FUNCTION>
+<USER_FUNCTION>
+<NAME>GClassInitFunc</NAME>
+<RETURNS>void </RETURNS>
+gpointer         g_class,
+					      gpointer         class_data
+</USER_FUNCTION>
+<USER_FUNCTION>
+<NAME>GClassFinalizeFunc</NAME>
+<RETURNS>void </RETURNS>
+gpointer         g_class,
+					      gpointer         class_data
+</USER_FUNCTION>
+<USER_FUNCTION>
+<NAME>GInstanceInitFunc</NAME>
+<RETURNS>void </RETURNS>
+GTypeInstance   *instance,
+					      gpointer         g_class
+</USER_FUNCTION>
+<USER_FUNCTION>
+<NAME>GInterfaceInitFunc</NAME>
+<RETURNS>void </RETURNS>
+gpointer         g_iface,
+					      gpointer         iface_data
+</USER_FUNCTION>
+<USER_FUNCTION>
+<NAME>GInterfaceFinalizeFunc</NAME>
+<RETURNS>void </RETURNS>
+gpointer         g_iface,
+					      gpointer         iface_data
+</USER_FUNCTION>
+<USER_FUNCTION>
+<NAME>GTypeClassCacheFunc</NAME>
+<RETURNS>gboolean </RETURNS>
+gpointer	       cache_data,
+					      GTypeClass      *g_class
+</USER_FUNCTION>
+<USER_FUNCTION>
+<NAME>GTypeInterfaceCheckFunc</NAME>
+<RETURNS>void </RETURNS>
+gpointer	       check_data,
+					      gpointer         g_iface
+</USER_FUNCTION>
+<ENUM>
+<NAME>GTypeFundamentalFlags</NAME>
+typedef enum    /*< skip >*/
+{
+  G_TYPE_FLAG_CLASSED           = (1 << 0),
+  G_TYPE_FLAG_INSTANTIATABLE    = (1 << 1),
+  G_TYPE_FLAG_DERIVABLE         = (1 << 2),
+  G_TYPE_FLAG_DEEP_DERIVABLE    = (1 << 3)
+} GTypeFundamentalFlags;
+</ENUM>
+<ENUM>
+<NAME>GTypeFlags</NAME>
+typedef enum    /*< skip >*/
+{
+  G_TYPE_FLAG_ABSTRACT		= (1 << 4),
+  G_TYPE_FLAG_VALUE_ABSTRACT	= (1 << 5)
+} GTypeFlags;
+</ENUM>
+<STRUCT>
+<NAME>GTypeInfo</NAME>
+struct _GTypeInfo
+{
+  /* interface types, classed types, instantiated types */
+  guint16                class_size;
+  
+  GBaseInitFunc          base_init;
+  GBaseFinalizeFunc      base_finalize;
+  
+  /* interface types, classed types, instantiated types */
+  GClassInitFunc         class_init;
+  GClassFinalizeFunc     class_finalize;
+  gconstpointer          class_data;
+  
+  /* instantiated types */
+  guint16                instance_size;
+  guint16                n_preallocs;
+  GInstanceInitFunc      instance_init;
+  
+  /* value handling */
+  const GTypeValueTable	*value_table;
+};
+</STRUCT>
+<STRUCT>
+<NAME>GTypeFundamentalInfo</NAME>
+struct _GTypeFundamentalInfo
+{
+  GTypeFundamentalFlags  type_flags;
+};
+</STRUCT>
+<STRUCT>
+<NAME>GInterfaceInfo</NAME>
+struct _GInterfaceInfo
+{
+  GInterfaceInitFunc     interface_init;
+  GInterfaceFinalizeFunc interface_finalize;
+  gpointer               interface_data;
+};
+</STRUCT>
+<STRUCT>
+<NAME>GTypeValueTable</NAME>
+struct _GTypeValueTable
+{
+  void     (*value_init)         (GValue       *value);
+  void     (*value_free)         (GValue       *value);
+  void     (*value_copy)         (const GValue *src_value,
+				  GValue       *dest_value);
+  /* varargs functionality (optional) */
+  gpointer (*value_peek_pointer) (const GValue *value);
+  const gchar *collect_format;
+  gchar*   (*collect_value)      (GValue       *value,
+				  guint         n_collect_values,
+				  GTypeCValue  *collect_values,
+				  guint		collect_flags);
+  const gchar *lcopy_format;
+  gchar*   (*lcopy_value)        (const GValue *value,
+				  guint         n_collect_values,
+				  GTypeCValue  *collect_values,
+				  guint		collect_flags);
+};
+</STRUCT>
+<FUNCTION>
+<NAME>g_type_register_static</NAME>
+<RETURNS>GType  </RETURNS>
+GType			     parent_type, const gchar		    *type_name, const GTypeInfo	    *info, GTypeFlags		     flags
+</FUNCTION>
+<FUNCTION>
+<NAME>g_type_register_static_simple</NAME>
+<RETURNS>GType  </RETURNS>
+GType                       parent_type, const gchar                *type_name, guint                       class_size, GClassInitFunc              class_init, guint                       instance_size, GInstanceInitFunc           instance_init, GTypeFlags	             flags
+</FUNCTION>
+<FUNCTION>
+<NAME>g_type_register_dynamic</NAME>
+<RETURNS>GType  </RETURNS>
+GType			     parent_type, const gchar		    *type_name, GTypePlugin		    *plugin, GTypeFlags		     flags
+</FUNCTION>
+<FUNCTION>
+<NAME>g_type_register_fundamental</NAME>
+<RETURNS>GType  </RETURNS>
+GType			     type_id, const gchar		    *type_name, const GTypeInfo	    *info, const GTypeFundamentalInfo *finfo, GTypeFlags		     flags
+</FUNCTION>
+<FUNCTION>
+<NAME>g_type_add_interface_static</NAME>
+<RETURNS>void   </RETURNS>
+GType			     instance_type, GType			     interface_type, const GInterfaceInfo	    *info
+</FUNCTION>
+<FUNCTION>
+<NAME>g_type_add_interface_dynamic</NAME>
+<RETURNS>void   </RETURNS>
+GType			     instance_type, GType			     interface_type, GTypePlugin		    *plugin
+</FUNCTION>
+<FUNCTION>
+<NAME>g_type_interface_add_prerequisite</NAME>
+<RETURNS>void   </RETURNS>
+GType			     interface_type, GType			     prerequisite_type
+</FUNCTION>
+<FUNCTION>
+<NAME>g_type_interface_prerequisites</NAME>
+<RETURNS>GType *</RETURNS>
+GType                       interface_type, guint                      *n_prerequisites
+</FUNCTION>
+<FUNCTION>
+<NAME>g_type_class_add_private</NAME>
+<DEPRECATED/>
+<RETURNS>void      </RETURNS>
+gpointer                    g_class, gsize                       private_size
+</FUNCTION>
+<FUNCTION>
+<NAME>g_type_add_instance_private</NAME>
+<RETURNS>gint      </RETURNS>
+GType                       class_type, gsize                       private_size
+</FUNCTION>
+<FUNCTION>
+<NAME>g_type_instance_get_private</NAME>
+<RETURNS>gpointer  </RETURNS>
+GTypeInstance              *instance, GType                       private_type
+</FUNCTION>
+<FUNCTION>
+<NAME>g_type_class_adjust_private_offset</NAME>
+<RETURNS>void      </RETURNS>
+gpointer                g_class, gint                   *private_size_or_offset
+</FUNCTION>
+<FUNCTION>
+<NAME>g_type_add_class_private</NAME>
+<RETURNS>void       </RETURNS>
+GType    		     class_type, gsize    		     private_size
+</FUNCTION>
+<FUNCTION>
+<NAME>g_type_class_get_private</NAME>
+<RETURNS>gpointer   </RETURNS>
+GTypeClass 		    *klass, GType			     private_type
+</FUNCTION>
+<FUNCTION>
+<NAME>g_type_class_get_instance_private_offset</NAME>
+<RETURNS>gint       </RETURNS>
+gpointer         g_class
+</FUNCTION>
+<FUNCTION>
+<NAME>g_type_ensure</NAME>
+<RETURNS>void       </RETURNS>
+GType                       type
+</FUNCTION>
+<FUNCTION>
+<NAME>g_type_get_type_registration_serial</NAME>
+<RETURNS>guint      </RETURNS>
+void
+</FUNCTION>
+<MACRO>
+<NAME>G_DECLARE_FINAL_TYPE</NAME>
+#define G_DECLARE_FINAL_TYPE(ModuleObjName, module_obj_name, MODULE, OBJ_NAME, ParentName) \
+  GType module_obj_name##_get_type (void);                                                               \
+  G_GNUC_BEGIN_IGNORE_DEPRECATIONS                                                                       \
+  typedef struct _##ModuleObjName ModuleObjName;                                                         \
+  typedef struct { ParentName##Class parent_class; } ModuleObjName##Class;                               \
+                                                                                                         \
+  _GLIB_DEFINE_AUTOPTR_CHAINUP (ModuleObjName, ParentName)                                               \
+                                                                                                         \
+  static inline ModuleObjName * MODULE##_##OBJ_NAME (gpointer ptr) {                                     \
+    return G_TYPE_CHECK_INSTANCE_CAST (ptr, module_obj_name##_get_type (), ModuleObjName); }             \
+  static inline gboolean MODULE##_IS_##OBJ_NAME (gpointer ptr) {                                         \
+    return G_TYPE_CHECK_INSTANCE_TYPE (ptr, module_obj_name##_get_type ()); }                            \
+  G_GNUC_END_IGNORE_DEPRECATIONS
+</MACRO>
+<MACRO>
+<NAME>G_DECLARE_DERIVABLE_TYPE</NAME>
+#define G_DECLARE_DERIVABLE_TYPE(ModuleObjName, module_obj_name, MODULE, OBJ_NAME, ParentName) \
+  GType module_obj_name##_get_type (void);                                                               \
+  G_GNUC_BEGIN_IGNORE_DEPRECATIONS                                                                       \
+  typedef struct _##ModuleObjName ModuleObjName;                                                         \
+  typedef struct _##ModuleObjName##Class ModuleObjName##Class;                                           \
+  struct _##ModuleObjName { ParentName parent_instance; };                                               \
+                                                                                                         \
+  _GLIB_DEFINE_AUTOPTR_CHAINUP (ModuleObjName, ParentName)                                               \
+                                                                                                         \
+  static inline ModuleObjName * MODULE##_##OBJ_NAME (gpointer ptr) {                                     \
+    return G_TYPE_CHECK_INSTANCE_CAST (ptr, module_obj_name##_get_type (), ModuleObjName); }             \
+  static inline ModuleObjName##Class * MODULE##_##OBJ_NAME##_CLASS (gpointer ptr) {                      \
+    return G_TYPE_CHECK_CLASS_CAST (ptr, module_obj_name##_get_type (), ModuleObjName##Class); }         \
+  static inline gboolean MODULE##_IS_##OBJ_NAME (gpointer ptr) {                                         \
+    return G_TYPE_CHECK_INSTANCE_TYPE (ptr, module_obj_name##_get_type ()); }                            \
+  static inline gboolean MODULE##_IS_##OBJ_NAME##_CLASS (gpointer ptr) {                                 \
+    return G_TYPE_CHECK_CLASS_TYPE (ptr, module_obj_name##_get_type ()); }                               \
+  static inline ModuleObjName##Class * MODULE##_##OBJ_NAME##_GET_CLASS (gpointer ptr) {                  \
+    return G_TYPE_INSTANCE_GET_CLASS (ptr, module_obj_name##_get_type (), ModuleObjName##Class); }       \
+  G_GNUC_END_IGNORE_DEPRECATIONS
+</MACRO>
+<MACRO>
+<NAME>G_DECLARE_INTERFACE</NAME>
+#define G_DECLARE_INTERFACE(ModuleObjName, module_obj_name, MODULE, OBJ_NAME, PrerequisiteName) \
+  GType module_obj_name##_get_type (void);                                                                 \
+  G_GNUC_BEGIN_IGNORE_DEPRECATIONS                                                                         \
+  typedef struct _##ModuleObjName ModuleObjName;                                                           \
+  typedef struct _##ModuleObjName##Interface ModuleObjName##Interface;                                     \
+                                                                                                           \
+  _GLIB_DEFINE_AUTOPTR_CHAINUP (ModuleObjName, PrerequisiteName)                                           \
+                                                                                                           \
+  static inline ModuleObjName * MODULE##_##OBJ_NAME (gpointer ptr) {                                       \
+    return G_TYPE_CHECK_INSTANCE_CAST (ptr, module_obj_name##_get_type (), ModuleObjName); }               \
+  static inline gboolean MODULE##_IS_##OBJ_NAME (gpointer ptr) {                                           \
+    return G_TYPE_CHECK_INSTANCE_TYPE (ptr, module_obj_name##_get_type ()); }                              \
+  static inline ModuleObjName##Interface * MODULE##_##OBJ_NAME##_GET_IFACE (gpointer ptr) {                \
+    return G_TYPE_INSTANCE_GET_INTERFACE (ptr, module_obj_name##_get_type (), ModuleObjName##Interface); } \
+  G_GNUC_END_IGNORE_DEPRECATIONS
+</MACRO>
+<MACRO>
+<NAME>G_DEFINE_TYPE</NAME>
+#define G_DEFINE_TYPE(TN, t_n, T_P)			    G_DEFINE_TYPE_EXTENDED (TN, t_n, T_P, 0, {})
+</MACRO>
+<MACRO>
+<NAME>G_DEFINE_TYPE_WITH_CODE</NAME>
+#define G_DEFINE_TYPE_WITH_CODE(TN, t_n, T_P, _C_)	    _G_DEFINE_TYPE_EXTENDED_BEGIN (TN, t_n, T_P, 0) {_C_;} _G_DEFINE_TYPE_EXTENDED_END()
+</MACRO>
+<MACRO>
+<NAME>G_DEFINE_TYPE_WITH_PRIVATE</NAME>
+#define G_DEFINE_TYPE_WITH_PRIVATE(TN, t_n, T_P)            G_DEFINE_TYPE_EXTENDED (TN, t_n, T_P, 0, G_ADD_PRIVATE (TN))
+</MACRO>
+<MACRO>
+<NAME>G_DEFINE_ABSTRACT_TYPE</NAME>
+#define G_DEFINE_ABSTRACT_TYPE(TN, t_n, T_P)		    G_DEFINE_TYPE_EXTENDED (TN, t_n, T_P, G_TYPE_FLAG_ABSTRACT, {})
+</MACRO>
+<MACRO>
+<NAME>G_DEFINE_ABSTRACT_TYPE_WITH_CODE</NAME>
+#define G_DEFINE_ABSTRACT_TYPE_WITH_CODE(TN, t_n, T_P, _C_) _G_DEFINE_TYPE_EXTENDED_BEGIN (TN, t_n, T_P, G_TYPE_FLAG_ABSTRACT) {_C_;} _G_DEFINE_TYPE_EXTENDED_END()
+</MACRO>
+<MACRO>
+<NAME>G_DEFINE_ABSTRACT_TYPE_WITH_PRIVATE</NAME>
+#define G_DEFINE_ABSTRACT_TYPE_WITH_PRIVATE(TN, t_n, T_P)   G_DEFINE_TYPE_EXTENDED (TN, t_n, T_P, G_TYPE_FLAG_ABSTRACT, G_ADD_PRIVATE (TN))
+</MACRO>
+<MACRO>
+<NAME>G_DEFINE_TYPE_EXTENDED</NAME>
+#define G_DEFINE_TYPE_EXTENDED(TN, t_n, T_P, _f_, _C_)	    _G_DEFINE_TYPE_EXTENDED_BEGIN (TN, t_n, T_P, _f_) {_C_;} _G_DEFINE_TYPE_EXTENDED_END()
+</MACRO>
+<MACRO>
+<NAME>G_DEFINE_INTERFACE</NAME>
+#define G_DEFINE_INTERFACE(TN, t_n, T_P)		    G_DEFINE_INTERFACE_WITH_CODE(TN, t_n, T_P, ;)
+</MACRO>
+<MACRO>
+<NAME>G_DEFINE_INTERFACE_WITH_CODE</NAME>
+#define G_DEFINE_INTERFACE_WITH_CODE(TN, t_n, T_P, _C_)     _G_DEFINE_INTERFACE_EXTENDED_BEGIN(TN, t_n, T_P) {_C_;} _G_DEFINE_INTERFACE_EXTENDED_END()
+</MACRO>
+<MACRO>
+<NAME>G_IMPLEMENT_INTERFACE</NAME>
+#define G_IMPLEMENT_INTERFACE(TYPE_IFACE, iface_init)       { \
+  const GInterfaceInfo g_implement_interface_info = { \
+    (GInterfaceInitFunc)(void (*)(void)) iface_init, NULL, NULL \
+  }; \
+  g_type_add_interface_static (g_define_type_id, TYPE_IFACE, &g_implement_interface_info); \
+}
+</MACRO>
+<MACRO>
+<NAME>G_ADD_PRIVATE</NAME>
+#define G_ADD_PRIVATE(TypeName) { \
+  TypeName##_private_offset = \
+    g_type_add_instance_private (g_define_type_id, sizeof (TypeName##Private)); \
+}
+</MACRO>
+<MACRO>
+<NAME>G_PRIVATE_OFFSET</NAME>
+#define G_PRIVATE_OFFSET(TypeName, field) \
+  (TypeName##_private_offset + (G_STRUCT_OFFSET (TypeName##Private, field)))
+</MACRO>
+<MACRO>
+<NAME>G_PRIVATE_FIELD_P</NAME>
+#define G_PRIVATE_FIELD_P(TypeName, inst, field_name) \
+  G_STRUCT_MEMBER_P (inst, G_PRIVATE_OFFSET (TypeName, field_name))
+</MACRO>
+<MACRO>
+<NAME>G_PRIVATE_FIELD</NAME>
+#define G_PRIVATE_FIELD(TypeName, inst, field_type, field_name) \
+  G_STRUCT_MEMBER (field_type, inst, G_PRIVATE_OFFSET (TypeName, field_name))
+</MACRO>
+<MACRO>
+<NAME>G_DEFINE_BOXED_TYPE</NAME>
+#define G_DEFINE_BOXED_TYPE(TypeName, type_name, copy_func, free_func) G_DEFINE_BOXED_TYPE_WITH_CODE (TypeName, type_name, copy_func, free_func, {})
+</MACRO>
+<MACRO>
+<NAME>G_DEFINE_BOXED_TYPE_WITH_CODE</NAME>
+#define G_DEFINE_BOXED_TYPE_WITH_CODE(TypeName, type_name, copy_func, free_func, _C_) _G_DEFINE_BOXED_TYPE_BEGIN (TypeName, type_name, copy_func, free_func) {_C_;} _G_DEFINE_TYPE_EXTENDED_END()
+</MACRO>
+<MACRO>
+<NAME>G_DEFINE_POINTER_TYPE</NAME>
+#define G_DEFINE_POINTER_TYPE(TypeName, type_name) G_DEFINE_POINTER_TYPE_WITH_CODE (TypeName, type_name, {})
+</MACRO>
+<MACRO>
+<NAME>G_DEFINE_POINTER_TYPE_WITH_CODE</NAME>
+#define G_DEFINE_POINTER_TYPE_WITH_CODE(TypeName, type_name, _C_) _G_DEFINE_POINTER_TYPE_BEGIN (TypeName, type_name) {_C_;} _G_DEFINE_TYPE_EXTENDED_END()
+</MACRO>
+<FUNCTION>
+<NAME>g_type_get_plugin</NAME>
+<RETURNS>GTypePlugin *	 </RETURNS>
+GType		     type
+</FUNCTION>
+<FUNCTION>
+<NAME>g_type_interface_get_plugin</NAME>
+<RETURNS>GTypePlugin *	 </RETURNS>
+GType		     instance_type, GType               interface_type
+</FUNCTION>
+<FUNCTION>
+<NAME>g_type_fundamental_next</NAME>
+<RETURNS>GType 		 </RETURNS>
+void
+</FUNCTION>
+<FUNCTION>
+<NAME>g_type_fundamental</NAME>
+<RETURNS>GType 		 </RETURNS>
+GType		     type_id
+</FUNCTION>
+<FUNCTION>
+<NAME>g_type_create_instance</NAME>
+<RETURNS>GTypeInstance *   </RETURNS>
+GType               type
+</FUNCTION>
+<FUNCTION>
+<NAME>g_type_free_instance</NAME>
+<RETURNS>void              </RETURNS>
+GTypeInstance      *instance
+</FUNCTION>
+<FUNCTION>
+<NAME>g_type_add_class_cache_func</NAME>
+<RETURNS>void 		 </RETURNS>
+gpointer	     cache_data, GTypeClassCacheFunc cache_func
+</FUNCTION>
+<FUNCTION>
+<NAME>g_type_remove_class_cache_func</NAME>
+<RETURNS>void 		 </RETURNS>
+gpointer	     cache_data, GTypeClassCacheFunc cache_func
+</FUNCTION>
+<FUNCTION>
+<NAME>g_type_class_unref_uncached</NAME>
+<RETURNS>void              </RETURNS>
+gpointer            g_class
+</FUNCTION>
+<FUNCTION>
+<NAME>g_type_add_interface_check</NAME>
+<RETURNS>void              </RETURNS>
+gpointer	         check_data, GTypeInterfaceCheckFunc check_func
+</FUNCTION>
+<FUNCTION>
+<NAME>g_type_remove_interface_check</NAME>
+<RETURNS>void              </RETURNS>
+gpointer	         check_data, GTypeInterfaceCheckFunc check_func
+</FUNCTION>
+<FUNCTION>
+<NAME>g_type_value_table_peek</NAME>
+<RETURNS>GTypeValueTable * </RETURNS>
+GType		     type
+</FUNCTION>
+<FUNCTION>
+<NAME>g_type_check_instance</NAME>
+<RETURNS>gboolean 	 </RETURNS>
+GTypeInstance      *instance
+</FUNCTION>
+<FUNCTION>
+<NAME>g_type_check_instance_cast</NAME>
+<RETURNS>GTypeInstance *   </RETURNS>
+GTypeInstance      *instance, GType               iface_type
+</FUNCTION>
+<FUNCTION>
+<NAME>g_type_check_instance_is_a</NAME>
+<RETURNS>gboolean          </RETURNS>
+GTypeInstance      *instance, GType               iface_type
+</FUNCTION>
+<FUNCTION>
+<NAME>g_type_check_instance_is_fundamentally_a</NAME>
+<RETURNS>gboolean          </RETURNS>
+GTypeInstance *instance, GType          fundamental_type
+</FUNCTION>
+<FUNCTION>
+<NAME>g_type_check_class_cast</NAME>
+<RETURNS>GTypeClass *      </RETURNS>
+GTypeClass         *g_class, GType               is_a_type
+</FUNCTION>
+<FUNCTION>
+<NAME>g_type_check_class_is_a</NAME>
+<RETURNS>gboolean          </RETURNS>
+GTypeClass         *g_class, GType               is_a_type
+</FUNCTION>
+<FUNCTION>
+<NAME>g_type_check_is_value_type</NAME>
+<RETURNS>gboolean 	 </RETURNS>
+GType		     type
+</FUNCTION>
+<FUNCTION>
+<NAME>g_type_check_value</NAME>
+<RETURNS>gboolean 	 </RETURNS>
+const GValue       *value
+</FUNCTION>
+<FUNCTION>
+<NAME>g_type_check_value_holds</NAME>
+<RETURNS>gboolean 	 </RETURNS>
+const GValue	    *value, GType		     type
+</FUNCTION>
+<FUNCTION>
+<NAME>g_type_test_flags</NAME>
+<RETURNS>gboolean          </RETURNS>
+GType               type, guint               flags
+</FUNCTION>
+<FUNCTION>
+<NAME>g_type_name_from_instance</NAME>
+<RETURNS>const gchar  *    </RETURNS>
+GTypeInstance	*instance
+</FUNCTION>
+<FUNCTION>
+<NAME>g_type_name_from_class</NAME>
+<RETURNS>const gchar  *    </RETURNS>
+GTypeClass	*g_class
+</FUNCTION>
+<MACRO>
+<NAME>G_TYPE_FLAG_RESERVED_ID_BIT</NAME>
+#define	G_TYPE_FLAG_RESERVED_ID_BIT	((GType) (1 << 0))
+</MACRO>
+<UNION>
+<NAME>GTypeCValue</NAME>
+</UNION>
+<STRUCT>
+<NAME>GTypePlugin</NAME>
+</STRUCT>
+<STRUCT>
+<NAME>GValue</NAME>
+</STRUCT>
+<MACRO>
+<NAME>G_TYPE_TYPE_MODULE</NAME>
+#define G_TYPE_TYPE_MODULE              (g_type_module_get_type ())
+</MACRO>
+<MACRO>
+<NAME>G_TYPE_MODULE</NAME>
+#define G_TYPE_MODULE(module)           (G_TYPE_CHECK_INSTANCE_CAST ((module), G_TYPE_TYPE_MODULE, GTypeModule))
+</MACRO>
+<MACRO>
+<NAME>G_TYPE_MODULE_CLASS</NAME>
+#define G_TYPE_MODULE_CLASS(class)      (G_TYPE_CHECK_CLASS_CAST ((class), G_TYPE_TYPE_MODULE, GTypeModuleClass))
+</MACRO>
+<MACRO>
+<NAME>G_IS_TYPE_MODULE</NAME>
+#define G_IS_TYPE_MODULE(module)        (G_TYPE_CHECK_INSTANCE_TYPE ((module), G_TYPE_TYPE_MODULE))
+</MACRO>
+<MACRO>
+<NAME>G_IS_TYPE_MODULE_CLASS</NAME>
+#define G_IS_TYPE_MODULE_CLASS(class)   (G_TYPE_CHECK_CLASS_TYPE ((class), G_TYPE_TYPE_MODULE))
+</MACRO>
+<MACRO>
+<NAME>G_TYPE_MODULE_GET_CLASS</NAME>
+#define G_TYPE_MODULE_GET_CLASS(module) (G_TYPE_INSTANCE_GET_CLASS ((module), G_TYPE_TYPE_MODULE, GTypeModuleClass))
+</MACRO>
+<STRUCT>
+<NAME>GTypeModule</NAME>
+struct _GTypeModule 
+{
+  GObject parent_instance;
+
+  guint use_count;
+  GSList *type_infos;
+  GSList *interface_infos;
+
+  /*< public >*/
+  gchar *name;
+};
+</STRUCT>
+<STRUCT>
+<NAME>GTypeModuleClass</NAME>
+struct _GTypeModuleClass
+{
+  GObjectClass parent_class;
+
+  /*< public >*/
+  gboolean (* load)   (GTypeModule *module);
+  void     (* unload) (GTypeModule *module);
+
+  /*< private >*/
+  /* Padding for future expansion */
+  void (*reserved1) (void);
+  void (*reserved2) (void);
+  void (*reserved3) (void);
+  void (*reserved4) (void);
+};
+</STRUCT>
+<MACRO>
+<NAME>G_DEFINE_DYNAMIC_TYPE</NAME>
+#define G_DEFINE_DYNAMIC_TYPE(TN, t_n, T_P)          G_DEFINE_DYNAMIC_TYPE_EXTENDED (TN, t_n, T_P, 0, {})
+</MACRO>
+<MACRO>
+<NAME>G_DEFINE_DYNAMIC_TYPE_EXTENDED</NAME>
+#define G_DEFINE_DYNAMIC_TYPE_EXTENDED(TypeName, type_name, TYPE_PARENT, flags, CODE) \
+static void     type_name##_init              (TypeName        *self); \
+static void     type_name##_class_init        (TypeName##Class *klass); \
+static void     type_name##_class_finalize    (TypeName##Class *klass); \
+static gpointer type_name##_parent_class = NULL; \
+static GType    type_name##_type_id = 0; \
+static gint     TypeName##_private_offset; \
+\
+_G_DEFINE_TYPE_EXTENDED_CLASS_INIT(TypeName, type_name) \
+\
+G_GNUC_UNUSED \
+static inline gpointer \
+type_name##_get_instance_private (TypeName *self) \
+{ \
+  return (G_STRUCT_MEMBER_P (self, TypeName##_private_offset)); \
+} \
+\
+GType \
+type_name##_get_type (void) \
+{ \
+  return type_name##_type_id; \
+} \
+static void \
+type_name##_register_type (GTypeModule *type_module) \
+{ \
+  GType g_define_type_id G_GNUC_UNUSED; \
+  const GTypeInfo g_define_type_info = { \
+    sizeof (TypeName##Class), \
+    (GBaseInitFunc) NULL, \
+    (GBaseFinalizeFunc) NULL, \
+    (GClassInitFunc) type_name##_class_intern_init, \
+    (GClassFinalizeFunc) type_name##_class_finalize, \
+    NULL,   /* class_data */ \
+    sizeof (TypeName), \
+    0,      /* n_preallocs */ \
+    (GInstanceInitFunc) type_name##_init, \
+    NULL    /* value_table */ \
+  }; \
+  type_name##_type_id = g_type_module_register_type (type_module, \
+						     TYPE_PARENT, \
+						     #TypeName, \
+						     &g_define_type_info, \
+						     (GTypeFlags) flags); \
+  g_define_type_id = type_name##_type_id; \
+  { CODE ; } \
+}
+</MACRO>
+<MACRO>
+<NAME>G_IMPLEMENT_INTERFACE_DYNAMIC</NAME>
+#define G_IMPLEMENT_INTERFACE_DYNAMIC(TYPE_IFACE, iface_init)       { \
+  const GInterfaceInfo g_implement_interface_info = { \
+    (GInterfaceInitFunc) iface_init, NULL, NULL      \
+  }; \
+  g_type_module_add_interface (type_module, g_define_type_id, TYPE_IFACE, &g_implement_interface_info); \
+}
+</MACRO>
+<MACRO>
+<NAME>G_ADD_PRIVATE_DYNAMIC</NAME>
+#define G_ADD_PRIVATE_DYNAMIC(TypeName)         { \
+  TypeName##_private_offset = sizeof (TypeName##Private); \
+}
+</MACRO>
+<FUNCTION>
+<NAME>g_type_module_get_type</NAME>
+<RETURNS>GType     </RETURNS>
+void
+</FUNCTION>
+<FUNCTION>
+<NAME>g_type_module_use</NAME>
+<RETURNS>gboolean  </RETURNS>
+GTypeModule          *module
+</FUNCTION>
+<FUNCTION>
+<NAME>g_type_module_unuse</NAME>
+<RETURNS>void      </RETURNS>
+GTypeModule          *module
+</FUNCTION>
+<FUNCTION>
+<NAME>g_type_module_set_name</NAME>
+<RETURNS>void      </RETURNS>
+GTypeModule          *module, const gchar          *name
+</FUNCTION>
+<FUNCTION>
+<NAME>g_type_module_register_type</NAME>
+<RETURNS>GType     </RETURNS>
+GTypeModule          *module, GType                 parent_type, const gchar          *type_name, const GTypeInfo      *type_info, GTypeFlags            flags
+</FUNCTION>
+<FUNCTION>
+<NAME>g_type_module_add_interface</NAME>
+<RETURNS>void      </RETURNS>
+GTypeModule          *module, GType                 instance_type, GType                 interface_type, const GInterfaceInfo *interface_info
+</FUNCTION>
+<FUNCTION>
+<NAME>g_type_module_register_enum</NAME>
+<RETURNS>GType     </RETURNS>
+GTypeModule          *module, const gchar          *name, const GEnumValue     *const_static_values
+</FUNCTION>
+<FUNCTION>
+<NAME>g_type_module_register_flags</NAME>
+<RETURNS>GType     </RETURNS>
+GTypeModule          *module, const gchar          *name, const GFlagsValue    *const_static_values
+</FUNCTION>
+<MACRO>
+<NAME>G_TYPE_TYPE_PLUGIN</NAME>
+#define G_TYPE_TYPE_PLUGIN		(g_type_plugin_get_type ())
+</MACRO>
+<MACRO>
+<NAME>G_TYPE_PLUGIN</NAME>
+#define G_TYPE_PLUGIN(inst)		(G_TYPE_CHECK_INSTANCE_CAST ((inst), G_TYPE_TYPE_PLUGIN, GTypePlugin))
+</MACRO>
+<MACRO>
+<NAME>G_TYPE_PLUGIN_CLASS</NAME>
+#define G_TYPE_PLUGIN_CLASS(vtable)	(G_TYPE_CHECK_CLASS_CAST ((vtable), G_TYPE_TYPE_PLUGIN, GTypePluginClass))
+</MACRO>
+<MACRO>
+<NAME>G_IS_TYPE_PLUGIN</NAME>
+#define G_IS_TYPE_PLUGIN(inst)		(G_TYPE_CHECK_INSTANCE_TYPE ((inst), G_TYPE_TYPE_PLUGIN))
+</MACRO>
+<MACRO>
+<NAME>G_IS_TYPE_PLUGIN_CLASS</NAME>
+#define G_IS_TYPE_PLUGIN_CLASS(vtable)	(G_TYPE_CHECK_CLASS_TYPE ((vtable), G_TYPE_TYPE_PLUGIN))
+</MACRO>
+<MACRO>
+<NAME>G_TYPE_PLUGIN_GET_CLASS</NAME>
+#define G_TYPE_PLUGIN_GET_CLASS(inst)	(G_TYPE_INSTANCE_GET_INTERFACE ((inst), G_TYPE_TYPE_PLUGIN, GTypePluginClass))
+</MACRO>
+<USER_FUNCTION>
+<NAME>GTypePluginUse</NAME>
+<RETURNS>void </RETURNS>
+GTypePlugin     *plugin
+</USER_FUNCTION>
+<USER_FUNCTION>
+<NAME>GTypePluginUnuse</NAME>
+<RETURNS>void </RETURNS>
+GTypePlugin     *plugin
+</USER_FUNCTION>
+<USER_FUNCTION>
+<NAME>GTypePluginCompleteTypeInfo</NAME>
+<RETURNS>void </RETURNS>
+GTypePlugin     *plugin,
+						   GType            g_type,
+						   GTypeInfo       *info,
+						   GTypeValueTable *value_table
+</USER_FUNCTION>
+<USER_FUNCTION>
+<NAME>GTypePluginCompleteInterfaceInfo</NAME>
+<RETURNS>void </RETURNS>
+GTypePlugin     *plugin,
+						   GType            instance_type,
+						   GType            interface_type,
+						   GInterfaceInfo  *info
+</USER_FUNCTION>
+<STRUCT>
+<NAME>GTypePluginClass</NAME>
+struct _GTypePluginClass
+{
+  /*< private >*/
+  GTypeInterface		   base_iface;
+  
+  /*< public >*/
+  GTypePluginUse		   use_plugin;
+  GTypePluginUnuse		   unuse_plugin;
+  GTypePluginCompleteTypeInfo	   complete_type_info;
+  GTypePluginCompleteInterfaceInfo complete_interface_info;
+};
+</STRUCT>
+<FUNCTION>
+<NAME>g_type_plugin_get_type</NAME>
+<RETURNS>GType 	</RETURNS>
+void
+</FUNCTION>
+<FUNCTION>
+<NAME>g_type_plugin_use</NAME>
+<RETURNS>void 	</RETURNS>
+GTypePlugin	 *plugin
+</FUNCTION>
+<FUNCTION>
+<NAME>g_type_plugin_unuse</NAME>
+<RETURNS>void 	</RETURNS>
+GTypePlugin	 *plugin
+</FUNCTION>
+<FUNCTION>
+<NAME>g_type_plugin_complete_type_info</NAME>
+<RETURNS>void 	</RETURNS>
+GTypePlugin     *plugin, GType            g_type, GTypeInfo       *info, GTypeValueTable *value_table
+</FUNCTION>
+<FUNCTION>
+<NAME>g_type_plugin_complete_interface_info</NAME>
+<RETURNS>void 	</RETURNS>
+GTypePlugin     *plugin, GType            instance_type, GType            interface_type, GInterfaceInfo  *info
+</FUNCTION>
+<MACRO>
+<NAME>G_TYPE_IS_VALUE</NAME>
+#define	G_TYPE_IS_VALUE(type)		(g_type_check_is_value_type (type))
+</MACRO>
+<MACRO>
+<NAME>G_IS_VALUE</NAME>
+#define	G_IS_VALUE(value)		(G_TYPE_CHECK_VALUE (value))
+</MACRO>
+<MACRO>
+<NAME>G_VALUE_TYPE</NAME>
+#define	G_VALUE_TYPE(value)		(((GValue*) (value))->g_type)
+</MACRO>
+<MACRO>
+<NAME>G_VALUE_TYPE_NAME</NAME>
+#define	G_VALUE_TYPE_NAME(value)	(g_type_name (G_VALUE_TYPE (value)))
+</MACRO>
+<MACRO>
+<NAME>G_VALUE_HOLDS</NAME>
+#define G_VALUE_HOLDS(value,type)	(G_TYPE_CHECK_VALUE_TYPE ((value), (type)))
+</MACRO>
+<USER_FUNCTION>
+<NAME>GValueTransform</NAME>
+<RETURNS>void </RETURNS>
+const GValue *src_value,
+				 GValue       *dest_value
+</USER_FUNCTION>
+<STRUCT>
+<NAME>GValue</NAME>
+struct _GValue
+{
+  /*< private >*/
+  GType		g_type;
+
+  /* public for GTypeValueTable methods */
+  union {
+    gint	v_int;
+    guint	v_uint;
+    glong	v_long;
+    gulong	v_ulong;
+    gint64      v_int64;
+    guint64     v_uint64;
+    gfloat	v_float;
+    gdouble	v_double;
+    gpointer	v_pointer;
+  } data[2];
+};
+</STRUCT>
+<FUNCTION>
+<NAME>g_value_init</NAME>
+<RETURNS>GValue *         </RETURNS>
+GValue       *value, GType         g_type
+</FUNCTION>
+<FUNCTION>
+<NAME>g_value_copy</NAME>
+<RETURNS>void             </RETURNS>
+const GValue *src_value, GValue       *dest_value
+</FUNCTION>
+<FUNCTION>
+<NAME>g_value_reset</NAME>
+<RETURNS>GValue *         </RETURNS>
+GValue       *value
+</FUNCTION>
+<FUNCTION>
+<NAME>g_value_unset</NAME>
+<RETURNS>void             </RETURNS>
+GValue       *value
+</FUNCTION>
+<FUNCTION>
+<NAME>g_value_set_instance</NAME>
+<RETURNS>void 		</RETURNS>
+GValue	      *value, gpointer      instance
+</FUNCTION>
+<FUNCTION>
+<NAME>g_value_init_from_instance</NAME>
+<RETURNS>void             </RETURNS>
+GValue       *value, gpointer      instance
+</FUNCTION>
+<FUNCTION>
+<NAME>g_value_fits_pointer</NAME>
+<RETURNS>gboolean 	</RETURNS>
+const GValue *value
+</FUNCTION>
+<FUNCTION>
+<NAME>g_value_peek_pointer</NAME>
+<RETURNS>gpointer 	</RETURNS>
+const GValue *value
+</FUNCTION>
+<FUNCTION>
+<NAME>g_value_type_compatible</NAME>
+<RETURNS>gboolean  </RETURNS>
+GType		 src_type, GType		 dest_type
+</FUNCTION>
+<FUNCTION>
+<NAME>g_value_type_transformable</NAME>
+<RETURNS>gboolean  </RETURNS>
+GType           src_type, GType           dest_type
+</FUNCTION>
+<FUNCTION>
+<NAME>g_value_transform</NAME>
+<RETURNS>gboolean  </RETURNS>
+const GValue   *src_value, GValue         *dest_value
+</FUNCTION>
+<FUNCTION>
+<NAME>g_value_register_transform_func</NAME>
+<RETURNS>void 	</RETURNS>
+GType		 src_type, GType		 dest_type, GValueTransform transform_func
+</FUNCTION>
+<MACRO>
+<NAME>G_VALUE_NOCOPY_CONTENTS</NAME>
+#define G_VALUE_NOCOPY_CONTENTS (1 << 27)
+</MACRO>
+<MACRO>
+<NAME>G_VALUE_INIT</NAME>
+#define G_VALUE_INIT  { 0, { { 0 } } }
+</MACRO>
+<MACRO>
+<NAME>G_TYPE_VALUE_ARRAY</NAME>
+#define G_TYPE_VALUE_ARRAY (g_value_array_get_type ())
+</MACRO>
+<STRUCT>
+<NAME>GValueArray</NAME>
+struct _GValueArray
+{
+  guint   n_values;
+  GValue *values;
+
+  /*< private >*/
+  guint   n_prealloced;
+};
+</STRUCT>
+<FUNCTION>
+<NAME>g_value_array_get_type</NAME>
+<DEPRECATED/>
+<RETURNS>GType            </RETURNS>
+void
+</FUNCTION>
+<FUNCTION>
+<NAME>g_value_array_get_nth</NAME>
+<DEPRECATED/>
+<RETURNS>GValue *		</RETURNS>
+GValueArray	*value_array, guint		 index_
+</FUNCTION>
+<FUNCTION>
+<NAME>g_value_array_new</NAME>
+<DEPRECATED/>
+<RETURNS>GValueArray *	</RETURNS>
+guint		 n_prealloced
+</FUNCTION>
+<FUNCTION>
+<NAME>g_value_array_free</NAME>
+<DEPRECATED/>
+<RETURNS>void 		</RETURNS>
+GValueArray	*value_array
+</FUNCTION>
+<FUNCTION>
+<NAME>g_value_array_copy</NAME>
+<DEPRECATED/>
+<RETURNS>GValueArray *	</RETURNS>
+const GValueArray *value_array
+</FUNCTION>
+<FUNCTION>
+<NAME>g_value_array_prepend</NAME>
+<DEPRECATED/>
+<RETURNS>GValueArray *	</RETURNS>
+GValueArray	*value_array, const GValue	*value
+</FUNCTION>
+<FUNCTION>
+<NAME>g_value_array_append</NAME>
+<DEPRECATED/>
+<RETURNS>GValueArray *	</RETURNS>
+GValueArray	*value_array, const GValue	*value
+</FUNCTION>
+<FUNCTION>
+<NAME>g_value_array_insert</NAME>
+<DEPRECATED/>
+<RETURNS>GValueArray *	</RETURNS>
+GValueArray	*value_array, guint		 index_, const GValue	*value
+</FUNCTION>
+<FUNCTION>
+<NAME>g_value_array_remove</NAME>
+<DEPRECATED/>
+<RETURNS>GValueArray *	</RETURNS>
+GValueArray	*value_array, guint		 index_
+</FUNCTION>
+<FUNCTION>
+<NAME>g_value_array_sort</NAME>
+<DEPRECATED/>
+<RETURNS>GValueArray *	</RETURNS>
+GValueArray	*value_array, GCompareFunc	 compare_func
+</FUNCTION>
+<FUNCTION>
+<NAME>g_value_array_sort_with_data</NAME>
+<DEPRECATED/>
+<RETURNS>GValueArray *	</RETURNS>
+GValueArray	*value_array, GCompareDataFunc	 compare_func, gpointer		 user_data
+</FUNCTION>
+<UNION>
+<NAME>GTypeCValue</NAME>
+union _GTypeCValue
+{
+  gint     v_int;
+  glong    v_long;
+  gint64   v_int64;
+  gdouble  v_double;
+  gpointer v_pointer;
+};
+</UNION>
+<MACRO>
+<NAME>G_VALUE_COLLECT_INIT</NAME>
+#define G_VALUE_COLLECT_INIT(value, _value_type, var_args, flags, __error)		\
+G_STMT_START {										\
+  GValue *g_vci_val = (value);								\
+  guint g_vci_flags = (flags);								\
+  GTypeValueTable *g_vci_vtab = g_type_value_table_peek (_value_type);			\
+  const gchar *g_vci_collect_format = g_vci_vtab->collect_format;					\
+  GTypeCValue g_vci_cvalues[G_VALUE_COLLECT_FORMAT_MAX_LENGTH] = { { 0, }, };		\
+  guint g_vci_n_values = 0;									\
+                                                                                        \
+  g_vci_val->g_type = _value_type;		/* value_meminit() from gvalue.c */		\
+  while (*g_vci_collect_format)								\
+    {											\
+      GTypeCValue *g_vci_cvalue = g_vci_cvalues + g_vci_n_values++;					\
+                                                                                        \
+      switch (*g_vci_collect_format++)							\
+	{										\
+	case G_VALUE_COLLECT_INT:							\
+	  g_vci_cvalue->v_int = va_arg ((var_args), gint);					\
+	  break;									\
+	case G_VALUE_COLLECT_LONG:							\
+	  g_vci_cvalue->v_long = va_arg ((var_args), glong);					\
+	  break;									\
+	case G_VALUE_COLLECT_INT64:							\
+	  g_vci_cvalue->v_int64 = va_arg ((var_args), gint64);				\
+	  break;									\
+	case G_VALUE_COLLECT_DOUBLE:							\
+	  g_vci_cvalue->v_double = va_arg ((var_args), gdouble);				\
+	  break;									\
+	case G_VALUE_COLLECT_POINTER:							\
+	  g_vci_cvalue->v_pointer = va_arg ((var_args), gpointer);				\
+	  break;									\
+	default:									\
+	  g_assert_not_reached ();							\
+	}										\
+    }											\
+  *(__error) = g_vci_vtab->collect_value (g_vci_val,						\
+				       g_vci_n_values,					\
+				       g_vci_cvalues,					\
+				       g_vci_flags);						\
+} G_STMT_END
+</MACRO>
+<MACRO>
+<NAME>G_VALUE_COLLECT</NAME>
+#define G_VALUE_COLLECT(value, var_args, flags, __error) G_STMT_START {			\
+  GValue *g_vc_value = (value);								\
+  GType g_vc_value_type = G_VALUE_TYPE (g_vc_value);						\
+  GTypeValueTable *g_vc_vtable = g_type_value_table_peek (g_vc_value_type);			\
+											\
+  if (g_vc_vtable->value_free)								\
+    g_vc_vtable->value_free (g_vc_value);							\
+  memset (g_vc_value->data, 0, sizeof (g_vc_value->data));					\
+											\
+  G_VALUE_COLLECT_INIT(value, g_vc_value_type, var_args, flags, __error);			\
+} G_STMT_END
+</MACRO>
+<MACRO>
+<NAME>G_VALUE_COLLECT_SKIP</NAME>
+#define G_VALUE_COLLECT_SKIP(_value_type, var_args)					\
+G_STMT_START {										\
+  GTypeValueTable *g_vcs_vtable = g_type_value_table_peek (_value_type);			\
+  const gchar *g_vcs_collect_format = g_vcs_vtable->collect_format;				\
+                                                                                        \
+  while (*g_vcs_collect_format)								\
+    {											\
+      switch (*g_vcs_collect_format++)							\
+	{										\
+	case G_VALUE_COLLECT_INT:							\
+	  va_arg ((var_args), gint);							\
+	  break;									\
+	case G_VALUE_COLLECT_LONG:							\
+	  va_arg ((var_args), glong);							\
+	  break;									\
+	case G_VALUE_COLLECT_INT64:							\
+	  va_arg ((var_args), gint64);							\
+	  break;									\
+	case G_VALUE_COLLECT_DOUBLE:							\
+	  va_arg ((var_args), gdouble);							\
+	  break;									\
+	case G_VALUE_COLLECT_POINTER:							\
+	  va_arg ((var_args), gpointer);						\
+	  break;									\
+	default:									\
+	  g_assert_not_reached ();							\
+	}										\
+    }											\
+} G_STMT_END
+</MACRO>
+<MACRO>
+<NAME>G_VALUE_LCOPY</NAME>
+#define G_VALUE_LCOPY(value, var_args, flags, __error)					\
+G_STMT_START {										\
+  const GValue *g_vl_value = (value);							\
+  guint g_vl_flags = (flags);								\
+  GType g_vl_value_type = G_VALUE_TYPE (g_vl_value);						\
+  GTypeValueTable *g_vl_vtable = g_type_value_table_peek (g_vl_value_type);			\
+  const gchar *g_vl_lcopy_format = g_vl_vtable->lcopy_format;					\
+  GTypeCValue g_vl_cvalues[G_VALUE_COLLECT_FORMAT_MAX_LENGTH] = { { 0, }, };		\
+  guint g_vl_n_values = 0;									\
+                                                                                        \
+  while (*g_vl_lcopy_format)								\
+    {											\
+      GTypeCValue *g_vl_cvalue = g_vl_cvalues + g_vl_n_values++;					\
+                                                                                        \
+      switch (*g_vl_lcopy_format++)								\
+	{										\
+	case G_VALUE_COLLECT_INT:							\
+	  g_vl_cvalue->v_int = va_arg ((var_args), gint);					\
+	  break;									\
+	case G_VALUE_COLLECT_LONG:							\
+	  g_vl_cvalue->v_long = va_arg ((var_args), glong);					\
+	  break;									\
+	case G_VALUE_COLLECT_INT64:							\
+	  g_vl_cvalue->v_int64 = va_arg ((var_args), gint64);				\
+	  break;									\
+	case G_VALUE_COLLECT_DOUBLE:							\
+	  g_vl_cvalue->v_double = va_arg ((var_args), gdouble);				\
+	  break;									\
+	case G_VALUE_COLLECT_POINTER:							\
+	  g_vl_cvalue->v_pointer = va_arg ((var_args), gpointer);				\
+	  break;									\
+	default:									\
+	  g_assert_not_reached ();							\
+	}										\
+    }											\
+  *(__error) = g_vl_vtable->lcopy_value (g_vl_value,						\
+				     g_vl_n_values,						\
+				     g_vl_cvalues,						\
+				     g_vl_flags);						\
+} G_STMT_END
+</MACRO>
+<MACRO>
+<NAME>G_VALUE_COLLECT_FORMAT_MAX_LENGTH</NAME>
+#define	G_VALUE_COLLECT_FORMAT_MAX_LENGTH	(8)
+</MACRO>
+<MACRO>
+<NAME>G_VALUE_HOLDS_CHAR</NAME>
+#define G_VALUE_HOLDS_CHAR(value)	 (G_TYPE_CHECK_VALUE_TYPE ((value), G_TYPE_CHAR))
+</MACRO>
+<MACRO>
+<NAME>G_VALUE_HOLDS_UCHAR</NAME>
+#define G_VALUE_HOLDS_UCHAR(value)	 (G_TYPE_CHECK_VALUE_TYPE ((value), G_TYPE_UCHAR))
+</MACRO>
+<MACRO>
+<NAME>G_VALUE_HOLDS_BOOLEAN</NAME>
+#define G_VALUE_HOLDS_BOOLEAN(value)	 (G_TYPE_CHECK_VALUE_TYPE ((value), G_TYPE_BOOLEAN))
+</MACRO>
+<MACRO>
+<NAME>G_VALUE_HOLDS_INT</NAME>
+#define G_VALUE_HOLDS_INT(value)	 (G_TYPE_CHECK_VALUE_TYPE ((value), G_TYPE_INT))
+</MACRO>
+<MACRO>
+<NAME>G_VALUE_HOLDS_UINT</NAME>
+#define G_VALUE_HOLDS_UINT(value)	 (G_TYPE_CHECK_VALUE_TYPE ((value), G_TYPE_UINT))
+</MACRO>
+<MACRO>
+<NAME>G_VALUE_HOLDS_LONG</NAME>
+#define G_VALUE_HOLDS_LONG(value)	 (G_TYPE_CHECK_VALUE_TYPE ((value), G_TYPE_LONG))
+</MACRO>
+<MACRO>
+<NAME>G_VALUE_HOLDS_ULONG</NAME>
+#define G_VALUE_HOLDS_ULONG(value)	 (G_TYPE_CHECK_VALUE_TYPE ((value), G_TYPE_ULONG))
+</MACRO>
+<MACRO>
+<NAME>G_VALUE_HOLDS_INT64</NAME>
+#define G_VALUE_HOLDS_INT64(value)	 (G_TYPE_CHECK_VALUE_TYPE ((value), G_TYPE_INT64))
+</MACRO>
+<MACRO>
+<NAME>G_VALUE_HOLDS_UINT64</NAME>
+#define G_VALUE_HOLDS_UINT64(value)	 (G_TYPE_CHECK_VALUE_TYPE ((value), G_TYPE_UINT64))
+</MACRO>
+<MACRO>
+<NAME>G_VALUE_HOLDS_FLOAT</NAME>
+#define G_VALUE_HOLDS_FLOAT(value)	 (G_TYPE_CHECK_VALUE_TYPE ((value), G_TYPE_FLOAT))
+</MACRO>
+<MACRO>
+<NAME>G_VALUE_HOLDS_DOUBLE</NAME>
+#define G_VALUE_HOLDS_DOUBLE(value)	 (G_TYPE_CHECK_VALUE_TYPE ((value), G_TYPE_DOUBLE))
+</MACRO>
+<MACRO>
+<NAME>G_VALUE_HOLDS_STRING</NAME>
+#define G_VALUE_HOLDS_STRING(value)	 (G_TYPE_CHECK_VALUE_TYPE ((value), G_TYPE_STRING))
+</MACRO>
+<MACRO>
+<NAME>G_VALUE_HOLDS_POINTER</NAME>
+#define G_VALUE_HOLDS_POINTER(value)	 (G_TYPE_CHECK_VALUE_TYPE ((value), G_TYPE_POINTER))
+</MACRO>
+<MACRO>
+<NAME>G_TYPE_GTYPE</NAME>
+#define	G_TYPE_GTYPE			 (g_gtype_get_type())
+</MACRO>
+<MACRO>
+<NAME>G_VALUE_HOLDS_GTYPE</NAME>
+#define G_VALUE_HOLDS_GTYPE(value)	 (G_TYPE_CHECK_VALUE_TYPE ((value), G_TYPE_GTYPE))
+</MACRO>
+<MACRO>
+<NAME>G_VALUE_HOLDS_VARIANT</NAME>
+#define G_VALUE_HOLDS_VARIANT(value)     (G_TYPE_CHECK_VALUE_TYPE ((value), G_TYPE_VARIANT))
+</MACRO>
+<FUNCTION>
+<NAME>g_value_set_char</NAME>
+<DEPRECATED/>
+<RETURNS>void                   </RETURNS>
+GValue       *value, gchar         v_char
+</FUNCTION>
+<FUNCTION>
+<NAME>g_value_get_char</NAME>
+<DEPRECATED/>
+<RETURNS>gchar                  </RETURNS>
+const GValue *value
+</FUNCTION>
+<FUNCTION>
+<NAME>g_value_set_schar</NAME>
+<RETURNS>void 		      </RETURNS>
+GValue	      *value, gint8	       v_char
+</FUNCTION>
+<FUNCTION>
+<NAME>g_value_get_schar</NAME>
+<RETURNS>gint8 		      </RETURNS>
+const GValue *value
+</FUNCTION>
+<FUNCTION>
+<NAME>g_value_set_uchar</NAME>
+<RETURNS>void 		      </RETURNS>
+GValue	      *value, guchar	       v_uchar
+</FUNCTION>
+<FUNCTION>
+<NAME>g_value_get_uchar</NAME>
+<RETURNS>guchar 		      </RETURNS>
+const GValue *value
+</FUNCTION>
+<FUNCTION>
+<NAME>g_value_set_boolean</NAME>
+<RETURNS>void 		      </RETURNS>
+GValue	      *value, gboolean      v_boolean
+</FUNCTION>
+<FUNCTION>
+<NAME>g_value_get_boolean</NAME>
+<RETURNS>gboolean 	      </RETURNS>
+const GValue *value
+</FUNCTION>
+<FUNCTION>
+<NAME>g_value_set_int</NAME>
+<RETURNS>void 		      </RETURNS>
+GValue	      *value, gint	       v_int
+</FUNCTION>
+<FUNCTION>
+<NAME>g_value_get_int</NAME>
+<RETURNS>gint 		      </RETURNS>
+const GValue *value
+</FUNCTION>
+<FUNCTION>
+<NAME>g_value_set_uint</NAME>
+<RETURNS>void 		      </RETURNS>
+GValue	      *value, guint	       v_uint
+</FUNCTION>
+<FUNCTION>
+<NAME>g_value_get_uint</NAME>
+<RETURNS>guint 		      </RETURNS>
+const GValue *value
+</FUNCTION>
+<FUNCTION>
+<NAME>g_value_set_long</NAME>
+<RETURNS>void 		      </RETURNS>
+GValue	      *value, glong	       v_long
+</FUNCTION>
+<FUNCTION>
+<NAME>g_value_get_long</NAME>
+<RETURNS>glong 		      </RETURNS>
+const GValue *value
+</FUNCTION>
+<FUNCTION>
+<NAME>g_value_set_ulong</NAME>
+<RETURNS>void 		      </RETURNS>
+GValue	      *value, gulong	       v_ulong
+</FUNCTION>
+<FUNCTION>
+<NAME>g_value_get_ulong</NAME>
+<RETURNS>gulong 		      </RETURNS>
+const GValue *value
+</FUNCTION>
+<FUNCTION>
+<NAME>g_value_set_int64</NAME>
+<RETURNS>void 		      </RETURNS>
+GValue	      *value, gint64	       v_int64
+</FUNCTION>
+<FUNCTION>
+<NAME>g_value_get_int64</NAME>
+<RETURNS>gint64 		      </RETURNS>
+const GValue *value
+</FUNCTION>
+<FUNCTION>
+<NAME>g_value_set_uint64</NAME>
+<RETURNS>void 		      </RETURNS>
+GValue	      *value, guint64      v_uint64
+</FUNCTION>
+<FUNCTION>
+<NAME>g_value_get_uint64</NAME>
+<RETURNS>guint64 		      </RETURNS>
+const GValue *value
+</FUNCTION>
+<FUNCTION>
+<NAME>g_value_set_float</NAME>
+<RETURNS>void 		      </RETURNS>
+GValue	      *value, gfloat	       v_float
+</FUNCTION>
+<FUNCTION>
+<NAME>g_value_get_float</NAME>
+<RETURNS>gfloat 		      </RETURNS>
+const GValue *value
+</FUNCTION>
+<FUNCTION>
+<NAME>g_value_set_double</NAME>
+<RETURNS>void 		      </RETURNS>
+GValue	      *value, gdouble       v_double
+</FUNCTION>
+<FUNCTION>
+<NAME>g_value_get_double</NAME>
+<RETURNS>gdouble 		      </RETURNS>
+const GValue *value
+</FUNCTION>
+<FUNCTION>
+<NAME>g_value_set_string</NAME>
+<RETURNS>void 		      </RETURNS>
+GValue	      *value, const gchar  *v_string
+</FUNCTION>
+<FUNCTION>
+<NAME>g_value_set_static_string</NAME>
+<RETURNS>void 		      </RETURNS>
+GValue	      *value, const gchar  *v_string
+</FUNCTION>
+<FUNCTION>
+<NAME>g_value_get_string</NAME>
+<RETURNS>const gchar  *         </RETURNS>
+const GValue *value
+</FUNCTION>
+<FUNCTION>
+<NAME>g_value_dup_string</NAME>
+<RETURNS>gchar *		      </RETURNS>
+const GValue *value
+</FUNCTION>
+<FUNCTION>
+<NAME>g_value_set_pointer</NAME>
+<RETURNS>void 		      </RETURNS>
+GValue	      *value, gpointer      v_pointer
+</FUNCTION>
+<FUNCTION>
+<NAME>g_value_get_pointer</NAME>
+<RETURNS>gpointer 	      </RETURNS>
+const GValue *value
+</FUNCTION>
+<FUNCTION>
+<NAME>g_gtype_get_type</NAME>
+<RETURNS>GType 		      </RETURNS>
+void
+</FUNCTION>
+<FUNCTION>
+<NAME>g_value_set_gtype</NAME>
+<RETURNS>void 		      </RETURNS>
+GValue	      *value, GType         v_gtype
+</FUNCTION>
+<FUNCTION>
+<NAME>g_value_get_gtype</NAME>
+<RETURNS>GType 	              </RETURNS>
+const GValue *value
+</FUNCTION>
+<FUNCTION>
+<NAME>g_value_set_variant</NAME>
+<RETURNS>void 		      </RETURNS>
+GValue	      *value, GVariant     *variant
+</FUNCTION>
+<FUNCTION>
+<NAME>g_value_take_variant</NAME>
+<RETURNS>void 		      </RETURNS>
+GValue	      *value, GVariant     *variant
+</FUNCTION>
+<FUNCTION>
+<NAME>g_value_get_variant</NAME>
+<RETURNS>GVariant *	      </RETURNS>
+const GValue *value
+</FUNCTION>
+<FUNCTION>
+<NAME>g_value_dup_variant</NAME>
+<RETURNS>GVariant *	      </RETURNS>
+const GValue *value
+</FUNCTION>
+<FUNCTION>
+<NAME>g_pointer_type_register_static</NAME>
+<RETURNS>GType                  </RETURNS>
+const gchar *name
+</FUNCTION>
+<FUNCTION>
+<NAME>g_strdup_value_contents</NAME>
+<RETURNS>gchar *                </RETURNS>
+const GValue *value
+</FUNCTION>
+<FUNCTION>
+<NAME>g_value_take_string</NAME>
+<RETURNS>void  </RETURNS>
+GValue		   *value, gchar		   *v_string
+</FUNCTION>
+<FUNCTION>
+<NAME>g_value_set_string_take_ownership</NAME>
+<DEPRECATED/>
+<RETURNS>void  </RETURNS>
+GValue            *value, gchar             *v_string
+</FUNCTION>
+<TYPEDEF>
+<NAME>gchararray</NAME>
+typedef gchar* gchararray;
+</TYPEDEF>

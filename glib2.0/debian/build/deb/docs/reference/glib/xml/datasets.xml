@@ -1,0 +1,469 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC '-//OASIS//DTD DocBook XML V4.5//EN'
+                      'http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd' [
+<!ENTITY % local.common.attrib "xmlns:xi  CDATA  #FIXED 'http://www.w3.org/2003/XInclude'">
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="glib-Datasets">
+<refmeta>
+<refentrytitle role="top_of_page" id="glib-Datasets.top_of_page">Datasets</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>GLIB Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>Datasets</refname>
+<refpurpose>associate groups of data elements with
+                    particular memory locations</refpurpose>
+</refnamediv>
+
+<refsect1 id="glib-Datasets.functions" role="functions_proto">
+<title role="functions_proto.title">Functions</title>
+<informaltable pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="functions_return" colwidth="150px"/>
+<colspec colname="functions_name"/>
+<tbody>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="g-dataset-id-set-data">g_dataset_id_set_data</link><phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-dataset-id-set-data-full">g_dataset_id_set_data_full</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><phrase role="c_punctuation">(</phrase><link linkend="GDestroyNotify">*GDestroyNotify</link><phrase role="c_punctuation">)</phrase>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gpointer"><returnvalue>gpointer</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-dataset-id-get-data">g_dataset_id_get_data</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="g-dataset-id-remove-data">g_dataset_id_remove_data</link><phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gpointer"><returnvalue>gpointer</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-dataset-id-remove-no-notify">g_dataset_id_remove_no_notify</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="g-dataset-set-data">g_dataset_set_data</link><phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="g-dataset-set-data-full">g_dataset_set_data_full</link><phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="g-dataset-get-data">g_dataset_get_data</link><phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="g-dataset-remove-data">g_dataset_remove_data</link><phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="g-dataset-remove-no-notify">g_dataset_remove_no_notify</link><phrase role="c_punctuation">()</phrase></entry></row>
+
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-dataset-foreach">g_dataset_foreach</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><phrase role="c_punctuation">(</phrase><link linkend="GDataForeachFunc">*GDataForeachFunc</link><phrase role="c_punctuation">)</phrase>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-dataset-destroy">g_dataset_destroy</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+
+<refsect1 id="glib-Datasets.includes"><title>Includes</title><synopsis>#include &lt;gmodule.h&gt;
+</synopsis></refsect1>
+
+<refsect1 id="glib-Datasets.description" role="desc">
+<title role="desc.title">Description</title>
+<para>Datasets associate groups of data elements with particular memory
+locations. These are useful if you need to associate data with a
+structure returned from an external library. Since you cannot modify
+the structure, you use its location in memory as the key into a
+dataset, where you can associate any number of data elements with it.</para>
+<para>There are two forms of most of the dataset functions. The first form
+uses strings to identify the data elements associated with a
+location. The second form uses <link linkend="GQuark"><type>GQuark</type></link> identifiers, which are
+created with a call to <link linkend="g-quark-from-string"><function>g_quark_from_string()</function></link> or
+<link linkend="g-quark-from-static-string"><function>g_quark_from_static_string()</function></link>. The second form is quicker, since it
+does not require looking up the string in the hash table of <link linkend="GQuark"><type>GQuark</type></link>
+identifiers.</para>
+<para>There is no function to create a dataset. It is automatically
+created as soon as you add elements to it.</para>
+<para>To add data elements to a dataset use <link linkend="g-dataset-id-set-data"><function>g_dataset_id_set_data()</function></link>,
+<link linkend="g-dataset-id-set-data-full"><function>g_dataset_id_set_data_full()</function></link>, <link linkend="g-dataset-set-data"><function>g_dataset_set_data()</function></link> and
+<link linkend="g-dataset-set-data-full"><function>g_dataset_set_data_full()</function></link>.</para>
+<para>To get data elements from a dataset use <link linkend="g-dataset-id-get-data"><function>g_dataset_id_get_data()</function></link> and
+<link linkend="g-dataset-get-data"><function>g_dataset_get_data()</function></link>.</para>
+<para>To iterate over all data elements in a dataset use
+<link linkend="g-dataset-foreach"><function>g_dataset_foreach()</function></link> (not thread-safe).</para>
+<para>To remove data elements from a dataset use
+<link linkend="g-dataset-id-remove-data"><function>g_dataset_id_remove_data()</function></link> and <link linkend="g-dataset-remove-data"><function>g_dataset_remove_data()</function></link>.</para>
+<para>To destroy a dataset, use <link linkend="g-dataset-destroy"><function>g_dataset_destroy()</function></link>.</para>
+
+</refsect1>
+<refsect1 id="glib-Datasets.functions_details" role="details">
+<title role="details.title">Functions</title>
+<refsect2 id="g-dataset-id-set-data" role="macro">
+<title>g_dataset_id_set_data()</title>
+<indexterm zone="g-dataset-id-set-data"><primary sortas="dataset_id_set_data">g_dataset_id_set_data</primary></indexterm>
+<programlisting language="C">#define             g_dataset_id_set_data(l, k, d)</programlisting>
+<para>Sets the data element associated with the given <link linkend="GQuark"><type>GQuark</type></link> id. Any
+previous data with the same key is removed, and its destroy function
+is called.</para>
+<refsect3 id="g-dataset-id-set-data.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>l</para></entry>
+<entry role="parameter_description"><para>the location identifying the dataset.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>k</para></entry>
+<entry role="parameter_description"><para>the <link linkend="GQuark"><type>GQuark</type></link> id to identify the data element.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>d</para></entry>
+<entry role="parameter_description"><para>the data element.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-dataset-id-set-data-full" role="function">
+<title>g_dataset_id_set_data_full&#160;()</title>
+<indexterm zone="g-dataset-id-set-data-full"><primary sortas="dataset_id_set_data_full">g_dataset_id_set_data_full</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_dataset_id_set_data_full (<parameter><link linkend="gconstpointer"><type>gconstpointer</type></link> dataset_location</parameter>,
+                            <parameter><link linkend="GQuark"><type>GQuark</type></link> key_id</parameter>,
+                            <parameter><link linkend="gpointer"><type>gpointer</type></link> data</parameter>,
+                            <parameter><link linkend="GDestroyNotify"><type>GDestroyNotify</type></link> destroy_func</parameter>);</programlisting>
+<para>Sets the data element associated with the given <link linkend="GQuark"><type>GQuark</type></link> id, and also
+the function to call when the data element is destroyed. Any
+previous data with the same key is removed, and its destroy function
+is called.</para>
+
+<para><emphasis role="annotation">[<acronym>skip</acronym>]</emphasis></para><refsect3 id="g-dataset-id-set-data-full.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>dataset_location</para></entry>
+<entry role="parameter_description"><para>the location identifying the dataset. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>not nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>key_id</para></entry>
+<entry role="parameter_description"><para>the <link linkend="GQuark"><type>GQuark</type></link> id to identify the data element.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>data</para></entry>
+<entry role="parameter_description"><para>the data element.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>destroy_func</para></entry>
+<entry role="parameter_description"><para>the function to call when the data element is
+removed. This function will be called with the data
+element and can be used to free any memory allocated
+for it.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="GDestroyNotify" role="function">
+<title>GDestroyNotify&#160;()</title>
+<indexterm zone="GDestroyNotify"><primary sortas="DestroyNotify">GDestroyNotify</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+<phrase role="c_punctuation">(</phrase>*GDestroyNotify<phrase role="c_punctuation">)</phrase> (<parameter><link linkend="gpointer"><type>gpointer</type></link> data</parameter>);</programlisting>
+<para>Specifies the type of function which is called when a data element
+is destroyed. It is passed the pointer to the data element and
+should free any memory and resources allocated for it.</para>
+<refsect3 id="GDestroyNotify.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>data</para></entry>
+<entry role="parameter_description"><para>the data element.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-dataset-id-get-data" role="function">
+<title>g_dataset_id_get_data&#160;()</title>
+<indexterm zone="g-dataset-id-get-data"><primary sortas="dataset_id_get_data">g_dataset_id_get_data</primary></indexterm>
+<programlisting language="C"><link linkend="gpointer"><returnvalue>gpointer</returnvalue></link>
+g_dataset_id_get_data (<parameter><link linkend="gconstpointer"><type>gconstpointer</type></link> dataset_location</parameter>,
+                       <parameter><link linkend="GQuark"><type>GQuark</type></link> key_id</parameter>);</programlisting>
+<para>Gets the data element corresponding to a <link linkend="GQuark"><type>GQuark</type></link>.</para>
+<refsect3 id="g-dataset-id-get-data.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>dataset_location</para></entry>
+<entry role="parameter_description"><para>the location identifying the dataset. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>not nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>key_id</para></entry>
+<entry role="parameter_description"><para>the <link linkend="GQuark"><type>GQuark</type></link> id to identify the data element.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-dataset-id-get-data.returns" role="returns">
+<title>Returns</title>
+<para>the data element corresponding to
+the <link linkend="GQuark"><type>GQuark</type></link>, or <link linkend="NULL:CAPS"><literal>NULL</literal></link> if it is not found. </para>
+<para><emphasis role="annotation">[<acronym>transfer none</acronym>][<acronym>nullable</acronym>]</emphasis></para>
+</refsect3></refsect2>
+<refsect2 id="g-dataset-id-remove-data" role="macro">
+<title>g_dataset_id_remove_data()</title>
+<indexterm zone="g-dataset-id-remove-data"><primary sortas="dataset_id_remove_data">g_dataset_id_remove_data</primary></indexterm>
+<programlisting language="C">#define             g_dataset_id_remove_data(l, k)</programlisting>
+<para>Removes a data element from a dataset. The data element's destroy
+function is called if it has been set.</para>
+<refsect3 id="g-dataset-id-remove-data.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>l</para></entry>
+<entry role="parameter_description"><para>the location identifying the dataset.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>k</para></entry>
+<entry role="parameter_description"><para>the <link linkend="GQuark"><type>GQuark</type></link> id identifying the data element.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-dataset-id-remove-no-notify" role="function">
+<title>g_dataset_id_remove_no_notify&#160;()</title>
+<indexterm zone="g-dataset-id-remove-no-notify"><primary sortas="dataset_id_remove_no_notify">g_dataset_id_remove_no_notify</primary></indexterm>
+<programlisting language="C"><link linkend="gpointer"><returnvalue>gpointer</returnvalue></link>
+g_dataset_id_remove_no_notify (<parameter><link linkend="gconstpointer"><type>gconstpointer</type></link> dataset_location</parameter>,
+                               <parameter><link linkend="GQuark"><type>GQuark</type></link> key_id</parameter>);</programlisting>
+<para>Removes an element, without calling its destroy notification
+function.</para>
+
+<para><emphasis role="annotation">[<acronym>skip</acronym>]</emphasis></para><refsect3 id="g-dataset-id-remove-no-notify.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>dataset_location</para></entry>
+<entry role="parameter_description"><para>the location identifying the dataset. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>not nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>key_id</para></entry>
+<entry role="parameter_description"><para>the <link linkend="GQuark"><type>GQuark</type></link> ID identifying the data element.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-dataset-id-remove-no-notify.returns" role="returns">
+<title>Returns</title>
+<para>the data previously stored at <parameter>key_id</parameter>
+,
+or <link linkend="NULL:CAPS"><literal>NULL</literal></link> if none. </para>
+<para><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></para>
+</refsect3></refsect2>
+<refsect2 id="g-dataset-set-data" role="macro">
+<title>g_dataset_set_data()</title>
+<indexterm zone="g-dataset-set-data"><primary sortas="dataset_set_data">g_dataset_set_data</primary></indexterm>
+<programlisting language="C">#define             g_dataset_set_data(l, k, d)</programlisting>
+<para>Sets the data corresponding to the given string identifier.</para>
+<refsect3 id="g-dataset-set-data.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>l</para></entry>
+<entry role="parameter_description"><para>the location identifying the dataset.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>k</para></entry>
+<entry role="parameter_description"><para>the string to identify the data element.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>d</para></entry>
+<entry role="parameter_description"><para>the data element.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-dataset-set-data-full" role="macro">
+<title>g_dataset_set_data_full()</title>
+<indexterm zone="g-dataset-set-data-full"><primary sortas="dataset_set_data_full">g_dataset_set_data_full</primary></indexterm>
+<programlisting language="C">#define             g_dataset_set_data_full(l, k, d, f)</programlisting>
+<para>Sets the data corresponding to the given string identifier, and the
+function to call when the data element is destroyed.</para>
+<refsect3 id="g-dataset-set-data-full.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>l</para></entry>
+<entry role="parameter_description"><para>the location identifying the dataset.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>k</para></entry>
+<entry role="parameter_description"><para>the string to identify the data element.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>d</para></entry>
+<entry role="parameter_description"><para>the data element.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>f</para></entry>
+<entry role="parameter_description"><para>the function to call when the data element is removed. This
+function will be called with the data element and can be used to
+free any memory allocated for it.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-dataset-get-data" role="macro">
+<title>g_dataset_get_data()</title>
+<indexterm zone="g-dataset-get-data"><primary sortas="dataset_get_data">g_dataset_get_data</primary></indexterm>
+<programlisting language="C">#define             g_dataset_get_data(l, k)</programlisting>
+<para>Gets the data element corresponding to a string.</para>
+<refsect3 id="g-dataset-get-data.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>l</para></entry>
+<entry role="parameter_description"><para>the location identifying the dataset.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>k</para></entry>
+<entry role="parameter_description"><para>the string identifying the data element.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-dataset-get-data.returns" role="returns">
+<title>Returns</title>
+<para>the data element corresponding to
+the string, or <link linkend="NULL:CAPS"><literal>NULL</literal></link> if it is not found. </para>
+<para><emphasis role="annotation">[<acronym>transfer none</acronym>][<acronym>nullable</acronym>]</emphasis></para>
+</refsect3></refsect2>
+<refsect2 id="g-dataset-remove-data" role="macro">
+<title>g_dataset_remove_data()</title>
+<indexterm zone="g-dataset-remove-data"><primary sortas="dataset_remove_data">g_dataset_remove_data</primary></indexterm>
+<programlisting language="C">#define             g_dataset_remove_data(l, k)</programlisting>
+<para>Removes a data element corresponding to a string. Its destroy
+function is called if it has been set.</para>
+<refsect3 id="g-dataset-remove-data.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>l</para></entry>
+<entry role="parameter_description"><para>the location identifying the dataset.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>k</para></entry>
+<entry role="parameter_description"><para>the string identifying the data element.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-dataset-remove-no-notify" role="macro">
+<title>g_dataset_remove_no_notify()</title>
+<indexterm zone="g-dataset-remove-no-notify"><primary sortas="dataset_remove_no_notify">g_dataset_remove_no_notify</primary></indexterm>
+<programlisting language="C">#define             g_dataset_remove_no_notify(l, k)</programlisting>
+<para>Removes an element, without calling its destroy notifier.</para>
+<refsect3 id="g-dataset-remove-no-notify.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>l</para></entry>
+<entry role="parameter_description"><para>the location identifying the dataset.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>k</para></entry>
+<entry role="parameter_description"><para>the string identifying the data element.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-dataset-foreach" role="function">
+<title>g_dataset_foreach&#160;()</title>
+<indexterm zone="g-dataset-foreach"><primary sortas="dataset_foreach">g_dataset_foreach</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_dataset_foreach (<parameter><link linkend="gconstpointer"><type>gconstpointer</type></link> dataset_location</parameter>,
+                   <parameter><link linkend="GDataForeachFunc"><type>GDataForeachFunc</type></link> func</parameter>,
+                   <parameter><link linkend="gpointer"><type>gpointer</type></link> user_data</parameter>);</programlisting>
+<para>Calls the given function for each data element which is associated
+with the given location. Note that this function is NOT thread-safe.
+So unless <parameter>dataset_location</parameter>
+ can be protected from any modifications
+during invocation of this function, it should not be called.</para>
+<para><parameter>func</parameter>
+ can make changes to the dataset, but the iteration will not
+reflect changes made during the <link linkend="g-dataset-foreach"><function>g_dataset_foreach()</function></link> call, other
+than skipping over elements that are removed.</para>
+<refsect3 id="g-dataset-foreach.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>dataset_location</para></entry>
+<entry role="parameter_description"><para>the location identifying the dataset. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>not nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>func</para></entry>
+<entry role="parameter_description"><para>the function to call for each data element. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>scope call</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>user_data</para></entry>
+<entry role="parameter_description"><para>user data to pass to the function. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>closure</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="GDataForeachFunc" role="function">
+<title>GDataForeachFunc&#160;()</title>
+<indexterm zone="GDataForeachFunc"><primary sortas="DataForeachFunc">GDataForeachFunc</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+<phrase role="c_punctuation">(</phrase>*GDataForeachFunc<phrase role="c_punctuation">)</phrase> (<parameter><link linkend="GQuark"><type>GQuark</type></link> key_id</parameter>,
+                     <parameter><link linkend="gpointer"><type>gpointer</type></link> data</parameter>,
+                     <parameter><link linkend="gpointer"><type>gpointer</type></link> user_data</parameter>);</programlisting>
+<para>Specifies the type of function passed to <link linkend="g-dataset-foreach"><function>g_dataset_foreach()</function></link>. It is
+called with each <link linkend="GQuark"><type>GQuark</type></link> id and associated data element, together
+with the <parameter>user_data</parameter>
+ parameter supplied to <link linkend="g-dataset-foreach"><function>g_dataset_foreach()</function></link>.</para>
+<refsect3 id="GDataForeachFunc.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>key_id</para></entry>
+<entry role="parameter_description"><para>the <link linkend="GQuark"><type>GQuark</type></link> id to identifying the data element.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>data</para></entry>
+<entry role="parameter_description"><para>the data element.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>user_data</para></entry>
+<entry role="parameter_description"><para>user data passed to <link linkend="g-dataset-foreach"><function>g_dataset_foreach()</function></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>closure</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-dataset-destroy" role="function">
+<title>g_dataset_destroy&#160;()</title>
+<indexterm zone="g-dataset-destroy"><primary sortas="dataset_destroy">g_dataset_destroy</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_dataset_destroy (<parameter><link linkend="gconstpointer"><type>gconstpointer</type></link> dataset_location</parameter>);</programlisting>
+<para>Destroys the dataset, freeing all memory allocated, and calling any
+destroy functions set for data elements.</para>
+<refsect3 id="g-dataset-destroy.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>dataset_location</para></entry>
+<entry role="parameter_description"><para>the location identifying the dataset. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>not nullable</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+
+</refsect1>
+<refsect1 id="glib-Datasets.other_details" role="details">
+<title role="details.title">Types and Values</title>
+
+</refsect1>
+
+</refentry>

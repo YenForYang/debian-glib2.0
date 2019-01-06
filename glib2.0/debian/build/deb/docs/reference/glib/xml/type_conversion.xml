@@ -1,0 +1,215 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC '-//OASIS//DTD DocBook XML V4.5//EN'
+                      'http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd' [
+<!ENTITY % local.common.attrib "xmlns:xi  CDATA  #FIXED 'http://www.w3.org/2003/XInclude'">
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="glib-Type-Conversion-Macros">
+<refmeta>
+<refentrytitle role="top_of_page" id="glib-Type-Conversion-Macros.top_of_page">Type Conversion Macros</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>GLIB Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>Type Conversion Macros</refname>
+<refpurpose>portably storing integers in pointer variables</refpurpose>
+</refnamediv>
+
+<refsect1 id="glib-Type-Conversion-Macros.functions" role="functions_proto">
+<title role="functions_proto.title">Functions</title>
+<informaltable pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="functions_return" colwidth="150px"/>
+<colspec colname="functions_name"/>
+<tbody>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="GINT-TO-POINTER:CAPS">GINT_TO_POINTER</link><phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="GPOINTER-TO-INT:CAPS">GPOINTER_TO_INT</link><phrase role="c_punctuation">()</phrase></entry></row>
+
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="GUINT-TO-POINTER:CAPS">GUINT_TO_POINTER</link><phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="GPOINTER-TO-UINT:CAPS">GPOINTER_TO_UINT</link><phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="GSIZE-TO-POINTER:CAPS">GSIZE_TO_POINTER</link><phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="GPOINTER-TO-SIZE:CAPS">GPOINTER_TO_SIZE</link><phrase role="c_punctuation">()</phrase></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+
+<refsect1 id="glib-Type-Conversion-Macros.includes"><title>Includes</title><synopsis>#include &lt;glib.h&gt;
+</synopsis></refsect1>
+
+<refsect1 id="glib-Type-Conversion-Macros.description" role="desc">
+<title role="desc.title">Description</title>
+<para>Many times GLib, GTK+, and other libraries allow you to pass "user
+data" to a callback, in the form of a void pointer. From time to time
+you want to pass an integer instead of a pointer. You could allocate
+an integer, with something like:</para>
+<informalexample><programlisting role="example"><![CDATA[
+  int *ip = g_new (int, 1);
+  *ip = 42;
+]]></programlisting></informalexample>
+<para>
+But this is inconvenient, and it's annoying to have to free the
+memory at some later time.</para>
+<para>Pointers are always at least 32 bits in size (on all platforms GLib
+intends to support). Thus you can store at least 32-bit integer values
+in a pointer value. Naively, you might try this, but it's incorrect:</para>
+<informalexample><programlisting role="example"><![CDATA[
+  gpointer p;
+  int i;
+  p = (void*) 42;
+  i = (int) p;
+]]></programlisting></informalexample>
+<para>
+Again, that example was not correct, don't copy it.
+The problem is that on some systems you need to do this:</para>
+<informalexample><programlisting role="example"><![CDATA[
+  gpointer p;
+  int i;
+  p = (void*) (long) 42;
+  i = (int) (long) p;
+]]></programlisting></informalexample>
+<para>
+The GLib macros <link linkend="GPOINTER-TO-INT:CAPS"><function>GPOINTER_TO_INT()</function></link>, <link linkend="GINT-TO-POINTER:CAPS"><function>GINT_TO_POINTER()</function></link>, etc. take care
+to do the right thing on every platform.</para>
+<para>Warning: You may not store pointers in integers. This is not
+portable in any way, shape or form. These macros only allow storing
+integers in pointers, and only preserve 32 bits of the integer; values
+outside the range of a 32-bit integer will be mangled.</para>
+
+</refsect1>
+<refsect1 id="glib-Type-Conversion-Macros.functions_details" role="details">
+<title role="details.title">Functions</title>
+<refsect2 id="GINT-TO-POINTER:CAPS" role="macro">
+<title>GINT_TO_POINTER()</title>
+<indexterm zone="GINT-TO-POINTER:CAPS"><primary sortas="INT_TO_POINTER">GINT_TO_POINTER</primary></indexterm>
+<programlisting language="C">#define GINT_TO_POINTER(i)&#160;((gpointer) (glong) (i))
+</programlisting>
+<para>Stuffs an integer into a pointer type.</para>
+<para>Remember, you may not store pointers in integers. This is not portable
+in any way, shape or form. These macros only allow storing integers in
+pointers, and only preserve 32 bits of the integer; values outside the
+range of a 32-bit integer will be mangled.</para>
+<refsect3 id="GINT-TO-POINTER.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>i</para></entry>
+<entry role="parameter_description"><para>integer to stuff into a pointer</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="GPOINTER-TO-INT:CAPS" role="macro">
+<title>GPOINTER_TO_INT()</title>
+<indexterm zone="GPOINTER-TO-INT:CAPS"><primary sortas="POINTER_TO_INT">GPOINTER_TO_INT</primary></indexterm>
+<programlisting language="C">#define GPOINTER_TO_INT(p)&#160;((gint)  (glong) (p))
+</programlisting>
+<para>Extracts an integer from a pointer. The integer must have
+been stored in the pointer with <link linkend="GINT-TO-POINTER:CAPS"><function>GINT_TO_POINTER()</function></link>.</para>
+<para>Remember, you may not store pointers in integers. This is not portable
+in any way, shape or form. These macros only allow storing integers in
+pointers, and only preserve 32 bits of the integer; values outside the
+range of a 32-bit integer will be mangled.</para>
+<refsect3 id="GPOINTER-TO-INT.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>p</para></entry>
+<entry role="parameter_description"><para>pointer containing an integer</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="GUINT-TO-POINTER:CAPS" role="macro">
+<title>GUINT_TO_POINTER()</title>
+<indexterm zone="GUINT-TO-POINTER:CAPS"><primary sortas="UINT_TO_POINTER">GUINT_TO_POINTER</primary></indexterm>
+<programlisting language="C">#define GUINT_TO_POINTER(u)&#160;((gpointer) (gulong) (u))
+</programlisting>
+<para>Stuffs an unsigned integer into a pointer type.</para>
+<refsect3 id="GUINT-TO-POINTER.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>u</para></entry>
+<entry role="parameter_description"><para>unsigned integer to stuff into the pointer</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="GPOINTER-TO-UINT:CAPS" role="macro">
+<title>GPOINTER_TO_UINT()</title>
+<indexterm zone="GPOINTER-TO-UINT:CAPS"><primary sortas="POINTER_TO_UINT">GPOINTER_TO_UINT</primary></indexterm>
+<programlisting language="C">#define GPOINTER_TO_UINT(p)&#160;((guint) (gulong) (p))
+</programlisting>
+<para>Extracts an unsigned integer from a pointer. The integer must have
+been stored in the pointer with <link linkend="GUINT-TO-POINTER:CAPS"><function>GUINT_TO_POINTER()</function></link>.</para>
+<refsect3 id="GPOINTER-TO-UINT.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>p</para></entry>
+<entry role="parameter_description"><para>pointer to extract an unsigned integer from</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="GSIZE-TO-POINTER:CAPS" role="macro">
+<title>GSIZE_TO_POINTER()</title>
+<indexterm zone="GSIZE-TO-POINTER:CAPS"><primary sortas="SIZE_TO_POINTER">GSIZE_TO_POINTER</primary></indexterm>
+<programlisting language="C">#define GSIZE_TO_POINTER(s)&#160;((gpointer) (gsize) (s))
+</programlisting>
+<para>Stuffs a <link linkend="gsize"><type>gsize</type></link> into a pointer type.</para>
+<refsect3 id="GSIZE-TO-POINTER.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>s</para></entry>
+<entry role="parameter_description"><para><link linkend="gsize"><type>gsize</type></link> to stuff into the pointer</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="GPOINTER-TO-SIZE:CAPS" role="macro">
+<title>GPOINTER_TO_SIZE()</title>
+<indexterm zone="GPOINTER-TO-SIZE:CAPS"><primary sortas="POINTER_TO_SIZE">GPOINTER_TO_SIZE</primary></indexterm>
+<programlisting language="C">#define GPOINTER_TO_SIZE(p)&#160;((gsize) (p))
+</programlisting>
+<para>Extracts a <link linkend="gsize"><type>gsize</type></link> from a pointer. The <link linkend="gsize"><type>gsize</type></link> must have
+been stored in the pointer with <link linkend="GSIZE-TO-POINTER:CAPS"><function>GSIZE_TO_POINTER()</function></link>.</para>
+<refsect3 id="GPOINTER-TO-SIZE.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>p</para></entry>
+<entry role="parameter_description"><para>pointer to extract a <link linkend="gsize"><type>gsize</type></link> from</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+
+</refsect1>
+<refsect1 id="glib-Type-Conversion-Macros.other_details" role="details">
+<title role="details.title">Types and Values</title>
+
+</refsect1>
+
+</refentry>

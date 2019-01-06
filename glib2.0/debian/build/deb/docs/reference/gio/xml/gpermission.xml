@@ -1,0 +1,483 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC '-//OASIS//DTD DocBook XML V4.5//EN'
+                      'http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd' [
+<!ENTITY % local.common.attrib "xmlns:xi  CDATA  #FIXED 'http://www.w3.org/2003/XInclude'">
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="GPermission">
+<refmeta>
+<refentrytitle role="top_of_page" id="GPermission.top_of_page">GPermission</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>GIO Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>GPermission</refname>
+<refpurpose>An object representing the permission
+    to perform a certain action</refpurpose>
+</refnamediv>
+
+<refsect1 id="GPermission.functions" role="functions_proto">
+<title role="functions_proto.title">Functions</title>
+<informaltable pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="functions_return" colwidth="150px"/>
+<colspec colname="functions_name"/>
+<tbody>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-permission-get-allowed">g_permission_get_allowed</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-permission-get-can-acquire">g_permission_get_can_acquire</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-permission-get-can-release">g_permission_get_can_release</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-permission-acquire">g_permission_acquire</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-permission-acquire-async">g_permission_acquire_async</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-permission-acquire-finish">g_permission_acquire_finish</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-permission-release">g_permission_release</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-permission-release-async">g_permission_release_async</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-permission-release-finish">g_permission_release_finish</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-permission-impl-update">g_permission_impl_update</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GPermission.properties" role="properties">
+<title role="properties.title">Properties</title>
+<informaltable frame="none">
+<tgroup cols="3">
+<colspec colname="properties_type" colwidth="150px"/>
+<colspec colname="properties_name" colwidth="300px"/>
+<colspec colname="properties_flags" colwidth="200px"/>
+<tbody>
+<row><entry role="property_type"><link linkend="gboolean"><type>gboolean</type></link></entry><entry role="property_name"><link linkend="GPermission--allowed">allowed</link></entry><entry role="property_flags">Read</entry></row>
+<row><entry role="property_type"><link linkend="gboolean"><type>gboolean</type></link></entry><entry role="property_name"><link linkend="GPermission--can-acquire">can-acquire</link></entry><entry role="property_flags">Read</entry></row>
+<row><entry role="property_type"><link linkend="gboolean"><type>gboolean</type></link></entry><entry role="property_name"><link linkend="GPermission--can-release">can-release</link></entry><entry role="property_flags">Read</entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GPermission.other" role="other_proto">
+<title role="other_proto.title">Types and Values</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="name" colwidth="150px"/>
+<colspec colname="description"/>
+<tbody>
+<row><entry role="datatype_keyword"></entry><entry role="function_name"><link linkend="GPermission-struct">GPermission</link></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GPermission.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<screen>    <link linkend="GObject">GObject</link>
+    <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> GPermission
+        <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> <link linkend="GSimplePermission">GSimplePermission</link>
+</screen>
+</refsect1>
+
+<refsect1 id="GPermission.includes"><title>Includes</title><synopsis>#include &lt;gio/gio.h&gt;
+</synopsis></refsect1>
+
+<refsect1 id="GPermission.description" role="desc">
+<title role="desc.title">Description</title>
+<para>A <link linkend="GPermission"><type>GPermission</type></link> represents the status of the caller's permission to
+perform a certain action.</para>
+<para>You can query if the action is currently allowed and if it is
+possible to acquire the permission so that the action will be allowed
+in the future.</para>
+<para>There is also an API to actually acquire the permission and one to
+release it.</para>
+<para>As an example, a <link linkend="GPermission"><type>GPermission</type></link> might represent the ability for the
+user to write to a <link linkend="GSettings"><type>GSettings</type></link> object.  This <link linkend="GPermission"><type>GPermission</type></link> object could
+then be used to decide if it is appropriate to show a "Click here to
+unlock" button in a dialog and to provide the mechanism to invoke
+when that button is clicked.</para>
+
+</refsect1>
+<refsect1 id="GPermission.functions_details" role="details">
+<title role="details.title">Functions</title>
+<refsect2 id="g-permission-get-allowed" role="function" condition="since:2.26">
+<title>g_permission_get_allowed&#160;()</title>
+<indexterm zone="g-permission-get-allowed" role="2.26"><primary sortas="permission_get_allowed">g_permission_get_allowed</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_permission_get_allowed (<parameter><link linkend="GPermission"><type>GPermission</type></link> *permission</parameter>);</programlisting>
+<para>Gets the value of the 'allowed' property.  This property is <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if
+the caller currently has permission to perform the action that
+<parameter>permission</parameter>
+ represents the permission to perform.</para>
+<refsect3 id="g-permission-get-allowed.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>permission</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GPermission"><type>GPermission</type></link> instance</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-permission-get-allowed.returns" role="returns">
+<title>Returns</title>
+<para> the value of the 'allowed' property</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.26">2.26</link></para></refsect2>
+<refsect2 id="g-permission-get-can-acquire" role="function" condition="since:2.26">
+<title>g_permission_get_can_acquire&#160;()</title>
+<indexterm zone="g-permission-get-can-acquire" role="2.26"><primary sortas="permission_get_can_acquire">g_permission_get_can_acquire</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_permission_get_can_acquire (<parameter><link linkend="GPermission"><type>GPermission</type></link> *permission</parameter>);</programlisting>
+<para>Gets the value of the 'can-acquire' property.  This property is <link linkend="TRUE:CAPS"><literal>TRUE</literal></link>
+if it is generally possible to acquire the permission by calling
+<link linkend="g-permission-acquire"><function>g_permission_acquire()</function></link>.</para>
+<refsect3 id="g-permission-get-can-acquire.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>permission</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GPermission"><type>GPermission</type></link> instance</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-permission-get-can-acquire.returns" role="returns">
+<title>Returns</title>
+<para> the value of the 'can-acquire' property</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.26">2.26</link></para></refsect2>
+<refsect2 id="g-permission-get-can-release" role="function" condition="since:2.26">
+<title>g_permission_get_can_release&#160;()</title>
+<indexterm zone="g-permission-get-can-release" role="2.26"><primary sortas="permission_get_can_release">g_permission_get_can_release</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_permission_get_can_release (<parameter><link linkend="GPermission"><type>GPermission</type></link> *permission</parameter>);</programlisting>
+<para>Gets the value of the 'can-release' property.  This property is <link linkend="TRUE:CAPS"><literal>TRUE</literal></link>
+if it is generally possible to release the permission by calling
+<link linkend="g-permission-release"><function>g_permission_release()</function></link>.</para>
+<refsect3 id="g-permission-get-can-release.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>permission</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GPermission"><type>GPermission</type></link> instance</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-permission-get-can-release.returns" role="returns">
+<title>Returns</title>
+<para> the value of the 'can-release' property</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.26">2.26</link></para></refsect2>
+<refsect2 id="g-permission-acquire" role="function" condition="since:2.26">
+<title>g_permission_acquire&#160;()</title>
+<indexterm zone="g-permission-acquire" role="2.26"><primary sortas="permission_acquire">g_permission_acquire</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_permission_acquire (<parameter><link linkend="GPermission"><type>GPermission</type></link> *permission</parameter>,
+                      <parameter><link linkend="GCancellable"><type>GCancellable</type></link> *cancellable</parameter>,
+                      <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para>Attempts to acquire the permission represented by <parameter>permission</parameter>
+.</para>
+<para>The precise method by which this happens depends on the permission
+and the underlying authentication mechanism.  A simple example is
+that a dialog may appear asking the user to enter their password.</para>
+<para>You should check with <link linkend="g-permission-get-can-acquire"><function>g_permission_get_can_acquire()</function></link> before calling
+this function.</para>
+<para>If the permission is acquired then <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> is returned.  Otherwise,
+<link linkend="FALSE:CAPS"><literal>FALSE</literal></link> is returned and <parameter>error</parameter>
+ is set appropriately.</para>
+<para>This call is blocking, likely for a very long time (in the case that
+user interaction is required).  See <link linkend="g-permission-acquire-async"><function>g_permission_acquire_async()</function></link> for
+the non-blocking version.</para>
+<refsect3 id="g-permission-acquire.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>permission</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GPermission"><type>GPermission</type></link> instance</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>cancellable</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GCancellable"><type>GCancellable</type></link>, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para>a pointer to a <link linkend="NULL:CAPS"><literal>NULL</literal></link> <link linkend="GError"><type>GError</type></link>, or <link linkend="NULL:CAPS"><literal>NULL</literal></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-permission-acquire.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if the permission was successfully acquired</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.26">2.26</link></para></refsect2>
+<refsect2 id="g-permission-acquire-async" role="function" condition="since:2.26">
+<title>g_permission_acquire_async&#160;()</title>
+<indexterm zone="g-permission-acquire-async" role="2.26"><primary sortas="permission_acquire_async">g_permission_acquire_async</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_permission_acquire_async (<parameter><link linkend="GPermission"><type>GPermission</type></link> *permission</parameter>,
+                            <parameter><link linkend="GCancellable"><type>GCancellable</type></link> *cancellable</parameter>,
+                            <parameter><link linkend="GAsyncReadyCallback"><type>GAsyncReadyCallback</type></link> callback</parameter>,
+                            <parameter><link linkend="gpointer"><type>gpointer</type></link> user_data</parameter>);</programlisting>
+<para>Attempts to acquire the permission represented by <parameter>permission</parameter>
+.</para>
+<para>This is the first half of the asynchronous version of
+<link linkend="g-permission-acquire"><function>g_permission_acquire()</function></link>.</para>
+<refsect3 id="g-permission-acquire-async.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>permission</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GPermission"><type>GPermission</type></link> instance</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>cancellable</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GCancellable"><type>GCancellable</type></link>, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>callback</para></entry>
+<entry role="parameter_description"><para>the <link linkend="GAsyncReadyCallback"><type>GAsyncReadyCallback</type></link> to call when done</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>user_data</para></entry>
+<entry role="parameter_description"><para>the user data to pass to <parameter>callback</parameter>
+</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.26">2.26</link></para></refsect2>
+<refsect2 id="g-permission-acquire-finish" role="function" condition="since:2.26">
+<title>g_permission_acquire_finish&#160;()</title>
+<indexterm zone="g-permission-acquire-finish" role="2.26"><primary sortas="permission_acquire_finish">g_permission_acquire_finish</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_permission_acquire_finish (<parameter><link linkend="GPermission"><type>GPermission</type></link> *permission</parameter>,
+                             <parameter><link linkend="GAsyncResult"><type>GAsyncResult</type></link> *result</parameter>,
+                             <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para>Collects the result of attempting to acquire the permission
+represented by <parameter>permission</parameter>
+.</para>
+<para>This is the second half of the asynchronous version of
+<link linkend="g-permission-acquire"><function>g_permission_acquire()</function></link>.</para>
+<refsect3 id="g-permission-acquire-finish.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>permission</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GPermission"><type>GPermission</type></link> instance</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>result</para></entry>
+<entry role="parameter_description"><para>the <link linkend="GAsyncResult"><type>GAsyncResult</type></link> given to the <link linkend="GAsyncReadyCallback"><type>GAsyncReadyCallback</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para>a pointer to a <link linkend="NULL:CAPS"><literal>NULL</literal></link> <link linkend="GError"><type>GError</type></link>, or <link linkend="NULL:CAPS"><literal>NULL</literal></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-permission-acquire-finish.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if the permission was successfully acquired</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.26">2.26</link></para></refsect2>
+<refsect2 id="g-permission-release" role="function" condition="since:2.26">
+<title>g_permission_release&#160;()</title>
+<indexterm zone="g-permission-release" role="2.26"><primary sortas="permission_release">g_permission_release</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_permission_release (<parameter><link linkend="GPermission"><type>GPermission</type></link> *permission</parameter>,
+                      <parameter><link linkend="GCancellable"><type>GCancellable</type></link> *cancellable</parameter>,
+                      <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para>Attempts to release the permission represented by <parameter>permission</parameter>
+.</para>
+<para>The precise method by which this happens depends on the permission
+and the underlying authentication mechanism.  In most cases the
+permission will be dropped immediately without further action.</para>
+<para>You should check with <link linkend="g-permission-get-can-release"><function>g_permission_get_can_release()</function></link> before calling
+this function.</para>
+<para>If the permission is released then <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> is returned.  Otherwise,
+<link linkend="FALSE:CAPS"><literal>FALSE</literal></link> is returned and <parameter>error</parameter>
+ is set appropriately.</para>
+<para>This call is blocking, likely for a very long time (in the case that
+user interaction is required).  See <link linkend="g-permission-release-async"><function>g_permission_release_async()</function></link> for
+the non-blocking version.</para>
+<refsect3 id="g-permission-release.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>permission</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GPermission"><type>GPermission</type></link> instance</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>cancellable</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GCancellable"><type>GCancellable</type></link>, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para>a pointer to a <link linkend="NULL:CAPS"><literal>NULL</literal></link> <link linkend="GError"><type>GError</type></link>, or <link linkend="NULL:CAPS"><literal>NULL</literal></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-permission-release.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if the permission was successfully released</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.26">2.26</link></para></refsect2>
+<refsect2 id="g-permission-release-async" role="function" condition="since:2.26">
+<title>g_permission_release_async&#160;()</title>
+<indexterm zone="g-permission-release-async" role="2.26"><primary sortas="permission_release_async">g_permission_release_async</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_permission_release_async (<parameter><link linkend="GPermission"><type>GPermission</type></link> *permission</parameter>,
+                            <parameter><link linkend="GCancellable"><type>GCancellable</type></link> *cancellable</parameter>,
+                            <parameter><link linkend="GAsyncReadyCallback"><type>GAsyncReadyCallback</type></link> callback</parameter>,
+                            <parameter><link linkend="gpointer"><type>gpointer</type></link> user_data</parameter>);</programlisting>
+<para>Attempts to release the permission represented by <parameter>permission</parameter>
+.</para>
+<para>This is the first half of the asynchronous version of
+<link linkend="g-permission-release"><function>g_permission_release()</function></link>.</para>
+<refsect3 id="g-permission-release-async.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>permission</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GPermission"><type>GPermission</type></link> instance</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>cancellable</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GCancellable"><type>GCancellable</type></link>, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>callback</para></entry>
+<entry role="parameter_description"><para>the <link linkend="GAsyncReadyCallback"><type>GAsyncReadyCallback</type></link> to call when done</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>user_data</para></entry>
+<entry role="parameter_description"><para>the user data to pass to <parameter>callback</parameter>
+</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.26">2.26</link></para></refsect2>
+<refsect2 id="g-permission-release-finish" role="function" condition="since:2.26">
+<title>g_permission_release_finish&#160;()</title>
+<indexterm zone="g-permission-release-finish" role="2.26"><primary sortas="permission_release_finish">g_permission_release_finish</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_permission_release_finish (<parameter><link linkend="GPermission"><type>GPermission</type></link> *permission</parameter>,
+                             <parameter><link linkend="GAsyncResult"><type>GAsyncResult</type></link> *result</parameter>,
+                             <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para>Collects the result of attempting to release the permission
+represented by <parameter>permission</parameter>
+.</para>
+<para>This is the second half of the asynchronous version of
+<link linkend="g-permission-release"><function>g_permission_release()</function></link>.</para>
+<refsect3 id="g-permission-release-finish.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>permission</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GPermission"><type>GPermission</type></link> instance</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>result</para></entry>
+<entry role="parameter_description"><para>the <link linkend="GAsyncResult"><type>GAsyncResult</type></link> given to the <link linkend="GAsyncReadyCallback"><type>GAsyncReadyCallback</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para>a pointer to a <link linkend="NULL:CAPS"><literal>NULL</literal></link> <link linkend="GError"><type>GError</type></link>, or <link linkend="NULL:CAPS"><literal>NULL</literal></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-permission-release-finish.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if the permission was successfully released</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.26">2.26</link></para></refsect2>
+<refsect2 id="g-permission-impl-update" role="function" condition="since:2.26">
+<title>g_permission_impl_update&#160;()</title>
+<indexterm zone="g-permission-impl-update" role="2.26"><primary sortas="permission_impl_update">g_permission_impl_update</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_permission_impl_update (<parameter><link linkend="GPermission"><type>GPermission</type></link> *permission</parameter>,
+                          <parameter><link linkend="gboolean"><type>gboolean</type></link> allowed</parameter>,
+                          <parameter><link linkend="gboolean"><type>gboolean</type></link> can_acquire</parameter>,
+                          <parameter><link linkend="gboolean"><type>gboolean</type></link> can_release</parameter>);</programlisting>
+<para>This function is called by the <link linkend="GPermission"><type>GPermission</type></link> implementation to update
+the properties of the permission.  You should never call this
+function except from a <link linkend="GPermission"><type>GPermission</type></link> implementation.</para>
+<para>GObject notify signals are generated, as appropriate.</para>
+<refsect3 id="g-permission-impl-update.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>permission</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GPermission"><type>GPermission</type></link> instance</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>allowed</para></entry>
+<entry role="parameter_description"><para>the new value for the 'allowed' property</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>can_acquire</para></entry>
+<entry role="parameter_description"><para>the new value for the 'can-acquire' property</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>can_release</para></entry>
+<entry role="parameter_description"><para>the new value for the 'can-release' property</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.26">2.26</link></para></refsect2>
+
+</refsect1>
+<refsect1 id="GPermission.other_details" role="details">
+<title role="details.title">Types and Values</title>
+<refsect2 id="GPermission-struct" role="struct">
+<title>GPermission</title>
+<indexterm zone="GPermission-struct"><primary sortas="Permission">GPermission</primary></indexterm>
+<programlisting language="C">typedef struct _GPermission GPermission;</programlisting>
+<para><link linkend="GPermission"><type>GPermission</type></link> is an opaque data structure and can only be accessed
+using the following functions.</para>
+</refsect2>
+
+</refsect1>
+<refsect1 id="GPermission.property-details" role="property_details">
+<title role="property_details.title">Property Details</title>
+<refsect2 id="GPermission--allowed" role="property"><title>The <literal>“allowed”</literal> property</title>
+<indexterm zone="GPermission--allowed"><primary sortas="Permission:allowed">GPermission:allowed</primary></indexterm>
+<programlisting>  “allowed”                  <link linkend="gboolean"><type>gboolean</type></link></programlisting>
+<para><link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if the caller currently has permission to perform the action that
+<parameter>permission</parameter>
+ represents the permission to perform.</para>
+<para>Flags: Read</para>
+<para>Default value: FALSE</para>
+</refsect2>
+<refsect2 id="GPermission--can-acquire" role="property"><title>The <literal>“can-acquire”</literal> property</title>
+<indexterm zone="GPermission--can-acquire"><primary sortas="Permission:can-acquire">GPermission:can-acquire</primary></indexterm>
+<programlisting>  “can-acquire”              <link linkend="gboolean"><type>gboolean</type></link></programlisting>
+<para><link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if it is generally possible to acquire the permission by calling
+<link linkend="g-permission-acquire"><function>g_permission_acquire()</function></link>.</para>
+<para>Flags: Read</para>
+<para>Default value: FALSE</para>
+</refsect2>
+<refsect2 id="GPermission--can-release" role="property"><title>The <literal>“can-release”</literal> property</title>
+<indexterm zone="GPermission--can-release"><primary sortas="Permission:can-release">GPermission:can-release</primary></indexterm>
+<programlisting>  “can-release”              <link linkend="gboolean"><type>gboolean</type></link></programlisting>
+<para><link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if it is generally possible to release the permission by calling
+<link linkend="g-permission-release"><function>g_permission_release()</function></link>.</para>
+<para>Flags: Read</para>
+<para>Default value: FALSE</para>
+</refsect2>
+
+</refsect1>
+
+</refentry>

@@ -1,0 +1,289 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC '-//OASIS//DTD DocBook XML V4.5//EN'
+                      'http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd' [
+<!ENTITY % local.common.attrib "xmlns:xi  CDATA  #FIXED 'http://www.w3.org/2003/XInclude'">
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="GSocketService">
+<refmeta>
+<refentrytitle role="top_of_page" id="GSocketService.top_of_page">GSocketService</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>GIO Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>GSocketService</refname>
+<refpurpose>Make it easy to implement a network service</refpurpose>
+</refnamediv>
+
+<refsect1 id="GSocketService.functions" role="functions_proto">
+<title role="functions_proto.title">Functions</title>
+<informaltable pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="functions_return" colwidth="150px"/>
+<colspec colname="functions_name"/>
+<tbody>
+<row><entry role="function_type"><link linkend="GSocketService"><returnvalue>GSocketService</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-socket-service-new">g_socket_service_new</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-socket-service-start">g_socket_service_start</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-socket-service-stop">g_socket_service_stop</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-socket-service-is-active">g_socket_service_is_active</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GSocketService.properties" role="properties">
+<title role="properties.title">Properties</title>
+<informaltable frame="none">
+<tgroup cols="3">
+<colspec colname="properties_type" colwidth="150px"/>
+<colspec colname="properties_name" colwidth="300px"/>
+<colspec colname="properties_flags" colwidth="200px"/>
+<tbody>
+<row><entry role="property_type"><link linkend="gboolean"><type>gboolean</type></link></entry><entry role="property_name"><link linkend="GSocketService--active">active</link></entry><entry role="property_flags">Read / Write / Construct</entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GSocketService.signals" role="signal_proto">
+<title role="signal_proto.title">Signals</title>
+<informaltable frame="none">
+<tgroup cols="3">
+<colspec colname="signals_return" colwidth="150px"/>
+<colspec colname="signals_name" colwidth="300px"/>
+<colspec colname="signals_flags" colwidth="200px"/>
+<tbody>
+<row><entry role="signal_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link></entry><entry role="signal_name"><link linkend="GSocketService-incoming">incoming</link></entry><entry role="signal_flags"><link linkend="G-SIGNAL-RUN-LAST:CAPS">Run Last</link></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GSocketService.other" role="other_proto">
+<title role="other_proto.title">Types and Values</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="name" colwidth="150px"/>
+<colspec colname="description"/>
+<tbody>
+<row><entry role="datatype_keyword"></entry><entry role="function_name"><link linkend="GSocketService-struct">GSocketService</link></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GSocketService.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<screen>    <link linkend="GObject">GObject</link>
+    <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> <link linkend="GSocketListener">GSocketListener</link>
+        <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> GSocketService
+            <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> <link linkend="GThreadedSocketService">GThreadedSocketService</link>
+</screen>
+</refsect1>
+
+<refsect1 id="GSocketService.includes"><title>Includes</title><synopsis>#include &lt;gio/gio.h&gt;
+</synopsis></refsect1>
+
+<refsect1 id="GSocketService.description" role="desc">
+<title role="desc.title">Description</title>
+<para>A <link linkend="GSocketService"><type>GSocketService</type></link> is an object that represents a service that
+is provided to the network or over local sockets.  When a new
+connection is made to the service the <link linkend="GSocketService-incoming"><type>“incoming”</type></link>
+signal is emitted.</para>
+<para>A <link linkend="GSocketService"><type>GSocketService</type></link> is a subclass of <link linkend="GSocketListener"><type>GSocketListener</type></link> and you need
+to add the addresses you want to accept connections on with the
+<link linkend="GSocketListener"><type>GSocketListener</type></link> APIs.</para>
+<para>There are two options for implementing a network service based on
+<link linkend="GSocketService"><type>GSocketService</type></link>. The first is to create the service using
+<link linkend="g-socket-service-new"><function>g_socket_service_new()</function></link> and to connect to the <link linkend="GSocketService-incoming"><type>“incoming”</type></link>
+signal. The second is to subclass <link linkend="GSocketService"><type>GSocketService</type></link> and override the
+default signal handler implementation.</para>
+<para>In either case, the handler must immediately return, or else it
+will block additional incoming connections from being serviced.
+If you are interested in writing connection handlers that contain
+blocking code then see <link linkend="GThreadedSocketService"><type>GThreadedSocketService</type></link>.</para>
+<para>The socket service runs on the main loop of the 
+<link linkend="g-main-context-push-thread-default-context">thread-default context</link>
+of the thread it is created in, and is not
+threadsafe in general. However, the calls to start and stop the
+service are thread-safe so these can be used from threads that
+handle incoming clients.</para>
+
+</refsect1>
+<refsect1 id="GSocketService.functions_details" role="details">
+<title role="details.title">Functions</title>
+<refsect2 id="g-socket-service-new" role="function" condition="since:2.22">
+<title>g_socket_service_new&#160;()</title>
+<indexterm zone="g-socket-service-new" role="2.22"><primary sortas="socket_service_new">g_socket_service_new</primary></indexterm>
+<programlisting language="C"><link linkend="GSocketService"><returnvalue>GSocketService</returnvalue></link>&#160;*
+g_socket_service_new (<parameter><type>void</type></parameter>);</programlisting>
+<para>Creates a new <link linkend="GSocketService"><type>GSocketService</type></link> with no sockets to listen for.
+New listeners can be added with e.g. <link linkend="g-socket-listener-add-address"><function>g_socket_listener_add_address()</function></link>
+or <link linkend="g-socket-listener-add-inet-port"><function>g_socket_listener_add_inet_port()</function></link>.</para>
+<para>New services are created active, there is no need to call
+<link linkend="g-socket-service-start"><function>g_socket_service_start()</function></link>, unless <link linkend="g-socket-service-stop"><function>g_socket_service_stop()</function></link> has been
+called before.</para>
+<refsect3 id="g-socket-service-new.returns" role="returns">
+<title>Returns</title>
+<para> a new <link linkend="GSocketService"><type>GSocketService</type></link>.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.22">2.22</link></para></refsect2>
+<refsect2 id="g-socket-service-start" role="function" condition="since:2.22">
+<title>g_socket_service_start&#160;()</title>
+<indexterm zone="g-socket-service-start" role="2.22"><primary sortas="socket_service_start">g_socket_service_start</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_socket_service_start (<parameter><link linkend="GSocketService"><type>GSocketService</type></link> *service</parameter>);</programlisting>
+<para>Restarts the service, i.e. start accepting connections
+from the added sockets when the mainloop runs. This only needs
+to be called after the service has been stopped from
+<link linkend="g-socket-service-stop"><function>g_socket_service_stop()</function></link>.</para>
+<para>This call is thread-safe, so it may be called from a thread
+handling an incoming client request.</para>
+<refsect3 id="g-socket-service-start.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>service</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSocketService"><type>GSocketService</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.22">2.22</link></para></refsect2>
+<refsect2 id="g-socket-service-stop" role="function" condition="since:2.22">
+<title>g_socket_service_stop&#160;()</title>
+<indexterm zone="g-socket-service-stop" role="2.22"><primary sortas="socket_service_stop">g_socket_service_stop</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_socket_service_stop (<parameter><link linkend="GSocketService"><type>GSocketService</type></link> *service</parameter>);</programlisting>
+<para>Stops the service, i.e. stops accepting connections
+from the added sockets when the mainloop runs.</para>
+<para>This call is thread-safe, so it may be called from a thread
+handling an incoming client request.</para>
+<para>Note that this only stops accepting new connections; it does not
+close the listening sockets, and you can call
+<link linkend="g-socket-service-start"><function>g_socket_service_start()</function></link> again later to begin listening again. To
+close the listening sockets, call <link linkend="g-socket-listener-close"><function>g_socket_listener_close()</function></link>. (This
+will happen automatically when the <link linkend="GSocketService"><type>GSocketService</type></link> is finalized.)</para>
+<para>This must be called before calling <link linkend="g-socket-listener-close"><function>g_socket_listener_close()</function></link> as
+the socket service will start accepting connections immediately
+when a new socket is added.</para>
+<refsect3 id="g-socket-service-stop.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>service</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSocketService"><type>GSocketService</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.22">2.22</link></para></refsect2>
+<refsect2 id="g-socket-service-is-active" role="function" condition="since:2.22">
+<title>g_socket_service_is_active&#160;()</title>
+<indexterm zone="g-socket-service-is-active" role="2.22"><primary sortas="socket_service_is_active">g_socket_service_is_active</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_socket_service_is_active (<parameter><link linkend="GSocketService"><type>GSocketService</type></link> *service</parameter>);</programlisting>
+<para>Check whether the service is active or not. An active
+service will accept new clients that connect, while
+a non-active service will let connecting clients queue
+up until the service is started.</para>
+<refsect3 id="g-socket-service-is-active.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>service</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSocketService"><type>GSocketService</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-socket-service-is-active.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if the service is active, <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> otherwise</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.22">2.22</link></para></refsect2>
+
+</refsect1>
+<refsect1 id="GSocketService.other_details" role="details">
+<title role="details.title">Types and Values</title>
+<refsect2 id="GSocketService-struct" role="struct">
+<title>GSocketService</title>
+<indexterm zone="GSocketService-struct" role="2.22"><primary sortas="SocketService">GSocketService</primary></indexterm>
+<programlisting language="C">typedef struct _GSocketService GSocketService;</programlisting>
+<para>A helper class for handling accepting incomming connections in the
+glib mainloop.</para>
+<para role="since">Since: <link linkend="api-index-2.22">2.22</link></para></refsect2>
+
+</refsect1>
+<refsect1 id="GSocketService.property-details" role="property_details">
+<title role="property_details.title">Property Details</title>
+<refsect2 id="GSocketService--active" role="property"><title>The <literal>“active”</literal> property</title>
+<indexterm zone="GSocketService--active" role="2.46"><primary sortas="SocketService:active">GSocketService:active</primary></indexterm>
+<programlisting>  “active”                   <link linkend="gboolean"><type>gboolean</type></link></programlisting>
+<para>Whether the service is currently accepting connections.</para>
+<para>Flags: Read / Write / Construct</para>
+<para>Default value: TRUE</para>
+<para role="since">Since: <link linkend="api-index-2.46">2.46</link></para></refsect2>
+
+</refsect1>
+<refsect1 id="GSocketService.signal-details" role="signals">
+<title role="signals.title">Signal Details</title>
+<refsect2 id="GSocketService-incoming" role="signal"><title>The <literal>“incoming”</literal> signal</title>
+<indexterm zone="GSocketService-incoming" role="2.22"><primary sortas="SocketService::incoming">GSocketService::incoming</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+user_function (<link linkend="GSocketService"><type>GSocketService</type></link>    *service,
+               <link linkend="GSocketConnection"><type>GSocketConnection</type></link> *connection,
+               <link linkend="GObject"><type>GObject</type></link>           *source_object,
+               <link linkend="gpointer"><type>gpointer</type></link>           user_data)</programlisting>
+<para>The ::incoming signal is emitted when a new incoming connection
+to <parameter>service</parameter>
+ needs to be handled. The handler must initiate the
+handling of <parameter>connection</parameter>
+, but may not block; in essence,
+asynchronous operations must be used.</para>
+<para><parameter>connection</parameter>
+ will be unreffed once the signal handler returns,
+so you need to ref it yourself if you are planning to use it.</para>
+<refsect3 id="GSocketService-incoming.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>service</para></entry>
+<entry role="parameter_description"><para>the <link linkend="GSocketService"><type>GSocketService</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>connection</para></entry>
+<entry role="parameter_description"><para>a new <link linkend="GSocketConnection"><type>GSocketConnection</type></link> object</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>source_object</para></entry>
+<entry role="parameter_description"><para>the source_object passed to
+<link linkend="g-socket-listener-add-address"><function>g_socket_listener_add_address()</function></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><simpara>user_data</simpara></entry>
+<entry role="parameter_description"><simpara>user data set when the signal handler was connected.</simpara></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="GSocketService-incoming.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> to stop other handlers from being called</para>
+</refsect3><para>Flags: <link linkend="G-SIGNAL-RUN-LAST:CAPS">Run Last</link></para>
+<para role="since">Since: <link linkend="api-index-2.22">2.22</link></para></refsect2>
+</refsect1>
+<refsect1 id="GSocketService.see-also">
+<title>See Also</title>
+<para><link linkend="GThreadedSocketService"><type>GThreadedSocketService</type></link>, <link linkend="GSocketListener"><type>GSocketListener</type></link>.</para>
+
+</refsect1>
+
+</refentry>

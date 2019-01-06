@@ -1,0 +1,376 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC '-//OASIS//DTD DocBook XML V4.5//EN'
+                      'http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd' [
+<!ENTITY % local.common.attrib "xmlns:xi  CDATA  #FIXED 'http://www.w3.org/2003/XInclude'">
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="GIcon">
+<refmeta>
+<refentrytitle role="top_of_page" id="GIcon.top_of_page">GIcon</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>GIO Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>GIcon</refname>
+<refpurpose>Interface for icons</refpurpose>
+</refnamediv>
+
+<refsect1 id="GIcon.functions" role="functions_proto">
+<title role="functions_proto.title">Functions</title>
+<informaltable pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="functions_return" colwidth="150px"/>
+<colspec colname="functions_name"/>
+<tbody>
+<row><entry role="function_type"><link linkend="guint"><returnvalue>guint</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-icon-hash">g_icon_hash</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-icon-equal">g_icon_equal</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-icon-to-string">g_icon_to_string</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GIcon"><returnvalue>GIcon</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-icon-new-for-string">g_icon_new_for_string</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GVariant"><returnvalue>GVariant</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-icon-serialize">g_icon_serialize</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GIcon"><returnvalue>GIcon</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-icon-deserialize">g_icon_deserialize</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GIcon.other" role="other_proto">
+<title role="other_proto.title">Types and Values</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="name" colwidth="150px"/>
+<colspec colname="description"/>
+<tbody>
+<row><entry role="datatype_keyword"></entry><entry role="function_name"><link linkend="GIcon-struct">GIcon</link></entry></row>
+<row><entry role="datatype_keyword">struct</entry><entry role="function_name"><link linkend="GIconIface">GIconIface</link></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GIcon.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<screen>    <link linkend="GInterface">GInterface</link>
+    <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> GIcon
+</screen>
+</refsect1>
+<refsect1 id="GIcon.prerequisites" role="prerequisites">
+<title role="prerequisites.title">Prerequisites</title>
+<para>
+GIcon requires
+ <link linkend="GObject">GObject</link>.</para>
+
+</refsect1>
+<refsect1 id="GIcon.derived-interfaces" role="derived_interfaces">
+<title role="derived_interfaces.title">Known Derived Interfaces</title>
+<para>
+GIcon is required by
+ <link linkend="GLoadableIcon">GLoadableIcon</link>.</para>
+
+</refsect1>
+<refsect1 id="GIcon.implementations" role="implementations">
+<title role="implementations.title">Known Implementations</title>
+<para>
+GIcon is implemented by
+ <link linkend="GBytesIcon">GBytesIcon</link>,  <link linkend="GEmblem">GEmblem</link>,  <link linkend="GEmblemedIcon">GEmblemedIcon</link>,  <link linkend="GFileIcon">GFileIcon</link> and  <link linkend="GThemedIcon">GThemedIcon</link>.</para>
+
+</refsect1>
+
+<refsect1 id="GIcon.includes"><title>Includes</title><synopsis>#include &lt;gio/gio.h&gt;
+</synopsis></refsect1>
+
+<refsect1 id="GIcon.description" role="desc">
+<title role="desc.title">Description</title>
+<para><link linkend="GIcon"><type>GIcon</type></link> is a very minimal interface for icons. It provides functions
+for checking the equality of two icons, hashing of icons and
+serializing an icon to and from strings.</para>
+<para><link linkend="GIcon"><type>GIcon</type></link> does not provide the actual pixmap for the icon as this is out 
+of GIO's scope, however implementations of <link linkend="GIcon"><type>GIcon</type></link> may contain the name 
+of an icon (see <link linkend="GThemedIcon"><type>GThemedIcon</type></link>), or the path to an icon (see <link linkend="GLoadableIcon"><type>GLoadableIcon</type></link>). </para>
+<para>To obtain a hash of a <link linkend="GIcon"><type>GIcon</type></link>, see <link linkend="g-icon-hash"><function>g_icon_hash()</function></link>.</para>
+<para>To check if two <link linkend="GIcons"><type>GIcons</type></link> are equal, see <link linkend="g-icon-equal"><function>g_icon_equal()</function></link>.</para>
+<para>For serializing a <link linkend="GIcon"><type>GIcon</type></link>, use <link linkend="g-icon-serialize"><function>g_icon_serialize()</function></link> and
+<link linkend="g-icon-deserialize"><function>g_icon_deserialize()</function></link>.</para>
+<para>If you want to consume <link linkend="GIcon"><type>GIcon</type></link> (for example, in a toolkit) you must
+be prepared to handle at least the three following cases:
+<link linkend="GLoadableIcon"><type>GLoadableIcon</type></link>, <link linkend="GThemedIcon"><type>GThemedIcon</type></link> and <link linkend="GEmblemedIcon"><type>GEmblemedIcon</type></link>.  It may also make
+sense to have fast-paths for other cases (like handling <link linkend="GdkPixbuf"><type>GdkPixbuf</type></link>
+directly, for example) but all compliant <link linkend="GIcon"><type>GIcon</type></link> implementations
+outside of GIO must implement <link linkend="GLoadableIcon"><type>GLoadableIcon</type></link>.</para>
+<para>If your application or library provides one or more <link linkend="GIcon"><type>GIcon</type></link>
+implementations you need to ensure that your new implementation also
+implements <link linkend="GLoadableIcon"><type>GLoadableIcon</type></link>.  Additionally, you must provide an
+implementation of <link linkend="g-icon-serialize"><function>g_icon_serialize()</function></link> that gives a result that is
+understood by <link linkend="g-icon-deserialize"><function>g_icon_deserialize()</function></link>, yielding one of the built-in icon
+types.</para>
+
+</refsect1>
+<refsect1 id="GIcon.functions_details" role="details">
+<title role="details.title">Functions</title>
+<refsect2 id="g-icon-hash" role="function">
+<title>g_icon_hash&#160;()</title>
+<indexterm zone="g-icon-hash"><primary sortas="icon_hash">g_icon_hash</primary></indexterm>
+<programlisting language="C"><link linkend="guint"><returnvalue>guint</returnvalue></link>
+g_icon_hash (<parameter><link linkend="gconstpointer"><type>gconstpointer</type></link> icon</parameter>);</programlisting>
+<para>Gets a hash for an icon.</para>
+<para>Virtual: hash</para>
+<refsect3 id="g-icon-hash.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>icon</para></entry>
+<entry role="parameter_description"><para><link linkend="gconstpointer"><type>gconstpointer</type></link> to an icon object. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>not nullable</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-icon-hash.returns" role="returns">
+<title>Returns</title>
+<para> a <link linkend="guint"><type>guint</type></link> containing a hash for the <parameter>icon</parameter>
+, suitable for
+use in a <link linkend="GHashTable"><type>GHashTable</type></link> or similar data structure.</para>
+</refsect3></refsect2>
+<refsect2 id="g-icon-equal" role="function">
+<title>g_icon_equal&#160;()</title>
+<indexterm zone="g-icon-equal"><primary sortas="icon_equal">g_icon_equal</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_icon_equal (<parameter><link linkend="GIcon"><type>GIcon</type></link> *icon1</parameter>,
+              <parameter><link linkend="GIcon"><type>GIcon</type></link> *icon2</parameter>);</programlisting>
+<para>Checks if two icons are equal.</para>
+<refsect3 id="g-icon-equal.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>icon1</para></entry>
+<entry role="parameter_description"><para>pointer to the first <link linkend="GIcon"><type>GIcon</type></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>icon2</para></entry>
+<entry role="parameter_description"><para>pointer to the second <link linkend="GIcon"><type>GIcon</type></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-icon-equal.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if <parameter>icon1</parameter>
+is equal to <parameter>icon2</parameter>
+. <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> otherwise.</para>
+</refsect3></refsect2>
+<refsect2 id="g-icon-to-string" role="function" condition="since:2.20">
+<title>g_icon_to_string&#160;()</title>
+<indexterm zone="g-icon-to-string" role="2.20"><primary sortas="icon_to_string">g_icon_to_string</primary></indexterm>
+<programlisting language="C"><link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+g_icon_to_string (<parameter><link linkend="GIcon"><type>GIcon</type></link> *icon</parameter>);</programlisting>
+<para>Generates a textual representation of <parameter>icon</parameter>
+ that can be used for
+serialization such as when passing <parameter>icon</parameter>
+ to a different process or
+saving it to persistent storage. Use <link linkend="g-icon-new-for-string"><function>g_icon_new_for_string()</function></link> to
+get <parameter>icon</parameter>
+ back from the returned string.</para>
+<para>The encoding of the returned string is proprietary to <link linkend="GIcon"><type>GIcon</type></link> except
+in the following two cases</para>
+<itemizedlist>
+<listitem>
+<para>If <parameter>icon</parameter>
+ is a <link linkend="GFileIcon"><type>GFileIcon</type></link>, the returned string is a native path
+(such as <literal>/path/to/my icon.png</literal>) without escaping
+if the <link linkend="GFile"><type>GFile</type></link> for <parameter>icon</parameter>
+ is a native file.  If the file is not
+native, the returned string is the result of <link linkend="g-file-get-uri"><function>g_file_get_uri()</function></link>
+(such as <literal>sftp://path/to/my%20icon.png</literal>).</para>
+</listitem>
+<listitem>
+<para>If <parameter>icon</parameter>
+ is a <link linkend="GThemedIcon"><type>GThemedIcon</type></link> with exactly one name and no fallbacks,
+the encoding is simply the name (such as <literal>network-server</literal>).</para>
+</listitem>
+</itemizedlist>
+<para>Virtual: to_tokens</para>
+<refsect3 id="g-icon-to-string.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>icon</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GIcon"><type>GIcon</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-icon-to-string.returns" role="returns">
+<title>Returns</title>
+<para>An allocated NUL-terminated UTF8 string or
+<link linkend="NULL:CAPS"><literal>NULL</literal></link> if <parameter>icon</parameter>
+can't be serialized. Use <link linkend="g-free"><function>g_free()</function></link> to free. </para>
+<para><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.20">2.20</link></para></refsect2>
+<refsect2 id="g-icon-new-for-string" role="function" condition="since:2.20">
+<title>g_icon_new_for_string&#160;()</title>
+<indexterm zone="g-icon-new-for-string" role="2.20"><primary sortas="icon_new_for_string">g_icon_new_for_string</primary></indexterm>
+<programlisting language="C"><link linkend="GIcon"><returnvalue>GIcon</returnvalue></link>&#160;*
+g_icon_new_for_string (<parameter>const <link linkend="gchar"><type>gchar</type></link> *str</parameter>,
+                       <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para>Generate a <link linkend="GIcon"><type>GIcon</type></link> instance from <parameter>str</parameter>
+. This function can fail if
+<parameter>str</parameter>
+ is not valid - see <link linkend="g-icon-to-string"><function>g_icon_to_string()</function></link> for discussion.</para>
+<para>If your application or library provides one or more <link linkend="GIcon"><type>GIcon</type></link>
+implementations you need to ensure that each <link linkend="GType"><type>GType</type></link> is registered
+with the type system prior to calling <link linkend="g-icon-new-for-string"><function>g_icon_new_for_string()</function></link>.</para>
+<refsect3 id="g-icon-new-for-string.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>str</para></entry>
+<entry role="parameter_description"><para>A string obtained via <link linkend="g-icon-to-string"><function>g_icon_to_string()</function></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para>Return location for error.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-icon-new-for-string.returns" role="returns">
+<title>Returns</title>
+<para>An object implementing the <link linkend="GIcon"><type>GIcon</type></link>
+interface or <link linkend="NULL:CAPS"><literal>NULL</literal></link> if <parameter>error</parameter>
+is set. </para>
+<para><emphasis role="annotation">[<acronym>transfer full</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.20">2.20</link></para></refsect2>
+<refsect2 id="g-icon-serialize" role="function" condition="since:2.38">
+<title>g_icon_serialize&#160;()</title>
+<indexterm zone="g-icon-serialize" role="2.38"><primary sortas="icon_serialize">g_icon_serialize</primary></indexterm>
+<programlisting language="C"><link linkend="GVariant"><returnvalue>GVariant</returnvalue></link>&#160;*
+g_icon_serialize (<parameter><link linkend="GIcon"><type>GIcon</type></link> *icon</parameter>);</programlisting>
+<para>Serializes a <link linkend="GIcon"><type>GIcon</type></link> into a <link linkend="GVariant"><type>GVariant</type></link>. An equivalent <link linkend="GIcon"><type>GIcon</type></link> can be retrieved
+back by calling <link linkend="g-icon-deserialize"><function>g_icon_deserialize()</function></link> on the returned value.
+As serialization will avoid using raw icon data when possible, it only
+makes sense to transfer the <link linkend="GVariant"><type>GVariant</type></link> between processes on the same machine,
+(as opposed to over the network), and within the same file system namespace.</para>
+<refsect3 id="g-icon-serialize.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>icon</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GIcon"><type>GIcon</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-icon-serialize.returns" role="returns">
+<title>Returns</title>
+<para>a <link linkend="GVariant"><type>GVariant</type></link>, or <link linkend="NULL:CAPS"><literal>NULL</literal></link> when serialization fails. </para>
+<para><emphasis role="annotation">[<acronym>transfer full</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.38">2.38</link></para></refsect2>
+<refsect2 id="g-icon-deserialize" role="function" condition="since:2.38">
+<title>g_icon_deserialize&#160;()</title>
+<indexterm zone="g-icon-deserialize" role="2.38"><primary sortas="icon_deserialize">g_icon_deserialize</primary></indexterm>
+<programlisting language="C"><link linkend="GIcon"><returnvalue>GIcon</returnvalue></link>&#160;*
+g_icon_deserialize (<parameter><link linkend="GVariant"><type>GVariant</type></link> *value</parameter>);</programlisting>
+<para>Deserializes a <link linkend="GIcon"><type>GIcon</type></link> previously serialized using <link linkend="g-icon-serialize"><function>g_icon_serialize()</function></link>.</para>
+<refsect3 id="g-icon-deserialize.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>value</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GVariant"><type>GVariant</type></link> created with <link linkend="g-icon-serialize"><function>g_icon_serialize()</function></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-icon-deserialize.returns" role="returns">
+<title>Returns</title>
+<para>a <link linkend="GIcon"><type>GIcon</type></link>, or <link linkend="NULL:CAPS"><literal>NULL</literal></link> when deserialization fails. </para>
+<para><emphasis role="annotation">[<acronym>transfer full</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.38">2.38</link></para></refsect2>
+
+</refsect1>
+<refsect1 id="GIcon.other_details" role="details">
+<title role="details.title">Types and Values</title>
+<refsect2 id="GIcon-struct" role="struct">
+<title>GIcon</title>
+<indexterm zone="GIcon-struct"><primary sortas="Icon">GIcon</primary></indexterm>
+<programlisting language="C">typedef struct _GIcon GIcon;</programlisting>
+<para>An abstract type that specifies an icon.</para>
+</refsect2>
+<refsect2 id="GIconIface" role="struct">
+<title>struct GIconIface</title>
+<indexterm zone="GIconIface"><primary sortas="IconIface">GIconIface</primary></indexterm>
+<programlisting language="C">struct GIconIface {
+  GTypeInterface g_iface;
+
+  /* Virtual Table */
+
+  guint       (* hash)        (GIcon   *icon);
+  gboolean    (* equal)       (GIcon   *icon1,
+                               GIcon   *icon2);
+  gboolean    (* to_tokens)   (GIcon   *icon,
+			       GPtrArray *tokens,
+                               gint    *out_version);
+  GIcon *     (* from_tokens) (gchar  **tokens,
+                               gint     num_tokens,
+                               gint     version,
+                               GError **error);
+
+  GVariant *  (* serialize)   (GIcon   *icon);
+};
+</programlisting>
+<para>GIconIface is used to implement GIcon types for various
+different systems. See <link linkend="GThemedIcon"><type>GThemedIcon</type></link> and <link linkend="GLoadableIcon"><type>GLoadableIcon</type></link> for
+examples of how to implement this interface.</para>
+<refsect3 id="GIconIface.members" role="struct_members">
+<title>Members</title>
+<informaltable role="struct_members_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="struct_members_name" colwidth="300px"/>
+<colspec colname="struct_members_description"/>
+<colspec colname="struct_members_annotations" colwidth="200px"/>
+<tbody>
+<row role="member"><entry role="struct_member_name"><para><structfield id="GIconIface.hash">hash</structfield>&#160;()</para></entry>
+<entry role="struct_member_description"><para>A hash for a given <link linkend="GIcon"><type>GIcon</type></link>.</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><structfield id="GIconIface.equal">equal</structfield>&#160;()</para></entry>
+<entry role="struct_member_description"><para>Checks if two <link linkend="GIcons"><type>GIcons</type></link> are equal.</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><structfield id="GIconIface.to-tokens">to_tokens</structfield>&#160;()</para></entry>
+<entry role="struct_member_description"><para>Serializes a <link linkend="GIcon"><type>GIcon</type></link> into tokens. The tokens must not
+contain any whitespace. Don't implement if the <link linkend="GIcon"><type>GIcon</type></link> can't be
+serialized (Since 2.20).</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><structfield id="GIconIface.from-tokens">from_tokens</structfield>&#160;()</para></entry>
+<entry role="struct_member_description"><para>Constructs a <link linkend="GIcon"><type>GIcon</type></link> from tokens. Set the <link linkend="GError"><type>GError</type></link> if
+the tokens are malformed. Don't implement if the <link linkend="GIcon"><type>GIcon</type></link> can't be
+serialized (Since 2.20).</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><structfield id="GIconIface.serialize">serialize</structfield>&#160;()</para></entry>
+<entry role="struct_member_description"><para>Serializes a <link linkend="GIcon"><type>GIcon</type></link> into a <link linkend="GVariant"><type>GVariant</type></link>. Since: 2.38</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+</tbody></tgroup></informaltable>
+</refsect3>
+</refsect2>
+
+</refsect1>
+
+</refentry>

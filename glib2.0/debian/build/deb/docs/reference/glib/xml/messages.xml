@@ -1,0 +1,1562 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC '-//OASIS//DTD DocBook XML V4.5//EN'
+                      'http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd' [
+<!ENTITY % local.common.attrib "xmlns:xi  CDATA  #FIXED 'http://www.w3.org/2003/XInclude'">
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="glib-Message-Logging">
+<refmeta>
+<refentrytitle role="top_of_page" id="glib-Message-Logging.top_of_page">Message Output and Debugging Functions</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>GLIB Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>Message Output and Debugging Functions</refname>
+<refpurpose>functions to output messages and help debug applications</refpurpose>
+</refnamediv>
+
+<refsect1 id="glib-Message-Logging.functions" role="functions_proto">
+<title role="functions_proto.title">Functions</title>
+<informaltable pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="functions_return" colwidth="150px"/>
+<colspec colname="functions_name"/>
+<tbody>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><phrase role="c_punctuation">(</phrase><link linkend="GLogFunc">*GLogFunc</link><phrase role="c_punctuation">)</phrase>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-log">g_log</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-logv">g_logv</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="g-message">g_message</link><phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="g-warning">g_warning</link><phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="g-critical">g_critical</link><phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="g-error">g_error</link><phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="g-info">g_info</link><phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="g-debug">g_debug</link><phrase role="c_punctuation">()</phrase></entry></row>
+
+<row><entry role="function_type"><link linkend="guint"><returnvalue>guint</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-log-set-handler">g_log_set_handler</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="guint"><returnvalue>guint</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-log-set-handler-full">g_log_set_handler_full</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-log-remove-handler">g_log_remove_handler</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GLogLevelFlags"><returnvalue>GLogLevelFlags</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-log-set-always-fatal">g_log_set_always_fatal</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GLogLevelFlags"><returnvalue>GLogLevelFlags</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-log-set-fatal-mask">g_log_set_fatal_mask</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-log-default-handler">g_log_default_handler</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GLogFunc"><returnvalue>GLogFunc</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-log-set-default-handler">g_log_set_default_handler</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-log-structured">g_log_structured</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-log-variant">g_log_variant</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-log-structured-array">g_log_structured_array</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="G-DEBUG-HERE:CAPS">G_DEBUG_HERE</link></entry></row>
+
+<row><entry role="function_type"><link linkend="GLogWriterOutput"><returnvalue>GLogWriterOutput</returnvalue></link>
+</entry><entry role="function_name"><phrase role="c_punctuation">(</phrase><link linkend="GLogWriterFunc">*GLogWriterFunc</link><phrase role="c_punctuation">)</phrase>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-log-set-writer-func">g_log_set_writer_func</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-log-writer-supports-color">g_log_writer_supports_color</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-log-writer-is-journald">g_log_writer_is_journald</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-log-writer-format-fields">g_log_writer_format_fields</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GLogWriterOutput"><returnvalue>GLogWriterOutput</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-log-writer-journald">g_log_writer_journald</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GLogWriterOutput"><returnvalue>GLogWriterOutput</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-log-writer-standard-streams">g_log_writer_standard_streams</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GLogWriterOutput"><returnvalue>GLogWriterOutput</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-log-writer-default">g_log_writer_default</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="glib-Message-Logging.other" role="other_proto">
+<title role="other_proto.title">Types and Values</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="name" colwidth="150px"/>
+<colspec colname="description"/>
+<tbody>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="G-LOG-DOMAIN:CAPS">G_LOG_DOMAIN</link></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="G-LOG-FATAL-MASK:CAPS">G_LOG_FATAL_MASK</link></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="G-LOG-LEVEL-USER-SHIFT:CAPS">G_LOG_LEVEL_USER_SHIFT</link></entry></row>
+<row><entry role="datatype_keyword">enum</entry><entry role="function_name"><link linkend="GLogLevelFlags">GLogLevelFlags</link></entry></row>
+
+
+
+<row><entry role="datatype_keyword">struct</entry><entry role="function_name"><link linkend="GLogField">GLogField</link></entry></row>
+
+<row><entry role="datatype_keyword">enum</entry><entry role="function_name"><link linkend="GLogWriterOutput">GLogWriterOutput</link></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+
+<refsect1 id="glib-Message-Logging.includes"><title>Includes</title><synopsis>#include &lt;glib.h&gt;
+</synopsis></refsect1>
+
+<refsect1 id="glib-Message-Logging.description" role="desc">
+<title role="desc.title">Description</title>
+<para>These functions provide support for outputting messages.</para>
+<para>The g_return family of macros (<link linkend="g-return-if-fail"><function>g_return_if_fail()</function></link>,
+<link linkend="g-return-val-if-fail"><function>g_return_val_if_fail()</function></link>, <link linkend="g-return-if-reached"><function>g_return_if_reached()</function></link>,
+<link linkend="g-return-val-if-reached"><function>g_return_val_if_reached()</function></link>) should only be used for programming
+errors, a typical use case is checking for invalid parameters at
+the beginning of a public function. They should not be used if
+you just mean "if (error) return", they should only be used if
+you mean "if (bug in program) return". The program behavior is
+generally considered undefined after one of these checks fails.
+They are not intended for normal control flow, only to give a
+perhaps-helpful warning before giving up.</para>
+<para>Structured logging output is supported using <link linkend="g-log-structured"><function>g_log_structured()</function></link>. This differs
+from the traditional <link linkend="g-log"><function>g_log()</function></link> API in that log messages are handled as a
+collection of key–value pairs representing individual pieces of information,
+rather than as a single string containing all the information in an arbitrary
+format.</para>
+<para>The convenience macros <link linkend="g-info"><function>g_info()</function></link>, <link linkend="g-message"><function>g_message()</function></link>, <link linkend="g-debug"><function>g_debug()</function></link>, <link linkend="g-warning"><function>g_warning()</function></link> and <link linkend="g-error"><function>g_error()</function></link>
+will use the traditional <link linkend="g-log"><function>g_log()</function></link> API unless you define the symbol
+<link linkend="G-LOG-USE-STRUCTURED:CAPS"><literal>G_LOG_USE_STRUCTURED</literal></link> before including <literal>glib.h</literal>. But note that even messages
+logged through the traditional <link linkend="g-log"><function>g_log()</function></link> API are ultimatively passed to
+<link linkend="g-log-structured"><function>g_log_structured()</function></link>, so that all log messages end up in same destination.
+If <link linkend="G-LOG-USE-STRUCTURED:CAPS"><literal>G_LOG_USE_STRUCTURED</literal></link> is defined, <link linkend="g-test-expect-message"><function>g_test_expect_message()</function></link> will become
+ineffective for the wrapper macros <link linkend="g-warning"><function>g_warning()</function></link> and friends (see
+<link linkend="testing-for-messages">Testing for Messages</link>).</para>
+<para>The support for structured logging was motivated by the following needs (some
+of which were supported previously; others weren’t):</para>
+<itemizedlist>
+<listitem><para>Support for multiple logging levels.</para></listitem>
+<listitem><para>Structured log support with the ability to add <literal>MESSAGE_ID</literal>s (see
+<link linkend="g-log-structured"><function>g_log_structured()</function></link>).</para></listitem>
+<listitem><para>Moving the responsibility for filtering log messages from the program to
+the log viewer — instead of libraries and programs installing log handlers
+(with <link linkend="g-log-set-handler"><function>g_log_set_handler()</function></link>) which filter messages before output, all log
+messages are outputted, and the log viewer program (such as <literal>journalctl</literal>)
+must filter them. This is based on the idea that bugs are sometimes hard
+to reproduce, so it is better to log everything possible and then use
+tools to analyse the logs than it is to not be able to reproduce a bug to
+get additional log data. Code which uses logging in performance-critical
+sections should compile out the <link linkend="g-log-structured"><function>g_log_structured()</function></link> calls in
+release builds, and compile them in in debugging builds.</para></listitem>
+<listitem><para>A single writer function which handles all log messages in a process, from
+all libraries and program code; rather than multiple log handlers with
+poorly defined interactions between them. This allows a program to easily
+change its logging policy by changing the writer function, for example to
+log to an additional location or to change what logging output fallbacks
+are used. The log writer functions provided by GLib are exposed publicly
+so they can be used from programs’ log writers. This allows log writer
+policy and implementation to be kept separate.</para></listitem>
+<listitem><para>If a library wants to add standard information to all of its log messages
+(such as library state) or to redact private data (such as passwords or
+network credentials), it should use a wrapper function around its
+<link linkend="g-log-structured"><function>g_log_structured()</function></link> calls or implement that in the single log writer
+function.</para></listitem>
+<listitem><para>If a program wants to pass context data from a <link linkend="g-log-structured"><function>g_log_structured()</function></link> call to
+its log writer function so that, for example, it can use the correct
+server connection to submit logs to, that user data can be passed as a
+zero-length <link linkend="GLogField"><type>GLogField</type></link> to <link linkend="g-log-structured-array"><function>g_log_structured_array()</function></link>.</para></listitem>
+<listitem>
+<para>Color output needed to be supported on the terminal, to make reading
+through logs easier.</para>
+</listitem>
+</itemizedlist>
+<refsect3 id="using-structured-logging"><title>Using Structured Logging</title><para>To use structured logging (rather than the old-style logging), either use
+the <link linkend="g-log-structured"><function>g_log_structured()</function></link> and <link linkend="g-log-structured-array"><function>g_log_structured_array()</function></link> functions; or define
+<literal>G_LOG_USE_STRUCTURED</literal> before including any GLib header, and use the
+<link linkend="g-message"><function>g_message()</function></link>, <link linkend="g-debug"><function>g_debug()</function></link>, <link linkend="g-error"><function>g_error()</function></link> (etc.) macros.</para>
+<para>You do not need to define <literal>G_LOG_USE_STRUCTURED</literal> to use <link linkend="g-log-structured"><function>g_log_structured()</function></link>,
+but it is a good idea to avoid confusion.</para>
+</refsect3>
+<refsect3 id="log-domains"><title>Log Domains</title><para>Log domains may be used to broadly split up the origins of log messages.
+Typically, there are one or a few log domains per application or library.
+<link linkend="G-LOG-DOMAIN:CAPS"><literal>G_LOG_DOMAIN</literal></link> should be used to define the default log domain for the current
+compilation unit — it is typically defined at the top of a source file, or in
+the preprocessor flags for a group of source files.</para>
+<para>Log domains must be unique, and it is recommended that they are the
+application or library name, optionally followed by a hyphen and a sub-domain
+name. For example, <literal>bloatpad</literal> or <literal>bloatpad-io</literal>.</para>
+</refsect3>
+<refsect3 id="debug-message-output"><title>Debug Message Output</title><para>The default log functions (<link linkend="g-log-default-handler"><function>g_log_default_handler()</function></link> for the old-style API and
+<link linkend="g-log-writer-default"><function>g_log_writer_default()</function></link> for the structured API) both drop debug and
+informational messages by default, unless the log domains of those messages
+are listed in the <literal>G_MESSAGES_DEBUG</literal> environment variable (or it is set to
+<literal>all</literal>).</para>
+<para>It is recommended that custom log writer functions re-use the
+<literal>G_MESSAGES_DEBUG</literal> environment variable, rather than inventing a custom one,
+so that developers can re-use the same debugging techniques and tools across
+projects.</para>
+</refsect3>
+<refsect3 id="testing-for-messages"><title>Testing for Messages</title><para>With the old <link linkend="g-log"><function>g_log()</function></link> API, <link linkend="g-test-expect-message"><function>g_test_expect_message()</function></link> and
+<link linkend="g-test-assert-expected-messages"><function>g_test_assert_expected_messages()</function></link> could be used in simple cases to check
+whether some code under test had emitted a given log message. These
+functions have been deprecated with the structured logging API, for several
+reasons:</para>
+<itemizedlist>
+<listitem><para>They relied on an internal queue which was too inflexible for many use
+cases, where messages might be emitted in several orders, some
+messages might not be emitted deterministically, or messages might be
+emitted by unrelated log domains.</para></listitem>
+<listitem><para>They do not support structured log fields.</para></listitem>
+<listitem>
+<para>Examining the log output of code is a bad approach to testing it, and
+while it might be necessary for legacy code which uses <link linkend="g-log"><function>g_log()</function></link>, it should
+be avoided for new code using <link linkend="g-log-structured"><function>g_log_structured()</function></link>.</para>
+</listitem>
+</itemizedlist>
+<para>They will continue to work as before if <link linkend="g-log"><function>g_log()</function></link> is in use (and
+<link linkend="G-LOG-USE-STRUCTURED:CAPS"><literal>G_LOG_USE_STRUCTURED</literal></link> is not defined). They will do nothing if used with the
+structured logging API.</para>
+<para>Examining the log output of code is discouraged: libraries should not emit to
+<literal>stderr</literal> during defined behaviour, and hence this should not be tested. If
+the log emissions of a library during undefined behaviour need to be tested,
+they should be limited to asserting that the library aborts and prints a
+suitable error message before aborting. This should be done with
+<link linkend="g-test-trap-assert-stderr"><function>g_test_trap_assert_stderr()</function></link>.</para>
+<para>If it is really necessary to test the structured log messages emitted by a
+particular piece of code – and the code cannot be restructured to be more
+suitable to more conventional unit testing – you should write a custom log
+writer function (see <link linkend="g-log-set-writer-func"><function>g_log_set_writer_func()</function></link>) which appends all log messages
+to a queue. When you want to check the log messages, examine and clear the
+queue, ignoring irrelevant log messages (for example, from log domains other
+than the one under test).</para>
+</refsect3>
+
+</refsect1>
+<refsect1 id="glib-Message-Logging.functions_details" role="details">
+<title role="details.title">Functions</title>
+<refsect2 id="GLogFunc" role="function">
+<title>GLogFunc&#160;()</title>
+<indexterm zone="GLogFunc"><primary sortas="LogFunc">GLogFunc</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+<phrase role="c_punctuation">(</phrase>*GLogFunc<phrase role="c_punctuation">)</phrase> (<parameter>const <link linkend="gchar"><type>gchar</type></link> *log_domain</parameter>,
+             <parameter><link linkend="GLogLevelFlags"><type>GLogLevelFlags</type></link> log_level</parameter>,
+             <parameter>const <link linkend="gchar"><type>gchar</type></link> *message</parameter>,
+             <parameter><link linkend="gpointer"><type>gpointer</type></link> user_data</parameter>);</programlisting>
+<para>Specifies the prototype of log handler functions.</para>
+<para>The default log handler, <link linkend="g-log-default-handler"><function>g_log_default_handler()</function></link>, automatically appends a
+new-line character to <parameter>message</parameter>
+ when printing it. It is advised that any
+custom log handler functions behave similarly, so that logging calls in user
+code do not need modifying to add a new-line character to the message if the
+log handler is changed.</para>
+<para>This is not used if structured logging is enabled; see
+<link linkend="using-structured-logging">Using Structured Logging</link>.</para>
+<refsect3 id="GLogFunc.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>log_domain</para></entry>
+<entry role="parameter_description"><para>the log domain of the message</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>log_level</para></entry>
+<entry role="parameter_description"><para>the log level of the message (including the
+fatal and recursion flags)</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>message</para></entry>
+<entry role="parameter_description"><para>the message to process</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>user_data</para></entry>
+<entry role="parameter_description"><para>user data, set in <link linkend="g-log-set-handler"><function>g_log_set_handler()</function></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-log" role="function">
+<title>g_log&#160;()</title>
+<indexterm zone="g-log"><primary sortas="log">g_log</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_log (<parameter>const <link linkend="gchar"><type>gchar</type></link> *log_domain</parameter>,
+       <parameter><link linkend="GLogLevelFlags"><type>GLogLevelFlags</type></link> log_level</parameter>,
+       <parameter>const <link linkend="gchar"><type>gchar</type></link> *format</parameter>,
+       <parameter>...</parameter>);</programlisting>
+<para>Logs an error or debugging message.</para>
+<para>If the log level has been set as fatal, <link linkend="G-BREAKPOINT:CAPS"><function>G_BREAKPOINT()</function></link> is called
+to terminate the program. See the documentation for <link linkend="G-BREAKPOINT:CAPS"><function>G_BREAKPOINT()</function></link> for
+details of the debugging options this provides.</para>
+<para>If <link linkend="g-log-default-handler"><function>g_log_default_handler()</function></link> is used as the log handler function, a new-line
+character will automatically be appended to @..., and need not be entered
+manually.</para>
+<para>If <link linkend="using-structured-logging">structured logging is enabled</link> this will
+output via the structured log writer function (see <link linkend="g-log-set-writer-func"><function>g_log_set_writer_func()</function></link>).</para>
+<refsect3 id="g-log.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>log_domain</para></entry>
+<entry role="parameter_description"><para>the log domain, usually <link linkend="G-LOG-DOMAIN:CAPS"><type>G_LOG_DOMAIN</type></link>, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>
+for the default. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>log_level</para></entry>
+<entry role="parameter_description"><para>the log level, either from <link linkend="GLogLevelFlags"><type>GLogLevelFlags</type></link>
+or a user-defined level</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>format</para></entry>
+<entry role="parameter_description"><para>the message format. See the <link linkend="printf"><function>printf()</function></link> documentation</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>...</para></entry>
+<entry role="parameter_description"><para>the parameters to insert into the format string</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-logv" role="function">
+<title>g_logv&#160;()</title>
+<indexterm zone="g-logv"><primary sortas="logv">g_logv</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_logv (<parameter>const <link linkend="gchar"><type>gchar</type></link> *log_domain</parameter>,
+        <parameter><link linkend="GLogLevelFlags"><type>GLogLevelFlags</type></link> log_level</parameter>,
+        <parameter>const <link linkend="gchar"><type>gchar</type></link> *format</parameter>,
+        <parameter><link linkend="va-list"><type>va_list</type></link> args</parameter>);</programlisting>
+<para>Logs an error or debugging message.</para>
+<para>If the log level has been set as fatal, <link linkend="G-BREAKPOINT:CAPS"><function>G_BREAKPOINT()</function></link> is called
+to terminate the program. See the documentation for <link linkend="G-BREAKPOINT:CAPS"><function>G_BREAKPOINT()</function></link> for
+details of the debugging options this provides.</para>
+<para>If <link linkend="g-log-default-handler"><function>g_log_default_handler()</function></link> is used as the log handler function, a new-line
+character will automatically be appended to @..., and need not be entered
+manually.</para>
+<para>If <link linkend="using-structured-logging">structured logging is enabled</link> this will
+output via the structured log writer function (see <link linkend="g-log-set-writer-func"><function>g_log_set_writer_func()</function></link>).</para>
+<refsect3 id="g-logv.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>log_domain</para></entry>
+<entry role="parameter_description"><para>the log domain, or <link linkend="NULL:CAPS"><literal>NULL</literal></link> for the default ""
+application domain. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>log_level</para></entry>
+<entry role="parameter_description"><para>the log level</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>format</para></entry>
+<entry role="parameter_description"><para>the message format. See the <link linkend="printf"><function>printf()</function></link> documentation</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>args</para></entry>
+<entry role="parameter_description"><para>the parameters to insert into the format string</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-message" role="macro">
+<title>g_message()</title>
+<indexterm zone="g-message"><primary sortas="message">g_message</primary></indexterm>
+<programlisting language="C">#define             g_message(...)</programlisting>
+<para>A convenience function/macro to log a normal message.</para>
+<para>If <link linkend="g-log-default-handler"><function>g_log_default_handler()</function></link> is used as the log handler function, a new-line
+character will automatically be appended to @..., and need not be entered
+manually.</para>
+<para>If structured logging is enabled, this will use <link linkend="g-log-structured"><function>g_log_structured()</function></link>;
+otherwise it will use <link linkend="g-log"><function>g_log()</function></link>. See
+<link linkend="using-structured-logging">Using Structured Logging</link>.</para>
+<refsect3 id="g-message.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>...</para></entry>
+<entry role="parameter_description"><para>format string, followed by parameters to insert
+into the format string (as with <link linkend="printf"><function>printf()</function></link>)</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-warning" role="macro">
+<title>g_warning()</title>
+<indexterm zone="g-warning"><primary sortas="warning">g_warning</primary></indexterm>
+<programlisting language="C">#define             g_warning(...)</programlisting>
+<para>A convenience function/macro to log a warning message. The message should
+typically *not* be translated to the user's language.</para>
+<para>This is not intended for end user error reporting. Use of <link linkend="GError"><type>GError</type></link> is
+preferred for that instead, as it allows calling functions to perform actions
+conditional on the type of error.</para>
+<para>Warning messages are intended to be used in the event of unexpected
+external conditions (system misconfiguration, missing files,
+other trusted programs violating protocol, invalid contents in
+trusted files, etc.)</para>
+<para>If attempting to deal with programmer errors (for example, incorrect function
+parameters) then you should use <link linkend="G-LOG-LEVEL-CRITICAL:CAPS"><literal>G_LOG_LEVEL_CRITICAL</literal></link> instead.</para>
+<para>g_warn_if_reached() and <link linkend="g-warn-if-fail"><function>g_warn_if_fail()</function></link> log at <link linkend="G-LOG-LEVEL-WARNING:CAPS"><literal>G_LOG_LEVEL_WARNING</literal></link>.</para>
+<para>You can make warnings fatal at runtime by setting the <literal>G_DEBUG</literal>
+environment variable (see
+<ulink url="glib-running.html">Running GLib Applications</ulink>):</para>
+<informalexample><programlisting role="example"><![CDATA[
+  G_DEBUG=fatal-warnings gdb ./my-program
+]]></programlisting></informalexample>
+<para></para>
+<para>Any unrelated failures can be skipped over in
+<ulink url="https://www.gnu.org/software/gdb/">gdb</ulink> using the <literal>continue</literal> command.</para>
+<para>If <link linkend="g-log-default-handler"><function>g_log_default_handler()</function></link> is used as the log handler function,
+a newline character will automatically be appended to @..., and
+need not be entered manually.</para>
+<para>If structured logging is enabled, this will use <link linkend="g-log-structured"><function>g_log_structured()</function></link>;
+otherwise it will use <link linkend="g-log"><function>g_log()</function></link>. See
+<link linkend="using-structured-logging">Using Structured Logging</link>.</para>
+<refsect3 id="g-warning.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>...</para></entry>
+<entry role="parameter_description"><para>format string, followed by parameters to insert
+into the format string (as with <link linkend="printf"><function>printf()</function></link>)</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-critical" role="macro">
+<title>g_critical()</title>
+<indexterm zone="g-critical"><primary sortas="critical">g_critical</primary></indexterm>
+<programlisting language="C">#define             g_critical(...)</programlisting>
+<para>Logs a "critical warning" (<link linkend="G-LOG-LEVEL-CRITICAL:CAPS"><type>G_LOG_LEVEL_CRITICAL</type></link>).</para>
+<para>Critical warnings are intended to be used in the event of an error
+that originated in the current process (a programmer error).
+Logging of a critical error is by definition an indication of a bug
+somewhere in the current program (or its libraries).</para>
+<para>g_return_if_fail(), <link linkend="g-return-val-if-fail"><function>g_return_val_if_fail()</function></link>, <link linkend="g-return-if-reached"><function>g_return_if_reached()</function></link> and
+<link linkend="g-return-val-if-reached"><function>g_return_val_if_reached()</function></link> log at <link linkend="G-LOG-LEVEL-CRITICAL:CAPS"><literal>G_LOG_LEVEL_CRITICAL</literal></link>.</para>
+<para>You can make critical warnings fatal at runtime by
+setting the <literal>G_DEBUG</literal> environment variable (see
+<ulink url="glib-running.html">Running GLib Applications</ulink>):</para>
+<informalexample><programlisting role="example"><![CDATA[
+  G_DEBUG=fatal-warnings gdb ./my-program
+]]></programlisting></informalexample>
+<para></para>
+<para>You can also use <link linkend="g-log-set-always-fatal"><function>g_log_set_always_fatal()</function></link>.</para>
+<para>Any unrelated failures can be skipped over in
+<ulink url="https://www.gnu.org/software/gdb/">gdb</ulink> using the <literal>continue</literal> command.</para>
+<para>The message should typically *not* be translated to the
+user's language.</para>
+<para>If <link linkend="g-log-default-handler"><function>g_log_default_handler()</function></link> is used as the log handler function, a new-line
+character will automatically be appended to @..., and need not be entered
+manually.</para>
+<para>If structured logging is enabled, this will use <link linkend="g-log-structured"><function>g_log_structured()</function></link>;
+otherwise it will use <link linkend="g-log"><function>g_log()</function></link>. See
+<link linkend="using-structured-logging">Using Structured Logging</link>.</para>
+<refsect3 id="g-critical.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>...</para></entry>
+<entry role="parameter_description"><para>format string, followed by parameters to insert
+into the format string (as with <link linkend="printf"><function>printf()</function></link>)</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-error" role="macro">
+<title>g_error()</title>
+<indexterm zone="g-error"><primary sortas="error">g_error</primary></indexterm>
+<programlisting language="C">#define             g_error(...)</programlisting>
+<para>A convenience function/macro to log an error message. The message should
+typically *not* be translated to the user's language.</para>
+<para>This is not intended for end user error reporting. Use of <link linkend="GError"><type>GError</type></link> is
+preferred for that instead, as it allows calling functions to perform actions
+conditional on the type of error.</para>
+<para>Error messages are always fatal, resulting in a call to <link linkend="G-BREAKPOINT:CAPS"><function>G_BREAKPOINT()</function></link>
+to terminate the application. This function will
+result in a core dump; don't use it for errors you expect.
+Using this function indicates a bug in your program, i.e.
+an assertion failure.</para>
+<para>If <link linkend="g-log-default-handler"><function>g_log_default_handler()</function></link> is used as the log handler function, a new-line
+character will automatically be appended to @..., and need not be entered
+manually.</para>
+<para>If structured logging is enabled, this will use <link linkend="g-log-structured"><function>g_log_structured()</function></link>;
+otherwise it will use <link linkend="g-log"><function>g_log()</function></link>. See
+<link linkend="using-structured-logging">Using Structured Logging</link>.</para>
+<refsect3 id="g-error.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>...</para></entry>
+<entry role="parameter_description"><para>format string, followed by parameters to insert
+into the format string (as with <link linkend="printf"><function>printf()</function></link>)</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-info" role="macro" condition="since:2.40">
+<title>g_info()</title>
+<indexterm zone="g-info" role="2.40"><primary sortas="info">g_info</primary></indexterm>
+<programlisting language="C">#define             g_info(...)</programlisting>
+<para>A convenience function/macro to log an informational message. Seldom used.</para>
+<para>If <link linkend="g-log-default-handler"><function>g_log_default_handler()</function></link> is used as the log handler function, a new-line
+character will automatically be appended to @..., and need not be entered
+manually.</para>
+<para>Such messages are suppressed by the <link linkend="g-log-default-handler"><function>g_log_default_handler()</function></link> and
+<link linkend="g-log-writer-default"><function>g_log_writer_default()</function></link> unless the <literal>G_MESSAGES_DEBUG</literal> environment variable is
+set appropriately.</para>
+<para>If structured logging is enabled, this will use <link linkend="g-log-structured"><function>g_log_structured()</function></link>;
+otherwise it will use <link linkend="g-log"><function>g_log()</function></link>. See
+<link linkend="using-structured-logging">Using Structured Logging</link>.</para>
+<refsect3 id="g-info.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>...</para></entry>
+<entry role="parameter_description"><para>format string, followed by parameters to insert
+into the format string (as with <link linkend="printf"><function>printf()</function></link>)</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.40">2.40</link></para></refsect2>
+<refsect2 id="g-debug" role="macro" condition="since:2.6">
+<title>g_debug()</title>
+<indexterm zone="g-debug" role="2.6"><primary sortas="debug">g_debug</primary></indexterm>
+<programlisting language="C">#define             g_debug(...)</programlisting>
+<para>A convenience function/macro to log a debug message. The message should
+typically *not* be translated to the user's language.</para>
+<para>If <link linkend="g-log-default-handler"><function>g_log_default_handler()</function></link> is used as the log handler function, a new-line
+character will automatically be appended to @..., and need not be entered
+manually.</para>
+<para>Such messages are suppressed by the <link linkend="g-log-default-handler"><function>g_log_default_handler()</function></link> and
+<link linkend="g-log-writer-default"><function>g_log_writer_default()</function></link> unless the <literal>G_MESSAGES_DEBUG</literal> environment variable is
+set appropriately.</para>
+<para>If structured logging is enabled, this will use <link linkend="g-log-structured"><function>g_log_structured()</function></link>;
+otherwise it will use <link linkend="g-log"><function>g_log()</function></link>. See
+<link linkend="using-structured-logging">Using Structured Logging</link>.</para>
+<refsect3 id="g-debug.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>...</para></entry>
+<entry role="parameter_description"><para>format string, followed by parameters to insert
+into the format string (as with <link linkend="printf"><function>printf()</function></link>)</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.6">2.6</link></para></refsect2>
+<refsect2 id="g-log-set-handler" role="function">
+<title>g_log_set_handler&#160;()</title>
+<indexterm zone="g-log-set-handler"><primary sortas="log_set_handler">g_log_set_handler</primary></indexterm>
+<programlisting language="C"><link linkend="guint"><returnvalue>guint</returnvalue></link>
+g_log_set_handler (<parameter>const <link linkend="gchar"><type>gchar</type></link> *log_domain</parameter>,
+                   <parameter><link linkend="GLogLevelFlags"><type>GLogLevelFlags</type></link> log_levels</parameter>,
+                   <parameter><link linkend="GLogFunc"><type>GLogFunc</type></link> log_func</parameter>,
+                   <parameter><link linkend="gpointer"><type>gpointer</type></link> user_data</parameter>);</programlisting>
+<para>Sets the log handler for a domain and a set of log levels.
+To handle fatal and recursive messages the <parameter>log_levels</parameter>
+ parameter
+must be combined with the <link linkend="G-LOG-FLAG-FATAL:CAPS"><type>G_LOG_FLAG_FATAL</type></link> and <link linkend="G-LOG-FLAG-RECURSION:CAPS"><type>G_LOG_FLAG_RECURSION</type></link>
+bit flags.</para>
+<para>Note that since the <link linkend="G-LOG-LEVEL-ERROR:CAPS"><type>G_LOG_LEVEL_ERROR</type></link> log level is always fatal, if
+you want to set a handler for this log level you must combine it with
+<link linkend="G-LOG-FLAG-FATAL:CAPS"><type>G_LOG_FLAG_FATAL</type></link>.</para>
+<para>This has no effect if structured logging is enabled; see
+<link linkend="using-structured-logging">Using Structured Logging</link>.</para>
+<para>Here is an example for adding a log handler for all warning messages
+in the default domain:</para>
+<informalexample><programlisting role="example"><![CDATA[
+g_log_set_handler (NULL, G_LOG_LEVEL_WARNING | G_LOG_FLAG_FATAL
+                   | G_LOG_FLAG_RECURSION, my_log_handler, NULL);
+]]></programlisting></informalexample>
+<para></para>
+<para>This example adds a log handler for all critical messages from GTK+:</para>
+<informalexample><programlisting role="example"><![CDATA[
+g_log_set_handler ("Gtk", G_LOG_LEVEL_CRITICAL | G_LOG_FLAG_FATAL
+                   | G_LOG_FLAG_RECURSION, my_log_handler, NULL);
+]]></programlisting></informalexample>
+<para></para>
+<para>This example adds a log handler for all messages from GLib:</para>
+<informalexample><programlisting role="example"><![CDATA[
+g_log_set_handler ("GLib", G_LOG_LEVEL_MASK | G_LOG_FLAG_FATAL
+                   | G_LOG_FLAG_RECURSION, my_log_handler, NULL);
+]]></programlisting></informalexample>
+<para></para>
+<refsect3 id="g-log-set-handler.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>log_domain</para></entry>
+<entry role="parameter_description"><para>the log domain, or <link linkend="NULL:CAPS"><literal>NULL</literal></link> for the default ""
+application domain. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>log_levels</para></entry>
+<entry role="parameter_description"><para>the log levels to apply the log handler for.
+To handle fatal and recursive messages as well, combine
+the log levels with the <link linkend="G-LOG-FLAG-FATAL:CAPS"><type>G_LOG_FLAG_FATAL</type></link> and
+<link linkend="G-LOG-FLAG-RECURSION:CAPS"><type>G_LOG_FLAG_RECURSION</type></link> bit flags.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>log_func</para></entry>
+<entry role="parameter_description"><para>the log handler function</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>user_data</para></entry>
+<entry role="parameter_description"><para>data passed to the log handler</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-log-set-handler.returns" role="returns">
+<title>Returns</title>
+<para> the id of the new handler</para>
+</refsect3></refsect2>
+<refsect2 id="g-log-set-handler-full" role="function" condition="since:2.46">
+<title>g_log_set_handler_full&#160;()</title>
+<indexterm zone="g-log-set-handler-full" role="2.46"><primary sortas="log_set_handler_full">g_log_set_handler_full</primary></indexterm>
+<programlisting language="C"><link linkend="guint"><returnvalue>guint</returnvalue></link>
+g_log_set_handler_full (<parameter>const <link linkend="gchar"><type>gchar</type></link> *log_domain</parameter>,
+                        <parameter><link linkend="GLogLevelFlags"><type>GLogLevelFlags</type></link> log_levels</parameter>,
+                        <parameter><link linkend="GLogFunc"><type>GLogFunc</type></link> log_func</parameter>,
+                        <parameter><link linkend="gpointer"><type>gpointer</type></link> user_data</parameter>,
+                        <parameter><link linkend="GDestroyNotify"><type>GDestroyNotify</type></link> destroy</parameter>);</programlisting>
+<para>Like <link linkend="g-log-set-handler"><function>g_log_set_handler()</function></link>, but takes a destroy notify for the <parameter>user_data</parameter>
+.</para>
+<para>This has no effect if structured logging is enabled; see
+<link linkend="using-structured-logging">Using Structured Logging</link>.</para>
+
+<para><emphasis role="annotation">[<acronym>rename-to</acronym> g_log_set_handler]</emphasis></para><refsect3 id="g-log-set-handler-full.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>log_domain</para></entry>
+<entry role="parameter_description"><para>the log domain, or <link linkend="NULL:CAPS"><literal>NULL</literal></link> for the default ""
+application domain. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>log_levels</para></entry>
+<entry role="parameter_description"><para>the log levels to apply the log handler for.
+To handle fatal and recursive messages as well, combine
+the log levels with the <link linkend="G-LOG-FLAG-FATAL:CAPS"><type>G_LOG_FLAG_FATAL</type></link> and
+<link linkend="G-LOG-FLAG-RECURSION:CAPS"><type>G_LOG_FLAG_RECURSION</type></link> bit flags.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>log_func</para></entry>
+<entry role="parameter_description"><para>the log handler function</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>user_data</para></entry>
+<entry role="parameter_description"><para>data passed to the log handler</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>destroy</para></entry>
+<entry role="parameter_description"><para>destroy notify for <parameter>user_data</parameter>
+, or <link linkend="NULL:CAPS"><literal>NULL</literal></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-log-set-handler-full.returns" role="returns">
+<title>Returns</title>
+<para> the id of the new handler</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.46">2.46</link></para></refsect2>
+<refsect2 id="g-log-remove-handler" role="function">
+<title>g_log_remove_handler&#160;()</title>
+<indexterm zone="g-log-remove-handler"><primary sortas="log_remove_handler">g_log_remove_handler</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_log_remove_handler (<parameter>const <link linkend="gchar"><type>gchar</type></link> *log_domain</parameter>,
+                      <parameter><link linkend="guint"><type>guint</type></link> handler_id</parameter>);</programlisting>
+<para>Removes the log handler.</para>
+<para>This has no effect if structured logging is enabled; see
+<link linkend="using-structured-logging">Using Structured Logging</link>.</para>
+<refsect3 id="g-log-remove-handler.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>log_domain</para></entry>
+<entry role="parameter_description"><para>the log domain</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>handler_id</para></entry>
+<entry role="parameter_description"><para>the id of the handler, which was returned
+in <link linkend="g-log-set-handler"><function>g_log_set_handler()</function></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-log-set-always-fatal" role="function">
+<title>g_log_set_always_fatal&#160;()</title>
+<indexterm zone="g-log-set-always-fatal"><primary sortas="log_set_always_fatal">g_log_set_always_fatal</primary></indexterm>
+<programlisting language="C"><link linkend="GLogLevelFlags"><returnvalue>GLogLevelFlags</returnvalue></link>
+g_log_set_always_fatal (<parameter><link linkend="GLogLevelFlags"><type>GLogLevelFlags</type></link> fatal_mask</parameter>);</programlisting>
+<para>Sets the message levels which are always fatal, in any log domain.
+When a message with any of these levels is logged the program terminates.
+You can only set the levels defined by GLib to be fatal.
+<link linkend="G-LOG-LEVEL-ERROR:CAPS"><literal>G_LOG_LEVEL_ERROR</literal></link> is always fatal.</para>
+<para>You can also make some message levels fatal at runtime by setting
+the <literal>G_DEBUG</literal> environment variable (see
+<ulink url="glib-running.html">Running GLib Applications</ulink>).</para>
+<para>Libraries should not call this function, as it affects all messages logged
+by a process, including those from other libraries.</para>
+<para>Structured log messages (using <link linkend="g-log-structured"><function>g_log_structured()</function></link> and
+<link linkend="g-log-structured-array"><function>g_log_structured_array()</function></link>) are fatal only if the default log writer is used;
+otherwise it is up to the writer function to determine which log messages
+are fatal. See <link linkend="using-structured-logging">Using Structured Logging</link>.</para>
+<refsect3 id="g-log-set-always-fatal.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>fatal_mask</para></entry>
+<entry role="parameter_description"><para>the mask containing bits set for each level
+of error which is to be fatal</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-log-set-always-fatal.returns" role="returns">
+<title>Returns</title>
+<para> the old fatal mask</para>
+</refsect3></refsect2>
+<refsect2 id="g-log-set-fatal-mask" role="function">
+<title>g_log_set_fatal_mask&#160;()</title>
+<indexterm zone="g-log-set-fatal-mask"><primary sortas="log_set_fatal_mask">g_log_set_fatal_mask</primary></indexterm>
+<programlisting language="C"><link linkend="GLogLevelFlags"><returnvalue>GLogLevelFlags</returnvalue></link>
+g_log_set_fatal_mask (<parameter>const <link linkend="gchar"><type>gchar</type></link> *log_domain</parameter>,
+                      <parameter><link linkend="GLogLevelFlags"><type>GLogLevelFlags</type></link> fatal_mask</parameter>);</programlisting>
+<para>Sets the log levels which are fatal in the given domain.
+<link linkend="G-LOG-LEVEL-ERROR:CAPS"><literal>G_LOG_LEVEL_ERROR</literal></link> is always fatal.</para>
+<para>This has no effect on structured log messages (using <link linkend="g-log-structured"><function>g_log_structured()</function></link> or
+<link linkend="g-log-structured-array"><function>g_log_structured_array()</function></link>). To change the fatal behaviour for specific log
+messages, programs must install a custom log writer function using
+<link linkend="g-log-set-writer-func"><function>g_log_set_writer_func()</function></link>. See
+<link linkend="using-structured-logging">Using Structured Logging</link>.</para>
+<para>This function is mostly intended to be used with
+<link linkend="G-LOG-LEVEL-CRITICAL:CAPS"><literal>G_LOG_LEVEL_CRITICAL</literal></link>.  You should typically not set
+<link linkend="G-LOG-LEVEL-WARNING:CAPS"><literal>G_LOG_LEVEL_WARNING</literal></link>, <link linkend="G-LOG-LEVEL-MESSAGE:CAPS"><literal>G_LOG_LEVEL_MESSAGE</literal></link>, <link linkend="G-LOG-LEVEL-INFO:CAPS"><literal>G_LOG_LEVEL_INFO</literal></link> or
+<link linkend="G-LOG-LEVEL-DEBUG:CAPS"><literal>G_LOG_LEVEL_DEBUG</literal></link> as fatal except inside of test programs.</para>
+<refsect3 id="g-log-set-fatal-mask.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>log_domain</para></entry>
+<entry role="parameter_description"><para>the log domain</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>fatal_mask</para></entry>
+<entry role="parameter_description"><para>the new fatal mask</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-log-set-fatal-mask.returns" role="returns">
+<title>Returns</title>
+<para> the old fatal mask for the log domain</para>
+</refsect3></refsect2>
+<refsect2 id="g-log-default-handler" role="function">
+<title>g_log_default_handler&#160;()</title>
+<indexterm zone="g-log-default-handler"><primary sortas="log_default_handler">g_log_default_handler</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_log_default_handler (<parameter>const <link linkend="gchar"><type>gchar</type></link> *log_domain</parameter>,
+                       <parameter><link linkend="GLogLevelFlags"><type>GLogLevelFlags</type></link> log_level</parameter>,
+                       <parameter>const <link linkend="gchar"><type>gchar</type></link> *message</parameter>,
+                       <parameter><link linkend="gpointer"><type>gpointer</type></link> unused_data</parameter>);</programlisting>
+<para>The default log handler set up by GLib; <link linkend="g-log-set-default-handler"><function>g_log_set_default_handler()</function></link>
+allows to install an alternate default log handler.
+This is used if no log handler has been set for the particular log
+domain and log level combination. It outputs the message to stderr
+or stdout and if the log level is fatal it calls <link linkend="G-BREAKPOINT:CAPS"><function>G_BREAKPOINT()</function></link>. It automatically
+prints a new-line character after the message, so one does not need to be
+manually included in <parameter>message</parameter>
+.</para>
+<para>The behavior of this log handler can be influenced by a number of
+environment variables:</para>
+<itemizedlist>
+<listitem>
+<para><literal>G_MESSAGES_PREFIXED</literal>: A :-separated list of log levels for which
+messages should be prefixed by the program name and PID of the
+aplication.</para>
+</listitem>
+<listitem>
+<para><literal>G_MESSAGES_DEBUG</literal>: A space-separated list of log domains for
+which debug and informational messages are printed. By default
+these messages are not printed.</para>
+</listitem>
+</itemizedlist>
+<para>stderr is used for levels <link linkend="G-LOG-LEVEL-ERROR:CAPS"><literal>G_LOG_LEVEL_ERROR</literal></link>, <link linkend="G-LOG-LEVEL-CRITICAL:CAPS"><literal>G_LOG_LEVEL_CRITICAL</literal></link>,
+<link linkend="G-LOG-LEVEL-WARNING:CAPS"><literal>G_LOG_LEVEL_WARNING</literal></link> and <link linkend="G-LOG-LEVEL-MESSAGE:CAPS"><literal>G_LOG_LEVEL_MESSAGE</literal></link>. stdout is used for
+the rest.</para>
+<para>This has no effect if structured logging is enabled; see
+<link linkend="using-structured-logging">Using Structured Logging</link>.</para>
+<refsect3 id="g-log-default-handler.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>log_domain</para></entry>
+<entry role="parameter_description"><para>the log domain of the message, or <link linkend="NULL:CAPS"><literal>NULL</literal></link> for the
+default "" application domain. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>log_level</para></entry>
+<entry role="parameter_description"><para>the level of the message</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>message</para></entry>
+<entry role="parameter_description"><para>the message. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>unused_data</para></entry>
+<entry role="parameter_description"><para>data passed from <link linkend="g-log"><function>g_log()</function></link> which is unused. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-log-set-default-handler" role="function" condition="since:2.6">
+<title>g_log_set_default_handler&#160;()</title>
+<indexterm zone="g-log-set-default-handler" role="2.6"><primary sortas="log_set_default_handler">g_log_set_default_handler</primary></indexterm>
+<programlisting language="C"><link linkend="GLogFunc"><returnvalue>GLogFunc</returnvalue></link>
+g_log_set_default_handler (<parameter><link linkend="GLogFunc"><type>GLogFunc</type></link> log_func</parameter>,
+                           <parameter><link linkend="gpointer"><type>gpointer</type></link> user_data</parameter>);</programlisting>
+<para>Installs a default log handler which is used if no
+log handler has been set for the particular log domain
+and log level combination. By default, GLib uses
+<link linkend="g-log-default-handler"><function>g_log_default_handler()</function></link> as default log handler.</para>
+<para>This has no effect if structured logging is enabled; see
+<link linkend="using-structured-logging">Using Structured Logging</link>.</para>
+<refsect3 id="g-log-set-default-handler.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>log_func</para></entry>
+<entry role="parameter_description"><para>the log handler function</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>user_data</para></entry>
+<entry role="parameter_description"><para>data passed to the log handler</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-log-set-default-handler.returns" role="returns">
+<title>Returns</title>
+<para> the previous default log handler</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.6">2.6</link></para></refsect2>
+<refsect2 id="g-log-structured" role="function" condition="since:2.50">
+<title>g_log_structured&#160;()</title>
+<indexterm zone="g-log-structured" role="2.50"><primary sortas="log_structured">g_log_structured</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_log_structured (<parameter>const <link linkend="gchar"><type>gchar</type></link> *log_domain</parameter>,
+                  <parameter><link linkend="GLogLevelFlags"><type>GLogLevelFlags</type></link> log_level</parameter>,
+                  <parameter>...</parameter>);</programlisting>
+<para>Log a message with structured data. The message will be passed through to
+the log writer set by the application using <link linkend="g-log-set-writer-func"><function>g_log_set_writer_func()</function></link>. If the
+message is fatal (i.e. its log level is <link linkend="G-LOG-LEVEL-ERROR:CAPS"><literal>G_LOG_LEVEL_ERROR</literal></link>), the program will
+be aborted by calling <link linkend="G-BREAKPOINT:CAPS"><function>G_BREAKPOINT()</function></link> at the end of this function. If the log writer returns
+<link linkend="G-LOG-WRITER-UNHANDLED:CAPS"><literal>G_LOG_WRITER_UNHANDLED</literal></link> (failure), no other fallback writers will be tried.
+See the documentation for <link linkend="GLogWriterFunc"><type>GLogWriterFunc</type></link> for information on chaining
+writers.</para>
+<para>The structured data is provided as key–value pairs, where keys are UTF-8
+strings, and values are arbitrary pointers — typically pointing to UTF-8
+strings, but that is not a requirement. To pass binary (non-nul-terminated)
+structured data, use <link linkend="g-log-structured-array"><function>g_log_structured_array()</function></link>. The keys for structured data
+should follow the <ulink url="https://www.freedesktop.org/software/systemd/man/systemd.journal-fields.html">systemd journal
+fields</ulink>
+specification. It is suggested that custom keys are namespaced according to
+the code which sets them. For example, custom keys from GLib all have a
+<literal>GLIB_</literal> prefix.</para>
+<para>The <parameter>log_domain</parameter>
+ will be converted into a <literal>GLIB_DOMAIN</literal> field. <parameter>log_level</parameter>
+ will
+be converted into a
+<ulink url="https://www.freedesktop.org/software/systemd/man/systemd.journal-fields.html#PRIORITY="><literal>PRIORITY</literal></ulink>
+field. The format string will have its placeholders substituted for the provided
+values and be converted into a
+<ulink url="https://www.freedesktop.org/software/systemd/man/systemd.journal-fields.html#MESSAGE="><literal>MESSAGE</literal></ulink>
+field.</para>
+<para>Other fields you may commonly want to pass into this function:</para>
+<itemizedlist>
+<listitem><para><ulink url="https://www.freedesktop.org/software/systemd/man/systemd.journal-fields.html#MESSAGE_ID="><literal>MESSAGE_ID</literal></ulink></para></listitem>
+<listitem><para><ulink url="https://www.freedesktop.org/software/systemd/man/systemd.journal-fields.html#CODE_FILE="><literal>CODE_FILE</literal></ulink></para></listitem>
+<listitem><para><ulink url="https://www.freedesktop.org/software/systemd/man/systemd.journal-fields.html#CODE_LINE="><literal>CODE_LINE</literal></ulink></para></listitem>
+<listitem><para><ulink url="https://www.freedesktop.org/software/systemd/man/systemd.journal-fields.html#CODE_FUNC="><literal>CODE_FUNC</literal></ulink></para></listitem>
+<listitem>
+<para><ulink url="https://www.freedesktop.org/software/systemd/man/systemd.journal-fields.html#ERRNO="><literal>ERRNO</literal></ulink></para>
+</listitem>
+</itemizedlist>
+<para>Note that <literal>CODE_FILE</literal>, <literal>CODE_LINE</literal> and <literal>CODE_FUNC</literal> are automatically set by
+the logging macros, <link linkend="G-DEBUG-HERE:CAPS"><function>G_DEBUG_HERE()</function></link>, <link linkend="g-message"><function>g_message()</function></link>, <link linkend="g-warning"><function>g_warning()</function></link>, <link linkend="g-critical"><function>g_critical()</function></link>,
+<link linkend="g-error"><function>g_error()</function></link>, etc, if the symbols <literal>G_LOG_USE_STRUCTURED</literal> is defined before including
+glib.h.</para>
+<para>For example:</para>
+<informalexample><programlisting role="example"><![CDATA[
+g_log_structured (G_LOG_DOMAIN, G_LOG_LEVEL_DEBUG,
+                  "MESSAGE_ID", "06d4df59e6c24647bfe69d2c27ef0b4e",
+                  "MY_APPLICATION_CUSTOM_FIELD", "some debug string",
+                  "MESSAGE", "This is a debug message about pointer %p and integer %u.",
+                  some_pointer, some_integer);
+]]></programlisting></informalexample>
+<para></para>
+<para>Note that each <literal>MESSAGE_ID</literal> must be <ulink url="https://www.freedesktop.org/software/systemd/man/systemd.journal-fields.html#MESSAGE_ID=">uniquely and randomly
+generated</ulink>.
+If adding a <literal>MESSAGE_ID</literal>, consider shipping a <ulink url="https://www.freedesktop.org/wiki/Software/systemd/catalog/">message
+catalog</ulink> with
+your software.</para>
+<para>To pass a user data pointer to the log writer function which is specific to
+this logging call, you must use <link linkend="g-log-structured-array"><function>g_log_structured_array()</function></link> and pass the pointer
+as a field with <link linkend="GLogField.length"><type>GLogField.length</type></link> set to zero, otherwise it will be
+interpreted as a string.</para>
+<para>For example:</para>
+<informalexample><programlisting role="example"><![CDATA[
+const GLogField fields[] = {
+  { "MESSAGE", "This is a debug message.", -1 },
+  { "MESSAGE_ID", "fcfb2e1e65c3494386b74878f1abf893", -1 },
+  { "MY_APPLICATION_CUSTOM_FIELD", "some debug string", -1 },
+  { "MY_APPLICATION_STATE", state_object, 0 },
+};
+g_log_structured_array (G_LOG_LEVEL_DEBUG, fields, G_N_ELEMENTS (fields));
+]]></programlisting></informalexample>
+<para></para>
+<para>Note also that, even if no other structured fields are specified, there
+must always be a <literal>MESSAGE</literal> key before the format string. The <literal>MESSAGE</literal>-format
+pair has to be the last of the key-value pairs, and <literal>MESSAGE</literal> is the only
+field for which <link linkend="printf"><function>printf()</function></link>-style formatting is supported.</para>
+<para>The default writer function for <literal>stdout</literal> and <literal>stderr</literal> will automatically
+append a new-line character after the message, so you should not add one
+manually to the format string.</para>
+<refsect3 id="g-log-structured.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>log_domain</para></entry>
+<entry role="parameter_description"><para>log domain, usually <link linkend="G-LOG-DOMAIN:CAPS"><literal>G_LOG_DOMAIN</literal></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>log_level</para></entry>
+<entry role="parameter_description"><para>log level, either from <link linkend="GLogLevelFlags"><type>GLogLevelFlags</type></link>, or a user-defined
+level</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>...</para></entry>
+<entry role="parameter_description"><para>key-value pairs of structured data to add to the log entry, followed
+by the key "MESSAGE", followed by a <link linkend="printf"><function>printf()</function></link>-style message format,
+followed by parameters to insert in the format string</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.50">2.50</link></para></refsect2>
+<refsect2 id="g-log-variant" role="function" condition="since:2.50">
+<title>g_log_variant&#160;()</title>
+<indexterm zone="g-log-variant" role="2.50"><primary sortas="log_variant">g_log_variant</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_log_variant (<parameter>const <link linkend="gchar"><type>gchar</type></link> *log_domain</parameter>,
+               <parameter><link linkend="GLogLevelFlags"><type>GLogLevelFlags</type></link> log_level</parameter>,
+               <parameter><link linkend="GVariant"><type>GVariant</type></link> *fields</parameter>);</programlisting>
+<para>Log a message with structured data, accepting the data within a <link linkend="GVariant"><type>GVariant</type></link>. This
+version is especially useful for use in other languages, via introspection.</para>
+<para>The only mandatory item in the <parameter>fields</parameter>
+ dictionary is the "MESSAGE" which must
+contain the text shown to the user.</para>
+<para>The values in the <parameter>fields</parameter>
+ dictionary are likely to be of type String
+(<link linkend="G-VARIANT-TYPE-STRING:CAPS"><type>G_VARIANT_TYPE_STRING</type></link>). Array of bytes (<link linkend="G-VARIANT-TYPE-BYTESTRING:CAPS"><type>G_VARIANT_TYPE_BYTESTRING</type></link>) is also
+supported. In this case the message is handled as binary and will be forwarded
+to the log writer as such. The size of the array should not be higher than
+<link linkend="G-MAXSSIZE:CAPS"><literal>G_MAXSSIZE</literal></link>. Otherwise it will be truncated to this size. For other types
+<link linkend="g-variant-print"><function>g_variant_print()</function></link> will be used to convert the value into a string.</para>
+<para>For more details on its usage and about the parameters, see <link linkend="g-log-structured"><function>g_log_structured()</function></link>.</para>
+<refsect3 id="g-log-variant.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>log_domain</para></entry>
+<entry role="parameter_description"><para>log domain, usually <link linkend="G-LOG-DOMAIN:CAPS"><literal>G_LOG_DOMAIN</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>log_level</para></entry>
+<entry role="parameter_description"><para>log level, either from <link linkend="GLogLevelFlags"><type>GLogLevelFlags</type></link>, or a user-defined
+level</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>fields</para></entry>
+<entry role="parameter_description"><para>a dictionary (<link linkend="GVariant"><type>GVariant</type></link> of the type <link linkend="G-VARIANT-TYPE-VARDICT:CAPS"><literal>G_VARIANT_TYPE_VARDICT</literal></link>)
+containing the key-value pairs of message data.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.50">2.50</link></para></refsect2>
+<refsect2 id="g-log-structured-array" role="function" condition="since:2.50">
+<title>g_log_structured_array&#160;()</title>
+<indexterm zone="g-log-structured-array" role="2.50"><primary sortas="log_structured_array">g_log_structured_array</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_log_structured_array (<parameter><link linkend="GLogLevelFlags"><type>GLogLevelFlags</type></link> log_level</parameter>,
+                        <parameter>const <link linkend="GLogField"><type>GLogField</type></link> *fields</parameter>,
+                        <parameter><link linkend="gsize"><type>gsize</type></link> n_fields</parameter>);</programlisting>
+<para>Log a message with structured data. The message will be passed through to the
+log writer set by the application using <link linkend="g-log-set-writer-func"><function>g_log_set_writer_func()</function></link>. If the
+message is fatal (i.e. its log level is <link linkend="G-LOG-LEVEL-ERROR:CAPS"><literal>G_LOG_LEVEL_ERROR</literal></link>), the program will
+be aborted at the end of this function.</para>
+<para>See <link linkend="g-log-structured"><function>g_log_structured()</function></link> for more documentation.</para>
+<para>This assumes that <parameter>log_level</parameter>
+ is already present in <parameter>fields</parameter>
+ (typically as the
+<literal>PRIORITY</literal> field).</para>
+<refsect3 id="g-log-structured-array.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>log_level</para></entry>
+<entry role="parameter_description"><para>log level, either from <link linkend="GLogLevelFlags"><type>GLogLevelFlags</type></link>, or a user-defined
+level</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>fields</para></entry>
+<entry role="parameter_description"><para>key–value pairs of structured data to add
+to the log message. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>array</acronym> length=n_fields]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>n_fields</para></entry>
+<entry role="parameter_description"><para>number of elements in the <parameter>fields</parameter>
+array</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.50">2.50</link></para></refsect2>
+<refsect2 id="G-DEBUG-HERE:CAPS" role="macro" condition="since:2.50">
+<title>G_DEBUG_HERE</title>
+<indexterm zone="G-DEBUG-HERE:CAPS" role="2.50"><primary sortas="DEBUG_HERE">G_DEBUG_HERE</primary></indexterm>
+<programlisting language="C">#define             G_DEBUG_HERE()</programlisting>
+<para>A convenience form of <link linkend="g-log-structured"><function>g_log_structured()</function></link>, recommended to be added to
+functions when debugging. It prints the current monotonic time and the code
+location using <link linkend="G-STRLOC:CAPS"><literal>G_STRLOC</literal></link>.</para>
+<para role="since">Since: <link linkend="api-index-2.50">2.50</link></para></refsect2>
+<refsect2 id="GLogWriterFunc" role="function" condition="since:2.50">
+<title>GLogWriterFunc&#160;()</title>
+<indexterm zone="GLogWriterFunc" role="2.50"><primary sortas="LogWriterFunc">GLogWriterFunc</primary></indexterm>
+<programlisting language="C"><link linkend="GLogWriterOutput"><returnvalue>GLogWriterOutput</returnvalue></link>
+<phrase role="c_punctuation">(</phrase>*GLogWriterFunc<phrase role="c_punctuation">)</phrase> (<parameter><link linkend="GLogLevelFlags"><type>GLogLevelFlags</type></link> log_level</parameter>,
+                   <parameter>const <link linkend="GLogField"><type>GLogField</type></link> *fields</parameter>,
+                   <parameter><link linkend="gsize"><type>gsize</type></link> n_fields</parameter>,
+                   <parameter><link linkend="gpointer"><type>gpointer</type></link> user_data</parameter>);</programlisting>
+<para>Writer function for log entries. A log entry is a collection of one or more
+<link linkend="GLogFields"><type>GLogFields</type></link>, using the standard <ulink url="https://www.freedesktop.org/software/systemd/man/systemd.journal-fields.html">field names from journal
+specification</ulink>.
+See <link linkend="g-log-structured"><function>g_log_structured()</function></link> for more information.</para>
+<para>Writer functions must ignore fields which they do not recognise, unless they
+can write arbitrary binary output, as field values may be arbitrary binary.</para>
+<para><parameter>log_level</parameter>
+ is guaranteed to be included in <parameter>fields</parameter>
+ as the <literal>PRIORITY</literal> field,
+but is provided separately for convenience of deciding whether or where to
+output the log entry.</para>
+<para>Writer functions should return <link linkend="G-LOG-WRITER-HANDLED:CAPS"><literal>G_LOG_WRITER_HANDLED</literal></link> if they handled the log
+message successfully or if they deliberately ignored it. If there was an
+error handling the message (for example, if the writer function is meant to
+send messages to a remote logging server and there is a network error), it
+should return <link linkend="G-LOG-WRITER-UNHANDLED:CAPS"><literal>G_LOG_WRITER_UNHANDLED</literal></link>. This allows writer functions to be
+chained and fall back to simpler handlers in case of failure.</para>
+<refsect3 id="GLogWriterFunc.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>log_level</para></entry>
+<entry role="parameter_description"><para>log level of the message</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>fields</para></entry>
+<entry role="parameter_description"><para>fields forming the message. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>array</acronym> length=n_fields]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>n_fields</para></entry>
+<entry role="parameter_description"><para>number of <parameter>fields</parameter>
+</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>user_data</para></entry>
+<entry role="parameter_description"><para>user data passed to <link linkend="g-log-set-writer-func"><function>g_log_set_writer_func()</function></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="GLogWriterFunc.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="G-LOG-WRITER-HANDLED:CAPS"><literal>G_LOG_WRITER_HANDLED</literal></link> if the log entry was handled successfully;
+<link linkend="G-LOG-WRITER-UNHANDLED:CAPS"><literal>G_LOG_WRITER_UNHANDLED</literal></link> otherwise</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.50">2.50</link></para></refsect2>
+<refsect2 id="g-log-set-writer-func" role="function" condition="since:2.50">
+<title>g_log_set_writer_func&#160;()</title>
+<indexterm zone="g-log-set-writer-func" role="2.50"><primary sortas="log_set_writer_func">g_log_set_writer_func</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_log_set_writer_func (<parameter><link linkend="GLogWriterFunc"><type>GLogWriterFunc</type></link> func</parameter>,
+                       <parameter><link linkend="gpointer"><type>gpointer</type></link> user_data</parameter>,
+                       <parameter><link linkend="GDestroyNotify"><type>GDestroyNotify</type></link> user_data_free</parameter>);</programlisting>
+<para>Set a writer function which will be called to format and write out each log
+message. Each program should set a writer function, or the default writer
+(<link linkend="g-log-writer-default"><function>g_log_writer_default()</function></link>) will be used.</para>
+<para>Libraries **must not** call this function — only programs are allowed to
+install a writer function, as there must be a single, central point where
+log messages are formatted and outputted.</para>
+<para>There can only be one writer function. It is an error to set more than one.</para>
+<refsect3 id="g-log-set-writer-func.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>func</para></entry>
+<entry role="parameter_description"><para>log writer function, which must not be <link linkend="NULL:CAPS"><literal>NULL</literal></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>user_data</para></entry>
+<entry role="parameter_description"><para>user data to pass to <parameter>func</parameter>
+. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>closure</acronym> func]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>user_data_free</para></entry>
+<entry role="parameter_description"><para>function to free <parameter>user_data</parameter>
+once it’s
+finished with, if non-<link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>destroy</acronym> func]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.50">2.50</link></para></refsect2>
+<refsect2 id="g-log-writer-supports-color" role="function" condition="since:2.50">
+<title>g_log_writer_supports_color&#160;()</title>
+<indexterm zone="g-log-writer-supports-color" role="2.50"><primary sortas="log_writer_supports_color">g_log_writer_supports_color</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_log_writer_supports_color (<parameter><link linkend="gint"><type>gint</type></link> output_fd</parameter>);</programlisting>
+<para>Check whether the given <parameter>output_fd</parameter>
+ file descriptor supports ANSI color
+escape sequences. If so, they can safely be used when formatting log
+messages.</para>
+<refsect3 id="g-log-writer-supports-color.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>output_fd</para></entry>
+<entry role="parameter_description"><para>output file descriptor to check</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-log-writer-supports-color.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if ANSI color escapes are supported, <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> otherwise</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.50">2.50</link></para></refsect2>
+<refsect2 id="g-log-writer-is-journald" role="function" condition="since:2.50">
+<title>g_log_writer_is_journald&#160;()</title>
+<indexterm zone="g-log-writer-is-journald" role="2.50"><primary sortas="log_writer_is_journald">g_log_writer_is_journald</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_log_writer_is_journald (<parameter><link linkend="gint"><type>gint</type></link> output_fd</parameter>);</programlisting>
+<para>Check whether the given <parameter>output_fd</parameter>
+ file descriptor is a connection to the
+systemd journal, or something else (like a log file or <literal>stdout</literal> or
+<literal>stderr</literal>).</para>
+<para>Invalid file descriptors are accepted and return <link linkend="FALSE:CAPS"><literal>FALSE</literal></link>, which allows for
+the following construct without needing any additional error handling:</para>
+<informalexample><programlisting role="example"><![CDATA[
+  is_journald = g_log_writer_is_journald (fileno (stderr));
+]]></programlisting></informalexample>
+<para></para>
+<refsect3 id="g-log-writer-is-journald.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>output_fd</para></entry>
+<entry role="parameter_description"><para>output file descriptor to check</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-log-writer-is-journald.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if <parameter>output_fd</parameter>
+points to the journal, <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> otherwise</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.50">2.50</link></para></refsect2>
+<refsect2 id="g-log-writer-format-fields" role="function" condition="since:2.50">
+<title>g_log_writer_format_fields&#160;()</title>
+<indexterm zone="g-log-writer-format-fields" role="2.50"><primary sortas="log_writer_format_fields">g_log_writer_format_fields</primary></indexterm>
+<programlisting language="C"><link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+g_log_writer_format_fields (<parameter><link linkend="GLogLevelFlags"><type>GLogLevelFlags</type></link> log_level</parameter>,
+                            <parameter>const <link linkend="GLogField"><type>GLogField</type></link> *fields</parameter>,
+                            <parameter><link linkend="gsize"><type>gsize</type></link> n_fields</parameter>,
+                            <parameter><link linkend="gboolean"><type>gboolean</type></link> use_color</parameter>);</programlisting>
+<para>Format a structured log message as a string suitable for outputting to the
+terminal (or elsewhere). This will include the values of all fields it knows
+how to interpret, which includes <literal>MESSAGE</literal> and <literal>GLIB_DOMAIN</literal> (see the
+documentation for <link linkend="g-log-structured"><function>g_log_structured()</function></link>). It does not include values from
+unknown fields.</para>
+<para>The returned string does **not** have a trailing new-line character. It is
+encoded in the character set of the current locale, which is not necessarily
+UTF-8.</para>
+<refsect3 id="g-log-writer-format-fields.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>log_level</para></entry>
+<entry role="parameter_description"><para>log level, either from <link linkend="GLogLevelFlags"><type>GLogLevelFlags</type></link>, or a user-defined
+level</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>fields</para></entry>
+<entry role="parameter_description"><para>key–value pairs of structured data forming
+the log message. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>array</acronym> length=n_fields]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>n_fields</para></entry>
+<entry role="parameter_description"><para>number of elements in the <parameter>fields</parameter>
+array</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>use_color</para></entry>
+<entry role="parameter_description"><para><link linkend="TRUE:CAPS"><literal>TRUE</literal></link> to use ANSI color escape sequences when formatting the
+message, <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> to not</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-log-writer-format-fields.returns" role="returns">
+<title>Returns</title>
+<para>string containing the formatted log message, in
+the character set of the current locale. </para>
+<para><emphasis role="annotation">[<acronym>transfer full</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.50">2.50</link></para></refsect2>
+<refsect2 id="g-log-writer-journald" role="function" condition="since:2.50">
+<title>g_log_writer_journald&#160;()</title>
+<indexterm zone="g-log-writer-journald" role="2.50"><primary sortas="log_writer_journald">g_log_writer_journald</primary></indexterm>
+<programlisting language="C"><link linkend="GLogWriterOutput"><returnvalue>GLogWriterOutput</returnvalue></link>
+g_log_writer_journald (<parameter><link linkend="GLogLevelFlags"><type>GLogLevelFlags</type></link> log_level</parameter>,
+                       <parameter>const <link linkend="GLogField"><type>GLogField</type></link> *fields</parameter>,
+                       <parameter><link linkend="gsize"><type>gsize</type></link> n_fields</parameter>,
+                       <parameter><link linkend="gpointer"><type>gpointer</type></link> user_data</parameter>);</programlisting>
+<para>Format a structured log message and send it to the systemd journal as a set
+of key–value pairs. All fields are sent to the journal, but if a field has
+length zero (indicating program-specific data) then only its key will be
+sent.</para>
+<para>This is suitable for use as a <link linkend="GLogWriterFunc"><type>GLogWriterFunc</type></link>.</para>
+<para>If GLib has been compiled without systemd support, this function is still
+defined, but will always return <link linkend="G-LOG-WRITER-UNHANDLED:CAPS"><literal>G_LOG_WRITER_UNHANDLED</literal></link>.</para>
+<refsect3 id="g-log-writer-journald.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>log_level</para></entry>
+<entry role="parameter_description"><para>log level, either from <link linkend="GLogLevelFlags"><type>GLogLevelFlags</type></link>, or a user-defined
+level</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>fields</para></entry>
+<entry role="parameter_description"><para>key–value pairs of structured data forming
+the log message. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>array</acronym> length=n_fields]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>n_fields</para></entry>
+<entry role="parameter_description"><para>number of elements in the <parameter>fields</parameter>
+array</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>user_data</para></entry>
+<entry role="parameter_description"><para>user data passed to <link linkend="g-log-set-writer-func"><function>g_log_set_writer_func()</function></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-log-writer-journald.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="G-LOG-WRITER-HANDLED:CAPS"><literal>G_LOG_WRITER_HANDLED</literal></link> on success, <link linkend="G-LOG-WRITER-UNHANDLED:CAPS"><literal>G_LOG_WRITER_UNHANDLED</literal></link> otherwise</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.50">2.50</link></para></refsect2>
+<refsect2 id="g-log-writer-standard-streams" role="function" condition="since:2.50">
+<title>g_log_writer_standard_streams&#160;()</title>
+<indexterm zone="g-log-writer-standard-streams" role="2.50"><primary sortas="log_writer_standard_streams">g_log_writer_standard_streams</primary></indexterm>
+<programlisting language="C"><link linkend="GLogWriterOutput"><returnvalue>GLogWriterOutput</returnvalue></link>
+g_log_writer_standard_streams (<parameter><link linkend="GLogLevelFlags"><type>GLogLevelFlags</type></link> log_level</parameter>,
+                               <parameter>const <link linkend="GLogField"><type>GLogField</type></link> *fields</parameter>,
+                               <parameter><link linkend="gsize"><type>gsize</type></link> n_fields</parameter>,
+                               <parameter><link linkend="gpointer"><type>gpointer</type></link> user_data</parameter>);</programlisting>
+<para>Format a structured log message and print it to either <literal>stdout</literal> or <literal>stderr</literal>,
+depending on its log level. <link linkend="G-LOG-LEVEL-INFO:CAPS"><literal>G_LOG_LEVEL_INFO</literal></link> and <link linkend="G-LOG-LEVEL-DEBUG:CAPS"><literal>G_LOG_LEVEL_DEBUG</literal></link> messages
+are sent to <literal>stdout</literal>; all other log levels are sent to <literal>stderr</literal>. Only fields
+which are understood by this function are included in the formatted string
+which is printed.</para>
+<para>If the output stream supports ANSI color escape sequences, they will be used
+in the output.</para>
+<para>A trailing new-line character is added to the log message when it is printed.</para>
+<para>This is suitable for use as a <link linkend="GLogWriterFunc"><type>GLogWriterFunc</type></link>.</para>
+<refsect3 id="g-log-writer-standard-streams.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>log_level</para></entry>
+<entry role="parameter_description"><para>log level, either from <link linkend="GLogLevelFlags"><type>GLogLevelFlags</type></link>, or a user-defined
+level</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>fields</para></entry>
+<entry role="parameter_description"><para>key–value pairs of structured data forming
+the log message. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>array</acronym> length=n_fields]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>n_fields</para></entry>
+<entry role="parameter_description"><para>number of elements in the <parameter>fields</parameter>
+array</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>user_data</para></entry>
+<entry role="parameter_description"><para>user data passed to <link linkend="g-log-set-writer-func"><function>g_log_set_writer_func()</function></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-log-writer-standard-streams.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="G-LOG-WRITER-HANDLED:CAPS"><literal>G_LOG_WRITER_HANDLED</literal></link> on success, <link linkend="G-LOG-WRITER-UNHANDLED:CAPS"><literal>G_LOG_WRITER_UNHANDLED</literal></link> otherwise</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.50">2.50</link></para></refsect2>
+<refsect2 id="g-log-writer-default" role="function" condition="since:2.50">
+<title>g_log_writer_default&#160;()</title>
+<indexterm zone="g-log-writer-default" role="2.50"><primary sortas="log_writer_default">g_log_writer_default</primary></indexterm>
+<programlisting language="C"><link linkend="GLogWriterOutput"><returnvalue>GLogWriterOutput</returnvalue></link>
+g_log_writer_default (<parameter><link linkend="GLogLevelFlags"><type>GLogLevelFlags</type></link> log_level</parameter>,
+                      <parameter>const <link linkend="GLogField"><type>GLogField</type></link> *fields</parameter>,
+                      <parameter><link linkend="gsize"><type>gsize</type></link> n_fields</parameter>,
+                      <parameter><link linkend="gpointer"><type>gpointer</type></link> user_data</parameter>);</programlisting>
+<para>Format a structured log message and output it to the default log destination
+for the platform. On Linux, this is typically the systemd journal, falling
+back to <literal>stdout</literal> or <literal>stderr</literal> if running from the terminal or if output is
+being redirected to a file.</para>
+<para>Support for other platform-specific logging mechanisms may be added in
+future. Distributors of GLib may modify this function to impose their own
+(documented) platform-specific log writing policies.</para>
+<para>This is suitable for use as a <link linkend="GLogWriterFunc"><type>GLogWriterFunc</type></link>, and is the default writer used
+if no other is set using <link linkend="g-log-set-writer-func"><function>g_log_set_writer_func()</function></link>.</para>
+<para>As with <link linkend="g-log-default-handler"><function>g_log_default_handler()</function></link>, this function drops debug and informational
+messages unless their log domain (or <literal>all</literal>) is listed in the space-separated
+<literal>G_MESSAGES_DEBUG</literal> environment variable.</para>
+<refsect3 id="g-log-writer-default.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>log_level</para></entry>
+<entry role="parameter_description"><para>log level, either from <link linkend="GLogLevelFlags"><type>GLogLevelFlags</type></link>, or a user-defined
+level</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>fields</para></entry>
+<entry role="parameter_description"><para>key–value pairs of structured data forming
+the log message. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>array</acronym> length=n_fields]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>n_fields</para></entry>
+<entry role="parameter_description"><para>number of elements in the <parameter>fields</parameter>
+array</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>user_data</para></entry>
+<entry role="parameter_description"><para>user data passed to <link linkend="g-log-set-writer-func"><function>g_log_set_writer_func()</function></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-log-writer-default.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="G-LOG-WRITER-HANDLED:CAPS"><literal>G_LOG_WRITER_HANDLED</literal></link> on success, <link linkend="G-LOG-WRITER-UNHANDLED:CAPS"><literal>G_LOG_WRITER_UNHANDLED</literal></link> otherwise</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.50">2.50</link></para></refsect2>
+
+</refsect1>
+<refsect1 id="glib-Message-Logging.other_details" role="details">
+<title role="details.title">Types and Values</title>
+<refsect2 id="G-LOG-DOMAIN:CAPS" role="macro">
+<title>G_LOG_DOMAIN</title>
+<indexterm zone="G-LOG-DOMAIN:CAPS"><primary sortas="LOG_DOMAIN">G_LOG_DOMAIN</primary></indexterm>
+<programlisting language="C">#define G_LOG_DOMAIN    ((gchar*) 0)
+</programlisting>
+<para>Defines the log domain. See <ulink url="#log-domains">Log Domains</ulink>.</para>
+<para>Libraries should define this so that any messages
+which they log can be differentiated from messages from other
+libraries and application code. But be careful not to define
+it in any public header files.</para>
+<para>Log domains must be unique, and it is recommended that they are the
+application or library name, optionally followed by a hyphen and a sub-domain
+name. For example, <literal>bloatpad</literal> or <literal>bloatpad-io</literal>.</para>
+<para>If undefined, it defaults to the default <link linkend="NULL:CAPS"><literal>NULL</literal></link> (or <literal>""</literal>) log domain; this is
+not advisable, as it cannot be filtered against using the <literal>G_MESSAGES_DEBUG</literal>
+environment variable.</para>
+<para>For example, GTK+ uses this in its <literal>Makefile.am</literal>:</para>
+<informalexample><programlisting role="example"><![CDATA[
+AM_CPPFLAGS = -DG_LOG_DOMAIN=\"Gtk\"
+]]></programlisting></informalexample>
+<para></para>
+<para>Applications can choose to leave it as the default <link linkend="NULL:CAPS"><literal>NULL</literal></link> (or <literal>""</literal>)
+domain. However, defining the domain offers the same advantages as
+above.</para>
+</refsect2>
+<refsect2 id="G-LOG-FATAL-MASK:CAPS" role="macro">
+<title>G_LOG_FATAL_MASK</title>
+<indexterm zone="G-LOG-FATAL-MASK:CAPS"><primary sortas="LOG_FATAL_MASK">G_LOG_FATAL_MASK</primary></indexterm>
+<programlisting language="C">#define G_LOG_FATAL_MASK        (G_LOG_FLAG_RECURSION | G_LOG_LEVEL_ERROR)
+</programlisting>
+<para>GLib log levels that are considered fatal by default.</para>
+<para>This is not used if structured logging is enabled; see
+<link linkend="using-structured-logging">Using Structured Logging</link>.</para>
+</refsect2>
+<refsect2 id="G-LOG-LEVEL-USER-SHIFT:CAPS" role="macro">
+<title>G_LOG_LEVEL_USER_SHIFT</title>
+<indexterm zone="G-LOG-LEVEL-USER-SHIFT:CAPS"><primary sortas="LOG_LEVEL_USER_SHIFT">G_LOG_LEVEL_USER_SHIFT</primary></indexterm>
+<programlisting language="C">#define G_LOG_LEVEL_USER_SHIFT  (8)
+</programlisting>
+<para>Log levels below 1&lt;&lt;G_LOG_LEVEL_USER_SHIFT are used by GLib.
+Higher bits can be used for user-defined log levels.</para>
+</refsect2>
+<refsect2 id="GLogLevelFlags" role="enum">
+<title>enum GLogLevelFlags</title>
+<indexterm zone="GLogLevelFlags"><primary sortas="LogLevelFlags">GLogLevelFlags</primary></indexterm>
+<para>Flags specifying the level of log messages.</para>
+<para>It is possible to change how GLib treats messages of the various
+levels using <link linkend="g-log-set-handler"><function>g_log_set_handler()</function></link> and <link linkend="g-log-set-fatal-mask"><function>g_log_set_fatal_mask()</function></link>.</para>
+<refsect3 id="GLogLevelFlags.members" role="enum_members">
+<title>Members</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="enum_members_name" colwidth="300px"/>
+<colspec colname="enum_members_description"/>
+<colspec colname="enum_members_annotations" colwidth="200px"/>
+<tbody>
+<row role="constant"><entry role="enum_member_name"><para id="G-LOG-FLAG-RECURSION:CAPS">G_LOG_FLAG_RECURSION</para></entry>
+<entry role="enum_member_description"><para>internal flag</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-LOG-FLAG-FATAL:CAPS">G_LOG_FLAG_FATAL</para></entry>
+<entry role="enum_member_description"><para>internal flag</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-LOG-LEVEL-ERROR:CAPS">G_LOG_LEVEL_ERROR</para></entry>
+<entry role="enum_member_description"><para>log level for errors, see <link linkend="g-error"><function>g_error()</function></link>.
+    This level is also used for messages produced by <link linkend="g-assert"><function>g_assert()</function></link>.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-LOG-LEVEL-CRITICAL:CAPS">G_LOG_LEVEL_CRITICAL</para></entry>
+<entry role="enum_member_description"><para>log level for critical warning messages, see
+    <link linkend="g-critical"><function>g_critical()</function></link>.
+    This level is also used for messages produced by <link linkend="g-return-if-fail"><function>g_return_if_fail()</function></link>
+    and <link linkend="g-return-val-if-fail"><function>g_return_val_if_fail()</function></link>.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-LOG-LEVEL-WARNING:CAPS">G_LOG_LEVEL_WARNING</para></entry>
+<entry role="enum_member_description"><para>log level for warnings, see <link linkend="g-warning"><function>g_warning()</function></link></para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-LOG-LEVEL-MESSAGE:CAPS">G_LOG_LEVEL_MESSAGE</para></entry>
+<entry role="enum_member_description"><para>log level for messages, see <link linkend="g-message"><function>g_message()</function></link></para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-LOG-LEVEL-INFO:CAPS">G_LOG_LEVEL_INFO</para></entry>
+<entry role="enum_member_description"><para>log level for informational messages, see <link linkend="g-info"><function>g_info()</function></link></para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-LOG-LEVEL-DEBUG:CAPS">G_LOG_LEVEL_DEBUG</para></entry>
+<entry role="enum_member_description"><para>log level for debug messages, see <link linkend="g-debug"><function>g_debug()</function></link></para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-LOG-LEVEL-MASK:CAPS">G_LOG_LEVEL_MASK</para></entry>
+<entry role="enum_member_description"><para>a mask including all log levels</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="GLogField" role="struct" condition="since:2.50">
+<title>struct GLogField</title>
+<indexterm zone="GLogField" role="2.50"><primary sortas="LogField">GLogField</primary></indexterm>
+<programlisting language="C">struct GLogField {
+  const gchar *key;
+  gconstpointer value;
+  gssize length;
+};
+</programlisting>
+<para>Structure representing a single field in a structured log entry. See
+<link linkend="g-log-structured"><function>g_log_structured()</function></link> for details.</para>
+<para>Log fields may contain arbitrary values, including binary with embedded nul
+bytes. If the field contains a string, the string must be UTF-8 encoded and
+have a trailing nul byte. Otherwise, <parameter>length</parameter>
+ must be set to a non-negative
+value.</para>
+<refsect3 id="GLogField.members" role="struct_members">
+<title>Members</title>
+<informaltable role="struct_members_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="struct_members_name" colwidth="300px"/>
+<colspec colname="struct_members_description"/>
+<colspec colname="struct_members_annotations" colwidth="200px"/>
+<tbody>
+<row role="member"><entry role="struct_member_name"><para>const&#160;<link linkend="gchar"><type>gchar</type></link>&#160;*<structfield id="GLogField.key">key</structfield>;</para></entry>
+<entry role="struct_member_description"><para>field name (UTF-8 string)</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><link linkend="gconstpointer"><type>gconstpointer</type></link>&#160;<structfield id="GLogField.value">value</structfield>;</para></entry>
+<entry role="struct_member_description"><para>field value (arbitrary bytes)</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><link linkend="gssize"><type>gssize</type></link>&#160;<structfield id="GLogField.length">length</structfield>;</para></entry>
+<entry role="struct_member_description"><para>length of <parameter>value</parameter>
+, in bytes, or -1 if it is nul-terminated</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+</tbody></tgroup></informaltable>
+</refsect3>
+<para role="since">Since: <link linkend="api-index-2.50">2.50</link></para></refsect2>
+<refsect2 id="GLogWriterOutput" role="enum" condition="since:2.50">
+<title>enum GLogWriterOutput</title>
+<indexterm zone="GLogWriterOutput" role="2.50"><primary sortas="LogWriterOutput">GLogWriterOutput</primary></indexterm>
+<para>Return values from <link linkend="GLogWriterFuncs"><type>GLogWriterFuncs</type></link> to indicate whether the given log entry
+was successfully handled by the writer, or whether there was an error in
+handling it (and hence a fallback writer should be used).</para>
+<para>If a <link linkend="GLogWriterFunc"><type>GLogWriterFunc</type></link> ignores a log entry, it should return
+<link linkend="G-LOG-WRITER-HANDLED:CAPS"><literal>G_LOG_WRITER_HANDLED</literal></link>.</para>
+<refsect3 id="GLogWriterOutput.members" role="enum_members">
+<title>Members</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="enum_members_name" colwidth="300px"/>
+<colspec colname="enum_members_description"/>
+<colspec colname="enum_members_annotations" colwidth="200px"/>
+<tbody>
+<row role="constant"><entry role="enum_member_name"><para id="G-LOG-WRITER-HANDLED:CAPS">G_LOG_WRITER_HANDLED</para></entry>
+<entry role="enum_member_description"><para>Log writer has handled the log entry.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-LOG-WRITER-UNHANDLED:CAPS">G_LOG_WRITER_UNHANDLED</para></entry>
+<entry role="enum_member_description"><para>Log writer could not handle the log entry.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.50">2.50</link></para></refsect2>
+
+</refsect1>
+
+</refentry>

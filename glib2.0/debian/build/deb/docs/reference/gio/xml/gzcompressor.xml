@@ -1,0 +1,243 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC '-//OASIS//DTD DocBook XML V4.5//EN'
+                      'http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd' [
+<!ENTITY % local.common.attrib "xmlns:xi  CDATA  #FIXED 'http://www.w3.org/2003/XInclude'">
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="GZlibCompressor">
+<refmeta>
+<refentrytitle role="top_of_page" id="GZlibCompressor.top_of_page">GZlibCompressor</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>GIO Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>GZlibCompressor</refname>
+<refpurpose>Zlib compressor</refpurpose>
+</refnamediv>
+
+<refsect1 id="GZlibCompressor.functions" role="functions_proto">
+<title role="functions_proto.title">Functions</title>
+<informaltable pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="functions_return" colwidth="150px"/>
+<colspec colname="functions_name"/>
+<tbody>
+<row><entry role="function_type"><link linkend="GZlibCompressor"><returnvalue>GZlibCompressor</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-zlib-compressor-new">g_zlib_compressor_new</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GFileInfo"><returnvalue>GFileInfo</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-zlib-compressor-get-file-info">g_zlib_compressor_get_file_info</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-zlib-compressor-set-file-info">g_zlib_compressor_set_file_info</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GZlibCompressor.properties" role="properties">
+<title role="properties.title">Properties</title>
+<informaltable frame="none">
+<tgroup cols="3">
+<colspec colname="properties_type" colwidth="150px"/>
+<colspec colname="properties_name" colwidth="300px"/>
+<colspec colname="properties_flags" colwidth="200px"/>
+<tbody>
+<row><entry role="property_type"><link linkend="GFileInfo"><type>GFileInfo</type></link>&#160;*</entry><entry role="property_name"><link linkend="GZlibCompressor--file-info">file-info</link></entry><entry role="property_flags">Read / Write</entry></row>
+<row><entry role="property_type"><link linkend="GZlibCompressorFormat"><type>GZlibCompressorFormat</type></link></entry><entry role="property_name"><link linkend="GZlibCompressor--format">format</link></entry><entry role="property_flags">Read / Write / Construct Only</entry></row>
+<row><entry role="property_type"><link linkend="gint"><type>gint</type></link></entry><entry role="property_name"><link linkend="GZlibCompressor--level">level</link></entry><entry role="property_flags">Read / Write / Construct Only</entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GZlibCompressor.other" role="other_proto">
+<title role="other_proto.title">Types and Values</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="name" colwidth="150px"/>
+<colspec colname="description"/>
+<tbody>
+<row><entry role="datatype_keyword"></entry><entry role="function_name"><link linkend="GZlibCompressor-struct">GZlibCompressor</link></entry></row>
+<row><entry role="datatype_keyword">enum</entry><entry role="function_name"><link linkend="GZlibCompressorFormat">GZlibCompressorFormat</link></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GZlibCompressor.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<screen>    <link linkend="GEnum">GEnum</link>
+    <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> GZlibCompressorFormat
+    <link linkend="GObject">GObject</link>
+    <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> GZlibCompressor
+</screen>
+</refsect1>
+<refsect1 id="GZlibCompressor.implemented-interfaces" role="impl_interfaces">
+<title role="impl_interfaces.title">Implemented Interfaces</title>
+<para>
+GZlibCompressor implements
+ <link linkend="GConverter">GConverter</link>.</para>
+
+</refsect1>
+
+<refsect1 id="GZlibCompressor.includes"><title>Includes</title><synopsis>#include &lt;gio/gio.h&gt;
+</synopsis></refsect1>
+
+<refsect1 id="GZlibCompressor.description" role="desc">
+<title role="desc.title">Description</title>
+<para><link linkend="GZlibCompressor"><type>GZlibCompressor</type></link> is an implementation of <link linkend="GConverter"><type>GConverter</type></link> that
+compresses data using zlib.</para>
+
+</refsect1>
+<refsect1 id="GZlibCompressor.functions_details" role="details">
+<title role="details.title">Functions</title>
+<refsect2 id="g-zlib-compressor-new" role="function" condition="since:2.24">
+<title>g_zlib_compressor_new&#160;()</title>
+<indexterm zone="g-zlib-compressor-new" role="2.24"><primary sortas="zlib_compressor_new">g_zlib_compressor_new</primary></indexterm>
+<programlisting language="C"><link linkend="GZlibCompressor"><returnvalue>GZlibCompressor</returnvalue></link>&#160;*
+g_zlib_compressor_new (<parameter><link linkend="GZlibCompressorFormat"><type>GZlibCompressorFormat</type></link> format</parameter>,
+                       <parameter><link linkend="int"><type>int</type></link> level</parameter>);</programlisting>
+<para>Creates a new <link linkend="GZlibCompressor"><type>GZlibCompressor</type></link>.</para>
+<refsect3 id="g-zlib-compressor-new.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>format</para></entry>
+<entry role="parameter_description"><para>The format to use for the compressed data</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>level</para></entry>
+<entry role="parameter_description"><para>compression level (0-9), -1 for default</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-zlib-compressor-new.returns" role="returns">
+<title>Returns</title>
+<para> a new <link linkend="GZlibCompressor"><type>GZlibCompressor</type></link></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.24">2.24</link></para></refsect2>
+<refsect2 id="g-zlib-compressor-get-file-info" role="function" condition="since:2.26">
+<title>g_zlib_compressor_get_file_info&#160;()</title>
+<indexterm zone="g-zlib-compressor-get-file-info" role="2.26"><primary sortas="zlib_compressor_get_file_info">g_zlib_compressor_get_file_info</primary></indexterm>
+<programlisting language="C"><link linkend="GFileInfo"><returnvalue>GFileInfo</returnvalue></link>&#160;*
+g_zlib_compressor_get_file_info (<parameter><link linkend="GZlibCompressor"><type>GZlibCompressor</type></link> *compressor</parameter>);</programlisting>
+<para>Returns the <link linkend="GZlibCompressor--file-info"><type>“file-info”</type></link> property.</para>
+<refsect3 id="g-zlib-compressor-get-file-info.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>compressor</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GZlibCompressor"><type>GZlibCompressor</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-zlib-compressor-get-file-info.returns" role="returns">
+<title>Returns</title>
+<para>a <link linkend="GFileInfo"><type>GFileInfo</type></link>, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para>
+<para><emphasis role="annotation">[<acronym>transfer none</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.26">2.26</link></para></refsect2>
+<refsect2 id="g-zlib-compressor-set-file-info" role="function" condition="since:2.26">
+<title>g_zlib_compressor_set_file_info&#160;()</title>
+<indexterm zone="g-zlib-compressor-set-file-info" role="2.26"><primary sortas="zlib_compressor_set_file_info">g_zlib_compressor_set_file_info</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_zlib_compressor_set_file_info (<parameter><link linkend="GZlibCompressor"><type>GZlibCompressor</type></link> *compressor</parameter>,
+                                 <parameter><link linkend="GFileInfo"><type>GFileInfo</type></link> *file_info</parameter>);</programlisting>
+<para>Sets <parameter>file_info</parameter>
+ in <parameter>compressor</parameter>
+. If non-<link linkend="NULL:CAPS"><literal>NULL</literal></link>, and <parameter>compressor</parameter>
+'s
+<link linkend="GZlibCompressor--format"><type>“format”</type></link> property is <link linkend="G-ZLIB-COMPRESSOR-FORMAT-GZIP:CAPS"><literal>G_ZLIB_COMPRESSOR_FORMAT_GZIP</literal></link>,
+it will be used to set the file name and modification time in
+the GZIP header of the compressed data.</para>
+<para>Note: it is an error to call this function while a compression is in
+progress; it may only be called immediately after creation of <parameter>compressor</parameter>
+,
+or after resetting it with <link linkend="g-converter-reset"><function>g_converter_reset()</function></link>.</para>
+<refsect3 id="g-zlib-compressor-set-file-info.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>compressor</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GZlibCompressor"><type>GZlibCompressor</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>file_info</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GFileInfo"><type>GFileInfo</type></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.26">2.26</link></para></refsect2>
+
+</refsect1>
+<refsect1 id="GZlibCompressor.other_details" role="details">
+<title role="details.title">Types and Values</title>
+<refsect2 id="GZlibCompressor-struct" role="struct">
+<title>GZlibCompressor</title>
+<indexterm zone="GZlibCompressor-struct"><primary sortas="ZlibCompressor">GZlibCompressor</primary></indexterm>
+<programlisting language="C">typedef struct _GZlibCompressor GZlibCompressor;</programlisting>
+<para>Zlib decompression</para>
+</refsect2>
+<refsect2 id="GZlibCompressorFormat" role="enum" condition="since:2.24">
+<title>enum GZlibCompressorFormat</title>
+<indexterm zone="GZlibCompressorFormat" role="2.24"><primary sortas="ZlibCompressorFormat">GZlibCompressorFormat</primary></indexterm>
+<para>Used to select the type of data format to use for <link linkend="GZlibDecompressor"><type>GZlibDecompressor</type></link>
+and <link linkend="GZlibCompressor"><type>GZlibCompressor</type></link>.</para>
+<refsect3 id="GZlibCompressorFormat.members" role="enum_members">
+<title>Members</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="enum_members_name" colwidth="300px"/>
+<colspec colname="enum_members_description"/>
+<colspec colname="enum_members_annotations" colwidth="200px"/>
+<tbody>
+<row role="constant"><entry role="enum_member_name"><para id="G-ZLIB-COMPRESSOR-FORMAT-ZLIB:CAPS">G_ZLIB_COMPRESSOR_FORMAT_ZLIB</para></entry>
+<entry role="enum_member_description"><para>deflate compression with zlib header</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-ZLIB-COMPRESSOR-FORMAT-GZIP:CAPS">G_ZLIB_COMPRESSOR_FORMAT_GZIP</para></entry>
+<entry role="enum_member_description"><para>gzip file format</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="G-ZLIB-COMPRESSOR-FORMAT-RAW:CAPS">G_ZLIB_COMPRESSOR_FORMAT_RAW</para></entry>
+<entry role="enum_member_description"><para>deflate compression with no header</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.24">2.24</link></para></refsect2>
+
+</refsect1>
+<refsect1 id="GZlibCompressor.property-details" role="property_details">
+<title role="property_details.title">Property Details</title>
+<refsect2 id="GZlibCompressor--file-info" role="property"><title>The <literal>“file-info”</literal> property</title>
+<indexterm zone="GZlibCompressor--file-info" role="2.26"><primary sortas="ZlibCompressor:file-info">GZlibCompressor:file-info</primary></indexterm>
+<programlisting>  “file-info”                <link linkend="GFileInfo"><type>GFileInfo</type></link>&#160;*</programlisting>
+<para>If set to a non-<link linkend="NULL:CAPS"><literal>NULL</literal></link> <link linkend="GFileInfo"><type>GFileInfo</type></link> object, and <link linkend="GZlibCompressor--format"><type>“format”</type></link> is
+<link linkend="G-ZLIB-COMPRESSOR-FORMAT-GZIP:CAPS"><literal>G_ZLIB_COMPRESSOR_FORMAT_GZIP</literal></link>, the compressor will write the file name
+and modification time from the file info to the GZIP header.</para>
+<para>Flags: Read / Write</para>
+<para role="since">Since: <link linkend="api-index-2.26">2.26</link></para></refsect2>
+<refsect2 id="GZlibCompressor--format" role="property"><title>The <literal>“format”</literal> property</title>
+<indexterm zone="GZlibCompressor--format"><primary sortas="ZlibCompressor:format">GZlibCompressor:format</primary></indexterm>
+<programlisting>  “format”                   <link linkend="GZlibCompressorFormat"><type>GZlibCompressorFormat</type></link></programlisting>
+<para>The format of the compressed data.</para><para>Flags: Read / Write / Construct Only</para>
+<para>Default value: G_ZLIB_COMPRESSOR_FORMAT_ZLIB</para>
+</refsect2>
+<refsect2 id="GZlibCompressor--level" role="property"><title>The <literal>“level”</literal> property</title>
+<indexterm zone="GZlibCompressor--level"><primary sortas="ZlibCompressor:level">GZlibCompressor:level</primary></indexterm>
+<programlisting>  “level”                    <link linkend="gint"><type>gint</type></link></programlisting>
+<para>The level of compression from 0 (no compression) to 9 (most compression), -1 for the default level.</para><para>Flags: Read / Write / Construct Only</para>
+<para>Allowed values: [-1,9]</para>
+<para>Default value: -1</para>
+</refsect2>
+
+</refsect1>
+
+</refentry>

@@ -1,0 +1,1517 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC '-//OASIS//DTD DocBook XML V4.5//EN'
+                      'http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd' [
+<!ENTITY % local.common.attrib "xmlns:xi  CDATA  #FIXED 'http://www.w3.org/2003/XInclude'">
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="glib-Sequences">
+<refmeta>
+<refentrytitle role="top_of_page" id="glib-Sequences.top_of_page">Sequences</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>GLIB Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>Sequences</refname>
+<refpurpose>scalable lists</refpurpose>
+</refnamediv>
+
+<refsect1 id="glib-Sequences.functions" role="functions_proto">
+<title role="functions_proto.title">Functions</title>
+<informaltable pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="functions_return" colwidth="150px"/>
+<colspec colname="functions_name"/>
+<tbody>
+<row><entry role="function_type"><link linkend="gint"><returnvalue>gint</returnvalue></link>
+</entry><entry role="function_name"><phrase role="c_punctuation">(</phrase><link linkend="GSequenceIterCompareFunc">*GSequenceIterCompareFunc</link><phrase role="c_punctuation">)</phrase>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+<row><entry role="function_type"><link linkend="GSequence"><returnvalue>GSequence</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-sequence-new">g_sequence_new</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-sequence-free">g_sequence_free</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gint"><returnvalue>gint</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-sequence-get-length">g_sequence_get_length</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-sequence-is-empty">g_sequence_is_empty</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-sequence-foreach">g_sequence_foreach</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-sequence-foreach-range">g_sequence_foreach_range</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-sequence-sort">g_sequence_sort</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-sequence-sort-iter">g_sequence_sort_iter</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+<row><entry role="function_type"><link linkend="GSequenceIter"><returnvalue>GSequenceIter</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-sequence-get-begin-iter">g_sequence_get_begin_iter</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GSequenceIter"><returnvalue>GSequenceIter</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-sequence-get-end-iter">g_sequence_get_end_iter</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GSequenceIter"><returnvalue>GSequenceIter</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-sequence-get-iter-at-pos">g_sequence_get_iter_at_pos</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GSequenceIter"><returnvalue>GSequenceIter</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-sequence-append">g_sequence_append</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GSequenceIter"><returnvalue>GSequenceIter</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-sequence-prepend">g_sequence_prepend</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GSequenceIter"><returnvalue>GSequenceIter</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-sequence-insert-before">g_sequence_insert_before</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-sequence-move">g_sequence_move</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-sequence-swap">g_sequence_swap</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GSequenceIter"><returnvalue>GSequenceIter</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-sequence-insert-sorted">g_sequence_insert_sorted</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GSequenceIter"><returnvalue>GSequenceIter</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-sequence-insert-sorted-iter">g_sequence_insert_sorted_iter</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-sequence-sort-changed">g_sequence_sort_changed</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-sequence-sort-changed-iter">g_sequence_sort_changed_iter</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-sequence-remove">g_sequence_remove</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-sequence-remove-range">g_sequence_remove_range</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-sequence-move-range">g_sequence_move_range</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GSequenceIter"><returnvalue>GSequenceIter</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-sequence-search">g_sequence_search</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GSequenceIter"><returnvalue>GSequenceIter</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-sequence-search-iter">g_sequence_search_iter</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GSequenceIter"><returnvalue>GSequenceIter</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-sequence-lookup">g_sequence_lookup</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GSequenceIter"><returnvalue>GSequenceIter</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-sequence-lookup-iter">g_sequence_lookup_iter</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+<row><entry role="function_type"><link linkend="gpointer"><returnvalue>gpointer</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-sequence-get">g_sequence_get</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-sequence-set">g_sequence_set</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-sequence-iter-is-begin">g_sequence_iter_is_begin</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-sequence-iter-is-end">g_sequence_iter_is_end</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GSequenceIter"><returnvalue>GSequenceIter</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-sequence-iter-next">g_sequence_iter_next</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GSequenceIter"><returnvalue>GSequenceIter</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-sequence-iter-prev">g_sequence_iter_prev</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gint"><returnvalue>gint</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-sequence-iter-get-position">g_sequence_iter_get_position</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GSequenceIter"><returnvalue>GSequenceIter</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-sequence-iter-move">g_sequence_iter_move</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GSequence"><returnvalue>GSequence</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-sequence-iter-get-sequence">g_sequence_iter_get_sequence</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+<row><entry role="function_type"><link linkend="gint"><returnvalue>gint</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-sequence-iter-compare">g_sequence_iter_compare</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GSequenceIter"><returnvalue>GSequenceIter</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-sequence-range-get-midpoint">g_sequence_range_get_midpoint</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="glib-Sequences.other" role="other_proto">
+<title role="other_proto.title">Types and Values</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="name" colwidth="150px"/>
+<colspec colname="description"/>
+<tbody>
+<row><entry role="datatype_keyword"></entry><entry role="function_name"><link linkend="GSequence">GSequence</link></entry></row>
+<row><entry role="typedef_keyword">typedef</entry><entry role="function_name"><link linkend="GSequenceIter">GSequenceIter</link></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+
+<refsect1 id="glib-Sequences.includes"><title>Includes</title><synopsis>#include &lt;gmodule.h&gt;
+</synopsis></refsect1>
+
+<refsect1 id="glib-Sequences.description" role="desc">
+<title role="desc.title">Description</title>
+<para>The <link linkend="GSequence"><type>GSequence</type></link> data structure has the API of a list, but is
+implemented internally with a balanced binary tree. This means that
+it is possible to maintain a sorted list of n elements in time O(n log n).
+The data contained in each element can be either integer values, by using
+of the <link linkend="glib-Type-Conversion-Macros">Type Conversion Macros</link>, or simply
+pointers to any type of data.</para>
+<para>A <link linkend="GSequence"><type>GSequence</type></link> is accessed through "iterators", represented by a
+<link linkend="GSequenceIter"><type>GSequenceIter</type></link>. An iterator represents a position between two
+elements of the sequence. For example, the "begin" iterator
+represents the gap immediately before the first element of the
+sequence, and the "end" iterator represents the gap immediately
+after the last element. In an empty sequence, the begin and end
+iterators are the same.</para>
+<para>Some methods on <link linkend="GSequence"><type>GSequence</type></link> operate on ranges of items. For example
+<link linkend="g-sequence-foreach-range"><function>g_sequence_foreach_range()</function></link> will call a user-specified function on
+each element with the given range. The range is delimited by the
+gaps represented by the passed-in iterators, so if you pass in the
+begin and end iterators, the range in question is the entire
+sequence.</para>
+<para>The function <link linkend="g-sequence-get"><function>g_sequence_get()</function></link> is used with an iterator to access the
+element immediately following the gap that the iterator represents.
+The iterator is said to "point" to that element.</para>
+<para>Iterators are stable across most operations on a <link linkend="GSequence"><type>GSequence</type></link>. For
+example an iterator pointing to some element of a sequence will
+continue to point to that element even after the sequence is sorted.
+Even moving an element to another sequence using for example
+<link linkend="g-sequence-move-range"><function>g_sequence_move_range()</function></link> will not invalidate the iterators pointing
+to it. The only operation that will invalidate an iterator is when
+the element it points to is removed from any sequence.</para>
+<para>To sort the data, either use <link linkend="g-sequence-insert-sorted"><function>g_sequence_insert_sorted()</function></link> or
+<link linkend="g-sequence-insert-sorted-iter"><function>g_sequence_insert_sorted_iter()</function></link> to add data to the <link linkend="GSequence"><type>GSequence</type></link> or, if
+you want to add a large amount of data, it is more efficient to call
+<link linkend="g-sequence-sort"><function>g_sequence_sort()</function></link> or <link linkend="g-sequence-sort-iter"><function>g_sequence_sort_iter()</function></link> after doing unsorted
+insertions.</para>
+
+</refsect1>
+<refsect1 id="glib-Sequences.functions_details" role="details">
+<title role="details.title">Functions</title>
+<refsect2 id="GSequenceIterCompareFunc" role="function">
+<title>GSequenceIterCompareFunc&#160;()</title>
+<indexterm zone="GSequenceIterCompareFunc"><primary sortas="SequenceIterCompareFunc">GSequenceIterCompareFunc</primary></indexterm>
+<programlisting language="C"><link linkend="gint"><returnvalue>gint</returnvalue></link>
+<phrase role="c_punctuation">(</phrase>*GSequenceIterCompareFunc<phrase role="c_punctuation">)</phrase> (<parameter><link linkend="GSequenceIter"><type>GSequenceIter</type></link> *a</parameter>,
+                             <parameter><link linkend="GSequenceIter"><type>GSequenceIter</type></link> *b</parameter>,
+                             <parameter><link linkend="gpointer"><type>gpointer</type></link> data</parameter>);</programlisting>
+<para>A <link linkend="GSequenceIterCompareFunc"><type>GSequenceIterCompareFunc</type></link> is a function used to compare iterators.
+It must return zero if the iterators compare equal, a negative value
+if <parameter>a</parameter>
+ comes before <parameter>b</parameter>
+, and a positive value if <parameter>b</parameter>
+ comes before <parameter>a</parameter>
+.</para>
+<refsect3 id="GSequenceIterCompareFunc.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>a</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSequenceIter"><type>GSequenceIter</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>b</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSequenceIter"><type>GSequenceIter</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>data</para></entry>
+<entry role="parameter_description"><para>user data</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="GSequenceIterCompareFunc.returns" role="returns">
+<title>Returns</title>
+<para> zero if the iterators are equal, a negative value if <parameter>a</parameter>
+comes before <parameter>b</parameter>
+, and a positive value if <parameter>b</parameter>
+comes before <parameter>a</parameter>
+.</para>
+</refsect3></refsect2>
+<refsect2 id="g-sequence-new" role="function" condition="since:2.14">
+<title>g_sequence_new&#160;()</title>
+<indexterm zone="g-sequence-new" role="2.14"><primary sortas="sequence_new">g_sequence_new</primary></indexterm>
+<programlisting language="C"><link linkend="GSequence"><returnvalue>GSequence</returnvalue></link>&#160;*
+g_sequence_new (<parameter><link linkend="GDestroyNotify"><type>GDestroyNotify</type></link> data_destroy</parameter>);</programlisting>
+<para>Creates a new GSequence. The <parameter>data_destroy</parameter>
+ function, if non-<link linkend="NULL:CAPS"><literal>NULL</literal></link> will
+be called on all items when the sequence is destroyed and on items that
+are removed from the sequence.</para>
+<refsect3 id="g-sequence-new.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>data_destroy</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GDestroyNotify"><type>GDestroyNotify</type></link> function, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-sequence-new.returns" role="returns">
+<title>Returns</title>
+<para>a new <link linkend="GSequence"><type>GSequence</type></link>. </para>
+<para><emphasis role="annotation">[<acronym>transfer full</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.14">2.14</link></para></refsect2>
+<refsect2 id="g-sequence-free" role="function" condition="since:2.14">
+<title>g_sequence_free&#160;()</title>
+<indexterm zone="g-sequence-free" role="2.14"><primary sortas="sequence_free">g_sequence_free</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_sequence_free (<parameter><link linkend="GSequence"><type>GSequence</type></link> *seq</parameter>);</programlisting>
+<para>Frees the memory allocated for <parameter>seq</parameter>
+. If <parameter>seq</parameter>
+ has a data destroy
+function associated with it, that function is called on all items
+in <parameter>seq</parameter>
+.</para>
+<refsect3 id="g-sequence-free.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>seq</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSequence"><type>GSequence</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.14">2.14</link></para></refsect2>
+<refsect2 id="g-sequence-get-length" role="function" condition="since:2.14">
+<title>g_sequence_get_length&#160;()</title>
+<indexterm zone="g-sequence-get-length" role="2.14"><primary sortas="sequence_get_length">g_sequence_get_length</primary></indexterm>
+<programlisting language="C"><link linkend="gint"><returnvalue>gint</returnvalue></link>
+g_sequence_get_length (<parameter><link linkend="GSequence"><type>GSequence</type></link> *seq</parameter>);</programlisting>
+<para>Returns the length of <parameter>seq</parameter>
+. Note that this method is O(h) where `h' is the
+height of the tree. It is thus more efficient to use <link linkend="g-sequence-is-empty"><function>g_sequence_is_empty()</function></link>
+when comparing the length to zero.</para>
+<refsect3 id="g-sequence-get-length.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>seq</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSequence"><type>GSequence</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-sequence-get-length.returns" role="returns">
+<title>Returns</title>
+<para> the length of <parameter>seq</parameter>
+</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.14">2.14</link></para></refsect2>
+<refsect2 id="g-sequence-is-empty" role="function" condition="since:2.48">
+<title>g_sequence_is_empty&#160;()</title>
+<indexterm zone="g-sequence-is-empty" role="2.48"><primary sortas="sequence_is_empty">g_sequence_is_empty</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_sequence_is_empty (<parameter><link linkend="GSequence"><type>GSequence</type></link> *seq</parameter>);</programlisting>
+<para>Returns <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if the sequence contains zero items.</para>
+<para>This function is functionally identical to checking the result of
+<link linkend="g-sequence-get-length"><function>g_sequence_get_length()</function></link> being equal to zero. However this function is
+implemented in O(1) running time.</para>
+<refsect3 id="g-sequence-is-empty.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>seq</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSequence"><type>GSequence</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-sequence-is-empty.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if the sequence is empty, otherwise <link linkend="FALSE:CAPS"><literal>FALSE</literal></link>.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.48">2.48</link></para></refsect2>
+<refsect2 id="g-sequence-foreach" role="function" condition="since:2.14">
+<title>g_sequence_foreach&#160;()</title>
+<indexterm zone="g-sequence-foreach" role="2.14"><primary sortas="sequence_foreach">g_sequence_foreach</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_sequence_foreach (<parameter><link linkend="GSequence"><type>GSequence</type></link> *seq</parameter>,
+                    <parameter><link linkend="GFunc"><type>GFunc</type></link> func</parameter>,
+                    <parameter><link linkend="gpointer"><type>gpointer</type></link> user_data</parameter>);</programlisting>
+<para>Calls <parameter>func</parameter>
+ for each item in the sequence passing <parameter>user_data</parameter>
+
+to the function. <parameter>func</parameter>
+ must not modify the sequence itself.</para>
+<refsect3 id="g-sequence-foreach.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>seq</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSequence"><type>GSequence</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>func</para></entry>
+<entry role="parameter_description"><para>the function to call for each item in <parameter>seq</parameter>
+</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>user_data</para></entry>
+<entry role="parameter_description"><para>user data passed to <parameter>func</parameter>
+</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.14">2.14</link></para></refsect2>
+<refsect2 id="g-sequence-foreach-range" role="function" condition="since:2.14">
+<title>g_sequence_foreach_range&#160;()</title>
+<indexterm zone="g-sequence-foreach-range" role="2.14"><primary sortas="sequence_foreach_range">g_sequence_foreach_range</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_sequence_foreach_range (<parameter><link linkend="GSequenceIter"><type>GSequenceIter</type></link> *begin</parameter>,
+                          <parameter><link linkend="GSequenceIter"><type>GSequenceIter</type></link> *end</parameter>,
+                          <parameter><link linkend="GFunc"><type>GFunc</type></link> func</parameter>,
+                          <parameter><link linkend="gpointer"><type>gpointer</type></link> user_data</parameter>);</programlisting>
+<para>Calls <parameter>func</parameter>
+ for each item in the range (<parameter>begin</parameter>
+, <parameter>end</parameter>
+) passing
+<parameter>user_data</parameter>
+ to the function. <parameter>func</parameter>
+ must not modify the sequence
+itself.</para>
+<refsect3 id="g-sequence-foreach-range.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>begin</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSequenceIter"><type>GSequenceIter</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>end</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSequenceIter"><type>GSequenceIter</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>func</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GFunc"><type>GFunc</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>user_data</para></entry>
+<entry role="parameter_description"><para>user data passed to <parameter>func</parameter>
+</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.14">2.14</link></para></refsect2>
+<refsect2 id="g-sequence-sort" role="function" condition="since:2.14">
+<title>g_sequence_sort&#160;()</title>
+<indexterm zone="g-sequence-sort" role="2.14"><primary sortas="sequence_sort">g_sequence_sort</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_sequence_sort (<parameter><link linkend="GSequence"><type>GSequence</type></link> *seq</parameter>,
+                 <parameter><link linkend="GCompareDataFunc"><type>GCompareDataFunc</type></link> cmp_func</parameter>,
+                 <parameter><link linkend="gpointer"><type>gpointer</type></link> cmp_data</parameter>);</programlisting>
+<para>Sorts <parameter>seq</parameter>
+ using <parameter>cmp_func</parameter>
+.</para>
+<para><parameter>cmp_func</parameter>
+ is passed two items of <parameter>seq</parameter>
+ and should
+return 0 if they are equal, a negative value if the
+first comes before the second, and a positive value
+if the second comes before the first.</para>
+<refsect3 id="g-sequence-sort.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>seq</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSequence"><type>GSequence</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>cmp_func</para></entry>
+<entry role="parameter_description"><para>the function used to sort the sequence</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>cmp_data</para></entry>
+<entry role="parameter_description"><para>user data passed to <parameter>cmp_func</parameter>
+</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.14">2.14</link></para></refsect2>
+<refsect2 id="g-sequence-sort-iter" role="function" condition="since:2.14">
+<title>g_sequence_sort_iter&#160;()</title>
+<indexterm zone="g-sequence-sort-iter" role="2.14"><primary sortas="sequence_sort_iter">g_sequence_sort_iter</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_sequence_sort_iter (<parameter><link linkend="GSequence"><type>GSequence</type></link> *seq</parameter>,
+                      <parameter><link linkend="GSequenceIterCompareFunc"><type>GSequenceIterCompareFunc</type></link> cmp_func</parameter>,
+                      <parameter><link linkend="gpointer"><type>gpointer</type></link> cmp_data</parameter>);</programlisting>
+<para>Like <link linkend="g-sequence-sort"><function>g_sequence_sort()</function></link>, but uses a <link linkend="GSequenceIterCompareFunc"><type>GSequenceIterCompareFunc</type></link> instead
+of a <link linkend="GCompareDataFunc"><type>GCompareDataFunc</type></link> as the compare function</para>
+<para><parameter>cmp_func</parameter>
+ is called with two iterators pointing into <parameter>seq</parameter>
+. It should
+return 0 if the iterators are equal, a negative value if the first
+iterator comes before the second, and a positive value if the second
+iterator comes before the first.</para>
+<refsect3 id="g-sequence-sort-iter.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>seq</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSequence"><type>GSequence</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>cmp_func</para></entry>
+<entry role="parameter_description"><para>the function used to compare iterators in the sequence</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>cmp_data</para></entry>
+<entry role="parameter_description"><para>user data passed to <parameter>cmp_func</parameter>
+</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.14">2.14</link></para></refsect2>
+<refsect2 id="g-sequence-get-begin-iter" role="function" condition="since:2.14">
+<title>g_sequence_get_begin_iter&#160;()</title>
+<indexterm zone="g-sequence-get-begin-iter" role="2.14"><primary sortas="sequence_get_begin_iter">g_sequence_get_begin_iter</primary></indexterm>
+<programlisting language="C"><link linkend="GSequenceIter"><returnvalue>GSequenceIter</returnvalue></link>&#160;*
+g_sequence_get_begin_iter (<parameter><link linkend="GSequence"><type>GSequence</type></link> *seq</parameter>);</programlisting>
+<para>Returns the begin iterator for <parameter>seq</parameter>
+.</para>
+<refsect3 id="g-sequence-get-begin-iter.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>seq</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSequence"><type>GSequence</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-sequence-get-begin-iter.returns" role="returns">
+<title>Returns</title>
+<para>the begin iterator for <parameter>seq</parameter>
+. </para>
+<para><emphasis role="annotation">[<acronym>transfer none</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.14">2.14</link></para></refsect2>
+<refsect2 id="g-sequence-get-end-iter" role="function" condition="since:2.14">
+<title>g_sequence_get_end_iter&#160;()</title>
+<indexterm zone="g-sequence-get-end-iter" role="2.14"><primary sortas="sequence_get_end_iter">g_sequence_get_end_iter</primary></indexterm>
+<programlisting language="C"><link linkend="GSequenceIter"><returnvalue>GSequenceIter</returnvalue></link>&#160;*
+g_sequence_get_end_iter (<parameter><link linkend="GSequence"><type>GSequence</type></link> *seq</parameter>);</programlisting>
+<para>Returns the end iterator for <parameter>seg</parameter>
+</para>
+<refsect3 id="g-sequence-get-end-iter.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>seq</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSequence"><type>GSequence</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-sequence-get-end-iter.returns" role="returns">
+<title>Returns</title>
+<para>the end iterator for <parameter>seq</parameter>
+. </para>
+<para><emphasis role="annotation">[<acronym>transfer none</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.14">2.14</link></para></refsect2>
+<refsect2 id="g-sequence-get-iter-at-pos" role="function" condition="since:2.14">
+<title>g_sequence_get_iter_at_pos&#160;()</title>
+<indexterm zone="g-sequence-get-iter-at-pos" role="2.14"><primary sortas="sequence_get_iter_at_pos">g_sequence_get_iter_at_pos</primary></indexterm>
+<programlisting language="C"><link linkend="GSequenceIter"><returnvalue>GSequenceIter</returnvalue></link>&#160;*
+g_sequence_get_iter_at_pos (<parameter><link linkend="GSequence"><type>GSequence</type></link> *seq</parameter>,
+                            <parameter><link linkend="gint"><type>gint</type></link> pos</parameter>);</programlisting>
+<para>Returns the iterator at position <parameter>pos</parameter>
+. If <parameter>pos</parameter>
+ is negative or larger
+than the number of items in <parameter>seq</parameter>
+, the end iterator is returned.</para>
+<refsect3 id="g-sequence-get-iter-at-pos.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>seq</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSequence"><type>GSequence</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>pos</para></entry>
+<entry role="parameter_description"><para>a position in <parameter>seq</parameter>
+, or -1 for the end</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-sequence-get-iter-at-pos.returns" role="returns">
+<title>Returns</title>
+<para>The <link linkend="GSequenceIter"><type>GSequenceIter</type></link> at position <parameter>pos</parameter>
+. </para>
+<para><emphasis role="annotation">[<acronym>transfer none</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.14">2.14</link></para></refsect2>
+<refsect2 id="g-sequence-append" role="function" condition="since:2.14">
+<title>g_sequence_append&#160;()</title>
+<indexterm zone="g-sequence-append" role="2.14"><primary sortas="sequence_append">g_sequence_append</primary></indexterm>
+<programlisting language="C"><link linkend="GSequenceIter"><returnvalue>GSequenceIter</returnvalue></link>&#160;*
+g_sequence_append (<parameter><link linkend="GSequence"><type>GSequence</type></link> *seq</parameter>,
+                   <parameter><link linkend="gpointer"><type>gpointer</type></link> data</parameter>);</programlisting>
+<para>Adds a new item to the end of <parameter>seq</parameter>
+.</para>
+<refsect3 id="g-sequence-append.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>seq</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSequence"><type>GSequence</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>data</para></entry>
+<entry role="parameter_description"><para>the data for the new item</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-sequence-append.returns" role="returns">
+<title>Returns</title>
+<para>an iterator pointing to the new item. </para>
+<para><emphasis role="annotation">[<acronym>transfer none</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.14">2.14</link></para></refsect2>
+<refsect2 id="g-sequence-prepend" role="function" condition="since:2.14">
+<title>g_sequence_prepend&#160;()</title>
+<indexterm zone="g-sequence-prepend" role="2.14"><primary sortas="sequence_prepend">g_sequence_prepend</primary></indexterm>
+<programlisting language="C"><link linkend="GSequenceIter"><returnvalue>GSequenceIter</returnvalue></link>&#160;*
+g_sequence_prepend (<parameter><link linkend="GSequence"><type>GSequence</type></link> *seq</parameter>,
+                    <parameter><link linkend="gpointer"><type>gpointer</type></link> data</parameter>);</programlisting>
+<para>Adds a new item to the front of <parameter>seq</parameter>
+</para>
+<refsect3 id="g-sequence-prepend.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>seq</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSequence"><type>GSequence</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>data</para></entry>
+<entry role="parameter_description"><para>the data for the new item</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-sequence-prepend.returns" role="returns">
+<title>Returns</title>
+<para>an iterator pointing to the new item. </para>
+<para><emphasis role="annotation">[<acronym>transfer none</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.14">2.14</link></para></refsect2>
+<refsect2 id="g-sequence-insert-before" role="function" condition="since:2.14">
+<title>g_sequence_insert_before&#160;()</title>
+<indexterm zone="g-sequence-insert-before" role="2.14"><primary sortas="sequence_insert_before">g_sequence_insert_before</primary></indexterm>
+<programlisting language="C"><link linkend="GSequenceIter"><returnvalue>GSequenceIter</returnvalue></link>&#160;*
+g_sequence_insert_before (<parameter><link linkend="GSequenceIter"><type>GSequenceIter</type></link> *iter</parameter>,
+                          <parameter><link linkend="gpointer"><type>gpointer</type></link> data</parameter>);</programlisting>
+<para>Inserts a new item just before the item pointed to by <parameter>iter</parameter>
+.</para>
+<refsect3 id="g-sequence-insert-before.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>iter</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSequenceIter"><type>GSequenceIter</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>data</para></entry>
+<entry role="parameter_description"><para>the data for the new item</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-sequence-insert-before.returns" role="returns">
+<title>Returns</title>
+<para>an iterator pointing to the new item. </para>
+<para><emphasis role="annotation">[<acronym>transfer none</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.14">2.14</link></para></refsect2>
+<refsect2 id="g-sequence-move" role="function" condition="since:2.14">
+<title>g_sequence_move&#160;()</title>
+<indexterm zone="g-sequence-move" role="2.14"><primary sortas="sequence_move">g_sequence_move</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_sequence_move (<parameter><link linkend="GSequenceIter"><type>GSequenceIter</type></link> *src</parameter>,
+                 <parameter><link linkend="GSequenceIter"><type>GSequenceIter</type></link> *dest</parameter>);</programlisting>
+<para>Moves the item pointed to by <parameter>src</parameter>
+ to the position indicated by <parameter>dest</parameter>
+.
+After calling this function <parameter>dest</parameter>
+ will point to the position immediately
+after <parameter>src</parameter>
+. It is allowed for <parameter>src</parameter>
+ and <parameter>dest</parameter>
+ to point into different
+sequences.</para>
+<refsect3 id="g-sequence-move.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>src</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSequenceIter"><type>GSequenceIter</type></link> pointing to the item to move</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>dest</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSequenceIter"><type>GSequenceIter</type></link> pointing to the position to which
+the item is moved</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.14">2.14</link></para></refsect2>
+<refsect2 id="g-sequence-swap" role="function" condition="since:2.14">
+<title>g_sequence_swap&#160;()</title>
+<indexterm zone="g-sequence-swap" role="2.14"><primary sortas="sequence_swap">g_sequence_swap</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_sequence_swap (<parameter><link linkend="GSequenceIter"><type>GSequenceIter</type></link> *a</parameter>,
+                 <parameter><link linkend="GSequenceIter"><type>GSequenceIter</type></link> *b</parameter>);</programlisting>
+<para>Swaps the items pointed to by <parameter>a</parameter>
+ and <parameter>b</parameter>
+. It is allowed for <parameter>a</parameter>
+ and <parameter>b</parameter>
+
+to point into difference sequences.</para>
+<refsect3 id="g-sequence-swap.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>a</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSequenceIter"><type>GSequenceIter</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>b</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSequenceIter"><type>GSequenceIter</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.14">2.14</link></para></refsect2>
+<refsect2 id="g-sequence-insert-sorted" role="function" condition="since:2.14">
+<title>g_sequence_insert_sorted&#160;()</title>
+<indexterm zone="g-sequence-insert-sorted" role="2.14"><primary sortas="sequence_insert_sorted">g_sequence_insert_sorted</primary></indexterm>
+<programlisting language="C"><link linkend="GSequenceIter"><returnvalue>GSequenceIter</returnvalue></link>&#160;*
+g_sequence_insert_sorted (<parameter><link linkend="GSequence"><type>GSequence</type></link> *seq</parameter>,
+                          <parameter><link linkend="gpointer"><type>gpointer</type></link> data</parameter>,
+                          <parameter><link linkend="GCompareDataFunc"><type>GCompareDataFunc</type></link> cmp_func</parameter>,
+                          <parameter><link linkend="gpointer"><type>gpointer</type></link> cmp_data</parameter>);</programlisting>
+<para>Inserts <parameter>data</parameter>
+ into <parameter>seq</parameter>
+ using <parameter>cmp_func</parameter>
+ to determine the new
+position. The sequence must already be sorted according to <parameter>cmp_func</parameter>
+;
+otherwise the new position of <parameter>data</parameter>
+ is undefined.</para>
+<para><parameter>cmp_func</parameter>
+ is called with two items of the <parameter>seq</parameter>
+, and <parameter>cmp_data</parameter>
+.
+It should return 0 if the items are equal, a negative value
+if the first item comes before the second, and a positive value
+if the second item comes before the first.</para>
+<para>Note that when adding a large amount of data to a <link linkend="GSequence"><type>GSequence</type></link>,
+it is more efficient to do unsorted insertions and then call
+<link linkend="g-sequence-sort"><function>g_sequence_sort()</function></link> or <link linkend="g-sequence-sort-iter"><function>g_sequence_sort_iter()</function></link>.</para>
+<refsect3 id="g-sequence-insert-sorted.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>seq</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSequence"><type>GSequence</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>data</para></entry>
+<entry role="parameter_description"><para>the data to insert</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>cmp_func</para></entry>
+<entry role="parameter_description"><para>the function used to compare items in the sequence</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>cmp_data</para></entry>
+<entry role="parameter_description"><para>user data passed to <parameter>cmp_func</parameter>
+.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-sequence-insert-sorted.returns" role="returns">
+<title>Returns</title>
+<para>a <link linkend="GSequenceIter"><type>GSequenceIter</type></link> pointing to the new item. </para>
+<para><emphasis role="annotation">[<acronym>transfer none</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.14">2.14</link></para></refsect2>
+<refsect2 id="g-sequence-insert-sorted-iter" role="function" condition="since:2.14">
+<title>g_sequence_insert_sorted_iter&#160;()</title>
+<indexterm zone="g-sequence-insert-sorted-iter" role="2.14"><primary sortas="sequence_insert_sorted_iter">g_sequence_insert_sorted_iter</primary></indexterm>
+<programlisting language="C"><link linkend="GSequenceIter"><returnvalue>GSequenceIter</returnvalue></link>&#160;*
+g_sequence_insert_sorted_iter (<parameter><link linkend="GSequence"><type>GSequence</type></link> *seq</parameter>,
+                               <parameter><link linkend="gpointer"><type>gpointer</type></link> data</parameter>,
+                               <parameter><link linkend="GSequenceIterCompareFunc"><type>GSequenceIterCompareFunc</type></link> iter_cmp</parameter>,
+                               <parameter><link linkend="gpointer"><type>gpointer</type></link> cmp_data</parameter>);</programlisting>
+<para>Like <link linkend="g-sequence-insert-sorted"><function>g_sequence_insert_sorted()</function></link>, but uses
+a <link linkend="GSequenceIterCompareFunc"><type>GSequenceIterCompareFunc</type></link> instead of a <link linkend="GCompareDataFunc"><type>GCompareDataFunc</type></link> as
+the compare function.</para>
+<para><parameter>iter_cmp</parameter>
+ is called with two iterators pointing into <parameter>seq</parameter>
+.
+It should return 0 if the iterators are equal, a negative
+value if the first iterator comes before the second, and a
+positive value if the second iterator comes before the first.</para>
+<para>Note that when adding a large amount of data to a <link linkend="GSequence"><type>GSequence</type></link>,
+it is more efficient to do unsorted insertions and then call
+<link linkend="g-sequence-sort"><function>g_sequence_sort()</function></link> or <link linkend="g-sequence-sort-iter"><function>g_sequence_sort_iter()</function></link>.</para>
+<refsect3 id="g-sequence-insert-sorted-iter.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>seq</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSequence"><type>GSequence</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>data</para></entry>
+<entry role="parameter_description"><para>data for the new item</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>iter_cmp</para></entry>
+<entry role="parameter_description"><para>the function used to compare iterators in the sequence</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>cmp_data</para></entry>
+<entry role="parameter_description"><para>user data passed to <parameter>iter_cmp</parameter>
+</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-sequence-insert-sorted-iter.returns" role="returns">
+<title>Returns</title>
+<para>a <link linkend="GSequenceIter"><type>GSequenceIter</type></link> pointing to the new item. </para>
+<para><emphasis role="annotation">[<acronym>transfer none</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.14">2.14</link></para></refsect2>
+<refsect2 id="g-sequence-sort-changed" role="function" condition="since:2.14">
+<title>g_sequence_sort_changed&#160;()</title>
+<indexterm zone="g-sequence-sort-changed" role="2.14"><primary sortas="sequence_sort_changed">g_sequence_sort_changed</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_sequence_sort_changed (<parameter><link linkend="GSequenceIter"><type>GSequenceIter</type></link> *iter</parameter>,
+                         <parameter><link linkend="GCompareDataFunc"><type>GCompareDataFunc</type></link> cmp_func</parameter>,
+                         <parameter><link linkend="gpointer"><type>gpointer</type></link> cmp_data</parameter>);</programlisting>
+<para>Moves the data pointed to by <parameter>iter</parameter>
+ to a new position as indicated by
+<parameter>cmp_func</parameter>
+. This
+function should be called for items in a sequence already sorted according
+to <parameter>cmp_func</parameter>
+ whenever some aspect of an item changes so that <parameter>cmp_func</parameter>
+
+may return different values for that item.</para>
+<para><parameter>cmp_func</parameter>
+ is called with two items of the <parameter>seq</parameter>
+, and <parameter>cmp_data</parameter>
+.
+It should return 0 if the items are equal, a negative value if
+the first item comes before the second, and a positive value if
+the second item comes before the first.</para>
+<refsect3 id="g-sequence-sort-changed.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>iter</para></entry>
+<entry role="parameter_description"><para>A <link linkend="GSequenceIter"><type>GSequenceIter</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>cmp_func</para></entry>
+<entry role="parameter_description"><para>the function used to compare items in the sequence</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>cmp_data</para></entry>
+<entry role="parameter_description"><para>user data passed to <parameter>cmp_func</parameter>
+.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.14">2.14</link></para></refsect2>
+<refsect2 id="g-sequence-sort-changed-iter" role="function" condition="since:2.14">
+<title>g_sequence_sort_changed_iter&#160;()</title>
+<indexterm zone="g-sequence-sort-changed-iter" role="2.14"><primary sortas="sequence_sort_changed_iter">g_sequence_sort_changed_iter</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_sequence_sort_changed_iter (<parameter><link linkend="GSequenceIter"><type>GSequenceIter</type></link> *iter</parameter>,
+                              <parameter><link linkend="GSequenceIterCompareFunc"><type>GSequenceIterCompareFunc</type></link> iter_cmp</parameter>,
+                              <parameter><link linkend="gpointer"><type>gpointer</type></link> cmp_data</parameter>);</programlisting>
+<para>Like <link linkend="g-sequence-sort-changed"><function>g_sequence_sort_changed()</function></link>, but uses
+a <link linkend="GSequenceIterCompareFunc"><type>GSequenceIterCompareFunc</type></link> instead of a <link linkend="GCompareDataFunc"><type>GCompareDataFunc</type></link> as
+the compare function.</para>
+<para><parameter>iter_cmp</parameter>
+ is called with two iterators pointing into the <link linkend="GSequence"><type>GSequence</type></link> that
+<parameter>iter</parameter>
+ points into. It should
+return 0 if the iterators are equal, a negative value if the first
+iterator comes before the second, and a positive value if the second
+iterator comes before the first.</para>
+<refsect3 id="g-sequence-sort-changed-iter.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>iter</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSequenceIter"><type>GSequenceIter</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>iter_cmp</para></entry>
+<entry role="parameter_description"><para>the function used to compare iterators in the sequence</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>cmp_data</para></entry>
+<entry role="parameter_description"><para>user data passed to <parameter>cmp_func</parameter>
+</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.14">2.14</link></para></refsect2>
+<refsect2 id="g-sequence-remove" role="function" condition="since:2.14">
+<title>g_sequence_remove&#160;()</title>
+<indexterm zone="g-sequence-remove" role="2.14"><primary sortas="sequence_remove">g_sequence_remove</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_sequence_remove (<parameter><link linkend="GSequenceIter"><type>GSequenceIter</type></link> *iter</parameter>);</programlisting>
+<para>Removes the item pointed to by <parameter>iter</parameter>
+. It is an error to pass the
+end iterator to this function.</para>
+<para>If the sequence has a data destroy function associated with it, this
+function is called on the data for the removed item.</para>
+<refsect3 id="g-sequence-remove.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>iter</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSequenceIter"><type>GSequenceIter</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.14">2.14</link></para></refsect2>
+<refsect2 id="g-sequence-remove-range" role="function" condition="since:2.14">
+<title>g_sequence_remove_range&#160;()</title>
+<indexterm zone="g-sequence-remove-range" role="2.14"><primary sortas="sequence_remove_range">g_sequence_remove_range</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_sequence_remove_range (<parameter><link linkend="GSequenceIter"><type>GSequenceIter</type></link> *begin</parameter>,
+                         <parameter><link linkend="GSequenceIter"><type>GSequenceIter</type></link> *end</parameter>);</programlisting>
+<para>Removes all items in the (<parameter>begin</parameter>
+, <parameter>end</parameter>
+) range.</para>
+<para>If the sequence has a data destroy function associated with it, this
+function is called on the data for the removed items.</para>
+<refsect3 id="g-sequence-remove-range.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>begin</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSequenceIter"><type>GSequenceIter</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>end</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSequenceIter"><type>GSequenceIter</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.14">2.14</link></para></refsect2>
+<refsect2 id="g-sequence-move-range" role="function" condition="since:2.14">
+<title>g_sequence_move_range&#160;()</title>
+<indexterm zone="g-sequence-move-range" role="2.14"><primary sortas="sequence_move_range">g_sequence_move_range</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_sequence_move_range (<parameter><link linkend="GSequenceIter"><type>GSequenceIter</type></link> *dest</parameter>,
+                       <parameter><link linkend="GSequenceIter"><type>GSequenceIter</type></link> *begin</parameter>,
+                       <parameter><link linkend="GSequenceIter"><type>GSequenceIter</type></link> *end</parameter>);</programlisting>
+<para>Inserts the (<parameter>begin</parameter>
+, <parameter>end</parameter>
+) range at the destination pointed to by <parameter>dest</parameter>
+.
+The <parameter>begin</parameter>
+ and <parameter>end</parameter>
+ iters must point into the same sequence. It is
+allowed for <parameter>dest</parameter>
+ to point to a different sequence than the one pointed
+into by <parameter>begin</parameter>
+ and <parameter>end</parameter>
+.</para>
+<para>If <parameter>dest</parameter>
+ is <link linkend="NULL:CAPS"><literal>NULL</literal></link>, the range indicated by <parameter>begin</parameter>
+ and <parameter>end</parameter>
+ is
+removed from the sequence. If <parameter>dest</parameter>
+ points to a place within
+the (<parameter>begin</parameter>
+, <parameter>end</parameter>
+) range, the range does not move.</para>
+<refsect3 id="g-sequence-move-range.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>dest</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSequenceIter"><type>GSequenceIter</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>begin</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSequenceIter"><type>GSequenceIter</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>end</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSequenceIter"><type>GSequenceIter</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.14">2.14</link></para></refsect2>
+<refsect2 id="g-sequence-search" role="function" condition="since:2.14">
+<title>g_sequence_search&#160;()</title>
+<indexterm zone="g-sequence-search" role="2.14"><primary sortas="sequence_search">g_sequence_search</primary></indexterm>
+<programlisting language="C"><link linkend="GSequenceIter"><returnvalue>GSequenceIter</returnvalue></link>&#160;*
+g_sequence_search (<parameter><link linkend="GSequence"><type>GSequence</type></link> *seq</parameter>,
+                   <parameter><link linkend="gpointer"><type>gpointer</type></link> data</parameter>,
+                   <parameter><link linkend="GCompareDataFunc"><type>GCompareDataFunc</type></link> cmp_func</parameter>,
+                   <parameter><link linkend="gpointer"><type>gpointer</type></link> cmp_data</parameter>);</programlisting>
+<para>Returns an iterator pointing to the position where <parameter>data</parameter>
+ would
+be inserted according to <parameter>cmp_func</parameter>
+ and <parameter>cmp_data</parameter>
+.</para>
+<para><parameter>cmp_func</parameter>
+ is called with two items of the <parameter>seq</parameter>
+, and <parameter>cmp_data</parameter>
+.
+It should return 0 if the items are equal, a negative value if
+the first item comes before the second, and a positive value if
+the second item comes before the first.</para>
+<para>If you are simply searching for an existing element of the sequence,
+consider using <link linkend="g-sequence-lookup"><function>g_sequence_lookup()</function></link>.</para>
+<para>This function will fail if the data contained in the sequence is
+unsorted.</para>
+<refsect3 id="g-sequence-search.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>seq</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSequence"><type>GSequence</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>data</para></entry>
+<entry role="parameter_description"><para>data for the new item</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>cmp_func</para></entry>
+<entry role="parameter_description"><para>the function used to compare items in the sequence</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>cmp_data</para></entry>
+<entry role="parameter_description"><para>user data passed to <parameter>cmp_func</parameter>
+</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-sequence-search.returns" role="returns">
+<title>Returns</title>
+<para>an <link linkend="GSequenceIter"><type>GSequenceIter</type></link> pointing to the position where <parameter>data</parameter>
+would have been inserted according to <parameter>cmp_func</parameter>
+and <parameter>cmp_data</parameter>
+. </para>
+<para><emphasis role="annotation">[<acronym>transfer none</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.14">2.14</link></para></refsect2>
+<refsect2 id="g-sequence-search-iter" role="function" condition="since:2.14">
+<title>g_sequence_search_iter&#160;()</title>
+<indexterm zone="g-sequence-search-iter" role="2.14"><primary sortas="sequence_search_iter">g_sequence_search_iter</primary></indexterm>
+<programlisting language="C"><link linkend="GSequenceIter"><returnvalue>GSequenceIter</returnvalue></link>&#160;*
+g_sequence_search_iter (<parameter><link linkend="GSequence"><type>GSequence</type></link> *seq</parameter>,
+                        <parameter><link linkend="gpointer"><type>gpointer</type></link> data</parameter>,
+                        <parameter><link linkend="GSequenceIterCompareFunc"><type>GSequenceIterCompareFunc</type></link> iter_cmp</parameter>,
+                        <parameter><link linkend="gpointer"><type>gpointer</type></link> cmp_data</parameter>);</programlisting>
+<para>Like <link linkend="g-sequence-search"><function>g_sequence_search()</function></link>, but uses a <link linkend="GSequenceIterCompareFunc"><type>GSequenceIterCompareFunc</type></link>
+instead of a <link linkend="GCompareDataFunc"><type>GCompareDataFunc</type></link> as the compare function.</para>
+<para><parameter>iter_cmp</parameter>
+ is called with two iterators pointing into <parameter>seq</parameter>
+.
+It should return 0 if the iterators are equal, a negative value
+if the first iterator comes before the second, and a positive
+value if the second iterator comes before the first.</para>
+<para>If you are simply searching for an existing element of the sequence,
+consider using <link linkend="g-sequence-lookup-iter"><function>g_sequence_lookup_iter()</function></link>.</para>
+<para>This function will fail if the data contained in the sequence is
+unsorted.</para>
+<refsect3 id="g-sequence-search-iter.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>seq</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSequence"><type>GSequence</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>data</para></entry>
+<entry role="parameter_description"><para>data for the new item</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>iter_cmp</para></entry>
+<entry role="parameter_description"><para>the function used to compare iterators in the sequence</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>cmp_data</para></entry>
+<entry role="parameter_description"><para>user data passed to <parameter>iter_cmp</parameter>
+</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-sequence-search-iter.returns" role="returns">
+<title>Returns</title>
+<para>a <link linkend="GSequenceIter"><type>GSequenceIter</type></link> pointing to the position in <parameter>seq</parameter>
+where <parameter>data</parameter>
+would have been inserted according to <parameter>iter_cmp</parameter>
+and <parameter>cmp_data</parameter>
+. </para>
+<para><emphasis role="annotation">[<acronym>transfer none</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.14">2.14</link></para></refsect2>
+<refsect2 id="g-sequence-lookup" role="function" condition="since:2.28">
+<title>g_sequence_lookup&#160;()</title>
+<indexterm zone="g-sequence-lookup" role="2.28"><primary sortas="sequence_lookup">g_sequence_lookup</primary></indexterm>
+<programlisting language="C"><link linkend="GSequenceIter"><returnvalue>GSequenceIter</returnvalue></link>&#160;*
+g_sequence_lookup (<parameter><link linkend="GSequence"><type>GSequence</type></link> *seq</parameter>,
+                   <parameter><link linkend="gpointer"><type>gpointer</type></link> data</parameter>,
+                   <parameter><link linkend="GCompareDataFunc"><type>GCompareDataFunc</type></link> cmp_func</parameter>,
+                   <parameter><link linkend="gpointer"><type>gpointer</type></link> cmp_data</parameter>);</programlisting>
+<para>Returns an iterator pointing to the position of the first item found
+equal to <parameter>data</parameter>
+ according to <parameter>cmp_func</parameter>
+ and <parameter>cmp_data</parameter>
+. If more than one
+item is equal, it is not guaranteed that it is the first which is
+returned. In that case, you can use <link linkend="g-sequence-iter-next"><function>g_sequence_iter_next()</function></link> and
+<link linkend="g-sequence-iter-prev"><function>g_sequence_iter_prev()</function></link> to get others.</para>
+<para><parameter>cmp_func</parameter>
+ is called with two items of the <parameter>seq</parameter>
+, and <parameter>cmp_data</parameter>
+.
+It should return 0 if the items are equal, a negative value if
+the first item comes before the second, and a positive value if
+the second item comes before the first.</para>
+<para>This function will fail if the data contained in the sequence is
+unsorted.</para>
+<refsect3 id="g-sequence-lookup.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>seq</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSequence"><type>GSequence</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>data</para></entry>
+<entry role="parameter_description"><para>data to lookup</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>cmp_func</para></entry>
+<entry role="parameter_description"><para>the function used to compare items in the sequence</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>cmp_data</para></entry>
+<entry role="parameter_description"><para>user data passed to <parameter>cmp_func</parameter>
+</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-sequence-lookup.returns" role="returns">
+<title>Returns</title>
+<para>an <link linkend="GSequenceIter"><type>GSequenceIter</type></link> pointing to the position of the
+first item found equal to <parameter>data</parameter>
+according to <parameter>cmp_func</parameter>
+and
+<parameter>cmp_data</parameter>
+, or <link linkend="NULL:CAPS"><literal>NULL</literal></link> if no such item exists. </para>
+<para><emphasis role="annotation">[<acronym>transfer none</acronym>][<acronym>nullable</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.28">2.28</link></para></refsect2>
+<refsect2 id="g-sequence-lookup-iter" role="function" condition="since:2.28">
+<title>g_sequence_lookup_iter&#160;()</title>
+<indexterm zone="g-sequence-lookup-iter" role="2.28"><primary sortas="sequence_lookup_iter">g_sequence_lookup_iter</primary></indexterm>
+<programlisting language="C"><link linkend="GSequenceIter"><returnvalue>GSequenceIter</returnvalue></link>&#160;*
+g_sequence_lookup_iter (<parameter><link linkend="GSequence"><type>GSequence</type></link> *seq</parameter>,
+                        <parameter><link linkend="gpointer"><type>gpointer</type></link> data</parameter>,
+                        <parameter><link linkend="GSequenceIterCompareFunc"><type>GSequenceIterCompareFunc</type></link> iter_cmp</parameter>,
+                        <parameter><link linkend="gpointer"><type>gpointer</type></link> cmp_data</parameter>);</programlisting>
+<para>Like <link linkend="g-sequence-lookup"><function>g_sequence_lookup()</function></link>, but uses a <link linkend="GSequenceIterCompareFunc"><type>GSequenceIterCompareFunc</type></link>
+instead of a <link linkend="GCompareDataFunc"><type>GCompareDataFunc</type></link> as the compare function.</para>
+<para><parameter>iter_cmp</parameter>
+ is called with two iterators pointing into <parameter>seq</parameter>
+.
+It should return 0 if the iterators are equal, a negative value
+if the first iterator comes before the second, and a positive
+value if the second iterator comes before the first.</para>
+<para>This function will fail if the data contained in the sequence is
+unsorted.</para>
+<refsect3 id="g-sequence-lookup-iter.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>seq</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSequence"><type>GSequence</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>data</para></entry>
+<entry role="parameter_description"><para>data to lookup</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>iter_cmp</para></entry>
+<entry role="parameter_description"><para>the function used to compare iterators in the sequence</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>cmp_data</para></entry>
+<entry role="parameter_description"><para>user data passed to <parameter>iter_cmp</parameter>
+</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-sequence-lookup-iter.returns" role="returns">
+<title>Returns</title>
+<para>an <link linkend="GSequenceIter"><type>GSequenceIter</type></link> pointing to the position of
+the first item found equal to <parameter>data</parameter>
+according to <parameter>iter_cmp</parameter>
+and <parameter>cmp_data</parameter>
+, or <link linkend="NULL:CAPS"><literal>NULL</literal></link> if no such item exists. </para>
+<para><emphasis role="annotation">[<acronym>transfer none</acronym>][<acronym>nullable</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.28">2.28</link></para></refsect2>
+<refsect2 id="g-sequence-get" role="function" condition="since:2.14">
+<title>g_sequence_get&#160;()</title>
+<indexterm zone="g-sequence-get" role="2.14"><primary sortas="sequence_get">g_sequence_get</primary></indexterm>
+<programlisting language="C"><link linkend="gpointer"><returnvalue>gpointer</returnvalue></link>
+g_sequence_get (<parameter><link linkend="GSequenceIter"><type>GSequenceIter</type></link> *iter</parameter>);</programlisting>
+<para>Returns the data that <parameter>iter</parameter>
+ points to.</para>
+<refsect3 id="g-sequence-get.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>iter</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSequenceIter"><type>GSequenceIter</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-sequence-get.returns" role="returns">
+<title>Returns</title>
+<para>the data that <parameter>iter</parameter>
+points to. </para>
+<para><emphasis role="annotation">[<acronym>transfer none</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.14">2.14</link></para></refsect2>
+<refsect2 id="g-sequence-set" role="function" condition="since:2.14">
+<title>g_sequence_set&#160;()</title>
+<indexterm zone="g-sequence-set" role="2.14"><primary sortas="sequence_set">g_sequence_set</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_sequence_set (<parameter><link linkend="GSequenceIter"><type>GSequenceIter</type></link> *iter</parameter>,
+                <parameter><link linkend="gpointer"><type>gpointer</type></link> data</parameter>);</programlisting>
+<para>Changes the data for the item pointed to by <parameter>iter</parameter>
+ to be <parameter>data</parameter>
+. If
+the sequence has a data destroy function associated with it, that
+function is called on the existing data that <parameter>iter</parameter>
+ pointed to.</para>
+<refsect3 id="g-sequence-set.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>iter</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSequenceIter"><type>GSequenceIter</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>data</para></entry>
+<entry role="parameter_description"><para>new data for the item</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.14">2.14</link></para></refsect2>
+<refsect2 id="g-sequence-iter-is-begin" role="function" condition="since:2.14">
+<title>g_sequence_iter_is_begin&#160;()</title>
+<indexterm zone="g-sequence-iter-is-begin" role="2.14"><primary sortas="sequence_iter_is_begin">g_sequence_iter_is_begin</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_sequence_iter_is_begin (<parameter><link linkend="GSequenceIter"><type>GSequenceIter</type></link> *iter</parameter>);</programlisting>
+<para>Returns whether <parameter>iter</parameter>
+ is the begin iterator</para>
+<refsect3 id="g-sequence-iter-is-begin.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>iter</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSequenceIter"><type>GSequenceIter</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-sequence-iter-is-begin.returns" role="returns">
+<title>Returns</title>
+<para> whether <parameter>iter</parameter>
+is the begin iterator</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.14">2.14</link></para></refsect2>
+<refsect2 id="g-sequence-iter-is-end" role="function" condition="since:2.14">
+<title>g_sequence_iter_is_end&#160;()</title>
+<indexterm zone="g-sequence-iter-is-end" role="2.14"><primary sortas="sequence_iter_is_end">g_sequence_iter_is_end</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_sequence_iter_is_end (<parameter><link linkend="GSequenceIter"><type>GSequenceIter</type></link> *iter</parameter>);</programlisting>
+<para>Returns whether <parameter>iter</parameter>
+ is the end iterator</para>
+<refsect3 id="g-sequence-iter-is-end.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>iter</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSequenceIter"><type>GSequenceIter</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-sequence-iter-is-end.returns" role="returns">
+<title>Returns</title>
+<para> Whether <parameter>iter</parameter>
+is the end iterator</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.14">2.14</link></para></refsect2>
+<refsect2 id="g-sequence-iter-next" role="function" condition="since:2.14">
+<title>g_sequence_iter_next&#160;()</title>
+<indexterm zone="g-sequence-iter-next" role="2.14"><primary sortas="sequence_iter_next">g_sequence_iter_next</primary></indexterm>
+<programlisting language="C"><link linkend="GSequenceIter"><returnvalue>GSequenceIter</returnvalue></link>&#160;*
+g_sequence_iter_next (<parameter><link linkend="GSequenceIter"><type>GSequenceIter</type></link> *iter</parameter>);</programlisting>
+<para>Returns an iterator pointing to the next position after <parameter>iter</parameter>
+.
+If <parameter>iter</parameter>
+ is the end iterator, the end iterator is returned.</para>
+<refsect3 id="g-sequence-iter-next.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>iter</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSequenceIter"><type>GSequenceIter</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-sequence-iter-next.returns" role="returns">
+<title>Returns</title>
+<para>a <link linkend="GSequenceIter"><type>GSequenceIter</type></link> pointing to the next position after <parameter>iter</parameter>
+. </para>
+<para><emphasis role="annotation">[<acronym>transfer none</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.14">2.14</link></para></refsect2>
+<refsect2 id="g-sequence-iter-prev" role="function" condition="since:2.14">
+<title>g_sequence_iter_prev&#160;()</title>
+<indexterm zone="g-sequence-iter-prev" role="2.14"><primary sortas="sequence_iter_prev">g_sequence_iter_prev</primary></indexterm>
+<programlisting language="C"><link linkend="GSequenceIter"><returnvalue>GSequenceIter</returnvalue></link>&#160;*
+g_sequence_iter_prev (<parameter><link linkend="GSequenceIter"><type>GSequenceIter</type></link> *iter</parameter>);</programlisting>
+<para>Returns an iterator pointing to the previous position before <parameter>iter</parameter>
+.
+If <parameter>iter</parameter>
+ is the begin iterator, the begin iterator is returned.</para>
+<refsect3 id="g-sequence-iter-prev.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>iter</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSequenceIter"><type>GSequenceIter</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-sequence-iter-prev.returns" role="returns">
+<title>Returns</title>
+<para>a <link linkend="GSequenceIter"><type>GSequenceIter</type></link> pointing to the previous position
+before <parameter>iter</parameter>
+. </para>
+<para><emphasis role="annotation">[<acronym>transfer none</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.14">2.14</link></para></refsect2>
+<refsect2 id="g-sequence-iter-get-position" role="function" condition="since:2.14">
+<title>g_sequence_iter_get_position&#160;()</title>
+<indexterm zone="g-sequence-iter-get-position" role="2.14"><primary sortas="sequence_iter_get_position">g_sequence_iter_get_position</primary></indexterm>
+<programlisting language="C"><link linkend="gint"><returnvalue>gint</returnvalue></link>
+g_sequence_iter_get_position (<parameter><link linkend="GSequenceIter"><type>GSequenceIter</type></link> *iter</parameter>);</programlisting>
+<para>Returns the position of <parameter>iter</parameter>
+</para>
+<refsect3 id="g-sequence-iter-get-position.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>iter</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSequenceIter"><type>GSequenceIter</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-sequence-iter-get-position.returns" role="returns">
+<title>Returns</title>
+<para> the position of <parameter>iter</parameter>
+</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.14">2.14</link></para></refsect2>
+<refsect2 id="g-sequence-iter-move" role="function" condition="since:2.14">
+<title>g_sequence_iter_move&#160;()</title>
+<indexterm zone="g-sequence-iter-move" role="2.14"><primary sortas="sequence_iter_move">g_sequence_iter_move</primary></indexterm>
+<programlisting language="C"><link linkend="GSequenceIter"><returnvalue>GSequenceIter</returnvalue></link>&#160;*
+g_sequence_iter_move (<parameter><link linkend="GSequenceIter"><type>GSequenceIter</type></link> *iter</parameter>,
+                      <parameter><link linkend="gint"><type>gint</type></link> delta</parameter>);</programlisting>
+<para>Returns the <link linkend="GSequenceIter"><type>GSequenceIter</type></link> which is <parameter>delta</parameter>
+ positions away from <parameter>iter</parameter>
+.
+If <parameter>iter</parameter>
+ is closer than -<parameter>delta</parameter>
+ positions to the beginning of the sequence,
+the begin iterator is returned. If <parameter>iter</parameter>
+ is closer than <parameter>delta</parameter>
+ positions
+to the end of the sequence, the end iterator is returned.</para>
+<refsect3 id="g-sequence-iter-move.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>iter</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSequenceIter"><type>GSequenceIter</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>delta</para></entry>
+<entry role="parameter_description"><para>A positive or negative number indicating how many positions away
+from <parameter>iter</parameter>
+the returned <link linkend="GSequenceIter"><type>GSequenceIter</type></link> will be</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-sequence-iter-move.returns" role="returns">
+<title>Returns</title>
+<para>a <link linkend="GSequenceIter"><type>GSequenceIter</type></link> which is <parameter>delta</parameter>
+positions away from <parameter>iter</parameter>
+. </para>
+<para><emphasis role="annotation">[<acronym>transfer none</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.14">2.14</link></para></refsect2>
+<refsect2 id="g-sequence-iter-get-sequence" role="function" condition="since:2.14">
+<title>g_sequence_iter_get_sequence&#160;()</title>
+<indexterm zone="g-sequence-iter-get-sequence" role="2.14"><primary sortas="sequence_iter_get_sequence">g_sequence_iter_get_sequence</primary></indexterm>
+<programlisting language="C"><link linkend="GSequence"><returnvalue>GSequence</returnvalue></link>&#160;*
+g_sequence_iter_get_sequence (<parameter><link linkend="GSequenceIter"><type>GSequenceIter</type></link> *iter</parameter>);</programlisting>
+<para>Returns the <link linkend="GSequence"><type>GSequence</type></link> that <parameter>iter</parameter>
+ points into.</para>
+<refsect3 id="g-sequence-iter-get-sequence.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>iter</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSequenceIter"><type>GSequenceIter</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-sequence-iter-get-sequence.returns" role="returns">
+<title>Returns</title>
+<para>the <link linkend="GSequence"><type>GSequence</type></link> that <parameter>iter</parameter>
+points into. </para>
+<para><emphasis role="annotation">[<acronym>transfer none</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.14">2.14</link></para></refsect2>
+<refsect2 id="g-sequence-iter-compare" role="function" condition="since:2.14">
+<title>g_sequence_iter_compare&#160;()</title>
+<indexterm zone="g-sequence-iter-compare" role="2.14"><primary sortas="sequence_iter_compare">g_sequence_iter_compare</primary></indexterm>
+<programlisting language="C"><link linkend="gint"><returnvalue>gint</returnvalue></link>
+g_sequence_iter_compare (<parameter><link linkend="GSequenceIter"><type>GSequenceIter</type></link> *a</parameter>,
+                         <parameter><link linkend="GSequenceIter"><type>GSequenceIter</type></link> *b</parameter>);</programlisting>
+<para>Returns a negative number if <parameter>a</parameter>
+ comes before <parameter>b</parameter>
+, 0 if they are equal,
+and a positive number if <parameter>a</parameter>
+ comes after <parameter>b</parameter>
+.</para>
+<para>The <parameter>a</parameter>
+ and <parameter>b</parameter>
+ iterators must point into the same sequence.</para>
+<refsect3 id="g-sequence-iter-compare.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>a</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSequenceIter"><type>GSequenceIter</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>b</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSequenceIter"><type>GSequenceIter</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-sequence-iter-compare.returns" role="returns">
+<title>Returns</title>
+<para> a negative number if <parameter>a</parameter>
+comes before <parameter>b</parameter>
+, 0 if they are
+equal, and a positive number if <parameter>a</parameter>
+comes after <parameter>b</parameter>
+</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.14">2.14</link></para></refsect2>
+<refsect2 id="g-sequence-range-get-midpoint" role="function" condition="since:2.14">
+<title>g_sequence_range_get_midpoint&#160;()</title>
+<indexterm zone="g-sequence-range-get-midpoint" role="2.14"><primary sortas="sequence_range_get_midpoint">g_sequence_range_get_midpoint</primary></indexterm>
+<programlisting language="C"><link linkend="GSequenceIter"><returnvalue>GSequenceIter</returnvalue></link>&#160;*
+g_sequence_range_get_midpoint (<parameter><link linkend="GSequenceIter"><type>GSequenceIter</type></link> *begin</parameter>,
+                               <parameter><link linkend="GSequenceIter"><type>GSequenceIter</type></link> *end</parameter>);</programlisting>
+<para>Finds an iterator somewhere in the range (<parameter>begin</parameter>
+, <parameter>end</parameter>
+). This
+iterator will be close to the middle of the range, but is not
+guaranteed to be exactly in the middle.</para>
+<para>The <parameter>begin</parameter>
+ and <parameter>end</parameter>
+ iterators must both point to the same sequence
+and <parameter>begin</parameter>
+ must come before or be equal to <parameter>end</parameter>
+ in the sequence.</para>
+<refsect3 id="g-sequence-range-get-midpoint.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>begin</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSequenceIter"><type>GSequenceIter</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>end</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GSequenceIter"><type>GSequenceIter</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-sequence-range-get-midpoint.returns" role="returns">
+<title>Returns</title>
+<para>a <link linkend="GSequenceIter"><type>GSequenceIter</type></link> pointing somewhere in the
+(<parameter>begin</parameter>
+, <parameter>end</parameter>
+) range. </para>
+<para><emphasis role="annotation">[<acronym>transfer none</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.14">2.14</link></para></refsect2>
+
+</refsect1>
+<refsect1 id="glib-Sequences.other_details" role="details">
+<title role="details.title">Types and Values</title>
+<refsect2 id="GSequence" role="struct">
+<title>GSequence</title>
+<indexterm zone="GSequence"><primary sortas="Sequence">GSequence</primary></indexterm>
+<programlisting language="C">typedef struct _GSequence GSequence;</programlisting>
+<para>The <link linkend="GSequence"><type>GSequence</type></link> struct is an opaque data type representing a
+<link linkend="glib-Sequences">sequence</link> data type.</para>
+</refsect2>
+<refsect2 id="GSequenceIter" role="typedef">
+<title>GSequenceIter</title>
+<indexterm zone="GSequenceIter"><primary sortas="SequenceIter">GSequenceIter</primary></indexterm>
+<programlisting language="C">typedef struct _GSequenceNode  GSequenceIter;
+</programlisting>
+<para>The <link linkend="GSequenceIter"><type>GSequenceIter</type></link> struct is an opaque data type representing an
+iterator pointing into a <link linkend="GSequence"><type>GSequence</type></link>.</para>
+</refsect2>
+
+</refsect1>
+
+</refentry>

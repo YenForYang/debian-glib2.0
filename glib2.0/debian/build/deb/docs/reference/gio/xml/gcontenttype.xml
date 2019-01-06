@@ -1,0 +1,463 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC '-//OASIS//DTD DocBook XML V4.5//EN'
+                      'http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd' [
+<!ENTITY % local.common.attrib "xmlns:xi  CDATA  #FIXED 'http://www.w3.org/2003/XInclude'">
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="gio-GContentType">
+<refmeta>
+<refentrytitle role="top_of_page" id="gio-GContentType.top_of_page">GContentType</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>GIO Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>GContentType</refname>
+<refpurpose>Platform-specific content typing</refpurpose>
+</refnamediv>
+
+<refsect1 id="gio-GContentType.functions" role="functions_proto">
+<title role="functions_proto.title">Functions</title>
+<informaltable pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="functions_return" colwidth="150px"/>
+<colspec colname="functions_name"/>
+<tbody>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-content-type-equals">g_content_type_equals</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-content-type-is-a">g_content_type_is_a</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-content-type-is-mime-type">g_content_type_is_mime_type</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-content-type-is-unknown">g_content_type_is_unknown</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-content-type-get-description">g_content_type_get_description</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-content-type-get-mime-type">g_content_type_get_mime_type</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GIcon"><returnvalue>GIcon</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-content-type-get-icon">g_content_type_get_icon</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GIcon"><returnvalue>GIcon</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-content-type-get-symbolic-icon">g_content_type_get_symbolic_icon</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-content-type-get-generic-icon-name">g_content_type_get_generic_icon_name</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-content-type-can-be-executable">g_content_type_can_be_executable</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-content-type-from-mime-type">g_content_type_from_mime_type</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-content-type-guess">g_content_type_guess</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;**
+</entry><entry role="function_name"><link linkend="g-content-type-guess-for-tree">g_content_type_guess_for_tree</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GList"><returnvalue>GList</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-content-types-get-registered">g_content_types_get_registered</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+
+<refsect1 id="gio-GContentType.includes"><title>Includes</title><synopsis>#include &lt;gio/gio.h&gt;
+</synopsis></refsect1>
+
+<refsect1 id="gio-GContentType.description" role="desc">
+<title role="desc.title">Description</title>
+<para>A content type is a platform specific string that defines the type
+of a file. On UNIX it is a
+<ulink url="http://www.wikipedia.org/wiki/Internet_media_type">mime type</ulink>
+like "text/plain" or "image/png".
+On Win32 it is an extension string like ".doc", ".txt" or a perceived
+string like "audio". Such strings can be looked up in the registry at
+HKEY_CLASSES_ROOT.
+On OSX it is a <ulink url="https://en.wikipedia.org/wiki/Uniform_Type_Identifier">Uniform Type Identifier</ulink>
+such as "com.apple.application".</para>
+
+</refsect1>
+<refsect1 id="gio-GContentType.functions_details" role="details">
+<title role="details.title">Functions</title>
+<refsect2 id="g-content-type-equals" role="function">
+<title>g_content_type_equals&#160;()</title>
+<indexterm zone="g-content-type-equals"><primary sortas="content_type_equals">g_content_type_equals</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_content_type_equals (<parameter>const <link linkend="gchar"><type>gchar</type></link> *type1</parameter>,
+                       <parameter>const <link linkend="gchar"><type>gchar</type></link> *type2</parameter>);</programlisting>
+<para>Compares two content types for equality.</para>
+<refsect3 id="g-content-type-equals.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>type1</para></entry>
+<entry role="parameter_description"><para>a content type string</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>type2</para></entry>
+<entry role="parameter_description"><para>a content type string</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-content-type-equals.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if the two strings are identical or equivalent,
+<link linkend="FALSE:CAPS"><literal>FALSE</literal></link> otherwise.</para>
+</refsect3></refsect2>
+<refsect2 id="g-content-type-is-a" role="function">
+<title>g_content_type_is_a&#160;()</title>
+<indexterm zone="g-content-type-is-a"><primary sortas="content_type_is_a">g_content_type_is_a</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_content_type_is_a (<parameter>const <link linkend="gchar"><type>gchar</type></link> *type</parameter>,
+                     <parameter>const <link linkend="gchar"><type>gchar</type></link> *supertype</parameter>);</programlisting>
+<para>Determines if <parameter>type</parameter>
+ is a subset of <parameter>supertype</parameter>
+.</para>
+<refsect3 id="g-content-type-is-a.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>type</para></entry>
+<entry role="parameter_description"><para>a content type string</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>supertype</para></entry>
+<entry role="parameter_description"><para>a content type string</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-content-type-is-a.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if <parameter>type</parameter>
+is a kind of <parameter>supertype</parameter>
+,
+<link linkend="FALSE:CAPS"><literal>FALSE</literal></link> otherwise.</para>
+</refsect3></refsect2>
+<refsect2 id="g-content-type-is-mime-type" role="function" condition="since:2.52">
+<title>g_content_type_is_mime_type&#160;()</title>
+<indexterm zone="g-content-type-is-mime-type" role="2.52"><primary sortas="content_type_is_mime_type">g_content_type_is_mime_type</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_content_type_is_mime_type (<parameter>const <link linkend="gchar"><type>gchar</type></link> *type</parameter>,
+                             <parameter>const <link linkend="gchar"><type>gchar</type></link> *mime_type</parameter>);</programlisting>
+<para>Determines if <parameter>type</parameter>
+ is a subset of <parameter>mime_type</parameter>
+.
+Convenience wrapper around <link linkend="g-content-type-is-a"><function>g_content_type_is_a()</function></link>.</para>
+<refsect3 id="g-content-type-is-mime-type.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>type</para></entry>
+<entry role="parameter_description"><para>a content type string</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>mime_type</para></entry>
+<entry role="parameter_description"><para>a mime type string</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-content-type-is-mime-type.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if <parameter>type</parameter>
+is a kind of <parameter>mime_type</parameter>
+,
+<link linkend="FALSE:CAPS"><literal>FALSE</literal></link> otherwise.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.52">2.52</link></para></refsect2>
+<refsect2 id="g-content-type-is-unknown" role="function">
+<title>g_content_type_is_unknown&#160;()</title>
+<indexterm zone="g-content-type-is-unknown"><primary sortas="content_type_is_unknown">g_content_type_is_unknown</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_content_type_is_unknown (<parameter>const <link linkend="gchar"><type>gchar</type></link> *type</parameter>);</programlisting>
+<para>Checks if the content type is the generic "unknown" type.
+On UNIX this is the "application/octet-stream" mimetype,
+while on win32 it is "*" and on OSX it is a dynamic type
+or octet-stream.</para>
+<refsect3 id="g-content-type-is-unknown.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>type</para></entry>
+<entry role="parameter_description"><para>a content type string</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-content-type-is-unknown.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if the type is the unknown type.</para>
+</refsect3></refsect2>
+<refsect2 id="g-content-type-get-description" role="function">
+<title>g_content_type_get_description&#160;()</title>
+<indexterm zone="g-content-type-get-description"><primary sortas="content_type_get_description">g_content_type_get_description</primary></indexterm>
+<programlisting language="C"><link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+g_content_type_get_description (<parameter>const <link linkend="gchar"><type>gchar</type></link> *type</parameter>);</programlisting>
+<para>Gets the human readable description of the content type.</para>
+<refsect3 id="g-content-type-get-description.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>type</para></entry>
+<entry role="parameter_description"><para>a content type string</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-content-type-get-description.returns" role="returns">
+<title>Returns</title>
+<para> a short description of the content type <parameter>type</parameter>
+. Free the
+returned string with <link linkend="g-free"><function>g_free()</function></link></para>
+</refsect3></refsect2>
+<refsect2 id="g-content-type-get-mime-type" role="function">
+<title>g_content_type_get_mime_type&#160;()</title>
+<indexterm zone="g-content-type-get-mime-type"><primary sortas="content_type_get_mime_type">g_content_type_get_mime_type</primary></indexterm>
+<programlisting language="C"><link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+g_content_type_get_mime_type (<parameter>const <link linkend="gchar"><type>gchar</type></link> *type</parameter>);</programlisting>
+<para>Gets the mime type for the content type, if one is registered.</para>
+<refsect3 id="g-content-type-get-mime-type.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>type</para></entry>
+<entry role="parameter_description"><para>a content type string</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-content-type-get-mime-type.returns" role="returns">
+<title>Returns</title>
+<para>the registered mime type for the
+given <parameter>type</parameter>
+, or <link linkend="NULL:CAPS"><literal>NULL</literal></link> if unknown; free with <link linkend="g-free"><function>g_free()</function></link>. </para>
+<para><emphasis role="annotation">[<acronym>nullable</acronym>][<acronym>transfer full</acronym>]</emphasis></para>
+</refsect3></refsect2>
+<refsect2 id="g-content-type-get-icon" role="function">
+<title>g_content_type_get_icon&#160;()</title>
+<indexterm zone="g-content-type-get-icon"><primary sortas="content_type_get_icon">g_content_type_get_icon</primary></indexterm>
+<programlisting language="C"><link linkend="GIcon"><returnvalue>GIcon</returnvalue></link>&#160;*
+g_content_type_get_icon (<parameter>const <link linkend="gchar"><type>gchar</type></link> *type</parameter>);</programlisting>
+<para>Gets the icon for a content type.</para>
+<refsect3 id="g-content-type-get-icon.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>type</para></entry>
+<entry role="parameter_description"><para>a content type string</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-content-type-get-icon.returns" role="returns">
+<title>Returns</title>
+<para><link linkend="GIcon"><type>GIcon</type></link> corresponding to the content type. Free the returned
+object with <link linkend="g-object-unref"><function>g_object_unref()</function></link>. </para>
+<para><emphasis role="annotation">[<acronym>transfer full</acronym>]</emphasis></para>
+</refsect3></refsect2>
+<refsect2 id="g-content-type-get-symbolic-icon" role="function" condition="since:2.34">
+<title>g_content_type_get_symbolic_icon&#160;()</title>
+<indexterm zone="g-content-type-get-symbolic-icon" role="2.34"><primary sortas="content_type_get_symbolic_icon">g_content_type_get_symbolic_icon</primary></indexterm>
+<programlisting language="C"><link linkend="GIcon"><returnvalue>GIcon</returnvalue></link>&#160;*
+g_content_type_get_symbolic_icon (<parameter>const <link linkend="gchar"><type>gchar</type></link> *type</parameter>);</programlisting>
+<para>Gets the symbolic icon for a content type.</para>
+<refsect3 id="g-content-type-get-symbolic-icon.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>type</para></entry>
+<entry role="parameter_description"><para>a content type string</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-content-type-get-symbolic-icon.returns" role="returns">
+<title>Returns</title>
+<para>symbolic <link linkend="GIcon"><type>GIcon</type></link> corresponding to the content type.
+Free the returned object with <link linkend="g-object-unref"><function>g_object_unref()</function></link>. </para>
+<para><emphasis role="annotation">[<acronym>transfer full</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.34">2.34</link></para></refsect2>
+<refsect2 id="g-content-type-get-generic-icon-name" role="function" condition="since:2.34">
+<title>g_content_type_get_generic_icon_name&#160;()</title>
+<indexterm zone="g-content-type-get-generic-icon-name" role="2.34"><primary sortas="content_type_get_generic_icon_name">g_content_type_get_generic_icon_name</primary></indexterm>
+<programlisting language="C"><link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+g_content_type_get_generic_icon_name (<parameter>const <link linkend="gchar"><type>gchar</type></link> *type</parameter>);</programlisting>
+<para>Gets the generic icon name for a content type.</para>
+<para>See the
+<ulink url="http://www.freedesktop.org/wiki/Specifications/shared-mime-info-spec">shared-mime-info</ulink>
+specification for more on the generic icon name.</para>
+<refsect3 id="g-content-type-get-generic-icon-name.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>type</para></entry>
+<entry role="parameter_description"><para>a content type string</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-content-type-get-generic-icon-name.returns" role="returns">
+<title>Returns</title>
+<para>the registered generic icon name for the given <parameter>type</parameter>
+,
+or <link linkend="NULL:CAPS"><literal>NULL</literal></link> if unknown. Free with <link linkend="g-free"><function>g_free()</function></link>. </para>
+<para><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.34">2.34</link></para></refsect2>
+<refsect2 id="g-content-type-can-be-executable" role="function">
+<title>g_content_type_can_be_executable&#160;()</title>
+<indexterm zone="g-content-type-can-be-executable"><primary sortas="content_type_can_be_executable">g_content_type_can_be_executable</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_content_type_can_be_executable (<parameter>const <link linkend="gchar"><type>gchar</type></link> *type</parameter>);</programlisting>
+<para>Checks if a content type can be executable. Note that for instance
+things like text files can be executables (i.e. scripts and batch files).</para>
+<refsect3 id="g-content-type-can-be-executable.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>type</para></entry>
+<entry role="parameter_description"><para>a content type string</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-content-type-can-be-executable.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if the file type corresponds to a type that
+can be executable, <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> otherwise.</para>
+</refsect3></refsect2>
+<refsect2 id="g-content-type-from-mime-type" role="function" condition="since:2.18">
+<title>g_content_type_from_mime_type&#160;()</title>
+<indexterm zone="g-content-type-from-mime-type" role="2.18"><primary sortas="content_type_from_mime_type">g_content_type_from_mime_type</primary></indexterm>
+<programlisting language="C"><link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+g_content_type_from_mime_type (<parameter>const <link linkend="gchar"><type>gchar</type></link> *mime_type</parameter>);</programlisting>
+<para>Tries to find a content type based on the mime type name.</para>
+<refsect3 id="g-content-type-from-mime-type.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>mime_type</para></entry>
+<entry role="parameter_description"><para>a mime type string</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-content-type-from-mime-type.returns" role="returns">
+<title>Returns</title>
+<para>Newly allocated string with content type or
+<link linkend="NULL:CAPS"><literal>NULL</literal></link>. Free with <link linkend="g-free"><function>g_free()</function></link>. </para>
+<para><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.18">2.18</link></para></refsect2>
+<refsect2 id="g-content-type-guess" role="function">
+<title>g_content_type_guess&#160;()</title>
+<indexterm zone="g-content-type-guess"><primary sortas="content_type_guess">g_content_type_guess</primary></indexterm>
+<programlisting language="C"><link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;*
+g_content_type_guess (<parameter>const <link linkend="gchar"><type>gchar</type></link> *filename</parameter>,
+                      <parameter>const <link linkend="guchar"><type>guchar</type></link> *data</parameter>,
+                      <parameter><link linkend="gsize"><type>gsize</type></link> data_size</parameter>,
+                      <parameter><link linkend="gboolean"><type>gboolean</type></link> *result_uncertain</parameter>);</programlisting>
+<para>Guesses the content type based on example data. If the function is
+uncertain, <parameter>result_uncertain</parameter>
+ will be set to <link linkend="TRUE:CAPS"><literal>TRUE</literal></link>. Either <parameter>filename</parameter>
+
+or <parameter>data</parameter>
+ may be <link linkend="NULL:CAPS"><literal>NULL</literal></link>, in which case the guess will be based solely
+on the other argument.</para>
+<refsect3 id="g-content-type-guess.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>filename</para></entry>
+<entry role="parameter_description"><para>a string, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>data</para></entry>
+<entry role="parameter_description"><para>a stream of data, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>][<acronym>array</acronym> length=data_size]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>data_size</para></entry>
+<entry role="parameter_description"><para>the size of <parameter>data</parameter>
+</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>result_uncertain</para></entry>
+<entry role="parameter_description"><para>return location for the certainty
+of the result, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>out</acronym>][<acronym>optional</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-content-type-guess.returns" role="returns">
+<title>Returns</title>
+<para> a string indicating a guessed content type for the
+given data. Free with <link linkend="g-free"><function>g_free()</function></link></para>
+</refsect3></refsect2>
+<refsect2 id="g-content-type-guess-for-tree" role="function" condition="since:2.18">
+<title>g_content_type_guess_for_tree&#160;()</title>
+<indexterm zone="g-content-type-guess-for-tree" role="2.18"><primary sortas="content_type_guess_for_tree">g_content_type_guess_for_tree</primary></indexterm>
+<programlisting language="C"><link linkend="gchar"><returnvalue>gchar</returnvalue></link>&#160;**
+g_content_type_guess_for_tree (<parameter><link linkend="GFile"><type>GFile</type></link> *root</parameter>);</programlisting>
+<para>Tries to guess the type of the tree with root <parameter>root</parameter>
+, by
+looking at the files it contains. The result is an array
+of content types, with the best guess coming first.</para>
+<para>The types returned all have the form x-content/foo, e.g.
+x-content/audio-cdda (for audio CDs) or x-content/image-dcf
+(for a camera memory card). See the
+<ulink url="http://www.freedesktop.org/wiki/Specifications/shared-mime-info-spec">shared-mime-info</ulink>
+specification for more on x-content types.</para>
+<para>This function is useful in the implementation of
+<link linkend="g-mount-guess-content-type"><function>g_mount_guess_content_type()</function></link>.</para>
+<refsect3 id="g-content-type-guess-for-tree.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>root</para></entry>
+<entry role="parameter_description"><para>the root of the tree to guess a type for</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-content-type-guess-for-tree.returns" role="returns">
+<title>Returns</title>
+<para>an <link linkend="NULL:CAPS"><literal>NULL</literal></link>-terminated
+array of zero or more content types. Free with <link linkend="g-strfreev"><function>g_strfreev()</function></link>. </para>
+<para><emphasis role="annotation">[<acronym>transfer full</acronym>][<acronym>array</acronym> zero-terminated=1]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.18">2.18</link></para></refsect2>
+<refsect2 id="g-content-types-get-registered" role="function">
+<title>g_content_types_get_registered&#160;()</title>
+<indexterm zone="g-content-types-get-registered"><primary sortas="content_types_get_registered">g_content_types_get_registered</primary></indexterm>
+<programlisting language="C"><link linkend="GList"><returnvalue>GList</returnvalue></link>&#160;*
+g_content_types_get_registered (<parameter><type>void</type></parameter>);</programlisting>
+<para>Gets a list of strings containing all the registered content types
+known to the system. The list and its data should be freed using
+g_list_free_full (list, g_free).</para>
+<refsect3 id="g-content-types-get-registered.returns" role="returns">
+<title>Returns</title>
+<para>list of the registered
+content types. </para>
+<para><emphasis role="annotation">[<acronym>element-type</acronym> utf8][<acronym>transfer full</acronym>]</emphasis></para>
+</refsect3></refsect2>
+
+</refsect1>
+<refsect1 id="gio-GContentType.other_details" role="details">
+<title role="details.title">Types and Values</title>
+
+</refsect1>
+
+</refentry>

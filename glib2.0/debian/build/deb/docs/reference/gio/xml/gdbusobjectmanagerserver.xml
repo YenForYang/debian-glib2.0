@@ -1,0 +1,376 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC '-//OASIS//DTD DocBook XML V4.5//EN'
+                      'http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd' [
+<!ENTITY % local.common.attrib "xmlns:xi  CDATA  #FIXED 'http://www.w3.org/2003/XInclude'">
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="GDBusObjectManagerServer">
+<refmeta>
+<refentrytitle role="top_of_page" id="GDBusObjectManagerServer.top_of_page">GDBusObjectManagerServer</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>GIO Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>GDBusObjectManagerServer</refname>
+<refpurpose>Service-side object manager</refpurpose>
+</refnamediv>
+
+<refsect1 id="GDBusObjectManagerServer.functions" role="functions_proto">
+<title role="functions_proto.title">Functions</title>
+<informaltable pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="functions_return" colwidth="150px"/>
+<colspec colname="functions_name"/>
+<tbody>
+<row><entry role="function_type"><link linkend="GDBusObjectManagerServer"><returnvalue>GDBusObjectManagerServer</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-dbus-object-manager-server-new">g_dbus_object_manager_server_new</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GDBusConnection"><returnvalue>GDBusConnection</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-dbus-object-manager-server-get-connection">g_dbus_object_manager_server_get_connection</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-dbus-object-manager-server-set-connection">g_dbus_object_manager_server_set_connection</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-dbus-object-manager-server-export">g_dbus_object_manager_server_export</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-dbus-object-manager-server-export-uniquely">g_dbus_object_manager_server_export_uniquely</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-dbus-object-manager-server-is-exported">g_dbus_object_manager_server_is_exported</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-dbus-object-manager-server-unexport">g_dbus_object_manager_server_unexport</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GDBusObjectManagerServer.properties" role="properties">
+<title role="properties.title">Properties</title>
+<informaltable frame="none">
+<tgroup cols="3">
+<colspec colname="properties_type" colwidth="150px"/>
+<colspec colname="properties_name" colwidth="300px"/>
+<colspec colname="properties_flags" colwidth="200px"/>
+<tbody>
+<row><entry role="property_type"><link linkend="GDBusConnection"><type>GDBusConnection</type></link>&#160;*</entry><entry role="property_name"><link linkend="GDBusObjectManagerServer--connection">connection</link></entry><entry role="property_flags">Read / Write</entry></row>
+<row><entry role="property_type"><link linkend="gchar"><type>gchar</type></link>&#160;*</entry><entry role="property_name"><link linkend="GDBusObjectManagerServer--object-path">object-path</link></entry><entry role="property_flags">Read / Write / Construct Only</entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GDBusObjectManagerServer.other" role="other_proto">
+<title role="other_proto.title">Types and Values</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="name" colwidth="150px"/>
+<colspec colname="description"/>
+<tbody>
+<row><entry role="datatype_keyword"></entry><entry role="function_name"><link linkend="GDBusObjectManagerServer-struct">GDBusObjectManagerServer</link></entry></row>
+<row><entry role="datatype_keyword">struct</entry><entry role="function_name"><link linkend="GDBusObjectManagerServerClass">GDBusObjectManagerServerClass</link></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="GDBusObjectManagerServer.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<screen>    <link linkend="GObject">GObject</link>
+    <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> GDBusObjectManagerServer
+</screen>
+</refsect1>
+<refsect1 id="GDBusObjectManagerServer.implemented-interfaces" role="impl_interfaces">
+<title role="impl_interfaces.title">Implemented Interfaces</title>
+<para>
+GDBusObjectManagerServer implements
+ <link linkend="GDBusObjectManager">GDBusObjectManager</link>.</para>
+
+</refsect1>
+
+<refsect1 id="GDBusObjectManagerServer.includes"><title>Includes</title><synopsis>#include &lt;gio/gio.h&gt;
+</synopsis></refsect1>
+
+<refsect1 id="GDBusObjectManagerServer.description" role="desc">
+<title role="desc.title">Description</title>
+<para><link linkend="GDBusObjectManagerServer"><type>GDBusObjectManagerServer</type></link> is used to export <link linkend="GDBusObject"><type>GDBusObject</type></link> instances using
+the standardized
+<ulink url="http://dbus.freedesktop.org/doc/dbus-specification.html#standard-interfaces-objectmanager">org.freedesktop.DBus.ObjectManager</ulink>
+interface. For example, remote D-Bus clients can get all objects
+and properties in a single call. Additionally, any change in the
+object hierarchy is broadcast using signals. This means that D-Bus
+clients can keep caches up to date by only listening to D-Bus
+signals.</para>
+<para>The recommended path to export an object manager at is the path form of the
+well-known name of a D-Bus service, or below. For example, if a D-Bus service
+is available at the well-known name <literal>net.example.ExampleService1</literal>, the object
+manager should typically be exported at <literal>/net/example/ExampleService1</literal>, or
+below (to allow for multiple object managers in a service).</para>
+<para>It is supported, but not recommended, to export an object manager at the root
+path, <literal>/</literal>.</para>
+<para>See <link linkend="GDBusObjectManagerClient"><type>GDBusObjectManagerClient</type></link> for the client-side code that is
+intended to be used with <link linkend="GDBusObjectManagerServer"><type>GDBusObjectManagerServer</type></link> or any D-Bus
+object implementing the org.freedesktop.DBus.ObjectManager
+interface.</para>
+
+</refsect1>
+<refsect1 id="GDBusObjectManagerServer.functions_details" role="details">
+<title role="details.title">Functions</title>
+<refsect2 id="g-dbus-object-manager-server-new" role="function" condition="since:2.30">
+<title>g_dbus_object_manager_server_new&#160;()</title>
+<indexterm zone="g-dbus-object-manager-server-new" role="2.30"><primary sortas="dbus_object_manager_server_new">g_dbus_object_manager_server_new</primary></indexterm>
+<programlisting language="C"><link linkend="GDBusObjectManagerServer"><returnvalue>GDBusObjectManagerServer</returnvalue></link>&#160;*
+g_dbus_object_manager_server_new (<parameter>const <link linkend="gchar"><type>gchar</type></link> *object_path</parameter>);</programlisting>
+<para>Creates a new <link linkend="GDBusObjectManagerServer"><type>GDBusObjectManagerServer</type></link> object.</para>
+<para>The returned server isn't yet exported on any connection. To do so,
+use <link linkend="g-dbus-object-manager-server-set-connection"><function>g_dbus_object_manager_server_set_connection()</function></link>. Normally you
+want to export all of your objects before doing so to avoid
+<ulink url="http://dbus.freedesktop.org/doc/dbus-specification.html#standard-interfaces-objectmanager">InterfacesAdded</ulink>
+signals being emitted.</para>
+<refsect3 id="g-dbus-object-manager-server-new.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>object_path</para></entry>
+<entry role="parameter_description"><para>The object path to export the manager object at.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-dbus-object-manager-server-new.returns" role="returns">
+<title>Returns</title>
+<para> A <link linkend="GDBusObjectManagerServer"><type>GDBusObjectManagerServer</type></link> object. Free with <link linkend="g-object-unref"><function>g_object_unref()</function></link>.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.30">2.30</link></para></refsect2>
+<refsect2 id="g-dbus-object-manager-server-get-connection" role="function" condition="since:2.30">
+<title>g_dbus_object_manager_server_get_connection&#160;()</title>
+<indexterm zone="g-dbus-object-manager-server-get-connection" role="2.30"><primary sortas="dbus_object_manager_server_get_connection">g_dbus_object_manager_server_get_connection</primary></indexterm>
+<programlisting language="C"><link linkend="GDBusConnection"><returnvalue>GDBusConnection</returnvalue></link>&#160;*
+g_dbus_object_manager_server_get_connection
+                               (<parameter><link linkend="GDBusObjectManagerServer"><type>GDBusObjectManagerServer</type></link> *manager</parameter>);</programlisting>
+<para>Gets the <link linkend="GDBusConnection"><type>GDBusConnection</type></link> used by <parameter>manager</parameter>
+.</para>
+<refsect3 id="g-dbus-object-manager-server-get-connection.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>manager</para></entry>
+<entry role="parameter_description"><para>A <link linkend="GDBusObjectManagerServer"><type>GDBusObjectManagerServer</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-dbus-object-manager-server-get-connection.returns" role="returns">
+<title>Returns</title>
+<para>A <link linkend="GDBusConnection"><type>GDBusConnection</type></link> object or <link linkend="NULL:CAPS"><literal>NULL</literal></link> if
+<parameter>manager</parameter>
+isn't exported on a connection. The returned object should
+be freed with <link linkend="g-object-unref"><function>g_object_unref()</function></link>. </para>
+<para><emphasis role="annotation">[<acronym>transfer full</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.30">2.30</link></para></refsect2>
+<refsect2 id="g-dbus-object-manager-server-set-connection" role="function">
+<title>g_dbus_object_manager_server_set_connection&#160;()</title>
+<indexterm zone="g-dbus-object-manager-server-set-connection"><primary sortas="dbus_object_manager_server_set_connection">g_dbus_object_manager_server_set_connection</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_dbus_object_manager_server_set_connection
+                               (<parameter><link linkend="GDBusObjectManagerServer"><type>GDBusObjectManagerServer</type></link> *manager</parameter>,
+                                <parameter><link linkend="GDBusConnection"><type>GDBusConnection</type></link> *connection</parameter>);</programlisting>
+<para>Exports all objects managed by <parameter>manager</parameter>
+ on <parameter>connection</parameter>
+. If
+<parameter>connection</parameter>
+ is <link linkend="NULL:CAPS"><literal>NULL</literal></link>, stops exporting objects.</para>
+<refsect3 id="g-dbus-object-manager-server-set-connection.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>manager</para></entry>
+<entry role="parameter_description"><para>A <link linkend="GDBusObjectManagerServer"><type>GDBusObjectManagerServer</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>connection</para></entry>
+<entry role="parameter_description"><para>A <link linkend="GDBusConnection"><type>GDBusConnection</type></link> or <link linkend="NULL:CAPS"><literal>NULL</literal></link>. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>nullable</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-dbus-object-manager-server-export" role="function" condition="since:2.30">
+<title>g_dbus_object_manager_server_export&#160;()</title>
+<indexterm zone="g-dbus-object-manager-server-export" role="2.30"><primary sortas="dbus_object_manager_server_export">g_dbus_object_manager_server_export</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_dbus_object_manager_server_export (<parameter><link linkend="GDBusObjectManagerServer"><type>GDBusObjectManagerServer</type></link> *manager</parameter>,
+                                     <parameter><link linkend="GDBusObjectSkeleton"><type>GDBusObjectSkeleton</type></link> *object</parameter>);</programlisting>
+<para>Exports <parameter>object</parameter>
+ on <parameter>manager</parameter>
+.</para>
+<para>If there is already a <link linkend="GDBusObject"><type>GDBusObject</type></link> exported at the object path,
+then the old object is removed.</para>
+<para>The object path for <parameter>object</parameter>
+ must be in the hierarchy rooted by the
+object path for <parameter>manager</parameter>
+.</para>
+<para>Note that <parameter>manager</parameter>
+ will take a reference on <parameter>object</parameter>
+ for as long as
+it is exported.</para>
+<refsect3 id="g-dbus-object-manager-server-export.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>manager</para></entry>
+<entry role="parameter_description"><para>A <link linkend="GDBusObjectManagerServer"><type>GDBusObjectManagerServer</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>object</para></entry>
+<entry role="parameter_description"><para>A <link linkend="GDBusObjectSkeleton"><type>GDBusObjectSkeleton</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.30">2.30</link></para></refsect2>
+<refsect2 id="g-dbus-object-manager-server-export-uniquely" role="function" condition="since:2.30">
+<title>g_dbus_object_manager_server_export_uniquely&#160;()</title>
+<indexterm zone="g-dbus-object-manager-server-export-uniquely" role="2.30"><primary sortas="dbus_object_manager_server_export_uniquely">g_dbus_object_manager_server_export_uniquely</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_dbus_object_manager_server_export_uniquely
+                               (<parameter><link linkend="GDBusObjectManagerServer"><type>GDBusObjectManagerServer</type></link> *manager</parameter>,
+                                <parameter><link linkend="GDBusObjectSkeleton"><type>GDBusObjectSkeleton</type></link> *object</parameter>);</programlisting>
+<para>Like <link linkend="g-dbus-object-manager-server-export"><function>g_dbus_object_manager_server_export()</function></link> but appends a string of
+the form _N (with N being a natural number) to <parameter>object</parameter>
+'s object path
+if an object with the given path already exists. As such, the
+<link linkend="GDBusObjectProxy--g-object-path"><type>“g-object-path”</type></link> property of <parameter>object</parameter>
+ may be modified.</para>
+<refsect3 id="g-dbus-object-manager-server-export-uniquely.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>manager</para></entry>
+<entry role="parameter_description"><para>A <link linkend="GDBusObjectManagerServer"><type>GDBusObjectManagerServer</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>object</para></entry>
+<entry role="parameter_description"><para>An object.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.30">2.30</link></para></refsect2>
+<refsect2 id="g-dbus-object-manager-server-is-exported" role="function" condition="since:2.34">
+<title>g_dbus_object_manager_server_is_exported&#160;()</title>
+<indexterm zone="g-dbus-object-manager-server-is-exported" role="2.34"><primary sortas="dbus_object_manager_server_is_exported">g_dbus_object_manager_server_is_exported</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_dbus_object_manager_server_is_exported
+                               (<parameter><link linkend="GDBusObjectManagerServer"><type>GDBusObjectManagerServer</type></link> *manager</parameter>,
+                                <parameter><link linkend="GDBusObjectSkeleton"><type>GDBusObjectSkeleton</type></link> *object</parameter>);</programlisting>
+<para>Returns whether <parameter>object</parameter>
+ is currently exported on <parameter>manager</parameter>
+.</para>
+<refsect3 id="g-dbus-object-manager-server-is-exported.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>manager</para></entry>
+<entry role="parameter_description"><para>A <link linkend="GDBusObjectManagerServer"><type>GDBusObjectManagerServer</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>object</para></entry>
+<entry role="parameter_description"><para>An object.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-dbus-object-manager-server-is-exported.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if <parameter>object</parameter>
+is exported</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.34">2.34</link></para></refsect2>
+<refsect2 id="g-dbus-object-manager-server-unexport" role="function" condition="since:2.30">
+<title>g_dbus_object_manager_server_unexport&#160;()</title>
+<indexterm zone="g-dbus-object-manager-server-unexport" role="2.30"><primary sortas="dbus_object_manager_server_unexport">g_dbus_object_manager_server_unexport</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_dbus_object_manager_server_unexport (<parameter><link linkend="GDBusObjectManagerServer"><type>GDBusObjectManagerServer</type></link> *manager</parameter>,
+                                       <parameter>const <link linkend="gchar"><type>gchar</type></link> *object_path</parameter>);</programlisting>
+<para>If <parameter>manager</parameter>
+ has an object at <parameter>path</parameter>
+, removes the object. Otherwise
+does nothing.</para>
+<para>Note that <parameter>object_path</parameter>
+ must be in the hierarchy rooted by the
+object path for <parameter>manager</parameter>
+.</para>
+<refsect3 id="g-dbus-object-manager-server-unexport.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>manager</para></entry>
+<entry role="parameter_description"><para>A <link linkend="GDBusObjectManagerServer"><type>GDBusObjectManagerServer</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>object_path</para></entry>
+<entry role="parameter_description"><para>An object path.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-dbus-object-manager-server-unexport.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if object at <parameter>object_path</parameter>
+was removed, <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> otherwise.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.30">2.30</link></para></refsect2>
+
+</refsect1>
+<refsect1 id="GDBusObjectManagerServer.other_details" role="details">
+<title role="details.title">Types and Values</title>
+<refsect2 id="GDBusObjectManagerServer-struct" role="struct">
+<title>GDBusObjectManagerServer</title>
+<indexterm zone="GDBusObjectManagerServer-struct" role="2.30"><primary sortas="DBusObjectManagerServer">GDBusObjectManagerServer</primary></indexterm>
+<programlisting language="C">typedef struct _GDBusObjectManagerServer GDBusObjectManagerServer;</programlisting>
+<para>The <link linkend="GDBusObjectManagerServer"><type>GDBusObjectManagerServer</type></link> structure contains private data and should
+only be accessed using the provided API.</para>
+<para role="since">Since: <link linkend="api-index-2.30">2.30</link></para></refsect2>
+<refsect2 id="GDBusObjectManagerServerClass" role="struct" condition="since:2.30">
+<title>struct GDBusObjectManagerServerClass</title>
+<indexterm zone="GDBusObjectManagerServerClass" role="2.30"><primary sortas="DBusObjectManagerServerClass">GDBusObjectManagerServerClass</primary></indexterm>
+<programlisting language="C">struct GDBusObjectManagerServerClass {
+  GObjectClass parent_class;
+};
+</programlisting>
+<para>Class structure for <link linkend="GDBusObjectManagerServer"><type>GDBusObjectManagerServer</type></link>.</para>
+<refsect3 id="GDBusObjectManagerServerClass.members" role="struct_members">
+<title>Members</title>
+<informaltable role="struct_members_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="struct_members_name" colwidth="300px"/>
+<colspec colname="struct_members_description"/>
+<colspec colname="struct_members_annotations" colwidth="200px"/>
+<tbody>
+</tbody></tgroup></informaltable>
+</refsect3>
+<para role="since">Since: <link linkend="api-index-2.30">2.30</link></para></refsect2>
+
+</refsect1>
+<refsect1 id="GDBusObjectManagerServer.property-details" role="property_details">
+<title role="property_details.title">Property Details</title>
+<refsect2 id="GDBusObjectManagerServer--connection" role="property"><title>The <literal>“connection”</literal> property</title>
+<indexterm zone="GDBusObjectManagerServer--connection" role="2.30"><primary sortas="DBusObjectManagerServer:connection">GDBusObjectManagerServer:connection</primary></indexterm>
+<programlisting>  “connection”               <link linkend="GDBusConnection"><type>GDBusConnection</type></link>&#160;*</programlisting>
+<para>The <link linkend="GDBusConnection"><type>GDBusConnection</type></link> to export objects on.</para>
+<para>Flags: Read / Write</para>
+<para role="since">Since: <link linkend="api-index-2.30">2.30</link></para></refsect2>
+<refsect2 id="GDBusObjectManagerServer--object-path" role="property"><title>The <literal>“object-path”</literal> property</title>
+<indexterm zone="GDBusObjectManagerServer--object-path" role="2.30"><primary sortas="DBusObjectManagerServer:object-path">GDBusObjectManagerServer:object-path</primary></indexterm>
+<programlisting>  “object-path”              <link linkend="gchar"><type>gchar</type></link>&#160;*</programlisting>
+<para>The object path to register the manager object at.</para>
+<para>Flags: Read / Write / Construct Only</para>
+<para>Default value: NULL</para>
+<para role="since">Since: <link linkend="api-index-2.30">2.30</link></para></refsect2>
+
+</refsect1>
+
+</refentry>

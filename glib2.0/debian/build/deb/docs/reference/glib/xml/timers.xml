@@ -1,0 +1,235 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC '-//OASIS//DTD DocBook XML V4.5//EN'
+                      'http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd' [
+<!ENTITY % local.common.attrib "xmlns:xi  CDATA  #FIXED 'http://www.w3.org/2003/XInclude'">
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="glib-Timers">
+<refmeta>
+<refentrytitle role="top_of_page" id="glib-Timers.top_of_page">Timers</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>GLIB Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>Timers</refname>
+<refpurpose>keep track of elapsed time</refpurpose>
+</refnamediv>
+
+<refsect1 id="glib-Timers.functions" role="functions_proto">
+<title role="functions_proto.title">Functions</title>
+<informaltable pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="functions_return" colwidth="150px"/>
+<colspec colname="functions_name"/>
+<tbody>
+<row><entry role="function_type"><link linkend="GTimer"><returnvalue>GTimer</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-timer-new">g_timer_new</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-timer-start">g_timer_start</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-timer-stop">g_timer_stop</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-timer-continue">g_timer_continue</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gdouble"><returnvalue>gdouble</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-timer-elapsed">g_timer_elapsed</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-timer-reset">g_timer_reset</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-timer-destroy">g_timer_destroy</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="glib-Timers.other" role="other_proto">
+<title role="other_proto.title">Types and Values</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="name" colwidth="150px"/>
+<colspec colname="description"/>
+<tbody>
+<row><entry role="datatype_keyword"></entry><entry role="function_name"><link linkend="GTimer">GTimer</link></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+
+<refsect1 id="glib-Timers.includes"><title>Includes</title><synopsis>#include &lt;glib.h&gt;
+</synopsis></refsect1>
+
+<refsect1 id="glib-Timers.description" role="desc">
+<title role="desc.title">Description</title>
+<para><link linkend="GTimer"><type>GTimer</type></link> records a start time, and counts microseconds elapsed since
+that time. This is done somewhat differently on different platforms,
+and can be tricky to get exactly right, so <link linkend="GTimer"><type>GTimer</type></link> provides a
+portable/convenient interface.</para>
+
+</refsect1>
+<refsect1 id="glib-Timers.functions_details" role="details">
+<title role="details.title">Functions</title>
+<refsect2 id="g-timer-new" role="function">
+<title>g_timer_new&#160;()</title>
+<indexterm zone="g-timer-new"><primary sortas="timer_new">g_timer_new</primary></indexterm>
+<programlisting language="C"><link linkend="GTimer"><returnvalue>GTimer</returnvalue></link>&#160;*
+g_timer_new (<parameter><type>void</type></parameter>);</programlisting>
+<para>Creates a new timer, and starts timing (i.e. <link linkend="g-timer-start"><function>g_timer_start()</function></link> is
+implicitly called for you).</para>
+<refsect3 id="g-timer-new.returns" role="returns">
+<title>Returns</title>
+<para> a new <link linkend="GTimer"><type>GTimer</type></link>.</para>
+</refsect3></refsect2>
+<refsect2 id="g-timer-start" role="function">
+<title>g_timer_start&#160;()</title>
+<indexterm zone="g-timer-start"><primary sortas="timer_start">g_timer_start</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_timer_start (<parameter><link linkend="GTimer"><type>GTimer</type></link> *timer</parameter>);</programlisting>
+<para>Marks a start time, so that future calls to <link linkend="g-timer-elapsed"><function>g_timer_elapsed()</function></link> will
+report the time since <link linkend="g-timer-start"><function>g_timer_start()</function></link> was called. <link linkend="g-timer-new"><function>g_timer_new()</function></link>
+automatically marks the start time, so no need to call
+<link linkend="g-timer-start"><function>g_timer_start()</function></link> immediately after creating the timer.</para>
+<refsect3 id="g-timer-start.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>timer</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GTimer"><type>GTimer</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-timer-stop" role="function">
+<title>g_timer_stop&#160;()</title>
+<indexterm zone="g-timer-stop"><primary sortas="timer_stop">g_timer_stop</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_timer_stop (<parameter><link linkend="GTimer"><type>GTimer</type></link> *timer</parameter>);</programlisting>
+<para>Marks an end time, so calls to <link linkend="g-timer-elapsed"><function>g_timer_elapsed()</function></link> will return the
+difference between this end time and the start time.</para>
+<refsect3 id="g-timer-stop.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>timer</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GTimer"><type>GTimer</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-timer-continue" role="function" condition="since:2.4">
+<title>g_timer_continue&#160;()</title>
+<indexterm zone="g-timer-continue" role="2.4"><primary sortas="timer_continue">g_timer_continue</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_timer_continue (<parameter><link linkend="GTimer"><type>GTimer</type></link> *timer</parameter>);</programlisting>
+<para>Resumes a timer that has previously been stopped with
+<link linkend="g-timer-stop"><function>g_timer_stop()</function></link>. <link linkend="g-timer-stop"><function>g_timer_stop()</function></link> must be called before using this
+function.</para>
+<refsect3 id="g-timer-continue.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>timer</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GTimer"><type>GTimer</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-2.4">2.4</link></para></refsect2>
+<refsect2 id="g-timer-elapsed" role="function">
+<title>g_timer_elapsed&#160;()</title>
+<indexterm zone="g-timer-elapsed"><primary sortas="timer_elapsed">g_timer_elapsed</primary></indexterm>
+<programlisting language="C"><link linkend="gdouble"><returnvalue>gdouble</returnvalue></link>
+g_timer_elapsed (<parameter><link linkend="GTimer"><type>GTimer</type></link> *timer</parameter>,
+                 <parameter><link linkend="gulong"><type>gulong</type></link> *microseconds</parameter>);</programlisting>
+<para>If <parameter>timer</parameter>
+ has been started but not stopped, obtains the time since
+the timer was started. If <parameter>timer</parameter>
+ has been stopped, obtains the
+elapsed time between the time it was started and the time it was
+stopped. The return value is the number of seconds elapsed,
+including any fractional part. The <parameter>microseconds</parameter>
+ out parameter is
+essentially useless.</para>
+<refsect3 id="g-timer-elapsed.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>timer</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GTimer"><type>GTimer</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>microseconds</para></entry>
+<entry role="parameter_description"><para>return location for the fractional part of seconds
+elapsed, in microseconds (that is, the total number
+of microseconds elapsed, modulo 1000000), or <link linkend="NULL:CAPS"><literal>NULL</literal></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-timer-elapsed.returns" role="returns">
+<title>Returns</title>
+<para> seconds elapsed as a floating point value, including any
+fractional part.</para>
+</refsect3></refsect2>
+<refsect2 id="g-timer-reset" role="function">
+<title>g_timer_reset&#160;()</title>
+<indexterm zone="g-timer-reset"><primary sortas="timer_reset">g_timer_reset</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_timer_reset (<parameter><link linkend="GTimer"><type>GTimer</type></link> *timer</parameter>);</programlisting>
+<para>This function is useless; it's fine to call <link linkend="g-timer-start"><function>g_timer_start()</function></link> on an
+already-started timer to reset the start time, so <link linkend="g-timer-reset"><function>g_timer_reset()</function></link>
+serves no purpose.</para>
+<refsect3 id="g-timer-reset.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>timer</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GTimer"><type>GTimer</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-timer-destroy" role="function">
+<title>g_timer_destroy&#160;()</title>
+<indexterm zone="g-timer-destroy"><primary sortas="timer_destroy">g_timer_destroy</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_timer_destroy (<parameter><link linkend="GTimer"><type>GTimer</type></link> *timer</parameter>);</programlisting>
+<para>Destroys a timer, freeing associated resources.</para>
+<refsect3 id="g-timer-destroy.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>timer</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GTimer"><type>GTimer</type></link> to destroy.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+
+</refsect1>
+<refsect1 id="glib-Timers.other_details" role="details">
+<title role="details.title">Types and Values</title>
+<refsect2 id="GTimer" role="struct">
+<title>GTimer</title>
+<indexterm zone="GTimer"><primary sortas="Timer">GTimer</primary></indexterm>
+<programlisting language="C">typedef struct _GTimer GTimer;</programlisting>
+<para>Opaque datatype that records a start time.</para>
+</refsect2>
+
+</refsect1>
+
+</refentry>

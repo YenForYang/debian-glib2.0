@@ -1,0 +1,445 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC '-//OASIS//DTD DocBook XML V4.5//EN'
+                      'http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd' [
+<!ENTITY % local.common.attrib "xmlns:xi  CDATA  #FIXED 'http://www.w3.org/2003/XInclude'">
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="gio-Extension-Points">
+<refmeta>
+<refentrytitle role="top_of_page" id="gio-Extension-Points.top_of_page">Extension Points</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>GIO Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>Extension Points</refname>
+<refpurpose>Extension Points</refpurpose>
+</refnamediv>
+
+<refsect1 id="gio-Extension-Points.functions" role="functions_proto">
+<title role="functions_proto.title">Functions</title>
+<informaltable pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="functions_return" colwidth="150px"/>
+<colspec colname="functions_name"/>
+<tbody>
+<row><entry role="function_type">const <link linkend="char"><returnvalue>char</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-io-extension-get-name">g_io_extension_get_name</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gint"><returnvalue>gint</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-io-extension-get-priority">g_io_extension_get_priority</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GType"><returnvalue>GType</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-io-extension-get-type">g_io_extension_get_type</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GIOExtension"><returnvalue>GIOExtension</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-io-extension-point-get-extension-by-name">g_io_extension_point_get_extension_by_name</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GList"><returnvalue>GList</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-io-extension-point-get-extensions">g_io_extension_point_get_extensions</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GType"><returnvalue>GType</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-io-extension-point-get-required-type">g_io_extension_point_get_required_type</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GIOExtension"><returnvalue>GIOExtension</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-io-extension-point-implement">g_io_extension_point_implement</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GIOExtensionPoint"><returnvalue>GIOExtensionPoint</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-io-extension-point-lookup">g_io_extension_point_lookup</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GIOExtensionPoint"><returnvalue>GIOExtensionPoint</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-io-extension-point-register">g_io_extension_point_register</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-io-extension-point-set-required-type">g_io_extension_point_set_required_type</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GTypeClass"><returnvalue>GTypeClass</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-io-extension-ref-class">g_io_extension_ref_class</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="gio-Extension-Points.other" role="other_proto">
+<title role="other_proto.title">Types and Values</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="name" colwidth="150px"/>
+<colspec colname="description"/>
+<tbody>
+<row><entry role="datatype_keyword"></entry><entry role="function_name"><link linkend="GIOExtension">GIOExtension</link></entry></row>
+<row><entry role="datatype_keyword"></entry><entry role="function_name"><link linkend="GIOExtensionPoint">GIOExtensionPoint</link></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+
+<refsect1 id="gio-Extension-Points.includes"><title>Includes</title><synopsis>#include &lt;gio.h&gt;
+</synopsis></refsect1>
+
+<refsect1 id="gio-Extension-Points.description" role="desc">
+<title role="desc.title">Description</title>
+<para><link linkend="GIOExtensionPoint"><type>GIOExtensionPoint</type></link> provides a mechanism for modules to extend the
+functionality of the library or application that loaded it in an 
+organized fashion.  </para>
+<para>An extension point is identified by a name, and it may optionally
+require that any implementation must be of a certain type (or derived
+thereof). Use <link linkend="g-io-extension-point-register"><function>g_io_extension_point_register()</function></link> to register an
+extension point, and <link linkend="g-io-extension-point-set-required-type"><function>g_io_extension_point_set_required_type()</function></link> to
+set a required type.</para>
+<para>A module can implement an extension point by specifying the <link linkend="GType"><type>GType</type></link> 
+that implements the functionality. Additionally, each implementation
+of an extension point has a name, and a priority. Use
+<link linkend="g-io-extension-point-implement"><function>g_io_extension_point_implement()</function></link> to implement an extension point.</para>
+<informalexample><programlisting role="example"><![CDATA[
+ GIOExtensionPoint *ep;
+
+ // Register an extension point
+ ep = g_io_extension_point_register ("my-extension-point");
+ g_io_extension_point_set_required_type (ep, MY_TYPE_EXAMPLE);
+]]></programlisting></informalexample>
+<para></para>
+<informalexample><programlisting role="example"><![CDATA[
+ // Implement an extension point
+ G_DEFINE_TYPE (MyExampleImpl, my_example_impl, MY_TYPE_EXAMPLE)
+ g_io_extension_point_implement ("my-extension-point",
+                                 my_example_impl_get_type (),
+                                 "my-example",
+                                 10);
+]]></programlisting></informalexample>
+<para></para>
+<para> It is up to the code that registered the extension point how
+ it uses the implementations that have been associated with it.
+ Depending on the use case, it may use all implementations, or
+ only the one with the highest priority, or pick a specific
+ one by name.</para>
+<para> To avoid opening all modules just to find out what extension
+ points they implement, GIO makes use of a caching mechanism,
+ see <link linkend="gio-querymodules">gio-querymodules</link>.
+ You are expected to run this command after installing a
+ GIO module.</para>
+<para> The <literal>GIO_EXTRA_MODULES</literal> environment variable can be used to
+ specify additional directories to automatically load modules
+ from. This environment variable has the same syntax as the
+ <literal>PATH</literal>. If two modules have the same base name in different
+ directories, then the latter one will be ignored. If additional
+ directories are specified GIO will load modules from the built-in
+ directory last.</para>
+
+</refsect1>
+<refsect1 id="gio-Extension-Points.functions_details" role="details">
+<title role="details.title">Functions</title>
+<refsect2 id="g-io-extension-get-name" role="function">
+<title>g_io_extension_get_name&#160;()</title>
+<indexterm zone="g-io-extension-get-name"><primary sortas="io_extension_get_name">g_io_extension_get_name</primary></indexterm>
+<programlisting language="C">const <link linkend="char"><returnvalue>char</returnvalue></link>&#160;*
+g_io_extension_get_name (<parameter><link linkend="GIOExtension"><type>GIOExtension</type></link> *extension</parameter>);</programlisting>
+<para>Gets the name under which <parameter>extension</parameter>
+ was registered.</para>
+<para>Note that the same type may be registered as extension
+for multiple extension points, under different names.</para>
+<refsect3 id="g-io-extension-get-name.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>extension</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GIOExtension"><type>GIOExtension</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-io-extension-get-name.returns" role="returns">
+<title>Returns</title>
+<para> the name of <parameter>extension</parameter>
+.</para>
+</refsect3></refsect2>
+<refsect2 id="g-io-extension-get-priority" role="function">
+<title>g_io_extension_get_priority&#160;()</title>
+<indexterm zone="g-io-extension-get-priority"><primary sortas="io_extension_get_priority">g_io_extension_get_priority</primary></indexterm>
+<programlisting language="C"><link linkend="gint"><returnvalue>gint</returnvalue></link>
+g_io_extension_get_priority (<parameter><link linkend="GIOExtension"><type>GIOExtension</type></link> *extension</parameter>);</programlisting>
+<para>Gets the priority with which <parameter>extension</parameter>
+ was registered.</para>
+<refsect3 id="g-io-extension-get-priority.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>extension</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GIOExtension"><type>GIOExtension</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-io-extension-get-priority.returns" role="returns">
+<title>Returns</title>
+<para> the priority of <parameter>extension</parameter>
+</para>
+</refsect3></refsect2>
+<refsect2 id="g-io-extension-get-type" role="function">
+<title>g_io_extension_get_type&#160;()</title>
+<indexterm zone="g-io-extension-get-type"><primary sortas="io_extension_get_type">g_io_extension_get_type</primary></indexterm>
+<programlisting language="C"><link linkend="GType"><returnvalue>GType</returnvalue></link>
+g_io_extension_get_type (<parameter><link linkend="GIOExtension"><type>GIOExtension</type></link> *extension</parameter>);</programlisting>
+<para>Gets the type associated with <parameter>extension</parameter>
+.</para>
+<refsect3 id="g-io-extension-get-type.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>extension</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GIOExtension"><type>GIOExtension</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-io-extension-get-type.returns" role="returns">
+<title>Returns</title>
+<para> the type of <parameter>extension</parameter>
+</para>
+</refsect3></refsect2>
+<refsect2 id="g-io-extension-point-get-extension-by-name" role="function">
+<title>g_io_extension_point_get_extension_by_name&#160;()</title>
+<indexterm zone="g-io-extension-point-get-extension-by-name"><primary sortas="io_extension_point_get_extension_by_name">g_io_extension_point_get_extension_by_name</primary></indexterm>
+<programlisting language="C"><link linkend="GIOExtension"><returnvalue>GIOExtension</returnvalue></link>&#160;*
+g_io_extension_point_get_extension_by_name
+                               (<parameter><link linkend="GIOExtensionPoint"><type>GIOExtensionPoint</type></link> *extension_point</parameter>,
+                                <parameter>const <link linkend="char"><type>char</type></link> *name</parameter>);</programlisting>
+<para>Finds a <link linkend="GIOExtension"><type>GIOExtension</type></link> for an extension point by name.</para>
+<refsect3 id="g-io-extension-point-get-extension-by-name.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>extension_point</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GIOExtensionPoint"><type>GIOExtensionPoint</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>name</para></entry>
+<entry role="parameter_description"><para>the name of the extension to get</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-io-extension-point-get-extension-by-name.returns" role="returns">
+<title>Returns</title>
+<para>the <link linkend="GIOExtension"><type>GIOExtension</type></link> for <parameter>extension_point</parameter>
+that has the
+given name, or <link linkend="NULL:CAPS"><literal>NULL</literal></link> if there is no extension with that name. </para>
+<para><emphasis role="annotation">[<acronym>transfer none</acronym>]</emphasis></para>
+</refsect3></refsect2>
+<refsect2 id="g-io-extension-point-get-extensions" role="function">
+<title>g_io_extension_point_get_extensions&#160;()</title>
+<indexterm zone="g-io-extension-point-get-extensions"><primary sortas="io_extension_point_get_extensions">g_io_extension_point_get_extensions</primary></indexterm>
+<programlisting language="C"><link linkend="GList"><returnvalue>GList</returnvalue></link>&#160;*
+g_io_extension_point_get_extensions (<parameter><link linkend="GIOExtensionPoint"><type>GIOExtensionPoint</type></link> *extension_point</parameter>);</programlisting>
+<para>Gets a list of all extensions that implement this extension point.
+The list is sorted by priority, beginning with the highest priority.</para>
+<refsect3 id="g-io-extension-point-get-extensions.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>extension_point</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GIOExtensionPoint"><type>GIOExtensionPoint</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-io-extension-point-get-extensions.returns" role="returns">
+<title>Returns</title>
+<para>a <link linkend="GList"><type>GList</type></link> of
+<link linkend="GIOExtensions"><type>GIOExtensions</type></link>. The list is owned by GIO and should not be
+modified. </para>
+<para><emphasis role="annotation">[<acronym>element-type</acronym> GIOExtension][<acronym>transfer none</acronym>]</emphasis></para>
+</refsect3></refsect2>
+<refsect2 id="g-io-extension-point-get-required-type" role="function">
+<title>g_io_extension_point_get_required_type&#160;()</title>
+<indexterm zone="g-io-extension-point-get-required-type"><primary sortas="io_extension_point_get_required_type">g_io_extension_point_get_required_type</primary></indexterm>
+<programlisting language="C"><link linkend="GType"><returnvalue>GType</returnvalue></link>
+g_io_extension_point_get_required_type
+                               (<parameter><link linkend="GIOExtensionPoint"><type>GIOExtensionPoint</type></link> *extension_point</parameter>);</programlisting>
+<para>Gets the required type for <parameter>extension_point</parameter>
+.</para>
+<refsect3 id="g-io-extension-point-get-required-type.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>extension_point</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GIOExtensionPoint"><type>GIOExtensionPoint</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-io-extension-point-get-required-type.returns" role="returns">
+<title>Returns</title>
+<para> the <link linkend="GType"><type>GType</type></link> that all implementations must have,
+or <link linkend="G-TYPE-INVALID:CAPS"><type>G_TYPE_INVALID</type></link> if the extension point has no required type</para>
+</refsect3></refsect2>
+<refsect2 id="g-io-extension-point-implement" role="function">
+<title>g_io_extension_point_implement&#160;()</title>
+<indexterm zone="g-io-extension-point-implement"><primary sortas="io_extension_point_implement">g_io_extension_point_implement</primary></indexterm>
+<programlisting language="C"><link linkend="GIOExtension"><returnvalue>GIOExtension</returnvalue></link>&#160;*
+g_io_extension_point_implement (<parameter>const <link linkend="char"><type>char</type></link> *extension_point_name</parameter>,
+                                <parameter><link linkend="GType"><type>GType</type></link> type</parameter>,
+                                <parameter>const <link linkend="char"><type>char</type></link> *extension_name</parameter>,
+                                <parameter><link linkend="gint"><type>gint</type></link> priority</parameter>);</programlisting>
+<para>Registers <parameter>type</parameter>
+ as extension for the extension point with name
+<parameter>extension_point_name</parameter>
+. </para>
+<para>If <parameter>type</parameter>
+ has already been registered as an extension for this 
+extension point, the existing <link linkend="GIOExtension"><type>GIOExtension</type></link> object is returned.</para>
+<refsect3 id="g-io-extension-point-implement.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>extension_point_name</para></entry>
+<entry role="parameter_description"><para>the name of the extension point</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>type</para></entry>
+<entry role="parameter_description"><para>the <link linkend="GType"><type>GType</type></link> to register as extension </para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>extension_name</para></entry>
+<entry role="parameter_description"><para>the name for the extension</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>priority</para></entry>
+<entry role="parameter_description"><para>the priority for the extension</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-io-extension-point-implement.returns" role="returns">
+<title>Returns</title>
+<para>a <link linkend="GIOExtension"><type>GIOExtension</type></link> object for <link linkend="GType"><type>GType</type></link>. </para>
+<para><emphasis role="annotation">[<acronym>transfer none</acronym>]</emphasis></para>
+</refsect3></refsect2>
+<refsect2 id="g-io-extension-point-lookup" role="function">
+<title>g_io_extension_point_lookup&#160;()</title>
+<indexterm zone="g-io-extension-point-lookup"><primary sortas="io_extension_point_lookup">g_io_extension_point_lookup</primary></indexterm>
+<programlisting language="C"><link linkend="GIOExtensionPoint"><returnvalue>GIOExtensionPoint</returnvalue></link>&#160;*
+g_io_extension_point_lookup (<parameter>const <link linkend="char"><type>char</type></link> *name</parameter>);</programlisting>
+<para>Looks up an existing extension point.</para>
+<refsect3 id="g-io-extension-point-lookup.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>name</para></entry>
+<entry role="parameter_description"><para>the name of the extension point</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-io-extension-point-lookup.returns" role="returns">
+<title>Returns</title>
+<para>the <link linkend="GIOExtensionPoint"><type>GIOExtensionPoint</type></link>, or <link linkend="NULL:CAPS"><literal>NULL</literal></link> if there
+is no registered extension point with the given name. </para>
+<para><emphasis role="annotation">[<acronym>transfer none</acronym>]</emphasis></para>
+</refsect3></refsect2>
+<refsect2 id="g-io-extension-point-register" role="function">
+<title>g_io_extension_point_register&#160;()</title>
+<indexterm zone="g-io-extension-point-register"><primary sortas="io_extension_point_register">g_io_extension_point_register</primary></indexterm>
+<programlisting language="C"><link linkend="GIOExtensionPoint"><returnvalue>GIOExtensionPoint</returnvalue></link>&#160;*
+g_io_extension_point_register (<parameter>const <link linkend="char"><type>char</type></link> *name</parameter>);</programlisting>
+<para>Registers an extension point.</para>
+<refsect3 id="g-io-extension-point-register.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>name</para></entry>
+<entry role="parameter_description"><para>The name of the extension point</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-io-extension-point-register.returns" role="returns">
+<title>Returns</title>
+<para>the new <link linkend="GIOExtensionPoint"><type>GIOExtensionPoint</type></link>. This object is
+owned by GIO and should not be freed. </para>
+<para><emphasis role="annotation">[<acronym>transfer none</acronym>]</emphasis></para>
+</refsect3></refsect2>
+<refsect2 id="g-io-extension-point-set-required-type" role="function">
+<title>g_io_extension_point_set_required_type&#160;()</title>
+<indexterm zone="g-io-extension-point-set-required-type"><primary sortas="io_extension_point_set_required_type">g_io_extension_point_set_required_type</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+g_io_extension_point_set_required_type
+                               (<parameter><link linkend="GIOExtensionPoint"><type>GIOExtensionPoint</type></link> *extension_point</parameter>,
+                                <parameter><link linkend="GType"><type>GType</type></link> type</parameter>);</programlisting>
+<para>Sets the required type for <parameter>extension_point</parameter>
+ to <parameter>type</parameter>
+. 
+All implementations must henceforth have this type.</para>
+<refsect3 id="g-io-extension-point-set-required-type.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>extension_point</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GIOExtensionPoint"><type>GIOExtensionPoint</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>type</para></entry>
+<entry role="parameter_description"><para>the <link linkend="GType"><type>GType</type></link> to require</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="g-io-extension-ref-class" role="function">
+<title>g_io_extension_ref_class&#160;()</title>
+<indexterm zone="g-io-extension-ref-class"><primary sortas="io_extension_ref_class">g_io_extension_ref_class</primary></indexterm>
+<programlisting language="C"><link linkend="GTypeClass"><returnvalue>GTypeClass</returnvalue></link>&#160;*
+g_io_extension_ref_class (<parameter><link linkend="GIOExtension"><type>GIOExtension</type></link> *extension</parameter>);</programlisting>
+<para>Gets a reference to the class for the type that is 
+associated with <parameter>extension</parameter>
+.</para>
+<refsect3 id="g-io-extension-ref-class.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>extension</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GIOExtension"><type>GIOExtension</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-io-extension-ref-class.returns" role="returns">
+<title>Returns</title>
+<para>the <link linkend="GTypeClass"><type>GTypeClass</type></link> for the type of <parameter>extension</parameter>
+. </para>
+<para><emphasis role="annotation">[<acronym>transfer full</acronym>]</emphasis></para>
+</refsect3></refsect2>
+
+</refsect1>
+<refsect1 id="gio-Extension-Points.other_details" role="details">
+<title role="details.title">Types and Values</title>
+<refsect2 id="GIOExtension" role="struct">
+<title>GIOExtension</title>
+<indexterm zone="GIOExtension"><primary sortas="IOExtension">GIOExtension</primary></indexterm>
+<programlisting language="C">typedef struct _GIOExtension GIOExtension;</programlisting>
+<para><link linkend="GIOExtension"><type>GIOExtension</type></link> is an opaque data structure and can only be accessed
+using the following functions.</para>
+</refsect2>
+<refsect2 id="GIOExtensionPoint" role="struct">
+<title>GIOExtensionPoint</title>
+<indexterm zone="GIOExtensionPoint"><primary sortas="IOExtensionPoint">GIOExtensionPoint</primary></indexterm>
+<programlisting language="C">typedef struct _GIOExtensionPoint GIOExtensionPoint;</programlisting>
+<para><link linkend="GIOExtensionPoint"><type>GIOExtensionPoint</type></link> is an opaque data structure and can only be accessed
+using the following functions.</para>
+</refsect2>
+
+</refsect1>
+<refsect1 id="gio-Extension-Points.see-also">
+<title>See Also</title>
+<para><link linkend="extending-gio">Extending GIO</link></para>
+
+</refsect1>
+
+</refentry>

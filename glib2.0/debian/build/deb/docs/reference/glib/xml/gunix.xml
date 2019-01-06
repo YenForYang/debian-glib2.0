@@ -1,0 +1,448 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC '-//OASIS//DTD DocBook XML V4.5//EN'
+                      'http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd' [
+<!ENTITY % local.common.attrib "xmlns:xi  CDATA  #FIXED 'http://www.w3.org/2003/XInclude'">
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="glib-UNIX-specific-utilities-and-integration">
+<refmeta>
+<refentrytitle role="top_of_page" id="glib-UNIX-specific-utilities-and-integration.top_of_page">UNIX-specific utilities and integration</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>GLIB Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>UNIX-specific utilities and integration</refname>
+<refpurpose>pipes, signal handling</refpurpose>
+</refnamediv>
+
+<refsect1 id="glib-UNIX-specific-utilities-and-integration.functions" role="functions_proto">
+<title role="functions_proto.title">Functions</title>
+<informaltable pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="functions_return" colwidth="150px"/>
+<colspec colname="functions_name"/>
+<tbody>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-unix-open-pipe">g_unix_open_pipe</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-unix-set-fd-nonblocking">g_unix_set_fd_nonblocking</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+<row><entry role="function_type"><link linkend="guint"><returnvalue>guint</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-unix-signal-add">g_unix_signal_add</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="guint"><returnvalue>guint</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-unix-signal-add-full">g_unix_signal_add_full</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GSource"><returnvalue>GSource</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-unix-signal-source-new">g_unix_signal_source_new</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+<row><entry role="function_type"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+</entry><entry role="function_name"><phrase role="c_punctuation">(</phrase><link linkend="GUnixFDSourceFunc">*GUnixFDSourceFunc</link><phrase role="c_punctuation">)</phrase>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="guint"><returnvalue>guint</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-unix-fd-add">g_unix_fd_add</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="guint"><returnvalue>guint</returnvalue></link>
+</entry><entry role="function_name"><link linkend="g-unix-fd-add-full">g_unix_fd_add_full</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="GSource"><returnvalue>GSource</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="g-unix-fd-source-new">g_unix_fd_source_new</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="glib-UNIX-specific-utilities-and-integration.other" role="other_proto">
+<title role="other_proto.title">Types and Values</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="name" colwidth="150px"/>
+<colspec colname="description"/>
+<tbody>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="G-UNIX-ERROR:CAPS">G_UNIX_ERROR</link></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+
+<refsect1 id="glib-UNIX-specific-utilities-and-integration.includes"><title>Includes</title><synopsis>#include &lt;glib-unix.h&gt;
+</synopsis></refsect1>
+
+<refsect1 id="glib-UNIX-specific-utilities-and-integration.description" role="desc">
+<title role="desc.title">Description</title>
+<para>Most of GLib is intended to be portable; in contrast, this set of
+functions is designed for programs which explicitly target UNIX,
+or are using it to build higher level abstractions which would be
+conditionally compiled if the platform matches G_OS_UNIX.</para>
+<para>To use these functions, you must explicitly include the
+"glib-unix.h" header.</para>
+
+</refsect1>
+<refsect1 id="glib-UNIX-specific-utilities-and-integration.functions_details" role="details">
+<title role="details.title">Functions</title>
+<refsect2 id="g-unix-open-pipe" role="function" condition="since:2.30">
+<title>g_unix_open_pipe&#160;()</title>
+<indexterm zone="g-unix-open-pipe" role="2.30"><primary sortas="unix_open_pipe">g_unix_open_pipe</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_unix_open_pipe (<parameter><link linkend="gint"><type>gint</type></link> *fds</parameter>,
+                  <parameter><link linkend="gint"><type>gint</type></link> flags</parameter>,
+                  <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para>Similar to the UNIX <link linkend="pipe"><function>pipe()</function></link> call, but on modern systems like Linux
+uses the <link linkend="pipe2"><function>pipe2()</function></link> system call, which atomically creates a pipe with
+the configured flags. The only supported flag currently is
+<link linkend="FD-CLOEXEC:CAPS"><literal>FD_CLOEXEC</literal></link>. If for example you want to configure <link linkend="O-NONBLOCK:CAPS"><literal>O_NONBLOCK</literal></link>, that
+must still be done separately with <link linkend="fcntl"><function>fcntl()</function></link>.</para>
+<para>This function does not take <link linkend="O-CLOEXEC:CAPS"><literal>O_CLOEXEC</literal></link>, it takes <link linkend="FD-CLOEXEC:CAPS"><literal>FD_CLOEXEC</literal></link> as if
+for <link linkend="fcntl"><function>fcntl()</function></link>; these are different on Linux/glibc.</para>
+<refsect3 id="g-unix-open-pipe.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>fds</para></entry>
+<entry role="parameter_description"><para>Array of two integers</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>flags</para></entry>
+<entry role="parameter_description"><para>Bitfield of file descriptor flags, as for <link linkend="fcntl"><function>fcntl()</function></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GError"><type>GError</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-unix-open-pipe.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> on success, <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> if not (and errno will be set).</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.30">2.30</link></para></refsect2>
+<refsect2 id="g-unix-set-fd-nonblocking" role="function" condition="since:2.30">
+<title>g_unix_set_fd_nonblocking&#160;()</title>
+<indexterm zone="g-unix-set-fd-nonblocking" role="2.30"><primary sortas="unix_set_fd_nonblocking">g_unix_set_fd_nonblocking</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+g_unix_set_fd_nonblocking (<parameter><link linkend="gint"><type>gint</type></link> fd</parameter>,
+                           <parameter><link linkend="gboolean"><type>gboolean</type></link> nonblock</parameter>,
+                           <parameter><link linkend="GError"><type>GError</type></link> **error</parameter>);</programlisting>
+<para>Control the non-blocking state of the given file descriptor,
+according to <parameter>nonblock</parameter>
+. On most systems this uses <link linkend="O-NONBLOCK:CAPS"><literal>O_NONBLOCK</literal></link>, but
+on some older ones may use <link linkend="O-NDELAY:CAPS"><literal>O_NDELAY</literal></link>.</para>
+<refsect3 id="g-unix-set-fd-nonblocking.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>fd</para></entry>
+<entry role="parameter_description"><para>A file descriptor</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>nonblock</para></entry>
+<entry role="parameter_description"><para>If <link linkend="TRUE:CAPS"><literal>TRUE</literal></link>, set the descriptor to be non-blocking</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>error</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GError"><type>GError</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-unix-set-fd-nonblocking.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if successful</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.30">2.30</link></para></refsect2>
+<refsect2 id="g-unix-signal-add" role="function" condition="since:2.30">
+<title>g_unix_signal_add&#160;()</title>
+<indexterm zone="g-unix-signal-add" role="2.30"><primary sortas="unix_signal_add">g_unix_signal_add</primary></indexterm>
+<programlisting language="C"><link linkend="guint"><returnvalue>guint</returnvalue></link>
+g_unix_signal_add (<parameter><link linkend="gint"><type>gint</type></link> signum</parameter>,
+                   <parameter><link linkend="GSourceFunc"><type>GSourceFunc</type></link> handler</parameter>,
+                   <parameter><link linkend="gpointer"><type>gpointer</type></link> user_data</parameter>);</programlisting>
+<para>A convenience function for <link linkend="g-unix-signal-source-new"><function>g_unix_signal_source_new()</function></link>, which
+attaches to the default <link linkend="GMainContext"><type>GMainContext</type></link>.  You can remove the watch
+using <link linkend="g-source-remove"><function>g_source_remove()</function></link>.</para>
+<refsect3 id="g-unix-signal-add.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>signum</para></entry>
+<entry role="parameter_description"><para>Signal number</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>handler</para></entry>
+<entry role="parameter_description"><para>Callback</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>user_data</para></entry>
+<entry role="parameter_description"><para>Data for <parameter>handler</parameter>
+</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-unix-signal-add.returns" role="returns">
+<title>Returns</title>
+<para> An ID (greater than 0) for the event source</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.30">2.30</link></para></refsect2>
+<refsect2 id="g-unix-signal-add-full" role="function" condition="since:2.30">
+<title>g_unix_signal_add_full&#160;()</title>
+<indexterm zone="g-unix-signal-add-full" role="2.30"><primary sortas="unix_signal_add_full">g_unix_signal_add_full</primary></indexterm>
+<programlisting language="C"><link linkend="guint"><returnvalue>guint</returnvalue></link>
+g_unix_signal_add_full (<parameter><link linkend="gint"><type>gint</type></link> priority</parameter>,
+                        <parameter><link linkend="gint"><type>gint</type></link> signum</parameter>,
+                        <parameter><link linkend="GSourceFunc"><type>GSourceFunc</type></link> handler</parameter>,
+                        <parameter><link linkend="gpointer"><type>gpointer</type></link> user_data</parameter>,
+                        <parameter><link linkend="GDestroyNotify"><type>GDestroyNotify</type></link> notify</parameter>);</programlisting>
+<para>A convenience function for <link linkend="g-unix-signal-source-new"><function>g_unix_signal_source_new()</function></link>, which
+attaches to the default <link linkend="GMainContext"><type>GMainContext</type></link>.  You can remove the watch
+using <link linkend="g-source-remove"><function>g_source_remove()</function></link>.</para>
+
+<para><emphasis role="annotation">[<acronym>rename-to</acronym> g_unix_signal_add]</emphasis></para><refsect3 id="g-unix-signal-add-full.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>priority</para></entry>
+<entry role="parameter_description"><para>the priority of the signal source. Typically this will be in
+the range between <link linkend="G-PRIORITY-DEFAULT:CAPS"><type>G_PRIORITY_DEFAULT</type></link> and <link linkend="G-PRIORITY-HIGH:CAPS"><type>G_PRIORITY_HIGH</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>signum</para></entry>
+<entry role="parameter_description"><para>Signal number</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>handler</para></entry>
+<entry role="parameter_description"><para>Callback</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>user_data</para></entry>
+<entry role="parameter_description"><para>Data for <parameter>handler</parameter>
+</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>notify</para></entry>
+<entry role="parameter_description"><para><link linkend="GDestroyNotify"><type>GDestroyNotify</type></link> for <parameter>handler</parameter>
+</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-unix-signal-add-full.returns" role="returns">
+<title>Returns</title>
+<para> An ID (greater than 0) for the event source</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.30">2.30</link></para></refsect2>
+<refsect2 id="g-unix-signal-source-new" role="function" condition="since:2.30">
+<title>g_unix_signal_source_new&#160;()</title>
+<indexterm zone="g-unix-signal-source-new" role="2.30"><primary sortas="unix_signal_source_new">g_unix_signal_source_new</primary></indexterm>
+<programlisting language="C"><link linkend="GSource"><returnvalue>GSource</returnvalue></link>&#160;*
+g_unix_signal_source_new (<parameter><link linkend="gint"><type>gint</type></link> signum</parameter>);</programlisting>
+<para>Create a <link linkend="GSource"><type>GSource</type></link> that will be dispatched upon delivery of the UNIX
+signal <parameter>signum</parameter>
+.  In GLib versions before 2.36, only <literal>SIGHUP</literal>, <literal>SIGINT</literal>,
+<literal>SIGTERM</literal> can be monitored.  In GLib 2.36, <literal>SIGUSR1</literal> and <literal>SIGUSR2</literal>
+were added. In GLib 2.54, <literal>SIGWINCH</literal> was added.</para>
+<para>Note that unlike the UNIX default, all sources which have created a
+watch will be dispatched, regardless of which underlying thread
+invoked <link linkend="g-unix-signal-source-new"><function>g_unix_signal_source_new()</function></link>.</para>
+<para>For example, an effective use of this function is to handle <literal>SIGTERM</literal>
+cleanly; flushing any outstanding files, and then calling
+<link linkend="g-main-loop-quit"><function>g_main_loop_quit()</function></link>.  It is not safe to do any of this a regular
+UNIX signal handler; your handler may be invoked while <link linkend="malloc"><function>malloc()</function></link> or
+another library function is running, causing reentrancy if you
+attempt to use it from the handler.  None of the GLib/GObject API
+is safe against this kind of reentrancy.</para>
+<para>The interaction of this source when combined with native UNIX
+functions like <link linkend="sigprocmask"><function>sigprocmask()</function></link> is not defined.</para>
+<para>The source will not initially be associated with any <link linkend="GMainContext"><type>GMainContext</type></link>
+and must be added to one with <link linkend="g-source-attach"><function>g_source_attach()</function></link> before it will be
+executed.</para>
+<refsect3 id="g-unix-signal-source-new.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>signum</para></entry>
+<entry role="parameter_description"><para>A signal number</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-unix-signal-source-new.returns" role="returns">
+<title>Returns</title>
+<para> A newly created <link linkend="GSource"><type>GSource</type></link></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.30">2.30</link></para></refsect2>
+<refsect2 id="GUnixFDSourceFunc" role="function">
+<title>GUnixFDSourceFunc&#160;()</title>
+<indexterm zone="GUnixFDSourceFunc"><primary sortas="UnixFDSourceFunc">GUnixFDSourceFunc</primary></indexterm>
+<programlisting language="C"><link linkend="gboolean"><returnvalue>gboolean</returnvalue></link>
+<phrase role="c_punctuation">(</phrase>*GUnixFDSourceFunc<phrase role="c_punctuation">)</phrase> (<parameter><link linkend="gint"><type>gint</type></link> fd</parameter>,
+                      <parameter><link linkend="GIOCondition"><type>GIOCondition</type></link> condition</parameter>,
+                      <parameter><link linkend="gpointer"><type>gpointer</type></link> user_data</parameter>);</programlisting>
+<para>The type of functions to be called when a UNIX fd watch source
+triggers.</para>
+<refsect3 id="GUnixFDSourceFunc.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>fd</para></entry>
+<entry role="parameter_description"><para>the fd that triggered the event</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>condition</para></entry>
+<entry role="parameter_description"><para>the IO conditions reported on <parameter>fd</parameter>
+</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>user_data</para></entry>
+<entry role="parameter_description"><para>user data passed to <link linkend="g-unix-fd-add"><function>g_unix_fd_add()</function></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="GUnixFDSourceFunc.returns" role="returns">
+<title>Returns</title>
+<para> <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> if the source should be removed</para>
+</refsect3></refsect2>
+<refsect2 id="g-unix-fd-add" role="function" condition="since:2.36">
+<title>g_unix_fd_add&#160;()</title>
+<indexterm zone="g-unix-fd-add" role="2.36"><primary sortas="unix_fd_add">g_unix_fd_add</primary></indexterm>
+<programlisting language="C"><link linkend="guint"><returnvalue>guint</returnvalue></link>
+g_unix_fd_add (<parameter><link linkend="gint"><type>gint</type></link> fd</parameter>,
+               <parameter><link linkend="GIOCondition"><type>GIOCondition</type></link> condition</parameter>,
+               <parameter><link linkend="GUnixFDSourceFunc"><type>GUnixFDSourceFunc</type></link> function</parameter>,
+               <parameter><link linkend="gpointer"><type>gpointer</type></link> user_data</parameter>);</programlisting>
+<para>Sets a function to be called when the IO condition, as specified by
+<parameter>condition</parameter>
+ becomes true for <parameter>fd</parameter>
+.</para>
+<para><parameter>function</parameter>
+ will be called when the specified IO condition becomes
+<link linkend="TRUE:CAPS"><literal>TRUE</literal></link>.  The function is expected to clear whatever event caused the
+IO condition to become true and return <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> in order to be notified
+when it happens again.  If <parameter>function</parameter>
+ returns <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> then the watch
+will be cancelled.</para>
+<para>The return value of this function can be passed to <link linkend="g-source-remove"><function>g_source_remove()</function></link>
+to cancel the watch at any time that it exists.</para>
+<para>The source will never close the fd -- you must do it yourself.</para>
+<refsect3 id="g-unix-fd-add.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>fd</para></entry>
+<entry role="parameter_description"><para>a file descriptor</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>condition</para></entry>
+<entry role="parameter_description"><para>IO conditions to watch for on <parameter>fd</parameter>
+</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>function</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GUnixFDSourceFunc"><type>GUnixFDSourceFunc</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>user_data</para></entry>
+<entry role="parameter_description"><para>data to pass to <parameter>function</parameter>
+</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-unix-fd-add.returns" role="returns">
+<title>Returns</title>
+<para> the ID (greater than 0) of the event source</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.36">2.36</link></para></refsect2>
+<refsect2 id="g-unix-fd-add-full" role="function" condition="since:2.36">
+<title>g_unix_fd_add_full&#160;()</title>
+<indexterm zone="g-unix-fd-add-full" role="2.36"><primary sortas="unix_fd_add_full">g_unix_fd_add_full</primary></indexterm>
+<programlisting language="C"><link linkend="guint"><returnvalue>guint</returnvalue></link>
+g_unix_fd_add_full (<parameter><link linkend="gint"><type>gint</type></link> priority</parameter>,
+                    <parameter><link linkend="gint"><type>gint</type></link> fd</parameter>,
+                    <parameter><link linkend="GIOCondition"><type>GIOCondition</type></link> condition</parameter>,
+                    <parameter><link linkend="GUnixFDSourceFunc"><type>GUnixFDSourceFunc</type></link> function</parameter>,
+                    <parameter><link linkend="gpointer"><type>gpointer</type></link> user_data</parameter>,
+                    <parameter><link linkend="GDestroyNotify"><type>GDestroyNotify</type></link> notify</parameter>);</programlisting>
+<para>Sets a function to be called when the IO condition, as specified by
+<parameter>condition</parameter>
+ becomes true for <parameter>fd</parameter>
+.</para>
+<para>This is the same as <link linkend="g-unix-fd-add"><function>g_unix_fd_add()</function></link>, except that it allows you to
+specify a non-default priority and a provide a <link linkend="GDestroyNotify"><type>GDestroyNotify</type></link> for
+<parameter>user_data</parameter>
+.</para>
+<refsect3 id="g-unix-fd-add-full.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>priority</para></entry>
+<entry role="parameter_description"><para>the priority of the source</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>fd</para></entry>
+<entry role="parameter_description"><para>a file descriptor</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>condition</para></entry>
+<entry role="parameter_description"><para>IO conditions to watch for on <parameter>fd</parameter>
+</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>function</para></entry>
+<entry role="parameter_description"><para>a <link linkend="GUnixFDSourceFunc"><type>GUnixFDSourceFunc</type></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>user_data</para></entry>
+<entry role="parameter_description"><para>data to pass to <parameter>function</parameter>
+</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>notify</para></entry>
+<entry role="parameter_description"><para>function to call when the idle is removed, or <link linkend="NULL:CAPS"><literal>NULL</literal></link></para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-unix-fd-add-full.returns" role="returns">
+<title>Returns</title>
+<para> the ID (greater than 0) of the event source</para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.36">2.36</link></para></refsect2>
+<refsect2 id="g-unix-fd-source-new" role="function" condition="since:2.36">
+<title>g_unix_fd_source_new&#160;()</title>
+<indexterm zone="g-unix-fd-source-new" role="2.36"><primary sortas="unix_fd_source_new">g_unix_fd_source_new</primary></indexterm>
+<programlisting language="C"><link linkend="GSource"><returnvalue>GSource</returnvalue></link>&#160;*
+g_unix_fd_source_new (<parameter><link linkend="gint"><type>gint</type></link> fd</parameter>,
+                      <parameter><link linkend="GIOCondition"><type>GIOCondition</type></link> condition</parameter>);</programlisting>
+<para>Creates a <link linkend="GSource"><type>GSource</type></link> to watch for a particular IO condition on a file
+descriptor.</para>
+<para>The source will never close the fd -- you must do it yourself.</para>
+<refsect3 id="g-unix-fd-source-new.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>fd</para></entry>
+<entry role="parameter_description"><para>a file descriptor</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>condition</para></entry>
+<entry role="parameter_description"><para>IO conditions to watch for on <parameter>fd</parameter>
+</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="g-unix-fd-source-new.returns" role="returns">
+<title>Returns</title>
+<para> the newly created <link linkend="GSource"><type>GSource</type></link></para>
+</refsect3><para role="since">Since: <link linkend="api-index-2.36">2.36</link></para></refsect2>
+
+</refsect1>
+<refsect1 id="glib-UNIX-specific-utilities-and-integration.other_details" role="details">
+<title role="details.title">Types and Values</title>
+<refsect2 id="G-UNIX-ERROR:CAPS" role="macro">
+<title>G_UNIX_ERROR</title>
+<indexterm zone="G-UNIX-ERROR:CAPS"><primary sortas="UNIX_ERROR">G_UNIX_ERROR</primary></indexterm>
+<programlisting language="C">#define G_UNIX_ERROR (g_unix_error_quark())
+</programlisting>
+<para>Error domain for API in the g_unix_ namespace. Note that there is no
+exported enumeration mapping <link linkend="errno"><literal>errno</literal></link>. Instead, all functions ensure that
+<link linkend="errno"><literal>errno</literal></link> is relevant. The code for all <link linkend="G-UNIX-ERROR:CAPS"><type>G_UNIX_ERROR</type></link> is always 0, and the
+error message is always generated via <link linkend="g-strerror"><function>g_strerror()</function></link>.</para>
+<para>It is expected that most code will not look at <link linkend="errno"><literal>errno</literal></link> from these APIs.
+Important cases where one would want to differentiate between errors are
+already covered by existing cross-platform GLib API, such as e.g. <link linkend="GFile"><type>GFile</type></link>
+wrapping <literal>ENOENT</literal>. However, it is provided for completeness, at least.</para>
+</refsect2>
+
+</refsect1>
+
+</refentry>
